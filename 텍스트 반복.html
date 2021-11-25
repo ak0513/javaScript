@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 순차적으로 변경하기</title>
+</head>
+<body>
+    
+<div id="txt-wrap">aaa</div>
+<script>
+    let count = 0;
+    let txt = ['aaa', 'bbb', 'ccc'];
+    let txtWrap = document.querySelector('#txt-wrap');
+
+    setInterval(changeTxt, 2000);
+
+    function changeTxt() {
+        count++;
+        txtWrap.innerHTML = txt[count];
+        if(count >= txt.length - 1) {
+            count = -1;
+        }
+    }
+</script>
+</body>
+</html>
