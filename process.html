@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Bar</title>
+</head>
+<body>
+    <style>
+      *{
+          box-sizing: border-box;
+      }
+      .process-wrap {
+          position: relative;
+          width:500px;
+      }
+      .process-wrap .process-bar {
+            position:absolute;
+            top:0;
+            left:0;
+            height:5px;
+            background-color:royalblue;
+            transition: all 0.4s;
+        }
+        .process-conts {
+            width:100%;
+            height:300px;
+            padding:20px;
+            border:2px solid #ddd;
+            overflow-y: auto;
+        }
+        .process-conts .inner {
+            height:1000px;
+        }
+
+        .type2 .process-conts {
+            padding:40px;
+        }
+        .type2 .process-conts .inner {
+            height:2000px;
+        }
+    </style>
+
+    <div class="process-wrap">
+        <div class="process-bar"></div>
+        <div class="process-conts">
+            <div class="inner">111</div>
+        </div>
+    </div>
+
+    <div class="process-wrap type2">
+        <div class="process-bar"></div>
+        <div class="process-conts">
+            <div class="inner">111</div>
+        </div>
+    </div>
+
+    <script>
+        let processConts = document.querySelectorAll('.process-conts');
+
+        for(let i = 0; i < processConts.length; i++) {
+            addEventListeners(i)
+        }
+
+        function addEventListeners(i) {
+            processConts[i].addEventListener('scroll',scrollBar)
+        }
+
+        function scrollBar(e) {
+            let ele = e.target;
+            let eleProcess = ele.previousElementSibling;
+
+            let maxScroll = parseInt(window.getComputedStyle(ele.children[0]).height) - ele.clientHeight + parseInt(window.getComputedStyle(ele).paddingTop) + parseInt(window.getComputedStyle(ele).paddingBottom);
+            let scrollPos = ele.scrollTop;
+            let perScroll = (scrollPos / maxScroll) * 100;
+
+            eleProcess.style.width = perScroll + '%';
+        }
+    </script>
+</body>
+</html>

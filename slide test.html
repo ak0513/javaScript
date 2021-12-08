@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><br>
+    <div class="b-sidebar">b-sidebar</div>
+    <button class="collapsed a">slide</button>
+    <button class="b">b</button>
+    <style>
+        .b-sidebar {
+            position:fixed;top:0;left:0;
+            width:200px;
+            background-color: darkslateblue;
+            color:#fff;
+            transform: translateX(0);
+        }
+        .b-sidebar.slide {
+            transition: transform 0.3s ease-in-out;
+        }
+        .b-sidebar.slide:not(.show){
+            transform: translateX(-100%);
+        }
+    </style>
+
+    <script>
+        let btn = document.querySelector('button.a');
+        let ele = document.querySelector('.b-sidebar');
+        ele.style.display = 'none'
+        
+        
+        btn.addEventListener('click', function() {
+            function addShowFn() {
+                ele.classList.add('show')
+            }
+            function removeSlideFn() {
+                ele.classList.remove('slide')
+            }
+            function removeShowFn() {
+                ele.classList.remove('show')
+            }
+            function hideEleFn() {
+                ele.style.display = 'none'
+            }
+            
+            
+            if(this.classList.contains('collapsed')) {
+                ele.classList.add('slide')
+                ele.style.display = ''
+                this.classList.replace('collapsed', 'not-collapsed')
+                // var addShow = setTimeout(addShowFn, 100)
+                // var removeShow = setTimeout(removeShowFn, 500)
+                var removeSlide = setTimeout(removeSlideFn, 500)
+            } else {
+                ele.classList.add('slide')
+                this.classList.replace('not-collapsed', 'collapsed')
+                var hideEle = setTimeout(hideEleFn, 300)
+                var removeSlide = setTimeout(removeSlideFn, 500)
+                console.log(removeShow)
+                // clearTimeout(addShow)
+            }
+            if(ele.classList.contains('slide')) {
+                console.log('aa')
+                var addShow = setTimeout(addShowFn, 100)
+                var removeShow = setTimeout(removeShowFn, 500)
+            }
+            
+        })
+    </script>
+</body>
+</html>
