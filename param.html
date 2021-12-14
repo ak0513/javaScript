@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div><a href="http://www.naver.com?wordid=btn1&qq=btn2" id="t">버튼</a></div>
+	<script>
+
+		let wordidQs = getParam('wordid');
+		let qqQs = getParam('qq');
+		setParam('#t', 'wordid', wordidQs)
+		setParam('#t', 'qq', qqQs)
+
+		function getParam(paramVal) {
+			const urlStr = window.location.href;
+			const url = new URL(urlStr);
+			const urlParams = url.searchParams;
+			return urlParams.get(paramVal)
+		}
+		
+
+		function setParam(target, param, paramVal) {
+			// element href
+			let ele = document.querySelector(target);
+			let eleLink = ele.getAttribute('href');
+			if(eleLink.indexOf(param) > -1) {
+				let eleLinkIdx = eleLink.indexOf(param)
+				let eleLinkKey = eleLink.substring(eleLinkIdx, 9999)
+
+
+				console.log(eleLinkIdx, eleLinkKey)
+
+				// let eleLinkParams = new URL(eleLink).search;
+				// document.write(eleLinkParams)
+				// eleLinkParams2 = new URLSearchParams(eleLinkParams);
+				// eleLinkParams2.set(param, paramVal);
+				// ele.setAttribute('href', eleLinkParams2)
+			} else{
+				// console.log('bb')
+			}
+		}
+
+		
+		console.log(
+			
+		)
+
+		
+
+
+		function get_query() { var url = document.location.href; var qs = url.substring(url.indexOf('?') + 1).split('&'); for (var i = 0, result = {}; i < qs.length; i++) { qs[i] = qs[i].split('='); result[qs[i][0]] = decodeURIComponent(qs[i][1]); } return result; }
+		var result = get_query();
+		// console.log(result)
+
+
+
+	</script>
+	
+</body>
+</html>
