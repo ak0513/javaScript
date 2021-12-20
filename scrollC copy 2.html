@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스크롤시 액션</title>
+</head>
+
+<body>
+	<style>
+		* {box-sizing: border-box;}
+		body{margin:0;}
+		img{width:100%;height:auto;}
+		.scroll-wrap {
+			position: relative;z-index:1;
+			
+		}
+		.scroll-wrap > div.bg {
+			width: 200px;
+		}
+		.scroll-wrap2 {
+			position: relative;z-index:1;
+			height:70vh;
+		}
+		.scroll-wrap2 > div.bg {
+			height:100%;background:url('./img1.jpg') no-repeat center / cover
+		}
+
+	</style>
+	<div style="height:1500px"></div>
+	<div style="position:relative">
+		<div class="scroll-wrap">
+			<div class="bg">우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다. 현재 우리의 매장, 사무실, 데이터 센터, 사업 운영 활동은 이미 탄소 중립을 실현했습니다. 그리고 2030년까지 우리의 제품들, 그리고 이 제품들을 사용하는 데 따르는 탄소 발자국 역시 탄소 중립을 달성하는 것이 목표입니다.</div>
+		</div>
+	</div>
+	<div>111</div>
+	<div style="height:1500px"></div>
+
+
+
+	<script>
+		let item = [
+			{
+				ele: '.scroll-wrap',
+				transform: {
+					key: 'translateY',
+					value: ['50', '0'],
+					pos: [10, 20]
+				},
+				opacity: {
+					key: 'opacity',
+					value: ['0', '1'],
+					pos: [10, 30]
+				},
+			},
+		]
+		window.addEventListener('scroll', scrolling)
+
+
+
+		let viewportHeight = window.innerHeight; // 스크롤바 높이 포함
+		let pageYOffset = window.pageYOffset;
+		function scrolling() {
+			for(let i = 0; i < item.length; i++) {
+				let ele = document.querySelector(item[i].ele);
+				let absoluteTop = ele.getBoundingClientRect().top + pageYOffset + ele.clientHeight;
+				
+				let bottomPos = viewportHeight + pageYOffset - absoluteTop; // 엘리먼트가 viewport 하단에 위치
+				let ratioPer = 100 / viewportHeight; // 1px당 퍼센트 값
+				
+				let startPos = viewportHeight / 100 * item[i].transform.pos[0]; // 모션 시작 지점(px)
+				let endPos = viewportHeight / 100 * item[i].transform.pos[1]; // 모션 끝 지점(px)
+				let result = bottomPos - startPos; // 스크롤시 움직이는 값(px)
+				
+
+				let space = endPos - startPos; // 모션이 적용되는 절대 높이값(px)
+				let space2 = item[i].transform.value[1] - item[i].transform.value[0]; // 모션이 적용될 절대값
+				let move1px = space2 / space // space 1px 스크롤당 모션이 적용될 절대값
+				let result2 = parseInt(item[i].transform.value[0]) + (move1px * result)
+				
+				let space3 = item[i].opacity.value[1] - item[i].opacity.value[0]; // 모션이 적용될 절대값
+				let move1px3 = space3 / space // space 1px 스크롤당 모션이 적용될 절대값
+				let result3 = parseInt(item[i].opacity.value[0]) + (move1px3 * result)
+
+				
+				if(item[i].transform.pos[0] <= bottomPos * ratioPer && bottomPos <= endPos) {
+					ele.children[0].style.transform = item[i].transform.key + '(' + result2 + 'px)';
+					ele.children[0].style.opacity =  result3;
+					console.log(
+						'space3', space3,
+						item[i].transform.value[0],
+						move1px * result
+						)
+					} else if(bottomPos >= endPos) {
+						ele.children[0].style.transform = item[i].transform.key + '(' + item[i].transform.value[1] + 'px)';
+						ele.children[0].style.opacity =  item[i].opacity.value[1];
+				}
+				else {
+					ele.children[0].style.transform = item[i].transform.key + '(' + item[i].transform.value[0] + 'px)';
+					ele.children[0].style.opacity =  item[i].opacity.value[0];
+				}
+
+				console.group('out')
+				console.log(
+					'viewportHeight', viewportHeight
+					+'\n'+
+					'bottomPos', bottomPos
+					+'\n'+
+					'startPos', startPos
+					+'\n'+
+					'endPos', endPos
+					+'\n'+
+					'result', result
+					+'\n'+
+					'ratioPer', ratioPer
+					+'\n'+
+					'item[i].transform.key', item[i].transform.key
+				)
+				console.groupEnd('')
+			}
+		}
+	</script>
+</body>
+
+</html>

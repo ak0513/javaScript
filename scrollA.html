@@ -5,20 +5,22 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Process Bar</title>
+	<title>1회성 스크롤</title>
 </head>
 
 <body>
 	<style>
 		* {box-sizing: border-box;}
-		body{margin:0;background-color: gray;}
+		body{margin:0;}
 		img{width:100%;height:auto;}
 
-		.scroll-wrap {position: relative;z-index:1;height:70vh;background:url('./img1.jpg') no-repeat center / cover}
+		.scroll-wrap {position: relative;z-index:1;height:80vh;background:url('./img1.jpg') no-repeat center / cover}
 
 	</style>
-	<div style="height:800px"></div>
-	<div class="scroll-wrap"></div>
+	<div style="position:relative">
+		<div class="scroll-wrap"></div>
+		<div style="display:flex;align-items: center; justify-content: center; position:absolute;bottom:20px;left:0;right:0;z-index:10;width:200px;height:50px;margin:0 auto;border-radius: 10px; background-color:#fff;">배경은 천천히 올라가요</div>
+	</div>
 	<div style="position: relative; height:10000px;z-index:2;background-color: #fff;">111</div>
 
 
@@ -28,16 +30,14 @@
 		
 		function scrolling() {
 			let ele = document.querySelector('.scroll-wrap');
-			let eleHeight = ele.clientHeight;
-			let scroll = 800;
 			let pageYOffset = window.pageYOffset;
+			let aa = 0.5 * pageYOffset
+			let bb = 1 - (100 / ele.clientHeight * pageYOffset / 100)
 
-			let aa = eleHeight / scroll * pageYOffset
-			let ratio = 100 / eleHeight
-			let bb = 1 - (ratio * pageYOffset / 100)
-			// ele.style.opacity = bb;
 			ele.style.transform = 'translateY(' + aa + 'px)';
+			// ele.style.opacity = bb;
 			}
+
 	</script>
 </body>
 

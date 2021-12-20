@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스크롤시 액션</title>
+</head>
+
+<body>
+	<style>
+		* {box-sizing: border-box;}
+		body{margin:0;}
+		img{width:100%;height:auto;}
+		.scroll-wrap {
+			position: relative;z-index:1;
+			height:50vh;
+		}
+		.scroll-wrap > div.bg {
+			height:100%;background:url('./img1.jpg') no-repeat center / cover
+		}
+		.scroll-wrap2 {
+			position: relative;z-index:1;
+			height:70vh;
+		}
+		.scroll-wrap2 > div.bg {
+			height:100%;background:url('./img1.jpg') no-repeat center / cover
+		}
+
+	</style>
+	<div style="height:600px"></div>
+	<div style="position:relative">
+		<div class="scroll-wrap">
+			<div class="bg"></div>
+		</div>
+		<div style="display:flex;align-items: center; justify-content: center; position:absolute;bottom:20px;left:0;right:0;z-index:10;width:200px;height:50px;margin:0 auto;border-radius: 10px; background-color:#fff;">배경은 천천히 올라가요</div>
+	</div>
+	<div style="position: relative; height:1000px;z-index:2;background-color: #fff;">111</div>
+	<div style="position:relative">
+		<div class="scroll-wrap2">
+			<div class="bg"></div>
+		</div>
+		<div style="display:flex;align-items: center; justify-content: center; position:absolute;bottom:20px;left:0;right:0;z-index:10;width:200px;height:50px;margin:0 auto;border-radius: 10px; background-color:#fff;">배경은 천천히 올라가요</div>
+	</div>
+	<div style="position: relative; height:3000px;z-index:2;background-color: #fff;">222</div>
+
+
+	<script>
+		let item = [
+			{
+				ele: '.scroll-wrap',
+				pos: 20,
+				opacity: true
+			},
+		]
+		window.addEventListener('scroll', scrolling)
+
+
+
+		let viewportHeight = window.innerHeight; // 스크롤바 높이 포함
+		let pageYOffset = window.pageYOffset;
+		function scrolling() {
+			for(let i = 0; i < item.length; i++) {
+				let ele = document.querySelector(item[i].ele);
+				let absoluteTop = ele.getBoundingClientRect().top + pageYOffset + ele.clientHeight;
+				
+				let bottomPos = viewportHeight + pageYOffset - absoluteTop;
+				let ratioPer = 100 / viewportHeight; // 1px당 퍼센트 값
+				
+				let startPos = viewportHeight / 100 * item[i].pos;
+				let result = bottomPos - startPos;
+				
+
+				if(item[i].pos < bottomPos * ratioPer && bottomPos < viewportHeight) {
+					ele.children[0].style.transform = 'translateY(' + result * 0.5 + 'px)';
+					if(item[i].opacity) {
+						ele.children[0].style.opacity = 1- (result / (viewportHeight - startPos));
+					}
+				} else {
+					// ele.children[0].style.transform = '';
+					// ele.children[0].style.opacity = '';
+				}
+
+				console.group('out')
+				console.log(
+					'viewportHeight', viewportHeight
+					+'\n'+
+					'bottomPos', bottomPos
+					+'\n'+
+					'startPos', startPos
+					+'\n'+
+					'result', result
+					+'\n'+
+					'ratioPer', ratioPer
+				)
+				console.groupEnd('')
+			}
+		}
+	</script>
+</body>
+
+</html>
