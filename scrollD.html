@@ -54,7 +54,6 @@
 						pos: [10, 30]
 					},
 					matrix: {
-						key: 'matrix',
 						value: [
 							[1.5,0,0,1.5,50,100],
 							[1,0,0,1,0,0]
@@ -162,7 +161,7 @@
 		function motion() {
 			for(let i = 0; i < item.length; i++) {
 				let ele = document.querySelector(item[i].ele);
-				if(item[i].propertys.matrix) {ele.children[0].style.transform = item[i].propertys.matrix.key + '(' + calc(item[i], 'matrix') + ')';}
+				if(item[i].propertys.matrix) {ele.children[0].style.transform = 'matrix(' + calc(item[i], 'matrix') + ')';}
 				if(item[i].propertys.opacity) {ele.children[0].style.opacity =  calc(item[i], 'opacity');}
 			}
 		}
