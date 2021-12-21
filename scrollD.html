@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>matrix 변환전 스크롤시 액션</title>
+	<title>matrix 변환 스크롤시 액션</title>
 </head>
 
 <body>
@@ -31,8 +31,7 @@
 	<div style="height:1500px"></div>
 	<div style="position:relative">
 		<div class="scroll-wrap">
-			<div class="bg">matrix 변환전<br>
-				우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다. 현재 우리의 매장, 사무실, 데이터 센터, 사업 운영 활동은 이미 탄소 중립을 실현했습니다. 그리고 2030년까지 우리의 제품들, 그리고 이 제품들을 사용하는 데 따르는 탄소 발자국 역시 탄소 중립을 달성하는 것이 목표입니다.</div>
+			<div class="bg">우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다. 현재 우리의 매장, 사무실, 데이터 센터, 사업 운영 활동은 이미 탄소 중립을 실현했습니다. 그리고 2030년까지 우리의 제품들, 그리고 이 제품들을 사용하는 데 따르는 탄소 발자국 역시 탄소 중립을 달성하는 것이 목표입니다.</div>
 		</div>
 	</div>
 	<div>111</div>
@@ -50,40 +49,23 @@
 			{
 				ele: '.scroll-wrap',
 				propertys: {
-					transform: {
-						property: 'transform',
-						key: 'translateY',
-						value: [50, 0],
+					opacity: {
+						value: [0.5, 1],
 						pos: [10, 30]
 					},
-					opacity: {
-						property: 'opacity',
-						value: [0, 1],
-						pos: [0, 50]
+					matrix: {
+						key: 'matrix',
+						value: [
+							[1.5,0,0,1.5,50,100],
+							[1,0,0,1,0,0]
+						],
+						pos: [10, 50]
 					},
 				},
-			},
-			{
-				ele: '.scroll-wrap2',
-				propertys: {
-					transform: {
-						property: 'transform',
-						key: 'translateY',
-						value: [50, 0],
-						pos: [10, 30]
-					},
-					opacity: {
-						property: 'opacity',
-						value: [0, 1],
-						pos: [10, 30]
-					},
-				},
-			},
+			}
 		]
 		window.addEventListener('scroll', motion)
 		// window.addEventListener('resize', motion)
-
-
 
 		let viewportHeight = window.innerHeight; // 스크롤바 높이 포함
 		let pageYOffset = window.pageYOffset;
@@ -97,29 +79,64 @@
 			let endPos = viewportHeight / 100 * item.propertys[property].pos[1]; // 모션 끝 지점(px)
 			let scrollMove = bottomPos - startPos; // 스크롤시 움직이는 값(px)
 
-			let space = endPos - startPos; // 모션이 적용되는 절대 높이값(px)
+			let space = endPos - startPos; // 모션이 적용되는 viewport 영역(px)
 			let spaceValue = item.propertys[property].value[1] - item.propertys[property].value[0]; // 모션이 적용될 절대값
 			let move1px = spaceValue / space // space 1px 스크롤당 모션이 적용될 절대값
+
 			let result = null;
 
 			if(bottomPos >= startPos && bottomPos <= endPos) {
-				result = item.propertys[property].value[0] + (move1px * scrollMove)
+				if(property === 'matrix') {
+					let matrixValues = []
+					let matrixValueA1 = item.propertys.matrix.value[0][0];
+					let matrixValueA2 = item.propertys.matrix.value[1][0];
+					let matrixValueB1 = item.propertys.matrix.value[0][1];
+					let matrixValueB2 = item.propertys.matrix.value[1][1];
+					let matrixValueC1 = item.propertys.matrix.value[0][2];
+					let matrixValueC2 = item.propertys.matrix.value[1][2];
+					let matrixValueD1 = item.propertys.matrix.value[0][3];
+					let matrixValueD2 = item.propertys.matrix.value[1][3];
+					let matrixValueE1 = item.propertys.matrix.value[0][4];
+					let matrixValueE2 = item.propertys.matrix.value[1][4];
+					let matrixValueF1 = item.propertys.matrix.value[0][5];
+					let matrixValueF2 = item.propertys.matrix.value[1][5];
+
+					let matrixValueA = getMatrixValue(matrixValueA1, matrixValueA2);
+					let matrixValueB = getMatrixValue(matrixValueB1, matrixValueB2);
+					let matrixValueC = getMatrixValue(matrixValueC1, matrixValueC2);
+					let matrixValueD = getMatrixValue(matrixValueD1, matrixValueD2);
+					let matrixValueE = getMatrixValue(matrixValueE1, matrixValueE2);
+					let matrixValueF = getMatrixValue(matrixValueF1, matrixValueF2);
+					matrixValues.push(matrixValueA,matrixValueB,matrixValueC,matrixValueD,matrixValueE,matrixValueF)
+
+					function getMatrixValue(value1, value2) {
+						spaceValue = value2 - value1;
+						move1px = spaceValue / space
+						if(value1 !== value2) {
+							result = value1 + (move1px * scrollMove)
+						} else {
+							result = value1
+						}
+						return result
+					}
+					result = matrixValues
+				} else {
+					result = item.propertys[property].value[0] + (move1px * scrollMove)
+				}
 			} else if(bottomPos >= endPos) {
 				result = item.propertys[property].value[1];
 			}
 			else {
 				result = item.propertys[property].value[0]
 			}
-			
-			
 			console.group('out')
 			console.log(
 				'viewportHeight', viewportHeight
 				+'\n'+
 				'ratioPer', ratioPer
 				+'\n'+
-				'bottomPos', bottomPos
-				+'\n'+
+				// 'bottomPos', bottomPos
+				// +'\n'+
 				'bottomPos', viewportHeight - ele.getBoundingClientRect().top - ele.clientHeight
 				+'\n'+
 				'startPos', startPos
@@ -135,21 +152,16 @@
 				'move1px', move1px
 				+'\n'+
 				'result', result
-				+'\n'+
-				'item.propertys[property].value[0]', item.propertys[property].value[0]
-				+'\n'+
-				'move1px * scrollMove', move1px * scrollMove
 			)
 			console.groupEnd('')
-
 			return result
 		}
 
 		function motion() {
 			for(let i = 0; i < item.length; i++) {
 				let ele = document.querySelector(item[i].ele);
-				ele.children[0].style.transform = item[i].propertys.transform.key + '(' + calc(item[i], 'transform') + 'px)';
-				ele.children[0].style.opacity =  calc(item[i], 'opacity');
+				if(item[i].propertys.matrix) {ele.children[0].style.transform = item[i].propertys.matrix.key + '(' + calc(item[i], 'matrix') + ')';}
+				if(item[i].propertys.opacity) {ele.children[0].style.opacity =  calc(item[i], 'opacity');}
 			}
 		}
 	</script>
