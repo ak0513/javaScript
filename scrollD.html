@@ -60,6 +60,16 @@
 						],
 						pos: [10, 50]
 					},
+					height: {
+						unit:'px',
+						value: [200,100],
+						pos: [10, 50]
+					},
+					width: {
+						unit:'%',
+						value: [20,100],
+						pos: [10, 50]
+					},
 				},
 			}
 		]
@@ -89,10 +99,10 @@
 					let matrixValues = []
 					let matrixValueA1 = item.propertys.matrix.value[0][0];
 					let matrixValueA2 = item.propertys.matrix.value[1][0];
-					let matrixValueB1 = item.propertys.matrix.value[0][1];
-					let matrixValueB2 = item.propertys.matrix.value[1][1];
-					let matrixValueC1 = item.propertys.matrix.value[0][2];
-					let matrixValueC2 = item.propertys.matrix.value[1][2];
+					// let matrixValueB1 = item.propertys.matrix.value[0][1];
+					// let matrixValueB2 = item.propertys.matrix.value[1][1];
+					// let matrixValueC1 = item.propertys.matrix.value[0][2];
+					// let matrixValueC2 = item.propertys.matrix.value[1][2];
 					let matrixValueD1 = item.propertys.matrix.value[0][3];
 					let matrixValueD2 = item.propertys.matrix.value[1][3];
 					let matrixValueE1 = item.propertys.matrix.value[0][4];
@@ -101,8 +111,8 @@
 					let matrixValueF2 = item.propertys.matrix.value[1][5];
 
 					let matrixValueA = getMatrixValue(matrixValueA1, matrixValueA2, space, scrollMove);
-					let matrixValueB = getMatrixValue(matrixValueB1, matrixValueB2, space, scrollMove);
-					let matrixValueC = getMatrixValue(matrixValueC1, matrixValueC2, space, scrollMove);
+					let matrixValueB = 0;
+					let matrixValueC = 0;
 					let matrixValueD = getMatrixValue(matrixValueD1, matrixValueD2, space, scrollMove);
 					let matrixValueE = getMatrixValue(matrixValueE1, matrixValueE2, space, scrollMove);
 					let matrixValueF = getMatrixValue(matrixValueF1, matrixValueF2, space, scrollMove);
@@ -161,8 +171,24 @@
 		function motion() {
 			for(let i = 0; i < item.length; i++) {
 				let ele = document.querySelector(item[i].ele);
+				console.log('aa', item[i].propertys.height)
 				if(item[i].propertys.matrix) {ele.children[0].style.transform = 'matrix(' + calc(item[i], 'matrix') + ')';}
 				if(item[i].propertys.opacity) {ele.children[0].style.opacity =  calc(item[i], 'opacity');}
+				if(item[i].propertys.height) {
+					if(item[i].propertys.height.unit === '%') {
+						ele.children[0].style.height = calc(item[i], 'height') + '%';
+					} else {
+						ele.children[0].style.height = calc(item[i], 'height') + 'px';
+					}
+				}
+
+				if(item[i].propertys.width) {
+					if(item[i].propertys.width.unit === '%') {
+						ele.children[0].style.width = calc(item[i], 'width') + '%';
+					} else {
+						ele.children[0].style.width = calc(item[i], 'width') + 'px';
+					}
+				}
 			}
 		}
 	</script>
