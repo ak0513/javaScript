@@ -101,24 +101,14 @@
 					let matrixValueF1 = item.propertys.matrix.value[0][5];
 					let matrixValueF2 = item.propertys.matrix.value[1][5];
 
-					let matrixValueA = getMatrixValue(matrixValueA1, matrixValueA2);
-					let matrixValueB = getMatrixValue(matrixValueB1, matrixValueB2);
-					let matrixValueC = getMatrixValue(matrixValueC1, matrixValueC2);
-					let matrixValueD = getMatrixValue(matrixValueD1, matrixValueD2);
-					let matrixValueE = getMatrixValue(matrixValueE1, matrixValueE2);
-					let matrixValueF = getMatrixValue(matrixValueF1, matrixValueF2);
+					let matrixValueA = getMatrixValue(matrixValueA1, matrixValueA2, space, scrollMove);
+					let matrixValueB = getMatrixValue(matrixValueB1, matrixValueB2, space, scrollMove);
+					let matrixValueC = getMatrixValue(matrixValueC1, matrixValueC2, space, scrollMove);
+					let matrixValueD = getMatrixValue(matrixValueD1, matrixValueD2, space, scrollMove);
+					let matrixValueE = getMatrixValue(matrixValueE1, matrixValueE2, space, scrollMove);
+					let matrixValueF = getMatrixValue(matrixValueF1, matrixValueF2, space, scrollMove);
 					matrixValues.push(matrixValueA,matrixValueB,matrixValueC,matrixValueD,matrixValueE,matrixValueF)
 
-					function getMatrixValue(value1, value2) {
-						spaceValue = value2 - value1;
-						move1px = spaceValue / space
-						if(value1 !== value2) {
-							result = value1 + (move1px * scrollMove)
-						} else {
-							result = value1
-						}
-						return result
-					}
 					result = matrixValues
 				} else {
 					result = item.propertys[property].value[0] + (move1px * scrollMove)
@@ -154,6 +144,18 @@
 				'result', result
 			)
 			console.groupEnd('')
+			return result
+		}
+
+		function getMatrixValue(value1, value2, space, scrollMove) {
+			spaceValue = value2 - value1;
+			move1px = spaceValue / space
+			if(value1 !== value2) {
+				result = value1 + (move1px * scrollMove)
+			} else {
+				result = value1
+			}
+			console.log(result)
 			return result
 		}
 
