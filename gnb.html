@@ -62,7 +62,8 @@
 			gnb.classList.add('visual');
 			setTimeout(function() {gnb.classList.add('active')},100);
 			gnb.setAttribute('aria-modal', 'true');
-			gnbFocus[0].focus();
+			document.querySelector('#gnb-title').focus();
+			// gnbFocus[0].focus();
 		}
 		
 		function gnbClose() {
