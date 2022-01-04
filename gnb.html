@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Side Menu</title>
+</head>
+<body>
+	<style>
+		#gnb {
+			display:none;
+			opacity: 0;
+			position:fixed;
+			left:0;
+			bottom:-400px;
+			width:100%;
+			height:400px;
+			background-color: #f1f1f1;
+			border-right:1px solid #ccc;
+			transition: all 0.4s ease-in-out;
+		}
+		#gnb.visual {
+			display:block;
+			
+		}
+		#gnb.active {
+			opacity: 1;
+			bottom:0;
+		}
+	</style>
+	<button type="button" class="btn-gnb-open" aria-controls="gnb" title="전체메뉴 열기">open</button>
+
+	<a href="#">aaa</a>
+
+	<nav id="gnb" aria-modal="false" aria-labelledby="gnb-title">
+		<h2 id="gnb-title">전체메뉴 보기</h2>
+		<a href="#a">menu1</a><br>
+		<button>btn</button>
+		<button>btn</button>
+		<button>btn</button>
+		<button class="btn-gnb-closed" aria-label="메뉴 닫기">X</button>
+	</nav>
+
+
+
+	<script>
+		let btnGnbOpen = document.querySelector('.btn-gnb-open');
+		let btnGnbClosed = document.querySelector('.btn-gnb-closed');
+		let gnb = document.querySelector('#gnb');
+		let gnbFocus = document.querySelectorAll('#gnb button, #gnb input:not([type="hidden"]), #gnb select, #gnb iframe, #gnb textarea, #gnb [href], #gnb [tabindex]:not([tabindex="-1"])');
+		let firstEle = gnbFocus[0];
+		let lastEle = gnbFocus[gnbFocus.length - 1];
+
+		btnGnbOpen.addEventListener('click', gnbOpen)
+		btnGnbClosed.addEventListener('click', gnbClose)
+		firstEle.addEventListener('keydown', focusLast)
+		lastEle.addEventListener('keydown', focusfirst)
+
+		function gnbOpen() {
+			gnb.classList.add('visual');
+			setTimeout(function() {gnb.classList.add('active')},100);
+			gnb.setAttribute('aria-modal', 'true');
+			gnbFocus[0].focus();
+		}
+		
+		function gnbClose() {
+			gnb.classList.remove('active')
+			setTimeout(function() {gnb.classList.remove('visual')},100);
+			gnb.setAttribute('aria-modal', 'false');
+			btnGnbOpen.focus();
+		}
+		
+		function focusfirst(e) {
+			if(e.keyCode != 9) {
+				return;
+			} else if((!e.shiftKey && !!lastEle)) {
+				e.preventDefault();
+				firstEle.focus();
+			}
+		}
+		
+		function focusLast(e) {
+			if((e.shiftKey && !!firstEle)) {
+				e.preventDefault();
+				lastEle.focus();
+			}
+		}
+	</script>
+</body>
+</html>
