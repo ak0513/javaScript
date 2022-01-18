@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Side Menu</title>
+</head>
+
+<body>
+	<style>
+		.pop-wrap {
+			display: none;
+			opacity: 0;
+			align-items: center;
+			justify-content: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.5);
+			transition: all 0.4s;
+		}
+
+		.pop-wrap.visual {
+			display: block;
+		}
+
+		.pop-wrap.active {
+			opacity: 1;
+			bottom: 0;
+		}
+
+		.pop-wrap .inner {
+			width:400px;
+			padding:20px;
+			border:1px solid #ccc;
+			background-color :#fff;
+		}
+	</style>
+
+	<button type="button" class="btn-pop-open" aria-controls="popup1" title="팝업 열기">open1</button>
+	
+	<a href="#">aaa</a>
+
+	<nav id="popup1" class="pop-wrap" aria-labelledby="pop-title" tabindex="0">
+		<div class="inner">
+			<div class="pop-header">
+				<h2 id="pop-title">팝업 타이틀</h2>
+			</div>
+			<div class="pop-conts">
+				<button type="button" class="btn-pop-open" aria-controls="popup2" title="팝업 열기">open2</button>
+				<a href="#">aaa</a><a href="#">aaa</a>
+			</div>
+			<button class="btn-pop-closed" aria-label="메뉴 닫기">X</button>
+		</div>
+	</nav>
+
+	<nav id="popup2" class="pop-wrap" aria-labelledby="pop-title2">
+		<div class="inner">
+			<div class="pop-header">
+				<h2 id="pop-title2">팝업 타이틀</h2>
+			</div>
+			<div class="pop-conts">
+				내용
+			</div>
+			<button class="btn-pop-closed" aria-label="메뉴 닫기">X</button>
+		</div>
+	</nav>
+
+
+	<script>
+		window.addEventListener('load', function(){
+			common.init()
+		});
+
+		let common = {
+			init: function() {
+				common.popup();
+			},
+			popup: function() {
+				let popWrap = document.querySelectorAll('.pop-wrap')
+				let btnPopOpen = document.querySelectorAll('.btn-pop-open');
+				let btnpopClosed = document.querySelectorAll('.btn-pop-closed');
+
+				for(let i = 0; i < popWrap.length; i++) {
+					popWrap[i].setAttribute('aria-hidden', 'true');
+					popWrap[i].setAttribute('aria-modal', 'true');
+					document.querySelector('#' + popWrap[i].getAttribute('aria-labelledby')).setAttribute('tabindex', 0);
+				}
+
+				for(let i = 0; i < btnPopOpen.length; i++) {
+					btnPopOpens(i);
+				}
+				
+				for(let i = 0; i < btnpopClosed.length; i++) {
+					btnpopCloseds(i);
+				}
+
+				
+
+				function btnPopOpens(i) {
+					btnPopOpen[i].addEventListener('click', popOpen);
+				}
+
+				function btnpopCloseds(i) {
+					btnpopClosed[i].addEventListener('click', popClose);
+				}
+
+				function popOpen(e) {
+					ele = e.target;
+					let controls = ele.getAttribute('aria-controls');
+					let target = document.querySelector('#' + controls);
+					let targetFoucs = document.querySelector('#' + target.getAttribute('aria-labelledby'));
+					targetFoucs.setAttribute('tabindex', 0);
+					target.setAttribute('aria-hidden', 'false');
+					
+					let popFocus = target.querySelectorAll('button, input:not([type="hidden"]), select, iframe, textarea, [href], [tabindex]:not([tabindex="-1"])');
+					let firstEle = popFocus[0];
+					let lastEle = popFocus[popFocus.length - 1];
+
+					lastEle.setAttribute('data-pop-focus', controls)
+
+
+					setTimeout(function() {targetFoucs.focus()},1);
+
+					target.classList.add('visual');
+					setTimeout(function() {target.classList.add('active')},100);
+					target.setAttribute('aria-modal', 'true');
+
+					firstEle.addEventListener('keydown', function() {
+						if((event.shiftKey && !!popFocus[0])) {
+							event.preventDefault();
+							popFocus[popFocus.length - 1].focus();
+						}
+					})
+
+					lastEle.addEventListener('keydown', function() {
+						if(event.keyCode != 9) {
+							return;
+						} else if((!event.shiftKey && !!lastEle)) {
+							event.preventDefault();
+							popFocus[0].focus();
+						}
+					})
+				}
+
+				function popClose(e) {
+					ele = e.target;
+					let controls = ele.getAttribute('data-pop-focus');
+					let target = document.querySelector('#' + controls);
+					let targetFoucs = document.querySelector('[aria-controls = ' + ele.getAttribute('data-pop-focus') + ']');
+
+					target.classList.remove('active')
+					setTimeout(function() {target.classList.remove('visual')},100);
+					target.setAttribute('aria-modal', 'false');
+					target.setAttribute('aria-hidden', 'true');
+					targetFoucs.focus();
+
+					ele.removeAttribute('data-pop-focus');
+				}
+			}
+		}
+		
+	</script>
+	
+</body>
+
+</html>

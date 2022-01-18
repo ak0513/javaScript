@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WAI ARIA</title>
+	<script src="https://ak0513.github.io/highlight/highlight.min.js"></script>
+	<link rel="stylesheet" href="https://ak0513.github.io/highlight/an-old-hope.min.css">
+</head>
+
+<body>
+	<style>
+		.a11y {
+			overflow: hidden;
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			border: 0;
+			clip: rect(1px, 1px, 1px, 1px);
+			clip-path: inset(50%);
+		}
+	</style>
+
+	
+
+	<h2 class="title">aria-label</h2>
+	<div class="item">
+		<div class="item-ex">
+			<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림"></a>
+		</div>
+		<pre><code class="html">
+			<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림"></a>
+		</code></pre>
+		<div class="item-output">
+		</div>
+	</div>
+
+
+
+
+
+	<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="">새창</a>
+	<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림"
+		style="width:10px;height:10px;display:inline-block;background:red;"></a>
+	<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">영역 있음</a>
+	<div aria-label="레이블로 안내"></div>
+	<div class="a11y">접근성 코드로 안내</div>
+
+	<div style="visibility: hidden;">visibility: hidden; 우리는 탄소 발자국을 줄이기 위해 <strong>끊임없이 혁신하고 있습니다.</strong> 현재 우리의
+	</div>
+	<br>
+
+	<div role="link">Start</div>
+	<nav aria-label="메인메뉴">
+		<ul role="menubar">
+			<li role="menuitem" aria-haspopup="true">
+				<a href="#" id="mentbtn1" aria-controls="menu1" aria-expanded="false">메뉴명1</a>
+				<div id="menu1" aria-labelledby="mentbtn1">
+					<ul role="menu">
+						<li><a href="#" role="menuitem">하위1-1</a></li>
+						<li><a href="#" role="menuitem">하위1-2</a></li>
+						<li><a href="#" role="menuitem">하위1-3</a></li>
+					</ul>
+				</div>
+			</li>
+			<li role="menuitem" aria-haspopup="true">
+				<a href="#" id="mentbtn2" aria-controls="menu2" aria-expanded="false">메뉴명2</a>
+				<div id="menu2" aria-labelledby="mentbtn2">
+					<ul role="menu">
+						<li><a href="#" role="menuitem">하위2-1</a></li>
+						<li><a href="#" role="menuitem">하위2-2</a></li>
+						<li><a href="#" role="menuitem">하위2-3</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="#" id="mentbtn3" role="menuitem" aria-controls="menu3" aria-expanded="false" aria-haspopup="true">메뉴명2</a>
+				<div id="menu3" aria-labelledby="mentbtn3">
+					<ul role="menu">
+						<li><a href="#" role="menuitem">하위3-1</a></li>
+						<li><a href="#" role="menuitem">하위3-2</a></li>
+						<li><a href="#" role="menuitem">하위3-3</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<br>
+	<nav>네브</nav>
+
+	<div role="menubar">1메뉴바1</div>
+	<div aria-hidden="true">1메뉴바1</div><br>
+	<div role="menu">2메뉴2</div>
+	<div aria-hidden="true">메뉴2</div><br>
+	<div role="menuitem">3메뉴아이템3</div>
+	<div aria-hidden="true">3메뉴아이템3 메뉴항목</div><br>
+	<div aria-haspopup="true">4해즈팝업4</div>
+	<div aria-hidden="true">4해즈팝업4</div><br>
+	<div role="region">5리즌5</div>
+	<div aria-hidden="true">5리즌5</div><br>
+	<div role="group">6그룹6</div>
+	<div aria-hidden="true">6그룹6</div><br>
+
+	<ul role="none">
+		<li>aaa</li>
+		<li role="none">22</li>
+	</ul>
+	<br>
+	<div aria-hidden="true">
+		aaa<br>
+		22</div>
+	<ul>
+		<li>bbb</li>
+		<li>33</li>
+	</ul>
+	<div aria-hidden="true">
+		구분점 목록시작<br>
+		bbb<br>
+		구분점<br>
+		33 목록끝
+	</div>
+	<br>
+	<ol>
+		<li>ccc</li>
+		<li>44</li>
+	</ol>
+	<div aria-hidden="true">
+		1 목록시작<br>
+		ccc<br>
+		2<br>
+		44 목록끝
+	</div>
+
+	<h2>aria-current</h2>
+	<a href="#" aria-current="page">a page</a><br>
+	<div aria-current="page">div page</div><br>
+	<div aria-current="true">div true</div><br>
+	<div aria-label="국문 사이트">div true</div><br>
+	<div><span aria-hidden="true">div true</span><span class="a11y">국문 페이지</span></div><br>
+	<p aria-label="국문 사이트">p true</p><br>
+	<ul><li aria-label="국문 사이트">li true</li></ul><br>
+	<span aria-label="국문 사이트">span true</span><br>
+	<h1 aria-label="국문 사이트">h1 true</h1><br>
+	<i aria-label="국문 사이트">i true</i><br>
+	<a href="#" aria-label="국문 사이트">div true</a><br>
+	<div aria-current="true" aria-label="국문 사이트">div true</div><br>
+
+	<a href="#" aria-current="location">a location</a><br>
+
+	
+	<br><br>
+	<h2>role text</h2>
+	<div role="text">우리는 탄소 발자국을 줄이기 위해 <strong>끊임없이 혁신하고 있습니다.</strong> 현재 우리의 <span>매장, 사무실, 데이터 센터, 사업 운영</span>
+		활동은 이미 탄소 중립을 실현했습니다.<br>그리고 2030년까지 우리의 제품들, 그리고 이 제품들을 사용하는 데 따르는 탄소 발자국 역시 탄소 중립을 달성하는 것이 목표입니다.</div>
+
+	<p aria-label="2020~2022년도">2020년~2022년</p>
+	<a href="#">버튼</a><br>
+	<a href="#" role="text">버튼</a><br>
+	<a href="#" role="text">
+		<span>버튼</span>
+		<span>버튼2</span>
+	</a>
+	<a href="#">
+		<span role="text">
+			<span>버튼</span>
+			<span>버튼2</span>
+		</span>
+	</a>
+	<h2>aria-expanded</h2>
+	<button type="button" aria-expanded="false" aria-controls="t1">버튼명1</button>
+	<p aria-hidden="true">보이스오버 - 버튼명1 버튼 축소됨 확장하려면 이중탭하십시오</p>
+	<div id="t1">aria-controls 내용출력1</div>
+	<button type="button" aria-expanded="true" aria-controls="t2">버튼명2</button>
+	<p aria-hidden="true">보이스오버 - 버튼명2 버튼 확장됨 축소하려면 이중탭하십시오</p>
+	<div id="t2">aria-controls 내용출력2</div>
+	<h2>role button</h2>
+	<div><button>버튼1</button></div>
+	<div><button type="button">버튼2</button></div>
+	<div><button type="button"
+			style="display:inline-block;padding:10px 20px;background-color:gray;color:#fff;">버튼3</button></div>
+	<div><button style="display:inline-block;padding:10px 20px;background-color:gray;color:#fff;">버튼4</button></div>
+	<div><a href="http://naver.com" style="display:inline-block;padding:10px 20px;background-color:gray;color:#fff;"
+			role="button">버튼5</a></div>
+	<div><a href="http://naver.com"
+			style="display:inline-block;padding:10px 20px;background-color:gray;color:#fff;">버튼6</a></div>
+	<div><a href="http://naver.com" style="display:inline-block;padding:10px 20px;background-color:gray;color:#fff;"
+			aria-label="네이버이동" role="link">버튼7</a></div>
+	<div><a href="http://naver.com"><span
+				style="display:inline-block;padding:10px 20px;background-color:gray;color:#fff;">버튼8</span></a>
+	</div>
+	<div><a href="http://naver.com" role="link"
+			style="display:block;padding:10px 20px 50px;background-color:gray;color:#fff;"><span>버튼9</span></a>
+	</div>
+	<div><button type="button"><span
+				style="display:inline-block;padding:10px 20px;background-color:gray;color:#fff;">버튼10</span></button>
+	</div>
+	<br><br>
+
+	<h2>aria-haspopup</h2>
+	<div aria-haspopup="true">aria-haspopup="true"</div>
+	<button type="button" aria-haspopup="true">버튼 haspopup</button>
+
+
+	<button aria-label="버튼버튼"></button>
+	<br><br>
+	<button type="button">button / type = button</button>
+	<br><br>
+	<a href="#">a 링크</a>
+	<br><br>
+	<a href="#" role="button">a 링크 / role = button</a>
+	<br><br>
+	<a href="#" role="button">a 링크 / role = button</a>
+	<br><br>
+	<a href="#" role="button" aria-label="버튼">a 링크 / aria-label = 버튼 / role = 버튼</a>
+	<br><br>
+
+
+	<button type="button" aria-controls="ct1">aria-controls</button>
+	<div>중간에 다른 태그들 있음</div>
+	<div id="ct1">aria-controls ID</div>
+
+	<br>
+	<h2 id="language">언어선택</h2>
+	<div role="group" aria-labelledby="language">
+		<div role="button" tabindex="0" aria-pressed="true">Kor</div>
+		<div role="button" tabindex="0" aria-pressed="false">Eng</div>
+	</div>
+
+
+	<h2 id="rg-label">라디오버튼</h2>
+	<ul role="radiogroup" aria-labelledby="rg-label">
+		<li>
+			<input type="radio" name="drink" id="drink1">
+			<label for="drink1">Water</label>
+		</li>
+		<li>
+			<input type="radio" name="drink" id="drink2">
+			<label for="drink2">Tea</label>
+		</li>
+		<li>
+			<input type="radio" name="drink" id="drink3">
+			<label for="drink3">Coffee</label>
+		</li>
+		<li>
+			<input type="radio" name="drink" id="drink4">
+			<label for="drink4">Cola</label>
+		</li>
+		<li>
+			<input type="radio" name="drink" id="drink5">
+			<label for="drink5">Ginger Ale</label>
+		</li>
+	</ul>
+</body>
+
+</html>
