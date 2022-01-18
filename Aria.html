@@ -14,25 +14,69 @@
 <body>
 	<style>
 		.a11y {overflow: hidden;position: absolute;width: 1px;height: 1px;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
-		pre {word-wrap: break-word;}
+		pre {font-size: 12px;}
+
+		#wrap {min-width:360px;}
+		.aria {margin:10px;}
+		.aria + .aria {margin-top:20px;}
+		.aria pre {margin:10px 0 0;}
+
+		.output-group {display:flex;}
+		.output-group + .output-group {margin-top:8px;}
+		.output-dl {border:4px solid #e3e3e3;margin:10px 0 0;padding:12px;font-size:14px;}
+		.output-dt{flex-shrink: 0;width:80px;}
+		.output-dd{margin:0;}
+		.output-dd > i {display:inline-block;width:12px;}
 	</style>
 
-	
-
-	<h2 class="title">aria-label</h2>
-	<div class="item">
-		<div class="item-ex">
-			<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">링크1</a>
+	<div id="wrap">
+		<h2 class="title">aria-label</h2>
+		<div class="aria">
+			<div class="aria-tag">
+				<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">링크1</a>
+			</div>
+			<pre aria-hidden="true"><code class="html">&lt;a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">링크1&lt;/a&gt;</code></pre>
+			<div class="aria-output" aria-hidden="true">
+				<dl class="output-dl">
+					<div class="output-group">
+						<dt class="output-dt">NVDA</dt>
+						<dd class="output-dd">
+							링크<i></i>새창열림
+						</dd>
+					</div>
+					<div class="output-group">
+						<dt class="output-dt">VoiceOver</dt>
+						<dd class="output-dd">
+							링크<i></i>새창열림
+						</dd>
+					</div>
+				</dl>
+			</div>
 		</div>
-		<pre><code class="html">&lt;a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">링크1&lt;/a&gt;</code></pre>
-		<div class="item-output">
+		
+		<div class="aria">
+			<div class="aria-tag">
+				<a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">링크1</a>
+			</div>
+			<pre aria-hidden="true"><code class="html">&lt;a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">링크1&lt;/a&gt;</code></pre>
+			<div class="aria-output" aria-hidden="true">
+				<dl class="output-dl">
+					<div class="output-group">
+						<dt class="output-dt">NVDA</dt>
+						<dd class="output-dd">
+							링크<i></i>새창열림
+						</dd>
+					</div>
+					<div class="output-group">
+						<dt class="output-dt">VoiceOver</dt>
+						<dd class="output-dd">
+							링크<i></i>새창열림
+						</dd>
+					</div>
+				</dl>
+			</div>
 		</div>
-
-		<pre>
-			&lt;a href="http://naver.com" target="_blank" title="새창으로 열림" aria-label="새창열림">링크1&lt;/a&gt;
-		</pre>
 	</div>
-
 
 
 
