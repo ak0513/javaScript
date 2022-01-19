@@ -24,7 +24,7 @@
 			transition: all 0.4s;
 		}
 
-		.pop-wrap.visual {
+		.pop-wrap.visible {
 			display: block;
 		}
 
@@ -126,7 +126,7 @@
 
 					setTimeout(function() {targetFoucs.focus()},1);
 
-					target.classList.add('visual');
+					target.classList.add('visible');
 					setTimeout(function() {target.classList.add('active')},100);
 					target.setAttribute('aria-modal', 'true');
 
@@ -154,7 +154,7 @@
 					let targetFoucs = document.querySelector('[aria-controls = ' + ele.getAttribute('data-pop-focus') + ']');
 
 					target.classList.remove('active')
-					setTimeout(function() {target.classList.remove('visual')},100);
+					setTimeout(function() {target.classList.remove('visible')},100);
 					target.setAttribute('aria-modal', 'false');
 					target.setAttribute('aria-hidden', 'true');
 					targetFoucs.focus();
