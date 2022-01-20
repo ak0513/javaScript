@@ -13,9 +13,10 @@
 
 <body>
 	<style>
+		body {font-size: 14px;}
 		.a11y {overflow: hidden;position: absolute;width: 1px;height: 1px;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
 		pre code.hljs {line-height:1.35;font-size:13px;font-family:Consolas, 'Courier New', monospace;}
-
+		.code{background-color:rosybrown;padding:3px 6px;border-radius: 4px;color:#fff;font-size:12px;font-family:Consolas, 'Courier New', monospace;}
 		#wrap {min-width:360px;}
 
 		.title{margin:20px 10px;}
@@ -139,10 +140,11 @@
 					<p>섹션 내용1</p>
 				</section>
 			</div>
-			<pre aria-hidden="true"><code class="html">&lt;section aria-labelledby="sectionTit1"&gt;
+<pre aria-hidden="true"><code class="html">&lt;section aria-labelledby="sectionTit1"&gt;
     &lt;h2 id="sectionTit1"&gt;섹션 제목1&lt;/h2&gt;
     &lt;p&gt;섹션 내용1&lt;/p&gt;
 &lt;/section&gt;</code></pre>
+			<p><i class="code">section</i>에 <i class="code">aria-labelledby</i>를 넣으면 영역이라고 안내한다.</p>
 			<div class="aria-output" aria-hidden="true">
 				<dl class="output-dl">
 					<div class="output-group">
