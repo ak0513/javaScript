@@ -16,10 +16,11 @@
 		body {font-size: 14px;line-height: 1.4;background-color:#000;color:#828282;}
 		.a11y {overflow: hidden;position: absolute;width: 1px;height: 1px;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
 		pre code.hljs {font-size:13px;font-family:-apple-system, gitConsolas, 'Courier New', monospace;border-radius: 5px 5px 0 0;}
-		.code{background-color:#1c1c1c;padding:3px 6px;border-radius: 4px;color:#fff;font-size:12px;font-family:Consolas, 'Courier New', monospace;vertical-align:1px;}
+		.code{background-color:#313136;padding:3px 6px;border-radius: 4px;color:#fff;font-size:12px;font-family:-apple-system, gitConsolas, 'Courier New', monospace;vertical-align:1px;font-style:normal;}
 		#wrap {min-width:360px;}
 
 		.title{margin:30px 10px 20px;color:#fff;}
+		p.info {margin:0;padding:12px 10px;border-top:1px dashed #3d3d41;color:#3b82f6;}
 
 		.aria {position:relative;margin:10px;}
 		.aria + .aria {margin-top:20px;}
@@ -33,7 +34,7 @@
 		.output-dl {margin:0;padding:12px;font-size:14px;color:#fefefe;}
 		.output-dt{flex-shrink: 0;width:80px;}
 		.output-dd{margin:0;color:#98989e;}
-		.output-dd > i {display:inline-block;width:12px;}
+		.output-dd > i {display:inline-block;width:14px;}
 		.output-add{background-color:#000;margin:10px 0 0;padding:10px 15px;border-radius: 5px;}
 		.output-add + .output-add {margin-top:3px;}
 	</style>
@@ -154,7 +155,6 @@
     &lt;p&gt;섹션 내용1&lt;/p&gt;
     &lt;p&gt;섹션 내용2&lt;/p&gt;
 &lt;/section&gt;</code></pre>
-			<p><i class="code">section</i>에 <i class="code">aria-labelledby</i>를 넣으면 영역이라고 안내한다.</p>
 			<div class="aria-output" aria-hidden="true">
 				<dl class="output-dl">
 					<div class="output-group">
@@ -173,6 +173,7 @@
 						</dd>
 					</div>
 				</dl>
+				<p class="info"><i class="code">section</i>에 <i class="code">aria-labelledby</i>를 넣으면 영역이라고 안내한다.</p>
 			</div>
 		</div>
 
