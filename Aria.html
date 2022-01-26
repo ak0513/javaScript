@@ -13,6 +13,7 @@
 
 <body>
 	<style>
+		*,*::before,*::after{box-sizing:border-box;}
 		body {font-size: 14px;line-height: 1.4;background-color:#000;color:#828282;}
 		.a11y {overflow: hidden;position: absolute;width: 1px;height: 1px;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
 		pre code.hljs {font-size:13px;font-family:-apple-system, gitConsolas, 'Courier New', monospace;border-radius: 5px 5px 0 0;}
@@ -34,18 +35,20 @@
 		.output-group + .output-group {margin-top:8px;}
 		.output-dl {margin:0;padding:12px;font-size:14px;color:#fefefe;}
 		.output-dt{flex-shrink: 0;width:80px;}
-		.output-dd{margin:0;color:#98989e;}
+		.output-dd{margin:0;color:#989898;}
 		.output-dd > i {display:inline-block;width:14px;}
 		.output-add{background-color:#000;margin:10px 0 0;padding:10px 15px;border-radius: 5px;}
 		.output-add + .output-add {margin-top:3px;}
 
-		.input-wrap input{color:#000;}
+		.form-wrap {display:flex;justify-content:space-between;padding:20px 10px;}
+		.form-wrap input{width:calc(100% - 70px);height:48px;padding:0 10px;border-radius:5px;border:none;background-color:#1e1e1e;font-size:16px;color:#989898;}
+		.form-wrap .btn-search {width:65px;height:48px;background-color:#1e1e1e;border-radius:5px;border:none;color:#989898;font-size:16px;font-weight:700;}
 	</style>
 
 	<div id="wrap">
-		<div class="input-wrap">
-			<input type="text" class="ipt-search">
-			<button type="button" class="btn-search">검색</button>
+		<div class="form-wrap">
+			<input type="text" class="ipt-search" value="label" placeholder="검색" onkeyup="getAria()">
+			<button name="form" type="button" class="btn-search">검색</button>
 		</div>
 		<h2 class="title">aria-label</h2>
 		<div class="aria">
@@ -243,21 +246,29 @@
 		
 		
 		let btnSearch = document.querySelector('.btn-search');
-		btnSearch.addEventListener('click', function() {
+		btnSearch.addEventListener('click', getAria)
+
+		// window.addEventListener('keydown', function(e) {
+		// 	if(e.keyCode === 13) {
+		// 		getAria();
+		// 	}
+		// })
+		function getAria(e) {
+			// let ele = e.target;
 			let aria = document.querySelectorAll('.aria');
 			let iptValue = document.querySelector('.ipt-search').value;
+			document.querySelectorAll('[data-aria]').forEach(function(el) {
+				el.classList.remove('active')
+			});
 			for(let i = 0; i < aria.length; i++) {
-				
-				document.querySelectorAll('[data-aria]').classList.add('active')
 				let target = aria[i].dataset.aria
-				console.log(target , iptValue)
 				if(iptValue === target) {
-					document.querySelector('[data-aria]').classList.add('active')
+					document.querySelectorAll('[data-aria=' + target + ']').forEach(function(el) {
+						el.classList.add('active')
+					});
 				}
 			}
-
-
-		})
+		}
 
 	</script>
 
