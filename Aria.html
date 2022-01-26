@@ -244,8 +244,8 @@
 	<script>
 		
 		
-		let btnSearch = document.querySelector('.btn-search');
-		btnSearch.addEventListener('click', getAria)
+		// let btnSearch = document.querySelector('.btn-search');
+		// btnSearch.addEventListener('click', getAria)
 
 		// window.addEventListener('keydown', function(e) {
 		// 	if(e.keyCode === 13) {
@@ -261,6 +261,10 @@
 			});
 			for(let i = 0; i < aria.length; i++) {
 				let target = aria[i].dataset.aria
+				console.log(
+					target,
+					// target.split(' ')
+				)
 				if(iptValue === target) {
 					document.querySelectorAll('[data-aria=' + target + ']').forEach(function(el) {
 						el.classList.add('active')
@@ -268,7 +272,8 @@
 				}
 			}
 		}
-
+let aa = '11 22 33 44'
+console.log(aa.split(' '))
 	</script>
 
 
