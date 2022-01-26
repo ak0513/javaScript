@@ -16,7 +16,7 @@
 		*,*::before,*::after{box-sizing:border-box;}
 		body {font-size: 14px;line-height: 1.4;background-color:#000;color:#828282;}
 		.a11y {overflow: hidden;position: absolute;width: 1px;height: 1px;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
-		pre code.hljs {font-size:13px;font-family:-apple-system, Consolas, 'Courier New', monospace;border-radius: 5px 5px 0 0;}
+		pre code.hljs {font-size:13px;font-family:-apple-system,Consolas,'Courier New',monospace;border-radius: 5px 5px 0 0;}
 		.code{background-color:#313136;margin-right:3px;padding:3px 6px;border-radius: 4px;color:#fff;font-size:12px;font-family:-apple-system, Consolas, 'Courier New', monospace;vertical-align:1px;font-style:normal;}
 		#wrap {min-width:360px;padding-top:68px;}
 
@@ -49,6 +49,7 @@
 		<div class="form-wrap">
 			<input type="text" class="ipt-search" placeholder="검색" onkeyup="getAria()">
 		</div>
+		
 		<h2 class="title">aria-label</h2>
 		<div class="aria">
 			<div class="aria-tag">
@@ -74,7 +75,7 @@
 			</div>
 		</div>
 
-		<div class="aria label" data-aria="label">
+		<div class="aria label">
 			<div class="aria-tag">
 				<a href="http://naver.com" target="_blank" title="새창열림" aria-label="네이버 이동">링크1</a>
 				<hr>
@@ -124,7 +125,7 @@
 			</div>
 		</div>
 		
-		<div class="aria label" data-aria="label">
+		<div class="aria label">
 			<div class="aria-tag">
 				<a href="http://naver.com" target="_blank" title="새창열림" aria-label="네이버 이동">링크1</a>
 				<hr>
@@ -150,7 +151,7 @@
 
 
 		<h2 class="title">aria-labelledby</h2>
-		<div class="aria labelledby section" data-aria="labelledby section">
+		<div class="aria labelledby section">
 			<div class="aria-tag">
 				<section aria-labelledby="sectionTit1">
 					<h2 id="sectionTit1">섹션 제목1</h2>
