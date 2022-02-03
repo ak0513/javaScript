@@ -13,17 +13,19 @@
 
 <body>
 	<style>
+		*,*::before,*::after{box-sizing:border-box;}
 		body {font-size: 14px;line-height: 1.4;background-color:#000;color:#828282;}
 		.a11y {overflow: hidden;position: absolute;width: 1px;height: 1px;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
-		pre code.hljs {font-size:13px;font-family:-apple-system, gitConsolas, 'Courier New', monospace;border-radius: 5px 5px 0 0;}
-		.code{background-color:#313136;margin-right:3px;padding:3px 6px;border-radius: 4px;color:#fff;font-size:12px;font-family:-apple-system, gitConsolas, 'Courier New', monospace;vertical-align:1px;font-style:normal;}
-		#wrap {min-width:360px;}
+		pre code.hljs {font-size:13px;font-family:-apple-system,Consolas,'Courier New',monospace;border-radius: 5px 5px 0 0;}
+		.code{background-color:#313136;margin-right:3px;padding:3px 6px;border-radius: 4px;color:#fff;font-size:12px;font-family:-apple-system, Consolas, 'Courier New', monospace;vertical-align:1px;font-style:normal;}
+		#wrap {min-width:360px;padding-top:68px;}
 
-		.title{margin:30px 10px 20px;color:#fff;}
+		.title{display:none;margin:30px 10px 20px;color:#fff;}
+		.title.active{display:block;}
 		p.info {margin:0;padding:12px 10px;border-top:1px dashed #3d3d41;color:#3b82f6;}
 
-		.aria {position:relative;margin:10px;}
-		.aria.active {padding:30px;}
+		.aria {display:none;position:relative;margin:10px;}
+		.aria.active {display:block;}
 		.aria + .aria {margin-top:20px;}
 		.aria-tag * {position:absolute;top:0;left:0;width: 1px;height: 1px;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(50%);}
 		.aria pre {margin:10px 0 0;}
@@ -34,19 +36,21 @@
 		.output-group + .output-group {margin-top:8px;}
 		.output-dl {margin:0;padding:12px;font-size:14px;color:#fefefe;}
 		.output-dt{flex-shrink: 0;width:80px;}
-		.output-dd{margin:0;color:#98989e;}
+		.output-dd{margin:0;color:#989898;}
 		.output-dd > i {display:inline-block;width:14px;}
 		.output-add{background-color:#000;margin:10px 0 0;padding:10px 15px;border-radius: 5px;}
 		.output-add + .output-add {margin-top:3px;}
 
-		.input-wrap input{color:#000;}
+		.form-wrap {position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;padding:10px;background-color:#000;}
+		.form-wrap input{width:100%;height:48px;padding:0 10px;border-radius:5px;border:none;background-color:#1e1e1e;font-size:16px;color:#989898;}
+		/* .form-wrap .btn-search {width:65px;height:48px;background-color:#1e1e1e;border-radius:5px;border:none;color:#989898;font-size:16px;font-weight:700;} */
 	</style>
 
 	<div id="wrap">
-		<div class="input-wrap">
-			<input type="text" class="ipt-search">
-			<button type="button" class="btn-search">검색</button>
+		<div class="form-wrap">
+			<input type="text" class="ipt-search" placeholder="검색" onkeyup="getAria()">
 		</div>
+		
 		<h2 class="title">aria-label</h2>
 		<div class="aria">
 			<div class="aria-tag">
@@ -72,7 +76,7 @@
 			</div>
 		</div>
 
-		<div class="aria" data-aria="label">
+		<div class="aria label">
 			<div class="aria-tag">
 				<a href="http://naver.com" target="_blank" title="새창열림" aria-label="네이버 이동">링크1</a>
 				<hr>
@@ -122,7 +126,7 @@
 			</div>
 		</div>
 		
-		<div class="aria" data-aria="label">
+		<div class="aria label">
 			<div class="aria-tag">
 				<a href="http://naver.com" target="_blank" title="새창열림" aria-label="네이버 이동">링크1</a>
 				<hr>
@@ -148,7 +152,7 @@
 
 
 		<h2 class="title">aria-labelledby</h2>
-		<div class="aria" data-aria="labelledby section">
+		<div class="aria labelledby section">
 			<div class="aria-tag">
 				<section aria-labelledby="sectionTit1">
 					<h2 id="sectionTit1">섹션 제목1</h2>
@@ -242,25 +246,24 @@
 
 
 	<script>
-		
-		
-		let btnSearch = document.querySelector('.btn-search');
-		btnSearch.addEventListener('click', function() {
+		function getAria() {
 			let aria = document.querySelectorAll('.aria');
 			let iptValue = document.querySelector('.ipt-search').value;
+			aria.forEach(function(el) {
+				el.classList.remove('active')
+			});
 			for(let i = 0; i < aria.length; i++) {
-				
-				document.querySelectorAll('[data-aria]').classList.add('active')
-				let target = aria[i].dataset.aria
-				console.log(target , iptValue)
-				if(iptValue === target) {
-					document.querySelector('[data-aria]').classList.add('active')
+				let target = aria[i].classList
+				for(let i = 0; i < target.length; i++) {
+					if(target[i] === iptValue) {
+						console.log(iptValue)
+						document.querySelectorAll('.' + iptValue).forEach(function(el) {
+							el.classList.add('active')
+						});
+					}
 				}
 			}
-
-
-		})
-
+		}
 	</script>
 
 
