@@ -268,39 +268,25 @@
 
 
 	<hr><hr>
-	<ul aria-label="신한금융그룹">
-		<li>dfdsf</li>
-	</ul>
-
-	<section aria-label="aa">
-		<div>section1</div>
-	</section>
-	<div aria-hidden="true">섹션1 aa 영역 랜드마크</div>
-
-	<section aria-label="aa">
-		<h2>section1</h2>
-	</section>
-	<div aria-hidden="true">섹션1 머리말 레벨2 aa 영역 랜드마크</div>
-
-	<br>
 	<section aria-labelledby="aa">
 		<h2 id="aa">섹션 제목1</h2>
-		<p>섹션 내용</p>
+		<p>aria-labelledby로 연결된 섹션</p>
 	</section>
 	<br>
 	<section aria-labelledby="bb">
 		<h2 id="">섹션 제목2</h2>
-		<p>섹션 내용</p>
+		<p>aria-labelledby만 있는 섹션</p>
 	</section>
 	<br>
 	<section aria-labelledby="cc">
-		<p>섹션 내용</p>
+		<p>aria-labelledby로 연결된 섹션 id가 section바로 다음에 위치하지 않음</p>
 		<h2 id="cc">섹션 제목3</h2>
 	</section>
-	<br>
-	<section aria-labelledby="">
-		<h2 id="">섹션 제목4</h2>
+	<section>
+		<h2 id="cc">섹션 제목3</h2>
+		<p>아무것도 없는 섹션</p>
 	</section>
+	<br>
 	<br>
 
 	<h3>
