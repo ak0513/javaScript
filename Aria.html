@@ -268,6 +268,7 @@
 
 <hr>
 <header>header</header>
+header는 최상위여야 배너 랜드마크가 된다.
 <section><header>section - header</header></section>
 <article><header>article - header</header></article>
 <aside><header>aside - header</header></aside>
@@ -278,30 +279,30 @@
 <aside>aside</aside>
 <footer>footer</footer>
 <style>#aa::after{content:'다음'}</style>
-	<div id="aa" style="visibility:hidden">가나다</div>
+	<div id="aa" style="visibility:hidden">visibility:hidden</div>
 	<hr>
-	<div id="aa">가나다</div>
-	<hr>
+
 	<section aria-labelledby="aa">
 		<h2 id="aa">섹션 제목1</h2>
 		<p>aria-labelledby로 연결된 섹션</p>
 	</section>
-	<br>
+	<hr>
 	<section aria-labelledby="bb">
-		<h2 id="">섹션 제목2</h2>
+		<h2>섹션 제목2</h2>
 		<p>aria-labelledby만 있는 섹션</p>
 	</section>
-	<br>
+	<hr>
 	<section aria-labelledby="cc">
+		<p>aria-labelledby로 연결된 섹션 id가 section바로 다음에 위치하지 않음</p>
 		<p>aria-labelledby로 연결된 섹션 id가 section바로 다음에 위치하지 않음</p>
 		<h2 id="cc">섹션 제목3</h2>
 	</section>
+	<hr>
 	<section>
 		<h2 id="cc">섹션 제목3</h2>
 		<p>아무것도 없는 섹션</p>
 	</section>
-	<br>
-	<br>
+	<hr>
 
 	<h3>
 		<button aria-expanded="true" class="Accordion-trigger" aria-controls="" id="accordion1id" aria-disabled="true">
