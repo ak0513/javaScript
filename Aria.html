@@ -48,7 +48,7 @@
 
 	<div id="wrap">
 		<div class="form-wrap">
-			<input type="text" class="ipt-search" placeholder="검색" onkeyup="getAria()">
+			<input type="text" class="ipt-search" placeholder="검색" value="label" onkeyup="getAria()">
 		</div>
 		
 		<h2 class="title label">aria-label</h2>
@@ -276,10 +276,14 @@ header는 최상위여야 배너 랜드마크가 된다.
 <section>section</section>
 <article>article</article>
 <main>main</main>
+<div><main>main</main></div>
 <aside>aside</aside>
 <footer>footer</footer>
-<style>#aa::after{content:'다음'}</style>
-	<div id="aa" style="visibility:hidden">visibility:hidden</div>
+<hr>
+	<div id="aa">:::after</div>
+	<style>#aa::after{content:'다음'}</style>
+	<hr>
+	<div style="visibility:hidden">visibility:hidden</div>
 	<hr>
 
 	<section aria-labelledby="aa">
