@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="grandparents">
+		<div class="parents">
+			<div>11</div><div class="child1"></div>
+			<!--주석(Comment)-->
+			텍스트
+			<p class="child2"></p><span class="child3"></span>
+		</div>
+	</div>
+	<script>
+		const parents = document.querySelector(".parents");
+		const child = document.querySelector(".child1");
+	</script>
+	자바스크립트를 이용하여 HTML요소의 자식 노드와 요소에 접근하는 방법
+
+	노드에는 3개, Text와 Element, Comment가 포함되어 있습니다. 
+
+	Text : 의미대로 텍스트 문자열
+	Element : HTML 요소
+	Comment : 주석
+
+	<blockquote>node는 DOM 계층구조에 속한 객체의 어떤 타입이든 가리킬 수 있는 이름입니다. node는 내장 DOM 엘리먼트(document, document.body)나 HTML의 특정 태그(input, p) 또는 텍스트 노드가 될 수도 있습니다. 그니까 간단히 얘기해서 <b>node는 아무 DOM 객체나 될 수 있다</b>는 거죠.<br>
+	element는 node의 특정한 하나의 타입인데요. 노드에는 정말 많은 타입이 있습니다... (텍스트 노드, 주석 노드, document 노드 기타 등등) <b>element는 HTML tag로 바로 특정할 수 있거나, id나 class 같은 속성을 가진 것들입니다.</b>
+	' 각 노드들은 .nodeType이라는 프로퍼티를 갖고 있는데, 이게 바로 그 노드가 어떤 타입인지 말해 주죠. ELEMENT_NODE 타입은 nodeType 프로퍼티 값이 1인 특정 타입입니다.</blockquote>
+
+	Node의 여러 타입 중 하나가 element이며 element는 Node보다 더 작은 개념이라고 생각하면 될 듯하다.
+
+	1. 노드
+	1-1. 자식노드 접근
+	childNodes
+	NodeList로 반환(유사 배열 객체)
+	<script>
+		console.log('childNodes',parents.childNodes)
+		console.log('firstChild', parents.firstChild)
+		console.log('lastChild', parents.lastChild)
+	</script>
+
+	1-2. 부모노드 접근 / 부모의 부모
+	parentNode
+	<script>
+		console.log('parentNode', child.parentNode)
+		console.log('parentNode.parentNode', child.parentNode.parentNode)
+	</script>
+
+	1-3. 형제노드
+	previousSibling
+	nextSibling
+	<script>
+		console.log('previousSibling', child.previousSibling)
+		console.log('nextSibling', child.nextSibling)
+	</script>
+
+
+	2. 요소
+	2-1. 자식요소
+	children
+	HTMLCollection으로 반환(유사 배열 객체)
+	<script>
+		console.log('children', parents.children)
+		console.log('firstElementChild', parents.firstElementChild)
+		console.log('lastElementChild', parents.lastElementChild)
+	</script>
+
+	2-2. 부모요소
+	parentElement
+	<script>
+		console.log('parentElement', child.parentElement)
+		console.log('parentElement.parentElement', child.parentElement.parentElement)
+	</script>
+
+	2-3. 형제요소
+	previousSibling
+	nextSibling
+	<script>
+		console.log('previousElementSibling', child.previousElementSibling)
+		console.log('nextElementSibling', child.nextElementSibling)
+	</script>
+
+
+	3. parentNode, parentElement 차이점
+	<script>
+		console.log('document.querySelector(\'html\').parentNode', document.querySelector('html').parentNode)
+		console.log('document.querySelector(\'html\').parentElement', document.querySelector('html').parentElement)
+	</script>
+
+
+	<h2>HTMLCollection</h2>
+	<p>getElementsByTagname, getElementsByClassName 메서드가 반환하는 HTMLCollection 객체는 노드 객체의 상태 변화를 실시간으로 반영하는 살아있는 live DOM 컬렉션 객체입니다. 여기서 '살아있다'라는 의미는 객체가 스스로 실시간 노드 객체의 상태 변경을 반영함을 의미합니다. 간단한 예시를 보며 이해해봅시다.</p>
+	<div id="app">
+		<h1>test</h1>
+		<div class="greeting">Hello</div>
+	</div>
+	<script>
+		const $app = document.getElementById('app');
+		const $greeting = document.getElementsByClassName('greeting');
+		console.log($greeting, $greeting.length); // HTMLCollection [div.greeting] 1
+		$app.insertAdjacentHTML('beforeend', '<div class="greeting">Hello</div>');
+		console.log($greeting, $greeting.length); // HTMLCollection(2) [div.greeting, div.greeting] 2
+	</script>
+	<p>
+		처음 greeting이라는 class 명을 가진 요소는 하나 밖에 없습니다. 따라서 첫번째 console.log는 길이가 1인 HTMLCollection을 출력하죠. 그러나 이후에 greeting이라는 class 명을 가진 요소를 추가하면 console.log는 길이가 2인 HTMLCollection를 출력합니다. 우리는 분명히 $greeting을 const로 선언하였습니다. 그리고 $greeting을 재선언하거나 재할당하지도 않았죠. 그럼에도 값이 변경되었습니다. 이는 HTMLCollection이 live 객체이기 때문에 요소 노드의 추가나 삭제를 바로 반영해주기 때문입니다.
+	</p>
+
+
+	<h2>NodeList</h2>
+	<p>querySelectorAll 등의 메서드가 반환하는 NodeList 객체는 노드 객체의 상태 변화를 반영하지 않는 non-live DOM 컬렉션 객체입니다. NodeList는 앞의 HTMLCollection과 다르게 노드가 변경되도 그 상태를 반영하지 않습니다. 마찬가지로 예시를 보면서 이해해봅시다.</p>
+	<div id="app2">
+		<h1>test</h1>
+		<div class="greeting2">Hello</div>
+	</div>
+	<script>
+		const $app2 = document.getElementById('app2');
+		const $greeting2 = document.querySelectorAll('.greeting2');
+		console.log($greeting2, $greeting2.length); // NodeList [div.greeting] 1
+		$app2.insertAdjacentHTML('beforeend', '<div class="greeting2">Hello</div>');
+		console.log($greeting2, $greeting2.length); // NodeList [div.greeting] 1
+	</script>
+</body>
+</html>
