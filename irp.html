@@ -8,12 +8,12 @@
 </head>
 <body>
 	<style>
-		.tbl{overflow: auto;border:1px solid #ccc}
-		table{width: 100%;border-collapse: collapse;min-width: 640px;position: relative;}
+		.tbl{position: relative;overflow: auto;}
+		table{width: 100%;border-collapse: collapse;min-width: 640px;table-layout: fixed;}
 		table th, td{border:1px solid #ccc;padding:15px;font-size:14px;}
-		table th {position: sticky;background-color: #f8f8f8;}
+		table thead th {position: sticky;background-color: #f8f8f8;}
 		table thead th {top:0;}
-		table tbody th {left:0;}
+		/* table tbody th {left:0;} */
 	
 	</style>
 	<div class="tbl">
