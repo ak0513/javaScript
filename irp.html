@@ -19,6 +19,10 @@
 			text-decoration: none;
 			color:#333;
 		}
+		img{
+			max-width:100%;
+			height: auto;
+		}
 		table {
 			min-width: 640px;
 			table-layout: fixed;
@@ -96,9 +100,11 @@
 			background-color:#ccc;
 		}
 
-		li + li {margin-top:4px;}
+		
+		.link > li + li {margin-top:10px;}
 		.link a { text-decoration: underline;font-weight: 700;}
 		.link ol {margin-top:7px;}
+		.link ol li + li {margin-top:3px;}
 	</style>
 	<div class="left"></div>
 	<table>
@@ -145,8 +151,8 @@
 			</tr>
 			<tr>
 				<th scope="row"><span>중도인출</span></th>
-				<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능)</td>
-				<td>중도인출 자유</td>
+				<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능/16.5% 기타 소득세 발생)</td>
+				<td>중도인출 자유<br>(추가 납입금 제외 16.5% 기타 소득세 발생)</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -155,10 +161,16 @@
 				<td>최대 400만원<br>(연간총급여 1.2억원/종합소득 1억원 초과시 300만원, 13.2% ~ 16.5%)</td>
 				<td>연말정산 혜택 없음</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<th scope="row"><span>계좌수수료</span></th>
 				<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능)</td>
 				<td>소득공제 받지 않은 금액에 대해 원금 출금 가능<br>(400만원 이상 입금액)</td>
+				<td></td>
+			</tr> -->
+			<tr>
+				<th scope="row"><span>계좌수수료</span></th>
+				<td>있음</td>
+				<td>없음</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -188,13 +200,13 @@
 				<td></td>
 			</tr>
 			<tr>
-				<th scope="row"><span>연금수령 세금</span></th>
+				<th scope="row"><span>연금수령<br>세금</span></th>
 				<td colspan="2">만70세 미만 5.5%<br>만80세 미만 4.4%<br>만80세 이상 3.3%</td>
 				<td></td>
 			</tr>
 			<tr>
-				<th scope="row"><span></span></th>
-				<td></td>
+				<th scope="row"><span>퇴직금</span></th>
+				<td>퇴직금을 IRP에 넣으면 퇴직소득세 없음/단, 중도 인출시 발생</td>
 				<td></td>
 				<td></td>
 			</tr>
@@ -250,12 +262,17 @@
 	</table>
 	<ul class="link">
 		<li>
-			<a href="https://blog.naver.com/celldna/222481476507" target="_blank">
-				연금저축300, IRP400 하세요
-			</a>
+			<a href="https://blog.naver.com/celldna/222481476507" target="_blank">연금저축300, IRP400 하세요</a>
 			<ol>
 				<li>IRP는 적극적인 투자를 못한다(안정자산30%)</li>
 				<li>IRP는 중도인출을 못한다.</li>
+			</ol>
+		</li>
+		<li>
+			<a href="https://blog.naver.com/celldna/221981874647" target="_blank">일반 펀드 대신 연금 펀드</a>
+			<ol>
+				<li>일반 펀드는 매매차익에 대해 15.4% 과세(국내 펀드만 제외)</li>
+				<li>연금 펀드는 매매차익에 대해 세금 0원/인출 시 16.5% 기타 소득세 부과</li>
 			</ol>
 		</li>
 		<li><a href="" target="_blank"></a></li>
@@ -266,8 +283,9 @@
 		<li><a href="" target="_blank"></a></li>
 		<li><a href="" target="_blank"></a></li>
 		<li><a href="" target="_blank"></a></li>
-		<li><a href="" target="_blank"></a></li>
 	</ul>
+
+	<div><img src="./irp1.jpg"></div>
 </body>
 
 </html>
