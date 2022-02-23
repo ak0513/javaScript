@@ -31,7 +31,7 @@
 			overflow-x: auto;
 			padding-bottom:7px;
 		}
-		table {
+		.tbl table {
 			min-width: 640px;
 			table-layout: fixed;
 			margin: 0;
@@ -40,15 +40,27 @@
 			border-collapse: collapse;
 			font-size: 14px;
 		}
-		table th,
-		table td {
+		.tbl table th,
+		.tbl table td {
+			padding:20px 15px;
 			border: 1px solid #ccc;
 		}
 
-		table th {
-			padding: 30px 40px;
+		.tbl table th {
+			position: relative;
+			border-right:none;
 		}
-		table th > span {
+		.tbl table th::after{
+			content:'';
+			display:block;
+			position:absolute;
+			top:0;
+			right:-1px;
+			bottom:0;
+			width:1px;
+			background-color: #ccc;
+		}
+		/* .tbl table th > span {
 			position: absolute;
 			top:0;
 			left:0;
@@ -58,9 +70,9 @@
 			align-items: center;
 			justify-content: center;
 			border-right:1px solid #ccc;
-		}
+		} */
 
-		table thead th {
+		.tbl table thead th {
 			position: sticky;
 			top: 0;
 			z-index: 1;
@@ -70,33 +82,38 @@
 			border-top:none;
 		}
 
-		table thead th > span {
-			bottom:-1px;
+		.tbl table thead th > span {
+			/* bottom:-1px;
 			border-top:1px solid #ccc;
-			border-bottom:1px solid #ccc;
+			border-bottom:1px solid #ccc; */
 		}
 
-		table thead th:first-child {
+		.tbl table thead th:first-child {
 			position: sticky;
 			left: 0;
 			z-index: 2;
 		}
 
-		table td {
+		.tbl table td {
 			background: #fff;
 			padding: 10px 15px;
 		}
 
 
-		table tbody th {
+		.tbl table tbody th {
 			position: sticky;
 			left: 0;
 			background: #f8f8f8;
 			/* border-left:none; */
 			z-index: 1;
 		}
-		table tbody th:first-child {
+		.tbl table tbody th:first-child {
 			width:10%;
+		}
+
+		.tbl table td ul {
+			margin:0;
+			padding-left: 15px;
 		}
 
 		.tbl.scroll thead th {
@@ -134,7 +151,7 @@
 					<th scope="col" class="th1"><span>구분</span></th>
 					<th scope="col" class="th2"><span>IRP(개인형 퇴직연금)</span></th>
 					<th scope="col" class="th3"><span>연금저축(펀드,보험)</span></th>
-					<th scope="col" class="th4"><span>연금보험</span></th>
+					<th scope="col" class="th4"><span>ISA 계좌</span></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -152,19 +169,21 @@
 				</tr>
 				<tr>
 					<th scope="row"><span>개설</span></th>
-					<td></td>
+					<td>증권사, 보험사</td>
 					<td>
-						펀드: 증권사/자유납/원금비보장/예금자비보호<br>
-						보험: 보험사/정기납/원금보장/예금자보호
+						<ul>
+							<li>펀드: 증권사/자유납/원금비보장/예금자비보호</li>
+							<li>보험: 보험사/정기납/원금보장/예금자보호</li>
+						</ul>
 					</td>
 					<td></td>
 				</tr>
 
 				<tr>
 					<th scope="row"><span>의무<br>가입기간</span></th>
-					<td>5년 이상 적립 후 만 55세부터 10년 이상 연금 수령<br>(퇴직금이 IRP로 입금된 경우 가입가간에 상관없이 만 55세부터 연금 수령)</td>
-					<td>5년 이상 적립 후 만 55세부터 10년 이상 연금 수령</td>
-					<td>월 납입금 150만원 또는 일시납 1억원 이하 5년 이상 납입, 10년 이상 유지</td>
+					<td>5년 이상<br>(퇴직금이 IRP로 입금된 경우 가입기간에 상관없이 만 55세부터 연금 수령)</td>
+					<td>5년 이상</td>
+					<td>3년 이상</td>
 				</tr>
 				<tr>
 					<th scope="row"><span>납입한도</span></th>
@@ -183,8 +202,8 @@
 							target="_blank">주가연계파생결합사채(ELB)</a>, <a
 							href="https://terms.naver.com/entry.naver?docId=2065413&cid=42107&categoryId=42107"
 							target="_blank">주가연계증권(ELS)</a>, 채권, 리츠, 펀드 등</td>
-					<td>펀드, ETF</td>
-					<td></td>
+					<td>현금, 펀드, ETF</td>
+					<td>ETF, ELS, 펀드, 적금, RP, 주식</td>
 				</tr>
 				<tr>
 					<th scope="row"><span>위험상품<br>투자비율</span></th>
@@ -193,33 +212,59 @@
 					<td></td>
 				</tr>
 				<tr>
-					<th scope="row"><span>계좌운용<br>수수료</span></th>
-					<td>있음<br>(회사마다 다름/0.3%정도)</td>
-					<td>없음</td>
-					<td></td>
+					<th scope="row"><span>계좌<br>수수료</span></th>
+					<td>O<br>(비대면 계좌 개설시 면제)</td>
+					<td>X</td>
+					<td>O</td>
+				</tr>
+				<tr>
+					<th scope="row"><span>거래<br>수수료</span></th>
+					<td>X</td>
+					<td>O<br>(0.0004~0.2%)</td>
+					<td>O<br>(0.0004~0.2%)</td>
+				</tr>
+				<tr>
+					<th scope="row"><span>ETF 수수료<br>(증권 거래세)</span></th>
+					<td colspan="3">X</td>
 				</tr>
 				<tr>
 					<th scope="row"><span>연금<br>수령시</span></th>
 					<td colspan="2">
-						3.3~5.5% 소득세가 부과<br>
+						만 55세부터 10년 이상부터 선택 가능<br>
+						3.3~5.5% 소득세가 부과<br><br>
 						<ul>
 							<li>만70세 미만 5.5%</li>
 							<li>만80세 미만 4.4%</li>
 							<li>만80세 이상 3.3%</li>
 						</ul>
 					</td>
-					<td>비과세</td>
+					<td>200만원 비과세/<br>나머비 9.9%</td>
 				</tr>
 				<tr>
 					<th scope="row"><span>중도인출</span></th>
-					<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능/16.5% 기타 소득세 발생)</td>
-					<td>중도인출 자유<br>(추가 납입 제외한 금액에 대해 16.5% 기타 소득세 발생<br>소득세법에서 정하는 '부득이한 인출'에 해당하는 경우에는 인출 금액에 대하여 3.3~5.5%의 연금소득세가 적용)</td>
+					<td>불가<br>(16.5% 기타 소득세 발생)</td>
+					<td>중도인출 자유<br>(추가 납입 제외한 금액에 대해 16.5% 기타 소득세 발생</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row"><span>중도인출<br>가능경우</span></th>
+					<td colspan="2">소득세법에서 정하는 '부득이한 인출'에 해당하는 경우에는 인출 금액에 대하여 3.3~5.5%의 연금소득세가 적용</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row"><span>과세이연</span></th>
+					<td colspan="2">계좌 내 구매한 상품의 이자/배당 발생시 소득세(15.4%)는 연금을 받을때까지 연기<br>연금 수령시 연금소득세를 부과(3.3~5.5%)</td>
 					<td></td>
 				</tr>
 				<tr>
 					<th scope="row"><span>담보대출</span></th>
-					<td>불가능</td>
-					<td>가능</td>
+					<td>X</td>
+					<td>O</td>
+					<td>O</td>
+				</tr>
+				<tr>
+					<th scope="row"><span>종합소득세</span></th>
+					<td colspan="2">연 1,200만원 이상은 종합소득세 부과</td>
 					<td></td>
 				</tr>
 				
@@ -240,9 +285,10 @@
 				<tr>
 					<th scope="row"><span>타사이관</span></th>
 					<td colspan="2">
+						IRP간 이전/연금저축간 이전은 가능/<br>
+						IRP과 연금저축간 이전은 소득세법상 일정 요건을 충족해야 가능<br><br>
 						기존에 가입한 연금저축 상품이 전부 매도 후 이관이 된다.<br>
 						이관한 기관에 예수금으로 매수 진행<br>
-						연금저축보험만 이관 가능
 					</td>
 					<td></td>
 				</tr>
@@ -342,11 +388,7 @@
 			</ol>
 		</li>
 		<li>
-			<a href="" target="_blank"></a>
-			<ol>
-				<li></li>
-				<li></li>
-			</ol>
+			<a href="https://blog.naver.com/snpumds/222261798735" target="_blank">IRP, ISA, 연금저축 비교</a>
 		</li>
 		<li>
 			<a href="" target="_blank"></a>
@@ -418,7 +460,7 @@
 		<tbody>
 			<tr class="se-tr">
 				<td class="se-cell" colspan="1" rowspan="1"
-					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					style=" height: 43.0px;  background-color: #b0f1ff;">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align-center "
 							id="SE-0363a23f-1ed9-46cf-b11f-43d7931e14c4"><span class="se-fs- se-ff-   "
@@ -427,7 +469,7 @@
 	
 				</td>
 				<td class="se-cell" colspan="1" rowspan="1"
-					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					style=" height: 43.0px;  background-color: #b0f1ff;">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align-center "
 							id="SE-bbb5f9e7-2781-4b78-9fe6-0e4d75efe8be"><span class="se-fs- se-ff-   "
@@ -436,7 +478,7 @@
 	
 				</td>
 				<td class="se-cell" colspan="1" rowspan="1"
-					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					style=" height: 43.0px;  background-color: #b0f1ff;">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align-center "
 							id="SE-994dfff3-0823-4ab8-9a81-d7209e353e04"><span class="se-fs- se-ff-   "
@@ -445,7 +487,7 @@
 	
 				</td>
 				<td class="se-cell" colspan="1" rowspan="1"
-					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					style=" height: 43.0px;  background-color: #b0f1ff;">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align-center "
 							id="SE-cafe6947-436f-465f-acbe-1da41ab7e7b3"><span class="se-fs- se-ff-   "
@@ -455,7 +497,7 @@
 				</td>
 			</tr>
 			<tr class="se-tr">
-				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+				<td class="se-cell" colspan="1" rowspan="1" style=" height: 43.0px;  ">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align- "
 							id="SE-0087af97-ba7b-4570-9a36-21e2a9993aad"><span class="se-fs- se-ff-   "
@@ -463,7 +505,7 @@
 					</div>
 	
 				</td>
-				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+				<td class="se-cell" colspan="1" rowspan="1" style=" height: 43.0px;  ">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align- "
 							id="SE-2d6879fb-0b8c-470e-ae25-82745463b3bb"><span class="se-fs- se-ff-   "
@@ -476,7 +518,7 @@
 					</div>
 	
 				</td>
-				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+				<td class="se-cell" colspan="1" rowspan="1" style=" height: 43.0px;  ">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align- "
 							id="SE-b6739185-396d-4719-9fdc-57ac20be7dda"><span class="se-fs- se-ff-   "
@@ -504,7 +546,7 @@
 					</div>
 	
 				</td>
-				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+				<td class="se-cell" colspan="1" rowspan="1" style=" height: 43.0px;  ">
 					<div class="se-module se-module-text">
 						<p class="se-text-paragraph se-text-paragraph-align- "
 							id="SE-bfbd5248-d941-4e1d-9341-4b95386f7451"><span class="se-fs- se-ff-   "
