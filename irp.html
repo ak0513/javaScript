@@ -5,26 +5,31 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<title>Document</title>
 </head>
 
 <body>
 	<style>
+		*{box-sizing: border-box;}
 		body{
 			margin:0;
 			padding:0;
 			font-size: 14px;
+			text-size-adjust: none;
+			word-break: keep-all;
 		}
 		a {
-			text-decoration: none;
-			color:#333;
+			color:#007bff;
+			font-weight: 700;
 		}
 		img{
 			max-width:100%;
 			height: auto;
 		}
 		.tbl {
-			overflow: auto;
+			overflow-x: auto;
+			padding-bottom:7px;
 		}
 		table {
 			min-width: 640px;
@@ -35,9 +40,8 @@
 			border-collapse: collapse;
 			font-size: 14px;
 		}
-
-		table td,
-		table th {
+		table th,
+		table td {
 			border: 1px solid #ccc;
 		}
 
@@ -61,13 +65,14 @@
 			top: 0;
 			z-index: 1;
 			width: 25vw;
-			padding:15px 10px;
+			padding:20px 10px;
 			background: #f8f8f8;
 			border-top:none;
 		}
 
 		table thead th > span {
 			bottom:-1px;
+			border-top:1px solid #ccc;
 			border-bottom:1px solid #ccc;
 		}
 
@@ -93,6 +98,18 @@
 		table tbody th:first-child {
 			width:10%;
 		}
+
+		.tbl.scroll thead th {
+			display:block;
+			position:fixed;
+			top:-1px;
+			height:50px;
+			padding:0;
+		}
+
+
+
+
 		.left {
 			position: fixed;
 			top:0;
@@ -114,10 +131,10 @@
 		<table>
 			<thead>
 				<tr>
-					<th scope="col"><span>구분</span></th>
-					<th scope="col"><span>IRP(개인형 퇴직연금)</span></th>
-					<th scope="col"><span>연금저축(펀드,보험)</span></th>
-					<th scope="col"><span>연금보험</span></th>
+					<th scope="col" class="th1"><span>구분</span></th>
+					<th scope="col" class="th2"><span>IRP(개인형 퇴직연금)</span></th>
+					<th scope="col" class="th3"><span>연금저축(펀드,보험)</span></th>
+					<th scope="col" class="th4"><span>연금보험</span></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -136,22 +153,32 @@
 				<tr>
 					<th scope="row"><span>개설</span></th>
 					<td></td>
-					<td>펀드: 증권사<br>보험: 보험사</td>
+					<td>
+						펀드: 증권사/자유납/원금비보장/예금자비보호<br>
+						보험: 보험사/정기납/원금보장/예금자보호
+					</td>
 					<td></td>
 				</tr>
+
 				<tr>
-					<th scope="row"><span>계좌</span></th>
-					<td>ISP</td>
-					<td>ISA</td>
-					<td></td>
+					<th scope="row"><span>의무<br>가입기간</span></th>
+					<td>5년 이상 적립 후 만 55세부터 10년 이상 연금 수령<br>(퇴직금이 IRP로 입금된 경우 가입가간에 상관없이 만 55세부터 연금 수령)</td>
+					<td>5년 이상 적립 후 만 55세부터 10년 이상 연금 수령</td>
+					<td>월 납입금 150만원 또는 일시납 1억원 이하 5년 이상 납입, 10년 이상 유지</td>
 				</tr>
 				<tr>
 					<th scope="row"><span>납입한도</span></th>
-					<td colspan="2">연 1,800만원(전 금융기관 연금저축 + IRP + DC 합산)</td>
+					<td colspan="2">연 1,800만원(연금저축 + IRP + DC 합산)</td>
 					<td></td>
 				</tr>
 				<tr>
-					<th scope="row"><span>투자가능상품</span></th>
+					<th scope="row"><span>세액<br>공제한도</span></th>
+					<td>최대 700만원<br>(세액공제는 DC형, 연금저축과 합산 적용, 13.2% ~ 16.5%)</td>
+					<td>최대 400만원<br>(연간총급여 1.2억원/종합소득 1억원 초과시 300만원, 13.2% ~ 16.5%)</td>
+					<td>연말정산 혜택 없음</td>
+				</tr>
+				<tr>
+					<th scope="row"><span>투자<br>가능상품</span></th>
 					<td>예금, <a href="https://terms.naver.com/entry.naver?docId=2055225&cid=43667&categoryId=43667"
 							target="_blank">주가연계파생결합사채(ELB)</a>, <a
 							href="https://terms.naver.com/entry.naver?docId=2065413&cid=42107&categoryId=42107"
@@ -166,45 +193,50 @@
 					<td></td>
 				</tr>
 				<tr>
-					<th scope="row"><span>중도인출</span></th>
-					<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능/16.5% 기타 소득세 발생)</td>
-					<td>중도인출 자유<br>(추가 납입 제외한 금액에 대해 16.5% 기타 소득세 발생)</td>
+					<th scope="row"><span>계좌운용<br>수수료</span></th>
+					<td>있음<br>(회사마다 다름/0.3%정도)</td>
+					<td>없음</td>
 					<td></td>
 				</tr>
 				<tr>
-					<th scope="row"><span>세액<br>공제한도</span></th>
-					<td>최대 700만원<br>(세액공제는 DC형, 연금저축과 합산 적용, 13.2% ~ 16.5%)</td>
-					<td>최대 400만원<br>(연간총급여 1.2억원/종합소득 1억원 초과시 300만원, 13.2% ~ 16.5%)</td>
-					<td>연말정산 혜택 없음</td>
+					<th scope="row"><span>연금<br>수령시</span></th>
+					<td colspan="2">
+						3.3~5.5% 소득세가 부과<br>
+						<ul>
+							<li>만70세 미만 5.5%</li>
+							<li>만80세 미만 4.4%</li>
+							<li>만80세 이상 3.3%</li>
+						</ul>
+					</td>
+					<td>비과세</td>
 				</tr>
 				<tr>
+					<th scope="row"><span>중도인출</span></th>
+					<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능/16.5% 기타 소득세 발생)</td>
+					<td>중도인출 자유<br>(추가 납입 제외한 금액에 대해 16.5% 기타 소득세 발생<br>소득세법에서 정하는 '부득이한 인출'에 해당하는 경우에는 인출 금액에 대하여 3.3~5.5%의 연금소득세가 적용)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row"><span>담보대출</span></th>
+					<td>불가능</td>
+					<td>가능</td>
+					<td></td>
+				</tr>
+				
+				<!-- <tr>
 					<th scope="row"><span>계좌수수료</span></th>
 					<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능)</td>
 					<td>소득공제 받지 않은 금액에 대해 원금 출금 가능<br>(400만원 이상 입금액)</td>
 					<td></td>
-				</tr>
-				<tr>
-					<th scope="row"><span>계좌<br>수수료</span></th>
-					<td>있음<br>(회사마다 다름)</td>
-					<td>없음</td>
-					<td></td>
-				</tr>
+				</tr> -->
+				
 				<!-- <tr>
 					<th scope="row"><span>과세이연</span></th>
 					<td colspan="2">적립금 운용 수익에 대한 세금(15.4%)을 즉시 내지 않고 연금을 수령할 때 3.3~5.5%의 훨씬 낮은 세율로 낼 수 있다.</td>
 					<td>연말정산 혜택 없음</td>
 				</tr> -->
-				<tr>
-					<th scope="row"><span>의무<br>가입기간</span></th>
-					<td>5년 이상 적립 후 최소 만 55세 이상부터 10년 이상 연금 형태로 수령<br>퇴직금이 IRP로 입금된 경우 가입가간에 상관없이 만 55세부터 연금 수령</td>
-					<td>5년 이상 적립 후 최소 만 55세 이상부터 10년 이상 연금 형태로 수령</td>
-					<td>월 납입금 150만원 또는 일시납 1억원 이하 5년 이상 납입, 10년 이상 유지</td>
-				</tr>
-				<tr>
-					<th scope="row"><span>연금<br>수령시</span></th>
-					<td colspan="2">3.3~5.5% 소득세가 부과</td>
-					<td>비과세</td>
-				</tr>
+				
+				
 				<tr>
 					<th scope="row"><span>타사이관</span></th>
 					<td colspan="2">
@@ -214,11 +246,7 @@
 					</td>
 					<td></td>
 				</tr>
-				<tr>
-					<th scope="row"><span>연금수령<br>세금</span></th>
-					<td colspan="2">만70세 미만 5.5%<br>만80세 미만 4.4%<br>만80세 이상 3.3%</td>
-					<td></td>
-				</tr>
+
 				<tr>
 					<th scope="row"><span>퇴직금</span></th>
 					<td>퇴직금을 IRP에 넣으면 퇴직소득세 없음/단, 중도 인출시 발생</td>
@@ -305,10 +333,12 @@
 			</ol>
 		</li>
 		<li>
-			<a href="" target="_blank"></a>
+			<a href="https://blog.naver.com/bbdblues/222637101410" target="_blank">연금저축보험 단점1</a><br>
+			<a href="https://blog.naver.com/kimgr1010/222472469890" target="_blank">연금저축보험 단점2</a>
 			<ol>
-				<li></li>
-				<li></li>
+				<li>지급조건이 종신이라 자금을 보험사가 가지고 있어 더 많은 운용수익을 보험사가 가지고 간다.</li>
+				<li>사업비 발생</li>
+				<li>중도 해지시 미상각신계약비 발생</li>
 			</ol>
 		</li>
 		<li>
@@ -378,6 +408,150 @@
 
 	<div><img src="./irp1.jpg"></div>
 	<div><img src="./irp2.jpg"></div>
+	소득세법에서 정하는 '부득이한 인출'에 해당하는 경우
+	<div><img src="./irp3.jpg"></div>
+
+
+
+	IRP 투자 가능 상품 및 한도
+	<table class="se-table-content">
+		<tbody>
+			<tr class="se-tr">
+				<td class="se-cell" colspan="1" rowspan="1"
+					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align-center "
+							id="SE-0363a23f-1ed9-46cf-b11f-43d7931e14c4"><span class="se-fs- se-ff-   "
+								id="SE-6b86d65d-b035-4a13-a92d-890b3af62a6b"><b> </b></span></p>
+					</div>
+	
+				</td>
+				<td class="se-cell" colspan="1" rowspan="1"
+					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align-center "
+							id="SE-bbb5f9e7-2781-4b78-9fe6-0e4d75efe8be"><span class="se-fs- se-ff-   "
+								id="SE-d8423ba1-c160-472a-a146-a6d2040dc412"><b>금지</b></span></p>
+					</div>
+	
+				</td>
+				<td class="se-cell" colspan="1" rowspan="1"
+					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align-center "
+							id="SE-994dfff3-0823-4ab8-9a81-d7209e353e04"><span class="se-fs- se-ff-   "
+								id="SE-75296466-3cac-407b-afc8-ce99a058a83e"><b>70% 이내 </b></span></p>
+					</div>
+	
+				</td>
+				<td class="se-cell" colspan="1" rowspan="1"
+					style="width: 25.0%; height: 43.0px;  background-color: #b0f1ff;">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align-center "
+							id="SE-cafe6947-436f-465f-acbe-1da41ab7e7b3"><span class="se-fs- se-ff-   "
+								id="SE-b28e2196-8b9d-4818-80f8-683ecc83a3f0"><b>100% 가능 </b></span></p>
+					</div>
+	
+				</td>
+			</tr>
+			<tr class="se-tr">
+				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-0087af97-ba7b-4570-9a36-21e2a9993aad"><span class="se-fs- se-ff-   "
+								id="SE-1fa0f0cd-4502-4c22-9d91-e5a6b6e575e3">대상 상품 </span></p>
+					</div>
+	
+				</td>
+				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-2d6879fb-0b8c-470e-ae25-82745463b3bb"><span class="se-fs- se-ff-   "
+								id="SE-55f7536a-ecd5-4d00-a091-1bcf9fbff2b9">- 지분증권 (주식 등) </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-3624e68c-9d90-41c6-8f7d-420e6a52f024"><span class="se-fs- se-ff-   "
+								id="SE-39593fe7-8616-4604-9097-a9a49823e89e">- 사모펀드 </span></p>
+					</div>
+	
+				</td>
+				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-b6739185-396d-4719-9fdc-57ac20be7dda"><span class="se-fs- se-ff-   "
+								id="SE-d9df0ae5-cbc2-475c-a940-a082076c66e3">- 채권 (채무증권) </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-455f364a-3d75-4489-bdb4-56cf433cd8fa"><span class="se-fs- se-ff-   "
+								id="SE-1cc075a1-c1c0-48d1-b5b1-284b1ba46cdf">- 주식형펀드(수익증권) </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-e6dcaef9-cb86-4320-ac13-549aa3179f57"><span class="se-fs- se-ff-   "
+								id="SE-02cff48a-f20a-4367-8102-ff4e08c57696">- 파생결합증권 </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-d45a87f2-82b1-46a7-8247-61aa043123de"><span class="se-fs- se-ff-   "
+								id="SE-26b51209-156b-4578-8405-1f9422a21f2b">- 실적배당형보험 </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-7f48046e-9ba7-44f3-8d63-78905c91800d"><span class="se-fs- se-ff-   "
+								id="SE-27e2aea0-34a0-4858-9faf-fbfa756e2475">- ETF </span></p>
+					</div>
+	
+				</td>
+				<td class="se-cell" colspan="1" rowspan="1" style="width: 25.0%; height: 43.0px;  ">
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-bfbd5248-d941-4e1d-9341-4b95386f7451"><span class="se-fs- se-ff-   "
+								id="SE-01cd3014-8aab-4cda-a627-0234ed8c8a63">​</span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-a68bf6d1-8987-4e03-a9db-452fd847609a"><span class="se-fs- se-ff-   "
+								id="SE-602011cb-15c0-49f7-8085-2c294d2559a5">- 원리금보장상품 </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-a4cc0d3b-58a9-4ec6-bfc3-398804fcf98e"><span class="se-fs- se-ff-   "
+								id="SE-bc659816-4557-4cdf-8a06-f07155a91b91">(예,적금/ ELB/ 이율보증보험등) </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-2c942dc2-1a93-4ddd-9d2c-3789f4f4478c"><span class="se-fs- se-ff-   "
+								id="SE-3eb4b427-f81b-4853-9bf6-0b47a102205c">- 채권혼합형 펀드* </span></p>
+					</div>
+					<div class="se-module se-module-text">
+						<p class="se-text-paragraph se-text-paragraph-align- "
+							id="SE-e335b3c8-a9cf-4012-8ff6-cc39bb1d40a6"><span class="se-fs- se-ff-   "
+								id="SE-2811bd78-2b8a-49cc-bfbd-6d74594aebf2">- IRP 전용 TDF** </span></p>
+					</div>
+	
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- <script>
+		var th1W = $('.th1').outerWidth()
+		var th2W = $('.th2').outerWidth()
+		var th3W = $('.th3').outerWidth()
+		var th4W = $('.th4').outerWidth()
+		$(window).on('scroll', function() {
+			// var th1W = document.querySelector('.th1').clientWidth
+			
+			if($(window).scrollTop() > 50) {
+				$('.tbl').addClass('scroll');
+				$('.th1').width(th1W);
+			} else {
+				$('.tbl').removeClass('scroll');
+			}
+		})
+	</script> -->
 </body>
 
 </html>
