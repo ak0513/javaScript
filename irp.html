@@ -27,6 +27,12 @@
 			max-width:100%;
 			height: auto;
 		}
+		p {
+			margin-top:0;
+		}
+		body p {
+			padding-left:20px;
+		}
 		table {
 			table-layout: fixed;
 			margin: 0;
@@ -125,6 +131,7 @@
 		}
 
 		.tit {margin:100px 0 20px;padding-left:20px;font-size:18px;}
+		.tit2 {margin:20px 0 10px;padding-left:20px;font-size:16px;}
 		.left + .tit {margin-top:30px;}
 		
 		.link {padding-right:15px;}
@@ -387,23 +394,87 @@
 		<li>증권사별 ETF 매매 수수료가 다르다. ETF 운용보수는 어떤 증권사건 같습니다.</li>
 	</ol>
 
-
-	주식/기타/현금/채권<br>
+	<h2 class="tit">포트폴리오</h2>
+	<p>자산 종류: 주식/기타/현금/채권</p>
+	<ul>
+		<li>주식/기타 - 변동성이 크다 위험자산</li>
+		<li>현금/채권 - 변동성이 작다 안정자산</li>
+	</ul>
 	
-	주식/기타 - 변동성이 크다 위험자산<br>
-	
-	<h2 class="tit">주식</h2>
+	<h3 class="tit2">주식</h3>
 	<ol class="tip">
 		<li>국내 주식</li>
 		<li>해외 주식</li>
 	</ol>
+	<h3 class="tit2">ETF(펀드형 주식)</h3>
+	<ol class="tip">
+		<li>
+			상품에 H가 붙으면 환헤지 상품/환율에 노출되어 있지 않다/환율에 영향을 안받고 원화로서의 역할
+			<ul>
+				<li>환율이 낮을 떄는 환노출 유리 - 환율 변동 적용</li>
+				<li>환율이 높을 때는 환헤지 유리 - 환율 변동 미적용</li>
+			</ul>
+		</li>
 	
-	<h2 class="tit">기타</h2>
+		<li>TR: 분배금(저식에선 배당, ETF에선 분배금)을 입금 안하고 자동으로 재투자하는 상품</li>
+		<li>PR: TR이 없으면 다 PR</li>
+	
+		<li>
+			미국 SPA 추종
+			<ul>
+				<li>TIGER(미래) 미국S&P500 - 환노출</li>
+				<li>KODEX(삼성) 미국S&P500TR - 환노출</li>
+				<li>KODEX(삼성) 미국S&P선물(H) - 환헤지</li>
+			</ul>
+		</li>
+		<li>
+			미국 나스닥100 추종
+			<ul>
+				<li>TIGER(미래) 미국나스닥100 - 환노출</li>
+				<li>KODEX(삼성) 미국나스닥100선물(H) - 환헤지</li>
+			</ul>
+		</li>
+		<li>
+			신흥국주식: 중국
+			<ul>
+				<li>TIGER 차이나항생테크: 작년에 하락세였다</li>
+				<li>TIGER 차이나CSI300</li>
+			</ul>
+		</li>
+
+		<li>
+			테마ETF: 그 산업에서 상위에 있는 기업들이 담겨있는 것: 해당 분야에서 어느 회사가 크게 성장할지 모르기에 고루고루 투자
+			<ul>
+				<li>TIGER 2차전지테마</li>
+				<li>TIGER 글로벌클라우드컴퓨팅INDXX</li>
+			</ul>
+		</li>
+		<li>
+			메타버스투자ETF
+			<ul>
+				<li>네비게이터 글로벌메타버스테크액티브</li>
+			</ul>
+		</li>
+		<li>
+			패시브/액티브
+			<ul>
+				<li>패시브 펀드 - 추종지수를 그대로 따라감</li>
+				<li>액티브 펀드 - 지수를 추종하되 더 높은 수익률을 내기 위해 운용사에서 종목 구성 변경</li>
+			</ul>
+		</li>
+	</ol>
+	
+	<h3 class="tit2">기타</h3>
 	<ol class="tip">
 		<li>
 			원자재: 금 제외 변동성이 크다
 			<ul>
-				<li>금</li>
+				<li>
+					금
+					<ul>
+						<li>KODEX 골드선물(H)</li>
+					</ul>
+				</li>
 				<li>은</li>
 				<li>구리</li>
 				<li>니켈</li>
@@ -426,39 +497,19 @@
 	</ol>
 
 
-현금/채권 - 변동성이 작다 안정자산<br>
+<br>
 
-<h2 class="tit">채권</h2>
+<h3 class="tit2">채권</h3>
 <ol class="tip">
 	<li>국내 채권</li>
- 	<li>해외 채권 : TIGER 미국채10년선물</li>
-</ol>
-
-
-<h2 class="tit">ETF</h2>
-<ol class="tip">
-	<li>H가 붙으면 환헷지 상품/환율에 노출되어 있지 않다./환율에 영향을 안받고 원화로서의 역할</li>
-	<li>환율이 낮을 떄는 환오픈 유리</li>
-	<li>환율이 높을 때는 환헷지 유리</li>
-
-	<li>TR: 분배금(저식에선 배당, ETF에선 분배금)을 입금 안하고 자동으로 재투자하는 상품</li>
-	<li>PR: TR이 없으면 다 PR</li>
-
-	<li>TIGER 차이나CSI300</li>
-	<li>TIGER 차이나항생테크: 작년에 하락세였다</li>
-
-	<li>ETF테마: 그 산업에서 상위에 있는 기업들이 담겨있는 것: 해당 분야에서 어느 회사가 크게 성장할지 모르기에 고루고루 투자</li>
-	<li>TIGER 2차전지테마</li>
-	<li>TIGER 글로벌클라우드컴퓨팅INDXX</li>
-
-	<li>
-		메타버스 테마<br>
-		네비게이터 글로벌메타버스테크액티브
+ 	<li>
+		해외 채권
+		<ul>
+			<li>TIGER 미국채10년선물</li>
+		</ul>
 	</li>
-
-	<li>패시브 펀드 - 추종지수를 그대로 따라감</li>
-	<li>액티브 펀드 - 지수를 추종하되 더 높은 수익률을 내기 위해 운용사에서 종목 구성 변경</li>
 </ol>
+
 
 	<h2 class="tit">추천 ETF</h2>
 	<ol class="tip">
