@@ -35,6 +35,7 @@
 		}
 		table {
 			table-layout: fixed;
+			width:100%;
 			margin: 0;
 			border: none;
 			border-spacing: 0;
@@ -46,13 +47,14 @@
 			padding:10px 5px;
 			border: 1px solid #ccc;
 		}
+		table th{background: #f8f8f8;}
 		.tbl {
 			overflow-x: auto;
 			padding-bottom:7px;
 		}
 		
 		.tbl table {
-			min-width: 640px;	
+			min-width: 640px;
 		}
 		
 
@@ -77,7 +79,6 @@
 			z-index: 1;
 			width: 25vw;
 			padding:20px 10px;
-			background: #f8f8f8;
 			/* border-top:none; */
 		}
 
@@ -96,7 +97,6 @@
 		.tbl table tbody th {
 			position: sticky;
 			left: 0;
-			background: #f8f8f8;
 			/* border-left:none; */
 			z-index: 1;
 		}
@@ -224,7 +224,12 @@
 				</tr>
 				<tr>
 					<th scope="row"><span>계좌<br>수수료</span></th>
-					<td>O<br>(비대면 계좌 개설시 면제)</td>
+					<td>
+						<ul>
+							<li>증권사: O (비대면 계좌 개설시 면제)</li>
+							<li>은행: O</li>
+						</ul>
+					</td>
 					<td>X</td>
 					<td>O</td>
 				</tr>
@@ -396,7 +401,7 @@
 		<li>증권사별 ETF 매매 수수료가 다르다. ETF 운용보수는 어떤 증권사건 같습니다.</li>
 	</ol>
 
-	<h2 class="tit">포트폴리오</h2>
+	<h2 class="tit">연금 저축 포트폴리오</h2>
 	<p>자산 종류: 주식/기타/현금/채권</p>
 	<ul>
 		<li>주식/기타 - 변동성이 크다 위험자산</li>
@@ -424,38 +429,38 @@
 		<li>
 			미국 SPA 추종
 			<ul>
-				<li><span class="t1">TIGER(미래) 미국S&P500</span> - 환노출</li>
-				<li><span class="t1">KODEX(삼성) 미국S&P500TR</span> - 환노출</li>
-				<li><span class="t1">KODEX(삼성) 미국S&P선물(H)</span> - 환헤지</li>
-				<li><span class="t1">Tiger미국테크 TOP10 INDXX</span> - 공격적미국 테크 기업중 TOP10에 투자(애플, 마이크로소프트, 구글, 아마존, 테슬라, 메타플랫폼스, 엔비디아, 어도비, 컴캐스트, 페이팔)</li>
+				<li><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7360750004" target="_blank">TIGER(미래) 미국S&P500</a></span> - 환노출</li>
+				<li><a href="https://www.kodex.com/product_view.do?fId=2ETFE4" target="_blank">KODEX(삼성) 미국S&P500TR</a> - 환노출</li>
+				<li><a href="https://m.kodex.com/product_view.do?fId=2ETF50" target="_blank">KODEX(삼성) 미국S&P선물(H)</a> - 환헤지</li>
+				<li><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7381170000" target="_blank">Tiger미국테크 TOP10 INDXX</a> - 공격적미국 테크 기업중 TOP10에 투자(애플, 마이크로소프트, 구글, 아마존, 테슬라, 메타플랫폼스, 엔비디아, 어도비, 컴캐스트, 페이팔)</li>
 			</ul>
 		</li>
 		<li>
 			미국 나스닥100 추종
 			<ul>
-				<li><span class="t1">TIGER(미래) 미국나스닥100</span> - 환노출</li>
-				<li><span class="t1">KODEX(삼성) 미국나스닥100선물(H)</span> - 환헤지</li>
+				<li><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7133690008" target="_blank">TIGER(미래) 미국나스닥100</a> - 환노출</li>
+				<li><a href="https://www.kodex.com/product_view.do?fId=2ETFA9" target="_blank">KODEX(삼성) 미국나스닥100선물(H)</a> - 환헤지</li>
 			</ul>
 		</li>
 		<li>
 			신흥국주식: 중국
 			<ul>
-				<li><span class="t1">TIGER 차이나항생테크</span>: 작년에 하락세였다</li>
-				<li><span class="t1">TIGER 차이나CSI300</span></li>
+				<li><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7371160003" target="_blank">TIGER 차이나항셍테크</a>: 작년에 하락세였다</li>
+				<li><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7192090009" target="_blank">TIGER 차이나CSI300</a></li>
 			</ul>
 		</li>
 
 		<li>
 			테마ETF: 그 산업에서 상위에 있는 기업들이 담겨있는 것: 해당 분야에서 어느 회사가 크게 성장할지 모르기에 고루고루 투자
 			<ul>
-				<li><span class="t1">TIGER 2차전지테마</span></li>
-				<li><span class="t1">TIGER 글로벌클라우드컴퓨팅INDXX</span></li>
+				<li><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7305540007&fundTypeCode=01000400" target="_blank">TIGER 2차전지테마</a></li>
+				<li><a href="#" target="_blank">TIGER 글로벌클라우드컴퓨팅INDXX</a></li>
 			</ul>
 		</li>
 		<li>
 			메타버스투자ETF
 			<ul>
-				<li><span class="t1">네비게이터 글로벌메타버스테크액티브</span></li>
+				<li><a href="http://www.kindexetf.com/fund/getFundInfo.etf?fundCD=9002N&leftMenuNo=29&tabMenuNo=1" target="_blank">네비게이터 글로벌메타버스테크액티브</a></li>
 			</ul>
 		</li>
 		<li>
@@ -475,13 +480,13 @@
 				<li>
 					금
 					<ul>
-						<li><span class="t1">KODEX 골드선물(H)</span></li>
+						<li><a href="https://m.kodex.com/product_view.do?fId=2ETF24" target="_blank">KODEX 골드선물(H)</a></li>
 					</ul>
 				</li>
 				<li>은</li>
 				<li>구리</li>
 				<li>니켈</li>
-				<li>WTI원유</li>
+				<li>원유</li>
 				<li>농산물</li>
 			</ul>
 		</li>
@@ -491,33 +496,95 @@
 				<li>
 					국내 부동산
 					<ul>
-						<li><span class="t1">TIGER 부동산인프라고배당</span></li>
+						<li><a href="https://www.tigeretf.com/upload/etf/20220107014908009802.pdf" target="_blank">TIGER 부동산인프라고배당</a></li>
 					</ul>
 				<li>
 					해외 부동산
 					<ul>
-						<li><span class="t1">TIGER 미국MSCI리츠(합성H)</span></li>
+						<li><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7182480004&fundTypeCode=01000600" target="_blank">TIGER 미국MSCI리츠(합성H)</a></li>
 					</ul>
 				</li>
 			</ul>
 		</li>
 	</ol>
 
+	<h3 class="tit2">채권</h3>
+	<ol class="tip">
+		<li>국내 채권</li>
+		<li>
+			해외 채권
+			<ul>
+				<li><a href="" target="_blank">TIGER 미국채10년선물</a></li>
+			</ul>
+		</li>
+	</ol>
 
-<br>
+	<h2 class="tit">IRP 안전자산 포트폴리오</h2>
+	<ol>
+		<li><a href="https://m.kodex.com/product_view.do?fId=2ETFC3" target="_blank">KODEX TRF3070</a> 주식30 채권70</li>
+		<li><a href="https://investments.miraeasset.com/annuity/tdf/allocation.do" target="_blank">미래에셋전략배분TDF2050</a></li>
+		<li><a href="https://m.kodex.com/product_view.do?fId=2ETF35" target="_blank">KODEX 단기채권</a></li>
+		<li><a href="https://m.kodex.com/product_view.do?fId=2ETF48" target="_blank">KODEX 단기채권 플러스</a></li>
+		<li><a href="" target="_blank"></a></li>
+	</ol>
 
-<h3 class="tit2">채권</h3>
-<ol class="tip">
-	<li>국내 채권</li>
- 	<li>
-		해외 채권
-		<ul>
-			<li><span class="t1">TIGER 미국채10년선물</span></li>
-		</ul>
-	</li>
-</ol>
+<table>
+	<thead>
+		<tr>
+			<th scope="col" colspan="2">구분</th>
+			<th scope="col" colspan="2">공격형</th>
+			<th scope="col" colspan="2">중립형</th>
+			<th scope="col" colspan="2">안정형</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row" rowspan="3">위험자산</th>
+			<th scope="row">선진국 주식</th>
+			<td rowspan="3">70%</td>
+			<td>30%</td>
+			<td rowspan="3">50%</td>
+			<td>20%</td>
+			<td rowspan="3">30%</td>
+			<td>12%</td>
+		</tr>
+		<tr>
+			<th scope="row">신흥국 주식</th>
+			<td>30%</td>
+			<td>20%</td>
+			<td>12%</td>
+		</tr>
+		<tr>
+			<th scope="row">기타</th>
+			<td>10%</td>
+			<td>10%</td>
+			<td>6%</td>
+		</tr>
+		<tr>
+			<th scope="row" rowspan="3">안전자산</th>
+			<th scope="row">한국 채권</th>
+			<td rowspan="3">30%</td>
+			<td>12%</td>
+			<td rowspan="3">50%</td>
+			<td>20%</td>
+			<td rowspan="3">70%</td>
+			<td>30%</td>
+		</tr>
+		<tr>
+			<th scope="row">해외 채권</th>
+			<td>12%</td>
+			<td>20%</td>
+			<td>30%</td>
+		</tr>
+		<tr>
+			<th scope="row">현금</th>
+			<td>6%</td>
+			<td>10%</td>
+			<td>10</td>
+		</tr>
+	</tbody>
+</table>
 
-   
 
 	<h2 class="tit">참고 블로그</h2>
 	<ul class="link">
