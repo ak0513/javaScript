@@ -16,10 +16,12 @@
 		a {color:#007bff;font-weight: 700;}
 		img{max-width:100%;height: auto;}
 		p {margin-top:0;line-height: 1.6;}
+		ol, ul {padding-left: 15px;}
+		li p {margin:10px 0;}
+		.ac{text-align:center !important;}
 
 		#wrap {min-width:360px;width:100%;padding:0 20px;}
 		table {
-			table-layout: fixed;
 			width:100%;
 			margin: 0;
 			border: none;
@@ -29,28 +31,26 @@
 		}
 		table th,
 		table td {
-			padding:10px 5px;
+			padding:10px;
 			border: 1px solid #ccc;
 		}
 		table th{background: #f8f8f8;}
-		table p ,
-		li p {margin:10px 0;}
-		.tbl {
+
+		.tbl-scroll {
 			overflow-x: auto;
 			padding-bottom:7px;
 			margin:0 -20px;
 		}
 		
-		.tbl table {
-			min-width: 640px;
-		}
-		
 
-		.tbl table th {
+		.tbl-scroll table {width: 960px;}
+
+		.tbl-scroll table th {
 			position: relative;
 			border-right:none;
 		}
-		.tbl table th::after{
+
+		.tbl-scroll table th::after{
 			content:'';
 			display:block;
 			position:absolute;
@@ -61,50 +61,38 @@
 			background-color: #ccc;
 		}
 
-		.tbl table thead th {
+		.tbl-scroll table thead th {
 			position: sticky;
 			top: 0;
 			z-index: 1;
-			width: 25vw;
 			padding:20px 10px;
 			/* border-top:none; */
 		}
 
-		.tbl table thead th:first-child {
+		
+
+		.tbl-scroll table td {
+			background: #fff;
+			padding: 10px 15px;
+		}
+
+		.tbl-scroll table thead th.sticky {
 			position: sticky;
 			left: 0;
 			z-index: 2;
 		}
 
-		.tbl table td {
-			background: #fff;
-			padding: 10px 15px;
-		}
-
-
-		.tbl table tbody th {
+		.tbl-scroll table tbody th.sticky {
 			position: sticky;
 			left: 0;
-			/* border-left:none; */
 			z-index: 1;
 		}
-		.tbl table tbody th:first-child {
-			width:10%;
-		}
+		
 
-		.tbl table td ul {
+		.tbl-scroll table td ul {
 			margin:0;
 			padding-left: 15px;
 		}
-
-		.tbl.scroll thead th {
-			display:block;
-			position:fixed;
-			top:-1px;
-			height:50px;
-			padding:0;
-		}
-
 
 
 
@@ -131,40 +119,41 @@
 		.tip{padding-right:15px;}
 		.tip > li + li {margin-top:10px;}
 		.tip a { text-decoration: underline;font-weight: 700;}
-		.tip ul {margin-top:7px;padding-left:15px;}
+		.tip ul {margin-top:7px;}
 		.tip ul li{list-style: disc;}
 		.tip ul li + li {margin-top:3px;}
+		.tip li li li {list-style:circle}
 
 		li .t1 {color:brown;font-weight: 700;}
 	</style>
 	<div id="wrap">
 		<!-- <div class="left"></div> -->
 		<h2 class="tit">비교</h2>
-		<div class="tbl">
-			<table>
+		<div class="tbl-scroll">
+			<table class="tb01">
 				<thead>
 					<tr>
-						<th scope="col" class="th1"><span>구분</span></th>
-						<th scope="col" class="th2"><span>IRP(개인형 퇴직연금)</span></th>
-						<th scope="col" class="th3"><span>연금저축(펀드,보험)</span></th>
-						<th scope="col" class="th4"><span>ISA 계좌</span></th>
+						<th scope="col" class="th1 sticky">구분</th>
+						<th scope="col" class="th2">IRP(개인형 퇴직연금)</th>
+						<th scope="col" class="th3">연금저축(펀드,보험)</th>
+						<th scope="col" class="th4">ISA 계좌</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th scope="row"><span>정의</span></th>
+						<th scope="row" class="sticky">정의</th>
 						<td>퇴직금을 퇴직계좌에 적립하여 연금 등 노후 자금으로 활용할 수 있게 하는 제도</td>
 						<td>일정기간 납입 후 연금형태로 인출할 경우 연금소득으로 과세되는 세제혜택 금융상품</td>
 						<td></td>
 					</tr>
 					<tr>
-						<th scope="row"><span>자격</span></th>
+						<th scope="row" class="sticky">자격</th>
 						<td>소득이 있는 근로자</td>
 						<td>제한없음</td>
 						<td></td>
 					</tr>
 					<tr>
-						<th scope="row"><span>개설</span></th>
+						<th scope="row" class="sticky">개설</th>
 						<td>은행, 증권사, 보험사</td>
 						<td>
 							<ul>
@@ -176,24 +165,24 @@
 					</tr>
 
 					<tr>
-						<th scope="row"><span>의무<br>가입기간</span></th>
+						<th scope="row" class="sticky">의무<br>가입기간</th>
 						<td>5년 이상<br>(퇴직금이 IRP로 입금된 경우 가입기간에 상관없이 만 55세부터 연금 수령)</td>
 						<td>5년 이상</td>
 						<td>3년 이상</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>납입한도</span></th>
+						<th scope="row" class="sticky">납입한도</th>
 						<td colspan="2">연 1,800만원(연금저축 + IRP + DC 합산)</td>
 						<td>연 2,000만원</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>세액<br>공제한도</span></th>
+						<th scope="row" class="sticky">세액<br>공제한도</th>
 						<td>최대 700만원<br>(세액공제는 DC형, 연금저축과 합산 적용, 13.2% ~ 16.5%)</td>
 						<td>최대 400만원<br>(연간총급여 1.2억원/종합소득 1억원 초과시 300만원, 13.2% ~ 16.5%)</td>
 						<td>연말정산 혜택 없음</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>위험상품<br>투자비율</span></th>
+						<th scope="row" class="sticky">위험상품<br>투자비율</th>
 						<td>위험자산 투자한도 70%</td>
 						<td>위험자산 투자한도 100%</td>
 						<td></td>
@@ -203,7 +192,7 @@
 						<td colspan="4"></td>
 					</tr>
 					<tr>
-						<th scope="row"><span>투자<br>가능상품</span></th>
+						<th scope="row" class="sticky">투자<br>가능상품</th>
 						<td>예금, RP, <a
 							href="https://terms.naver.com/entry.naver?docId=2065413&cid=42107&categoryId=42107"
 							target="_blank">주가연계증권(ELS)</a> 등: 원리금보장형 상품<br><br>
@@ -214,7 +203,7 @@
 						<td>ETF, ELS, 펀드, 적금, RP, 주식</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>계좌<br>수수료</span></th>
+						<th scope="row" class="sticky">계좌<br>수수료</th>
 						<td>
 							<ul>
 								<li>증권사: O (비대면 계좌 개설시 면제)</li>
@@ -225,17 +214,17 @@
 						<td>O</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>거래<br>수수료</span></th>
+						<th scope="row" class="sticky">거래<br>수수료</th>
 						<td>X</td>
 						<td>O<br>(0.0004~0.2%)</td>
 						<td>O<br>(0.0004~0.2%)</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>ETF 수수료<br>(증권 거래세)</span></th>
+						<th scope="row" class="sticky">ETF 수수료<br>(증권 거래세)</th>
 						<td colspan="3">X</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>타사이관</span></th>
+						<th scope="row" class="sticky">타사이관</th>
 						<td colspan="2">
 							IRP간 이전/연금저축간 이전은 가능/<br>
 							IRP과 연금저축간 이전은 소득세법상 일정 요건을 충족해야 가능<br><br>
@@ -248,7 +237,7 @@
 						<td colspan="4"></td>
 					</tr>
 					<tr>
-						<th scope="row"><span>연금<br>수령시</span></th>
+						<th scope="row" class="sticky">연금<br>수령시</th>
 						<td colspan="2">
 							만 55세부터 10년 이상부터 선택 가능<br>
 							3.3~5.5% 소득세가 부과<br><br>
@@ -261,43 +250,43 @@
 						<td>200만원 비과세/<br>나머비 9.9%</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>중도인출</span></th>
+						<th scope="row" class="sticky">중도인출</th>
 						<td>불가<br>(16.5% 기타 소득세 발생)</td>
 						<td>중도인출 자유<br>(추가 납입 제외한 금액에 대해 16.5% 기타 소득세 발생</td>
 						<td></td>
 					</tr>
 					<tr>
-						<th scope="row"><span>중도인출<br>가능경우</span></th>
+						<th scope="row" class="sticky">중도인출<br>가능경우</th>
 						<td colspan="2">소득세법에서 정하는 '부득이한 인출'에 해당하는 경우에는 인출 금액에 대하여 3.3~5.5%의 연금소득세가 적용</td>
 						<td>원금 가능</td>
 					</tr>
 					
 					<tr>
-						<th scope="row"><span>담보대출</span></th>
+						<th scope="row" class="sticky">담보대출</th>
 						<td>X</td>
 						<td>O</td>
 						<td>O</td>
 					</tr>
 					<tr>
-						<th scope="row"><span>과세이연</span></th>
+						<th scope="row" class="sticky">과세이연</th>
 						<td colspan="2">계좌 내 구매한 상품의 이자/배당 발생시 소득세(15.4%)는 연금을 받을때까지 연기<br>연금 수령시 연금소득세를 부과(3.3~5.5%)</td>
 						<td></td>
 					</tr>
 					<tr>
-						<th scope="row"><span>종합소득세</span></th>
+						<th scope="row" class="sticky">종합소득세</th>
 						<td colspan="2">연 1,200만원 이상은 종합소득세 부과</td>
 						<td></td>
 					</tr>
 					
 					<!-- <tr>
-						<th scope="row"><span>계좌수수료</span></th>
+						<th scope="row" class="sticky">계좌수수료</th>
 						<td>원칙상 불가<br>(중도인출 사유에 해당되는 법정 사유 충족시 출금 가능)</td>
 						<td>소득공제 받지 않은 금액에 대해 원금 출금 가능<br>(400만원 이상 입금액)</td>
 						<td></td>
 					</tr> -->
 					
 					<!-- <tr>
-						<th scope="row"><span>과세이연</span></th>
+						<th scope="row" class="sticky">과세이연</th>
 						<td colspan="2">적립금 운용 수익에 대한 세금(15.4%)을 즉시 내지 않고 연금을 수령할 때 3.3~5.5%의 훨씬 낮은 세율로 낼 수 있다.</td>
 						<td>연말정산 혜택 없음</td>
 					</tr> -->
@@ -305,57 +294,13 @@
 					
 					
 					<tr>
-						<th scope="row"><span>퇴직금</span></th>
+						<th scope="row" class="sticky">퇴직금</th>
 						<td>퇴직금을 IRP에 넣으면 퇴직소득세 없음/단, 중도 인출시 발생</td>
 						<td></td>
 						<td></td>
 					</tr>
 					<tr>
-						<th scope="row"><span></span></th>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					
-
-					<tr>
-						<th scope="row"><span></span></th>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th scope="row"><span></span></th>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th scope="row"><span></span></th>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th scope="row"><span></span></th>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th scope="row"><span></span></th>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th scope="row"><span></span></th>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th scope="row"><span></span></th>
+						<th scope="row" class="sticky"></th>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -552,62 +497,64 @@
 		현금자산: MMF<br>
 
 		달러 etf안하는이유: 다른 달러 투자대비 수수료가 높다. 달러RP를 하던지 다른 달러ETF를 사는게 유리함<br>
-	<table>
-		<thead>
-			<tr>
-				<th scope="col" colspan="2">구분</th>
-				<th scope="col" colspan="2">공격형</th>
-				<th scope="col" colspan="2">중립형</th>
-				<th scope="col" colspan="2">안정형</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row" rowspan="3">위험자산</th>
-				<th scope="row">선진국 주식</th>
-				<td rowspan="3">70%</td>
-				<td>30%</td>
-				<td rowspan="3">50%</td>
-				<td>20%</td>
-				<td rowspan="3">30%</td>
-				<td>12%</td>
-			</tr>
-			<tr>
-				<th scope="row">신흥국 주식</th>
-				<td>30%</td>
-				<td>20%</td>
-				<td>12%</td>
-			</tr>
-			<tr>
-				<th scope="row">기타</th>
-				<td>10%</td>
-				<td>10%</td>
-				<td>6%</td>
-			</tr>
-			<tr>
-				<th scope="row" rowspan="3">안전자산</th>
-				<th scope="row">한국 채권</th>
-				<td rowspan="3">30%</td>
-				<td>12%</td>
-				<td rowspan="3">50%</td>
-				<td>20%</td>
-				<td rowspan="3">70%</td>
-				<td>30%</td>
-			</tr>
-			<tr>
-				<th scope="row">해외 채권</th>
-				<td>12%</td>
-				<td>20%</td>
-				<td>30%</td>
-			</tr>
-			<tr>
-				<th scope="row">현금</th>
-				<td>6%</td>
-				<td>10%</td>
-				<td>10</td>
-			</tr>
-		</tbody>
-	</table>
+		<div class="tbl-scroll">
+			<table class="tb02">
+				<thead>
+					<tr>
+						<th scope="col" colspan="2">구분</th>
+						<th scope="col" colspan="2">공격형</th>
+						<th scope="col" colspan="2">중립형</th>
+						<th scope="col" colspan="2">안정형</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" rowspan="3" class="sticky">위험<br>자산</th>
+						<th scope="row" class="sticky sticky02">선진국 주식</th>
+						<td rowspan="3" class="ac">70%</td>
+						<td class="ac">30%</td>
+						<td rowspan="3" class="ac">50%</td>
+						<td class="ac">20%</td>
+						<td rowspan="3" class="ac">30%</td>
+						<td class="ac">12%</td>
+					</tr>
+					<tr>
+						<th scope="row" class="sticky sticky02">신흥국 주식</th>
+						<td class="ac">30%</td>
+						<td class="ac">20%</td>
+						<td class="ac">12%</td>
+					</tr>
+					<tr>
+						<th scope="row" class="sticky sticky02">기타</th>
+						<td class="ac">10%</td>
+						<td class="ac">10%</td>
+						<td class="ac">6%</td>
+					</tr>
+					<tr>
+						<th scope="row" rowspan="3" class="sticky">안전<br>자산</th>
+						<th scope="row" class="sticky sticky02">한국 채권</th>
+						<td rowspan="3">30%</td>
+						<td class="ac">12%</td>
+						<td rowspan="3" class="ac">50%</td>
+						<td class="ac">20%</td>
+						<td rowspan="3" class="ac">70%</td>
+						<td class="ac">30%</td>
+					</tr>
+					<tr>
+						<th scope="row" class="sticky sticky02">해외 채권</th>
+						<td class="ac">12%</td>
+						<td class="ac">20%</td>
+						<td class="ac">30%</td>
+					</tr>
+					<tr>
+						<th scope="row" class="sticky sticky02">현금</th>
+						<td class="ac">6%</td>
+						<td class="ac">10%</td>
+						<td class="ac">10</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 	<h2 class="tit">주요 링크</h2>
 	<ul class="link">
@@ -880,6 +827,57 @@
 		<div><img src="./irp5.jpg"></div>
 
 		IRP 세액
+		<table>
+			<thead>
+				<tr>
+					<th scope="col" colspan="2" rowspan="2"></th>
+					<th scope="col" colspan="3">총급여</th>
+				</tr>
+				<tr>
+					<th scope="col">5500만원 이하
+
+					</th>
+					<th scope="col">5500만원 초과
+
+						~
+						
+						1억2000만원 이하</th>
+					<th scope="col">1억2000만원 초과
+
+					</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<th scope="row" rowspan="3">세액공제 한도</th>
+					<td>연금저축</td>
+					<td colspan="2">400만원</td>
+					<td>300만원</td>
+				</tr>
+				<tr>
+					<td>연금저축 + IRP</td>
+					<td colspan="3">700만원</td>
+				</tr>
+				<tr>
+					<td>IRP 단독</td>
+					<td colspan="3">700만원</td>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">세액공제율</th>
+					<td>16.5%</td>
+					<td colspan="2">13.2%</td>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">세액공제액 한도</th>
+					<td>115.5만원</td>
+					<td colspan="2">92.4만원</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
 		<table width="70%">
 			<tbody><tr><td class="se-cell" colspan="2" rowspan="2" style="width: 40.0%; height: 86.0px;  ">
 						<div class="se-module se-module-text"><p class="se-text-paragraph se-text-paragraph-align-center " id="SE-d3447774-2e7c-467f-b224-31bdf94715ef"><span class="se-fs- se-ff-nanummaruburi se-weight-unset  " id="SE-f10d12e4-79d9-4ee6-b402-d297dc3824ec">​</span></p></div>
@@ -1027,10 +1025,10 @@
 			// var th1W = document.querySelector('.th1').clientWidth
 			
 			if($(window).scrollTop() > 50) {
-				$('.tbl').addClass('scroll');
+				$('.tbl-scroll').addClass('scroll');
 				$('.th1').width(th1W);
 			} else {
-				$('.tbl').removeClass('scroll');
+				$('.tbl-scroll').removeClass('scroll');
 			}
 		})
 	</script> -->
