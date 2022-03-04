@@ -22,6 +22,8 @@
 		.ac{text-align:center !important;}
 
 		#wrap {min-width:360px;width:100%;padding:0 20px;}
+		#hiddenIpt {position:absolute;top:-99999px;left:-99999px;}
+		button {border:none;background:#eee;padding:5px 10px;border:1px solid #ccc;white-space: nowrap;border-radius: 3px;cursor: pointer;}
 		table {
 			width:100%;
 			margin: 0;
@@ -539,43 +541,43 @@
 					<tr>
 						<th scope="row" rowspan="9" class="sticky sticky01">주식</th>
 						<th scope="row" class="sticky sticky02"><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7360750004" target="_blank">TIGER 미국S&P500</a></th>
-						<td>1,386억</td>
+						<td>1,362,013</td>
 						<td>0.15</td>
 						<td>-4.42</td>
 						<td>22.83</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="미래에셋TIGER미국S&P500증권상장지수투자신탁(주식)">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7143850006" target="_blank">TIGER 미국S&P500 선물(H)</a></th>
-						<td>276,404,223,257원</td>
+						<td></td>
 						<td></td>
 						<td>-4.24</td>
 						<td>14.09</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="https://www.kodex.com/product_view.do?fId=2ETFE4" target="_blank">KODEX 미국S&P500TR</a></th>
-						<td>3,420억</td>
+						<td>336,176</td>
 						<td>0.18</td>
 						<td>-4.44</td>
-						<td>1.11(6개월)</td>
-						<td></td>
+						<td>1.11<br>(6개월)</td>
+						<td><button class="btn-copy" data-copy="삼성KODEX미국S&P500TotalReturn증권상장지수투자신탁[주식]">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="https://m.kodex.com/product_view.do?fId=2ETF50" target="_blank">KODEX 미국S&P500선물(H)</a></th>
-						<td>1,366억</td>
+						<td></td>
 						<td></td>
 						<td>-4.26</td>
 						<td>14.25</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="http://www.kindexetf.com/fund/getFundInfo.etf?fundCD=9001Y" target="_blank">KINDEX 미국S&P500</a></th>
-						<td>5,357억</td>
+						<td>526,564</td>
 						<td>0.17</td>
 						<td>-4.45</td>
 						<td>23.12</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="한국투자KINDEX미국S&P500증권상장지수투자신탁(주식)">복사</button></td>
 					</tr>
 
 					<tr>
@@ -587,15 +589,15 @@
 						<td>0.19</td>
 						<td>-5.99</td>
 						<td>17.56</td>
-						<td>미래에셋 TIGER 나스닥100 증권상장지수투자신탁(주식)</td>
+						<td><button class="btn-copy" data-copy="미래에셋 TIGER 나스닥100 증권상장지수투자신탁(주식)">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="https://www.kodex.com/product_view.do?fId=2ETFE3" target="_blank">KODEX 미국나스닥100TR</a></th>
 						<td>3,163억원</td>
 						<td>0.16</td>
 						<td>-6.00</td>
-						<td>-4.88(6개월)</td>
-						<td>삼성KODEX미국나스닥100TotalReturn증권상장지수투자신탁[주식]</td>
+						<td>-4.88<br>(6개월)</td>
+						<td><button class="btn-copy" data-copy="삼성KODEX미국나스닥100TotalReturn증권상장지수투자신탁[주식]">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="http://www.kindexetf.com/fund/getFundInfo.etf?fundCD=9002A" target="_blank">KINDEX 미국나스닥100</a></th>
@@ -603,7 +605,7 @@
 						<td>0.18</td>
 						<td>-5.98</td>
 						<td>17.7</td>
-						<td>한국투자KINDEX미국나스닥100증권상장지수투자신탁(주식)</td>
+						<td><button class="btn-copy" data-copy="한국투자KINDEX미국나스닥100증권상장지수투자신탁(주식)">복사</button></td>
 					</tr>
 
 					<tr>
@@ -613,7 +615,7 @@
 						<td>0.36</td>
 						<td>-0.82</td>
 						<td>3.92</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="https://www.kodex.com/product_view.do?fId=2ETFB4" target="_blank">KODEX 미국채10년선물</a></th>
@@ -621,7 +623,7 @@
 						<td></td>
 						<td>-0.83</td>
 						<td>3.11</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="">복사</button></td>
 					</tr>
 					<tr>
 						<td colspan="6"></td>
@@ -632,7 +634,7 @@
 						<td></td>
 						<td>-3.39</td>
 						<td>-1.23</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="">복사</button></td>
 					</tr>
 
 					<tr>
@@ -643,7 +645,7 @@
 						<td></td>
 						<td>6.27</td>
 						<td>9.61</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="">복사</button></td>
 					</tr>
 					<tr>
 						<th scope="row" class="sticky sticky02"><a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7319640009" target="_blank">TIGER 골드선물(H)</a></th>
@@ -651,7 +653,7 @@
 						<td>0.45</td>
 						<td>6.27</td>
 						<td>10.06</td>
-						<td></td>
+						<td><button class="btn-copy" data-copy="">복사</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -668,8 +670,8 @@
 		달러 etf안하는이유: 다른 달러 투자대비 수수료가 높다. 달러RP를 하던지 다른 달러ETF를 사는게 유리함<br>
 		<h2 class="tit">연금저축 비율</h2>
 		<p>
-			위험60 - 선진국(TIGER S&P500:30/TIGER 미국나스닥100:20)/신흥국(TIGER 차이나CSI300):10<br>
-			안전40 - 채권(TIGER 미국채10년선물/KODEX 단기채권 플러스)20/리츠(TIGER 미국MSCI리츠(합성H)) 15/금 5(KODEX 골드선물(H))
+			위험60 - 선진국(TIGER S&P500:30/KODEX 미국나스닥100TR:20)/신흥국(TIGER 차이나CSI300):10<br>
+			안전40 - 채권(TIGER 미국채10년선물)10 KODEX 미국채울트라30년선물(H) 15/리츠(TIGER 미국MSCI리츠(합성H)) 5/금 5(KODEX 골드선물(H))
 		</p>
 		<p>
 			나직투: 채권10 금5 원유5 S%P500 15 신흥국MSCI 15 미국FANG플러스 15 미국채10년선물 10
@@ -677,7 +679,9 @@
 		</p>
 		올웨더포트폴리오: 주식30 채권55(장기40 중기15) 원자재7.5 금7.5<br>
 		주식 45 채권 40 리츠 15<br>
-		ㄱ금리가 올라갈 떈 리츠가 안좋다<br>
+		선진국20 신흥국20 리츠20 채권20 원자재20<br>
+		선진국30 신흥국7.5 중기채권40 단기채권15 금7.5
+		금리가 올라갈 떈 리츠가 안좋다<br>
 		<div class="tbl-scroll">
 			<table class="tb02" style="width:600px">
 				<thead>
@@ -874,6 +878,9 @@
 			</li>
 			<li>
 				<a href="https://blog.naver.com/kg4972/222658842854" target="_blank">올웨더 포트폴리오 그리고 파생</a>
+				<ol>
+					<li>주식:30 장기채:40 중단기채:15 금:7.5 원자재:7.5</li>
+				</ol>
 			</li>
 			<li>
 				<a href="https://blog.naver.com/lhh813/222525100031" target="_blank">금리와 투자</a>
@@ -1154,6 +1161,25 @@
 			}
 		})
 	</script> -->
+	<textarea type="hidden" id="hiddenIpt"></textarea>
+	<script>
+		let btnCopys = document.querySelectorAll('.btn-copy');
+		for(let i = 0; i < btnCopys.length; i++) {
+			btnCopys[i].addEventListener('click', function(e) {
+				let ele = e.target;
+				let copyText = ele.dataset.copy;
+				let hiddenIpt = document.getElementById('hiddenIpt');
+				hiddenIpt.textContent = copyText
+				hiddenIpt.select();
+				document.execCommand('copy');
+				alert("복사되었습니다.");
+			})
+
+
+		
+		}
+	</script>
+	<div style="height:400px"></div>
 </body>
 
 </html>
