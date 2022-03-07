@@ -151,6 +151,14 @@
 		.tip li li li {list-style:circle}
 
 		li .t1 {color:brown;font-weight: 700;}
+
+		.flex {display:flex;flex-wrap: wrap; padding:0;}
+		.flex > li {flex:0 0 auto;list-style: none;}
+		.col6_12 {width:50%;}
+
+		@media only screen and (max-width: 768px) {
+			.col6_12 {width: 100%;}
+		}
 	</style>
 	<div id="wrap">
 		<!-- <div class="left"></div> -->
@@ -1190,12 +1198,16 @@
 		</div>
 
 		<h2 class="tit">포트폴리오</h2>
-		<h2 class="tit2">올웨더포트폴리오</h2>
-		<canvas id="chart01"></canvas>
-
-		<h2 class="tit2">나의 포트폴리오</h2>
-		<canvas id="chart02"></canvas>
-		
+		<ul class="flex">
+			<li class="col6_12">
+				<h2 class="tit2">올웨더포트폴리오</h2>
+				<canvas id="chart01"></canvas>
+			</li>
+			<li class="col6_12">
+				<h2 class="tit2">나의 포트폴리오</h2>
+				<canvas id="chart02"></canvas>
+			</li>
+		</ul>
 		<script>
 		const dataChart01 = {
 			labels: [
