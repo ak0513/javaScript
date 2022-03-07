@@ -1188,6 +1188,48 @@
 				</tbody>
 			</table>
 		</div>
+
+		<h2 class="tit">포트폴리오</h2>
+		<h2 class="tit2">올웨더포트폴리오</h2>
+		<div>
+			<canvas id="chart01"></canvas>
+		</div>
+		<script>
+		const dataChart01 = {
+			labels: [
+				'주식',
+				'장기채',
+				'중기채',
+				'원자재',
+				'금'
+			],
+			datasets: [{
+				label: 'My First Dataset',
+				data: [30, 40, 15, 7.5, 7.5],
+				backgroundColor: [
+					'#FF7F58',
+					'#F18EE9',
+					'#8695E6',
+					'#81BFF8',
+					'#5AD3CA'
+				],
+				hoverOffset: 4,
+				
+
+			}],
+		};
+
+		const configChart01 = {
+			type: 'doughnut',
+			data: dataChart01,
+		};
+
+		const chart01 = new Chart(
+			document.getElementById('chart01'),
+			configChart01
+		);
+		
+		</script>
 	</div>
 
 	<textarea type="hidden" id="hiddenIpt"></textarea>
@@ -1209,45 +1251,7 @@
 
 
 	<div style="height:400px"></div>
-	올웨더포트폴리오: 주식30 채권55(장기40 중기15) 원자재7.5 금7.5<br>
-	<h2 class="tit2">올웨더포트폴리오</h2>
-	<div>
-		<canvas id="myChart"></canvas>
-	</div>
-	<script>
-
-const data = {
-	labels: [
-		'주식',
-		'장기채',
-		'중기채',
-		'원자재',
-		'금'
-	],
-	datasets: [{
-		label: 'My First Dataset',
-		data: [30, 40, 15, 7.5, 7.5],
-		backgroundColor: [
-			'#FF7F58',
-			'#F18EE9',
-			'#8695E6',
-			'#81BFF8',
-			'#5AD3CA'
-		],
-		hoverOffset: 4
-	}]
-};
-
-const config = {
-	type: 'doughnut',
-	data: data,
-};
-
-const myChart = new Chart(
-	document.getElementById('myChart'),
-	config
-);
-</script>
+	
 
 	
 </body>
