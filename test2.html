@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.section02 {
+			display: flex;
+		}
+
+	</style>
+	<div id="wrap">
+		<header id="header">
+			<div class="header-logo"></div>
+			<div class="header-time"></div>
+		</header>
+
+		<section id="container">
+			<div class="section01">
+				<div class="visitor">
+				</div>
+				<div class="point">
+				</div>
+			</div>
+
+			<div class="section02">
+				<div class="news"></div>
+				<div class="visitor-chart">
+					<canvas id="chart01"></canvas>
+				</div>
+				<div class="time-chart">
+					<canvas id="chart02"></canvas>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script>
+		const dataChart01 = {
+			labels: [
+				'남자',
+				'여자'
+			],
+			datasets: [{
+				label: 'My First Dataset',
+				data: [30, 40],
+				backgroundColor: [
+					'#FF7F58',
+					'#F18EE9'
+				],
+				hoverOffset: 0
+			}],
+		};
+
+		const configChart01 = {
+			type: 'doughnut',
+			data: dataChart01,
+		};
+
+		const chart01 = new Chart(
+			document.getElementById('chart01'),
+			configChart01
+		);
+
+		const dataChart02 = {
+			labels: [
+				'9~11am',
+				'11~1pm',
+				'1~3pm',
+				'3~5pm'
+			],
+			datasets: [{
+				label: 'My First Dataset',
+				data: [200, 300, 400, 600],
+				backgroundColor: [
+					'#FF7F58',
+					'#F18EE9',
+					'#8695E6',
+					'#81BFF8',
+				],
+				hoverOffset: 0
+			},
+			{
+				label: 'My First Dataset1',
+				data: [100, 30, 50, 100],
+				backgroundColor: [
+					'#FF7F58',
+					'#F18EE9',
+					'#8695E6',
+					'#81BFF8',
+				],
+				hoverOffset: 0
+			}],
+		};
+
+		const configChart02 = {
+			type: 'line',
+			data: dataChart02,
+		};
+
+		const chart02 = new Chart(
+			document.getElementById('chart02'),
+			configChart02
+		);
+		
+	</script>
+
+</body>
+</html>
