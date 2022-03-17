@@ -146,15 +146,13 @@
 		.row {
 			display: flex;
 			flex-wrap: wrap;
-			margin-left: calc(var(--gutter1) * -1);
-			margin-right: calc(var(--gutter1) * -1);
+			margin: calc(var(--gutter1) * -1);
 		}
 
 		.row > [class^=col] {
 			width: 100%;
 			flex-grow: 1;
-			padding-left: var(--gutter1);
-			padding-right: var(--gutter1);
+			padding: var(--gutter1);
 		}
 
 		.col-6 {max-width:50%;}
@@ -171,10 +169,11 @@
 			<div class="col-6">
 				<div class="bg-primary align-c">22</div>
 			</div>
-			<div class="col-6 mgt10">
+			<div class="col-6">
 				<div class="bg-primary align-c">22</div>
 			</div>
 		</div>
+		<div class="border border-dark bg-dark color-white">1212</div>
 	</div>
 
 </body>
