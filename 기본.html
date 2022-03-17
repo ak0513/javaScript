@@ -35,9 +35,14 @@
 			--warning: #ffc107;
 			--info: #17a2b8;
 			
-			--gutter1:0.5rem;
-			--gutter2:1.0rem;
-			--gutter3:1.5rem;
+			--gutter1: 0.2rem;
+			--gutter2: 0.5rem;
+			--gutter3: 1.0rem;
+
+			--font1: 1.2rem;
+			--font2: 1.4rem;
+			--font3: 1.8rem;
+			--font4: 2.4rem;
 		}
 
 		/* 간격 */
@@ -117,10 +122,10 @@
 		.color-secondary {color: var(--secondary) !important;}
 
 		/* 폰트 사이즈 */
-		.font-xs {font-size: 1.2rem !important;}
-		.font-sm {font-size: 1.4rem !important;}
-		.font-lg {font-size: 1.8rem !important;}
-		.font-xl {font-size: 2.4rem !important;}
+		.font-xs {font-size: var(--font1) !important;}
+		.font-sm {font-size: var(--font2) !important;}
+		.font-lg {font-size: var(--font3) !important;}
+		.font-xl {font-size: var(--font4) !important;}
 
 		/* 폰트 굵기 */
 		.font-w400 {font-weight: 400 !important;}
@@ -155,21 +160,85 @@
 			padding: var(--gutter1);
 		}
 
+		.gutter1 {margin: calc(var(--gutter1) * -1);}
+		.gutter1 [class^=col] {padding: var(--gutter1);}
+		.gutter2 {margin: calc(var(--gutter2) * -1);}
+		.gutter2 [class^=col] {padding: var(--gutter2);}
+		.gutter3 {margin: calc(var(--gutter3) * -1);}
+		.gutter3 [class^=col] {padding: var(--gutter3);}
+
+		.gutter-x-1 {margin-left: calc(var(--gutter1) * -1);margin-right: calc(var(--gutter1) * -1);}
+		.gutter-x-1 [class^=col] {padding-left: var(--gutter1);padding-right: var(--gutter1);}
+		.gutter-x-2 {margin-left: calc(var(--gutter2) * -1);margin-right: calc(var(--gutter2) * -1);}
+		.gutter-x-2 [class^=col] {padding-left: var(--gutter2);padding-right: var(--gutter2);}
+		.gutter-x-3 {margin-left: calc(var(--gutter3) * -1);margin-right: calc(var(--gutter3) * -1);}
+		.gutter-x-3 [class^=col] {padding-left: var(--gutter3);padding-right: var(--gutter3);}
+
+		.gutter-y-1 {margin-top: calc(var(--gutter1) * -1);margin-bottom: calc(var(--gutter1) * -1);}
+		.gutter-y-1 [class^=col] {padding-top: var(--gutter1);padding-bottom: var(--gutter1);}
+		.gutter-y-2 {margin-top: calc(var(--gutter2) * -1);margin-bottom: calc(var(--gutter2) * -1);}
+		.gutter-y-2 [class^=col] {padding-top: var(--gutter2);padding-bottom: var(--gutter2);}
+		.gutter-y-3 {margin-top: calc(var(--gutter3) * -1);margin-bottom: calc(var(--gutter3) * -1);}
+		.gutter-y-3 [class^=col] {padding-top: var(--gutter3);padding-bottom: var(--gutter3);}
+
+		.col-1 {max-width:8.3333%;}
+		.col-2 {max-width:16.6666%;}
+		.col-3 {max-width:25%;}
+		.col-4 {max-width:33.3333%;}
+		.col-5 {max-width:41.6666%;}
 		.col-6 {max-width:50%;}
+		.col-7 {max-width:58.3333%;}
+		.col-8 {max-width:66.6666%;}
+		.col-9 {max-width:75%;}
+		.col-10 {max-width:83.3333%;}
+		.col-11 {max-width:91.6666%;}
+		.col-12 {max-width:100%;}
+
+
+		@media (max-width: 768px) {
+			.col-md-1 {max-width:8.3333%;}
+			.col-md-2 {max-width:16.6666%;}
+			.col-md-3 {max-width:25%;}
+			.col-md-4 {max-width:33.3333%;}
+			.col-md-5 {max-width:41.6666%;}
+			.col-md-6 {max-width:50%;}
+			.col-md-7 {max-width:58.3333%;}
+			.col-md-8 {max-width:66.6666%;}
+			.col-md-9 {max-width:75%;}
+			.col-md-10 {max-width:83.3333%;}
+			.col-md-11 {max-width:91.6666%;}
+			.col-md-12 {max-width:100%;}
+
+		}
+
+		@media (max-width: 576px) {
+			.col-sm-1 {max-width:8.3333%;}
+			.col-sm-2 {max-width:16.6666%;}
+			.col-sm-3 {max-width:25%;}
+			.col-sm-4 {max-width:33.3333%;}
+			.col-sm-5 {max-width:41.6666%;}
+			.col-sm-6 {max-width:50%;}
+			.col-sm-7 {max-width:58.3333%;}
+			.col-sm-8 {max-width:66.6666%;}
+			.col-sm-9 {max-width:75%;}
+			.col-sm-10 {max-width:83.3333%;}
+			.col-sm-11 {max-width:91.6666%;}
+			.col-sm-12 {max-width:100%;}
+		}
 	</style>
 
 
 
 
 	<div class="container">
-		<div class="row">
-			<div class="col-6">
+		<div class="row gutter3 gutter-x-1">
+			<div class="col-6 col-sm-4">
 				<div class="bg-dark color-white align-c">11</div>
 			</div>
-			<div class="col-6">
+			<div class="col-6 col-sm-4">
 				<div class="bg-primary align-c">22</div>
 			</div>
-			<div class="col-6">
+			<div class="col-12 col-sm-4">
 				<div class="bg-primary align-c">22</div>
 			</div>
 		</div>
