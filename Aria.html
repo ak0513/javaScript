@@ -216,6 +216,7 @@
 			</div>
 		</div>
 
+		
 		<div class="aria">
 			<div class="aria-tag">
 				<button type="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true">버튼 false</button>
@@ -241,7 +242,46 @@
 				</dl>
 			</div>
 		</div>
+
+
+		<h2 class="title pressed">aria-current</h2>
+		<div class="aria">
+			<div class="aria-tag">
+				<button type="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true">버튼 false</button>
+				<br>
+				<button type="button" aria-expanded="false" aria-haspopup="true">버튼 false</button>
+				<hr>
+			</div>
+			<pre aria-hidden="true"><code class="html">&lt;button type="button" aria-pressed=false" aria-expanded="false" aria-haspopup="true"&gt;버튼 false&lt;/button&gt;</code></pre>
+			<div class="aria-output" aria-hidden="true">
+				<dl class="output-dl">
+					<div class="output-group">
+						<dt class="output-dt">NVDA</dt>
+						<dd class="output-dd">
+							
+						</dd>
+					</div>
+					<div class="output-group">
+						<dt class="output-dt">VoiceOver</dt>
+						<dd class="output-dd">
+							
+						</dd>
+					</div>
+				</dl>
+			</div>
+		</div>
 	</div>
+
+
+	<h2>aria-current</h2>
+	<a href="#" aria-current="page">a page</a><br>
+	<div aria-current="page">div page</div><br>
+	<ul><li aria-current="page">li page</li></ul>
+	<div aria-current="true">div true</div><br>
+	<div aria-current="time">11:00</div><br>
+	<div aria-current="true" aria-label="국문 사이트">div true</div><br>
+
+	<a href="#" aria-current="location">a location</a><br>
 
 
 
@@ -266,6 +306,10 @@
 		}
 	</script>
 <hr>
+<ul role="text" aria-label="ul에 aria-label">
+	<li>dsfsdf</li>
+	<li>dsfsdf</li>
+</ul>
 <div aria-label="가나다1">div1</div>
 <div aria-label="가나다2" role="text">div2</div>
 <div aria-label="가나다2" role="text"> </div>
@@ -425,10 +469,7 @@ header는 최상위여야 배너 랜드마크가 된다.
 		44 목록끝
 	</div>
 
-	<h2>aria-current</h2>
-	<a href="#" aria-current="page">a page</a><br>
-	<div aria-current="page">div page</div><br>
-	<div aria-current="true">div true</div><br>
+	
 	<div aria-label="국문 사이트">div true</div><br>
 	<div><span aria-hidden="true">div true</span><span class="a11y">국문 페이지</span></div><br>
 	<p aria-label="국문 사이트">p true</p><br>
@@ -437,9 +478,8 @@ header는 최상위여야 배너 랜드마크가 된다.
 	<h1 aria-label="국문 사이트">h1 true</h1><br>
 	<i aria-label="국문 사이트">i true</i><br>
 	<a href="#" aria-label="국문 사이트">div true</a><br>
-	<div aria-current="true" aria-label="국문 사이트">div true</div><br>
 
-	<a href="#" aria-current="location">a location</a><br>
+	
 
 	
 	<br><br>
