@@ -247,10 +247,12 @@
 		<h2 class="title pressed">aria-current</h2>
 		<div class="aria">
 			<div class="aria-tag">
-				<button type="button" aria-pressed="false" aria-expanded="false" aria-haspopup="true">버튼 false</button>
-				<br>
-				<button type="button" aria-expanded="false" aria-haspopup="true">버튼 false</button>
-				<hr>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Library</li>
+					</ol>
+				</nav>
 			</div>
 			<pre aria-hidden="true"><code class="html">&lt;button type="button" aria-pressed=false" aria-expanded="false" aria-haspopup="true"&gt;버튼 false&lt;/button&gt;</code></pre>
 			<div class="aria-output" aria-hidden="true">
@@ -271,7 +273,7 @@
 			</div>
 		</div>
 	</div>
-
+aria-current
 
 	<h2>aria-current</h2>
 	<a href="#" aria-current="page">a page</a><br>
@@ -283,7 +285,12 @@
 
 	<a href="#" aria-current="location">a location</a><br>
 
-
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="#">Home</a></li>
+		  <li class="breadcrumb-item active" aria-current="page">Library</li>
+		</ol>
+	  </nav>
 
 	<script>
 		function getAria() {
