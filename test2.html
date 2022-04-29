@@ -1,199 +1,33 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<title>Document</title>
 </head>
 <body>
-	<style>
-		* {margin:0;padding:0;}
-		ul,li{list-style: none;}
-		#wrap {
-			width: 100%;
-			min-width: 768px;
-		}
+	<button type="button">aaa</button>
 
-		#header {
-			max-width: 1120px;
-			margin:0 auto;
-			padding:0 20px;
-		}
-		.header-body {
-			display: flex;
-			justify-content: space-between;
-		}
-		#container {
-			max-width: 1120px;
-			margin:0 auto;
-			padding:0 20px;
-		}
+	<div id="header">
+		<div><a href="#">header1</a></div>
+		<div><a href="#">header1</a></div>
+		<div><a href="#">header1</a></div>
+		<div><a href="#">header1</a></div>
+	</div>
 
-
-		.section01 {
-			display: flex;
-		}
-
-		.visitor {
-			flex-grow: 1;
-		}
-		.visitor-group {
-			display: flex;
-			margin:0 -10px;
-		}
-
-		.visitor-item {
-			flex:1;
-			margin:0 10px;
-			padding:30px 15px 10px;
-			background-color:#ddd;
-			border-radius: 10px;
-		}
-
-
-		.point {
-			margin-left:50px;
-		}
-
-		.section02 {
-			display: flex;
-			margin-top: 30px;
-		}
-
-	</style>
-	<h1></h1>
-	<div id="wrap">
-		<header id="header">
-			<div class="header-body">
-				<div class="header-logo">1</div>
-				<div class="header-time">2</div>
-			</div>
-		</header>
-
-		<section id="container">
-			<div class="section01">
-				<div class="visitor">
-					<ul class="visitor-group">
-						<li class="visitor-item item01">
-							<h2 class="visitor-tit">1</h2>
-							<div class="visitor-num">1</div>
-						</li>
-						<li class="visitor-item item02">
-							<h2 class="visitor-tit">2</h2>
-							<div class="visitor-num">2</div>
-						</li>
-						<li class="visitor-item item03">
-							<h2 class="visitor-tit">3</h2>
-							<div class="visitor-num">3</div>
-						</li>
-					</ul>
-				</div>
-				<div class="point">4
-				</div>
-			</div>
-
-			<div class="section02">
-				<div class="news">
-					<ul class="news-group">
-						<li class="news-item">
-							<div class="news-img"></div>
-							<div class="news-info">
-								
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="visitor-chart">
-					<canvas id="chart01"></canvas>
-					<div id="chart01MPer"></div>
-					<div id="chart01WPer"></div>
-				</div>
-				<div class="time-chart">
-					<canvas id="chart02"></canvas>
-				</div>
-			</div>
-		</section>
+	<div id="container">
+		<a href="#">container</a>
 	</div>
 
 	<script>
-		const dataChart01 = {
-			labels: [
-				'남자',
-				'여자'
-			],
-			datasets: [{
-				label: 'My First Dataset',
-				data: [200, 40], // 남자 여자 수량
-				backgroundColor: [
-					'#FF7F58',
-					'#F18EE9'
-				],
-				hoverOffset: 0
-			}],
-		};
-
-		const configChart01 = {
-			type: 'doughnut',
-			data: dataChart01,
-		};
-
-		const chart01 = new Chart(
-			document.getElementById('chart01'),
-			configChart01
-		);
-
-	
-		let chart01Total = dataChart01.datasets[0].data[0] + dataChart01.datasets[0].data[1]
-		let chart01MPer = Math.round(dataChart01.datasets[0].data[0] * 100 / chart01Total)
-		let chart01WPer = Math.round(dataChart01.datasets[0].data[1] * 100 / chart01Total)
-		document.querySelector('#chart01MPer').innerHTML = chart01MPer + '%'
-		document.querySelector('#chart01WPer').innerHTML = chart01WPer + '%'
-
-		const dataChart02 = {
-			labels: [
-				'9~11am',
-				'11~1pm',
-				'1~3pm',
-				'3~5pm'
-			],
-			datasets: [{
-				label: 'My First Dataset',
-				data: [200, 300, 400, 600],
-				backgroundColor: [
-					'#FF7F58',
-					// '#F18EE9',
-					// '#8695E6',
-					// '#81BFF8',
-				],
-				hoverOffset: 0
-			},
-			{
-				label: 'My First Dataset1',
-				data: [100, 30, 50, 100],
-				backgroundColor: [
-					'#81BFF8',
-					// '#F18EE9',
-					// '#8695E6',
-					// '#81BFF8',
-				],
-				hoverOffset: 0
-			}],
-		};
-
-		const configChart02 = {
-			type: 'line',
-			data: dataChart02,
-		};
-
-		const chart02 = new Chart(
-			document.getElementById('chart02'),
-			configChart02
-		);
-		
-		
+		$('button').click(function(e) {
+			e.preventDefault();
+			// $('#container').attr('tabindex', 10).focus().removeAttr('tabindex')
+			$('#header a').attr('tabindex', -1)
+			$('#header').attr('aria-hidden', 'hidden')
+		})
 	</script>
-
 </body>
 </html>
