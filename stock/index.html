@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../normalize.css">
-	<link rel="stylesheet" href="../default.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
 	<link rel="stylesheet" href="./style.css">
 	<title>Document</title>
 </head>
@@ -15,93 +15,19 @@
 	<style>
 		
 	</style>
-	<!-- <div id="wrap">
-		<h1>1212</h1>
-		<h2 class="h-tit1">121</h2>
-		<p>121212</p>
-		<div class="youtube-url"><a href="https://www.youtube.com/watch?v=Ck9BSN0NrkM" target="_blank">유트브 바로가기</a></div>
-		<div class="img"><img src="./img/stock1.jpg" alt=""></div>
-		<div class="box">
-			<p>121212</p>
-			<ul>
-				<li>dfsdf</li>
-				<li>dfsdf</li>
-				<li>dfsdf</li>
-			</ul>
-		</div>
-	</div> -->
+	<div id="wrap">
+		<header id="header"></header>
 
-	<!-- <div style="width:200px;background-color: #f8f8f8;padding:15px;margin:0 auto;border:1px solid #e3e3e3">
-		<svg viewBox="0 0 100 100">
-			<rect width="4" height="51" fill="red" x="48" y="0"></rect>
-			<rect width="30" height="50" fill="red" x="35" y="50"></rect>
-			<rect width="30" height="1" fill="black" x="67" y="50"></rect>
-			<rect width="30" height="1" fill="black" x="67" y="99"></rect>
-			<text x="70" y="60" fill="#333" style="font-size:0.8rem">가나다</text>
-			<text x="70" y="70" fill="#333" style="font-size:0.8rem">가나다</text>
-		</svg>
-	</div> -->
+		<main id="container">
+			<h2 class="h-tit2">작동 원리</h2>
+			<h3 class="h-tit3">원활한 데이터 가져오기 및 요청</h3>
+			<p class="p-txt1">그 어느 때보다 빠르게 고객과 파트너로부터 데이터를 가져오고 요청하십시오. </p>
+			<p class="p-txt2">CSV 및 Excel 파일에서 데이터를 자동으로 수집하고 정리하여 데이터베이스에 직접 로드합니다.</p>
+		</main>
 
-	<style id="css"></style>
-	<ul id="stock">
-		
-	</ul>
+		<footer id="footer"></footer>
+	</div>
 
-	<script>
-		var cssList = [];
-		for(var i = 1; i < 500; i++) {
-			cssList.push('.t' + i + '{top:' + i + 'px}');
-			cssList.push('.mgb' + i + '{margin-bottom:' + i + 'px}');
-			cssList.push('.height' + i + '{height:' + i + 'px}');
-		};
-
-		document.querySelector('#css').innerHTML = cssList.join('');
-
-
-
-		var stock = [
-			[50, 80, 150, 20,], // [시가, 종가, 고가, 저가]
-			[70, 60, 80, 40,],
-			[80, 70, 120, 60,],
-			[90, 90, 90, 85,],
-		];
-		var list = [];
-		for(var i = 0; i < stock.length; i++) {
-			var start = stock[i][0]; // 시가
-			var end = stock[i][1]; // 종가
-			var high = stock[i][2]; // 고가
-			var low = stock[i][3]; // 저가
-			var stockFlow = null; // 양봉 음봉 구분
-			var stockBody = null; // 몸통
-			var stockPos = null; // 몸통 위치
-			var averagePos =null; // 이평선
-			var stockTail = high - low; // 꼬리
-			if(start > end) {
-				// 음봉
-				var stockPos = high - start;
-				var stockBody = start - end;
-				var stockFlow = 'low';
-				var averagePos = ''
-			} else if(start < end) {
-				// 양봉
-				var stockPos = high - end;
-				var stockBody = end - start;
-				var stockFlow = 'high';
-			} else {
-				var stockPos = high - start;
-				var stockBody = 1;
-				var stockFlow = 'same';
-			}
-			list.push('<li class="stock-item ' + stockFlow + ' mgb' + low + '">');
-			list.push('<div class="stock-line height' + stockTail + '"></div>');
-			list.push('<div class="stock-body height' + stockBody + ' t' + stockPos +'"></div>');
-			list.push('<div class="stock-flow t' + averagePos + '"></div>');
-			list.push('</li>');
-		}
-		document.querySelector('#stock').innerHTML = list.join('');
-		
-
-	</script>
 </body>
 
 </html>

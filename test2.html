@@ -8,25 +8,25 @@
 	<title>Document</title>
 </head>
 <body>
-	<button type="button">aaa</button>
-
 	<div id="header">
-		<div><a href="#">header1</a></div>
-		<div><a href="#">header1</a></div>
-		<div><a href="#">header1</a></div>
-		<div><a href="#">header1</a></div>
+		<div><a href="#" class="btn1">btn1</a></div>
+		<div><button type="button" class="btn2">btn2</a></div>
+		<div><button type="button" class="btn3">btn3</a></div>
 	</div>
 
-	<div id="container">
-		<a href="#">container</a>
-	</div>
+
 
 	<script>
-		$('button').click(function(e) {
-			e.preventDefault();
-			// $('#container').attr('tabindex', 10).focus().removeAttr('tabindex')
-			$('#header a').attr('tabindex', -1)
-			$('#header').attr('aria-hidden', 'hidden')
+		// document.querySelector('.btn1').addEventListener('keydown', function(e) {
+		// 	console.log('1', e.keyCode)
+		// })
+
+		// document.querySelector('.btn2').addEventListener('keydown', function(e) {
+		// 	console.log('2', e.keyCode)
+		// })
+
+		document.querySelector('.btn3').addEventListener('click, focusin', function(e) {
+			console.log('3', e.keyCode)
 		})
 	</script>
 </body>
