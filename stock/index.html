@@ -19,7 +19,7 @@
 		<header id="header"></header>
 
 		<main id="container">
-			<div class="item" data-search="a b c">
+			<div class="item 캔들 거래량">
 				<h2 class="h-tit2">작동 원리1</h2>
 				<h3 class="h-tit3">원활한 데이터 가져오기 및 요청</h3>
 				<p class="p-txt1">그 어느 때보다 빠르게 고객과 파트너로부터 데이터를 가져오고 요청하십시오. </p>
@@ -27,7 +27,7 @@
 				<a href="" target="blank" class="btn-link">바로가기</a>
 			</div>
 
-			<div class="item" data-search="a d">
+			<div class="item 이평선">
 				<h2 class="h-tit2">작동 원리2</h2>
 				<h3 class="h-tit3">원활한 데이터 가져오기 및 요청</h3>
 				<p class="p-txt1">그 어느 때보다 빠르게 고객과 파트너로부터 데이터를 가져오고 요청하십시오. </p>
@@ -37,43 +37,27 @@
 
 		<footer id="footer">
 			<div class="btn-search">
-				<button type="button" data-type="a">A</button>
-				<button type="button" data-type="d">B</button>
+				<button type="button" data-type="캔들">A</button>
+				<button type="button" data-type="거래량">B</button>
+				<button type="button" data-type="이평선">C</button>
 			</div>
 		</footer>
 
 		<script>
 			let btnSearch = document.querySelectorAll('.btn-search > button')
-			let items = document.querySelectorAll('.item')
-			
-			function getData() {
-				for(let i = 0; i < btnSearch.length; i++) {
-					btnSearch[i].addEventListener('click', function() {
-						var search = btnSearch[i].dataset.type;
-						console.log(search)
-					})
-				}
+			for(let i = 0; i < btnSearch.length; i++) {
+				btnSearch[i].addEventListener('click', function() {
+					let search = btnSearch[i].dataset.type;
+					let items = document.querySelectorAll('.item')
+					for(let i = 0; i < items.length; i++) {
+						items[i].classList.remove('active')
+					}
+					var tar = document.querySelectorAll('.' + search)
+					for(let i = 0; i < tar.length; i++) {
+						tar[i].classList.add('active')
+					}
+				})
 			}
-			getData()
-
-			
-			for(let i = 0; i < items.length; i++) {
-				let itemData = items[i].dataset.search.split(' ');
-				let aa = itemData.filter(word => word === 'a')
-				// let aa = itemData.filter('a')
-				console.log('aa', aa)
-				console.log(items[i].dataset.search)
-
-
-				if(aa.length > 0) {
-					console.log('aa')
-				}
-				
-			}
-
-
-			
-			// console.log(items)
 		</script>
 	</div>
 
