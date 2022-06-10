@@ -7,14 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../normalize.css">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css">
-	<link rel="stylesheet" href="./style.css?v1">
+	<link rel="stylesheet" href="./style.css">
 	<title>Document</title>
 </head>
 
 <body>
 	<style>
 		i {font-style: normal;}
-		.red {color:red;}
+		.white {color:#fff;}
 		.blue {color: blue;}
 	</style>
 	<div id="wrap">
@@ -74,7 +74,7 @@
 			}
 
 			var txt = [
-				{ word: '가', css: 'red'},
+				{ word: '데이터', css: 'white'},
 				{ word: '다', css: 'blue'}
 			]
 			var ele = document.querySelectorAll('p, li');
@@ -93,6 +93,10 @@
 				setClass();
 				ele[i].innerHTML = eleTxt;
 			}
+
+
+			var dt = new Date();
+			var randomNum = dt.setDate(dt.getDate())
 		</script>
 	</div>
 
