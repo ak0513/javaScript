@@ -48,9 +48,12 @@ img {
 
 .list ul,
 .list ol {
-	margin-top: 7px;
-	margin-bottom: 7px;
-	padding-left: 20px;
+	margin-top: 0.7rem;
+	padding-left: 2.0rem;
+}
+
+.list li + li {
+	margin-top: 1.0rem;
 }
 
 .item {
