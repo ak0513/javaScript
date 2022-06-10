@@ -95,12 +95,12 @@
 			}
 
 
-			var dt = new Date();
-			var randomNum = dt.setDate(dt.getDate());
-			var link = document.querySelectorAll('link');
-			for(var i = 0; i < link.length; i++) {
-				var linkUrl = link[i].getAttribute('href');
-				link[i].setAttribute('href', linkUrl + '?' + randomNum)
+			
+			var randomNum = new Date().setDate(new Date().getDate());
+			var cssLink = document.querySelectorAll('link');
+			for(var i = 0; i < cssLink.length; i++) {
+				var cssLinkUrl = cssLink[i].getAttribute('href');
+				cssLink[i].setAttribute('href', cssLinkUrl + '?' + randomNum)
 			}
 			</script>
 	</div>
