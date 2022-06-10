@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		i {font-style: normal;}
+		.red {color:red;}
+		.blue {color: blue;}
+	</style>
+	<div>가나다라 가나</div>
+	<p>나가나다라 라가나</p>
+
+	<script>
+		var txt = [
+			{ word: '가', css: 'red'},
+			{ word: '다', css: 'blue'}
+		]
+		var ele = document.querySelectorAll('div, p');
+		var replaceAll = function(str, searchStr, replaceStr) {
+			return str.split(searchStr).join(replaceStr);
+		}
+
+		var setClass = function() {
+			for(var i = 0; i < txt.length; i++) {
+				eleTxt = replaceAll(eleTxt, txt[i].word, '<i class="' + txt[i].css + '">' + txt[i].word + '</i>')
+			}
+		}
+
+		for(var i = 0; i < ele.length; i++) {
+			var eleTxt = ele[i].innerHTML;
+			setClass();
+			ele[i].innerHTML = eleTxt;
+		}
+	</script>
+</body>
+</html>
