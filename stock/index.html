@@ -96,8 +96,13 @@
 
 
 			var dt = new Date();
-			var randomNum = dt.setDate(dt.getDate())
-		</script>
+			var randomNum = dt.setDate(dt.getDate());
+			var link = document.querySelectorAll('link');
+			for(var i = 0; i < link.length; i++) {
+				var linkUrl = link[i].getAttribute('href');
+				link[i].setAttribute('href', linkUrl + '?' + randomNum)
+			}
+			</script>
 	</div>
 
 </body>
