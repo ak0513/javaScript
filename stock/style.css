@@ -8,7 +8,7 @@ body {
 	border:1px solid #000;
 	font-size: 1.6rem;
 	line-height: 1.45;
-	color: #fff;
+	color:#d1d1d1;
 	font-weight: 400;
 	text-size-adjust: none;
 	-webkit-text-size-adjust: none;
@@ -30,6 +30,10 @@ img {
 	padding:0 20px 60px 20px;
 }
 
+[class*='h-'] {
+	color: #fff;
+}
+
 .h-tit1 {
 	font-size: 2.4rem;
 }
@@ -42,9 +46,6 @@ img {
 	font-size: 1.6rem;
 }
 
-.color-gray {
-	color:#d1d1d1;
-}
 
 .list li + li {
 	margin-top: 1.0rem;
