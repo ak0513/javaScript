@@ -46,22 +46,17 @@ img {
 	color:#d1d1d1;
 }
 
-.list ul,
-.list ol {
-	margin-top: 0.7rem;
-	padding-left: 2.0rem;
-}
-
 .list li + li {
 	margin-top: 1.0rem;
 }
 
 .item {
-	
-	margin-top:3.0em;
 	margin-bottom: 3.0rem;
 	padding-bottom: 3.0rem;
 	border-bottom: 1px dashed #666;
+}
+.item + .item {
+	margin-top:3.0em;
 }
 .item > [class*='h-'] {
 	margin-top: 0;
