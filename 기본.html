@@ -98,6 +98,15 @@
 
 		<footer id="footer"></footer>
 	</div>
+
+	<script>
+		var randomNum = new Date().setDate(new Date().getDate());
+		var cssLink = document.querySelectorAll('link');
+		for(var i = 0; i < cssLink.length; i++) {
+			var cssLinkUrl = cssLink[i].getAttribute('href');
+			cssLink[i].setAttribute('href', cssLinkUrl + '?' + randomNum)
+		}
+	</script>
 </body>
 
 </html>
