@@ -210,25 +210,58 @@
 		
 		<!-- 설문 레이어 팝업-->
 		<div id="surveyLayer" class="md-modal md-show" tabindex="0" aria-hidden="false"><!-- modal -->
-		<div id="modalWrapper" class="md-content">
-			<h3 class="title">고객님 답변에 만족하셨습니까?<span class="sr-only"> 레이어</span></h3>
-
-			<div id="modalInner" class="inner-wrapper modal-rating">
-				<div class="rating-answer">
-					<div class="module" id="div_feedback"><h4>
-						<img src="https://www.shinhancard.com/psolution//tlk'/im/required.png'" width="8px" height="8px"> 1. 톡 만족도</h4>
-						
-					<ul>
-						<li><input type="radio" id="feedback100" name="feedback" value="100" checked="checked"> <label for="feedback100">★★★★★</label></li>
-						<li><input type="radio" id="feedback80" name="feedback" value="80"> <label for="feedback80">★★★★</label></li>
-						<li><input type="radio" id="feedback60" name="feedback" value="60"> <label for="feedback60">★★★</label></li>
-						<li><input type="radio" id="feedback40" name="feedback" value="40"> <label for="feedback40">★★</label></li>
-						<li><input type="radio" id="feedback20" name="feedback" value="20"> <label for="feedback20">★</label></li>
-					</ul>
+			<div id="modalWrapper" class="md-content">
+				<h3 class="title">고객님 답변에 만족하셨습니까?<span class="sr-only"> 레이어</span></h3>
+				<div id="modalInner" class="inner-wrapper modal-rating">
+					<div class="rating-answer">
+						<div class="module" id="div_feedback">
+							<h4><img src="/psolution/tlk'/im/required.png'" width="8px" height="8px"> 1. 톡 만족도</h4>
+							<li><input type="radio" id="feedback100" name="feedback" value="100" checked="checked"> <label
+									for="feedback100">★★★★★</label></li>
+							<li><input type="radio" id="feedback80" name="feedback" value="80"> <label for="feedback80">★★★★</label>
+							</li>
+							<li><input type="radio" id="feedback60" name="feedback" value="60"> <label for="feedback60">★★★</label>
+							</li>
+							<li><input type="radio" id="feedback40" name="feedback" value="40"> <label for="feedback40">★★</label>
+							</li>
+							<li><input type="radio" id="feedback20" name="feedback" value="20"> <label for="feedback20">★</label>
+							</li>
+						</div>
+						<ul id="div_feedback" name="div_feedback" essential="Y" depth="2"></ul>
+						<div class="module" id="div_option03">
+							<h4>2. 상담사는 친절하고 신속/명확하게 응대하였나요?</h4>
+							<li><input type="radio" id="option03100" name="option03" value="100" checked="checked"> <label
+									for="option03100">★★★★★</label></li>
+							<li><input type="radio" id="option0380" name="option03" value="80"> <label for="option0380">★★★★</label>
+							</li>
+							<li><input type="radio" id="option0360" name="option03" value="60"> <label for="option0360">★★★</label>
+							</li>
+							<li><input type="radio" id="option0340" name="option03" value="40"> <label for="option0340">★★</label>
+							</li>
+							<li><input type="radio" id="option0320" name="option03" value="20"> <label for="option0320">★</label>
+							</li>
+						</div>
+						<ul id="div_option03" name="div_option03" essential="N" depth="2"></ul>
+						<div class="module" id="div_option04">
+							<h4>3. 앞으로도 Talk상담을 이용할 생각이 있나요?</h4>
+							<li><input type="radio" id="option04100" name="option04" value="100" checked="checked"> <label
+									for="option04100">★★★★★</label></li>
+							<li><input type="radio" id="option0480" name="option04" value="80"> <label for="option0480">★★★★</label>
+							</li>
+							<li><input type="radio" id="option0460" name="option04" value="60"> <label for="option0460">★★★</label>
+							</li>
+							<li><input type="radio" id="option0440" name="option04" value="40"> <label for="option0440">★★</label>
+							</li>
+							<li><input type="radio" id="option0420" name="option04" value="20"> <label for="option0420">★</label>
+							</li>
+						</div>
+						<ul id="div_option04" name="div_option04" essential="N" depth="2"></ul>
 					</div>
-					<ul id="div_feedback" name="div_feedback" essential="Y" depth="2"></ul><div class="module" id="div_option03"><h4>2. 상담사는 친절하고 신속/명확하게 응대하였나요?</h4><li><input type="radio" id="option03100" name="option03" value="100" checked="checked"> <label for="option03100">★★★★★</label></li><li><input type="radio" id="option0380" name="option03" value="80"> <label for="option0380">★★★★</label></li><li><input type="radio" id="option0360" name="option03" value="60"> <label for="option0360">★★★</label></li><li><input type="radio" id="option0340" name="option03" value="40"> <label for="option0340">★★</label></li><li><input type="radio" id="option0320" name="option03" value="20"> <label for="option0320">★</label></li></div><ul id="div_option03" name="div_option03" essential="N" depth="2"></ul><div class="module" id="div_option04"><h4>3. 앞으로도 Talk상담을 이용할 생각이 있나요?</h4><li><input type="radio" id="option04100" name="option04" value="100" checked="checked"> <label for="option04100">★★★★★</label></li><li><input type="radio" id="option0480" name="option04" value="80"> <label for="option0480">★★★★</label></li><li><input type="radio" id="option0460" name="option04" value="60"> <label for="option0460">★★★</label></li><li><input type="radio" id="option0440" name="option04" value="40"> <label for="option0440">★★</label></li><li><input type="radio" id="option0420" name="option04" value="20"> <label for="option0420">★</label></li></div><ul id="div_option04" name="div_option04" essential="N" depth="2"></ul></div>
-						<div class="section-button"><a class="button submit large full" id="counselBtn" href="javascript:;"><span>평가</span></a></div></div></div></div>
-		
+					<div class="section-button"><a class="button submit large full" id="counselBtn"
+							href="javascript:;"><span>평가</span></a></div>
+				</div>
+			</div>
+		</div>
 		<!-- //설문 레이어 팝업 -->
 		
 		
@@ -372,7 +405,7 @@
 <style>
 	#surveyLayer .rating-answer li {position:relative;padding:0.6rem 0;}
 	#surveyLayer .rating-answer input[type='radio'] {position:absolute;top:0.6rem;left:0;width:2.4rem;height:2.4rem;}
-	#surveyLayer .rating-answer input[type='radio']+label {min-height:2.4rem;}
+	#surveyLayer .rating-answer input[type='radio']+label {overflow:hidden;min-height:2.4rem;}
 	#surveyLayer .rating-answer input[type='radio']:focus-visible {opacity:1;}
 </style>
 
