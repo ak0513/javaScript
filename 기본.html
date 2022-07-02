@@ -95,6 +95,21 @@
 				<br>
 				<div style="width: min(70%, 500px);" class="color-white bg-dark">width: min(70%, 1000px);</div>
 			</div>
+
+
+형제 요소 찾기
+<div id="menu">
+	<div class="menu1">menu1</div>
+	<div class="menu2">menu2</div>
+	<div id="menu-2">menu-2</div>
+	<div class="menu4">menu4</div>
+	<div class="menu5">menu5</div>
+</div>
+<script>
+	var siblings = ui.siblings('.menu2');
+	console.log('siblings', siblings)
+	console.log('randomNum2', ui.randomNum2)
+</script>
 		</main>
 
 		<footer id="footer"></footer>
