@@ -111,18 +111,13 @@
 	var ele0 = document.querySelectorAll('.aa-1')
 	var btn = document.querySelectorAll('.aa-1 button')
 	var siblings = ui.siblings('.aa-2');
+	console.log('btn', btn)
 	function aa(e) {
 		var ele = e.target;
-		// var ele2 = document.querySelector(ele);
-		// var ele3 = ele2.parentsElements;
-		// var si = ui.siblings(ele2)
-		var ele4 = document.querySelector('.aa-2');
-		console.log('ele', ele)
-		// console.log('ele2', ele2)
-		// console.log('ele3', ele3)
-		console.log('ele4',ele4)
-		ele4.classList.add('ele4')
-		console.log(ui.siblings(ele0))
+		console.log('1', ele)
+		console.log('1', ele.classList)
+		console.log('2', document.querySelector(ele))
+		console.log('3', ui.siblings(ele))
 	}
 
 	// var si2 = ui.siblings(btn)
