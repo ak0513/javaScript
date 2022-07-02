@@ -68,5 +68,25 @@
 			console.log(cc)
 
 	</script>
+
+
+형제 요소 찾기
+<div id="menu">
+	<div class="menu1">menu1</div>
+	<div class="menu2">menu2</div>
+	<div id="menu-2">menu-2</div>
+	<div class="menu4">menu4</div>
+	<div class="menu5">menu5</div>
+</div>
+<script>
+	var siblings = [...document.getElementById('menu-2').parentNode.children].filter((child) =>
+		child !== document.getElementById('menu-2')
+	); // Vanilla JS, Edge13+
+	console.log(siblings)
+
+	for(var i = 0; i < siblings.length; i++) {
+		siblings[i].classList.add('aa')
+	}
+</script>
 </body>
 </html>
