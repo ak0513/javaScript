@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>WAI ARIA</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://ak0513.github.io/highlight/highlight.min.js"></script>
 	<link rel="stylesheet" href="./normalize.css">
 	<link rel="stylesheet" href="https://ak0513.github.io/highlight/vs2015.min.css">
@@ -275,16 +276,27 @@
 	</div>
 aria-current
 
-<h2>이중탭</h2>
-<button type="button" aria-controls="aa">controls</button>
-<button type="button" aria-selected="true">selected</button>
-<button type="button" role="tab">tab</button>
-<button type="button" id="sfsdfsdf">labelledby</button>
-<button type="button" aria-describedby="aaa">describedby</button>
-<div><a href="#" role="button" >a button</a></div>
 
+
+<button type="button" aria-describedby="bank1" class="bank-btn">describedby1</button>
+<button type="button" aria-describedby="bank2" class="bank-btn">describedby2</button>
+<button type="button" aria-describedby="bank3" class="bank-btn">describedby3</button>
+<button type="button" aria-describedby="bank4" class="bank-btn">describedby4</button>
+<button type="button" aria-describedby="bank5" class="bank-btn">describedby5</button>
+<script>
+	$(function() {
+		$('.bank-btn').each(function(index, item){
+			var btnId = $(item).attr('aria-describedby')
+			$(item).after('<div id="' + btnId + '" hidden>이중탭 describedby id2</div>')
+		})
+
+
+
+		
+	})
+</script>
 <hr>
-<div aria-labelledby="sfsdfsdf">이중탭 id1</div>
+
 
 
 
@@ -295,7 +307,7 @@ aria-current
 	<div aria-current="true">div true</div><br>
 	<div aria-current="time">11:00</div><br>
 	<div aria-current="true" aria-label="국문 사이트">div true</div><br>
-	<div id="aaa">이중탭 describedby id2</div>
+	
 	<a href="#" aria-current="location">a location</a><br>
 
 	<nav aria-label="breadcrumb">
