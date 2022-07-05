@@ -22,7 +22,7 @@
 		<header id="header"></header>
 
 		<main id="container">
-			<div class="container">
+			<div class="container" style="display:none">
 				<h2 class="h-tit2">버튼</h2>
 				<h2 class="h-tit3">기본 버튼</h2>
 				<div class="btn-wrap">
@@ -100,24 +100,28 @@
 형제 요소 찾기
 <div id="menu">
 	<div class="aa">
-		<div class="aa-1"><button type="button">btn1</button></div>
-		<div class="aa-1"><button type="button">btn2</button></div>
-		<div class="aa-2"><button type="button">btn3</button></div>
-		<div class="aa-1"><button type="button">btn4</button></div>
-		<div class="aa-1"><button type="button">btn5</button></div>
+		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn1</button></div></div>
+		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn2</button></div></div>
+		<div class="bb1"><div class="aa-2"><button type="button" class="btn1">btn3</button></div></div>
+		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn4</button></div></div>
+		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn5</button></div></div>
 	</div>
 </div>
 <script>
 	var ele0 = document.querySelectorAll('.aa-1')
 	var btn = document.querySelectorAll('.aa-1 button')
-	var siblings = ui.siblings('.aa-2');
+	var siblings = ui.siblings('.aa button');
 	console.log('btn', btn)
+	console.log('siblings', siblings)
 	function aa(e) {
 		var ele = e.target;
-		console.log('1', ele)
-		console.log('1', ele.classList)
-		console.log('2', document.querySelector(ele))
-		console.log('3', ui.siblings(ele))
+		var eleClass = ele.classList[0];
+		var eleClass2 = document.querySelectorAll(eleClass);
+		console.log('ele', ele)
+		console.log('1', ele.getAttribute('class'))
+		console.log('eleClass2',eleClass2)
+		// console.log('2', document.querySelector(ele))
+		console.log('3', ui.siblings(eleClass))
 	}
 
 	// var si2 = ui.siblings(btn)
