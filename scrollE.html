@@ -73,12 +73,12 @@
 					ele: '#sec1 .item1',
 					type: 'sticky',
 					propertys: {
-						/* opacity: {
+						opacity: {
 							sValue: [0, 1],
 							sPos: [0, 50],
 							eValue: [1, 0],
 							ePos: [70, 90],
-						}, */
+						},
 						/* matrix: {
 							sValue: [
 								[1,0,0,1,50,50],
@@ -100,15 +100,15 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
-							sPos: [0, 100]
+							sPos: [20, 100]
 						},
-						/* matrix: {
+						matrix: {
 							sValue: [
-								[1,0,0,1,100,0],
+								[1,0,0,1,0,-100],
 								[1,0,0,1,0,0]
 							],
-							sPos: [0, 100]
-						}, */
+							sPos: [20, 100]
+						},
 					},
 				}
 			},
@@ -143,25 +143,6 @@
 				// matrix =  item.info.propertys.matrix.sValue[0][5];
 			}
 			var bottomPos = viewportHeight - relativeTop + matrix; // 엘리먼트가 viewport 하단에 위치
-			/* console.group('s2')
-			console.log(
-				'viewportHeight',viewportHeight
-				+'\n'+
-				'absoluteTop', absoluteTop
-				+'\n'+
-				'absoluteTop2', absoluteTop2
-				+'\n'+
-				'scrollTop', scrollTop
-				+'\n'+
-				'relativeTop', relativeTop
-				+'\n'+
-				'matrix', matrix
-				+'\n'+
-				'bottomPos', bottomPos
-				+'\n'+
-				'ㅁ', absoluteTop2 - scrollTop
-			)
-			console.groupEnd('e2') */
 			
 			var startPos = pageHeight / 100 * item.info.propertys[property].sPos[0]; // 모션 시작 지점(px)
 			var endPos = pageHeight / 100 * item.info.propertys[property].sPos[1]; // 모션 끝 지점(px)
@@ -171,7 +152,8 @@
 			if(item.info.type !== 'sticky') {
 				startPos = viewportHeight / 100 * item.info.propertys[property].sPos[0]; // 모션 시작 지점(px)
 				endPos = viewportHeight / 100 * item.info.propertys[property].sPos[1]; // 모션 끝 지점(px)
-				scrollMove = scrollTop - viewportHeight - startPos; // 스크롤시 움직이는 값(px)
+				// scrollMove = scrollTop - viewportHeight - startPos; // 스크롤시 움직이는 값(px)
+				scrollMove = bottomPos - startPos; // 스크롤시 움직이는 값(px)
 				scrollTop2 = bottomPos
 			}
 
@@ -196,8 +178,6 @@
 				+'\n'+
 				'absoluteTop', absoluteTop
 				+'\n'+
-				
-				
 				'move1px(1px당 적용값)', move1px
 				
 				+'\n'+
