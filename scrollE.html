@@ -73,12 +73,12 @@
 					ele: '#sec1 .item1',
 					type: 'sticky',
 					propertys: {
-						opacity: {
+						/* opacity: {
 							sValue: [0, 1],
 							sPos: [0, 50],
 							eValue: [1, 0],
 							ePos: [70, 90],
-						},
+						}, */
 						/* matrix: {
 							sValue: [
 								[1,0,0,1,50,50],
@@ -100,11 +100,11 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
-							sPos: [0, 20]
+							sPos: [0, 100]
 						},
 						/* matrix: {
 							sValue: [
-								[1,0,0,1,0,100],
+								[1,0,0,1,100,0],
 								[1,0,0,1,0,0]
 							],
 							sPos: [0, 100]
@@ -137,14 +137,13 @@
 			var pageHeight = Number(document.querySelector(item.info.ele.split(' ')[0]).style.height.slice(0, -2)); // 엘리먼트 부모요소의 높이
 			var relativeTop = ele.getBoundingClientRect().top; // 엘리먼트 상대좌표
 			var absoluteTop = window.pageXOffset + relativeTop; // 엘리먼트 절대좌표
-			var absoluteTop2 = absoluteTop; // 엘리먼트 초기 높이 고정
 			// var bottomPos = viewportHeight - ele.getBoundingClientRect().top; // 엘리먼트가 viewport 하단에 위치
 			var matrix = 0;
 			if(!!item.info.propertys.matrix) {
 				// matrix =  item.info.propertys.matrix.sValue[0][5];
 			}
 			var bottomPos = viewportHeight - relativeTop + matrix; // 엘리먼트가 viewport 하단에 위치
-			console.group('s2')
+			/* console.group('s2')
 			console.log(
 				'viewportHeight',viewportHeight
 				+'\n'+
@@ -162,7 +161,7 @@
 				+'\n'+
 				'ㅁ', absoluteTop2 - scrollTop
 			)
-			console.groupEnd('e2')
+			console.groupEnd('e2') */
 			
 			var startPos = pageHeight / 100 * item.info.propertys[property].sPos[0]; // 모션 시작 지점(px)
 			var endPos = pageHeight / 100 * item.info.propertys[property].sPos[1]; // 모션 끝 지점(px)
@@ -183,25 +182,24 @@
 			var result = null;
 			console.group('s')
 			console.log(
-				'matrix', matrix
-				+'\n'+
+				// 'matrix', matrix
+				// +'\n'+
 				'scrollTop', scrollTop
 				+'\n'+
 				'scrollTop2', scrollTop2
 				+'\n'+
-				'startPos', startPos
+				'startPos(시작위치)', startPos
 				+'\n'+
-				'endPos', endPos
+				'endPos(끝위치)', endPos
 				+'\n'+
 				'scrollMove', scrollMove
 				+'\n'+
-				'space', space
+				'absoluteTop', absoluteTop
 				+'\n'+
-				'spaceValue', spaceValue
-				+'\n'+
-				'move1px', move1px
-				+'\n'+
-				'pageHeight', pageHeight
+				
+				
+				'move1px(1px당 적용값)', move1px
+				
 				+'\n'+
 				'bottomPos', bottomPos
 			)
