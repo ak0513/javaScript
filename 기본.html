@@ -100,28 +100,32 @@
 형제 요소 찾기
 <div id="menu">
 	<div class="aa">
-		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn1</button></div></div>
-		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn2</button></div></div>
-		<div class="bb1"><div class="aa-2"><button type="button" class="btn1">btn3</button></div></div>
-		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn4</button></div></div>
-		<div class="bb1"><div class="aa-1"><button type="button" class="btn1">btn5</button></div></div>
+		<div class="bb1"><button type="button" class="btn1">btn1</button></div>
+		<div class="bb1"><button type="button" class="btn1">btn2</button></div>
+		<div class="bb1"><button type="button" class="btn1">btn3</button></div>
+		<div class="bb1"><button type="button" class="btn1">btn4</button></div>
+		<div class="bb1"><button type="button" class="btn1">btn5</button></div>
+		<div class="bb11"><button type="button" class="btn1">btn6</button></div>
 	</div>
 </div>
 <script>
-	var ele0 = document.querySelectorAll('.aa-1')
-	var btn = document.querySelectorAll('.aa-1 button')
-	var siblings = ui.siblings('.aa button');
-	console.log('btn', btn)
-	console.log('siblings', siblings)
+	var ele0 = document.querySelectorAll('.bb1')
+	var btn = document.querySelectorAll('.btn1')
+	var siblings = ui.siblings('.btn1');
+	var siblings2 = ui.siblings('.bb11');
+	// console.log('siblings2', siblings2)
 	function aa(e) {
 		var ele = e.target;
-		var eleClass = ele.classList[0];
-		var eleClass2 = document.querySelectorAll(eleClass);
+		var eleClass = ele.getAttribute('class');
+		var eleClass2 = ele.parentElement.classList.add('aa');
+		console.log('siblings2', siblings2)
 		console.log('ele', ele)
-		console.log('1', ele.getAttribute('class'))
-		console.log('eleClass2',eleClass2)
+		// console.log('class',eleClass)
+		// console.log('eleClass2', ele.parentElement)
 		// console.log('2', document.querySelector(ele))
-		console.log('3', ui.siblings(eleClass))
+		setTimeout(function() {
+			console.log('3', ui.siblings('.aa'))
+		},0)
 	}
 
 	// var si2 = ui.siblings(btn)

@@ -49,19 +49,19 @@
 				ele: '.scroll-wrap',
 				propertys: {
 					opacity: {
-						value: [0.5, 1],
-						pos: [10, 30]
+						value: [0, 1],
+						pos: [0, 50]
 					},
 					matrix: {
 						value: [
-							[1.5,0,0,1.5,50,100],
-							[1,0,0,1,0,0]
+							[1.0,0,1,0,0],
+							[1.5,0,0,1.5,0,0]
 						],
-						pos: [10, 50]
+						pos: [80, 90]
 					},
 					height: {
 						unit:'px',
-						value: [200,100],
+						value: [100,100],
 						pos: [10, 50]
 					},
 					width: {
@@ -92,7 +92,7 @@
 		let resizeTimer = null;
 		let viewportHeight = window.innerHeight; // 스크롤바 높이 포함
 
-
+		window.addEventListener('load', motion)
 		window.addEventListener('scroll', motion)
 		window.addEventListener('resize', function() {
 			clearTimeout(resizeTimer);
@@ -107,6 +107,7 @@
 		// 스크롤시 값
 		function calc(item, property) {
 			let ele = document.querySelector(item.ele)
+			console.log('calc', ele)
 			let bottomPos = viewportHeight - ele.getBoundingClientRect().top - ele.clientHeight; // 엘리먼트가 viewport 하단에 위치
 
 			let startPos = viewportHeight / 100 * item.propertys[property].pos[0]; // 모션 시작 지점(px)
@@ -119,7 +120,25 @@
 
 			let result = null;
 			console.group('s')
-			console.log(scrollMove)
+			console.log(
+					'ele', ele
+					+'\n'+
+					'bottomPos', bottomPos
+					+'\n'+
+					'startPos', startPos
+					+'\n'+
+					'endPos', endPos
+					+'\n'+
+					'scrollMove', scrollMove
+					+'\n'+
+					'space', space
+					+'\n'+
+					'spaceValue', spaceValue
+					+'\n'+
+					'move1px', move1px
+					+'\n'+
+					'test2', result
+				)
 			console.groupEnd()
 			if(bottomPos >= startPos && bottomPos <= endPos) {
 				if(property === 'matrix') {
@@ -140,6 +159,7 @@
 			else {
 				result = item.propertys[property].value[0]
 			}
+			console.log('result', result)
 			return result
 		}
 
@@ -159,6 +179,8 @@
 		function motion() {
 			for(let i = 0; i < item.length; i++) {
 				let ele = document.querySelector(item[i].ele);
+				// console.log(item[i])
+				console.log('ele.children[0]', ele.children[0])
 				if(item[i].propertys.matrix) {ele.children[0].style.transform = 'matrix(' + calc(item[i], 'matrix') + ')';}
 				if(item[i].propertys.opacity) {ele.children[0].style.opacity =  calc(item[i], 'opacity');}
 				if(item[i].propertys.height) {

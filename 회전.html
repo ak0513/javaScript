@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<div class="wrap">
+	<div class="front"><img src="https://www.shinhancard.com/pconts/images/contents/card/plate/cdCreditCAICV0.png" class=""></div>
+	<div class="back"><img src="https://www.shinhancard.com/pconts/images/contents/card/plate/cdCheckAMAC0G.png" class=""></div>
+</div>
+	<style>
+		img{width:200px;}
+		.wrap{position: relative;transform-style:preserve-3d;transition:all 1s;width: 200px;height:130px;animation: ani infinite 1.5s;
+}
+		/* .wrap:hover{transform: rotateY(180deg);} */
+		
+		.front {position: absolute;z-index:1;transform: rotateY(180deg);}
+		.back {position: absolute;z-index:2;transform: rotateY(0deg);}
+
+		@keyframes ani {
+			0% {}
+			50% {transform: rotateX(180deg);}
+			100% {}
+		}
+	</style>
+</body>
+</html>

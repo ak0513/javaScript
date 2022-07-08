@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+	<title>offsetTop</title>
+</head>
+<body>
+	<style>
+		*{margin:0;padding:0;}
+		.a {position: relative;}
+		.b {position: relative;}
+		.c {margin-top:100px;padding-top:50px;width:100px;height:100px;background-color:#666;transform:translateY(50px);}
+	</style>
+	<div style="height:1000px"></div>
+	<div class="a">
+		<div style="height:1000px"></div>
+		<div class="b">
+			<div style="height:1000px"></div>
+			<div class="c">
+		</div>
+	</div>
+	<div style="height:1000px"></div>
+	<script>
+
+		
+
+		window.addEventListener('scroll', consoleView)
+		function consoleView() {
+			var b = document.querySelector('.c');
+			var offsetTopB = b.offsetTop;
+			var offsetTopC = offsetTopB += b.offsetParent.offsetTop;
+			
+			var scrollTop = document.querySelector('html').scrollTop; 
+			var relativeTop = b.getBoundingClientRect().top;
+			var absoluteTop = window.pageXOffset + relativeTop;
+
+			// b.style.transform = 'translateY(' + scrollTop + 'px)';
+			
+			
+			console.group('s')
+			console.log('b', b)
+			console.log('scrollTop', scrollTop)
+			console.log('absoluteTop', absoluteTop)
+			console.log('relativeTop', relativeTop)
+			console.log('offsetTopB', offsetTopB)
+			console.log('offsetTopC', offsetTopC)
+			console.groupEnd('e')
+		}
+	</script>
+</body>
+</html>
