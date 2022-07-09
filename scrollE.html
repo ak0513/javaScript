@@ -10,7 +10,7 @@
 
 <body>
 	<style>
-		* {box-sizing: border-box;}
+		* {box-sizing: border-box;margin:0;padding:0;}
 		body{margin:0;}
 		img{width:100%;height:auto;}
 		#sec1,
@@ -34,7 +34,7 @@
 		}
 
 		.card {display:flex;}
-		.card div {flex:1;padding:10px;width:500px;height:500px;}
+		.card div {flex:1;padding:10px;width:100%;height:500px;}
 		@media only screen and (max-width: 768px) {
 			.card {display:block;}
 		}
@@ -75,22 +75,22 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
-							sPos: [0, 50],
+							sPos: [20, 50],
 							eValue: [1, 0],
 							ePos: [70, 90],
 						},
-						/* matrix: {
+						matrix: {
 							sValue: [
-								[1,0,0,1,50,50],
+								[1,0,0,1,0,200],
 								[1,0,0,1,0,0]
 							],
-							sPos: [30, 50],
+							sPos: [20, 50],
 							eValue: [
 								[1,0,0,1,0,0]
 								[1,0,0,1,0,50],
 							],
 							ePos: [50, 80]
-						} */
+						}
 					},
 				}
 			},
