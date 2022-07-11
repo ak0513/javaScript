@@ -79,7 +79,7 @@
 							eValue: [1, 0],
 							ePos: [70, 90],
 						},
-						matrix: {
+						/* matrix: {
 							sValue: [
 								[1,0,0,1,0,200],
 								[1,0,0,1,0,0]
@@ -90,7 +90,7 @@
 								[1,0,0,1,0,50],
 							],
 							ePos: [50, 80]
-						}
+						} */
 					},
 				}
 			},
@@ -100,15 +100,22 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
-							sPos: [20, 100]
+							sPos: [20, 50],
+							eValue: [1, 0],
+							ePos: [50, 90],
 						},
-						matrix: {
+						/* matrix: {
 							sValue: [
 								[1,0,0,1,0,-100],
 								[1,0,0,1,0,0]
 							],
-							sPos: [20, 100]
-						},
+							sPos: [20, 50],
+							eValue: [
+								[1,0,0,1,0,0]
+								[1,0,0,1,0,50],
+							],
+							ePos: [50, 80]
+						}, */
 					},
 				}
 			},
@@ -156,6 +163,9 @@
 			if(item.info.type !== 'sticky') {
 				startPos = viewportHeight / 100 * item.info.propertys[property].sPos[0]; // 모션 시작 지점(px)
 				endPos = viewportHeight / 100 * item.info.propertys[property].sPos[1]; // 모션 끝 지점(px)
+				
+				startPos2 = viewportHeight / 100 * item.info.propertys[property].ePos[0]; // 모션 시작 지점(px)
+				endPos2 = viewportHeight / 100 * item.info.propertys[property].ePos[1]; // 모션 끝 지점(px)
 				// scrollMove = scrollTop - viewportHeight - startPos; // 스크롤시 움직이는 값(px)
 				scrollMove = bottomPos - startPos; // 스크롤시 움직이는 값(px)
 				scrollTop2 = bottomPos
@@ -172,7 +182,7 @@
 				// +'\n'+
 				'scrollTop', scrollTop
 				+'\n'+
-				'scrollTop2', scrollTop2
+				'scrollTop2(기준)', scrollTop2
 				+'\n'+
 				'startPos(시작위치)', startPos
 				+'\n'+
@@ -213,6 +223,27 @@
 			}
 			console.log('result', result)
 			return result
+			/* if(scrollTop2 >= startPos && scrollTop2 <= endPos) {
+				if(property === 'matrix') {
+					var matrixValues = []
+					var matrixValueA = getMatrixValue(item.info.propertys.matrix.sValue[0][0], item.info.propertys.matrix.sValue[1][0], space, scrollMove);
+					var matrixValueD = getMatrixValue(item.info.propertys.matrix.sValue[0][3], item.info.propertys.matrix.sValue[1][3], space, scrollMove);
+					var matrixValueE = getMatrixValue(item.info.propertys.matrix.sValue[0][4], item.info.propertys.matrix.sValue[1][4], space, scrollMove);
+					var matrixValueF = getMatrixValue(item.info.propertys.matrix.sValue[0][5], item.info.propertys.matrix.sValue[1][5], space, scrollMove);
+					matrixValues.push(matrixValueA,0,0,matrixValueD,matrixValueE,matrixValueF)
+
+					result = matrixValues
+				} else {
+					result = item.info.propertys[property].sValue[0] + (move1px * scrollMove)
+				}
+			} else if(scrollTop2 >= endPos) {
+				result = item.info.propertys[property].sValue[1];
+			}
+			else {
+				result = item.info.propertys[property].sValue[0]
+			}
+			console.log('result', result)
+			return result */
 		}
 		
 
