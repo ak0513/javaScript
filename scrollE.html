@@ -146,6 +146,10 @@
 			
 			var startPos = pageHeight / 100 * item.info.propertys[property].sPos[0]; // 모션 시작 지점(px)
 			var endPos = pageHeight / 100 * item.info.propertys[property].sPos[1]; // 모션 끝 지점(px)
+
+			var startPos2 = pageHeight / 100 * item.info.propertys[property].ePos[1]; // 모션 끝 지점(px)
+			var endPos2 = pageHeight / 100 * item.info.propertys[property].ePos[1]; // 모션 끝 지점(px)
+			
 			var scrollMove = scrollTop - startPos; // 스크롤시 움직이는 값(px)
 			var scrollTop2 = scrollTop;
 
@@ -173,6 +177,10 @@
 				'startPos(시작위치)', startPos
 				+'\n'+
 				'endPos(끝위치)', endPos
+				+'\n'+
+				'startPos2(시작위치)', startPos2
+				+'\n'+
+				'endPos2(끝위치)', endPos2
 				+'\n'+
 				'scrollMove', scrollMove
 				+'\n'+
