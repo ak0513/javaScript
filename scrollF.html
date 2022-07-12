@@ -53,6 +53,8 @@
 			.card {display:block;}
 		}
 	</style>
+	<div id="sec00"></div>
+	<div id="sec0"></div>
 	<div id="sec1">
 		<div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
 		<div class="" style="height:1000px">1111111111</div>
@@ -168,11 +170,11 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
-							sPos: [20, 50],
+							sPos: [0, 50],
 							eValue: [1, 0],
 							ePos: [50, 100],
 						},
-						matrix: {
+						/* matrix: {
 							sValue: [
 								[1,0,0,1,-100,0],
 								[1,0,0,1,0,0]
@@ -183,7 +185,7 @@
 								[1,0,0,1,-350,0]
 							],
 							ePos: [60, 80]
-						}
+						} */
 					},
 				}
 			},
@@ -222,44 +224,70 @@
 		
 		var current = 0;
 		var prevHeight = 0;
-		// var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
+		var totalHeight = 0;
+		var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
 		// 세팅
 		function setting() {
 			var totalScroll = 0;
-			var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
+			scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
 			for(var i = 0; i < wrap.length; i++) {
-				var height = viewportHeight * wrap[i].pageNum;
-				// console.log('height', height)
+				var height = wrap[i].deviceHeight = viewportHeight * wrap[i].pageNum;
 				wrap[i].ele.style.height = height + 'px';
+			}
 
-				totalScroll += Number(wrap[i].ele.style.height.slice(0, -2));
-				// console.log('totalScroll', totalScroll)
-				// if(scrollTop < totalScroll) {
-				// 	current = i;
-				// 	break;
-				// }
+			for(var i = 0; i < wrap.length; i++) {
+				totalScroll += wrap[i].deviceHeight;
+				console.log('totalScroll', totalScroll)
+				if(scrollTop < totalScroll) {
+					current = i;
+					break;
+				}
 			}
 			document.querySelector('body').setAttribute('id', 'show-scene-' + current)
+			
+		}
+
+		function scrollLoop() {
+			scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
+			prevHeight = 0;
+			
+			for(var i=0; i < current; i++) {
+				prevHeight += wrap[i].deviceHeight;
+				
+			}
+			
+			if(scrollTop > prevHeight + wrap[current].deviceHeight) {
+				current++
+				document.querySelector('body').setAttribute('id', 'show-scene-' + current)
+			}
+
+			if(scrollTop < prevHeight) {
+				current--
+				document.querySelector('body').setAttribute('id', 'show-scene-' + current)
+			}
+			totalHeight = prevHeight + wrap[current].deviceHeight;
 			motion();
 		}
+
 		// 스크롤시 값
 		function calc(item, property) {
 			var ele = document.querySelector(item.info.ele)
 			// var scrollTop = window.pageYOffset; // 스크롤 위치
 			var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
+
 			var parent = document.querySelector(item.info.ele.split(' ')[0]); // 엘리먼트 부모요소
 			var pageHeight = Number(parent.style.height.slice(0, -2)); // 엘리먼트 부모요소의 높이
+			var previousHeight = Number(getComputedStyle(parent.previousElementSibling).height.slice(0, -2))
+			// var previousHeight = 0;
 			// var bottomPos = viewportHeight - ele.getBoundingClientRect().top; // 엘리먼트가 viewport 하단에 위치
-			
-			console.log('parent', parent)
-			console.log('previousElementSibling', parent.previousElementSibling)
-			
-			
-			var showStart = pageHeight / 100 * item.info.propertys[property].sPos[0]; // 엘리먼트 보여주기 시작 지점(px)
-			var showEnd = pageHeight / 100 * item.info.propertys[property].sPos[1]; // 엘리먼트 보여주기 끝 지점(px)
+			console.log('prevHeight',prevHeight)
+			console.log('previousElementSibling',Number(getComputedStyle(parent.previousElementSibling).height.slice(0, -2)))
 
-			var hideStart = pageHeight / 100 * item.info.propertys[property].ePos[0]; // 엘리먼트 사라지기 끝 지점(px)
-			var hideEnd = pageHeight / 100 * item.info.propertys[property].ePos[1]; // 엘리먼트 사라지기 끝 지점(px)
+			var showStart = (pageHeight / 100 * item.info.propertys[property].sPos[0]) + previousHeight; // 엘리먼트 보여주기 시작 지점(px)
+			var showEnd = (pageHeight / 100 * item.info.propertys[property].sPos[1]) + previousHeight; // 엘리먼트 보여주기 끝 지점(px)
+
+			var hideStart = (pageHeight / 100 * item.info.propertys[property].ePos[0]) + previousHeight; // 엘리먼트 사라지기 끝 지점(px)
+			var hideEnd = (pageHeight / 100 * item.info.propertys[property].ePos[1]) + previousHeight; // 엘리먼트 사라지기 끝 지점(px)
 			
 			var showScrollMove = scrollTop - showStart; // 엘리먼트가 보여질 때 스크롤시 움직이는 값(px)
 			var hideScrollMove = scrollTop - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
@@ -293,9 +321,11 @@
 			var move1px2 = spaceValue2 / space2; // space 1px 스크롤당 모션이 적용될 절대값
 
 			var result = null;
-			/* console.group('s')
+			console.group('s')
 			console.log(
-				'pageHeight', pageHeight
+				'totalHeight', totalHeight
+				+'\n'+
+				'prevHeight', prevHeight
 				+'\n'+
 				'scrollTop', scrollTop
 				+'\n'+
@@ -319,7 +349,7 @@
 				+'\n'+
 				'bottomPos', bottomPos
 			)
-			console.groupEnd() */
+			console.groupEnd()
 			
 
 			if(showStart > standard) {
@@ -404,8 +434,8 @@
 		}
 
 		window.addEventListener('load', setting)
-		// window.addEventListener('load', motion)
-		window.addEventListener('scroll', setting)
+		window.addEventListener('load', scrollLoop)
+		window.addEventListener('scroll', scrollLoop)
 		window.addEventListener('resize', function() {
 			clearTimeout(resizeTimer);
 			resizeTimer = setTimeout(resizeComplete, 400);
@@ -413,7 +443,7 @@
 
 		// 리사이즈
 		function resizeComplete() {
-			setting();
+			scrollLoop();
 		}
 	</script>
 </body>
