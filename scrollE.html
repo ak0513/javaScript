@@ -15,11 +15,12 @@
 		img{width:100%;height:auto;}
 		#sec1,
 		#sec2 {
+			overflow: hidden;
 			position: sticky;
 		}
 		.txt {
 			position: fixed;
-			top:50%;
+			top:30%;
 			z-index:1;
 			background-color: black;
 			padding:10px;
@@ -33,6 +34,19 @@
 			width:100%;height:50px;background:url('./img1.jpg') no-repeat center / cover
 		}
 
+		.item3 {
+			position: fixed;
+			top:70%;
+			z-index:1;
+			background-color: black;
+			padding:10px;
+			color:#fff;
+			
+		}
+
+
+		.item4 {text-align: right;}
+
 		.card {display:flex;}
 		.card div {flex:1;padding:10px;width:100%;height:500px;}
 		@media only screen and (max-width: 768px) {
@@ -40,19 +54,20 @@
 		}
 	</style>
 	<div id="sec1">
-		<div class="txt item1">우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
+		<div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
 		<div class="" style="height:1000px">1111111111</div>
 		<div class="card">
 			<div class="card1"><img src="https://www.shinhancard.com/pconts/html/benefit/event/__icsFiles/afieldfile/2022/06/15/220609_loopy_list.jpg"></div>
 			<div class="card2"><img src="https://www.shinhancard.com/pconts/html/benefit/event/__icsFiles/afieldfile/2022/07/01/220701_lucky_list.jpg"></div>
 		</div>
-		<div class="bg item2">우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
+		<!-- <div class="bg item2">우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div> -->
 		<div class="">1111111111</div>
 		<!-- <div class="bg item2"></div> -->
 	</div>
 
 	<div id="sec2">
-		
+		<!-- <div class="item3">item3 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
+		<div class="item4">item4 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div> -->
 	</div>
 
 
@@ -61,10 +76,12 @@
 			{
 				ele: document.getElementById('sec1'),
 				pageNum: 4,
+				deviceHeight: 0
 			},
 			{
 				ele: document.getElementById('sec2'),
 				pageNum: 3,
+				deviceHeight: 0
 			}
 		]
 		var item = [
@@ -75,22 +92,22 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
-							sPos: [20, 50],
+							sPos: [40, 50],
 							eValue: [1, 0],
-							ePos: [70, 90],
+							ePos: [60, 70],
 						},
-						/* matrix: {
+						matrix: {
 							sValue: [
-								[1,0,0,1,0,200],
-								[1,0,0,1,0,0]
-							],
-							sPos: [20, 50],
-							eValue: [
-								[1,0,0,1,0,0]
 								[1,0,0,1,0,50],
+								[1,0,0,1,0,0]
 							],
-							ePos: [50, 80]
-						} */
+							sPos: [40, 50],
+							eValue: [
+								[1,0,0,1,0,0],
+								[1,0,0,1,0,50]
+							],
+							ePos: [60, 70]
+						}
 					},
 				}
 			},
@@ -100,25 +117,76 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
+							sPos: [40, 50],
+							eValue: [1, 1],
+							ePos: [60, 70],
+						},
+						matrix: {
+							sValue: [
+								[1,0,0,1,0,50],
+								[1,0,0,1,0,0]
+							],
+							sPos: [40, 50],
+							eValue: [
+								[1,0,0,1,0,0],
+								[1,0,0,1,0,0]
+							],
+							ePos: [60, 70]
+						}
+					},
+				}
+			},/* 
+			{
+				info: {
+					ele: '#sec2 .item3',
+					type: 'sticky',
+					propertys: {
+						opacity: {
+							sValue: [0, 1],
 							sPos: [20, 50],
 							eValue: [1, 0],
-							ePos: [50, 90],
+							ePos: [50, 100],
 						},
-						/* matrix: {
+						matrix: {
 							sValue: [
-								[1,0,0,1,0,-100],
+								[1,0,0,1,-100,0],
 								[1,0,0,1,0,0]
 							],
-							sPos: [20, 50],
+							sPos: [0, 50],
 							eValue: [
-								[1,0,0,1,0,0]
-								[1,0,0,1,0,50],
+								[1,0,0,1,0,0],
+								[1,0,0,1,-350,0]
 							],
-							ePos: [50, 80]
-						}, */
+							ePos: [60, 80]
+						}
 					},
 				}
 			},
+			{
+				info: {
+					ele: '#sec2 .item4',
+					propertys: {
+						opacity: {
+							sValue: [0, 1],
+							sPos: [0, 50],
+							eValue: [1, 0],
+							ePos: [50, 90],
+						},
+						matrix: {
+							sValue: [
+								[1,0,0,1,200,100],
+								[1,0,0,1,0,0]
+							],
+							sPos: [0, 50],
+							eValue: [
+								[1,0,0,1,0,0],
+								[1,0,0,1,3000,100]
+							],
+							ePos: [60, 80]
+						}
+					},
+				}
+			}, */
 		]
 
 
@@ -127,74 +195,101 @@
 
 
 		
-
+		var current = 0;
+		var prevHeight = 0;
+		// var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
 		// 세팅
 		function setting() {
+			var totalScroll = 0;
+			var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
 			for(var i = 0; i < wrap.length; i++) {
 				var height = viewportHeight * wrap[i].pageNum;
-				// console.log('wrap', wrap[i].ele)
+				console.log('height', height)
 				wrap[i].ele.style.height = height + 'px';
-			}
-		}
 
+				totalScroll += Number(wrap[i].ele.style.height.slice(0, -2));
+				// console.log('totalScroll', totalScroll)
+				// if(scrollTop < totalScroll) {
+				// 	current = i;
+				// 	break;
+				// }
+			}
+			document.querySelector('body').setAttribute('id', 'show-scene-' + current)
+			motion();
+		}
 		// 스크롤시 값
 		function calc(item, property) {
 			var ele = document.querySelector(item.info.ele)
+			// var scrollTop = window.pageYOffset; // 스크롤 위치
 			var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
-			var pageHeight = Number(document.querySelector(item.info.ele.split(' ')[0]).style.height.slice(0, -2)); // 엘리먼트 부모요소의 높이
-			var relativeTop = ele.getBoundingClientRect().top; // 엘리먼트 상대좌표
-			var absoluteTop = window.pageXOffset + relativeTop; // 엘리먼트 절대좌표
+			var parent = document.querySelector(item.info.ele.split(' ')[0]); // 엘리먼트 부모요소
+			var pageHeight = Number(parent.style.height.slice(0, -2)); // 엘리먼트 부모요소의 높이
 			// var bottomPos = viewportHeight - ele.getBoundingClientRect().top; // 엘리먼트가 viewport 하단에 위치
-			var matrix = 0;
-			if(!!item.info.propertys.matrix) {
-				// matrix =  item.info.propertys.matrix.sValue[0][5];
-			}
-			var bottomPos = viewportHeight - relativeTop + matrix; // 엘리먼트가 viewport 하단에 위치
 			
-			var startPos = pageHeight / 100 * item.info.propertys[property].sPos[0]; // 모션 시작 지점(px)
-			var endPos = pageHeight / 100 * item.info.propertys[property].sPos[1]; // 모션 끝 지점(px)
+			// console.log('형제요소', parent.previousElementSibling)
+			
+			
+			var showStart = pageHeight / 100 * item.info.propertys[property].sPos[0]; // 엘리먼트 보여주기 시작 지점(px)
+			var showEnd = pageHeight / 100 * item.info.propertys[property].sPos[1]; // 엘리먼트 보여주기 끝 지점(px)
 
-			var startPos2 = pageHeight / 100 * item.info.propertys[property].ePos[1]; // 모션 끝 지점(px)
-			var endPos2 = pageHeight / 100 * item.info.propertys[property].ePos[1]; // 모션 끝 지점(px)
+			var hideStart = pageHeight / 100 * item.info.propertys[property].ePos[0]; // 엘리먼트 사라지기 끝 지점(px)
+			var hideEnd = pageHeight / 100 * item.info.propertys[property].ePos[1]; // 엘리먼트 사라지기 끝 지점(px)
 			
-			var scrollMove = scrollTop - startPos; // 스크롤시 움직이는 값(px)
-			var scrollTop2 = scrollTop;
+			var showScrollMove = scrollTop - showStart; // 엘리먼트가 보여질 때 스크롤시 움직이는 값(px)
+			var hideScrollMove = scrollTop - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
+			var standard = scrollTop; // 기준 라인
 
 			if(item.info.type !== 'sticky') {
-				startPos = viewportHeight / 100 * item.info.propertys[property].sPos[0]; // 모션 시작 지점(px)
-				endPos = viewportHeight / 100 * item.info.propertys[property].sPos[1]; // 모션 끝 지점(px)
+				var matrix = 0;
+				if(!!item.info.propertys.matrix) {
+					// matrix =  item.info.propertys.matrix.sValue[0][5];
+					// console.log(
+					// 	'getComputedStyle',
+					// 	getComputedStyle(ele)
+					// )
+				}
+				var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
+
+				showStart = viewportHeight / 100 * item.info.propertys[property].sPos[0]; // 엘리먼트 보여주기 시작 지점(px)
+				showEnd = viewportHeight / 100 * item.info.propertys[property].sPos[1]; // 엘리먼트 보여주기 끝 지점(px)
 				
-				startPos2 = viewportHeight / 100 * item.info.propertys[property].ePos[0]; // 모션 시작 지점(px)
-				endPos2 = viewportHeight / 100 * item.info.propertys[property].ePos[1]; // 모션 끝 지점(px)
-				// scrollMove = scrollTop - viewportHeight - startPos; // 스크롤시 움직이는 값(px)
-				scrollMove = bottomPos - startPos; // 스크롤시 움직이는 값(px)
-				scrollTop2 = bottomPos
+				hideStart = viewportHeight / 100 * item.info.propertys[property].ePos[0]; // 엘리먼트 사라지기 끝 지점(px)
+				hideEnd = viewportHeight / 100 * item.info.propertys[property].ePos[1]; // 엘리먼트 사라지기 끝 지점(px)
+				// showScrollMove = scrollTop - viewportHeight - showStart; // 스크롤시 움직이는 값(px)
+				showScrollMove = bottomPos - showStart; // 엘리먼트가 보여질 때 스크롤시 움직이는 값(px)
+				hideScrollMove = bottomPos - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
+				standard = bottomPos
 			}
 
-			var space = endPos - startPos; // 모션이 적용되는 viewport 영역(px)
+			var space = showEnd - showStart; // 모션이 적용되는 viewport 영역(px)
 			var spaceValue = item.info.propertys[property].sValue[1] - item.info.propertys[property].sValue[0]; // 모션이 적용될 절대값
 			var move1px = spaceValue / space // space 1px 스크롤당 모션이 적용될 절대값
+			
+			var space2 = hideEnd - hideStart; // 모션이 적용되는 viewport 영역(px)
+			var spaceValue2 = item.info.propertys[property].eValue[0] - item.info.propertys[property].eValue[1]; // 모션이 적용될 절대값
+			var move1px2 = spaceValue2 / space2; // space 1px 스크롤당 모션이 적용될 절대값
 
 			var result = null;
 			console.group('s')
 			console.log(
-				// 'matrix', matrix
-				// +'\n'+
+				'pageHeight', pageHeight
+				+'\n'+
 				'scrollTop', scrollTop
 				+'\n'+
-				'scrollTop2(기준)', scrollTop2
+				'standard(기준)', standard
 				+'\n'+
-				'startPos(시작위치)', startPos
+				'showStart(시작위치)', showStart
 				+'\n'+
-				'endPos(끝위치)', endPos
+				'showEnd(끝위치)', showEnd
 				+'\n'+
-				'startPos2(시작위치)', startPos2
+				'hideStart(시작위치)', hideStart
 				+'\n'+
-				'endPos2(끝위치)', endPos2
+				'hideEnd(끝위치)', hideEnd
 				+'\n'+
-				'scrollMove', scrollMove
+				'showScrollMove', showScrollMove
 				+'\n'+
-				'absoluteTop', absoluteTop
+				'hideScrollMove', hideScrollMove
+				
 				+'\n'+
 				'move1px(1px당 적용값)', move1px
 				
@@ -202,48 +297,49 @@
 				'bottomPos', bottomPos
 			)
 			console.groupEnd()
-			if(scrollTop2 >= startPos && scrollTop2 <= endPos) {
+			
+
+			if(showStart > standard) {
+				// 보여지기 전
+				result = item.info.propertys[property].sValue[0]
+			} else if(standard >= showStart && standard < showEnd) {
+				// 보여지기 시작
 				if(property === 'matrix') {
 					var matrixValues = []
-					var matrixValueA = getMatrixValue(item.info.propertys.matrix.sValue[0][0], item.info.propertys.matrix.sValue[1][0], space, scrollMove);
-					var matrixValueD = getMatrixValue(item.info.propertys.matrix.sValue[0][3], item.info.propertys.matrix.sValue[1][3], space, scrollMove);
-					var matrixValueE = getMatrixValue(item.info.propertys.matrix.sValue[0][4], item.info.propertys.matrix.sValue[1][4], space, scrollMove);
-					var matrixValueF = getMatrixValue(item.info.propertys.matrix.sValue[0][5], item.info.propertys.matrix.sValue[1][5], space, scrollMove);
+					var matrixValueA = getMatrixValue(item.info.propertys.matrix.sValue[0][0], item.info.propertys.matrix.sValue[1][0], space, showScrollMove);
+					var matrixValueD = getMatrixValue(item.info.propertys.matrix.sValue[0][3], item.info.propertys.matrix.sValue[1][3], space, showScrollMove);
+					var matrixValueE = getMatrixValue(item.info.propertys.matrix.sValue[0][4], item.info.propertys.matrix.sValue[1][4], space, showScrollMove);
+					var matrixValueF = getMatrixValue(item.info.propertys.matrix.sValue[0][5], item.info.propertys.matrix.sValue[1][5], space, showScrollMove);
 					matrixValues.push(matrixValueA,0,0,matrixValueD,matrixValueE,matrixValueF)
 
 					result = matrixValues
 				} else {
-					result = item.info.propertys[property].sValue[0] + (move1px * scrollMove)
+					result = item.info.propertys[property].sValue[0] + (move1px * showScrollMove)
 				}
-			} else if(scrollTop2 >= endPos) {
+			} else if(standard >= showEnd && standard < hideStart) {
+				// 보여지기 완료
 				result = item.info.propertys[property].sValue[1];
-			}
-			else {
-				result = item.info.propertys[property].sValue[0]
+			} else if(hideStart <= standard && standard < hideEnd) {
+				// 사라지기 시작
+				if(property === 'matrix') {
+					var matrixValues = []
+					var matrixValueA = getMatrixValue(item.info.propertys.matrix.eValue[0][0], item.info.propertys.matrix.eValue[1][0], space2, hideScrollMove);
+					var matrixValueD = getMatrixValue(item.info.propertys.matrix.eValue[0][3], item.info.propertys.matrix.eValue[1][3], space2, hideScrollMove);
+					var matrixValueE = getMatrixValue(item.info.propertys.matrix.eValue[0][4], item.info.propertys.matrix.eValue[1][4], space2, hideScrollMove);
+					var matrixValueF = getMatrixValue(item.info.propertys.matrix.eValue[0][5], item.info.propertys.matrix.eValue[1][5], space2, hideScrollMove);
+					matrixValues.push(matrixValueA,0,0,matrixValueD,matrixValueE,matrixValueF)
+
+					result = matrixValues
+				} else {
+					// result = item.info.propertys[property].eValue[0] + (move1px * hideScrollMove)
+					result = item.info.propertys[property].eValue[0] - (move1px2 * hideScrollMove)
+				}
+			} else if(hideEnd <= standard) {
+				// 사라지기 완료
+				result = item.info.propertys[property].eValue[1];
 			}
 			console.log('result', result)
 			return result
-			/* if(scrollTop2 >= startPos && scrollTop2 <= endPos) {
-				if(property === 'matrix') {
-					var matrixValues = []
-					var matrixValueA = getMatrixValue(item.info.propertys.matrix.sValue[0][0], item.info.propertys.matrix.sValue[1][0], space, scrollMove);
-					var matrixValueD = getMatrixValue(item.info.propertys.matrix.sValue[0][3], item.info.propertys.matrix.sValue[1][3], space, scrollMove);
-					var matrixValueE = getMatrixValue(item.info.propertys.matrix.sValue[0][4], item.info.propertys.matrix.sValue[1][4], space, scrollMove);
-					var matrixValueF = getMatrixValue(item.info.propertys.matrix.sValue[0][5], item.info.propertys.matrix.sValue[1][5], space, scrollMove);
-					matrixValues.push(matrixValueA,0,0,matrixValueD,matrixValueE,matrixValueF)
-
-					result = matrixValues
-				} else {
-					result = item.info.propertys[property].sValue[0] + (move1px * scrollMove)
-				}
-			} else if(scrollTop2 >= endPos) {
-				result = item.info.propertys[property].sValue[1];
-			}
-			else {
-				result = item.info.propertys[property].sValue[0]
-			}
-			console.log('result', result)
-			return result */
 		}
 		
 
@@ -285,8 +381,8 @@
 		}
 
 		window.addEventListener('load', setting)
-		window.addEventListener('load', motion)
-		window.addEventListener('scroll', motion)
+		// window.addEventListener('load', motion)
+		window.addEventListener('scroll', setting)
 		window.addEventListener('resize', function() {
 			clearTimeout(resizeTimer);
 			resizeTimer = setTimeout(resizeComplete, 400);
@@ -294,7 +390,7 @@
 
 		// 리사이즈
 		function resizeComplete() {
-			motion();
+			setting();
 		}
 	</script>
 </body>

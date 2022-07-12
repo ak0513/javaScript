@@ -8,26 +8,21 @@
 	<title>Document</title>
 </head>
 <body>
-	<div id="header">
-		<div><a href="#" class="btn1">btn1</a></div>
-		<div><button type="button" class="btn2">btn2</a></div>
-		<div><button type="button" class="btn3">btn3</a></div>
-	</div>
+	
 
 
 
 	<script>
-		// document.querySelector('.btn1').addEventListener('keydown', function(e) {
-		// 	console.log('1', e.keyCode)
-		// })
+		var aa1 = 0;
+		function aa() {
+			var aa1 = 1;
+			bb();
+		}
 
-		// document.querySelector('.btn2').addEventListener('keydown', function(e) {
-		// 	console.log('2', e.keyCode)
-		// })
-
-		document.querySelector('.btn3').addEventListener('click, focusin', function(e) {
-			console.log('3', e.keyCode)
-		})
+		function bb() {
+			console.log(aa1)
+		}
+		aa()
 	</script>
 </body>
 </html>
