@@ -54,7 +54,7 @@
 		}
 	</style>
 	<div id="sec00"></div>
-	<div id="sec0"></div>
+	
 	<div id="sec1">
 		<div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
 		<div class="" style="height:1000px">1111111111</div>
@@ -66,6 +66,7 @@
 		<div class="">1111111111</div>
 		<!-- <div class="bg item2"></div> -->
 	</div>
+	<div id="sec0"><div>sec0</div></div>
 
 	<div id="sec2">
 		<div class="item3">item3 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
@@ -81,10 +82,16 @@
 				deviceHeight: 0
 			},
 			{
+				ele: document.getElementById('sec0'),
+				pageNum: 3,
+				deviceHeight: 0
+			},
+			{
 				ele: document.getElementById('sec2'),
 				pageNum: 3,
 				deviceHeight: 0
-			}
+			},
+			
 		]
 		var item = [
 			{
@@ -234,39 +241,6 @@
 				var height = wrap[i].deviceHeight = viewportHeight * wrap[i].pageNum;
 				wrap[i].ele.style.height = height + 'px';
 			}
-
-			for(var i = 0; i < wrap.length; i++) {
-				totalScroll += wrap[i].deviceHeight;
-				console.log('totalScroll', totalScroll)
-				if(scrollTop < totalScroll) {
-					current = i;
-					break;
-				}
-			}
-			document.querySelector('body').setAttribute('id', 'show-scene-' + current)
-			
-		}
-
-		function scrollLoop() {
-			scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
-			prevHeight = 0;
-			
-			for(var i=0; i < current; i++) {
-				prevHeight += wrap[i].deviceHeight;
-				
-			}
-			
-			if(scrollTop > prevHeight + wrap[current].deviceHeight) {
-				current++
-				document.querySelector('body').setAttribute('id', 'show-scene-' + current)
-			}
-
-			if(scrollTop < prevHeight) {
-				current--
-				document.querySelector('body').setAttribute('id', 'show-scene-' + current)
-			}
-			totalHeight = prevHeight + wrap[current].deviceHeight;
-			motion();
 		}
 
 		// 스크롤시 값
@@ -274,20 +248,17 @@
 			var ele = document.querySelector(item.info.ele)
 			// var scrollTop = window.pageYOffset; // 스크롤 위치
 			var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
-
 			var parent = document.querySelector(item.info.ele.split(' ')[0]); // 엘리먼트 부모요소
+			var parentOffsetTop = parent.offsetTop;
 			var pageHeight = Number(parent.style.height.slice(0, -2)); // 엘리먼트 부모요소의 높이
-			var previousHeight = Number(getComputedStyle(parent.previousElementSibling).height.slice(0, -2))
-			// var previousHeight = 0;
-			// var bottomPos = viewportHeight - ele.getBoundingClientRect().top; // 엘리먼트가 viewport 하단에 위치
-			console.log('prevHeight',prevHeight)
-			console.log('previousElementSibling',Number(getComputedStyle(parent.previousElementSibling).height.slice(0, -2)))
+			// var previousHeight = Number(getComputedStyle(parent.previousElementSibling).height.slice(0, -2))
 
-			var showStart = (pageHeight / 100 * item.info.propertys[property].sPos[0]) + previousHeight; // 엘리먼트 보여주기 시작 지점(px)
-			var showEnd = (pageHeight / 100 * item.info.propertys[property].sPos[1]) + previousHeight; // 엘리먼트 보여주기 끝 지점(px)
 
-			var hideStart = (pageHeight / 100 * item.info.propertys[property].ePos[0]) + previousHeight; // 엘리먼트 사라지기 끝 지점(px)
-			var hideEnd = (pageHeight / 100 * item.info.propertys[property].ePos[1]) + previousHeight; // 엘리먼트 사라지기 끝 지점(px)
+			var showStart = (pageHeight / 100 * item.info.propertys[property].sPos[0]) + parentOffsetTop; // 엘리먼트 보여주기 시작 지점(px)
+			var showEnd = (pageHeight / 100 * item.info.propertys[property].sPos[1]) + parentOffsetTop; // 엘리먼트 보여주기 끝 지점(px)
+
+			var hideStart = (pageHeight / 100 * item.info.propertys[property].ePos[0]) + parentOffsetTop; // 엘리먼트 사라지기 끝 지점(px)
+			var hideEnd = (pageHeight / 100 * item.info.propertys[property].ePos[1]) + parentOffsetTop; // 엘리먼트 사라지기 끝 지점(px)
 			
 			var showScrollMove = scrollTop - showStart; // 엘리먼트가 보여질 때 스크롤시 움직이는 값(px)
 			var hideScrollMove = scrollTop - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
@@ -323,7 +294,7 @@
 			var result = null;
 			console.group('s')
 			console.log(
-				'totalHeight', totalHeight
+				'parentOffsetTop', parentOffsetTop
 				+'\n'+
 				'prevHeight', prevHeight
 				+'\n'+
@@ -434,8 +405,8 @@
 		}
 
 		window.addEventListener('load', setting)
-		window.addEventListener('load', scrollLoop)
-		window.addEventListener('scroll', scrollLoop)
+		window.addEventListener('load', motion)
+		window.addEventListener('scroll', motion)
 		window.addEventListener('resize', function() {
 			clearTimeout(resizeTimer);
 			resizeTimer = setTimeout(resizeComplete, 400);
@@ -443,7 +414,7 @@
 
 		// 리사이즈
 		function resizeComplete() {
-			scrollLoop();
+			motion();
 		}
 	</script>
 </body>
