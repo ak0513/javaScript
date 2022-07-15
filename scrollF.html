@@ -125,10 +125,10 @@
 						},
 						matrix: {
 							sValue: [
-								[1.3,0,0,1.3,0,50],
+								[1,0,0,1,0,100],
 								[1,0,0,1,0,0]
 							],
-							sPos: [10, 90],
+							sPos: [0, 100],
 							eValue: [
 								[1,0,0,1,0,0],
 								[1,0,0,1,0,0]
@@ -256,27 +256,29 @@
 					// matrix =  item.info.propertys.matrix.sValue[0][5];
 					// console.log(getComputedStyle',getComputedStyle(ele))
 				}
-				var offsetTop = ele.offsetTop;
-				// var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
-				var bottomPos = -1 * (parentOffsetTop + offsetTop - scrollTop - viewportHeight + (viewportHeight/item.info.propertys[property].sPos[0])); // 엘리먼트가 viewport 하단에 위치
-
 				showStart = viewportHeight / 100 * item.info.propertys[property].sPos[0]; // 엘리먼트 보여주기 시작 지점(px)
 				showEnd = viewportHeight / 100 * item.info.propertys[property].sPos[1]; // 엘리먼트 보여주기 끝 지점(px)
-				
+		
 				hideStart = viewportHeight / 100 * item.info.propertys[property].ePos[0]; // 엘리먼트 사라지기 끝 지점(px)
 				hideEnd = viewportHeight / 100 * item.info.propertys[property].ePos[1]; // 엘리먼트 사라지기 끝 지점(px)
+
+				var offsetTop = ele.offsetTop;
+				var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
+				// var bottomPos = scrollTop + viewportHeight - parentOffsetTop - offsetTop - showStart; // 엘리먼트가 viewport 하단에 위치
+				console.log('bottomPos', bottomPos )
+
 				showScrollMove = bottomPos - showStart; // 엘리먼트가 보여질 때 스크롤시 움직이는 값(px)
 				hideScrollMove = bottomPos - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
 				standard = bottomPos
 			}
 
-			var space = showEnd - showStart; // 모션이 적용되는 viewport 영역(px)
-			var spaceValue = item.info.propertys[property].sValue[1] - item.info.propertys[property].sValue[0]; // 모션이 적용될 절대값
-			var move1px = spaceValue / space // space 1px 스크롤당 모션이 적용될 절대값
+			var showSpace = showEnd - showStart; // 모션이 적용되는 viewport 영역(px)
+			var showSpaceValue = item.info.propertys[property].sValue[1] - item.info.propertys[property].sValue[0]; // 모션이 적용될 절대값
+			var showMove1px = showSpaceValue / showSpace // showSpace 1px 스크롤당 모션이 적용될 절대값
 			
-			var space2 = hideEnd - hideStart; // 모션이 적용되는 viewport 영역(px)
-			var spaceValue2 = item.info.propertys[property].eValue[0] - item.info.propertys[property].eValue[1]; // 모션이 적용될 절대값
-			var move1px2 = spaceValue2 / space2; // space 1px 스크롤당 모션이 적용될 절대값
+			var hideSpace = hideEnd - hideStart; // 모션이 적용되는 viewport 영역(px)
+			var hideSpaceValue = item.info.propertys[property].eValue[0] - item.info.propertys[property].eValue[1]; // 모션이 적용될 절대값
+			var hideMove1px = hideSpaceValue / hideSpace; // showSpace 1px 스크롤당 모션이 적용될 절대값
 
 			var result = null;
 			console.group('s')
@@ -307,7 +309,7 @@
 				// +'\n'+
 				''
 				+'\n'+
-				'move1px(1px당 적용값)', move1px
+				'showMove1px(1px당 적용값)', showMove1px
 				+'\n'+
 				'bottomPos', bottomPos
 				
@@ -324,15 +326,15 @@
 				// 보여지기 시작
 				if(property === 'matrix') {
 					var matrixValues = []
-					var matrixValueA = getMatrixValue(item.info.propertys.matrix.sValue[0][0], item.info.propertys.matrix.sValue[1][0], space, showScrollMove);
-					var matrixValueD = getMatrixValue(item.info.propertys.matrix.sValue[0][3], item.info.propertys.matrix.sValue[1][3], space, showScrollMove);
-					var matrixValueE = getMatrixValue(item.info.propertys.matrix.sValue[0][4], item.info.propertys.matrix.sValue[1][4], space, showScrollMove);
-					var matrixValueF = getMatrixValue(item.info.propertys.matrix.sValue[0][5], item.info.propertys.matrix.sValue[1][5], space, showScrollMove);
+					var matrixValueA = getMatrixValue(item.info.propertys.matrix.sValue[0][0], item.info.propertys.matrix.sValue[1][0], showSpace, showScrollMove);
+					var matrixValueD = getMatrixValue(item.info.propertys.matrix.sValue[0][3], item.info.propertys.matrix.sValue[1][3], showSpace, showScrollMove);
+					var matrixValueE = getMatrixValue(item.info.propertys.matrix.sValue[0][4], item.info.propertys.matrix.sValue[1][4], showSpace, showScrollMove);
+					var matrixValueF = getMatrixValue(item.info.propertys.matrix.sValue[0][5], item.info.propertys.matrix.sValue[1][5], showSpace, showScrollMove);
 					matrixValues.push(matrixValueA,0,0,matrixValueD,matrixValueE,matrixValueF)
 
 					result = matrixValues
 				} else {
-					result = item.info.propertys[property].sValue[0] + (move1px * showScrollMove)
+					result = item.info.propertys[property].sValue[0] + (showMove1px * showScrollMove)
 				}
 			} else if(standard >= showEnd && standard < hideStart) {
 				// 보여지기 완료
@@ -341,16 +343,16 @@
 				// 사라지기 시작
 				if(property === 'matrix') {
 					var matrixValues = []
-					var matrixValueA = getMatrixValue(item.info.propertys.matrix.eValue[0][0], item.info.propertys.matrix.eValue[1][0], space2, hideScrollMove);
-					var matrixValueD = getMatrixValue(item.info.propertys.matrix.eValue[0][3], item.info.propertys.matrix.eValue[1][3], space2, hideScrollMove);
-					var matrixValueE = getMatrixValue(item.info.propertys.matrix.eValue[0][4], item.info.propertys.matrix.eValue[1][4], space2, hideScrollMove);
-					var matrixValueF = getMatrixValue(item.info.propertys.matrix.eValue[0][5], item.info.propertys.matrix.eValue[1][5], space2, hideScrollMove);
+					var matrixValueA = getMatrixValue(item.info.propertys.matrix.eValue[0][0], item.info.propertys.matrix.eValue[1][0], hideSpace, hideScrollMove);
+					var matrixValueD = getMatrixValue(item.info.propertys.matrix.eValue[0][3], item.info.propertys.matrix.eValue[1][3], hideSpace, hideScrollMove);
+					var matrixValueE = getMatrixValue(item.info.propertys.matrix.eValue[0][4], item.info.propertys.matrix.eValue[1][4], hideSpace, hideScrollMove);
+					var matrixValueF = getMatrixValue(item.info.propertys.matrix.eValue[0][5], item.info.propertys.matrix.eValue[1][5], hideSpace, hideScrollMove);
 					matrixValues.push(matrixValueA,0,0,matrixValueD,matrixValueE,matrixValueF)
 
 					result = matrixValues
 				} else {
-					// result = item.info.propertys[property].eValue[0] + (move1px * hideScrollMove)
-					result = item.info.propertys[property].eValue[0] - (move1px2 * hideScrollMove)
+					// result = item.info.propertys[property].eValue[0] + (showMove1px * hideScrollMove)
+					result = item.info.propertys[property].eValue[0] - (hideMove1px * hideScrollMove)
 				}
 			} else if(hideEnd <= standard) {
 				// 사라지기 완료
@@ -363,10 +365,10 @@
 
 		// matrix 값
 		function getMatrixValue(value1, value2, space, scrollMove) {
-			spaceValue = value2 - value1;
-			move1px = spaceValue / space
+			showSpaceValue = value2 - value1;
+			showMove1px = showSpaceValue / space
 			if(value1 !== value2) {
-				result = value1 + (move1px * scrollMove)
+				result = value1 + (showMove1px * scrollMove)
 			} else {
 				result = value1
 			}

@@ -125,10 +125,10 @@
 						},
 						matrix: {
 							sValue: [
-								[1.3,0,0,1.3,0,50],
+								[1,0,0,1,0,100],
 								[1,0,0,1,0,0]
 							],
-							sPos: [10, 90],
+							sPos: [0, 100],
 							eValue: [
 								[1,0,0,1,0,0],
 								[1,0,0,1,0,0]
@@ -255,7 +255,9 @@
 				if(!!item.info.propertys.matrix) {
 					// matrix =  item.info.propertys.matrix.sValue[0][5];
 					// console.log(getComputedStyle',getComputedStyle(ele))
+					// matrix = ele.getBoundingClientRect().top
 				}
+				console.log('matrix', matrix)
 				var offsetTop = ele.offsetTop;
 				var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
 				// var bottomPos = -1 * (parentOffsetTop + offsetTop - scrollTop - viewportHeight + (viewportHeight/item.info.propertys[property].sPos[0])); // 엘리먼트가 viewport 하단에 위치
