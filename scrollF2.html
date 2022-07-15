@@ -46,7 +46,7 @@
 		.item4 {text-align: right;}
 
 		/* .card {position: relative;} */
-		.card div {margin:0 auto;width:360px;height:auto;}
+		.card div {position:relative;margin:0 auto;width:360px;height:auto;}
 		@media only screen and (max-width: 768px) {
 			.card {display:block;}
 		}
@@ -257,9 +257,10 @@
 					// console.log(getComputedStyle',getComputedStyle(ele))
 				}
 				var offsetTop = ele.offsetTop;
-				// var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
-				var bottomPos = -1 * (parentOffsetTop + offsetTop - scrollTop - viewportHeight + (viewportHeight/item.info.propertys[property].sPos[0])); // 엘리먼트가 viewport 하단에 위치
+				var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
+				// var bottomPos = -1 * (parentOffsetTop + offsetTop - scrollTop - viewportHeight + (viewportHeight/item.info.propertys[property].sPos[0])); // 엘리먼트가 viewport 하단에 위치
 
+				console.log('window.pageYOffset', window.pageYOffset)
 				showStart = viewportHeight / 100 * item.info.propertys[property].sPos[0]; // 엘리먼트 보여주기 시작 지점(px)
 				showEnd = viewportHeight / 100 * item.info.propertys[property].sPos[1]; // 엘리먼트 보여주기 끝 지점(px)
 				
