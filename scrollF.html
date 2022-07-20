@@ -45,16 +45,20 @@
 
 		.item4 {text-align: right;}
 
+		#sec0{background-color:#eee;}
+		#sec1{background-color:#999;}
+		#sec2{background-color:#eee;}
+
 		/* .card {position: relative;} */
 		.card div {margin:0 auto;width:360px;height:auto;}
 		@media only screen and (max-width: 768px) {
 			.card {display:block;}
 		}
 	</style>
-	<div id="sec00"></div>
-	<div id="sec0"><div>sec0</div></div>
+
+	<div id="sec0"><div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div></div>
 	<div id="sec1">
-		<div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
+		<!-- <div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div> -->
 		<div class="" style="height:1000px">1111111111</div>
 		<div class="card">
 			<div class="card1"><img src="https://www.shinhancard.com/pconts/html/benefit/event/__icsFiles/afieldfile/2022/06/15/220609_loopy_list.jpg"></div>
@@ -65,8 +69,8 @@
 	
 
 	<div id="sec2">
-		<!-- <div class="item3">item3 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
-		<div class="item4">item4 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div> -->
+		<div class="item3">item3 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
+		<div class="item4">item4 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div>
 	</div>
 
 
@@ -89,7 +93,7 @@
 		var item = [
 			{
 				info: {
-					ele: '#sec1 .item1',
+					ele: '#sec0 .item1',
 					type: 'sticky',
 					propertys: {
 						opacity: {
@@ -109,7 +113,14 @@
 								[1,0,0,1,0,50]
 							],
 							ePos: [60, 70]
-						}
+						},
+						width: {
+							unit:'%',
+							sValue: [20,100],
+							sPos: [10, 50],
+							eValue: [100,10],
+							ePos: [50, 100]
+						},
 					},
 				}
 			},
@@ -125,7 +136,7 @@
 						},
 						matrix: {
 							sValue: [
-								[1,0,0,1,0,100],
+								[2,0,0,2,0,100],
 								[1,0,0,1,0,0]
 							],
 							sPos: [0, 100],
@@ -138,7 +149,7 @@
 					},
 				}
 			},
-			/* {
+			{
 				info: {
 					ele: '#sec1 .card2',
 					propertys: {
@@ -213,7 +224,7 @@
 						}
 					},
 				}
-			}, */
+			},
 		]
 
 
@@ -400,8 +411,7 @@
 			}
 		}
 
-		window.addEventListener('load', setting)
-		window.addEventListener('load', motion)
+		window.addEventListener('load', loadComplete)
 		window.addEventListener('scroll', motion)
 		window.addEventListener('resize', function() {
 			clearTimeout(resizeTimer);
@@ -410,6 +420,11 @@
 
 		// 리사이즈
 		function resizeComplete() {
+			motion();
+		}
+		// 로드
+		function loadComplete() {
+			setting();
 			motion();
 		}
 	</script>
