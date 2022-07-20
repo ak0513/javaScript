@@ -279,7 +279,7 @@
 				var offsetTop = ele.offsetTop;
 				var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
 				// var bottomPos = scrollTop + viewportHeight - parentOffsetTop - offsetTop - showStart; // 엘리먼트가 viewport 하단에 위치
-				console.log('bottomPos', bottomPos )
+				// console.log('bottomPos', bottomPos )
 
 				showScrollMove = bottomPos - showStart; // 엘리먼트가 보여질 때 스크롤시 움직이는 값(px)
 				hideScrollMove = bottomPos - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
@@ -295,7 +295,7 @@
 			var hideMove1px = hideSpaceValue / hideSpace; // showSpace 1px 스크롤당 모션이 적용될 절대값
 
 			var result = null;
-			console.group('s')
+			/* console.group('s')
 			console.log(
 				'parentOffsetTop', parentOffsetTop
 				+'\n'+
@@ -330,7 +330,7 @@
 				+'\n'+
 				'viewportHeight', viewportHeight
 			)
-			console.groupEnd()
+			console.groupEnd() */
 			
 
 			if(showStart > standard) {
@@ -350,6 +350,7 @@
 				} else {
 					result = item.info.propertys[property].sValue[0] + (showMove1px * showScrollMove)
 				}
+				ele.classList.add('show')
 			} else if(standard >= showEnd && standard < hideStart) {
 				// 보여지기 완료
 				result = item.info.propertys[property].sValue[1];
@@ -371,8 +372,9 @@
 			} else if(hideEnd <= standard) {
 				// 사라지기 완료
 				result = item.info.propertys[property].eValue[1];
+				ele.classList.remove('show')
 			}
-			console.log('result', result)
+			// console.log('result', result)
 			return result
 		}
 		
