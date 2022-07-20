@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<title>Document</title>
+</head>
+
+<body>
+
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.box {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			color: #ffffff;
+			font-size: 24pt;
+		}
+
+		/* .box:first-of-type p { opacity:1;} */
+		.box p {
+			width: 50%;
+			height: 50%;
+			background: rgba(0, 0, 0, .3);
+			position: absolute;
+			font-size: 200px;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+			opacity: 0;
+			text-align: center;
+		}
+
+		.move p {
+			animation: fade_in .5s 1.5s forwards;
+		}
+
+		@keyframes fade_in {
+			0% {
+				opacity: 0;
+				left: 40%;
+			}
+
+			100% {
+				opacity: 1;
+				left: 50%;
+			}
+		}
+	</style>
+	<div class="box" style="background-color:red;">
+		<p>1</p>
+	</div>
+	<div class="box" style="background-color:orange;">
+		<p>2</p>
+	</div>
+	<div class="box" style="background-color:yellow;">
+		<p>3</p>
+	</div>
+	<div class="box" style="background-color:green;">
+		<p>4</p>
+	</div>
+	<!-- <div class="box" style="background-color:blue;">
+		<p>5</p>
+	</div>
+	<div class="box" style="background-color:indigo;">
+		<p>6</p>
+	</div>
+	<div class="box" style="background-color:violet;">
+		<p>7</p>
+	</div> -->
+
+	<div style="height:1000px">끝</div>
+	
+
+	<script>
+		window.onload = function () {
+			var ele = $('.box')
+			ele.eq(0).addClass('move');
+			ele.each(function (index) {
+				// 개별적으로 Wheel 이벤트 적용
+				$(this).on("wheel DOMMouseScroll", function (e) {
+					e.preventDefault();
+					var delta = 0;
+					if (!event) event = window.event;
+
+					if (event.wheelDelta) {
+						delta = event.wheelDelta / 120;
+						if (window.opera) delta = -delta;
+					}
+					
+					else if (event.detail)
+						delta = -event.detail / 3;
+						var moveTop = $(window).scrollTop();
+						var elmSelecter = ele.eq(index);
+					// 마우스휠을 위에서 아래로
+					if (delta < 0) {
+						if ($(elmSelecter).next() != undefined) {
+							moveTop = $(elmSelecter).next().offset().top;
+							$(elmSelecter).next().addClass('move'); //  휠 내렸을시 애니메이션 이벤트
+						}
+						// 마우스휠을 아래에서 위로
+					} else {
+						if ($(elmSelecter).prev() != undefined) {
+							moveTop = $(elmSelecter).prev().offset().top;
+						}
+					}
+
+					// 화면 이동 0.8초(800)
+					$("html,body").stop().animate({
+						scrollTop: moveTop + 'px'
+					}, {
+						duration: 800, complete: function () {
+						}
+					});
+				});
+			});
+
+			$(window).resize(function () {
+				$('.box').css('height', $(window).height());
+			});
+
+		}
+	</script>
+</body>
+
+</html>

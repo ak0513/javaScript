@@ -66,13 +66,13 @@
 	<div class="box" style="background-color:orange;">
 		<p>2</p>
 	</div>
-	<!-- <div class="box" style="background-color:yellow;">
+	<div class="box" style="background-color:yellow;">
 		<p>3</p>
 	</div>
 	<div class="box" style="background-color:green;">
 		<p>4</p>
 	</div>
-	<div class="box" style="background-color:blue;">
+	<!-- <div class="box" style="background-color:blue;">
 		<p>5</p>
 	</div>
 	<div class="box" style="background-color:indigo;">
@@ -91,10 +91,11 @@
 			ele.eq(0).addClass('move');
 			ele.each(function (index) {
 				// 개별적으로 Wheel 이벤트 적용
-				$(this).on("mousewheel DOMMouseScroll", function (e) {
+				$(this).on("wheel DOMMouseScroll", function (e) {
 					e.preventDefault();
 					var delta = 0;
 					console.log('event',event)
+					console.log('e',e)
 					if (!event) event = window.event;
 
 					if (event.wheelDelta) {

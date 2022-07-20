@@ -21,6 +21,9 @@
 		.txt {
 			position: fixed;
 			top:30%;
+			left:50%;
+			width:50%;
+			margin-left:-25%;
 			z-index:1;
 			background-color: black;
 			padding:10px;
@@ -45,8 +48,8 @@
 
 		.item4 {text-align: right;}
 
-		#sec0{background-color:#eee;}
-		#sec1{background-color:#999;}
+		#sec0{background:url('./showcase__02--pc.jpg') no-repeat center top;background-attachment: fixed;}
+		#sec1{border-top:5px solid #000;background:url('./showcase__03--pc.jpg') no-repeat center top;}
 		#sec2{background-color:#eee;}
 
 		/* .card {position: relative;} */
@@ -78,7 +81,7 @@
 		var wrap = [
 			{
 				ele: document.getElementById('sec0'),
-				pageNum: 3,
+				pageNum: 4,
 			},
 			{
 				ele: document.getElementById('sec1'),
@@ -98,29 +101,29 @@
 					propertys: {
 						opacity: {
 							sValue: [0, 1],
-							sPos: [40, 50],
+							sPos: [20, 40],
 							eValue: [1, 0],
-							ePos: [60, 70],
+							ePos: [60, 80],
 						},
 						matrix: {
 							sValue: [
-								[1,0,0,1,0,50],
+								[3,0,0,3,1,50],
 								[1,0,0,1,0,0]
 							],
-							sPos: [40, 50],
+							sPos: [20, 40],
 							eValue: [
 								[1,0,0,1,0,0],
-								[1,0,0,1,0,50]
+								[1,0,0,1,0,150]
 							],
-							ePos: [60, 70]
+							ePos: [60, 80]
 						},
-						width: {
+						/* width: {
 							unit:'%',
 							sValue: [20,100],
 							sPos: [10, 50],
 							eValue: [100,10],
 							ePos: [50, 100]
-						},
+						}, */
 					},
 				}
 			},
