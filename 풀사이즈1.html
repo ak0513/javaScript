@@ -23,7 +23,7 @@
 
 		.box {
 			width: 100%;
-			height: 100%;
+			height: 100vh;
 			position: relative;
 			color: #ffffff;
 			font-size: 24pt;
@@ -60,33 +60,36 @@
 			}
 		}
 	</style>
-	<div class="box" style="background-color:red;">
-		<p>1</p>
-	</div>
-	<div class="box" style="background-color:orange;">
-		<p>2</p>
-	</div>
-	<div class="box" style="background-color:yellow;">
-		<p>3</p>
-	</div>
-	<div class="box" style="background-color:green;">
-		<p>4</p>
-	</div>
-	<!-- <div class="box" style="background-color:blue;">
-		<p>5</p>
-	</div>
-	<div class="box" style="background-color:indigo;">
-		<p>6</p>
-	</div>
-	<div class="box" style="background-color:violet;">
-		<p>7</p>
-	</div> -->
+	<div id="wrap">
+		<div class="box box1" style="background-color:red;">
+			<p>1</p>
+		</div>
+		<div class="box box2" style="background-color:orange;">
+			<p>2</p>
+		</div>
+		<div class="box box3" style="background-color:yellow;">
+			<p>3</p>
+		</div>
+		<div class="box box4" style="background-color:green;">
+			<p>4</p>
+		</div>
+		<!-- <div class="box" style="background-color:blue;">
+			<p>5</p>
+		</div>
+		<div class="box" style="background-color:indigo;">
+			<p>6</p>
+		</div>
+		<div class="box" style="background-color:violet;">
+			<p>7</p>
+		</div> -->
 
-	<div style="height:1000px">끝</div>
+		<div style="height:1000px">끝</div>
+	</div>
 	
 
 	<script>
 		window.onload = function () {
+
 			var ele = $('.box')
 			ele.eq(0).addClass('move');
 			ele.each(function (index) {
@@ -94,27 +97,30 @@
 				$(this).on("wheel DOMMouseScroll", function (e) {
 					e.preventDefault();
 					var delta = 0;
-					if (!event) event = window.event;
-
-					if (event.wheelDelta) {
-						delta = event.wheelDelta / 120;
-						if (window.opera) delta = -delta;
+					if(!event) {
+						event = window.event;
 					}
-					
-					else if (event.detail)
-						delta = -event.detail / 3;
-						var moveTop = $(window).scrollTop();
-						var elmSelecter = ele.eq(index);
-					// 마우스휠을 위에서 아래로
-					if (delta < 0) {
-						if ($(elmSelecter).next() != undefined) {
+					console.log('event.wheelDelta', event.wheelDelta)
+					if(event.wheelDelta) {
+						delta = event.wheelDelta / 120;
+						if(window.opera) delta = -delta;
+					} 
+					else if(event.detail)
+					delta = -event.detail / 3;
+					var moveTop = $(window).scrollTop();
+					var elmSelecter = ele.eq(index);
+					ele.removeClass('move');
+					if(delta < 0) {
+						// 마우스휠을 위에서 아래로
+						if($(elmSelecter).next() != undefined && $(elmSelecter).next().length > 0) {
 							moveTop = $(elmSelecter).next().offset().top;
-							$(elmSelecter).next().addClass('move'); //  휠 내렸을시 애니메이션 이벤트
+							$(elmSelecter).next().addClass('move');
 						}
-						// 마우스휠을 아래에서 위로
 					} else {
-						if ($(elmSelecter).prev() != undefined) {
+						// 마우스휠을 아래에서 위로
+						if($(elmSelecter).prev() != undefined && $(elmSelecter).prev().length > 0) {
 							moveTop = $(elmSelecter).prev().offset().top;
+							$(elmSelecter).prev().addClass('move');
 						}
 					}
 
@@ -122,8 +128,7 @@
 					$("html,body").stop().animate({
 						scrollTop: moveTop + 'px'
 					}, {
-						duration: 800, complete: function () {
-						}
+						duration: 800, complete: function () {}
 					});
 				});
 			});
