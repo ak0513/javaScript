@@ -110,7 +110,7 @@
 			ele[i].addEventListener('wheel', wheelEventHandler);
 		} */
 
-		function wheelEventHandler(e) {
+		/* function wheelEventHandler(e) {
 			e.preventDefault();
 			ele = e.path[e.path.length - 6];
 			var delta = 0;
@@ -141,7 +141,7 @@
 			}
 			// 화면 이동 0.8초(800)
 			move(moveTop)
-		}
+		} */
 
 
 
@@ -240,9 +240,9 @@
 			document.querySelector('#fixed').innerHTML = 'touchend'
 		}
 
-		$(window).resize(function () {
-			$('.box').css('height', $(window).height());
-		});
+		// $(window).resize(function () {
+		// 	$('.box').css('height', $(window).height());
+		// });
 	</script>
 </body>
 
