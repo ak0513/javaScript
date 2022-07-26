@@ -18,15 +18,18 @@
 			margin: 0;
 			padding: 0;
 			width: 100%;
-			height: 100%;
+			height:100%;
+		}
+		#wrap {
+			height:100%;
 		}
 
 		.box {
-			/* width: 100%;
-			height: 100vh;
+			width: 100%;
+			height: 100%;
 			position: relative;
 			color: #ffffff;
-			font-size: 24pt; */
+			font-size: 24pt;
 			/* background: url('./showcase__02--pc.jpg') no-repeat; */
 			/* background-attachment: fixed; */
 		}
@@ -50,7 +53,7 @@
 			animation: fade_in .5s 1.5s forwards;
 		}
 
-		#fixed{position: fixed; top:50%;width:100%;text-align:center;font-size:20px;font-weight:700;}
+		#fixed{position: fixed; top:50%;width:100%;text-align:center;color:#fff;font-size:20px;font-weight:700;}
 
 		@keyframes fade_in {
 			0% {
@@ -65,7 +68,7 @@
 		}
 	</style>
 	<div id="wrap">
-		<div class="box box1" style="background-color:blue;">
+		<div class="box box1" style="background-color:indigo;">
 			<p>1</p>
 		</div>
 		<div class="box box2" style="background-color:orange;">
@@ -94,18 +97,18 @@
 	
 
 	<script>
-		/* $("html,body").stop().animate({
+		$("html,body").stop().animate({
 			scrollTop: 0
 		});
 
 		var ele = document.querySelectorAll('.box');
 		var moveTop = window.pageYOffset;
-		ele[0].classList.add('move'); */
+		ele[0].classList.add('move');
 
-		/* for(var i = 0; i < ele.length; i++) {
+		for(var i = 0; i < ele.length; i++) {
 			ele[i].addEventListener('wheel', wheelEventHandler);
 		}
- 		*/
+
 		function wheelEventHandler(e) {
 			e.preventDefault();
 			ele = e.path[e.path.length - 6];
@@ -154,11 +157,14 @@
 		}
 
 		function handleTouchStart(evt) {
+			// evt.preventDefault();
 			var firstTouch = getTouches(evt)[0];
 			xDown = firstTouch.clientX;
 			yDown = firstTouch.clientY;
 			document.querySelector('#fixed').innerHTML = 'touchstart:' + yDown
 			console.log('firstTouch', firstTouch)
+			console.log('evt', evt)
+			console.log('yDown', yDown)
 		};
 
 		function handleTouchMove(evt) {
@@ -170,6 +176,7 @@
 			var xUp = evt.touches[0].clientX;
 			var yUp = evt.touches[0].clientY;
 			
+			console.log('yUp', yUp)
 			document.querySelector('#fixed').innerHTML = 'touchmove:' + yUp
 
 			var xDiff = xDown - xUp;
@@ -184,7 +191,7 @@
 					// document.querySelector('#fixed').innerHTML = 'up'
 				}
 				// 화면 이동 0.8초(800)
-				// move(moveTop)
+				move(moveTop)
 			} else {
 				/* down swipe */
 				if(ele.nextElementSibling != undefined) {
@@ -194,7 +201,7 @@
 					// document.querySelector('#fixed').innerHTML = 'down'
 				}
 				// 화면 이동 0.8초(800)
-				// move(moveTop)
+				move(moveTop)
 			}
 		
 			/* reset values */
@@ -206,28 +213,34 @@
 
 
 
-		/* function move(moveTop) {
+		function move(moveTop) {
 			$("html,body").stop().animate({
 				scrollTop: moveTop + 'px'
 			}, {
 				duration: 800, complete: function () {}
 			});
-		} */
+		}
 
 
 
 
 
 
+		window.addEventListener("wheel", function (e) {
+			e.preventDefault();
+		}, { passive: false });
 
 
-		function handleTouchEnd() {
+
+		function handleTouchEnd(evt) {
+			// console.log('handleTouchEnd', evt)
+			// var yUp = evt.touches[0].clientY;
 			document.querySelector('#fixed').innerHTML = 'touchend'
 		}
 
-		// $(window).resize(function () {
-		// 	$('.box').css('height', $(window).height());
-		// });
+		$(window).resize(function () {
+			$('.box').css('height', $(window).height());
+		});
 	</script>
 </body>
 
