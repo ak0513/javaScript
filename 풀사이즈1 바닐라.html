@@ -111,27 +111,27 @@ function handleTouchMove(evt) {
 
     document.querySelector('#fixed').innerHTML = 'touchmove:' + yUp
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 0 ) {
-            /* left swipe */
-        } else {
-            /* right swipe */
-        }
-    } else {
-        if ( yDiff > 0 ) {
-            /* up swipe */
-			// alert('up');
-			document.querySelector('div').classList.remove('down')
-			document.querySelector('div').classList.add('up')
-            document.querySelector('.txt').innerHTML = 'up'
-        } else {
-			// alert('down')
-			document.querySelector('div').classList.remove('up')
-			document.querySelector('div').classList.add('down')
-            document.querySelector('.txt').innerHTML = 'down'
-            /* down swipe */
-        }
-    }
+    if ( yDiff > 0 ) {
+		/* up swipe */
+		if(ele.previousElementSibling != undefined) {
+			moveTop = ele.previousElementSibling.offsetTop;
+			ele.classList.remove('move')
+			ele.previousElementSibling.classList.add('move');
+			document.querySelector('#fixed').innerHTML = 'up'
+		}
+		// 화면 이동 0.8초(800)
+		move(moveTop)
+	} else {
+		/* down swipe */
+		if(ele.nextElementSibling != undefined) {
+			moveTop = ele.nextElementSibling.offsetTop;
+			ele.classList.remove('move')
+			ele.nextElementSibling.classList.add('move');
+			document.querySelector('#fixed').innerHTML = 'down'
+		}
+		// 화면 이동 0.8초(800)
+		move(moveTop)
+	}
     /* reset values */
     xDown = null;
     yDown = null;
