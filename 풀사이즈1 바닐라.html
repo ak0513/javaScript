@@ -93,8 +93,8 @@
 
 	function handleTouchStart(evt) {
 		const firstTouch = getTouches(evt)[0];
-		xDown = firstTouch.clientX;
-		yDown = firstTouch.clientY;
+		xDown = firstTouch.pageX;
+		yDown = firstTouch.pageY;
 		document.querySelector('#fixed').innerHTML = 'touchstart:' + yDown
 	};
 
@@ -146,9 +146,9 @@
 			return;
 		}
 		console.log(evt)
-		// ele = evt.path[evt.path.length - 6];
-		var xUp = evt.changedTouches[0].clientX;
-		var yUp = evt.changedTouches[0].clientY;
+		ele = evt.path[evt.path.length - 6];
+		var xUp = evt.changedTouches[0].pageX;
+		var yUp = evt.changedTouches[0].pageY;
 
 		var xDiff = xDown - xUp;
 		var yDiff = yDown - yUp;
