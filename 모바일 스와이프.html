@@ -8,12 +8,14 @@
 </head>
 <body>
 	<style>
-        .txt{position: fixed; top:50%;width:100%;text-align: center;}
-		div.up {background-color: red;}
-		div.down {background-color: blue;}
+        #fixed{position: fixed; top:50%;width:100%;text-align:center;font-size:20px;font-weight:700;}
+		.aa.up {background-color: red;}
+		.aa.down {background-color: blue;}
 	</style>
-	<div style="height:10000px">
-        <div class="txt"></div>
+    
+	<div style="height:10000px" class="aa">
+        <div id="fixed">
+        </div>
     </div>
 	<script>
 		document.addEventListener('touchstart', handleTouchStart, false);
@@ -32,6 +34,7 @@ function handleTouchStart(evt) {
     const firstTouch = getTouches(evt)[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
+    document.querySelector('#fixed').innerHTML = 'touchstart:' + yDown
 };
 
 function handleTouchMove(evt) {
@@ -44,6 +47,8 @@ function handleTouchMove(evt) {
 
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
+
+    document.querySelector('#fixed').innerHTML = 'touchmove:' + yUp
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
