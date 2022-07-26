@@ -139,6 +139,7 @@
 
 		document.addEventListener('touchstart', handleTouchStart, false);
 		document.addEventListener('touchmove', handleTouchMove, false);
+		document.addEventListener('touchend', handleTouchEnd, false);
 
 		var xDown = null;
 		var yDown = null;
@@ -226,7 +227,9 @@
 
 
 
-
+		function handleTouchEnd() {
+			alert('handleTouchEnd')
+		}
 
 		$(window).resize(function () {
 			$('.box').css('height', $(window).height());
