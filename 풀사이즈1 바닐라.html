@@ -181,7 +181,7 @@
 						ele.classList.remove('move')
 						ele.previousElementSibling.classList.add('move');
 						console.log('up')
-						alert('up')
+						// alert('up')
 					}
 					// 화면 이동 0.8초(800)
 					move(moveTop)
@@ -191,7 +191,8 @@
 						moveTop = ele.nextElementSibling.offsetTop;
 						ele.classList.remove('move')
 						ele.nextElementSibling.classList.add('move');
-						alert('down')
+						// alert('down')
+						console.log('down')
 					}
 					// 화면 이동 0.8초(800)
 					move(moveTop)
@@ -219,6 +220,9 @@
 
 
 
+		window.addEventListener("wheel", function (e) {
+			e.preventDefault();
+		}, { passive: false });
 
 
 
