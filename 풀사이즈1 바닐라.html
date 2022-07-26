@@ -95,17 +95,17 @@
 	
 
 	<script>
-		$("html,body").stop().animate({
+		/* $("html,body").stop().animate({
 			scrollTop: 0
-		});
+		}); */
 
-		var ele = document.querySelectorAll('.box');
+		/* var ele = document.querySelectorAll('.box');
 		var moveTop = window.pageYOffset;
 		ele[0].classList.add('move');
 
 		for(var i = 0; i < ele.length; i++) {
 			ele[i].addEventListener('wheel', wheelEventHandler);
-		}
+		} */
 
 		function wheelEventHandler(e) {
 			e.preventDefault();
@@ -173,7 +173,7 @@
 			console.log(ele)
 			var xUp = evt.touches[0].clientX;
 			var yUp = evt.touches[0].clientY;
-			alert('handleTouchMove')
+			// alert('handleTouchMove')
 			
 			console.log('yUp', yUp)
 			document.querySelector('#fixed').innerHTML = 'touchmove:' + yUp
@@ -183,24 +183,24 @@
 
 			if ( yDiff > 0 ) {
 				/* up swipe */
-				if(ele.previousElementSibling != undefined) {
+				/* if(ele.previousElementSibling != undefined) {
 					moveTop = ele.previousElementSibling.offsetTop;
 					ele.classList.remove('move')
 					ele.previousElementSibling.classList.add('move');
-					// document.querySelector('#fixed').innerHTML = 'up'
-				}
+					document.querySelector('#fixed').innerHTML = 'up'
+				} */
 				// 화면 이동 0.8초(800)
-				move(moveTop)
+				// move(moveTop)
 			} else {
 				/* down swipe */
-				if(ele.nextElementSibling != undefined) {
+				/* if(ele.nextElementSibling != undefined) {
 					moveTop = ele.nextElementSibling.offsetTop;
 					ele.classList.remove('move')
 					ele.nextElementSibling.classList.add('move');
-					// document.querySelector('#fixed').innerHTML = 'down'
-				}
+					document.querySelector('#fixed').innerHTML = 'down'
+				} */
 				// 화면 이동 0.8초(800)
-				move(moveTop)
+				// move(moveTop)
 			}
 		
 			/* reset values */
