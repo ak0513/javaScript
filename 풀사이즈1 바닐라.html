@@ -159,34 +159,19 @@
 
 		if ( yDiff > 0 ) {
 			/* up swipe */
-			if(ele.previousElementSibling != undefined) {
-				moveTop = ele.previousElementSibling.offsetTop;
-				ele.classList.remove('move')
-				ele.previousElementSibling.classList.add('move');
-				document.querySelector('#fixed').innerHTML = 'up'
-			}
-			// 화면 이동 0.8초(800)
-			// move(moveTop)
+			
 		} else {
-			/* down swipe */
-			if(ele.nextElementSibling != undefined) {
-				moveTop = ele.nextElementSibling.offsetTop;
-				ele.classList.remove('move')
-				ele.nextElementSibling.classList.add('move');
-				document.querySelector('#fixed').innerHTML = 'down'
-			}
-			// 화면 이동 0.8초(800)
-			// move(moveTop)
+			
 		}
 		/* reset values */
 		xDown = null;
 		yDown = null;
 
 		console.log(
-			'moveTop', moveTop
+			// 'moveTop', moveTop
 		);
 		$("html,body").stop().animate({
-			scrollTop: moveTop + 'px'
+			scrollTop: '100px'
 		}, {
 			duration: 800, complete: function () {}
 		});
