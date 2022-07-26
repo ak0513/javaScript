@@ -216,21 +216,17 @@
 		console.log(
 			// 'moveTop', moveTop
 		);
-		$("html,body").stop().animate({
-			scrollTop: '100px'
-		}, {
-			duration: 800, complete: function () {}
-		});
+		move(300)
 		
 	}
 
 	function move(moveTop) {
-			$("html,body").stop().animate({
-				scrollTop: moveTop + 'px'
-			}, {
-				duration: 800, complete: function () {}
-			});
-		}
+		$("html,body").stop().animate({
+			scrollTop: moveTop + 'px'
+		}, {
+			duration: 800, complete: function () {}
+		});
+	}
 	</script>
 </body>
 </html>
