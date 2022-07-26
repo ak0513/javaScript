@@ -102,10 +102,10 @@
 		var moveTop = window.pageYOffset;
 		ele[0].classList.add('move');
 
-		for(var i = 0; i < ele.length; i++) {
+		/* for(var i = 0; i < ele.length; i++) {
 			ele[i].addEventListener('wheel', wheelEventHandler);
 		}
-
+ */
 		function wheelEventHandler(e) {
 			e.preventDefault();
 			ele = e.path[e.path.length - 6];
