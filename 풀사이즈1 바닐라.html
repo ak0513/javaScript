@@ -199,7 +199,7 @@
 		var xDiff = xDown - xUp;
 		var yDiff = yDown - yUp;
 
-		console.log(yDiff)
+		// console.log(yDiff)
 
 		document.querySelector('#fixed').innerHTML = 'touchend:' + yUp
 
@@ -213,8 +213,19 @@
 		xDown = null;
 		yDown = null;
 
+		var viewportHeight = window.innerHeight;
+
+		for(i = 0; i < ele.length; i++) {
+			if(yDown > viewportHeight*i) {
+				move(300)
+			}
+		}
 		console.log(
-			// 'moveTop', moveTop
+			'viewportHeight', viewportHeight
+			+'\n'+
+			'yUp', yUp
+			+'\n'+
+			'ele', ele
 		);
 		move(300)
 		
