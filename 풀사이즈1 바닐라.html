@@ -184,6 +184,7 @@
 						moveTop = ele.previousElementSibling.offsetTop;
 						ele.classList.remove('move')
 						ele.previousElementSibling.classList.add('move');
+						alert('up')
 					}
 					// 화면 이동 0.8초(800)
 					move(moveTop)
@@ -193,9 +194,10 @@
 						moveTop = ele.nextElementSibling.offsetTop;
 						ele.classList.remove('move')
 						ele.nextElementSibling.classList.add('move');
-						// 화면 이동 0.8초(800)
-						move(moveTop)
+						alert('down')
 					}
+					// 화면 이동 0.8초(800)
+					move(moveTop)
 				}
 			}
 			/* reset values */
