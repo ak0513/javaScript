@@ -137,8 +137,8 @@
 
 
 
-		document.addEventListener('touchstart', handleTouchStart, false);
-		document.addEventListener('touchmove', handleTouchMove, false);
+		// document.addEventListener('touchstart', handleTouchStart, false);
+		document.addEventListener('touchstart', handleTouchMove, false);
 
 		var xDown = null;
 		var yDown = null;
@@ -155,6 +155,10 @@
 		};
 
 		function handleTouchMove(evt) {
+			const firstTouch = getTouches(evt)[0];
+			xDown = firstTouch.clientX;
+			yDown = firstTouch.clientY;
+			
 			if ( ! xDown || ! yDown ) {
 				return;
 			}
