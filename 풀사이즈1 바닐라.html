@@ -48,7 +48,7 @@
 			animation: fade_in .5s 1.5s forwards;
 		}
 
-		#fixed{position: fixed; top:50%;width:100%;text-align:center;font-size:20px;font-weight:700;}
+		#fixed{position: fixed; top:50%;z-index:10;width:100%;text-align:center;font-size:20px;font-weight:700;}
 	</style>
 <div id="fixed">
 </div>
@@ -146,7 +146,7 @@
 			return;
 		}
 		console.log(evt)
-		ele = evt.path[evt.path.length - 6];
+		// ele = evt.path[evt.path.length - 6];
 		var xUp = evt.changedTouches[0].clientX;
 		var yUp = evt.changedTouches[0].clientY;
 
@@ -155,7 +155,7 @@
 
 		console.log(yDiff)
 
-		document.querySelector('#fixed').innerHTML = 'touchmove:' + yUp
+		document.querySelector('#fixed').innerHTML = 'touchend:' + yUp
 
 		if ( yDiff > 0 ) {
 			/* up swipe */
