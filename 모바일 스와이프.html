@@ -8,10 +8,13 @@
 </head>
 <body>
 	<style>
+        .txt{position: fixed; top:50%;width:100%;text-align: center;}
 		div.up {background-color: red;}
 		div.down {background-color: blue;}
 	</style>
-	<div style="height:10000px"></div>
+	<div style="height:10000px">
+        <div class="txt"></div>
+    </div>
 	<script>
 		document.addEventListener('touchstart', handleTouchStart, false);
 document.addEventListener('touchmove', handleTouchMove, false);
@@ -54,10 +57,12 @@ function handleTouchMove(evt) {
 			// alert('up');
 			document.querySelector('div').classList.remove('down')
 			document.querySelector('div').classList.add('up')
+            document.querySelector('.txt').innerHTML = 'up'
         } else {
 			// alert('down')
 			document.querySelector('div').classList.remove('up')
 			document.querySelector('div').classList.add('down')
+            document.querySelector('.txt').innerHTML = 'down'
             /* down swipe */
         }
     }
@@ -68,7 +73,7 @@ function handleTouchMove(evt) {
 
 
 function handleTouchEnd() {
-    alert('handleTouchEnd')
+    document.querySelector('.txt').innerHTML = 'handleTouchEnd'
 }
 	</script>
 </body>
