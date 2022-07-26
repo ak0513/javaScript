@@ -191,7 +191,7 @@
 		if ( ! xDown || ! yDown ) {
 			return;
 		}
-		console.log(evt)
+		// console.log(evt)
 		// ele = evt.path[evt.path.length - 6];
 		var xUp = evt.changedTouches[0].pageX;
 		var yUp = evt.changedTouches[0].pageY;
@@ -215,19 +215,62 @@
 
 		var viewportHeight = window.innerHeight;
 
-		for(i = 0; i < ele.length; i++) {
-			if(yDown > viewportHeight*i) {
-				move(300)
+		var totalH = viewportHeight * ele.length;
+			var rate = 1 / ele.length;
+			var rate2 = yUp / totalH
+			if(rate2 < 0.25) {
+				move(viewportHeight)
+			} else if (rate < 0.5) {
+				move(viewportHeight * 2)
+			} else if (rate < 0.75) {
+				move(viewportHeight * 3)
+			} else if (rate < 1) {
+				move(viewportHeight * 4)
 			}
-		}
-		console.log(
-			'viewportHeight', viewportHeight
+
+			console.log(
+			'totalH', totalH
+			+'\n'+
+			'rate', rate
 			+'\n'+
 			'yUp', yUp
 			+'\n'+
-			'ele', ele
+			'rate2', rate2
 		);
-		move(300)
+		for(i = 0; i < ele.length; i++) {
+			if(yDown > viewportHeight*i) {
+				
+			}
+			/* var totalH = viewportHeight * ele.length;
+			var rate = 1 / ele.length;
+			var rate2 = yUp / totalH
+			if(rate2 < 0.25) {
+				move(viewportHeight)
+			} else if (rate < 0.5) {
+				move(viewportHeight * 2)
+			} else if (rate < 0.75) {
+				move(viewportHeight * 3)
+			} else if (rate < 1) {
+				move(viewportHeight * 4)
+			} */
+			console.log(
+			'totalH', totalH
+			+'\n'+
+			'rate', rate
+			+'\n'+
+			'yUp', yUp
+			+'\n'+
+			'rate2', rate2
+		);
+		}
+		console.log(
+			// 'viewportHeight', viewportHeight
+			// +'\n'+
+			// 'yUp', yUp
+			// +'\n'+
+			// 'ele', ele
+		);
+		// move(300)
 		
 	}
 
