@@ -137,8 +137,8 @@
 
 
 
-		// document.addEventListener('touchstart', handleTouchStart, false);
-		document.addEventListener('touchstart', handleTouchMove, false);
+		document.addEventListener('touchstart', handleTouchStart, false);
+		document.addEventListener('touchmove', handleTouchMove, false);
 
 		var xDown = null;
 		var yDown = null;
@@ -155,10 +155,6 @@
 		};
 
 		function handleTouchMove(evt) {
-			var firstTouch = getTouches(evt)[0];
-			xDown = firstTouch.clientX;
-			yDown = firstTouch.clientY;
-
 			if ( ! xDown || ! yDown ) {
 				return;
 			}
@@ -184,6 +180,7 @@
 						moveTop = ele.previousElementSibling.offsetTop;
 						ele.classList.remove('move')
 						ele.previousElementSibling.classList.add('move');
+						console.log('up')
 						alert('up')
 					}
 					// 화면 이동 0.8초(800)
