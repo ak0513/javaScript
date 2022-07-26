@@ -65,7 +65,7 @@
 		}
 	</style>
 	<div id="wrap">
-		<div class="box box1" style="background-color:blue;">
+		<div class="box box1" style="background-color:indigo;">
 			<p>1</p>
 		</div>
 		<div class="box box2" style="background-color:orange;">
@@ -94,18 +94,18 @@
 	
 
 	<script>
-		$("html,body").stop().animate({
+		/* $("html,body").stop().animate({
 			scrollTop: 0
 		});
 
 		var ele = document.querySelectorAll('.box');
 		var moveTop = window.pageYOffset;
-		ele[0].classList.add('move');
+		ele[0].classList.add('move'); */
 
 		/* for(var i = 0; i < ele.length; i++) {
 			ele[i].addEventListener('wheel', wheelEventHandler);
 		}
- */
+ 		*/
 		function wheelEventHandler(e) {
 			e.preventDefault();
 			ele = e.path[e.path.length - 6];
@@ -187,7 +187,7 @@
 					// document.querySelector('#fixed').innerHTML = 'up'
 				}
 				// 화면 이동 0.8초(800)
-				move(moveTop)
+				// move(moveTop)
 			} else {
 				/* down swipe */
 				if(ele.nextElementSibling != undefined) {
@@ -197,7 +197,7 @@
 					// document.querySelector('#fixed').innerHTML = 'down'
 				}
 				// 화면 이동 0.8초(800)
-				move(moveTop)
+				// move(moveTop)
 			}
 		
 			/* reset values */
