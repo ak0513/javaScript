@@ -149,16 +149,16 @@
 		}
 
 		function handleTouchStart(evt) {
-			const firstTouch = getTouches(evt)[0];
+			var firstTouch = getTouches(evt)[0];
 			xDown = firstTouch.clientX;
 			yDown = firstTouch.clientY;
 		};
 
 		function handleTouchMove(evt) {
-			const firstTouch = getTouches(evt)[0];
+			var firstTouch = getTouches(evt)[0];
 			xDown = firstTouch.clientX;
 			yDown = firstTouch.clientY;
-			
+
 			if ( ! xDown || ! yDown ) {
 				return;
 			}
