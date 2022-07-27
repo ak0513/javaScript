@@ -89,6 +89,7 @@
 
 	var ele = document.querySelectorAll('.box');
 	var moveTop = window.pageYOffset;
+	var viewportHeight = screen.height;
 	ele[0].classList.add('move');
 
 	for(var i = 0; i < ele.length; i++) {
@@ -218,7 +219,7 @@
 		xDown = null;
 		yDown = null;
 
-		var viewportHeight = screen.height;
+		
 
 		// var totalH = viewportHeight * ele.length;
 		var totalH = window.outerHeight;
