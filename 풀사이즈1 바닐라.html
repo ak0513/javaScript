@@ -80,49 +80,49 @@
 </div>
 <script>
 	$("html,body").stop().animate({
-			scrollTop: 0
-		});
+		scrollTop: 0
+	});
 
-		var ele = document.querySelectorAll('.box');
-		var moveTop = window.pageYOffset;
-		ele[0].classList.add('move');
+	var ele = document.querySelectorAll('.box');
+	var moveTop = window.pageYOffset;
+	ele[0].classList.add('move');
 
-		for(var i = 0; i < ele.length; i++) {
-			ele[i].addEventListener('wheel', wheelEventHandler);
+	for(var i = 0; i < ele.length; i++) {
+		ele[i].addEventListener('wheel', wheelEventHandler);
+	}
+
+	function wheelEventHandler(e) {
+		e.preventDefault();
+		ele = e.path[e.path.length - 6];
+		var delta = 0;
+		if(!event) {
+			event = window.event;
 		}
+		if(event.wheelDelta) {
+			delta = event.wheelDelta / 120;
+			if(window.opera) delta = -delta;
+		} 
+		else if(event.detail)
+		delta = -event.detail / 3;
 
-		function wheelEventHandler(e) {
-			e.preventDefault();
-			ele = e.path[e.path.length - 6];
-			var delta = 0;
-			if(!event) {
-				event = window.event;
+		if(delta < 0) {
+			// 마우스휠을 위에서 아래로
+			if(ele.nextElementSibling != undefined) {
+				moveTop = ele.nextElementSibling.offsetTop;
+				ele.classList.remove('move')
+				ele.nextElementSibling.classList.add('move');
 			}
-			if(event.wheelDelta) {
-				delta = event.wheelDelta / 120;
-				if(window.opera) delta = -delta;
-			} 
-			else if(event.detail)
-			delta = -event.detail / 3;
-
-			if(delta < 0) {
-				// 마우스휠을 위에서 아래로
-				if(ele.nextElementSibling != undefined) {
-					moveTop = ele.nextElementSibling.offsetTop;
-					ele.classList.remove('move')
-					ele.nextElementSibling.classList.add('move');
-				}
-			} else {
-				// 마우스휠을 아래에서 위로
-				if(ele.previousElementSibling != undefined) {
-					moveTop = ele.previousElementSibling.offsetTop;
-					ele.classList.remove('move')
-					ele.previousElementSibling.classList.add('move');
-				}
+		} else {
+			// 마우스휠을 아래에서 위로
+			if(ele.previousElementSibling != undefined) {
+				moveTop = ele.previousElementSibling.offsetTop;
+				ele.classList.remove('move')
+				ele.previousElementSibling.classList.add('move');
 			}
-			// 화면 이동 0.8초(800)
-			move(moveTop)
 		}
+		// 화면 이동 0.8초(800)
+		move(moveTop)
+	}
 
 
 	document.addEventListener('touchstart', handleTouchStart, false);
@@ -221,11 +221,11 @@
 			var rate2 = st / totalH
 			if(rate2 < 0.25) {
 				move(viewportHeight)
-			} else if (rate < 0.5) {
+			} else if (rate >=0.25 && rate < 0.5) {
 				move(viewportHeight * 2)
-			} else if (rate < 0.75) {
+			} else if (rate >= 0.5 &&rate < 0.75) {
 				move(viewportHeight * 3)
-			} else if (rate < 1) {
+			} else if (rate >= 0.75 && rate < 1) {
 				move(viewportHeight * 4)
 			}
 
@@ -250,35 +250,7 @@
 			if(yDown > viewportHeight*i) {
 				
 			}
-			/* var totalH = viewportHeight * ele.length;
-			var rate = 1 / ele.length;
-			var rate2 = yUp / totalH
-			if(rate2 < 0.25) {
-				move(viewportHeight)
-			} else if (rate < 0.5) {
-				move(viewportHeight * 2)
-			} else if (rate < 0.75) {
-				move(viewportHeight * 3)
-			} else if (rate < 1) {
-				move(viewportHeight * 4)
-			} */
-			console.log(
-			'totalH', totalH
-			+'\n'+
-			'rate', rate
-			+'\n'+
-			'yUp', yUp
-			+'\n'+
-			'rate2', rate2
-		);
 		}
-		console.log(
-			// 'viewportHeight', viewportHeight
-			// +'\n'+
-			// 'yUp', yUp
-			// +'\n'+
-			// 'ele', ele
-		);
 		// move(300)
 		
 	}
