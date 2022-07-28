@@ -219,40 +219,40 @@
 
 		// var totalH = screenH * ele.length;
 		var totalH = window.outerHeight;
-			var rate = 1 / ele.length;
-			var startPoint = yUp + yDiff;
-			var rate2 = startPoint / totalH;
-			moveTop = window.pageYOffset;
-			/* for(var i = 0; i < 3; i++) {
-				if(i < startPoint < i + 1) {
-					console.log(i)
-					move(screenH * (i +1))
-				}
-			} */
-
-			if(startPoint < screenH) {
-				move(screenH)
-			} else if(screenH <= startPoint < screenH * 2) {
-				move(innerH *2)
-			} else if(screenH *2 <= startPoint < screenH *3) {
-				move(screenH * 3)
-			} else if(screenH *3 <= startPoint < screenH *4) {
-				move(screenH * 4)
+		var rate = 1 / ele.length;
+		var startPoint = yUp + yDiff;
+		var rate2 = startPoint / totalH;
+		moveTop = window.pageYOffset;
+		/* for(var i = 0; i < 3; i++) {
+			if(i < startPoint < i + 1) {
+				console.log(i)
+				move(screenH * (i +1))
 			}
+		} */
+
+		/* if(startPoint < screenH) {
+			move(screenH)
+		} else if(screenH <= startPoint < screenH * 2) {
+			move(innerH *2)
+		} else if(screenH *2 <= startPoint < screenH *3) {
+			move(screenH * 3)
+		} else if(screenH *3 <= startPoint < screenH *4) {
+			move(screenH * 4)
+		} */
 		
 
-			// if(screenH < 0.25) {
-			// 	move(screenH)
-			// } else if (rate >=0.25 && rate < 0.5) {
-			// 	move(screenH * 2)
-			// } else if (rate >= 0.5 &&rate < 0.75) {
-			// 	move(screenH * 3)
-			// } else if (rate >= 0.75 && rate < 1) {
-			// 	move(screenH * 4)
-			// }
+		// if(screenH < 0.25) {
+		// 	move(screenH)
+		// } else if (rate >=0.25 && rate < 0.5) {
+		// 	move(screenH * 2)
+		// } else if (rate >= 0.5 &&rate < 0.75) {
+		// 	move(screenH * 3)
+		// } else if (rate >= 0.75 && rate < 1) {
+		// 	move(screenH * 4)
+		// }
 
-			console.group('end')
-			console.log(
+		console.group('end')
+		console.log(
 			'totalH', totalH
 			+'\n'+
 			'rate', rate
