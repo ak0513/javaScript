@@ -24,7 +24,7 @@
 
 		.box {
 			width: 100vw;
-			height: 100vh;
+			height: 500px;
 			position: relative;
 			color: #ffffff;
 			font-size: 24pt;
@@ -232,14 +232,14 @@
 			}
 		} */
 
-		if(startPoint < screenH) {
-			move(innerH)
-		} else if(innerH <= startPoint < innerH * 2) {
-			move(innerH *2)
-		} else if(innerH *2 <= startPoint < innerH *3) {
-			move(innerH * 3)
-		} else if(innerH *3 <= startPoint < innerH *4) {
-			move(innerH * 4)
+		if(startPoint < 500) {
+			move(500)
+		} else if(500 <= startPoint < 1000) {
+			move(1000)
+		} else if(1000 <= startPoint < 1500) {
+			move(1500)
+		} else if(1500 <= startPoint < 2000) {
+			move(2000)
 		}
 		
 
