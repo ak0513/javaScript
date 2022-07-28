@@ -87,6 +87,7 @@
 		<p>7</p>
 	</div> -->
 
+	<div style="height:1000px">끝</div>
 
 	
 </div>
@@ -269,7 +270,8 @@
 				move(screenH * (i +1))
 			}
 		} */
-		if(yDiff < 0) {
+		if(yDiff > 0) {
+			/* up swipe */
 			if(startPoint < clientHeight) {
 				move(clientHeight)
 			} else if(clientHeight <= startPoint && startPoint < clientHeight * 2) {
@@ -280,7 +282,7 @@
 				move(clientHeight * 4)
 			}
 		} else {
-			console.log('up')
+			/* down swipe */
 			if(startPoint < clientHeight) {
 				console.log('1', clientHeight * 0)
 				move(clientHeight * 0)
