@@ -73,8 +73,8 @@
 			bottom:0;
 			z-index:10;
 			background: url('./showcase__02--pc.jpg') no-repeat center / cover;
-			transition: all 0.4s;
 		}
+		.bg.hidden{background: none;}
 		.swiper-slide4{background-color: brown;}
     </style>
   </head>
@@ -106,6 +106,15 @@
           el: ".swiper-pagination",
           clickable: true,
         },
+		on: {
+			slideChangeTransitionStart: function() {
+				console.log('aa')
+				if(document.querySelector('.swiper-slide4').classList.contains('swiper-slide-active')) {
+					document.querySelector('.bg').classList.add('hidden')
+
+				}
+			}
+		}
       });
     </script>
   </body>
