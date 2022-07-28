@@ -238,13 +238,13 @@
 
 		if(startPoint < clientHeight) {
 			move(clientHeight)
-		} else if(clientHeight <= startPoint < clientHeight * 2) {
+		} else if(clientHeight <= startPoint && startPoint < clientHeight * 2) {
 			move(clientHeight * 2)
-		} else if(clientHeight * 2 <= startPoint < clientHeight * 3) {
+		} else if(clientHeight * 2 <= startPoint && startPoint < clientHeight * 3) {
 			move(clientHeight * 3)
-		} // else if(clientHeight * 3 <= startPoint < clientHeight * 4) {
-		// 	move(clientHeight * 4)
-		// }
+		} else if(clientHeight * 3 <= startPoint && startPoint < clientHeight * 4) {
+			move(clientHeight * 4)
+		}
 
 		/* if(startPoint < 500) {
 			move(500)
