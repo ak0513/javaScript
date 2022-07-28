@@ -18,17 +18,27 @@
 			width: 100vw;
 			/* height:100vh; */
 			background-color: #fff;
-			background: url('./showcase__02--pc.jpg') no-repeat center / cover;
-			background-attachment: fixed;
+			
 		}
 		#wrap {
 			/* height:100%; */
+		}
+		.bg {
+			position: fixed;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			z-index:10;
+			background: url('./showcase__02--pc.jpg') no-repeat center / cover;
+			background-attachment: fixed;
 		}
 
 		.box {
 			width: 100vw;
 			height: 100vh;
 			position: relative;
+			z-index: 20;
 			color: #ffffff;
 			font-size: 24pt;
 			/* background: url('./showcase__02--pc.jpg') no-repeat center / cover; */
@@ -92,8 +102,9 @@
 	<div class="box" style="background-color:violet;">
 		<p>7</p>
 	</div> -->
+	<div class="bg"></div>
 
-	<div style="height:1000px;background-color: #fff;">끝</div>
+	<div style="height:1000px;background-color: #fff;position:relative;z-index:30;">끝</div>
 
 	
 </div>
