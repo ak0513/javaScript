@@ -35,38 +35,150 @@
 		</li>
 	</ul>
 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 	<style>
-		.main-thumnail img{width:400px;height:200px;}
-		.thumnail {display:flex;flex-wrap:wrap;}
-		.thumnail-img {width:200px;height:200px;}
+		.portfolio-swiper {width:300px;height:100px;}
+		.portfolio-thumnail-swiper .swiper-wrapper{flex-wrap: wrap;}
+		.portfolio-thumnail-swiper .swiper-slide {width:100px !important;height:100px !important;}
+		.portfolio-thumnail-swiper .swiper-slide img {width:100%;height:auto;}
 	</style>
-	<div class="main-thumnail"><img src="./showcase__02--pc.jpg" alt=""></div>
-	<ul class="thumnail">
-		<li class="thumnail-item"><a href="./showcase__03--pc.jpg" class="thumnail-btn"><img src="./showcase__03--pc.jpg" class="thumnail-img" alt=""></a></li>
-		<li class="thumnail-item"><a href="./showcase__02--pc.jpg" class="thumnail-btn"><img src="./showcase__02--pc.jpg" class="thumnail-img" alt=""></a></li>
-	</ul>
+	<div class="swiper portfolio-swiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+			</div>
+		</div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>
+	<div class="swiper portfolio-thumnail-swiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+			</div>
+		</div>
+	</div>
+	
+	<!-- Swiper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+	
+	<!-- Initialize Swiper -->
 	<script>
-		var thumnail = $('.main-thumnail img');
-		var thumnailBtn = $('.thumnail-btn');
-		thumnailBtn.on('click', function(e) {
-			e.preventDefault();
-			var href = $(this).attr('href');
-			thumnail.attr('src', href)
-		})
+		var swiper = new Swiper(".portfolio-thumnail-swiper", {
+			spaceBetween: 10,
+			slidesPerView: 4,
+			freeMode: true,
+			watchSlidesProgress: true,
+			touchRatio: 0
+		});
+		var swiper2 = new Swiper(".portfolio-swiper", {
+			spaceBetween: 10,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			thumbs: {
+				swiper: swiper,
+			},
+		});
 	</script>
 
 
 
-
 	<style>
+		.w300{width:300px;}
 		input{width:100%;}
+		select {appearance: none;}
 		.input-wrap {position: relative; width:100%;}
 		.input-wrap.side-btn{display:flex;}
 		.input-wrap.side-btn .btn {flex-shrink: 0;}
+
+		.form-row{display:flex;}
 	</style>
 	<div class="input-wrap side-btn">
 		<input type="text">
 		<button class="btn">버튼</button>
+	</div>
+
+	<div class="form-group">
+		<label for="">aaa</label>
+		<div class="input-wrap">
+			<input type="text" class="w300">
+			<input type="text" class="w300">
+			<input type="text" class="w300">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="">aaa</label>
+		<div class="form-row">
+			<div class="input-wrap">
+				<input type="text" class="w300">
+				<input type="text" class="w300">
+				<input type="text" class="w300">
+			</div>
+			<div class="select-wrap">
+				<select>
+					<option value="AA">AA</option>
+					<option value="AA"></option>
+					<option value="AA"></option>
+				</select>
+			</div>
+		</div>
 	</div>
 
 	<script>
