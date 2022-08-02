@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>matrix 변환 스크롤시 액션</title>
+	<title>스크롤시 모션</title>
 </head>
 
 <body>
@@ -29,7 +29,6 @@
 			padding:10px;
 			color:#fff;
 			opacity: 0;
-			
 		}
 
 		.bg {
@@ -43,7 +42,7 @@
 			background-color: black;
 			padding:10px;
 			color:#fff;
-			
+			opacity: 0;
 		}
 
 
@@ -53,8 +52,7 @@
 		#sec1{border-top:5px solid #000;background:url('./showcase__03--pc.jpg') no-repeat center top;}
 		#sec2{background-color:#eee;}
 
-		/* .card {position: relative;} */
-		.card div {margin:0 auto;width:360px;height:auto;}
+		.card div {margin:0 auto;width:360px;height:auto;opacity: 0;}
 		@media only screen and (max-width: 768px) {
 			.card {display:block;}
 		}
@@ -62,7 +60,6 @@
 
 	<div id="sec0"><div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div></div>
 	<div id="sec1">
-		<!-- <div class="txt item1">item1 우리는 탄소 발자국을 줄이기 위해 끊임없이 혁신하고 있습니다.</div> -->
 		<div class="" style="height:1000px">1111111111</div>
 		<div class="card">
 			<div class="card1"><img src="https://www.shinhancard.com/pconts/html/benefit/event/__icsFiles/afieldfile/2022/06/15/220609_loopy_list.jpg"></div>
@@ -82,15 +79,15 @@
 		// 페이지 세팅
 		var wrap = [
 			{
-				ele: document.getElementById('sec0'),
+				ele: '#sec0',
 				pageNum: 4,
 			},
 			{
-				ele: document.getElementById('sec1'),
+				ele: '#sec1',
 				pageNum: 4,
 			},
 			{
-				ele: document.getElementById('sec2'),
+				ele: '#sec2',
 				pageNum: 3,
 			},
 			
@@ -100,13 +97,13 @@
 			{
 				info: {
 					ele: '#sec0 .item1',
-					type: 'sticky',
+					type: 'sticky', // sticky인 경우 css position fixed
 					propertys: {
 						opacity: {
-							sValue: [0, 1],
-							sPos: [20, 30],
-							eValue: [1, 0],
-							ePos: [60, 80],
+							sValue: [0, 1], // 시작 값 0에서 1
+							sPos: [20, 30], // 시작 위치 20%에서 30%
+							eValue: [1, 0], // 숨김 값 1에서 0
+							ePos: [60, 80], // 숨김 위치 60%에서 80%
 						},
 						matrix: {
 							sValue: [
@@ -233,30 +230,26 @@
 			},
 		]
 
-
 		var resizeTimer = null;
 		var viewportHeight = window.innerHeight; // 스크롤바 높이 포함
 
 		// 세팅
 		function setting() {
-			var totalScroll = 0;
 			for(var i = 0; i < wrap.length; i++) {
 				var height = viewportHeight * wrap[i].pageNum;
-				wrap[i].ele.style.height = height + 'px';
+				var ele = document.querySelector(wrap[i].ele)
+				ele.style.height = height + 'px';
 			}
 		}
 
 		// 스크롤시 값
 		function calc(item, property) {
 			var ele = document.querySelector(item.info.ele)
-			// var scrollTop = window.pageYOffset; // 스크롤 위치
 			var scrollTop = document.querySelector('html').scrollTop; // 스크롤 위치
 			var parent = document.querySelector(item.info.ele.split(' ')[0]); // 엘리먼트 부모요소
 			var parentOffsetTop = parent.offsetTop;
 			var pageHeight = Number(parent.style.height.slice(0, -2)); // 엘리먼트 부모요소의 높이
-			// var previousHeight = Number(getComputedStyle(parent.previousElementSibling).height.slice(0, -2))
-
-
+			
 			var showStart = (pageHeight / 100 * item.info.propertys[property].sPos[0]) + parentOffsetTop; // 엘리먼트 보여주기 시작 지점(px)
 			var showEnd = (pageHeight / 100 * item.info.propertys[property].sPos[1]) + parentOffsetTop; // 엘리먼트 보여주기 끝 지점(px)
 
@@ -267,12 +260,8 @@
 			var hideScrollMove = scrollTop - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
 			var standard = scrollTop; // 기준 라인
 
+			// sticky 인 경우
 			if(item.info.type !== 'sticky') {
-				var matrix = 0;
-				if(!!item.info.propertys.matrix) {
-					// matrix =  item.info.propertys.matrix.sValue[0][5];
-					// console.log(getComputedStyle',getComputedStyle(ele))
-				}
 				showStart = viewportHeight / 100 * item.info.propertys[property].sPos[0]; // 엘리먼트 보여주기 시작 지점(px)
 				showEnd = viewportHeight / 100 * item.info.propertys[property].sPos[1]; // 엘리먼트 보여주기 끝 지점(px)
 		
@@ -280,9 +269,7 @@
 				hideEnd = viewportHeight / 100 * item.info.propertys[property].ePos[1]; // 엘리먼트 사라지기 끝 지점(px)
 
 				var offsetTop = ele.offsetTop;
-				var bottomPos = viewportHeight - ele.getBoundingClientRect().top + matrix; // 엘리먼트가 viewport 하단에 위치
-				// var bottomPos = scrollTop + viewportHeight - parentOffsetTop - offsetTop - showStart; // 엘리먼트가 viewport 하단에 위치
-				// console.log('bottomPos', bottomPos )
+				var bottomPos = viewportHeight - ele.getBoundingClientRect().top; // 엘리먼트가 viewport 하단에 위치
 
 				showScrollMove = bottomPos - showStart; // 엘리먼트가 보여질 때 스크롤시 움직이는 값(px)
 				hideScrollMove = bottomPos - hideStart; // 엘리먼트가 사라질 때 스크롤시 움직이는 값(px)
@@ -298,43 +285,6 @@
 			var hideMove1px = hideSpaceValue / hideSpace; // showSpace 1px 스크롤당 모션이 적용될 절대값
 
 			var result = null;
-			/* console.group('s')
-			console.log(
-				'parentOffsetTop', parentOffsetTop
-				+'\n'+
-				'scrollTop', scrollTop
-				+'\n'+
-				'offsetTop', offsetTop
-				+'\n'+
-				'standard(기준)', standard
-				+'\n'+
-				''
-				+'\n'+
-				'showStart(시작위치)', showStart
-				+'\n'+
-				'showEnd(끝위치)', showEnd
-				// +'\n'+
-				// 'hideStart(시작위치)', hideStart
-				// +'\n'+
-				// 'hideEnd(끝위치)', hideEnd
-				+'\n'+
-				''
-				+'\n'+
-				'showScrollMove', showScrollMove
-				+'\n'+
-				// 'hideScrollMove', hideScrollMove
-				// +'\n'+
-				''
-				+'\n'+
-				'showMove1px(1px당 적용값)', showMove1px
-				+'\n'+
-				'bottomPos', bottomPos
-				
-				+'\n'+
-				'viewportHeight', viewportHeight
-			)
-			console.groupEnd() */
-			
 
 			if(showStart > standard) {
 				// 보여지기 전
@@ -353,7 +303,6 @@
 				} else {
 					result = item.info.propertys[property].sValue[0] + (showMove1px * showScrollMove)
 				}
-				ele.classList.add('show')
 			} else if(standard >= showEnd && standard < hideStart) {
 				// 보여지기 완료
 				result = item.info.propertys[property].sValue[1];
@@ -369,19 +318,15 @@
 
 					result = matrixValues
 				} else {
-					// result = item.info.propertys[property].eValue[0] + (showMove1px * hideScrollMove)
 					result = item.info.propertys[property].eValue[0] - (hideMove1px * hideScrollMove)
 				}
 			} else if(hideEnd <= standard) {
 				// 사라지기 완료
 				result = item.info.propertys[property].eValue[1];
-				ele.classList.remove('show')
 			}
-			// console.log('result', result)
 			return result
 		}
 		
-
 		// matrix 값
 		function getMatrixValue(value1, value2, space, scrollMove) {
 			showSpaceValue = value2 - value1;
@@ -398,7 +343,6 @@
 		function motion() {
 			for(var i = 0; i < item.length; i++) {
 				var ele = document.querySelector(item[i].info.ele);
-				// console.log('motion', item[i].info)
 				if(!!item[i].info.propertys.opacity) {ele.style.opacity =  calc(item[i], 'opacity');}
 				if(!!item[i].info.propertys.matrix) {ele.style.transform = 'matrix(' + calc(item[i], 'matrix') + ')';}
 				if(!!item[i].info.propertys.height) {

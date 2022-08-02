@@ -22,16 +22,17 @@
 		}
 		#wrap {
 			/* height:100%; */
+			transition: all 0.4s;
 		}
 		.bg {
-			position: fixed;
+			/* position: fixed;
 			top:0;
 			left:0;
 			right:0;
 			bottom:0;
 			z-index:10;
 			background: url('./showcase__02--pc.jpg') no-repeat center / cover;
-			transition: all 0.4s;
+			transition: all 0.4s; */
 		}
 
 		.box {
@@ -43,7 +44,7 @@
 			font-size: 24pt;
 			/* background: url('./showcase__02--pc.jpg') no-repeat center / cover; */
 			/* background-attachment: fixed; */
-			background-color: transparent !important;
+			/* background-color: transparent !important; */
 		}
 
 
@@ -102,7 +103,7 @@
 	<div class="box" style="background-color:violet;">
 		<p>7</p>
 	</div> -->
-	<div style="height:1000px;background-color: #fff;position:relative;z-index:30;">끝</div>
+	<!-- <div style="height:1000px;background-color: #fff;position:relative;z-index:30;">끝</div> -->
 	<div class="bg"></div>
 
 
@@ -142,7 +143,7 @@
 		if(delta < 0) {
 			// 마우스휠을 위에서 아래로
 			if(ele.nextElementSibling != undefined) {
-				moveTop = ele.nextElementSibling.offsetTop;
+				moveTop = -1 *(ele.nextElementSibling.offsetTop);
 				ele.classList.remove('move')
 				ele.nextElementSibling.classList.add('move');
 			}
@@ -358,11 +359,13 @@
 	}
 
 	function move(moveTop) {
-		$("html,body").stop().animate({
-			scrollTop: moveTop + 'px'
-		}, {
-			duration: 800, complete: function () {}
-		});
+		// $("html,body").stop().animate({
+		// 	scrollTop: moveTop + 'px'
+		// }, {
+		// 	duration: 800, complete: function () {}
+		// });
+
+		$('#wrap').css('transform', 'translateY(' + moveTop + 'px')
 	}
 	</script>
 </body>

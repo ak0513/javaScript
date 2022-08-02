@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	
+	<style>
+		.nav-dep2-group {display:none;}
+		.nav-dep2-group.active {display:block;}
+	</style>
+
+	<ul class="nav">
+		<li><a href="#" class="nav-link" aria-expanded="false">dep1</a></li>
+		<li><a href="#" class="nav-link" aria-expanded="false">dep1</a></li>
+		<li>
+			<a href="#" class="nav-link" aria-expanded="false">dep1 expanded</a>
+			<ul class="nav-dep2-group">
+				<li><a href="#">dep2</a></li>
+				<li><a href="#">dep2</a></li>
+				<li><a href="#">dep2</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#" class="nav-link" aria-expanded="false">dep1 expanded</a>
+			<ul class="nav-dep2-group">
+				<li><a href="#">dep2</a></li>
+				<li><a href="#">dep2</a></li>
+				<li><a href="#">dep2</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<style>
+		.main-thumnail img{width:400px;height:200px;}
+		.thumnail {display:flex;flex-wrap:wrap;}
+		.thumnail-img {width:200px;height:200px;}
+	</style>
+	<div class="main-thumnail"><img src="./showcase__02--pc.jpg" alt=""></div>
+	<ul class="thumnail">
+		<li class="thumnail-item"><a href="./showcase__03--pc.jpg" class="thumnail-btn"><img src="./showcase__03--pc.jpg" class="thumnail-img" alt=""></a></li>
+		<li class="thumnail-item"><a href="./showcase__02--pc.jpg" class="thumnail-btn"><img src="./showcase__02--pc.jpg" class="thumnail-img" alt=""></a></li>
+	</ul>
+	<script>
+		var thumnail = $('.main-thumnail img');
+		var thumnailBtn = $('.thumnail-btn');
+		thumnailBtn.on('click', function(e) {
+			e.preventDefault();
+			var href = $(this).attr('href');
+			thumnail.attr('src', href)
+		})
+	</script>
+
+
+
+
+	<style>
+		input{width:100%;}
+		.input-wrap {position: relative; width:100%;}
+		.input-wrap.side-btn{display:flex;}
+		.input-wrap.side-btn .btn {flex-shrink: 0;}
+	</style>
+	<div class="input-wrap side-btn">
+		<input type="text">
+		<button class="btn">버튼</button>
+	</div>
+
+	<script>
+		/* var navLink = document.querySelectorAll('.nav-link');
+		var navDep2 = document.querySelectorAll('.nav-dep2-group');
+
+		for(var i = 0; i < navLink.length; i++) {
+			navLink[i].addEventListener('click', function(e) {
+				console.log(e)
+				var ele = e.target;
+				ele.classList.add('active')
+				console.log(navLink)
+			})
+		} */
+
+		var navLink = $('.nav-link');
+		var navDep2 = $('.nav-dep2-group');
+
+		navLink.on('click', function(e) {
+			e.preventDefault();
+			navLink.removeClass('active').attr('aria-expanded', false);
+			navDep2.removeClass('active');
+			
+			$(this).addClass('active').attr('aria-expanded', true);
+			$(this).next().addClass('active');
+		})
+	</script>
+</body>
+</html>
