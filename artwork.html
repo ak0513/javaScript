@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" href="./swiper.min.css" />
 	<script src="./swiper.min.js"></script>
 	<title>Document</title>
@@ -240,5 +240,23 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="pattern">
+		<button id="thumnail" aria-selected="true" aria-controls="thumnail-wrap">썸네일</button>
+		<button id="list" aria-selected="false" aria-controls="list-wrap">리스트</button>
+	</div>
+	<div id="thumnail-wrap">썸네일</div>
+	<div id="list-wrap">리스트</div>
+	<script>
+		$(function() {
+			$('.pattern button').on('click', function() {
+				$('.pattern button').attr('aria-selected', false);
+				$('#thumnail-wrap, #list-wrap').removeClass('active');
+
+				$(this).attr('aria-selected', true);
+				$('#' + $(this).attr('aria-controls')).addClass('active');
+			})
+		})
+	</script>
 </body>
 </html>
