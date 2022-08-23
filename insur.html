@@ -8,10 +8,52 @@
 </head>
 <body>
 	<style>
+		body {
+			background-color: #000;
+			color:#fff;
+			font-family:-apple-system,Consolas,'Courier New',monospace, sans-serif;
+		}
 		.h-tit1 {display:none;}
 		.h-tit1.show{display:block;}
-		.insur-item {display:none;}
+		.insur-item {
+			display:none;
+			padding:10px;
+			background-color:#111;
+			border-radius:5px;
+		}
+		.insur-item + .insur-item {margin-top:10px;}
 		.insur-item.show {display:block;}
+
+		.bottom-btn {
+			overflow-x: auto;
+			display:flex;
+			align-items: center;
+			flex-wrap: nowrap;
+			position:fixed;
+			bottom:0;
+			width:100%;
+			height:50px;
+			padding:0 10px;
+			border-top:1px solid #111;
+		}
+
+		.bottom-btn button {
+			flex: 0 0 auto;
+			height:30px;
+			padding:0 10px;
+			background-color:#111;
+			border:1px solid #000;
+			border-radius:50px;
+			color:#fff;
+			cursor:pointer;
+		}
+		.bottom-btn button + button {
+			margin-left:5px;
+		}
+
+		.insur-top {
+			position: relative;
+		}
 	</style>
 	<div id="wrap">
 		<h1 class="h-tit1 guarantee1">보장1</h1>
@@ -42,10 +84,12 @@
 	</div>
 
 	<div class="bottom-btn">
-		<button type="button" onclick="sort('guarantee1')">보장1</button>
-		<button type="button" onclick="sort('guarantee2')">보장2</button>
-		<button type="button" onclick="sort('company1')">회사1</button>
-		<button type="button" onclick="sort('company2')">회사2</button>
+		
+			<button type="button" onclick="sort('guarantee1')">보장1 보장1 보장1 보장1 보장1 보장1 보장1 보장1</button>
+			<button type="button" onclick="sort('guarantee2')">보장2</button>
+			<button type="button" onclick="sort('company1')">회사1</button>
+			<button type="button" onclick="sort('company2')">회사2</button>
+		
 	</div>
 	<script>
 		var btnBottom = document.querySelectorAll('.bottom-btn button');
