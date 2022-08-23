@@ -15,6 +15,7 @@
 		}
 
 		html {
+			overflow: hidden;
 			font-size: 62.5%;
 			font-family: sans-serif;
 			line-height: 1.15;
@@ -34,6 +35,8 @@
 		.h-tit1.show{display:block;}
 
 		#wrap {
+			overflow-y: auto;
+			height: calc(100vh - 50px);
 			padding:2.0rem;
 		}
 
@@ -121,6 +124,14 @@
 			color: #fff;
 			font-size: 1.2rem;
 		}
+
+		.insur-bottom.toggle .btn-view {
+
+		}
+
+		.insur-bottom.toggle .insur-desc {
+			display: block;
+		}
 	</style>
 	<div id="wrap">
 		<h1 class="h-tit1 cancer" data-type="guarantee">보장1 <span class="total"></span></h1>
@@ -132,6 +143,54 @@
 		<h1 class="h-tit1 company2">회사2</h1>
 		<h1 class="h-tit1 company2">회사3</h1>
 		<div class="insur">
+			<div class="insur-item cancer company1">
+				<div class="insur-top">
+					<span class="insur-company">회사1</span>
+					<h2 class="insur-tit">보장1</h2>
+					<div class="incur-price">2,000</div>
+				</div>
+				<div class="insur-bottom">
+					<p class="insur-desc">가나다라</p>
+					<button type="button" class="btn-view">자세히 보기</button>
+				</div>
+			</div>
+
+			<div class="insur-item cancer company1">
+				<div class="insur-top">
+					<span class="insur-company">회사1</span>
+					<h2 class="insur-tit">보장1</h2>
+					<div class="incur-price">2,000</div>
+				</div>
+				<div class="insur-bottom">
+					<button type="button" class="btn-view">자세히 보기</button>
+					<p class="insur-desc">가나다라</p>
+				</div>
+			</div>
+
+			<div class="insur-item cancer company1">
+				<div class="insur-top">
+					<span class="insur-company">회사1</span>
+					<h2 class="insur-tit">보장1</h2>
+					<div class="incur-price">2,000</div>
+				</div>
+				<div class="insur-bottom">
+					<button type="button" class="btn-view">자세히 보기</button>
+					<p class="insur-desc">가나다라</p>
+				</div>
+			</div>
+
+			<div class="insur-item cancer company1">
+				<div class="insur-top">
+					<span class="insur-company">회사1</span>
+					<h2 class="insur-tit">보장1</h2>
+					<div class="incur-price">2,000</div>
+				</div>
+				<div class="insur-bottom">
+					<button type="button" class="btn-view">자세히 보기</button>
+					<p class="insur-desc">가나다라</p>
+				</div>
+			</div>
+
 			<div class="insur-item cancer company1">
 				<div class="insur-top">
 					<span class="insur-company">회사1</span>
@@ -199,9 +258,14 @@
 		}
 		
 		for(var i = 0; i < btnView.length; i++) {
-			btnView[i].addEventListener('click', function() {
-				// btnViewFn(btnView[i])
-				console.log(btnView[i], 'aa')
+			btnView[i].addEventListener('click', function(e) {
+				var ele = e.target;
+				var eleParent = ele.parentElement;
+				if(eleParent.classList.contains('toggle')) {
+					eleParent.classList.remove('toggle')
+				} else {
+					eleParent.classList.add('toggle')
+				}
 			})
 		}
 
