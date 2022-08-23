@@ -29,8 +29,6 @@
 
 		.h-tit1 {
 			display:none;
-			position: sticky;
-			top:0;
 			font-size:1.8rem;
 		}
 		.h-tit1.show{display:block;}
@@ -38,6 +36,7 @@
 		#wrap {
 			display: flex;
 			flex-direction: column;
+			overflow: hidden;
 		}
 
 		.insur-item {
@@ -54,8 +53,6 @@
 			display:flex;
 			align-items: center;
 			flex-wrap: nowrap;
-			position:fixed;
-			bottom:0;
 			height:5.0rem;
 			padding:0 1.0rem;
 			border-top:1px solid #111;
