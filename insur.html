@@ -164,7 +164,7 @@
 				<div class="insur-top">
 					<span class="insur-company">회사1</span>
 					<h2 class="insur-tit">보장1</h2>
-					<div class="incur-price">2,000</div>
+					<div class="incur-price">2000</div>
 				</div>
 				<div class="insur-bottom">
 					<p class="insur-desc">가나다라</p>
@@ -176,59 +176,11 @@
 				<div class="insur-top">
 					<span class="insur-company">회사1</span>
 					<h2 class="insur-tit">보장1</h2>
-					<div class="incur-price">2,000</div>
+					<div class="incur-price">500</div>
 				</div>
 				<div class="insur-bottom">
-					<button type="button" class="btn-view">자세히 보기</button>
 					<p class="insur-desc">가나다라</p>
-				</div>
-			</div>
-
-			<div class="insur-item cancer company1">
-				<div class="insur-top">
-					<span class="insur-company">회사1</span>
-					<h2 class="insur-tit">보장1</h2>
-					<div class="incur-price">2,000</div>
-				</div>
-				<div class="insur-bottom">
 					<button type="button" class="btn-view">자세히 보기</button>
-					<p class="insur-desc">가나다라</p>
-				</div>
-			</div>
-
-			<div class="insur-item cancer company1">
-				<div class="insur-top">
-					<span class="insur-company">회사1</span>
-					<h2 class="insur-tit">보장1</h2>
-					<div class="incur-price">2,000</div>
-				</div>
-				<div class="insur-bottom">
-					<button type="button" class="btn-view">자세히 보기</button>
-					<p class="insur-desc">가나다라</p>
-				</div>
-			</div>
-
-			<div class="insur-item cancer company1">
-				<div class="insur-top">
-					<span class="insur-company">회사1</span>
-					<h2 class="insur-tit">보장1</h2>
-					<div class="incur-price">2,000</div>
-				</div>
-				<div class="insur-bottom">
-					<button type="button" class="btn-view">자세히 보기</button>
-					<p class="insur-desc">가나다라</p>
-				</div>
-			</div>
-
-			<div class="insur-item cancer company1">
-				<div class="insur-top">
-					<span class="insur-company">회사1</span>
-					<h2 class="insur-tit">보장1</h2>
-					<div class="incur-price">2,000</div>
-				</div>
-				<div class="insur-bottom">
-					<button type="button" class="btn-view">자세히 보기</button>
-					<p class="insur-desc">가나다라</p>
 				</div>
 			</div>
 
@@ -236,7 +188,7 @@
 				<div class="insur-top">
 					<span class="insur-company">회사2</span>
 					<h2 class="insur-tit">보장2</h2>
-					<div class="incur-price"></div>
+					<div class="incur-price">300</div>
 				</div>
 				<div class="insur-bottom"></div>
 			</div>
@@ -260,6 +212,7 @@
 		var insurItem = document.querySelectorAll('.insur-item');
 		var insurTit = document.querySelectorAll('.h-tit1');
 		var btnView = document.querySelectorAll('.btn-view');
+		var incurPrice = document.querySelectorAll('.incur-price');
 
 		function sort(ele) {
 			var self = event.target; 
@@ -268,9 +221,21 @@
 			classRemove(insurTit, 'show');
 			classRemove(btnBottom, 'toggle');
 			for(var i = 0; i < ele.length; i++) {
-				ele[i].classList.add('show')
+				ele[i].classList.add('show');
+				
+				/* if(ele[i].classList.contains('insur-item')) {
+					var price = Number(ele[i].children[0].children[2].innerText);
+					console.log(price)
+				} */
 			}
-			self.classList.add('toggle')
+			self.classList.add('toggle');
+			totalPrice(incurPrice)
+		}
+
+		function totalPrice(ele) {
+			for(var i = 0; i < ele.length; i++) {
+				console.log(ele[i])
+			}
 		}
 
 		function classRemove(ele, className) {
