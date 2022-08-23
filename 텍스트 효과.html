@@ -178,6 +178,48 @@ span:nth-of-type(21) {
 }
 	</style>
 	<span>C</span><span>S</span><span>S</span><span>&nbsp;</span><span>S</span><span>m</span><span>o</span><span>k</span><span>y</span><span>&nbsp;</span><span>T</span><span>e</span><span>x</span><span>t</span><span>&nbsp;</span><span>E</span><span>f</span><span>f</span><span>e</span><span>c</span><span>t</span>
+<script>
+      var typingBool = false; //타이핑 중인지 아닌지
+    var typingIdx = 0; //타이핑될글자 인덱스
+    var currentIndex = 0; //타이핑될 문장 번호
+    var endIndex =$(".typingText .typing-txt").length; //타이핑될 문장이 몇개인지
 
+//첫번째 타이핑시작
+    typingTxt = $(".typingText .typing-txt").eq(currentIndex).text();
+      currentIndex++;
+      // 타이핑될 텍스트를 가져온다 
+      typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
+      if (typingBool == false) { // 타이핑이 진행되지 않았다면 
+        typingBool = true;
+        var tyInt = setInterval(typing, 100); // 반복동작 
+      }
+
+      function typing() {
+        if (typingIdx < typingTxt.length) { // 타이핑될 문장의 길이만큼 반복 
+          $(".typing").append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+          typingIdx++;
+        } else {
+          clearInterval(tyInt); //끝나면 반복종료 
+
+          //다음문장 가져오기 
+          typingBool = false;
+          $(".typing").html(''); //이전문장 지우기
+          typingIdx = 0;
+          if (currentIndex < endIndex) {
+            typingTxt = $(".typingText .typing-txt").eq(currentIndex).text();
+            currentIndex++;
+            // 타이핑될 텍스트를 가져온다 
+            typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
+            if (typingBool == false) { // 타이핑이 진행중이지 않으면
+              typingBool = true;
+              tyInt = setInterval(typing, 100); // 반복동작 
+            }
+          }
+
+
+        }
+      }  
+
+</script>
 </body>
 </html>

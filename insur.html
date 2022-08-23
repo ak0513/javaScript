@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Insur</title>
+</head>
+<body>
+	<style>
+		.h-tit1 {display:none;}
+		.h-tit1.show{display:block;}
+		.insur-item {display:none;}
+		.insur-item.show {display:block;}
+	</style>
+	<div id="wrap">
+		<h1 class="h-tit1 guarantee1">보장1</h1>
+		<h1 class="h-tit1 guarantee2">보장2</h1>
+		<h1 class="h-tit1 company1">회사1</h1>
+		<h1 class="h-tit1 company2">회사2</h1>
+		<div class="insur">
+			<div class="insur-item guarantee1 company1">
+				<div class="insur-top">
+					<span class="insur-company">회사1</span>
+					<h2 class="insur-tit">보장1</h2>
+					<div class="incur-price"></div>
+				</div>
+				<div class="insur-dese"></div>
+				<div class="insur-bottom"></div>
+			</div>
+
+			<div class="insur-item guarantee2 company2">
+				<div class="insur-top">
+					<span class="insur-company">회사2</span>
+					<h2 class="insur-tit">보장2</h2>
+					<div class="incur-price"></div>
+				</div>
+				<div class="insur-dese"></div>
+				<div class="insur-bottom"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bottom-btn">
+		<button type="button" onclick="sort('guarantee1')">보장1</button>
+		<button type="button" onclick="sort('guarantee2')">보장2</button>
+		<button type="button" onclick="sort('company1')">회사1</button>
+		<button type="button" onclick="sort('company2')">회사2</button>
+	</div>
+	<script>
+		var btnBottom = document.querySelectorAll('.bottom-btn button');
+		var insurItem = document.querySelectorAll('.insur-item');
+		var insurTit = document.querySelectorAll('.h-tit1');
+
+		function sort(ele) {
+			var ele = document.querySelectorAll('.' + ele);
+			hide(insurItem);
+			hide(insurTit);
+			for(var i = 0; i < ele.length; i++) {
+				ele[i].classList.add('show')
+			}
+		}
+
+		function hide(ele) {
+			for(var i = 0; i < ele.length; i++) {
+				ele[i].classList.remove('show')
+			}
+		}
+	</script>
+</body>
+</html>
