@@ -100,14 +100,14 @@
 		}
 
 		.insur-tit {
-			margin-top: 0.5rem;
+			margin-top: 1.0rem;
 			color: #fff;
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 
 		.insur-company {
-			color: #666;
-			font-size: 1.2rem;
+			color: #999;
+			font-size: 1.4rem;
 		}
 		.insur-desc {
 			display: none;
@@ -122,7 +122,7 @@
 		}
 	</style>
 	<div id="wrap">
-		<h1 class="h-tit1 cancer" data-type="guarantee">보장1</h1>
+		<h1 class="h-tit1 cancer" data-type="guarantee">보장1 <span class="total"></span></h1>
 		<h1 class="h-tit1 heart">보장2</h1>
 		<h1 class="h-tit1 brain">보장3</h1>
 		<h1 class="h-tit1 surgery">보장4</h1>
@@ -131,6 +131,18 @@
 		<h1 class="h-tit1 company2">회사2</h1>
 		<h1 class="h-tit1 company2">회사3</h1>
 		<div class="insur">
+			<div class="insur-item cancer company1">
+				<div class="insur-top">
+					<span class="insur-company">회사1</span>
+					<h2 class="insur-tit">보장1</h2>
+					<div class="incur-price">2,000</div>
+				</div>
+				<div class="insur-bottom">
+					<button type="button" class="btn-view">자세히 보기</button>
+					<p class="insur-desc">가나다라</p>
+				</div>
+			</div>
+
 			<div class="insur-item cancer company1">
 				<div class="insur-top">
 					<span class="insur-company">회사1</span>
@@ -168,6 +180,7 @@
 		var btnBottom = document.querySelectorAll('.bottom-btn button');
 		var insurItem = document.querySelectorAll('.insur-item');
 		var insurTit = document.querySelectorAll('.h-tit1');
+		var btnView = document.querySelectorAll('.btn-view');
 
 		function sort(ele) {
 			var ele = document.querySelectorAll('.' + ele);
@@ -182,6 +195,19 @@
 			for(var i = 0; i < ele.length; i++) {
 				ele[i].classList.remove(className)
 			}
+		}
+		
+		for(var i = 0; i < btnView.length; i++) {
+			btnView[i].addEventListener('click', function() {
+				// btnViewFn(btnView[i])
+				console.log(btnView[i], 'aa')
+			})
+		}
+
+		function btnViewFn(ele) {
+			
+			var parent = ele.parent;
+			console.log(parent)
 		}
 	</script>
 </body>
