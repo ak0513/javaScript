@@ -76,6 +76,11 @@
 			margin-left:0.5rem;
 		}
 
+		.bottom-btn button.toggle {
+			background-color: #0069d9;
+			color: #fff;
+		}
+
 		.insur {
 			margin-top: 1.0rem;
 		}
@@ -243,12 +248,15 @@
 		var btnView = document.querySelectorAll('.btn-view');
 
 		function sort(ele) {
+			var self = event.target; 
 			var ele = document.querySelectorAll('.' + ele);
 			classRemove(insurItem, 'show');
 			classRemove(insurTit, 'show');
+			classRemove(btnBottom, 'toggle');
 			for(var i = 0; i < ele.length; i++) {
 				ele[i].classList.add('show')
 			}
+			self.classList.add('toggle')
 		}
 
 		function classRemove(ele, className) {
