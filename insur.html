@@ -15,7 +15,6 @@
 		}
 
 		html {
-			overflow: hidden;
 			font-size: 62.5%;
 			font-family: sans-serif;
 			line-height: 1.15;
@@ -30,14 +29,15 @@
 
 		.h-tit1 {
 			display:none;
+			position: sticky;
+			top:0;
 			font-size:1.8rem;
 		}
 		.h-tit1.show{display:block;}
 
 		#wrap {
-			overflow-y: auto;
-			height: calc(100vh - 50px);
-			padding:2.0rem;
+			display: flex;
+			flex-direction: column;
 		}
 
 		.insur-item {
@@ -49,6 +49,7 @@
 		.insur-item.show {display:block;}
 
 		.bottom-btn {
+			flex: 0 0 auto;
 			overflow-x: auto;
 			display:flex;
 			align-items: center;
@@ -82,8 +83,18 @@
 			color: #fff;
 		}
 
+		.h-wrap {
+			display: flex;
+			align-items: center;
+			flex: 0 0 auto;
+			height: 5.0rem;
+			padding-left:2.0rem;
+		}
+
 		.insur {
-			margin-top: 1.0rem;
+			overflow-y: auto;
+			height:calc(100vh - 10.0rem);
+			padding:0 2.0rem 2.0rem;
 		}
 
 		.insur-top {
@@ -140,14 +151,17 @@
 		}
 	</style>
 	<div id="wrap">
-		<h1 class="h-tit1 cancer" data-type="guarantee">보장1 <span class="total"></span></h1>
-		<h1 class="h-tit1 heart">보장2</h1>
-		<h1 class="h-tit1 brain">보장3</h1>
-		<h1 class="h-tit1 surgery">보장4</h1>
-		<h1 class="h-tit1 etc">보장5</h1>
-		<h1 class="h-tit1 company1">회사1</h1>
-		<h1 class="h-tit1 company2">회사2</h1>
-		<h1 class="h-tit1 company2">회사3</h1>
+		<div class="h-wrap">
+			<h1 class="h-tit1 cancer" data-type="guarantee">보장1 <span class="total"></span></h1>
+			<h1 class="h-tit1 heart">보장2</h1>
+			<h1 class="h-tit1 brain">보장3</h1>
+			<h1 class="h-tit1 surgery">보장4</h1>
+			<h1 class="h-tit1 etc">보장5</h1>
+			<h1 class="h-tit1 company1">회사1</h1>
+			<h1 class="h-tit1 company2">회사2</h1>
+			<h1 class="h-tit1 company2">회사3</h1>
+		</div>
+
 		<div class="insur">
 			<div class="insur-item cancer company1">
 				<div class="insur-top">
@@ -230,17 +244,19 @@
 				<div class="insur-bottom"></div>
 			</div>
 		</div>
+
+		<div class="bottom-btn">
+			<button type="button" onclick="sort('cancer')">보장1</button>
+			<button type="button" onclick="sort('heart')">보장2</button>
+			<button type="button" onclick="sort('brain')">보장3</button>
+			<button type="button" onclick="sort('surgery')">보장4</button>
+			<button type="button" onclick="sort('etc')">기타</button>
+			<button type="button" onclick="sort('company1')">회사1</button>
+			<button type="button" onclick="sort('company2')">회사2</button>
+		</div>
 	</div>
 
-	<div class="bottom-btn">
-		<button type="button" onclick="sort('cancer')">보장1</button>
-		<button type="button" onclick="sort('heart')">보장2</button>
-		<button type="button" onclick="sort('brain')">보장3</button>
-		<button type="button" onclick="sort('surgery')">보장4</button>
-		<button type="button" onclick="sort('etc')">기타</button>
-		<button type="button" onclick="sort('company1')">회사1</button>
-		<button type="button" onclick="sort('company2')">회사2</button>
-	</div>
+	
 
 	<script>
 		var btnBottom = document.querySelectorAll('.bottom-btn button');
