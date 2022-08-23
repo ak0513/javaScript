@@ -8,20 +8,41 @@
 </head>
 <body>
 	<style>
+		*, *::before,*::after{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+		}
+
+		html {
+			font-size: 62.5%;
+			font-family: sans-serif;
+			line-height: 1.15;
+			-webkit-text-size-adjust: 100%;
+		}
 		body {
 			background-color: #000;
 			color:#fff;
-			font-family:-apple-system,Consolas,'Courier New',monospace, sans-serif;
+			font-size: 1.4rem;
+			font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', "Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji,sans-serif";
 		}
-		.h-tit1 {display:none;}
+
+		.h-tit1 {
+			display:none;
+			font-size:1.8rem;
+		}
 		.h-tit1.show{display:block;}
+
+		#wrap {
+			padding:2.0rem;
+		}
+
 		.insur-item {
 			display:none;
-			padding:10px;
 			background-color:#111;
-			border-radius:5px;
+			border-radius:7px;
 		}
-		.insur-item + .insur-item {margin-top:10px;}
+		.insur-item + .insur-item {margin-top:1.0rem;}
 		.insur-item.show {display:block;}
 
 		.bottom-btn {
@@ -31,15 +52,16 @@
 			flex-wrap: nowrap;
 			position:fixed;
 			bottom:0;
-			height:50px;
-			padding:0 10px;
+			height:5.0rem;
+			padding:0 1.0rem;
 			border-top:1px solid #111;
+			font-size: 1.4rem;
 		}
 
 		.bottom-btn button {
 			flex: 0 0 auto;
-			height:30px;
-			padding:0 10px;
+			height:3.0rem;
+			padding:0 1.0rem;
 			background-color:#111;
 			border:1px solid #000;
 			border-radius:50px;
@@ -47,44 +69,97 @@
 			cursor:pointer;
 		}
 		.bottom-btn button + button {
-			margin-left:5px;
+			margin-left:0.5rem;
+		}
+
+		.insur {
+			margin-top: 1.0rem;
 		}
 
 		.insur-top {
 			position: relative;
+			padding:1.5rem;
+		}
+
+		.incur-price {
+			position: absolute;
+			top:50%;
+			right:1.0rem;
+			padding: 0.3rem 1.0rem;
+			background-color: #0069d9;
+			border-radius: 5.0rem;
+			color: #fff;
+			transform:translateY(-50%);
+		}
+
+		.insur-bottom {
+			margin-top: 1.0rem;
+			padding: 1.0rem;
+			border-top:1px solid #222;
+			text-align: center;
+		}
+
+		.insur-tit {
+			margin-top: 0.5rem;
+			color: #fff;
+			font-size: 1.6rem;
+		}
+
+		.insur-company {
+			color: #666;
+			font-size: 1.2rem;
+		}
+		.insur-desc {
+			display: none;
+			color: #666;
+		}
+
+		.btn-view {
+			border:none;
+			background-color: transparent;
+			color: #fff;
+			font-size: 1.2rem;
 		}
 	</style>
 	<div id="wrap">
-		<h1 class="h-tit1 guarantee1">보장1</h1>
-		<h1 class="h-tit1 guarantee2">보장2</h1>
+		<h1 class="h-tit1 cancer" data-type="guarantee">보장1</h1>
+		<h1 class="h-tit1 heart">보장2</h1>
+		<h1 class="h-tit1 brain">보장3</h1>
+		<h1 class="h-tit1 surgery">보장4</h1>
+		<h1 class="h-tit1 etc">보장5</h1>
 		<h1 class="h-tit1 company1">회사1</h1>
 		<h1 class="h-tit1 company2">회사2</h1>
+		<h1 class="h-tit1 company2">회사3</h1>
 		<div class="insur">
-			<div class="insur-item guarantee1 company1">
+			<div class="insur-item cancer company1">
 				<div class="insur-top">
 					<span class="insur-company">회사1</span>
 					<h2 class="insur-tit">보장1</h2>
-					<div class="incur-price"></div>
+					<div class="incur-price">2,000</div>
 				</div>
-				<div class="insur-dese"></div>
-				<div class="insur-bottom"></div>
+				<div class="insur-bottom">
+					<button type="button" class="btn-view">자세히 보기</button>
+					<p class="insur-desc">가나다라</p>
+				</div>
 			</div>
 
-			<div class="insur-item guarantee2 company2">
+			<div class="insur-item heart company2">
 				<div class="insur-top">
 					<span class="insur-company">회사2</span>
 					<h2 class="insur-tit">보장2</h2>
 					<div class="incur-price"></div>
 				</div>
-				<div class="insur-dese"></div>
 				<div class="insur-bottom"></div>
 			</div>
 		</div>
 	</div>
 
 	<div class="bottom-btn">
-		<button type="button" onclick="sort('guarantee1')">보장1 보장1 보장1 보장1 보장1 보장1 보장1 보장1 보장1 보장1 보장 보장1 보장1</button>
-		<button type="button" onclick="sort('guarantee2')">보장2</button>
+		<button type="button" onclick="sort('cancer')">보장1</button>
+		<button type="button" onclick="sort('heart')">보장2</button>
+		<button type="button" onclick="sort('brain')">보장3</button>
+		<button type="button" onclick="sort('surgery')">보장4</button>
+		<button type="button" onclick="sort('etc')">기타</button>
 		<button type="button" onclick="sort('company1')">회사1</button>
 		<button type="button" onclick="sort('company2')">회사2</button>
 	</div>
@@ -96,16 +171,16 @@
 
 		function sort(ele) {
 			var ele = document.querySelectorAll('.' + ele);
-			hide(insurItem);
-			hide(insurTit);
+			classRemove(insurItem, 'show');
+			classRemove(insurTit, 'show');
 			for(var i = 0; i < ele.length; i++) {
 				ele[i].classList.add('show')
 			}
 		}
 
-		function hide(ele) {
+		function classRemove(ele, className) {
 			for(var i = 0; i < ele.length; i++) {
-				ele[i].classList.remove('show')
+				ele[i].classList.remove(className)
 			}
 		}
 	</script>
