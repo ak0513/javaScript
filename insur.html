@@ -194,6 +194,7 @@
 			background-color: transparent;
 			color: #8d8d8d;
 			font-size: 1.4rem;
+			cursor: pointer;
 		}
 
 		.btn-view::after {
@@ -233,7 +234,7 @@
 		</div>
 
 		<div class="insur">
-			<div class="insur-item all cancer kyobo show">
+			<div class="insur-item all death kyobo show">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">사망보험금</h2>
@@ -256,7 +257,7 @@
 					</div>
 					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
-			</div><div class="insur-item all cancer kyobo show">
+			</div><div class="insur-item all death kyobo show">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">진단보험금</h2>
@@ -329,10 +330,11 @@
 
 		<div class="bottom-btn">
 			<button type="button" onclick="sort('all')" class="toggle">전체</button>
-			<button type="button" onclick="sort('cancer')">보장1</button>
-			<button type="button" onclick="sort('heart')">보장2</button>
-			<button type="button" onclick="sort('brain')">보장3</button>
-			<button type="button" onclick="sort('surgery')">보장4</button>
+			<button type="button" onclick="sort('death')">사망</button>
+			<button type="button" onclick="sort('cancer')">암</button>
+			<button type="button" onclick="sort('heart')">심장</button>
+			<button type="button" onclick="sort('brain')">뇌</button>
+			<button type="button" onclick="sort('surgery')">수술비</button>
 			<button type="button" onclick="sort('etc')">기타</button>
 			<button type="button" onclick="sort('kyobo')">교보생명</button>
 			<button type="button" onclick="sort('company2')">회사2</button>
