@@ -287,20 +287,8 @@
 			classRemove(btnBottom, 'toggle');
 			for(var i = 0; i < ele.length; i++) {
 				ele[i].classList.add('show');
-				
-				/* if(ele[i].classList.contains('insur-item')) {
-					var price = Number(ele[i].children[0].children[2].innerText);
-					console.log(price)
-				} */
 			}
 			self.classList.add('toggle');
-			totalPrice(incurPrice)
-		}
-
-		function totalPrice(ele) {
-			for(var i = 0; i < ele.length; i++) {
-				console.log(ele[i])
-			}
 		}
 
 		function classRemove(ele, className) {
@@ -319,12 +307,6 @@
 					eleParent.classList.add('toggle')
 				}
 			})
-		}
-
-		function btnViewFn(ele) {
-			
-			var parent = ele.parent;
-			console.log(parent)
 		}
 	</script>
 </body>
