@@ -30,11 +30,27 @@
 			font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', "Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji,sans-serif";
 		}
 
+		.h-wrap {
+			display: flex;
+			align-items: center;
+			flex: 0 0 auto;
+			height: 5.0rem;
+		}
+
 		.h-tit1 {
 			display:none;
+		}
+		
+		.h-tit1.show {
+			display:flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			padding:0 2.0rem;
 			font-size:1.8rem;
 		}
-		.h-tit1.show{display:block;}
+
+
 
 		#wrap {
 			display: flex;
@@ -84,13 +100,7 @@
 			color: #fff;
 		}
 
-		.h-wrap {
-			display: flex;
-			align-items: center;
-			flex: 0 0 auto;
-			height: 5.0rem;
-			padding-left:2.0rem;
-		}
+		
 
 		.insur {
 			overflow-y: auto;
@@ -172,7 +182,8 @@
 	</style>
 	<div id="wrap">
 		<div class="h-wrap">
-			<h1 class="h-tit1 cancer" data-type="guarantee">보장1 <span class="total"></span></h1>
+			<h1 class="h-tit1 show" data-type="guarantee">전체</h1>
+			<h1 class="h-tit1 cancer" data-type="guarantee">보장1 <span class="total">2,000</span></h1>
 			<h1 class="h-tit1 heart">보장2</h1>
 			<h1 class="h-tit1 brain">보장3</h1>
 			<h1 class="h-tit1 surgery">보장4</h1>
