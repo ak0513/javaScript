@@ -22,6 +22,8 @@
 			height: 100%;
 			overflow: hidden;
 		}
+
+
 		body {
 			background-color: #1c1c1e;
 			height: 100%;
@@ -49,8 +51,20 @@
 			padding:0 2.0rem;
 			font-size:1.8rem;
 		}
+		
+		.list-dot,
+		.font-basic {
+			margin-top:1.5rem;
+		}
 
+		.list-dot:first-child,
+		.font-basic:first-child {
+			margin-top: 0;
+		}
 
+		.list-dot {
+			margin-left: 2.0rem;
+		}
 
 		#wrap {
 			display: flex;
@@ -130,7 +144,6 @@
 		.insur-bottom {
 			margin-top: 1.0rem;
 			border-top:1px solid #222;
-			text-align: center;
 		}
 
 		.insur-tit {
@@ -179,7 +192,7 @@
 
 		.insur-bottom.toggle .insur-desc {
 			display: block;
-			padding: 1.0rem;
+			padding: 1.5rem 2.0rem;
 			border-bottom: 1px dotted #222;
 		}
 	</style>
@@ -204,7 +217,15 @@
 					<div class="incur-price">2000</div>
 				</div>
 				<div class="insur-bottom">
-					<p class="insur-desc">가나다라</p>
+					<div class="insur-desc">
+						<p class="font-basic">가나다라</p>
+						<ul class="list-dot">
+							<li>111</li>
+							<li>111</li>
+							<li>111</li>
+						</ul>
+						<p class="font-basic">가나다라</p>
+					</div>
 					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
 			</div>
