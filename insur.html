@@ -182,6 +182,20 @@
 			color: #fff;
 		}
 
+		.provision {
+			display: block;
+			position: relative;
+			padding-left: 2.0rem;
+			color: yellow;
+		}
+
+		.provision::before {
+			content:'→';
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
 		.btn-view {
 			display: flex;
 			align-items: center;
@@ -281,8 +295,8 @@
 							<li>
 								<p class="font-basic">피보험자(보험대상자)가 보허기간(종신) 중 사망하였을때</p>
 								<ul class="list-dash">
-									<li>보험기간(종신)중 <b>진단보험금</b> 지급사유가 발생하지 않은 경우:기본보험금의 100% 지급</li>
-									<li>보험기간(종신)중 <b>진단보험금</b> 지급사유가 발생한 경우:기본보험금의 50% 지급</li>
+									<li>보험기간(종신)중 <b>진단보험금</b> 지급사유가 발생하지 않은 경우<span class="provision">기본보험금의 100% 지급</span></li>
+									<li>보험기간(종신)중 <b>진단보험금</b> 지급사유가 발생한 경우<span class="provision">기본보험금의 50% 지급</span></li>
 								</ul>
 							</li>
 						</ul>
