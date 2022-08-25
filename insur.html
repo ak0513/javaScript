@@ -39,7 +39,9 @@
 			height: 5.0rem;
 		}
 
-		.h-tit1 {
+		.h-tit1,
+		.h-tit2,
+		.h-tit3 {
 			display:none;
 		}
 		
@@ -50,6 +52,16 @@
 			width: 100%;
 			padding:0 2.0rem;
 			font-size:1.8rem;
+		}
+		
+		.h-tit2.show {
+			display:block;
+			margin-bottom: 1.0rem;
+			font-size:1.6rem;
+		}
+		
+		.insur-item + .h-tit2 {
+			margin-top: 3.0rem;
 		}
 		
 		[class*='list-'] + [class*='list-'],
@@ -144,7 +156,6 @@
 		.insur {
 			overflow-y: auto;
 			flex-grow: 1;
-			margin-top: -1.0rem;
 			padding:0 1.0rem 1.0rem;
 		}
 
@@ -235,6 +246,7 @@
 		</div>
 
 		<div class="insur">
+			<h2 class="h-tit2 all kyobo show">주보험</h2>
 			<div class="insur-item all death kyobo show">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
@@ -258,7 +270,9 @@
 					</div>
 					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
-			</div><div class="insur-item all death kyobo show">
+			</div>
+			
+			<div class="insur-item all death kyobo show">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">진단보험금</h2>
@@ -275,10 +289,11 @@
 						</ul>
 					</div>
 					<button type="button" class="btn-view">자세히 보기</button>
-				</div> 
+				</div>
 			</div>
 
-
+			<h2 class="h-tit2 all kyobo show">3대 진단</h2>
+			<h2 class="h-tit2 all kyobo show">수술비</h2>
 
 			<div class="insur-item all cancer company1 show">
 				<div class="insur-top">
