@@ -56,9 +56,19 @@
 		}
 		
 		.h-tit2.show {
-			display:block;
+			display:flex;
+			align-items: center;
 			margin-bottom: 1.0rem;
+			background-color: #1c1c1e;
 			font-size:1.6rem;
+		}
+
+		.h-tit2.sticky {
+			position: sticky;
+			top:0;
+			z-index: 10;
+			margin-bottom:0;
+			padding: 1.5rem 0;
 		}
 	
 		
@@ -109,7 +119,7 @@
 		.insur {
 			overflow-y: auto;
 			flex-grow: 1;
-			padding:1.5rem;
+			padding:0 1.5rem 1.5rem;
 		}
 
 		.insur-item {
@@ -249,7 +259,7 @@
 		</div>
 
 		<div class="insur">
-			<h2 class="h-tit2 all show">교보생명</h2>
+			<h2 class="h-tit2 all show sticky">교보생명</h2>
 			<h2 class="h-tit2 all kyobo show">주보험</h2>
 			<div class="insur-item all death kyobo show">
 				<div class="insur-top">
@@ -346,6 +356,20 @@
 					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
 			</div>
+
+			<h2 class="h-tit2 all show sticky">메리츠화재</h2>
+			<div class="insur-item all heart company2 show">
+				<div class="insur-top">
+					<span class="insur-company">회사2</span>
+					<h2 class="insur-tit">보장2</h2>
+					<div class="incur-price">300</div>
+				</div>
+				<div class="insur-bottom">
+					<p class="insur-desc">가나다라</p>
+					<button type="button" class="btn-view">자세히 보기</button>
+				</div>
+			</div>
+			<div style="height:10000px"></div>
 		</div>
 
 		<div class="bottom-btn">
