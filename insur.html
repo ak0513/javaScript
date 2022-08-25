@@ -60,10 +60,7 @@
 			margin-bottom: 1.0rem;
 			font-size:1.6rem;
 		}
-		
-		.insur-item + .h-tit2 {
-			margin-top: 3.0rem;
-		}
+	
 		
 		[class*='list-'] + [class*='list-'],
 		[class*='list-'] + [class*='font-'],
@@ -109,6 +106,12 @@
 			height: 100%;
 		}
 
+		.insur {
+			overflow-y: auto;
+			flex-grow: 1;
+			padding:1.5rem;
+		}
+
 		.insur-item {
 			display:none;
 			margin-top:1.0rem;
@@ -116,46 +119,13 @@
 			border-radius:7px;
 			color: #969696;
 		}
+
+		.insur-item + .h-tit2 {
+			margin-top: 3.0rem;
+		}
 		
-		.insur-item.show {display:block;}
-
-		.bottom-btn {
-			flex: 0 0 auto;
-			overflow-x: auto;
-			display:flex;
-			align-items: center;
-			flex-wrap: nowrap;
-			height:4.0rem;
-			padding:0 1.0rem;
-			border-top:1px solid #000;
-			background-color: #252527;
-			font-size: 1.4rem;
-		}
-
-		.bottom-btn button {
-			flex: 0 0 auto;
-			height:3.0rem;
-			padding:0 1.0rem;
-			border:1px solid #151517;
-			background-color:#47464b;
-			border-radius:0.5rem;
-			color:#fff;
-			cursor:pointer;
-			font-size: 1.4rem;
-		}
-		.bottom-btn button + button {
-			margin-left:0.3rem;
-		}
-
-		.bottom-btn button.toggle {
-			background-color: #0069d9;
-			color: #fff;
-		}
-
-		.insur {
-			overflow-y: auto;
-			flex-grow: 1;
-			padding:1.5rem;
+		.insur-item.show {
+			display:block;
 		}
 
 		.insur-top {
@@ -229,6 +199,40 @@
 			padding: 1.5rem 2.0rem;
 			border-bottom: 1px dotted #222;
 		}
+
+
+		.bottom-btn {
+			flex: 0 0 auto;
+			overflow-x: auto;
+			display:flex;
+			align-items: center;
+			flex-wrap: nowrap;
+			height:4.0rem;
+			padding:0 1.0rem;
+			border-top:1px solid #000;
+			background-color: #252527;
+			font-size: 1.4rem;
+		}
+
+		.bottom-btn button {
+			flex: 0 0 auto;
+			height:3.0rem;
+			padding:0 1.0rem;
+			border:1px solid #151517;
+			background-color:#47464b;
+			border-radius:0.5rem;
+			color:#fff;
+			cursor:pointer;
+			font-size: 1.4rem;
+		}
+		.bottom-btn button + button {
+			margin-left:0.3rem;
+		}
+
+		.bottom-btn button.toggle {
+			background-color: #0069d9;
+			color: #fff;
+		}
 	</style>
 	<div id="wrap">
 		<div class="h-wrap">
@@ -245,6 +249,7 @@
 		</div>
 
 		<div class="insur">
+			<h2 class="h-tit2 all show">교보생명</h2>
 			<h2 class="h-tit2 all kyobo show">주보험</h2>
 			<div class="insur-item all death kyobo show">
 				<div class="insur-top">
@@ -361,10 +366,11 @@
 	<script>
 		var btnBottom = document.querySelectorAll('.bottom-btn button');
 		var insurItem = document.querySelectorAll('.insur-item');
-		var insurTit = document.querySelectorAll('.h-tit1');
+		var insurTit = document.querySelectorAll('.h-tit1, .h-tit2');
 		var btnView = document.querySelectorAll('.btn-view');
 		var incurPrice = document.querySelectorAll('.incur-price');
 
+		console.log(insurTit)
 		function sort(ele) {
 			var self = event.target; 
 			var ele = document.querySelectorAll('.' + ele);
