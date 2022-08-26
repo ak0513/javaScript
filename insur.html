@@ -706,12 +706,10 @@
 		function goto(tar) {
 			var tar = document.querySelector('.' + tar);
 			var offsetTop = tar.offsetTop;
-			console.log(tar, offsetTop)
 			$('.insur').animate({scrollTop:offsetTop - 100}, 400);
-			// tar.find('.btn-view').click();
+			tar.children[1].children[1].click();
 		}
 
-		
 	</script>
 </body>
 </html>
