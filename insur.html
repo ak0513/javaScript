@@ -662,7 +662,6 @@
 		var btnView = document.querySelectorAll('.btn-view');
 		var incurPrice = document.querySelectorAll('.incur-price');
 
-		console.log(insurTit)
 		function sort(ele) {
 			var self = event.target; 
 			var ele = document.querySelectorAll('.' + ele);
@@ -703,8 +702,6 @@
 		});
 
 		function goSection(tar) {
-			var tar = document.querySelector('.' + tar);
-			var tar = document.querySelector('.' + tar);
 			var tar = document.querySelector('.' + tar);
 			var offsetTop = tar.offsetTop;
 			$('.insur').animate({scrollTop:offsetTop - 100}, 400);
