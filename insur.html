@@ -86,8 +86,13 @@
 		.btn-tooltip {
 			border:none;
 			background-color: transparent;
+			margin-right: 3px;
+			padding-right:15px;
+			background:transparent url('./icon/question-square-fill.svg') no-repeat right center / 12px;
 			color: #fff;
 		}
+
+		
 
 		.tooltip {
 			font-size:1.4rem;
@@ -683,7 +688,7 @@
 
 		// 툴팁 세팅
 		$(function () {
-			$('.msg1').attr('title', '계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날 계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날 계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날');
+			$('.msg1').attr('title', '계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날');
 			$('[data-toggle="tooltip"]').tooltip();
 			
 		});
