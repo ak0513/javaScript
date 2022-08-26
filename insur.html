@@ -325,7 +325,7 @@
 		<div class="insur">
 			<h2 class="h-tit2 all show sticky">교보생명</h2>
 			<h2 class="h-tit2 all kyobo show">주계약</h2>
-			<div class="insur-item all death kyobo show">
+			<div class="insur-item all death kyobo kyobo1 show">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">사망보험금</h2>
@@ -343,14 +343,14 @@
 							</li>
 						</ul>
 						<ul class="list-refer">
-							<li>단, 피보험자(보험대상자) 여성에 한하여 중대한 질병 및 수술보장개시일 이후 보험계약일로부터 1년 미만에 유방암 진단확정으로 진단보험금이 지급된 경우에는 기본보험금의 75%를 지급합니다.</li>
+							<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술보장개시일』</button> 이후 보험계약일로부터 1년 미만에 유방암 진단확정으로 진단보험금이 지급된 경우에는 기본보험금의 75%를 지급합니다.</li>
 						</ul>
 					</div>
 					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
 			</div>
 			
-			<div class="insur-item all death kyobo show kyobo2">
+			<div class="insur-item all death kyobo kyobo2 show">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">진단보험금</h2>
@@ -359,11 +359,11 @@
 				<div class="insur-bottom">
 					<div class="insur-desc">
 						<ul class="list-dot">
-							<li>피보험자(보험대상자)가 보험기간(종신) 중 '중대한 화상 및 부식(화학약품 등에 의한 피부손상)' 으로 진단확정 받았을 때 또는 보험기간(종신) 중 『일상생활장해보장개시일』 이후에 '일상생활장해상태' 로 진단이 확정되었을 때 또는 보험기간(종신) 중 『중증치매 보장개시일』이후에 '중증치매상태' 로 진단이 확정되었을 떼 <span class="provision">기본보험금의 50% 지급</span></li>
+							<li>피보험자(보험대상자)가 보험기간(종신) 중 '중대한 화상 및 부식(화학약품 등에 의한 피부손상)' 으로 진단확정 받았을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『『일상생활장해보장개시일』</button> 이후에 '일상생활장해상태' 로 진단이 확정되었을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg2" data-toggle="tooltip" data-placement="top">『중증치매 보장개시일』</button>이후에 '중증치매상태' 로 진단이 확정되었을 떼 <span class="provision">기본보험금의 50% 지급</span></li>
 						</ul>
 						<ul class="list-refer">
 							<li>단, 진단보험금은 '중대한 질병', '중대한 수술', '중대한 화장 및 부식(화학약품 등에 의한 피부손상)', '일상생활장해상태' 및 '중증치매상태' 중 최초 1회에 한하여 지급합니다.</li>
-							<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술 보장개시일』</button>이후 보험계약일로부터 1년 미만에 유방암으로 진단확정 되었을 경우 <span class="provision">기본보험금의 25% 지급</span></li>
+							<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술 보장개시일』</button>이후 보험계약일로부터 1년 미만에 유방암으로 진단확정 되었을 경우 <span class="provision">기본보험금의 25% 지급</span></li>
 						</ul>
 					</div>
 					<button type="button" class="btn-view">자세히 보기</button>
@@ -691,7 +691,8 @@
 
 		// 툴팁 세팅
 		$(function () {
-			$('.msg1').attr('title', '보장개시일:계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날');
+			$('.kyobo-msg1').attr('title', '보장개시일:계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날');
+			$('.kyobo-msg2').attr('title', '보장개시일:계약일 『부활(효력회복)일』부터 그날을 포함, 만2년이 지난날의 다음날');
 			$('[data-toggle="tooltip"]').tooltip();
 			
 		});
