@@ -10,7 +10,7 @@
 	
 
 	https://blog.jiniworld.me/75
-	<div class="form b">
+	<div class="form1 b">
 		<div class="form a">
 			<div class="aa 1">
 				<div class="aa 2">
@@ -27,6 +27,11 @@
 	</div>
 
 	<script>
+		var p = document.querySelector('.form1');
+		var c = p.querySelector('.cc');
+		c.classList.add('on')
+		console.log(p)
+		console.log(c)
 		//첫번째 부모 요소 찾기
 		function closest(el, selector) {
 			const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
