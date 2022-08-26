@@ -82,6 +82,12 @@
 			font-weight: 700;
 			color:#fff;
 		}
+
+		.btn-tooltip {
+			border:none;
+			background-color: transparent;
+			color: #fff;
+		}
 	
 		
 		[class*='list-'] + [class*='list-'],
@@ -338,7 +344,7 @@
 						</ul>
 						<ul class="list-refer">
 							<li>단, 진단보험금은 '중대한 질병', '중대한 수술', '중대한 화장 및 부식(화학약품 등에 의한 피부손상)', '일상생활장해상태' 및 '중증치매상태' 중 최초 1회에 한하여 지급합니다.</li>
-							<li>단, 피보험자(보험대상자) 여성에 한하여 『중대한 질병 및 수술 보장개시일』이후 보험계약일로부터 1년 미만에 유방암으로 진단확정 되었을 경우 <span class="provision">기본보험금의 25% 지급</span></li>
+							<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술 보장개시일』</button>이후 보험계약일로부터 1년 미만에 유방암으로 진단확정 되었을 경우 <span class="provision">기본보험금의 25% 지급</span></li>
 						</ul>
 					</div>
 					<button type="button" class="btn-view">자세히 보기</button>
@@ -605,9 +611,6 @@
 					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
 			</div>
-			<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-				Tooltip on top
-			  </button>
 			<div style="height:10000px"></div>
 		</div>
 
@@ -666,8 +669,11 @@
 			})
 		}
 
+		// 툴팁 세팅
 		$(function () {
-			$('[data-toggle="tooltip"]').tooltip()
+			$('.msg1').attr('title', '가나다라');
+			$('[data-toggle="tooltip"]').tooltip();
+			
 		});
 	</script>
 </body>
