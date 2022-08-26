@@ -104,6 +104,13 @@
 			padding:1.0rem;
 			text-align: left;
 		}
+
+		.btn-link {
+			margin-right: 3px;
+			padding-right:17px;
+			background:transparent url('./icon/link.svg') no-repeat right center / 16px;
+			color: #fff;
+		}
 	
 		
 		[class*='list-'] + [class*='list-'],
@@ -334,8 +341,8 @@
 							<li>
 								<p class="font-basic">피보험자(보험대상자)가 보허기간(종신) 중 사망하였을때</p>
 								<ul class="list-dash">
-									<li>보험기간(종신)중 <b onclick="goto('kyobo2')">진단보험금</b> 지급사유가 발생하지 않은 경우<span class="provision">기본보험금의 100% 지급</span></li>
-									<li>보험기간(종신)중 <b onclick="goto('kyobo2')">진단보험금</b> 지급사유가 발생한 경우<span class="provision">기본보험금의 50% 지급</span></li>
+									<li>보험기간(종신)중 <b onclick="goto('kyobo2')" class="btn-link">진단보험금</b> 지급사유가 발생하지 않은 경우<span class="provision">기본보험금의 100% 지급</span></li>
+									<li>보험기간(종신)중 <b onclick="goto('kyobo2')" class="btn-link">진단보험금</b> 지급사유가 발생한 경우<span class="provision">기본보험금의 50% 지급</span></li>
 								</ul>
 							</li>
 						</ul>
@@ -698,6 +705,7 @@
 			var offsetTop = tar.offsetTop;
 			console.log(tar, offsetTop)
 			$('.insur').animate({scrollTop:offsetTop - 100}, 400);
+			// tar.find('.btn-view').click();
 		}
 
 		
