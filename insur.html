@@ -88,6 +88,17 @@
 			background-color: transparent;
 			color: #fff;
 		}
+
+		.tooltip {
+			font-size:1.4rem;
+			border-radius: 100px;
+		}
+
+		.tooltip-inner {
+			max-width: 300px;
+			padding:1.0rem;
+			text-align: left;
+		}
 	
 		
 		[class*='list-'] + [class*='list-'],
@@ -612,6 +623,7 @@
 				</div>
 			</div>
 			<div style="height:10000px"></div>
+			
 		</div>
 
 		<div class="bottom-btn">
@@ -671,7 +683,7 @@
 
 		// 툴팁 세팅
 		$(function () {
-			$('.msg1').attr('title', '가나다라');
+			$('.msg1').attr('title', '계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날 계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날 계약일 『부활(효력회복)일』부터 그날을 포함, 90일이 지난날의 다음날');
 			$('[data-toggle="tooltip"]').tooltip();
 			
 		});
