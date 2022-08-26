@@ -666,16 +666,16 @@
 		function sort(ele) {
 			var self = event.target; 
 			var ele = document.querySelectorAll('.' + ele);
-			classRemove(insurItem, 'show');
-			classRemove(insurTit, 'show');
-			classRemove(btnBottom, 'toggle');
+			removeClass(insurItem, 'show');
+			removeClass(insurTit, 'show');
+			removeClass(btnBottom, 'toggle');
 			for(var i = 0; i < ele.length; i++) {
 				ele[i].classList.add('show');
 			}
 			self.classList.add('toggle');
 		}
 
-		function classRemove(ele, className) {
+		function removeClass(ele, className) {
 			for(var i = 0; i < ele.length; i++) {
 				ele[i].classList.remove(className)
 			}

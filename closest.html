@@ -12,10 +12,14 @@
 	https://blog.jiniworld.me/75
 	<div class="form b">
 		<div class="form a">
-			<div class="aa">
-				<div class="bb">
-					<div class="cc">
-						<div id="btn_modify">dfsdF</div>
+			<div class="aa 1">
+				<div class="aa 2">
+					<div class="aa 3">
+						<div class="bb">
+							<div class="cc">
+								<div id="btn_modify">dfsdF</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -23,6 +27,7 @@
 	</div>
 
 	<script>
+		//첫번째 부모 요소 찾기
 		function closest(el, selector) {
 			const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
 
@@ -37,7 +42,7 @@
 		}
 
 		var aa = closest(document.getElementById('btn_modify'), '.form'); // Vanilla JS (IE 10+)
-		console.log(aa)
+		// console.log(aa)
 
 
 
@@ -65,27 +70,27 @@
 			console.log(bb)
 
 			var cc = parentsUntil(document.getElementById('btn_modify'), '.form', '.cc');
-			console.log(cc)
+			// console.log(cc)
 
 	</script>
 
 
 형제 요소 찾기
 <div id="menu">
-	<div class="menu1">menu1</div>
-	<div class="menu2">menu2</div>
-	<div id="menu-2">menu-2</div>
-	<div class="menu4">menu4</div>
-	<div class="menu5">menu5</div>
+	<div class="menu1 aa">menu1</div>
+	<div class="menu2 aa">menu2</div>
+	<div id="menu-2" class="aa">menu-2</div>
+	<div class="menu4 aa">menu4</div>
+	<div class="menu5 aa">menu5</div>
 </div>
 <script>
-	var siblings2 = [...document.getElementById('menu-2').parentNode.children].filter((child) =>
-		child !== document.getElementById('menu-2')
-	); // Vanilla JS, Edge13+
-	console.log(siblings2)
-	for(var i = 0; i < siblings2.length; i++) {
-		siblings2[i].classList.add('aa')
-	}
+	// var siblings2 = [...document.getElementById('menu-2').parentNode.children].filter((child) =>
+	// 	child !== document.getElementById('menu-2')
+	// ); // Vanilla JS, Edge13+
+	// console.log(siblings2)
+	// for(var i = 0; i < siblings2.length; i++) {
+	// 	siblings2[i].classList.add('aa')
+	// }
 
 	var siblings = function(ele) {
 		var siblings = [...document.querySelector(ele).parentNode.children].filter((child) =>
@@ -94,7 +99,14 @@
 		return siblings
 	}
 	var bb = siblings('.menu4')
-	console.log(bb)
+	// console.log(bb);
+
+	removeClass(bb, 'aa')
+	function removeClass(ele, className) {
+		for(var i = 0; i < ele.length; i++) {
+			ele[i].classList.remove(className)
+		}
+	}
 </script>
 </body>
 </html>
