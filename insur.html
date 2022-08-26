@@ -694,10 +694,11 @@
 		});
 
 		function goto(tar) {
-			$('html, body').animate({scrollTop:1000}, 400);
+			
 			var tar = document.querySelector('.' + tar);
-			tar2 = tar.scrollTop;
-			console.log(tar, tar2)
+			var offsetTop = tar.offsetTop;
+			console.log(tar, offsetTop)
+			$('html, body').animate({scrollTop:offsetTop}, 400);
 		}
 
 		goto('aa')
