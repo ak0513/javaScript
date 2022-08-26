@@ -313,9 +313,29 @@
 			color: #fff;
 		}
 
+		.modal-content {
+			background-color: #2c2c2e;
+		}
 
-		.modal-body {color:#333;}
-		.modal-title {color:#333;}
+		.modal-title {
+			font-size: 1.6rem;
+			font-weight: 400;
+		}
+
+		.modal-header {
+			padding: 1.5rem;
+			border-color:#222;
+		}
+
+		.modal-body {
+			padding: 1.5rem;
+			color:#8d8d8d;
+		}
+
+		.close {
+			text-shadow: none;
+			color:#888;
+		}
 	</style>
 
 	<div id="wrap">
@@ -347,7 +367,7 @@
 					<div class="insur-desc">
 						<ul class="list-dot">
 							<li>
-								<p class="font-basic">피보험자(보험대상자)가 보허기간(종신) 중 사망하였을때</p>
+								<p class="font-basic">피보험자(보험대상자)가 보험기간(종신) 중 사망하였을때</p>
 								<ul class="list-dash">
 									<li>보험기간(종신)중 <b onclick="goSection('kyobo2')" class="btn-link">진단보험금</b> 지급사유가 발생하지 않은 경우<span class="provision"><button type="button" class="btn-tooltip kyobo-msg3" data-toggle="tooltip" data-placement="top">기본보험금</button>의 100% 지급</span></li>
 									<li>보험기간(종신)중 <b onclick="goSection('kyobo2')" class="btn-link">진단보험금</b> 지급사유가 발생한 경우<span class="provision"><button type="button" class="btn-tooltip kyobo-msg3" data-toggle="tooltip" data-placement="top">기본보험금</button>의 50% 지급</span></li>
@@ -517,7 +537,10 @@
 						</p>
 						<h3 class="h-tit3">입원실료, 입원제비용, 입원수술비</h3>
 
-						<p class="font-basic">'국민건강보험법에서 정한 요양급여 중 본인부담금' 과 '비급여(입원시 실제사용병실과 기준병실과의 병실료 차액 제외)' 부분의 합계액 중 90% 해당액(다만, 10% 해당액이 계약일 또는 매년 계약해당일로부터 연간 200만원을 초과하는 경우 그 초과금액은 보상)</p>
+						<p class="font-basic">
+							'국민건강보험법에서 정한 요양급여 중 본인부담금' 과 '비급여(입원시 실제사용병실과 기준병실과의 병실료 차액 제외)' 부분의 합계액 중 90% 해당액<br>
+							(다만, 10% 해당액이 계약일 또는 매년 계약해당일로부터 연간 200만원을 초과하는 경우 그 초과금액은 보상)
+						</p>
 						<h3 class="h-tit3">상급병실료 차액</h3>
 						<p class="font-basic">
 							입원시 실제 사용병실과 기준병실과의 차액 중 50%를 공제한 후의 금액<br>
@@ -664,7 +687,7 @@
 	</div>
 
 
-	<div class="modal" id="kyobo-modal3" tabindex="-1">
+	<div class="modal fade" id="kyobo-modal3" tabindex="-1">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -674,10 +697,8 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>기본사망보험금, 이미 납입한 보험료, 계약자적립금의 105% 금액 중 가장 큰 금액을 말하며 기본사망보험금은 보험가입금액에서 계약자적립금의 인출금액을 차감하고, 추가 납입한 보험료를 더한 금액을 말합니다.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+					기본사망보험금, 이미 납입한 보험료, 계약자적립금의 105% 금액 중 가장 큰 금액을 말하며 
+					기본사망보험금은 보험가입금액에서 계약자적립금의 인출금액을 차감하고, 추가 납입한 보험료를 더한 금액을 말합니다.
 				</div>
 			</div>
 		</div>
