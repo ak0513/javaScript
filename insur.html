@@ -205,7 +205,8 @@
 			padding:0 1.5rem 1.5rem;
 		}
 
-		.insur-group.show + .insur-group.show {
+		.insur-group.show + .insur-group.show,
+		.insur-group.show + .insur-group:not(.show) + .insur-group.show {
 			margin-top: 5.0rem;
 		}
 
