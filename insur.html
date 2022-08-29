@@ -112,8 +112,6 @@
 			margin-top: 3.0rem !important;
 		}
 
-		
-
 		.show ~ .insur-item + .h-tit2.sticky,
 		.insur-item.show + .h-tit2.sticky {
 			margin-top: 5.0rem !important;
@@ -204,12 +202,15 @@
 		.insur {
 			overflow-y: auto;
 			flex-grow: 1;
-			margin-top: -5.0rem;
 			padding:0 1.5rem 1.5rem;
 		}
 
 		.insur-group {
 			margin-top: 5.0rem;
+		}
+
+		.insur-group:last-child {
+			margin-bottom: 0;
 		}
 
 		.insur-item {
@@ -401,7 +402,7 @@
 
 		<div class="insur">
 			<!-- 교보생명 -->
-			<div class="insur-group">
+			<div class="insur-group"  data-type="kyobo">
 				<h2 class="h-tit2 sticky show" data-type="all death hospitalization medical">교보생명</h2>
 				<h2 class="h-tit2 show" data-type="all kyobo death">주계약</h2>
 				<div class="insur-item show" data-type="all kyobo death">
@@ -605,7 +606,7 @@
 			<!-- //교보생명 -->
 
 			<!-- 롯데손해보험 -->
-			<div class="insur-group">
+			<div class="insur-group" data-type="lotteins">
 				<h2 class="h-tit2 sticky show" data-type="all death brain heart disability">롯데손해보험</h2>
 				<h2 class="h-tit2 show" data-type="all lotteins">사망</h2>
 				<div class="insur-item show" data-type="all lotteins death">
@@ -709,7 +710,7 @@
 			<!-- //롯데손해보험 -->
 
 			<!-- MG새마을금고중앙회 -->
-			<div class="insur-group">
+			<div class="insur-group" data-type="mg">
 				<h2 class="h-tit2 show sticky" data-type="all cancer hospitalization surgery disability fracture">MG새마을금고중앙회</h2>
 				<h2 class="h-tit2 show" data-type="all mg cancer">암 진단비</h2>
 
@@ -910,6 +911,7 @@
 
 	<script>
 		var btnBottom = document.querySelectorAll('.bottom-btn button');
+		var insurGroup = document.querySelectorAll('.insur-group');
 		var insurItem = document.querySelectorAll('.insur-item');
 		var insurTit = document.querySelectorAll('.h-tit1, .h-tit2');
 		var btnView = document.querySelectorAll('.btn-view');
@@ -917,11 +919,13 @@
 
 		function sort(tar) {
 			var self = event.target; 
+			removeClass(insurGroup, 'toggle');
 			removeClass(insurItem, 'show');
 			removeClass(insurTit, 'show');
 			removeClass(btnBottom, 'toggle');
-			sortItem(insurItem, tar)
-			sortItem(insurTit, tar)
+			sortItem(insurGroup, tar);
+			sortItem(insurItem, tar);
+			sortItem(insurTit, tar);
 			self.classList.add('toggle');
 			$('.insur').animate({scrollTop:0}, 400);
 		}
