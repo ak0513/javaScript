@@ -99,6 +99,10 @@
 			display: none;
 		}
 
+		.h-tit2.sticky.show ~ .insur-item:not(.show) + .h-tit2 {
+			margin-top: 1.0rem;
+		}
+
 
 		.h-tit2.sticky + .h-tit2 {
 			margin-top: 1.0rem;
@@ -392,466 +396,472 @@
 
 		<div class="insur">
 			<!-- 교보생명 -->
-			<h2 class="h-tit2 sticky show" data-type="all death hospitalization medical">교보생명</h2>
-			<h2 class="h-tit2 show" data-type="all kyobo death">주계약</h2>
-			<div class="insur-item show" data-type="all kyobo death">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">사망보험금</h2>
-					<div class="incur-price">20,000,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>
-								<p class="font-basic">피보험자(보험대상자)가 보험기간(종신) 중 사망하였을때</p>
-								<ul class="list-dash">
-									<li>보험기간(종신)중 <button type="button" onclick="goSection('kyobo2')" class="btn-link">진단보험금</button> 지급사유가 발생하지 않은 경우<span class="provision"><button type="button" class="btn-tooltip kyobo-msg3" data-toggle="tooltip" data-placement="top">기본보험금</button>의 100% 지급</span></li>
-									<li>보험기간(종신)중 <button type="button" onclick="goSection('kyobo2')" class="btn-link">진단보험금</button> 지급사유가 발생한 경우 <span class="provision">기본보험금의 50% 지급</span></li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="list-refer">
-							<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술보장개시일』</button> 이후 보험계약일로부터 1년 미만에 <b>유방암 진단확정</b>으로 진단보험금이 지급된 경우 <span class="provision">기본보험금의 75%를 지급</span></li>
-							<li>피보험자(보험대상자)가 보험기간 중 사망하였을 경우는 이 계약은 그때부터 효력을 가지지 아니합니다.</li>
-						</ul>
+			<div class="insur-group">
+				<h2 class="h-tit2 sticky show" data-type="all death hospitalization medical">교보생명</h2>
+				<h2 class="h-tit2 show" data-type="all kyobo death">주계약</h2>
+				<div class="insur-item show" data-type="all kyobo death">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">사망보험금</h2>
+						<div class="incur-price">20,000,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
-			
-			<div class="insur-item kyobo2 show" data-type="all kyobo death">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">진단보험금</h2>
-					<div class="incur-price">20,000,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>피보험자(보험대상자)가 보험기간(종신) 중 '중대한 화상 및 부식(화학약품 등에 의한 피부손상)' 으로 진단확정 받았을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술보장개시일』</button> 이후에 '중대한 질병'으로 진단 확정받았거나 '중대한 수술'을 받았을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『일상생활장해보장개시일』</button> 이후에 '일상생활장해상태' 로 진단이 확정되었을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg2" data-toggle="tooltip" data-placement="top">『중증치매 보장개시일』</button>이후에 '중증치매상태' 로 진단이 확정되었을 떼 <span class="provision"><button type="button" class="btn-tooltip kyobo-msg3" data-toggle="tooltip" data-placement="top">기본보험금</button>의 50% 지급</span></li>
-						</ul>
-						<ul class="list-refer">
-							<li>단, 진단보험금은 '중대한 질병', '중대한 수술', '중대한 화상 및 부식(화학약품 등에 의한 피부손상)', '일상생활장해상태' 및 '중증치매상태' 중 최초 1회에 한하여 지급합니다.</li>
-							<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술 보장개시일』</button>이후 보험계약일로부터 1년 미만에 유방암으로 진단확정 되었을 경우 <span class="provision">기본보험금의 25% 지급</span></li>
-							<li>피보험자(보험대상자)가 보험기간 중 사망하였을 경우는 이 계약은 그때부터 효력을 가지지 아니합니다.</li>
-						</ul>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>
+									<p class="font-basic">피보험자(보험대상자)가 보험기간(종신) 중 사망하였을때</p>
+									<ul class="list-dash">
+										<li>보험기간(종신)중 <button type="button" onclick="goSection('kyobo2')" class="btn-link">진단보험금</button> 지급사유가 발생하지 않은 경우<span class="provision"><button type="button" class="btn-tooltip kyobo-msg3" data-toggle="tooltip" data-placement="top">기본보험금</button>의 100% 지급</span></li>
+										<li>보험기간(종신)중 <button type="button" onclick="goSection('kyobo2')" class="btn-link">진단보험금</button> 지급사유가 발생한 경우 <span class="provision">기본보험금의 50% 지급</span></li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="list-refer">
+								<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술보장개시일』</button> 이후 보험계약일로부터 1년 미만에 <b>유방암 진단확정</b>으로 진단보험금이 지급된 경우 <span class="provision">기본보험금의 75%를 지급</span></li>
+								<li>피보험자(보험대상자)가 보험기간 중 사망하였을 경우는 이 계약은 그때부터 효력을 가지지 아니합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
-			</div>
+				
+				<div class="insur-item kyobo2 show" data-type="all kyobo death">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">진단보험금</h2>
+						<div class="incur-price">20,000,000원</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>피보험자(보험대상자)가 보험기간(종신) 중 '중대한 화상 및 부식(화학약품 등에 의한 피부손상)' 으로 진단확정 받았을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술보장개시일』</button> 이후에 '중대한 질병'으로 진단 확정받았거나 '중대한 수술'을 받았을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『일상생활장해보장개시일』</button> 이후에 '일상생활장해상태' 로 진단이 확정되었을 때 또는 보험기간(종신) 중 <button type="button" class="btn-tooltip kyobo-msg2" data-toggle="tooltip" data-placement="top">『중증치매 보장개시일』</button>이후에 '중증치매상태' 로 진단이 확정되었을 떼 <span class="provision"><button type="button" class="btn-tooltip kyobo-msg3" data-toggle="tooltip" data-placement="top">기본보험금</button>의 50% 지급</span></li>
+							</ul>
+							<ul class="list-refer">
+								<li>단, 진단보험금은 '중대한 질병', '중대한 수술', '중대한 화상 및 부식(화학약품 등에 의한 피부손상)', '일상생활장해상태' 및 '중증치매상태' 중 최초 1회에 한하여 지급합니다.</li>
+								<li>단, 피보험자(보험대상자) 여성에 한하여 <button type="button" class="btn-tooltip kyobo-msg1" data-toggle="tooltip" data-placement="top">『중대한 질병 및 수술 보장개시일』</button>이후 보험계약일로부터 1년 미만에 유방암으로 진단확정 되었을 경우 <span class="provision">기본보험금의 25% 지급</span></li>
+								<li>피보험자(보험대상자)가 보험기간 중 사망하였을 경우는 이 계약은 그때부터 효력을 가지지 아니합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
 
-			<h2 class="h-tit2 show" data-type="all kyobo hospitalization">암입원특약</h2>
-			<div class="insur-item show" data-type="all kyobo hospitalization">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">암 입원비</h2>
-					<div class="incur-price">3일 초과 1일당 50,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『암보장개시일』</button> 이후에 암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
-							<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
-						</ul>
+				<h2 class="h-tit2 show" data-type="all kyobo hospitalization">암입원특약</h2>
+				<div class="insur-item show" data-type="all kyobo hospitalization">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">암 입원비</h2>
+						<div class="incur-price">3일 초과 1일당 50,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
-			
-			<div class="insur-item show" data-type="all kyobo hospitalization">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">기타피부암 입원비</h2>
-					<div class="incur-price">3일 초과 1일당 10,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 기타피부암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
-							<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
-						</ul>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『암보장개시일』</button> 이후에 암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
+								<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
-			</div>
-			
-			<div class="insur-item show" data-type="all kyobo hospitalization">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">상피내암 입원비</h2>
-					<div class="incur-price">3일 초과 1일당 10,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 상피내암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
-							<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
-						</ul>
+				
+				<div class="insur-item show" data-type="all kyobo hospitalization">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">기타피부암 입원비</h2>
+						<div class="incur-price">3일 초과 1일당 10,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
-			
-			<div class="insur-item show" data-type="all kyobo hospitalization">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">경계성종양 입원비</h2>
-					<div class="incur-price">3일 초과 1일당 20,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 경계성종양으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
-							<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
-						</ul>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 기타피부암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
+								<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
-			</div>
-			
-			<div class="insur-item show" data-type="all kyobo hospitalization">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">갑상샘암 입원비</h2>
-					<div class="incur-price">3일 초과 1일당 20,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 갑상샘암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
-							<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
-						</ul>
+				
+				<div class="insur-item show" data-type="all kyobo hospitalization">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">상피내암 입원비</h2>
+						<div class="incur-price">3일 초과 1일당 10,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 상피내암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
+								<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
 				</div>
-			</div>
+				
+				<div class="insur-item show" data-type="all kyobo hospitalization">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">경계성종양 입원비</h2>
+						<div class="incur-price">3일 초과 1일당 20,000원</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 경계성종양으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
+								<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
+				
+				<div class="insur-item show" data-type="all kyobo hospitalization">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">갑상샘암 입원비</h2>
+						<div class="incur-price">3일 초과 1일당 20,000원</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>피보험자(보험대상자)가 이 특약의 보험기간 중 <button type="button" class="btn-tooltip kyobo-hospitalization1" data-toggle="tooltip" data-placement="top">『보장개시일』</button> 이후에 갑상샘암으로 진단확정되고, 그 치료를 직접목적으로 <b>4일이상 입원</b>하였을 경우</li>
+								<li>각 입원비는 1회입원당 지급일수 120일 한도로 지급합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
 
-			<h2 class="h-tit2 show" data-type="all kyobo medical">실손의료비특약</h2>
-			<div class="insur-item show" data-type="all kyobo medical">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">입원의료비</h2>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<p class="font-basic">
-							피보험자(보험대상자)가 질병 또는 상해로 인하여 병원에 입원하여 치료를 받는 경우<br>
-							<b>입원의료비를 하나의 질병당 또는 하나의 상해당 각각 보험가입금액(5,000만원)을 한도</b>로 보상
-						</p>
-						<h3 class="h-tit3">입원실료, 입원제비용, 입원수술비</h3>
-
-						<p class="font-basic">
-							'국민건강보험법에서 정한 요양급여 중 본인부담금' 과 '비급여(입원시 실제사용병실과 기준병실과의 병실료 차액 제외)' 부분의 합계액 중 90% 해당액<br>
-							(다만, 10% 해당액이 계약일 또는 매년 계약해당일로부터 <b>연간 200만원을 초과하는 경우 그 초과금액은 보상</b>)
-						</p>
-						<h3 class="h-tit3">상급병실료 차액</h3>
-						<p class="font-basic">
-							입원시 실제 사용병실과 기준병실과의 차액 중 50%를 공제한 후의 금액<br>
-							(다만, 1일 평균금액 10만원 한도로 하며, 1일 평균금액은 입원기간동안 상급병실료 차액 전체를 총 입원일수로 나누어 산출)
-						</p>
-
-						<h3 class="h-tit3">안내사항</h3>
-						<ul class="list-refer">
-							<li>하나의 질병 , 하나의 상해로 최초 입원일(포함)로부터 365일을 넘어 입원할 경우 90일간의 보상제외 기간이 지나야 새로운 질병 또는 상해로 보아 다시 보상하여 드립니다.</li>
-							<li>다수보험의 경우 각 계약의 보상대상의료비 및 보상책임액에 따라 약관상 다수보험의 처리에 의해 계산된 각 계약의 비례분담액을 보상책임액으로 지급합니다.</li>
-							<li>주계약의 보험료 납입기간이 완료 또는 보험료 납입이 면제되었거나 주계약이 소멸되었다 하더라도 이 특약의 보험료를 납입해야 합니다.</li>
-						</ul>
+				<h2 class="h-tit2 show" data-type="all kyobo medical">실손의료비특약</h2>
+				<div class="insur-item show" data-type="all kyobo medical">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">입원의료비</h2>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<p class="font-basic">
+								피보험자(보험대상자)가 질병 또는 상해로 인하여 병원에 입원하여 치료를 받는 경우<br>
+								<b>입원의료비를 하나의 질병당 또는 하나의 상해당 각각 보험가입금액(5,000만원)을 한도</b>로 보상
+							</p>
+							<h3 class="h-tit3">입원실료, 입원제비용, 입원수술비</h3>
 
-			<div class="insur-item show" data-type="all kyobo medical">
-				<div class="insur-top">
-					<span class="insur-company">교보생명</span>
-					<h2 class="insur-tit">통원의료비</h2>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<p class="font-basic">
-							피보험자(보험대상자)가 질병 또는 상해로 인하여 병원에 통원하여 치료를 받거나 처방조제를 받은 경우<br>
-							(매년 계약해당일로부터 1년을 단위로 외래 및 처방조제비 각각 보상)
-						</p>
+							<p class="font-basic">
+								'국민건강보험법에서 정한 요양급여 중 본인부담금' 과 '비급여(입원시 실제사용병실과 기준병실과의 병실료 차액 제외)' 부분의 합계액 중 90% 해당액<br>
+								(다만, 10% 해당액이 계약일 또는 매년 계약해당일로부터 <b>연간 200만원을 초과하는 경우 그 초과금액은 보상</b>)
+							</p>
+							<h3 class="h-tit3">상급병실료 차액</h3>
+							<p class="font-basic">
+								입원시 실제 사용병실과 기준병실과의 차액 중 50%를 공제한 후의 금액<br>
+								(다만, 1일 평균금액 10만원 한도로 하며, 1일 평균금액은 입원기간동안 상급병실료 차액 전체를 총 입원일수로 나누어 산출)
+							</p>
 
-						<h3 class="h-tit3">외래(외래제비용, 외래수술비)</h3>
-						<p class="font-basic">방문 1회당 '국민건강보험법'에서 정한 요양급여 중 본인부담금과 '비급여' 부분의 합계액에서 약관상 '항목별 공제금액'<b>(의원:10,000원/병원:15,000원/종합전문병원:20,000원)을 차감하고 20만원을 한도로 보상</b><br>(매년 계약해당일로부터 1년간 방문 180회 한도)</p>
-						
-						<h3 class="h-tit3">처방조제비</h3>
-						<p class="font-basic">
-							처방전 1건당 '국민건강보험법'에서 정한 요양급여 중 본인부담금과 '비급여' 부분의 합계액에서 약관의 '항목별 공제금액'<b>(약국:8,000원)을 차감하고 10만원을 한도로 보상</b><br>(매년 계약해당일로부터 1년간 처방전 180건 한도)
-						</p>
-
-						<h3 class="h-tit3">안내사항</h3>
-						<ul class="list-refer">
-							<li>다수보험의 경우 각 계약의 보상대상의료비 및 보상책임액에 따라 약관상 다수보험의 처리에 의해 계산된 각 계약의 비례분담액을 보상책임액으로 지급합니다.</li>
-							<li>주계약의 보험료 납입기간이 완료 또는 보험료 납입이 면제되었거나 주계약이 소멸되었다 하더라도 이 특약의 보험료를 납입해야 합니다.</li>
-						</ul>
+							<h3 class="h-tit3">안내사항</h3>
+							<ul class="list-refer">
+								<li>하나의 질병 , 하나의 상해로 최초 입원일(포함)로부터 365일을 넘어 입원할 경우 90일간의 보상제외 기간이 지나야 새로운 질병 또는 상해로 보아 다시 보상하여 드립니다.</li>
+								<li>다수보험의 경우 각 계약의 보상대상의료비 및 보상책임액에 따라 약관상 다수보험의 처리에 의해 계산된 각 계약의 비례분담액을 보상책임액으로 지급합니다.</li>
+								<li>주계약의 보험료 납입기간이 완료 또는 보험료 납입이 면제되었거나 주계약이 소멸되었다 하더라도 이 특약의 보험료를 납입해야 합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
+				</div>
+
+				<div class="insur-item show" data-type="all kyobo medical">
+					<div class="insur-top">
+						<span class="insur-company">교보생명</span>
+						<h2 class="insur-tit">통원의료비</h2>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<p class="font-basic">
+								피보험자(보험대상자)가 질병 또는 상해로 인하여 병원에 통원하여 치료를 받거나 처방조제를 받은 경우<br>
+								(매년 계약해당일로부터 1년을 단위로 외래 및 처방조제비 각각 보상)
+							</p>
+
+							<h3 class="h-tit3">외래(외래제비용, 외래수술비)</h3>
+							<p class="font-basic">방문 1회당 '국민건강보험법'에서 정한 요양급여 중 본인부담금과 '비급여' 부분의 합계액에서 약관상 '항목별 공제금액'<b>(의원:10,000원/병원:15,000원/종합전문병원:20,000원)을 차감하고 20만원을 한도로 보상</b><br>(매년 계약해당일로부터 1년간 방문 180회 한도)</p>
+							
+							<h3 class="h-tit3">처방조제비</h3>
+							<p class="font-basic">
+								처방전 1건당 '국민건강보험법'에서 정한 요양급여 중 본인부담금과 '비급여' 부분의 합계액에서 약관의 '항목별 공제금액'<b>(약국:8,000원)을 차감하고 10만원을 한도로 보상</b><br>(매년 계약해당일로부터 1년간 처방전 180건 한도)
+							</p>
+
+							<h3 class="h-tit3">안내사항</h3>
+							<ul class="list-refer">
+								<li>다수보험의 경우 각 계약의 보상대상의료비 및 보상책임액에 따라 약관상 다수보험의 처리에 의해 계산된 각 계약의 비례분담액을 보상책임액으로 지급합니다.</li>
+								<li>주계약의 보험료 납입기간이 완료 또는 보험료 납입이 면제되었거나 주계약이 소멸되었다 하더라도 이 특약의 보험료를 납입해야 합니다.</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
 				</div>
 			</div>
 			<!-- //교보생명 -->
 
 			<!-- 롯데손해보험 -->
-			<h2 class="h-tit2 sticky show" data-type="all death brain heart disability">롯데손해보험</h2>
-			<h2 class="h-tit2 show" data-type="all lotteins">사망</h2>
-			<div class="insur-item show" data-type="all lotteins death">
-				<div class="insur-top">
-					<span class="insur-company">롯데손해보험</span>
-					<h2 class="insur-tit">상해사망</h2>
-					<div class="incur-price">1,000,000</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">상해사고로 사망한 경우 보험가입금액 지급</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
-			
-			<div class="insur-item show" data-type="all lotteins death">
-				<div class="insur-top">
-					<span class="insur-company">롯데손해보험</span>
-					<h2 class="insur-tit">질병사망</h2>
-					<div class="incur-price">30,000,000</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">질병으로 사망한 경우 보험가입금액 지급</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
-
-			<h2 class="h-tit2 show" data-type="all lotteins brain">뇌질환 진단비</h2>
-			<div class="insur-item show" data-type="all lotteins brain">
-				<div class="insur-top">
-					<span class="insur-company">롯데손해보험</span>
-					<h2 class="insur-tit">뇌혈관질환 진단비</h2>
-					<div class="incur-price">20,000,000</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">보험기간 중에 뇌혈관질환으로 진단확정되었을 때 최초 1회에 한하여 보험가입금액 지급</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
-
-			<h2 class="h-tit2 show" data-type="all lotteins heart">심장질환 진단비</h2>
-			<div class="insur-item show" data-type="al lotteins heart">
-				<div class="insur-top">
-					<span class="insur-company">롯데손해보험</span>
-					<h2 class="insur-tit">허헐성심장질환 진단비</h2>
-					<div class="incur-price">10,000,000</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<p class="font-basic">보험기간중에 허헐성심장질환으로 진단확정 시 보험가입금액 지급(최초 1회한)</p>
+			<div class="insur-group">
+				<h2 class="h-tit2 sticky show" data-type="all death brain heart disability">롯데손해보험</h2>
+				<h2 class="h-tit2 show" data-type="all lotteins">사망</h2>
+				<div class="insur-item show" data-type="all lotteins death">
+					<div class="insur-top">
+						<span class="insur-company">롯데손해보험</span>
+						<h2 class="insur-tit">상해사망</h2>
+						<div class="incur-price">1,000,000</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
-
-			<div class="insur-item show" data-type="all lotteins heart">
-				<div class="insur-top">
-					<span class="insur-company">롯데손해보험</span>
-					<h2 class="insur-tit">허헐성심장질환 진단비Ⅲ</h2>
-					<div class="incur-price">10,000,000</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<p class="font-basic">보험기간 중에 허헐성심장질환으로 진단확정 시 보험가입금액지급(최초 1회한)</p>
-						<ul class="list-dot">
-							<li>
-								보험계약일로부터 180일~1년 미만 내 진단 확정시 <span class="provision">보험가입금액의 50% 지급</span><br>
-								90~180일 미만 내 진단 확정시 <span class="provision">보험가입금액의 30% 지급</span><br>
-								90일 미만내 진단확정시 <span class="provision">보험가입금액의 5% 지급</span>
-							</li>
-						</ul>
+					<div class="insur-bottom">
+						<div class="insur-desc">상해사고로 사망한 경우 보험가입금액 지급</div>
+						<button type="button" class="btn-view">자세히 보기</button>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
 				</div>
-			</div>
+				
+				<div class="insur-item show" data-type="all lotteins death">
+					<div class="insur-top">
+						<span class="insur-company">롯데손해보험</span>
+						<h2 class="insur-tit">질병사망</h2>
+						<div class="incur-price">30,000,000</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">질병으로 사망한 경우 보험가입금액 지급</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
 
-			<h2 class="h-tit2 show" data-type="all lotteins disability">후유장해</h2>
-			<div class="insur-item show" data-type="all lotteins disability">
-				<div class="insur-top">
-					<span class="insur-company">롯데손해보험</span>
-					<h2 class="insur-tit">상해후유장해</h2>
-					<div class="incur-price">1,000,000</div>
+				<h2 class="h-tit2 show" data-type="all lotteins brain">뇌질환 진단비</h2>
+				<div class="insur-item show" data-type="all lotteins brain">
+					<div class="insur-top">
+						<span class="insur-company">롯데손해보험</span>
+						<h2 class="insur-tit">뇌혈관질환 진단비</h2>
+						<div class="incur-price">20,000,000</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">보험기간 중에 뇌혈관질환으로 진단확정되었을 때 최초 1회에 한하여 보험가입금액 지급</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
 				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">상해사고롤 3~100% 장해지급률에 해당하는 장해가 발생한 경우 장해분류표에서 정한 지급률을 보험가입금액에 곱하여 지급(지급률x보험가입금액)</div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div>
-			</div>
 
-			<div class="insur-item show" data-type="all lotteins disability">
-				<div class="insur-top">
-					<span class="insur-company">롯데손해보험</span>
-					<h2 class="insur-tit">질병후유장해</h2>
-					<div class="incur-price">30,000,000</div>
+				<h2 class="h-tit2 show" data-type="all lotteins heart">심장질환 진단비</h2>
+				<div class="insur-item show" data-type="al lotteins heart">
+					<div class="insur-top">
+						<span class="insur-company">롯데손해보험</span>
+						<h2 class="insur-tit">허헐성심장질환 진단비</h2>
+						<div class="incur-price">10,000,000</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<p class="font-basic">보험기간중에 허헐성심장질환으로 진단확정 시 보험가입금액 지급(최초 1회한)</p>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
 				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">보험기간 중 진단확정된 질병으로 장해분류표에서 정한 3~100% 장해 지급률에 해당하는 장해상태가 되었을 경우 장해분류표에서 정한 지급률을 보험가입금액에 곱하여 지급(지급률x보험가입금액)</div>
-					<button type="button" class="btn-view">자세히 보기</button>
+
+				<div class="insur-item show" data-type="all lotteins heart">
+					<div class="insur-top">
+						<span class="insur-company">롯데손해보험</span>
+						<h2 class="insur-tit">허헐성심장질환 진단비Ⅲ</h2>
+						<div class="incur-price">10,000,000</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<p class="font-basic">보험기간 중에 허헐성심장질환으로 진단확정 시 보험가입금액지급(최초 1회한)</p>
+							<ul class="list-dot">
+								<li>
+									보험계약일로부터 180일~1년 미만 내 진단 확정시 <span class="provision">보험가입금액의 50% 지급</span><br>
+									90~180일 미만 내 진단 확정시 <span class="provision">보험가입금액의 30% 지급</span><br>
+									90일 미만내 진단확정시 <span class="provision">보험가입금액의 5% 지급</span>
+								</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
+
+				<h2 class="h-tit2 show" data-type="all lotteins disability">후유장해</h2>
+				<div class="insur-item show" data-type="all lotteins disability">
+					<div class="insur-top">
+						<span class="insur-company">롯데손해보험</span>
+						<h2 class="insur-tit">상해후유장해</h2>
+						<div class="incur-price">1,000,000</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">상해사고롤 3~100% 장해지급률에 해당하는 장해가 발생한 경우 장해분류표에서 정한 지급률을 보험가입금액에 곱하여 지급(지급률x보험가입금액)</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
+
+				<div class="insur-item show" data-type="all lotteins disability">
+					<div class="insur-top">
+						<span class="insur-company">롯데손해보험</span>
+						<h2 class="insur-tit">질병후유장해</h2>
+						<div class="incur-price">30,000,000</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">보험기간 중 진단확정된 질병으로 장해분류표에서 정한 3~100% 장해 지급률에 해당하는 장해상태가 되었을 경우 장해분류표에서 정한 지급률을 보험가입금액에 곱하여 지급(지급률x보험가입금액)</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
 				</div>
 			</div>
 			<!-- //롯데손해보험 -->
 
 			<!-- MG새마을금고중앙회 -->
-			<h2 class="h-tit2 show sticky" data-type="all cancer hospitalization surgery disability fracture">MG새마을금고중앙회</h2>
-			<h2 class="h-tit2 show" data-type="all mg cancer">암 진단비</h2>
+			<div class="insur-group">
+				<h2 class="h-tit2 show sticky" data-type="all cancer hospitalization surgery disability fracture">MG새마을금고중앙회</h2>
+				<h2 class="h-tit2 show" data-type="all mg cancer">암 진단비</h2>
 
-			<div class="insur-item show" data-type="all cancer mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">암 진단시</h2>
-					<div class="incur-price">50,000,000원</div>
-				</div>
-				<!-- <div class="insur-bottom">
-					<div class="insur-desc"></div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div> -->
-			</div>
-
-			<div class="insur-item show" data-type="all cancer mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">기타피부암 진단시</h2>
-					<div class="incur-price">5,000,000원</div>
-				</div>
-				<!-- <div class="insur-bottom">
-					<div class="insur-desc"></div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div> -->
-			</div>
-
-			<div class="insur-item show" data-type="all cancer mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">상피내암 진단시</h2>
-					<div class="incur-price">5,000,000원</div>
-				</div>
-				<!-- <div class="insur-bottom">
-					<div class="insur-desc"></div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div> -->
-			</div>
-
-			<div class="insur-item show" data-type="all cancer mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">경계성 종양 진단시</h2>
-					<div class="incur-price">5,000,000원</div>
-				</div>
-				<!-- <div class="insur-bottom">
-					<div class="insur-desc"></div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div> -->
-			</div>
-
-			<div class="insur-item show" data-type="all cancer mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">만기 생존시</h2>
-					<div class="incur-price">기납입 주계약공제료</div>
-				</div>
-				<!-- <div class="insur-bottom">
-					<div class="insur-desc"></div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div> -->
-			</div>
-
-			<h2 class="h-tit2 show" data-type="all mg hospitalization surgery death">치료보장특약</h2>
-			<div class="insur-item show" data-type="all hospitalization mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">입원급여금</h2>
-					<div class="incur-price">30,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>질병 또는 재해로 인하여 그 치료를 직접 목적으로 계속 입원시(3일 초과 1일당, 120일 한도)</li>
-						</ul>
+				<div class="insur-item show" data-type="all cancer mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">암 진단시</h2>
+						<div class="incur-price">50,000,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
+					<!-- <div class="insur-bottom">
+						<div class="insur-desc"></div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div> -->
 				</div>
-			</div>
 
-			<div class="insur-item show" data-type="all surgery mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">수술급여금</h2>
-					<div class="incur-price">900,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>질병 또는 재해로 인하여 그 치료를 직접 목적으로 수술분류표상의 수술시</li>
-						</ul>
+				<div class="insur-item show" data-type="all cancer mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">기타피부암 진단시</h2>
+						<div class="incur-price">5,000,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
+					<!-- <div class="insur-bottom">
+						<div class="insur-desc"></div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div> -->
 				</div>
-			</div>
 
-			<div class="insur-item show" data-type="all death disability mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">재해사망공제금</h2>
-					<div class="incur-price">2,000,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<h3 class="h-tit3">생활연금</h3>
-						<p class="font-basic">재해로 1급 장해시 매월 <span class="provision">20년간 확정지급 3,000,000원</span></p>
-						<h3 class="h-tit3">치료연금</h3>
-						<p class="font-basic">재해로 2급 장해시 매월 <span class="provision">20년간 확정지급 2,000,000원</span></p>
-						<h3 class="h-tit3">재해장해공제금</h3>
-						<p class="font-basic">재해로 3~6급 장해시 <span class="provision">3,000,000~10,000,000</span></p>
-						<h3 class="h-tit3">만기공제금</h3>
-						<p class="font-basic">기납입 주계약공제료의 100%</p>
+				<div class="insur-item show" data-type="all cancer mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">상피내암 진단시</h2>
+						<div class="incur-price">5,000,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
+					<!-- <div class="insur-bottom">
+						<div class="insur-desc"></div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div> -->
 				</div>
-			</div>
 
-			<div class="insur-item show" data-type="all hospitalization mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">재해입원공제금</h2>
-					<div class="incur-price">30,000원</div>
-				</div>
-				<div class="insur-bottom">
-					<div class="insur-desc">
-						<ul class="list-dot">
-							<li>재해로 입원시 3일초과 1일단(120일 한도)</li>
-						</ul>
+				<div class="insur-item show" data-type="all cancer mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">경계성 종양 진단시</h2>
+						<div class="incur-price">5,000,000원</div>
 					</div>
-					<button type="button" class="btn-view">자세히 보기</button>
+					<!-- <div class="insur-bottom">
+						<div class="insur-desc"></div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div> -->
 				</div>
-			</div>
 
-			<div class="insur-item show" data-type="all surgery mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">재해수술공제금</h2>
-					<div class="incur-price">500,000원</div>
+				<div class="insur-item show" data-type="all cancer mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">만기 생존시</h2>
+						<div class="incur-price">기납입 주계약공제료</div>
+					</div>
+					<!-- <div class="insur-bottom">
+						<div class="insur-desc"></div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div> -->
 				</div>
-				<!-- <div class="insur-bottom">
-					<div class="insur-desc"></div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div> -->
-			</div>
 
-			<h2 class="h-tit2 show" data-type="all mg fracture">재해골절특약</h2>
-			<div class="insur-item show" data-type="all fracture mg">
-				<div class="insur-top">
-					<span class="insur-company">MG새마을금고중앙회</span>
-					<h2 class="insur-tit">재해골절공제금</h2>
-					<div class="incur-price">300,000원</div>
+				<h2 class="h-tit2 show" data-type="all mg hospitalization surgery death">치료보장특약</h2>
+				<div class="insur-item show" data-type="all hospitalization mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">입원급여금</h2>
+						<div class="incur-price">30,000원</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>질병 또는 재해로 인하여 그 치료를 직접 목적으로 계속 입원시(3일 초과 1일당, 120일 한도)</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
 				</div>
-				<!-- <div class="insur-bottom">
-					<div class="insur-desc"></div>
-					<button type="button" class="btn-view">자세히 보기</button>
-				</div> -->
+
+				<div class="insur-item show" data-type="all surgery mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">수술급여금</h2>
+						<div class="incur-price">900,000원</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>질병 또는 재해로 인하여 그 치료를 직접 목적으로 수술분류표상의 수술시</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
+
+				<div class="insur-item show" data-type="all death disability mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">재해사망공제금</h2>
+						<div class="incur-price">2,000,000원</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<h3 class="h-tit3">생활연금</h3>
+							<p class="font-basic">재해로 1급 장해시 매월 <span class="provision">20년간 확정지급 3,000,000원</span></p>
+							<h3 class="h-tit3">치료연금</h3>
+							<p class="font-basic">재해로 2급 장해시 매월 <span class="provision">20년간 확정지급 2,000,000원</span></p>
+							<h3 class="h-tit3">재해장해공제금</h3>
+							<p class="font-basic">재해로 3~6급 장해시 <span class="provision">3,000,000~10,000,000</span></p>
+							<h3 class="h-tit3">만기공제금</h3>
+							<p class="font-basic">기납입 주계약공제료의 100%</p>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
+
+				<div class="insur-item show" data-type="all hospitalization mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">재해입원공제금</h2>
+						<div class="incur-price">30,000원</div>
+					</div>
+					<div class="insur-bottom">
+						<div class="insur-desc">
+							<ul class="list-dot">
+								<li>재해로 입원시 3일초과 1일단(120일 한도)</li>
+							</ul>
+						</div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div>
+				</div>
+
+				<div class="insur-item show" data-type="all surgery mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">재해수술공제금</h2>
+						<div class="incur-price">500,000원</div>
+					</div>
+					<!-- <div class="insur-bottom">
+						<div class="insur-desc"></div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div> -->
+				</div>
+
+				<h2 class="h-tit2 show" data-type="all mg fracture">재해골절특약</h2>
+				<div class="insur-item show" data-type="all fracture mg">
+					<div class="insur-top">
+						<span class="insur-company">MG새마을금고중앙회</span>
+						<h2 class="insur-tit">재해골절공제금</h2>
+						<div class="incur-price">300,000원</div>
+					</div>
+					<!-- <div class="insur-bottom">
+						<div class="insur-desc"></div>
+						<button type="button" class="btn-view">자세히 보기</button>
+					</div> -->
+				</div>
 			</div>
 			<!-- //MG새마을금고중앙회 -->
 		</div>
