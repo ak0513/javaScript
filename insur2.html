@@ -82,13 +82,19 @@
 			font-size:1.7rem;
 		}
 
-		.show .insur-item + .h-tit2.sticky,
-		.insur-item.show + .h-tit2.sticky {
-			margin-top: 5.0rem;
-		}
+		
 
 		.h-tit2.sticky + .h-tit2 {
 			margin-top: 1.0rem;
+		}
+
+		.insur-item:not(.show) + .h-tit2 {
+			margin-top: 1.0rem;
+		}
+
+		.show .insur-item + .h-tit2.sticky,
+		.insur-item.show + .h-tit2.sticky {
+			margin-top: 5.0rem !important;
 		}
 
 		.h-tit3 {
