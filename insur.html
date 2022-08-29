@@ -34,7 +34,7 @@
 			height: 100%;
 			color:#fff;
 			font-size: 1.6rem;
-			font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', "Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji,sans-serif";
+			font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR',"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji,sans-serif";
 		}
 
 		.color-white {color: #fff !important;}
@@ -76,10 +76,27 @@
 			z-index: 10;
 			margin:0;
 			padding: 1.5rem 0;
+			font-weight: 700;
+			font-size:1.7rem;
 		}
 
-		.h-tit2 + .h-tit2 {
+		.insur-item:not(.show) + .h-tit2.show {
 			margin-top: 1.0rem;
+		}
+
+		.h-tit2.sticky + .h-tit2 {
+			margin-top: 1.0rem;
+		}
+
+		.insur-item.show + .h-tit2.show {
+			margin-top: 3.0rem !important;
+		}
+
+		
+
+		.show ~ .insur-item + .h-tit2.sticky,
+		.insur-item.show + .h-tit2.sticky {
+			margin-top: 5.0rem !important;
 		}
 
 		.h-tit3 {
@@ -122,12 +139,12 @@
 		}
 
 		[class*='font-'] + .h-tit3,
-		[class*='list-'] + .h-tit3  {
+		[class*='list-'] + .h-tit3 {
 			margin-top: 2.0rem;
 			
 		}
 
-		[class*='list-']  {
+		[class*='list-'] {
 			margin-left: 2.0rem;
 		}
 
@@ -343,25 +360,25 @@
 
 	<div id="wrap">
 		<div class="h-wrap">
-			<h1 class="h-tit1 all show">전체</h1>
-			<h1 class="h-tit1 death">사망<!-- <span class="total">2,000</span> --></h1>
-			<h1 class="h-tit1 cancer">암</h1>
-			<h1 class="h-tit1 heart">심장</h1>
-			<h1 class="h-tit1 brain">뇌</h1>
-			<h1 class="h-tit1 surgery">수술비</h1>
-			<h1 class="h-tit1 hospitalization">입원비</h1>
-			<h1 class="h-tit1 medical">실손의료비</h1>
-			<h1 class="h-tit1 etc">기타</h1>
-			<h1 class="h-tit1 kyobo">교보생명</h1>
-			<h1 class="h-tit1 lotteins">롯데손해보험</h1>
-			<h1 class="h-tit1 mg">MG새마을금고중앙회</h1>
+			<h1 class="h-tit1 show" data-type="all">전체</h1>
+			<h1 class="h-tit1" data-type="death">사망<!-- <span class="total">2,000</span> --></h1>
+			<h1 class="h-tit1" data-type="cancer">암</h1>
+			<h1 class="h-tit1" data-type="heart">심장</h1>
+			<h1 class="h-tit1" data-type="brain">뇌</h1>
+			<h1 class="h-tit1" data-type="surgery">수술비</h1>
+			<h1 class="h-tit1" data-type="hospitalization">입원비</h1>
+			<h1 class="h-tit1" data-type="medical">실손의료비</h1>
+			<h1 class="h-tit1" data-type="etc">기타</h1>
+			<h1 class="h-tit1" data-type="kyobo">교보생명</h1>
+			<h1 class="h-tit1" data-type="lotteins">롯데손해보험</h1>
+			<h1 class="h-tit1" data-type="mg">MG새마을금고중앙회</h1>
 		</div>
 
 		<div class="insur">
 			<!-- 교보생명 -->
-			<h2 class="h-tit2 sticky all show">교보생명</h2>
-			<h2 class="h-tit2 all kyobo death show">주계약</h2>
-			<div class="insur-item all death kyobo kyobo1 show">
+			<h2 class="h-tit2 sticky show" data-type="all death hospitalization medical">교보생명</h2>
+			<h2 class="h-tit2 show" data-type="all kyobo death">주계약</h2>
+			<div class="insur-item show" data-type="all kyobo death">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">사망보험금</h2>
@@ -387,7 +404,7 @@
 				</div>
 			</div>
 			
-			<div class="insur-item all death kyobo kyobo2 show">
+			<div class="insur-item kyobo2 show" data-type="all kyobo death">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">진단보험금</h2>
@@ -408,8 +425,8 @@
 				</div>
 			</div>
 
-			<h2 class="h-tit2 all kyobo hospitalization show">암입원특약</h2>
-			<div class="insur-item all hospitalization kyobo show">
+			<h2 class="h-tit2 show" data-type="all kyobo hospitalization">암입원특약</h2>
+			<div class="insur-item show" data-type="all kyobo hospitalization">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">암 입원비</h2>
@@ -426,7 +443,7 @@
 				</div>
 			</div>
 			
-			<div class="insur-item all hospitalization kyobo show">
+			<div class="insur-item show" data-type="all kyobo hospitalization">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">기타피부암 입원비</h2>
@@ -443,7 +460,7 @@
 				</div>
 			</div>
 			
-			<div class="insur-item all hospitalization kyobo show">
+			<div class="insur-item show" data-type="all kyobo hospitalization">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">상피내암 입원비</h2>
@@ -460,7 +477,7 @@
 				</div>
 			</div>
 			
-			<div class="insur-item all hospitalization kyobo show">
+			<div class="insur-item show" data-type="all kyobo hospitalization">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">경계성종양 입원비</h2>
@@ -477,7 +494,7 @@
 				</div>
 			</div>
 			
-			<div class="insur-item all hospitalization kyobo show">
+			<div class="insur-item show" data-type="all kyobo hospitalization">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">갑상샘암 입원비</h2>
@@ -494,8 +511,8 @@
 				</div>
 			</div>
 
-			<h2 class="h-tit2 all kyobo medical show">실손의료비특약</h2>
-			<div class="insur-item all medical kyobo show">
+			<h2 class="h-tit2 show" data-type="all kyobo medical">실손의료비특약</h2>
+			<div class="insur-item show" data-type="all kyobo medical">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">입원의료비</h2>
@@ -529,7 +546,7 @@
 				</div>
 			</div>
 
-			<div class="insur-item all medical kyobo show">
+			<div class="insur-item show" data-type="all kyobo medical">
 				<div class="insur-top">
 					<span class="insur-company">교보생명</span>
 					<h2 class="insur-tit">통원의료비</h2>
@@ -561,9 +578,9 @@
 			<!-- //교보생명 -->
 
 			<!-- 롯데손해보험 -->
-			<h2 class="h-tit2 sticky all show">롯데손해보험</h2>
-			<h2 class="h-tit2 all lotteins show">사망</h2>
-			<div class="insur-item all death lotteins show">
+			<h2 class="h-tit2 sticky show" data-type="all death brain heart disability">롯데손해보험</h2>
+			<h2 class="h-tit2 show" data-type="all lotteins">사망</h2>
+			<div class="insur-item show" data-type="all lotteins death">
 				<div class="insur-top">
 					<span class="insur-company">롯데손해보험</span>
 					<h2 class="insur-tit">상해사망</h2>
@@ -575,7 +592,7 @@
 				</div>
 			</div>
 			
-			<div class="insur-item all death lotteins show">
+			<div class="insur-item show" data-type="all lotteins death">
 				<div class="insur-top">
 					<span class="insur-company">롯데손해보험</span>
 					<h2 class="insur-tit">질병사망</h2>
@@ -587,8 +604,8 @@
 				</div>
 			</div>
 
-			<h2 class="h-tit2 all lotteins brain show">뇌질환 진단비</h2>
-			<div class="insur-item all brain lotteins show">
+			<h2 class="h-tit2 show" data-type="all lotteins brain">뇌질환 진단비</h2>
+			<div class="insur-item show" data-type="all lotteins brain">
 				<div class="insur-top">
 					<span class="insur-company">롯데손해보험</span>
 					<h2 class="insur-tit">뇌혈관질환 진단비</h2>
@@ -600,8 +617,8 @@
 				</div>
 			</div>
 
-			<h2 class="h-tit2 all lotteins heart show">심장질환 진단비</h2>
-			<div class="insur-item all heart lotteins show">
+			<h2 class="h-tit2 show" data-type="all lotteins heart">심장질환 진단비</h2>
+			<div class="insur-item show" data-type="al lotteins heart">
 				<div class="insur-top">
 					<span class="insur-company">롯데손해보험</span>
 					<h2 class="insur-tit">허헐성심장질환 진단비</h2>
@@ -615,7 +632,7 @@
 				</div>
 			</div>
 
-			<div class="insur-item all heart lotteins show">
+			<div class="insur-item show" data-type="all lotteins heart">
 				<div class="insur-top">
 					<span class="insur-company">롯데손해보험</span>
 					<h2 class="insur-tit">허헐성심장질환 진단비Ⅲ</h2>
@@ -636,8 +653,8 @@
 				</div>
 			</div>
 
-			<h2 class="h-tit2 all lotteins disability show">후유장해</h2>
-			<div class="insur-item all disability lotteins show">
+			<h2 class="h-tit2 show" data-type="all lotteins disability">후유장해</h2>
+			<div class="insur-item show" data-type="all lotteins disability">
 				<div class="insur-top">
 					<span class="insur-company">롯데손해보험</span>
 					<h2 class="insur-tit">상해후유장해</h2>
@@ -649,7 +666,7 @@
 				</div>
 			</div>
 
-			<div class="insur-item all disability lotteins show">
+			<div class="insur-item show" data-type="all lotteins disability">
 				<div class="insur-top">
 					<span class="insur-company">롯데손해보험</span>
 					<h2 class="insur-tit">질병후유장해</h2>
@@ -663,10 +680,10 @@
 			<!-- //롯데손해보험 -->
 
 			<!-- MG새마을금고중앙회 -->
-			<h2 class="h-tit2 all show sticky">MG새마을금고중앙회</h2>
-			<h2 class="h-tit2 all mg cancer show">암 진단비</h2>
+			<h2 class="h-tit2 show sticky" data-type="all cancer hospitalization surgery disability fracture">MG새마을금고중앙회</h2>
+			<h2 class="h-tit2 show" data-type="all mg cancer">암 진단비</h2>
 
-			<div class="insur-item all cancer mg show">
+			<div class="insur-item show" data-type="all cancer mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">암 진단시</h2>
@@ -678,7 +695,7 @@
 				</div> -->
 			</div>
 
-			<div class="insur-item all cancer mg show">
+			<div class="insur-item show" data-type="all cancer mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">기타피부암 진단시</h2>
@@ -690,7 +707,7 @@
 				</div> -->
 			</div>
 
-			<div class="insur-item all cancer mg show">
+			<div class="insur-item show" data-type="all cancer mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">상피내암 진단시</h2>
@@ -702,7 +719,7 @@
 				</div> -->
 			</div>
 
-			<div class="insur-item all cancer mg show">
+			<div class="insur-item show" data-type="all cancer mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">경계성 종양 진단시</h2>
@@ -714,7 +731,7 @@
 				</div> -->
 			</div>
 
-			<div class="insur-item all cancer mg show">
+			<div class="insur-item show" data-type="all cancer mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">만기 생존시</h2>
@@ -726,8 +743,8 @@
 				</div> -->
 			</div>
 
-			<h2 class="h-tit2 all mg hospitalization surgery show">치료보장특약</h2>
-			<div class="insur-item all hospitalization mg show">
+			<h2 class="h-tit2 show" data-type="all mg hospitalization surgery death">치료보장특약</h2>
+			<div class="insur-item show" data-type="all hospitalization mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">입원급여금</h2>
@@ -743,7 +760,7 @@
 				</div>
 			</div>
 
-			<div class="insur-item all surgery mg show">
+			<div class="insur-item show" data-type="all surgery mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">수술급여금</h2>
@@ -759,7 +776,7 @@
 				</div>
 			</div>
 
-			<div class="insur-item all death disability mg show">
+			<div class="insur-item show" data-type="all death disability mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">재해사망공제금</h2>
@@ -780,7 +797,7 @@
 				</div>
 			</div>
 
-			<div class="insur-item all hospitalization mg show">
+			<div class="insur-item show" data-type="all hospitalization mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">재해입원공제금</h2>
@@ -796,7 +813,7 @@
 				</div>
 			</div>
 
-			<div class="insur-item all surgery mg show">
+			<div class="insur-item show" data-type="all surgery mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">재해수술공제금</h2>
@@ -808,8 +825,8 @@
 				</div> -->
 			</div>
 
-			<h2 class="h-tit2 all mg fracture show">재해골절특약</h2>
-			<div class="insur-item all fracture mg show">
+			<h2 class="h-tit2 show" data-type="all mg fracture">재해골절특약</h2>
+			<div class="insur-item show" data-type="all fracture mg">
 				<div class="insur-top">
 					<span class="insur-company">MG새마을금고중앙회</span>
 					<h2 class="insur-tit">재해골절공제금</h2>
@@ -867,17 +884,28 @@
 		var btnView = document.querySelectorAll('.btn-view');
 		var incurPrice = document.querySelectorAll('.incur-price');
 
-		function sort(ele) {
+		function sort(tar) {
 			var self = event.target; 
-			var ele = document.querySelectorAll('.' + ele);
 			removeClass(insurItem, 'show');
 			removeClass(insurTit, 'show');
 			removeClass(btnBottom, 'toggle');
-			for(var i = 0; i < ele.length; i++) {
-				ele[i].classList.add('show');
-			}
+			sortItem(insurItem, tar)
+			sortItem(insurTit, tar)
 			self.classList.add('toggle');
 			$('.insur').animate({scrollTop:0}, 400);
+		}
+
+		function sortItem(ele, tar) {
+			for(var i = 0; i < ele.length; i++) {
+				var dataType = ele[i].dataset.type;
+				console.log('dataType', dataType)
+				if(dataType.search(/\s/) != -1) {
+					dataType = dataType.split(' ')
+				}
+				if(dataType.indexOf(tar) > -1) {
+					ele[i].classList.add('show');
+				}
+			}
 		}
 
 		function removeClass(ele, className) {
