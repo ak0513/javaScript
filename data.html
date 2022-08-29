@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>data</title>
+</head>
+<body>
+	<style>
+		.h-tit1, .h-tit2{display:none;}
+		.h-tit1.show, .h-tit2.show{display:block;}
+		.insur-item {display:none;}
+		.insur-item.show {display: block;}
+	</style>
+	<div class="insur">
+		<h1 class="h-tit1" data-type="test">test</h1>
+		<h1 class="h-tit2" data-type="test1">test1</h1>
+		<div class="insur-item" data-type="test test1">
+			test test1
+		</div>
+		<div class="insur-item" data-type="test test2">
+			test test2
+		</div>
+		<div class="insur-item" data-type="test2 test3">
+			test2 test3
+		</div>
+	</div>
+
+	<div class="bottom-btn">
+		<button type="button" onclick="sort('test')" class="toggle">test</button>
+		<button type="button" onclick="sort('test1')" class="toggle">test1</button>
+		<button type="button" onclick="sort('test2')" class="toggle">test2</button>
+		<button type="button" onclick="sort('test3')" class="toggle">test3</button>
+	</div>
+
+	<script>
+		var btnBottom = document.querySelectorAll('.bottom-btn button');
+		var insurItem = document.querySelectorAll('.insur-item');
+		var insurTit = document.querySelectorAll('.h-tit1, .h-tit2');
+		
+		function sort(tar) {
+			var self = event.target; 
+			removeClass(insurItem, 'show');
+			removeClass(insurTit, 'show');
+			removeClass(btnBottom, 'toggle');
+			sortItem(insurItem, tar)
+			sortItem(insurTit, tar)
+			self.classList.add('toggle');
+			$('.insur').animate({scrollTop:0}, 400);
+		}
+
+		function sortItem(ele, tar) {
+			for(var i = 0; i < ele.length; i++) {
+				var dataType = ele[i].dataset.type;
+				console.log('dataType', dataType)
+				if(dataType.search(/\s/) != -1) {
+					dataType = dataType.split(' ')
+				}
+				if(dataType.indexOf(tar) > -1) {
+					ele[i].classList.add('show');
+				}
+			}
+		}
+
+		function removeClass(ele, className) {
+			for(var i = 0; i < ele.length; i++) {
+				ele[i].classList.remove(className)
+			}
+		}
+	</script>
+</body>
+</html>
