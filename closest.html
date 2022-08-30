@@ -5,110 +5,112 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
 	<title>Document</title>
 </head>
 <body>
 	
-
-	https://blog.jiniworld.me/75
-	<div class="form1 b">
-		<div class="form a">
-			<div class="aa 1">
-				<div class="aa 2">
-					<div class="aa 3">
-						<div class="bb">
-							<div class="cc">
-								<div id="btn_modify">dfsdF</div>
+	<div id="wrap">
+		https://blog.jiniworld.me/75
+		<div class="form1 b">
+			<div class="form a">
+				<div class="aa 1">
+					<div class="aa 2">
+						<div class="aa 3">
+							<div class="bb">
+								<div class="cc">
+									<div id="btn_modify">dfsdF</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<script>
-		var p = document.querySelector('.form1');
-		var c = p.querySelector('.cc');
-		c.classList.add('on')
-		console.log(p)
-		console.log(c)
-		//첫번째 부모 요소 찾기
-		function closest(el, selector) {
-			const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+		<script>
+			var p = document.querySelector('.form1');
+			var c = p.querySelector('.cc');
+			c.classList.add('on')
+			console.log(p)
+			console.log(c)
+			//첫번째 부모 요소 찾기
+			function closest(el, selector) {
+				const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
 
-			while (el) {
-				if (matchesSelector.call(el, selector)) {
-				return el;
-				} else {
-				el = el.parentElement;
+				while (el) {
+					if (matchesSelector.call(el, selector)) {
+					return el;
+					} else {
+					el = el.parentElement;
+					}
 				}
+				return null;
 			}
-			return null;
-		}
 
-		var aa = closest(document.getElementById('btn_modify'), '.form'); // Vanilla JS (IE 10+)
-		console.log('aa', aa)
-		console.log('closest', document.getElementById('btn_modify').closest('.form'));
+			var aa = closest(document.getElementById('btn_modify'), '.form'); // Vanilla JS (IE 10+)
+			console.log('aa', aa)
+			console.log('closest', document.getElementById('btn_modify').closest('.form'));
 
 
 
 
-		function parentsUntil(el, selector, filter) {
-			const result = [];
-			const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+			function parentsUntil(el, selector, filter) {
+				const result = [];
+				const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
 
-			// match start from parent
-			el = el.parentElement;
-			while (el && !matchesSelector.call(el, selector)) {
-				if (!filter) {
-				result.push(el);
-				} else {
-				if (matchesSelector.call(el, filter)) {
+				// match start from parent
+				el = el.parentElement;
+				while (el && !matchesSelector.call(el, selector)) {
+					if (!filter) {
 					result.push(el);
+					} else {
+					if (matchesSelector.call(el, filter)) {
+						result.push(el);
+					}
+					}
+					el = el.parentElement;
 				}
+				return result;
 				}
-				el = el.parentElement;
+
+				var bb = parentsUntil(document.getElementById('btn_modify'), '.form');
+				console.log(bb)
+
+				var cc = parentsUntil(document.getElementById('btn_modify'), '.form', '.cc');
+				// console.log(cc)
+
+		</script>
+
+
+	형제 요소 찾기
+	<div id="menu">
+		<div class="menu1 aa">menu1</div>
+		<div class="menu2 aa">menu2</div>
+		<div id="menu-2" class="aa">menu-2</div>
+		<div class="menu4 aa">menu4</div>
+		<div class="menu5 aa">menu5</div>
+	</div>
+	<script>
+		// var siblings2 = [...document.getElementById('menu-2').parentNode.children].filter((child) =>
+		// 	child !== document.getElementById('menu-2')
+		// ); // Vanilla JS, Edge13+
+		// console.log(siblings2)
+		// for(var i = 0; i < siblings2.length; i++) {
+		// 	siblings2[i].classList.add('aa')
+		// }
+
+		
+		var bb = siblings('.menu4')
+		console.log('bb', bb);
+
+		removeClass(bb, 'aa')
+		function removeClass(ele, className) {
+			for(var i = 0; i < ele.length; i++) {
+				ele[i].classList.remove(className)
 			}
-			return result;
-			}
-
-			var bb = parentsUntil(document.getElementById('btn_modify'), '.form');
-			console.log(bb)
-
-			var cc = parentsUntil(document.getElementById('btn_modify'), '.form', '.cc');
-			// console.log(cc)
-
-	</script>
-
-
-형제 요소 찾기
-<div id="menu">
-	<div class="menu1 aa">menu1</div>
-	<div class="menu2 aa">menu2</div>
-	<div id="menu-2" class="aa">menu-2</div>
-	<div class="menu4 aa">menu4</div>
-	<div class="menu5 aa">menu5</div>
-</div>
-<script>
-	// var siblings2 = [...document.getElementById('menu-2').parentNode.children].filter((child) =>
-	// 	child !== document.getElementById('menu-2')
-	// ); // Vanilla JS, Edge13+
-	// console.log(siblings2)
-	// for(var i = 0; i < siblings2.length; i++) {
-	// 	siblings2[i].classList.add('aa')
-	// }
-
-	
-	var bb = siblings('.menu4')
-	console.log('bb', bb);
-
-	removeClass(bb, 'aa')
-	function removeClass(ele, className) {
-		for(var i = 0; i < ele.length; i++) {
-			ele[i].classList.remove(className)
 		}
-	}
-</script>
+	</script>
+	</div>
 </body>
 </html>
