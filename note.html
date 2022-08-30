@@ -4,44 +4,30 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
 	<title>Note</title>
 </head>
 <body>
 	<style>
-		*, *::before,*::after{
-			margin:0;
-			padding:0;
-			box-sizing: border-box;
-			word-break: keep-all;
-			word-wrap: break-word;
+		.note {
+			padding-top:2.0rem;
 		}
-
-		html {
-			font-size: 62.5%;
-			font-family: sans-serif;
-			line-height: 1.15;
-			-webkit-text-size-adjust: 100%;
-			height: 100%;
-			overflow: hidden;
-		}
-
-
-		body {
-			background-color: #1c1c1e;
-			height: 100%;
-			color:#fff;
-			font-size: 1.6rem;
-			font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR',"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji,sans-serif";
-		}
-
-		a {
-			color: #fff;
-			text-decoration: none;
-		}
-
-
 		.note-tit {
+			padding:0 1.5rem;
+			font-size: 2.4rem;
+		}
+
+		.note-item-tit {
 			font-size: 1.8rem;
+		}
+
+		.note-item {
+			margin-top: 1.0rem;
+		}
+
+		.note-item:first-of-type {
+			border-top: 1px dashed #555;
 		}
 
 		.note-desc {
@@ -57,9 +43,10 @@
 	</style>
 	<h1 hidden>Note</h1>
 	<div class="note">
+		<h2 class="note-tit">Js</h2>
 		<div class="note-item">
 			<a href="https://ak0513.github.io/javaScript/closest.html" class="note-link" target="_blank" title="새창이동">
-				<h2 class="note-tit">closest</h2>
+				<h3 class="note-item-tit">closest</h3>
 				<p class="note-desc">첫번째 부모 요소 찾기</p>
 			</a>
 		</div>
