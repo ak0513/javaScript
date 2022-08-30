@@ -4,12 +4,14 @@ window.onload = function() {
 
 }
 
+// class 삭제
 function removeClass(ele, className) {
 	for(var i = 0; i < ele.length; i++) {
 		ele[i].classList.remove(className)
 	}
 }
 
+// 형제요소 찾기
 function siblings(ele) {
 	var siblings = [...document.querySelector(ele).parentNode.children].filter((child) =>
 		child !== document.querySelector(ele)
