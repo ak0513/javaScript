@@ -19,12 +19,12 @@ html {
 body {
 	background-color: #1c1c1c;
 	height: 100%;
-	color:#fff;
 	font-size: 1.6rem;
 	font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR',"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji,sans-serif";
+	color: #969696;
 }
 
 a {
-	color: #fff;
+	color: #969696;
 	text-decoration: none;
 }
