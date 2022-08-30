@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
 	<title>Document</title>
 </head>
 <body>
@@ -47,7 +48,8 @@
 		}
 
 		var aa = closest(document.getElementById('btn_modify'), '.form'); // Vanilla JS (IE 10+)
-		// console.log(aa)
+		console.log('aa', aa)
+		console.log('closest', document.getElementById('btn_modify').closest('.form'));
 
 
 
@@ -97,14 +99,9 @@
 	// 	siblings2[i].classList.add('aa')
 	// }
 
-	var siblings = function(ele) {
-		var siblings = [...document.querySelector(ele).parentNode.children].filter((child) =>
-			child !== document.querySelector(ele)
-		)
-		return siblings
-	}
+	
 	var bb = siblings('.menu4')
-	// console.log(bb);
+	console.log('bb', bb);
 
 	removeClass(bb, 'aa')
 	function removeClass(ele, className) {
