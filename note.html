@@ -39,9 +39,6 @@
 			text-decoration: none;
 		}
 
-		.note {
-			padding: 2.0rem;
-		}
 
 		.note-tit {
 			font-size: 1.8rem;
@@ -49,12 +46,19 @@
 
 		.note-desc {
 			margin-top: 0.5rem;
+			color: #969696;
+		}
+
+		.note-link {
+			display: block;
+			padding: 1.5rem;
+			border-bottom: 1px dashed #555;
 		}
 	</style>
-	<h1>Note</h1>
+	<h1 hidden>Note</h1>
 	<div class="note">
 		<div class="note-item">
-			<a href="https://ak0513.github.io/javaScript/closest.html" class="note-link">
+			<a href="https://ak0513.github.io/javaScript/closest.html" class="note-link" target="_blank" title="새창이동">
 				<h2 class="note-tit">closest</h2>
 				<p class="note-desc">첫번째 부모 요소 찾기</p>
 			</a>
