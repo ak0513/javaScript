@@ -14,7 +14,7 @@
 				<div class="autoComplete_wrap ac2022 is_visible">
 					<div class="ac_scroll">
 						<div class="ac_scroll_inner">
-							1가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>
+							2가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>
 						</div>
 					</div>
 					<div class="ac_option">하단바</div>
@@ -23,12 +23,14 @@
 		</div>
 	</div>
 	<style>
-		#quickSrch{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;width:100%;}
-		/* .quickSrch_inner{width:100%;height:100%;display:flex;flex-direction: column;max-height:100%;} */
+		*{box-sizing: border-box;margin:0;padding:0;}
+		#quickSrch{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;}
+		.quickSrch_inner{width:100%;}
 		.srch_input_wrap {flex:none;height:50px;background-color: blueviolet;color:#fff;}
 		
 
-		.quickSrch {display:flex;flex-direction: column;height:100%;}
+		.quickSrch {    display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;width: 100% !important;margin: auto;padding: 0 20px;}
+		.quickSrch{height: 100%;}
 
 		.autoComplete_wrap {flex-grow:1;display: flex;flex-direction: column;height:calc(100% - 50px)}
 		.ac_scroll{overflow-y: auto;flex:1 1 auto;}
