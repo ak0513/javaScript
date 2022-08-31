@@ -165,46 +165,7 @@
 					<button type="button" class="quickSrch_close" title="빠른검색 닫기" data-plugin-click="srch.close()"><span>닫기</span></button>
 				</div>
 
-				<script>
-					// 최근검색어 스와이퍼
-					var autoCompleteSwiper = new Swiper('.autoComplete_swiper .swiper-container', {
-						autoplay: false,
-						slidesPerView: 'auto',
-						navigation: {
-							nextEl: '.autoComplete_swiper .nav-button-next',
-							prevEl: '.autoComplete_swiper .nav-button-prev',
-						},
-						watchSlidesVisibility: true,
-						on: {
-							init: function () {
-								ui.swiperAccess($('.autoComplete_swiper .swiper-container'), 'auto');
-							},
-							slideChangeTransitionStart: function () {
-								ui.swiperAccess($('.autoComplete_swiper .swiper-container'), 'auto');
-							},
-							resize: function () {
-								ui.swiperAccess($('.autoComplete_swiper .swiper-container'), 'auto');
-							},
-						},
-						touchRatio:0,
-						observer: true,
-						obsereParents: true,
-						breakpoints: {
-							1100: {
-								touchRatio:1,
-							}
-						},
-					});
 				
-					$(window).on('resize', function() {
-						if ($(window).width() > 1100) {
-							autoCompleteSwiper.slideTo(0, 0)
-						}
-					});
-					$('#query, #mainSearch_mo, #totalSrchQuck').on('click',function() {
-						window.dispatchEvent(new Event('resize'));
-					})
-				</script>	
 			</div>
 		</div>
 		<div class="quickSrch_dimmer is_active" aria-hidden="true"></div>
@@ -216,5 +177,10 @@
 		.autoComplete_wrap.ac2022 .ac_option {position:absolute;bottom:0;left:0;right:0;}
 		.quickSrch_wrap .quickSrch {display: block !important;}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		alert($('html').attr('class'));
+		alert($('body').attr('class'));
+	</script>
 </body>
 </html>
