@@ -20,7 +20,7 @@
 				<div class="srch_input_wrap t1">
 					<button type="button" class="btn_back" data-plugin-click="srch.close()"><span>뒤로가기</span></button>
 					<label for="totalSrchQuck" class="label_srch" style="display: none;"><i class="ico_srch">검색</i></label>
-					<input type="text" id="totalSrchQuck" placeholder="메뉴, 카드, 이벤트 검색" class="js_autoComplete set_AutoComplete active" maxlength="200" autocomplete="off" style="padding-left: 10px;">
+					<input type="text" id="totalSrchQuck" placeholder="메뉴, 카드, 이벤트 검색1" class="js_autoComplete set_AutoComplete active" maxlength="200" autocomplete="off" style="padding-left: 10px;">
 					<button type="button" class="srch_ico" style="">검색</button>
 					<button type="button" class="btn_clear hide"><span>삭제</span></button>
 					<span class="line" aria-hidden="true"></span>
@@ -211,10 +211,8 @@
 	</div>
 
 	<style>
-		.autoComplete_wrap.ac2022 .ac_scroll {
-			display: flex;
-			flex-direction: column;
-		}
+		.quickSrch .autoComplete_wrap {padding-bottom:50px;}
+		.autoComplete_wrap.ac2022 .ac_option {position:absolute;bottom:0;left:0;right:0;}
 	</style>
 </body>
 </html>
