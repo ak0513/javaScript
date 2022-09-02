@@ -13,6 +13,9 @@ function removeClass(ele, className) {
 
 // 형제요소 찾기
 function siblings(ele) {
+	if(typeof(ele) === 'string') {
+		ele = document.querySelector(ele)
+	}
 	var siblings = [...ele.parentNode.children].filter((child) =>
 		child !== ele
 	)
