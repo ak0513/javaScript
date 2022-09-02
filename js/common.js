@@ -13,8 +13,8 @@ function removeClass(ele, className) {
 
 // 형제요소 찾기
 function siblings(ele) {
-	var siblings = [...document.querySelector(ele).parentNode.children].filter((child) =>
-		child !== document.querySelector(ele)
+	var siblings = [...ele.parentNode.children].filter((child) =>
+		child !== ele
 	)
 	return siblings
 }

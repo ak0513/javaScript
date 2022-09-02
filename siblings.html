@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+	<title>siblings</title>
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			<style>
+				[class*='siblings-ul'] .on,
+				[class*='siblings-ul'].on {
+					color: #fff;
+				}
+			</style>
+
+			<h2 class="h-tit1">형제요소 찾기</h2>
+			<ul class="siblings-ul">
+				<li>siblings</li>
+				<li>siblings</li>
+				<li>siblings</li>
+				<li>siblings</li>
+			</ul>
+
+			<ul class="siblings-ul">
+				<li>siblings2</li>
+				<li>siblings2</li>
+				<li>siblings2</li>
+				<li>siblings2</li>
+			</ul>
+
+			<div class="btn-wrap">
+				<button type="button" class="btn btn-siblings">siblings</button>
+			</div>
+
+
+			<script>
+				var siblingsEle = document.querySelectorAll('.siblings-ul li');
+				for(var i = 0; i < siblingsEle.length; i++) {
+					siblingsEle[i].addEventListener('click', function() {
+						var ele = event.target;
+						var siblingsEle2 = siblings(ele);
+						removeClass(siblingsEle2, 'on');
+						ele.classList.add('on')
+					})
+				}
+			</script>
+		</div>
+	</div>
+</body>
+</html>
