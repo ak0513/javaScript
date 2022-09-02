@@ -80,6 +80,7 @@ ol + ol {
 	border-radius: 0.3rem;
 	background-color: #fff;
 	font-size: 1.4rem;
+	color: #111;
 }
 
 .btn + .btn {
