@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+	<title>removeClass</title>
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			<style>
+				[class*='removeClass-ul'] .on,
+				[class*='removeClass-ul'].on {
+					color: #fff;
+				}
+			</style>
+			
+			<h2 class="h-tit1">대상이 하나인 경우</h2>
+			<ul class="removeClass-ul on">
+				<li>removeClass</li>
+				<li>removeClass</li>
+				<li>removeClass</li>
+				<li>removeClass</li>
+			</ul>
+
+			<h2 class="h-tit1">대상이 여러개인 경우</h2>
+			<ul class="removeClass-ul2">
+				<li class="on">removeClass</li>
+				<li class="on">removeClass</li>
+				<li class="on">removeClass</li>
+				<li class="on">removeClass</li>
+			</ul>
+
+			<h2 class="h-tit1">형제 요소인 경우</h2>
+			<ul class="removeClass-ul3">
+				<li class="on">removeClass</li>
+				<li class="on a">removeClass</li>
+				<li class="on">removeClass</li>
+				<li class="on">removeClass</li>
+			</ul>
+
+			<div class="btn-wrap">
+				<button type="button" class="btn btn-removeClass">removeClass</button>
+				<button type="button" class="btn btn-removeClass2">removeClass2</button>
+				<button type="button" class="btn btn-removeClass3">removeClass3</button>
+			</div>
+
+
+			<script>
+				var removeClassEle = document.querySelectorAll('.removeClass-ul');
+				document.querySelector('.btn-removeClass').addEventListener('click', function() {
+					removeClass(removeClassEle, 'on')
+				});
+
+
+				var removeClassEle2 = document.querySelectorAll('.removeClass-ul2 li');
+				document.querySelector('.btn-removeClass2').addEventListener('click', function() {
+					removeClass(removeClassEle2, 'on')
+				});
+
+
+				var removeClassEle3Siblings = siblings('.removeClass-ul3 .a');
+				document.querySelector('.btn-removeClass3').addEventListener('click', function() {
+					removeClass(removeClassEle3Siblings, 'on')
+				});
+			</script>
+		</div>
+		
+	</div>
+</body>
+</html>

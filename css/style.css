@@ -29,6 +29,59 @@ a {
 	text-decoration: none;
 }
 
+button {
+	background-color: transparent;
+	border: none;
+	font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR',"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji,sans-serif";
+	cursor: pointer;
+}
+
+ul, ol {
+	margin-left: 2.0rem;
+}
+
+ul + ul,
+ul + ol,
+ol + ul,
+ol + ol {
+	margin-top: 1.0rem;
+}
+
 #wrap {
 	padding: 2.0rem;
+}
+
+[class*='h-tit'] {
+	color: #fff;
+}
+
+/* 타이틀 */
+.h-tit1 {
+	margin-top: 2.0rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.8rem;
+	font-weight: 400;
+}
+
+
+
+/* 버튼 */
+.btn-wrap {
+	display: flex;
+	margin-top: 2.0rem;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #000;
+	padding: 0.8rem 1.5rem 0.9rem;
+	border-radius: 0.3rem;
+	background-color: #fff;
+	font-size: 1.4rem;
+}
+
+.btn + .btn {
+	margin-left: 0.5rem;
 }
