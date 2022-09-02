@@ -35,14 +35,15 @@
 
 			<script>
 				var siblingsEle = document.querySelectorAll('.siblings-ul li');
-				for(var i = 0; i < siblingsEle.length; i++) {
-					siblingsEle[i].addEventListener('click', function() {
+
+				siblingsEle.forEach(function(ele, index) {
+					ele.addEventListener('click', function() {
 						var ele = event.target;
 						var siblingsEle2 = siblings(ele);
 						removeClass(siblingsEle2, 'on');
 						ele.classList.add('on')
 					})
-				}
+				})
 			</script>
 		</div>
 	</div>
