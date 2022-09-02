@@ -36,7 +36,7 @@
 			<script>
 				var siblingsEle = document.querySelectorAll('.siblings-ul li');
 
-				siblingsEle.forEach(function(ele, index) {
+				siblingsEle.forEach(function(ele) {
 					ele.addEventListener('click', function() {
 						var ele = event.target;
 						var siblingsEle2 = siblings(ele);
