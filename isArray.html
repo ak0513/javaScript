@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+	<title>isArray</title>
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			<div>
+				console.log(Array.isArray([]))<br>
+				// true<br><br>
+
+				console.log(Array.isArray({}))<br>
+				// false<br><br>
+
+				console.log(Array.isArray(new Date()))<br>
+				// false<br><br>
+
+				console.log(Array.isArray(''))<br>
+				// false<br><br>
+
+				console.log(Array.isArray(null))<br>
+				// false<br><br>
+
+				console.log(Array.isArray(123))<br>
+				// false
+			</div>
+
+			<script>
+				console.log(Array.isArray([]))
+				// true
+
+				console.log(Array.isArray({}))
+				// false
+
+				console.log(Array.isArray(new Date()))
+				// false
+
+				console.log(Array.isArray(''))
+				// false
+
+				console.log(Array.isArray(null))
+				// false
+
+				console.log(Array.isArray(123))
+				// false
+			</script>
+		</div>
+	</div>
+</body>
+</html>
