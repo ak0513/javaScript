@@ -44,6 +44,13 @@
 					Opera: function () {return ua.match(/opera mini/i) == null ? false : true;},
 					Windows: function () {return ua.match(/windows/i) == null ? false : true;},
 
+					edge: function () {return ua.match(/edge|edg/i) == null ? false : true;},
+					opera: function () {return ua.match(/opr/i) == null ? false : true;},
+					chrome: function () {return ua.match(/chrome/i) == null ? false : true;},
+					msie: function () {return ua.match(/trident/i) == null ? false : true;},
+					firefox: function () {return ua.match(/firefox/i) == null ? false : true;},
+					safari: function () {return ua.match(/safari/i) == null ? false : true;},
+
 					tabletPro: function () {return $('body').hasClass('tabletPro')},
 					any: function () {return (userAgent.Android() || userAgent.BlackBerry() || userAgent.iOS() || userAgent.Opera() || userAgent.Windows())},
 
@@ -58,16 +65,13 @@
 					mobile : userAgent.isMobile(),
 				}
 
-				// 모바일 체크
-				// var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent);
-
 				// OS 체크
 				var osName = (function() {
 					switch(true) {
-						case userAgent.iOS() === true : return deviceInfo.os = 'os_ios';
-						case userAgent.Android() === true : return deviceInfo.os = 'os_android';
-						case userAgent.BlackBerry() === true : return deviceInfo.os = 'os_blackBerry';
-						case userAgent.Windows() === true : return deviceInfo.os = 'os_windows';
+						case userAgent.iOS() : return deviceInfo.os = 'os_ios';
+						case userAgent.Android() : return deviceInfo.os = 'os_android';
+						case userAgent.BlackBerry() : return deviceInfo.os = 'os_blackBerry';
+						case userAgent.Windows() : return deviceInfo.os = 'os_windows';
 						default: return "other-os";
 					}
 				})();
@@ -75,25 +79,24 @@
 				// 디바이스 체크
 				var deviceName = (function() {
 					switch(true) {
-						case userAgent.IOSPhone() === true : return deviceInfo.device = 'iPhone';
-						case userAgent.IOSPad() === true : return deviceInfo.device = 'iPad';
+						case userAgent.IOSPhone() : return deviceInfo.device = 'iPhone';
+						case userAgent.IOSPad() : return deviceInfo.device = 'iPad';
 						default: return "other-device";
 					}
 				})();
 
 				// 브라우저 체크
-				var browserName = (function(agent) {
+				var browserName = (function() {
 					switch(true) {
-						case agent.indexOf("edge") > -1: return deviceInfo.browser = "edge";
-						case agent.indexOf("edg/") > -1: return deviceInfo.browser = "edge";
-						case agent.indexOf("opr") > -1 && !!window.opr: return deviceInfo.browser = "opera"
-						case agent.indexOf("chrome") > -1 && !!window.chrome: return deviceInfo.browser = "chrome";
-						case agent.indexOf("trident") > -1: return deviceInfo.browser = "msie"
-						case agent.indexOf("firefox") > -1: return deviceInfo.browser = "firefox";
-						case agent.indexOf("safari") > -1: return deviceInfo.browser = "safari";
+						case userAgent.edge() : return deviceInfo.browser = "edge";
+						case userAgent.opera() && !!window.opr: return deviceInfo.browser = "opera"
+						case userAgent.chrome() && !!window.chrome: return deviceInfo.browser = "chrome";
+						case userAgent.msie() : return deviceInfo.browser = "msie"
+						case userAgent.firefox() : return deviceInfo.browser = "firefox";
+						case userAgent.safari() : return deviceInfo.browser = "safari";
 						default: return "other-browser";
 					}
-				})(ua);
+				})();
 
 
 
