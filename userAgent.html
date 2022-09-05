@@ -69,7 +69,7 @@
 						case userAgent.Android() : return deviceInfo.os = 'os_android';
 						case userAgent.BlackBerry() : return deviceInfo.os = 'os_blackBerry';
 						case userAgent.Windows() : return deviceInfo.os = 'os_windows';
-						default: return "other-os";
+						default : return "other-os";
 					}
 				})();
 
@@ -78,7 +78,7 @@
 					switch(true) {
 						case userAgent.iPhone() : return deviceInfo.device = 'iphone';
 						case userAgent.iPad() : return deviceInfo.device = 'ipad';
-						default: return "other-device";
+						default : return "other-device";
 					}
 				})();
 
@@ -91,16 +91,13 @@
 						case userAgent.msie() : return deviceInfo.browser = "msie"
 						case userAgent.firefox() : return deviceInfo.browser = "firefox";
 						case userAgent.safari() : return deviceInfo.browser = "safari";
-						default: return "other-browser";
+						default : return "other-browser";
 					}
 				})();
 
 				// pc mobile 체크
 				var setPlatform = deviceInfo.mobile ? 'mobile' : 'pc';
-			
-				
 				var bodyClass = setPlatform + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device;
-
 				body.setAttribute('class', bodyClass)
 
 
