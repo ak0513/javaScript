@@ -42,11 +42,14 @@
 				
 				// 모바일인 경우 true
 				var isMobile = /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
-				
-				// os 체크
+
+				// 디바이스 체크
 				var isIphone = ua.indexOf('iphone') > -1;
-				var isIPad = ua.indexOf('ipad') > -1;
-				var isIPod = ua.indexOf('ipod') > -1;
+				var isIpad = ua.indexOf('ipad') > -1;
+				var isIpod = ua.indexOf('ipod') > -1;
+
+				// os 체크
+				var isIos = isIphone || isIpad || isIpod;
 				var isAndroid = ua.indexOf('android') > -1;
 
 
@@ -55,17 +58,17 @@
 					deviceInfo.mobile = true;
 					body.classList.add('mobile');
 					 
-					if(isIphone || isIPad || isIPod) {// ios 면
+					if(isIos) {// ios 면
 						deviceInfo.os = 'ios';
 						body.classList.add('ios');
 						// iPhone 이면
 						if(isIphone) {
 							deviceInfo.device = 'iPhone';
 							body.classList.add('iphone');
-						} else if(isIPad) {
+						} else if(isIpad) {
 							deviceInfo.device = 'iPad';
 							body.classList.add('ipad')
-						} else if(isIPod) {
+						} else if(isIpod) {
 							deviceInfo.device = 'iPod';
 							body.classList.add('ipod')
 						}
