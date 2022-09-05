@@ -11,13 +11,81 @@
 <body>
 	<div id="wrap">
 		<div id="container">
-			
+			<h2 class="h-tit1">navigator.userAgent</h2>
+			<div id="ua"></div>
+
+			<h2 class="h-tit1">body class</h2>
+			<div id="bodyClass"></div>
+
+			<h2 class="h-tit1">browser</h2>
+			<div id="browser"></div>
+
+			<h2 class="h-tit1">mobile</h2>
+			<div id="mobile"></div>
+
+			<h2 class="h-tit1">os</h2>
+			<div id="os"></div>
+
+			<h2 class="h-tit1">device</h2>
+			<div id="device"></div>
+
 			<script>
+				var deviceInfo = {
+					browser : null,
+					mobile : false,
+					os: null,
+					device: null,
+				}
+
+				var body = document.querySelector('body');
 				var ua = navigator.userAgent.toLowerCase();
+				
+				// 모바일인 경우 true
+				var isMobile = /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+				
+				// os 체크
+				var isIphone = ua.indexOf('iphone') > -1;
+				var isIPad = ua.indexOf('ipad') > -1;
+				var isIPod = ua.indexOf('ipod') > -1;
+				var isAndroid = ua.indexOf('android') > -1;
+
 
 				
+				if(isMobile) {// mobile 이면
+					deviceInfo.mobile = true;
+					body.classList.add('mobile');
+					 
+					if(isIphone || isIPad || isIPod) {// ios 면
+						deviceInfo.os = 'ios';
+						body.classList.add('ios');
+						// iPhone 이면
+						if(isIphone) {
+							deviceInfo.device = 'iPhone';
+							body.classList.add('iphone');
+						} else if(isIPad) {
+							deviceInfo.device = 'iPad';
+							body.classList.add('ipad')
+						} else if(isIPod) {
+							deviceInfo.device = 'iPod';
+							body.classList.add('ipod')
+						}
+					} else if(isAndroid) { // android 이면
+						deviceInfo.os = 'android';
+						body.classList.add('android')
+					}
+				} else { // mobile이 아니면
+					body.classList.add('pc');
+				}
 
-				document.write(ua)
+				// 바디 클래스
+				document.getElementById('bodyClass').innerText = body.getAttribute('class');
+				document.getElementById('browser').innerText = deviceInfo.browser;
+				document.getElementById('mobile').innerText = deviceInfo.mobile;
+				document.getElementById('os').innerText = deviceInfo.os;
+				document.getElementById('device').innerText = deviceInfo.device;
+
+
+				console.log(ua)
 			</script>
 		</div>
 	</div>
