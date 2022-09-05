@@ -29,6 +29,7 @@
 			<h2 class="h-tit1">device</h2>
 			<div id="device"></div>
 
+			
 			<script>
 				var body = document.querySelector('body');
 				var ua = navigator.userAgent.toLowerCase();
@@ -52,50 +53,48 @@
 
 				var deviceInfo = {
 					os: null,
+					device: null,
 					browser : null,
 					mobile : userAgent.isMobile(),
-					device: null,
 				}
 
 				// 모바일 체크
 				// var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent);
 
 				// OS 체크
-				if(userAgent.iOS()) { // ios
-					deviceInfo.os = 'os_ios';
-				} else if(userAgent.Android()) { // android
-					deviceInfo.os = 'os_android';
-				} else if(userAgent.BlackBerry()) { // BlackBerry
-					deviceInfo.os = 'os_blackBerry';
-				} else if(userAgent.Windows()) { // Windows
-					deviceInfo.os = 'os_windows';
-				}
+				var osName = (function() {
+					switch(true) {
+						case userAgent.iOS() === true : return deviceInfo.os = 'os_ios';
+						case userAgent.Android() === true : return deviceInfo.os = 'os_android';
+						case userAgent.BlackBerry() === true : return deviceInfo.os = 'os_blackBerry';
+						case userAgent.Windows() === true : return deviceInfo.os = 'os_windows';
+						default: return "other-os";
+					}
+				})();
 
 				// 디바이스 체크
-				if(userAgent.IOSPhone()) { // iPhone
-					deviceInfo.device = 'iPhone';
-				} else if(userAgent.IOSPad()) { // iPad
-					deviceInfo.device = 'iPad';
-				}
+				var deviceName = (function() {
+					switch(true) {
+						case userAgent.IOSPhone() === true : return deviceInfo.device = 'iPhone';
+						case userAgent.IOSPad() === true : return deviceInfo.device = 'iPad';
+						default: return "other-device";
+					}
+				})();
 
 				// 브라우저 체크
-				if(ua.match(/chrome|chromium|crios/i)){
-					deviceInfo.browser = "chrome";
-				}else if(ua.match(/firefox|fxios/i)){
-					deviceInfo.browser = "firefox";
-				}  else if(ua.match(/safari/i)){
-					deviceInfo.browser = "safari";
-				}else if(ua.match(/opr\//i)){
-					deviceInfo.browser = "opera";
-				} else if(ua.match(/edg/i)){
-					deviceInfo.browser = "edge";
-				}else{
-					deviceInfo.browser="No browser detection";
-				}
-		
-				
+				var browserName = (function(agent) {
+					switch(true) {
+						case agent.indexOf("edge") > -1: return deviceInfo.browser = "edge";
+						case agent.indexOf("edg/") > -1: return deviceInfo.browser = "edge";
+						case agent.indexOf("opr") > -1 && !!window.opr: return deviceInfo.browser = "opera"
+						case agent.indexOf("chrome") > -1 && !!window.chrome: return deviceInfo.browser = "chrome";
+						case agent.indexOf("trident") > -1: return deviceInfo.browser = "msie"
+						case agent.indexOf("firefox") > -1: return deviceInfo.browser = "firefox";
+						case agent.indexOf("safari") > -1: return deviceInfo.browser = "safari";
+						default: return "other-browser";
+					}
+				})(ua);
 
-				
 
 
 
