@@ -36,23 +36,23 @@
 				
 				// 모바일 체크
 				var userAgent = {
-					BlackBerry: function () {return ua.match(/blackberry/i) == null ? false : true;},
-					Android: function () {return ua.match(/android/i) == null ? false : true;},
-					iOS: function () {return ua.match(/iphone|ipad|ipod/i) == null ? false : true;},
-					iPhone: function () {return ua.match(/iphone/i) == null ? false : true;},
-					iPad: function () {return ua.match(/ipad/i) == null ? false : true;},
-					Windows: function () {return ua.match(/windows/i) == null ? false : true;},
+					BlackBerry: function () {return ua.match(/blackberry/i) === null ? false : true;},
+					Android: function () {return ua.match(/android/i) === null ? false : true;},
+					iOS: function () {return ua.match(/iphone|ipad|ipod/i) === null ? false : true;},
+					iPhone: function () {return ua.match(/iphone/i) === null ? false : true;},
+					iPad: function () {return ua.match(/ipad/i) === null ? false : true;},
+					Windows: function () {return ua.match(/windows/i) === null ? false : true;},
 
-					edge: function () {return ua.match(/edge|edg/i) == null ? false : true;},
-					opera: function () {return ua.match(/opr/i) == null ? false : true;},
-					chrome: function () {return ua.match(/chrome/i) == null ? false : true;},
-					msie: function () {return ua.match(/trident/i) == null ? false : true;},
-					firefox: function () {return ua.match(/firefox/i) == null ? false : true;},
-					safari: function () {return ua.match(/safari/i) == null ? false : true;},
+					edge: function () {return ua.match(/edge|edg/i) === null ? false : true;},
+					opera: function () {return ua.match(/opr/i) === null ? false : true;},
+					chrome: function () {return ua.match(/chrome/i) === null ? false : true;},
+					msie: function () {return ua.match(/trident/i) === null ? false : true;},
+					firefox: function () {return ua.match(/firefox/i) === null ? false : true;},
+					safari: function () {return ua.match(/safari/i) === null ? false : true;},
 
 					any: function () {return (userAgent.Android() || userAgent.BlackBerry() || userAgent.iOS() || userAgent.Opera() || userAgent.Windows())},
 
-					isMobile: function () {return ua.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) == null ? false : true;},
+					isMobile: function () {return ua.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) === null ? false : true;},
 				}
 
 				var deviceInfo = {
