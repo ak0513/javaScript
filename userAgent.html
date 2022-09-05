@@ -97,16 +97,10 @@
 				})();
 
 				// pc mobile 체크
-				var platformName = (function() {
-					if(deviceInfo.mobile) {
-						platform = 'mobile'
-					} else {
-						platform = 'pc'
-					}
-				})();
-
+				var setPlatform = deviceInfo.mobile ? 'mobile' : 'pc';
+			
 				
-				var bodyClass = platformName + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device;
+				var bodyClass = setPlatform + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device;
 
 				body.setAttribute('class', bodyClass)
 
