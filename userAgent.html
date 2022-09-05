@@ -51,11 +51,9 @@
 					firefox: function () {return ua.match(/firefox/i) == null ? false : true;},
 					safari: function () {return ua.match(/safari/i) == null ? false : true;},
 
-					tabletPro: function () {return $('body').hasClass('tabletPro')},
 					any: function () {return (userAgent.Android() || userAgent.BlackBerry() || userAgent.iOS() || userAgent.Opera() || userAgent.Windows())},
 
 					isMobile: function () {return ua.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) == null ? false : true;},
-					// browser: function () {return ua.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) == null ? false : true;},
 				}
 
 				var deviceInfo = {
@@ -98,7 +96,19 @@
 					}
 				})();
 
+				// pc mobile 체크
+				var platformName = (function() {
+					if(deviceInfo.mobile) {
+						platform = 'mobile'
+					} else {
+						platform = 'pc'
+					}
+				})();
 
+				
+				var bodyClass = platformName + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device;
+
+				body.setAttribute('class', bodyClass)
 
 
 				// 바디 클래스
