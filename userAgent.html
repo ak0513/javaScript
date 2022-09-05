@@ -77,8 +77,8 @@
 				// 디바이스 체크
 				var deviceName = (function() {
 					switch(true) {
-						case userAgent.IOSPhone() : return deviceInfo.device = 'iPhone';
-						case userAgent.IOSPad() : return deviceInfo.device = 'iPad';
+						case userAgent.IOSPhone() : return deviceInfo.device = 'iphone';
+						case userAgent.IOSPad() : return deviceInfo.device = 'ipad';
 						default: return "other-device";
 					}
 				})();
