@@ -30,66 +30,84 @@
 			<div id="device"></div>
 
 			<script>
-				var deviceInfo = {
-					browser : null,
-					mobile : false,
-					os: null,
-					device: null,
-				}
-
 				var body = document.querySelector('body');
 				var ua = navigator.userAgent.toLowerCase();
 				
-				// 모바일인 경우 true
-				var isMobile = /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+				// 모바일 체크
+				var userAgent = {
+					Android: function () {return ua.match(/android/i) == null ? false : true;},
+					BlackBerry: function () {return ua.match(/blackberry/i) == null ? false : true;},
+					iOS: function () {return ua.match(/iphone|ipad|ipod/i) == null ? false : true;},
+					IOSPhone: function () {return ua.match(/iphone/i) == null ? false : true;},
+					IOSPad: function () {return ua.match(/ipad/i) == null ? false : true;},
+					Opera: function () {return ua.match(/opera mini/i) == null ? false : true;},
+					Windows: function () {return ua.match(/windows/i) == null ? false : true;},
+
+					tabletPro: function () {return $('body').hasClass('tabletPro')},
+					any: function () {return (userAgent.Android() || userAgent.BlackBerry() || userAgent.iOS() || userAgent.Opera() || userAgent.Windows())},
+
+					isMobile: function () {return ua.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) == null ? false : true;},
+					// browser: function () {return ua.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) == null ? false : true;},
+				}
+
+				var deviceInfo = {
+					os: null,
+					browser : null,
+					mobile : userAgent.isMobile(),
+					device: null,
+				}
+
+				// 모바일 체크
+				// var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent);
+
+				// OS 체크
+				if(userAgent.iOS()) { // ios
+					deviceInfo.os = 'os_ios';
+				} else if(userAgent.Android()) { // android
+					deviceInfo.os = 'os_android';
+				} else if(userAgent.BlackBerry()) { // BlackBerry
+					deviceInfo.os = 'os_blackBerry';
+				} else if(userAgent.Windows()) { // Windows
+					deviceInfo.os = 'os_windows';
+				}
 
 				// 디바이스 체크
-				var isIphone = ua.indexOf('iphone') > -1;
-				var isIpad = ua.indexOf('ipad') > -1;
-				var isIpod = ua.indexOf('ipod') > -1;
+				if(userAgent.IOSPhone()) { // iPhone
+					deviceInfo.device = 'iPhone';
+				} else if(userAgent.IOSPad()) { // iPad
+					deviceInfo.device = 'iPad';
+				}
 
-				// os 체크
-				var isIos = isIphone || isIpad || isIpod;
-				var isAndroid = ua.indexOf('android') > -1;
-
+				// 브라우저 체크
+				if(ua.match(/chrome|chromium|crios/i)){
+					deviceInfo.browser = "chrome";
+				}else if(ua.match(/firefox|fxios/i)){
+					deviceInfo.browser = "firefox";
+				}  else if(ua.match(/safari/i)){
+					deviceInfo.browser = "safari";
+				}else if(ua.match(/opr\//i)){
+					deviceInfo.browser = "opera";
+				} else if(ua.match(/edg/i)){
+					deviceInfo.browser = "edge";
+				}else{
+					deviceInfo.browser="No browser detection";
+				}
+		
+				
 
 				
-				if(isMobile) {// mobile 이면
-					deviceInfo.mobile = true;
-					body.classList.add('mobile');
-					 
-					if(isIos) {// ios 면
-						deviceInfo.os = 'ios';
-						body.classList.add('ios');
-						// iPhone 이면
-						if(isIphone) {
-							deviceInfo.device = 'iPhone';
-							body.classList.add('iphone');
-						} else if(isIpad) {
-							deviceInfo.device = 'iPad';
-							body.classList.add('ipad')
-						} else if(isIpod) {
-							deviceInfo.device = 'iPod';
-							body.classList.add('ipod')
-						}
-					} else if(isAndroid) { // android 이면
-						deviceInfo.os = 'android';
-						body.classList.add('android')
-					}
-				} else { // mobile이 아니면
-					body.classList.add('pc');
-				}
+
+
 
 				// 바디 클래스
 				document.getElementById('bodyClass').innerText = body.getAttribute('class');
 				document.getElementById('ua').innerText = ua;
-				document.getElementById('browser').innerText = deviceInfo.browser;
-				document.getElementById('mobile').innerText = deviceInfo.mobile;
+
 				document.getElementById('os').innerText = deviceInfo.os;
 				document.getElementById('device').innerText = deviceInfo.device;
+				document.getElementById('browser').innerText = deviceInfo.browser;
+				document.getElementById('mobile').innerText = deviceInfo.mobile;
 
-
-				console.log(ua)
 			</script>
 		</div>
 	</div>

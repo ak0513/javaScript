@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+	<title>userAgent</title>
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			<h2 class="h-tit1">navigator.userAgent</h2>
+			<div id="ua"></div>
+
+			<h2 class="h-tit1">body class</h2>
+			<div id="bodyClass"></div>
+
+			<h2 class="h-tit1">browser</h2>
+			<div id="browser"></div>
+
+			<h2 class="h-tit1">mobile</h2>
+			<div id="mobile"></div>
+
+			<h2 class="h-tit1">os</h2>
+			<div id="os"></div>
+
+			<h2 class="h-tit1">device</h2>
+			<div id="device"></div>
+
+			<script>
+				var deviceInfo = {
+					browser : null,
+					mobile : false,
+					os: null,
+					device: null,
+				}
+
+				function nv(v) {
+					ua.indexOf(v) > -1 ? v : '';
+				}
+
+				var body = document.querySelector('body');
+				var ua = navigator.userAgent.toLowerCase();
+				
+				// 모바일 체크
+				var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent);
+				
+
+				// 디바이스 체크
+				var isIphone = ua.indexOf('iphone') > -1;
+				var isIpad = ua.indexOf('ipad') > -1;
+				var isIpod = ua.indexOf('ipod') > -1;
+
+				// os 체크
+				var isIos = isIphone || isIpad || isIpod;
+				var isAndroid = ua.indexOf('android') > -1;
+
+				// brose 체크
+				var isChrome = ua.indexOf('chrome') > -1;
+				var isEdge = ua.indexOf('edg') > -1;
+				var isFireFox = ua.indexOf('firefox') > -1;
+				var isIe = ua.indexOf('trident') > -1;
+				var isSafari = ua.indexOf('safari') > -1;
+
+				function chkBrose() {
+					if(isChrome) { // chrome 이면
+						deviceInfo.browser = 'chrome';
+					} else if(isEdge) { // Edg 면
+						deviceInfo.browser = 'Edge';
+					} else if(isFireFox){ // iPod 면
+						deviceInfo.browser = 'Firefox';
+					} else if(isSafari){ // safari 면
+						deviceInfo.browser = 'safari';
+					} else if(isIe){ // iE 면
+						deviceInfo.browser = 'ie';
+					}
+					return deviceInfo.browser
+				}
+				chkOs();
+
+				function chkOs() {
+					if(isIos) { // ios 이면
+						deviceInfo.device = 'os_ios';
+					} else if(isAndroid) { // android 면
+						deviceInfo.device = 'os_android';
+					} else if(isAndroid) { // iPod 면
+						deviceInfo.device = 'os_etc';
+					}
+					return deviceInfo.os
+				}
+				chkOs();
+
+				function chkDevice() {
+					if(isIphone) { // iPhone 이면
+						deviceInfo.device = 'iPhone';
+					} else if(isIpad) { // iPad 면
+						deviceInfo.device = 'iPad';
+					} else if(isIpod) { // iPod 면
+						deviceInfo.device = 'iPod';
+					}
+					return deviceInfo.device
+				}
+				chkDevice();
+
+				// pc mobie 체크
+				if(isMobile) { // mobile 이면
+					deviceInfo.mobile = true;
+					body.classList.add('mobile');
+					 
+					if(isIos) { // ios 면
+						deviceInfo.os = 'ios';
+						body.classList.add('os_ios');
+						
+						if(isIphone) { // iPhone 이면
+							// deviceInfo.device = 'iPhone';
+							body.classList.add('iphone');
+						} else if(isIpad) { // iPad 면
+							// deviceInfo.device = 'iPad';
+							body.classList.add('ipad')
+						} else if(isIpod) { // iPod 면
+							// deviceInfo.device = 'iPod';
+							body.classList.add('ipod')
+						}
+					} else if(isAndroid) { // android 이면
+						deviceInfo.os = 'android';
+						body.classList.add('os_android')
+					} else { // ios android가 아니면
+						deviceInfo.os = 'etc';
+						body.classList.add('os_etc')
+					}
+				} else { // mobile이 아니면
+					body.classList.add('pc');
+				}
+
+
+
+				// 바디 클래스
+				document.getElementById('bodyClass').innerText = body.getAttribute('class');
+				document.getElementById('ua').innerText = ua;
+				document.getElementById('browser').innerText = deviceInfo.browser;
+				document.getElementById('mobile').innerText = deviceInfo.mobile;
+				document.getElementById('os').innerText = deviceInfo.os;
+				document.getElementById('device').innerText = deviceInfo.device;
+
+
+				console.log(ua)
+			</script>
+		</div>
+	</div>
+</body>
+</html>
