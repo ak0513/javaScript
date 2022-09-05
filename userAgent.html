@@ -36,12 +36,11 @@
 				
 				// 모바일 체크
 				var userAgent = {
-					Android: function () {return ua.match(/android/i) == null ? false : true;},
 					BlackBerry: function () {return ua.match(/blackberry/i) == null ? false : true;},
+					Android: function () {return ua.match(/android/i) == null ? false : true;},
 					iOS: function () {return ua.match(/iphone|ipad|ipod/i) == null ? false : true;},
-					IOSPhone: function () {return ua.match(/iphone/i) == null ? false : true;},
-					IOSPad: function () {return ua.match(/ipad/i) == null ? false : true;},
-					Opera: function () {return ua.match(/opera mini/i) == null ? false : true;},
+					iPhone: function () {return ua.match(/iphone/i) == null ? false : true;},
+					iPad: function () {return ua.match(/ipad/i) == null ? false : true;},
 					Windows: function () {return ua.match(/windows/i) == null ? false : true;},
 
 					edge: function () {return ua.match(/edge|edg/i) == null ? false : true;},
@@ -77,8 +76,8 @@
 				// 디바이스 체크
 				var deviceName = (function() {
 					switch(true) {
-						case userAgent.IOSPhone() : return deviceInfo.device = 'iphone';
-						case userAgent.IOSPad() : return deviceInfo.device = 'ipad';
+						case userAgent.iPhone() : return deviceInfo.device = 'iphone';
+						case userAgent.iPad() : return deviceInfo.device = 'ipad';
 						default: return "other-device";
 					}
 				})();
