@@ -89,7 +89,7 @@
 		/* 플레이트 모음 - 슬로건 */
 		.slogan {display:none;position:fixed;top:50%;left:50%;z-index:20;width:100%;font-size:95px;color:#f3ff1f;font-weight:700;text-align:center;font-family:helvetica75, sans-serif;line-height:1; transform:translate(-50%, -50%);}
 		.slogan.type2 {font-size:100px;}
-		.swiper-slide-active .slogan {display:block;animation: showSlogan 0.7s cubic-bezier(0.9, 0.2, 0.2, 1.05) 2.5s forwards; opacity:0;}
+		.swiper-slide-active .slogan {display:block;animation: showSlogan 0.7s cubic-bezier(0.9, 0.2, 0.2, 1.05) 0.5s forwards; opacity:0;}
 		.swiper-slide-prev.down-wheel .slogan {display:block;animation: hideSlogan 0.7s cubic-bezier(0.9, 0.2, 0.2, 1.05) forwards;opacity:1;}
 
 		.plate-img{flex:1;max-width:50%;}
@@ -750,7 +750,7 @@
 
 <button id="btnRemoveSlide" style="display:none">피씨버전에서 슬라이드 삭제 버튼</button>
 
-<div id="slide-id"></div>
+<div id="slide-id">1</div>
 <style>
 	#slide-id {position: fixed;top:30px;left:30px;z-index:1000;padding:20px;background-color:#fff;}
 </style>
@@ -787,11 +787,11 @@
 					}
 					if(delta < 0) {
 						// 마우스 휠 위에서 아래로
-						$('.swiper-slide').removeClass('down-wheel')
+						removeDownWheel();
 						$('.swiper-slide.slide' + slideIndex).addClass('down-wheel')
 					} else {
 						// 마우스 휠 아래에서 위로
-						$('.swiper-slide').removeClass('down-wheel')
+						removeDownWheel();
 					}
 					// console.log(slideIndex)
 				}
@@ -818,14 +818,14 @@
 					if(yDiff > 0) {
 						// 터치 위에서 아래로
 						console.log('a1')
-						$('.swiper-slide').removeClass('down-wheel')
+						removeDownWheel();
 						// $('.swiper-slide.slide' + slideIndex).addClass('down-wheel')
 						$('.swiper-slide-prev').addClass('down-wheel')
 						
 					} else {
 						// 터치 아래에서 위로
 						console.log('a2')
-						$('.swiper-slide').removeClass('down-wheel')
+						removeDownWheel();
 						
 					}
 				}
@@ -873,9 +873,7 @@
 				setMobile(); // 모바일 클래스 추가
 
 
-				document.querySelector('swiper-pagination-bullet').click(function() {
-					$('.swiper-slide').removeClass('down-wheel')
-				})
+				
 			},
 		},
 	})
@@ -896,6 +894,12 @@
 	function resizeFn() {
 		removeSlidePc(); // 피씨버전에서 슬라이드 삭제처리
 		setMobile(); // 모바일 클래스 추가
+	}
+
+	$('swiper-pagination-bullet').click(removeDownWheel)
+
+	function removeDownWheel() {
+		$('.swiper-slide').removeClass('down-wheel')
 	}
 
 	// 피씨버전에서 슬라이드 삭제처리
