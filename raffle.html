@@ -873,14 +873,9 @@
 				setMobile(); // 모바일 클래스 추가
 
 
-				// var slideClass = $('.swiper-slide');
-				// $('.swiper-slide').each(function(index, item){
-				// 	console.log(item.getAttribute('class'))
-				// 	var aa = item.getAttribute('class');
-				// 	alert(item.getAttribute('class'))
-				// })
-				$('.swiper-slide').removeClass('down-wheel')
-				$('.swiper-slide-prev').addClass('down-wheel')
+				document.querySelector('swiper-pagination-bullet').click(function() {
+					$('.swiper-slide').removeClass('down-wheel')
+				})
 			},
 		},
 	})
