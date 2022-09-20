@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>래플카드</title>
+<meta charset="utf-8" />
+<base href="https://www.shinhancard.com/">
+<meta name="robots" content="noindex">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<script src="/pconts/js/externalLib.css.js"></script>
+<script src="/pconts/js/shinhancard.css.js"></script>
+<script src="/pconts/js/externalLib.js"></script>
+<script src="/pconts/js/shinhancard.ui.js"></script>
+<script type="text/javascript" src="/logic/js/mob/cmm/pesn-common.js"></script>
+</head>
+<body>
+	<style>
+		@font-face{
+			font-family: 'helvetica';
+			src: local('helvetica'),
+				url('/pconts/fonts/Helvetica.woff2') format('woff2'),
+				url('/pconts/fonts/Helvetica.woff') format('woff'),
+				url('/pconts/fonts/Helvetica.woff') format('truetype'),
+				url('/pconts/fonts/Helvetica.eot') format('embeded-opentype');
+			font-weight: 400;
+			font-style: normal;
+			font-display:swap;
+		}
+
+		@font-face{
+			font-family: 'helvetica75';
+			src: local('HelveticaBd'),
+				url('/pconts/fonts/Helvetica75-Bold.woff2') format('woff2'),
+				url('/pconts/fonts/Helvetica75-Bold.woff') format('woff'),
+				url('/pconts/fonts/Helvetica75-Bold.woff') format('truetype'),
+				url('/pconts/fonts/Helvetica75-Bold.eot') format('embeded-opentype');
+			font-weight: 700;
+			font-style: normal;
+			font-display:swap;
+		}
+		html,body {height:100%;}
+		body{background:radial-gradient(at 50% 90%, #666666, #000000);}
+
+		.raffle-h1 {position:fixed;top:30px;left:100px;z-index:10;width:250px;height:24px;background:url('/pconts/images/dx/landing/logo_raffle_pc.png') no-repeat;}
+
+		i.pc-br {display:block;}
+		i.m-br {display:inline;}
+
+		/* 하단 화살표 */
+		.arrow-bottom {display:none;position:absolute;bottom:50px;left:50%;width:100px;margin-left:-10px;animation: arrowBottom ease-in-out 1.5s infinite alternate forwards;}
+		.arrow-bottom::before,
+		.arrow-bottom::after {content:'';display:block;position:absolute;width:6px;height:25px;border-radius:10px;background-color:#fff;}
+		.arrow-bottom::before{left:0;transform:rotate(135deg);}
+		.arrow-bottom::after{left:14px;transform:rotate(45deg);}
+		.swiper-slide-active .arrow-bottom{display:block;}
+
+		/* 개별 bg */
+		/* .swiper-slide .bg-raffle {background-color: #fff;} */
+		/* .swiper-slide-active .bg-raffle {animation: activeBg 0.5s ease-in-out forwards;}
+		.swiper-slide-next .bg-raffle {animation: nextBg 0.5s ease-in-out forwards;} */
+
+		/* 스와이퍼 */
+		.swiper{height:100%;}
+		.swiper-container{position:relative;height:100%;}
+		.swiper-slide{height:100%;color:#fff;}
+		.swiper-conts {display:flex;align-items:center;width:1060px;height:100vh;margin:0 auto;padding:0 40px;}
+		.swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {display:flex;align-items:center;justify-content:center;width:30px;height:30px;margin:0;background-color:transparent;opacity:1;}
+		.swiper-pagination-bullet::before {content:'';display:block;width:6px;height:6px;background-color:rgba(255,255,255,0.7); border-radius:10px;transition:all 0.4s ease-in-out;}
+		.swiper-pagination-bullet-active::before {height:16px;background-color:#f0ff5b;border-radius:10px;}
+		.swiper-container-vertical>.swiper-pagination-bullets {top:26px;right:18px;transform:translate3d(0,0,0);}
+
+		/* 플레이트 모음 */
+		.plate-group .left-plate {opacity:0;position:fixed;top:calc(50% - 375px);left:calc(50% - 425px);width:485px;height:618px;background-repeat:no-repeat;background-position:center;background-size:100% auto;transform:translate(-100%,-70%);}
+		.plate-group .right-plate {opacity:0;position:fixed;top:calc(50% - 80px);left:calc(50% - 130px);width:520px;height:575px;background-repeat:no-repeat;background-position:center;background-size:100% auto;transform:translate(-20%,-20%);}
+
+		.swiper-slide-active .left-plate {animation: showDown30per 0.7s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;}
+		.swiper-slide-active .right-plate {animation: showUp30per 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;}
+
+		.swiper-slide-prev.down-wheel .left-plate {animation: hideUpBlur30per ease-in-out 0.7s forwards;}
+		.swiper-slide-prev.down-wheel .right-plate {animation: hideDownBlur30per ease-in-out 0.7s forwards;}
+
+		/* 플레이트 모음 - 슬로건 */
+		.slogan {display:none;position:fixed;top:50%;left:50%;z-index:20;width:100%;font-size:95px;color:#f3ff1f;font-weight:700;text-align:center;font-family:helvetica75, sans-serif;line-height:1; transform:translate(-50%, -50%);}
+		.slogan.type2 {font-size:100px;}
+		.swiper-slide-active .slogan {display:block;animation: showSlogan 0.7s cubic-bezier(0.9, 0.2, 0.2, 1.05) 0.5s forwards; opacity:0;}
+		.swiper-slide-prev.down-wheel .slogan {display:block;animation: hideSlogan 0.7s cubic-bezier(0.9, 0.2, 0.2, 1.05) forwards;opacity:1;}
+
+		.plate-img{flex:1;max-width:50%;}
+		.plate-desc-group{flex:1;opacity:0;max-width:50%;}
+		.swiper-slide-active .plate-desc-group,
+		[class*='swiper-slide-'].down-wheel .plate-desc-group{opacity:1;}
+		.swiper-conts.type2 .plate-desc-group{flex:0 0 auto;}
+
+		/* 개별 플레이트 */
+		.plate-name {display:flex;font-size:64px;color:#f3ff1f;font-family:helvetica75, sans-serif;line-height:1;}
+		.plate-desc {margin-top:18px;min-height:90px;font-size:20px;}
+		.plate-design {font-size:24px;color:#fff;font-family:helvetica, sans-serif;}
+
+		.swiper-slide-active .plate-design{animation: showLeft30px 0.5s ease-in 0.7s forwards;}
+		.swiper-slide-active .plate-name span {display:block;animation-duration:2s;animation-delay:0.5s;animation-timing-function:cubic-bezier(0.22,1,0.36,1);animation-fill-mode:forwards;opacity:0;color:#fff;}
+		.swiper-slide-active .plate-name span:nth-child(1) {animation-name:charAni1;}
+		.swiper-slide-active .plate-name span:nth-child(2) {animation-name:charAni2;animation-delay:0.505s}
+		.swiper-slide-active .plate-name span:nth-child(3) {animation-name:charAni3;animation-delay:0.51s}
+		.swiper-slide-active .plate-name span:nth-child(4) {animation-name:charAni4;animation-delay:0.515s}
+		.swiper-slide-active .plate-name span:nth-child(5) {animation-name:charAni5;animation-delay:0.52s}
+		.swiper-slide-active .plate-name span:nth-child(6) {animation-name:charAni6;animation-delay:0.525s}
+		.swiper-slide-active .plate-name span:nth-child(7) {animation-name:charAni7;animation-delay:0.53s}
+		.swiper-slide-active .plate-name span:nth-child(8) {animation-name:charAni8;animation-delay:0.535s}
+		.swiper-slide-active .plate-name span:nth-child(9) {animation-name:charAni8;animation-delay:0.54s}
+		.swiper-slide-active .plate-name span:nth-child(10) {animation-name:charAni8;animation-delay:0.545s}
+		.swiper-slide-active .plate-name span:nth-child(11) {animation-name:charAni8;animation-delay:0.55s}
+		.swiper-slide-active .plate-design {opacity:0;}
+
+		.swiper-slide-prev.down-wheel .plate-design{animation: hideUpBlur40px 0.5s ease-in forwards;}
+		.swiper-slide-prev.down-wheel .plate-name{animation: hideUpBlur40px 0.5s ease-in 0.1s forwards;}
+		.swiper-slide-prev.down-wheel .plate-desc{animation: hideUpBlur40px 0.5s ease-in 0.2s forwards;}
+
+		.swiper-slide-active .plate-design.type2,
+		.swiper-slide-active .plate-name.type2,
+		.swiper-slide-active .plate-desc.type2 {animation:showUp40vh 0.5s ease-in 0.1s forwards;}
+		.swiper-slide-active .plate-name.type2,
+		.swiper-slide-active .plate-desc.type2 {opacity:0;}
+		.swiper-slide-active .plate-desc.type2{animation-delay:0.15s;}
+
+		.swiper-slide-prev.down-wheel .plate-design.type2,
+		.swiper-slide-prev.down-wheel .plate-name.type2,
+		.swiper-slide-prev.down-wheel .plate-desc.type2 {animation:hideUpBlur40vh 0.5s ease-in 0.1s forwards;}
+
+		.swiper-conts .plate-img [class*='-plate'] {position:relative;width:300px;height:480px;margin-top:25px;margin-left:60px;background-repeat:no-repeat;background-size:100%;border-radius:16px;}
+		.swiper-slide-next .swiper-conts .plate-img {animation:hideDownBlur100px ease-in-out 0.7s forwards;}
+		/* swiper-conts type1 */
+		.swiper-conts.type1 .plate-img {perspective:600px;opacity:0;}
+		.swiper-slide-active .swiper-conts.type1 .plate-img{animation:showUpBlur100px ease-in-out 0.7s forwards;}
+		.swiper-slide-prev.down-wheel .swiper-conts.type1 .plate-img{animation: hideUpBlur100px ease-in-out 0.7s forwards;}
+
+		/* swiper-conts type2 */
+		.swiper-conts.type2 .plate-img {opacity:0;}
+		.swiper-conts.type2 .plate-img [class*='-plate'] {width:295px;}
+		.swiper-conts.type2 .plate-img [class*='-plate']::after{content:'';display:block;position:absolute;bottom:-40px;left:5%;width:90%;height:5px;background-color:#000;border-radius:50%;filter:blur(7px)}
+		.swiper-slide-active .swiper-conts.type2 .plate-img{animation:showUpBlur100per ease-in-out 0.7s forwards;}
+		.swiper-slide-prev.down-wheel .swiper-conts.type2 .plate-img{animation: hideUpBlur40vh ease-in-out 0.7s forwards;}
+
+		/* 작가 소개 */
+		.plate-writer {margin-top:30px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.4);font-size:15px;}
+		.swiper-slide-active .plate-writer{animation:showUp40vh 0.5s ease-in 0.18s forwards;opacity:0;}
+		.swiper-slide-prev.down-wheel .plate-writer{animation:hideUpBlur40vh 0.5s ease-in 0.2s forwards;}
+
+		.plate-writer-tit {display:flex;align-items:baseline;font-size:20px;font-weight:700;}
+		.plate-write-id {margin-left:12px;padding-left:23px;background:url('/pconts/images/dx/landing/raffle_icon_instagram.png') no-repeat left center / 17px;font-size:15px;font-weight:400;}
+		.plate-writer-info {margin-top:12px;}
+
+		/* 슬라이드 #1 */
+		.prize-show {background-image:url('/pconts/images/dx/landing/intro_plate_prize.png');}
+		.roulette-show {background-image:url('/pconts/images/dx/landing/intro_plate_roulette.png');}
+
+		/* 슬라이드 #2 */
+		.roulette-plate {background-image:url('/pconts/images/dx/landing/roulette_01.png');animation: moveRoulette ease-in-out 3s infinite alternate forwards;}
+
+		/* 슬라이드 #3 */
+		.prize-plate {margin-left:90px !important;background-image:url('/pconts/images/dx/landing/prize_01.png');animation: movePrize ease-in-out 3s infinite alternate forwards;}
+
+		/* 슬라이드 #4 */
+		.lucky-show {background-image:url('/pconts/images/dx/landing/intro_plate_lucky.png');}
+		.champs-show {background-image:url('/pconts/images/dx/landing/intro_plate_champ.png');}
+
+		/* 슬라이드 #5 */
+		.lucky-plate {background-image:url('/pconts/images/dx/landing/cont_plate_lucky.png');}
+		[class*='swiper-slide-'] .lucky-plate{animation: moveLucky ease-in-out 3s infinite alternate forwards;}
+		.slide5 .plate-desc,
+		.slide7 .plate-desc {min-height:auto;}
+
+		/* .web .plate-name.type2 {background:url('/pconts/images/dx/landing/220808-img1.png') repeat-y;-webkit-background-clip: text;background-clip:text;-webkit-text-fill-color:transparent;animation:showUp40vh 0.5s ease-in 0.1s forwards, aitf 5s linear alternate infinite !important;}
+		@keyframes aitf {
+			0%{background-position: 0 50%;}
+			100%{background-position: 100% 50%;}
+		} */
+
+		/* 슬라이드 #6 */
+		.champs-plate {margin-left:115px !important;background-image:url('/pconts/images/dx/landing/cont_plate_champ.png');}
+		[class*='swiper-slide-'] .champs-plate{animation: moveChamps ease-in-out 3s infinite alternate forwards;}
+
+		/* 슬라이드 #7 */
+		.collection {display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;}
+		.collection-tit {opacity:0;display:block;width:478px;height:74px;background:url('/pconts/images/dx/landing/raffle_collection-tit-pc.png') no-repeat;}
+		.collection-slogan {margin-top:12px;font-size:34px;font-family:helvetica, sans-serif;}
+		.collection-plate {display:flex;margin-top:65px;}
+		.collection-plate li {opacity:0;flex:1;width:275px;margin-left:-95px;}
+		.collection-plate li.champ {margin-left:-87px;}
+
+		.swiper-slide-active .collection-tit {animation:showLeft100px 0.5s ease-in-out forwards;}
+		.swiper-slide-active .collection-slogan {animation:showRight30px 1s ease-in-out forwards;}
+		.swiper-slide-active .collection-plate li {animation:plateCollection 0.5s ease-in-out forwards;}
+		.swiper-slide-active .collection-plate li:nth-child(1) {animation-delay:0.5s;}
+		.swiper-slide-active .collection-plate li:nth-child(2) {animation-delay:0.7s;}
+		.swiper-slide-active .collection-plate li:nth-child(3) {animation-delay:0.9s;}
+		.swiper-slide-active .collection-plate li:nth-child(4) {animation-delay:1.1s;}
+
+		/* 슬라이드 #10 */
+		.bg-raffle {height:100%;background:url('/pconts/images/dx/landing/raffle_bg_pc.jpg') no-repeat center / cover;}
+		.footer {position:absolute;bottom:0;left:0;right:0;padding:30px 0 35px;background-color:rgba(0,0,0,0.8);font-size:14px;color:#ddd;}
+		.footer-inner {max-width:1060px;margin:0 auto;padding:0 40px;}
+		.footer .c-bull3 {font-size:14px;color:#ddd;}
+		.footer-address {margin-top:13px;padding-top:13px;border-top:1px solid #333;font-style:normal;}
+
+		/* 마지막 슬라이드 배경 */
+		@keyframes activeBg {
+			0%{transform:translate(-50%, 50%)}
+			100%{transform:translate(-50%, -50%)}
+		}
+
+		@keyframes nextBg {
+			0%{transform:translate(-50%, -50%)}
+			100%{transform:translate(-50%, 50%)}
+		}
+
+		/* 슬라이드 슬로건 */
+		@keyframes showSlogan { /* 슬로건 텍스트 확대 show */
+			0%{transform: translate(-50%, -50%) scale(0);filter:blur(5px);}
+			80%{opacity:1;}
+			100%{text-shadow:0px 0px 10px rgba(0,0,0,0.5);opacity:1;}
+		}
+
+		@keyframes hideSlogan { /* 슬로건 텍스트 확대 hide */
+			0%{}
+			100%{transform: translate(-50%, -50%) scale(5);filter:blur(5px);opacity:0;}
+		}
+
+		/* 하단 화살표 */
+		@keyframes arrowBottom {
+			0%{opacity:0;transform:translateY(-10px);}
+			100%{opacity:1;transform:translateY(0);}
+		}
+
+		/* 개별 플레이트 모션 */
+		@keyframes moveRoulette {
+			0% {transform: rotateY(45deg); background-image: url('/pconts/images/dx/landing/roulette_02.png');}
+			50% {background-image: url('/pconts/images/dx/landing/roulette_01.png');}
+			100% {transform: rotateY(-45deg);background-image: url('/pconts/images/dx/landing/roulette_03.png');}
+		}
+
+		@keyframes movePrize {
+			0% {transform: rotateY(45deg); background-image: url('/pconts/images/dx/landing/prize_02.png');}
+			50% {background-image: url('/pconts/images/dx/landing/prize_01.png');}
+			100% {transform: rotateY(-45deg);background-image: url('/pconts/images/dx/landing/prize_03.png');}
+		}
+
+		@keyframes moveLucky {
+			0% {transform:translateY(30px);}
+			50% {transform:translateY(0);}
+			100% {transform:translateY(30px);}
+		}
+
+		@keyframes moveChamps {
+			0% {transform:translateY(30px);}
+			50% {transform:translateY(0);}
+			100% {transform:translateY(30px);}
+		}
+
+		@keyframes plateCollection {
+			0% {opacity:0; transform: translate(-10px, -30px) scale(0.7);}
+			100% {opacity:1;transform: translate(0, 0) scale(1);}
+		}
+
+		/* show */
+		@keyframes showOpacity { 
+			0% {opacity:0;}
+			100% {opacity:1;}
+		}
+
+		/* show up */
+		@keyframes showUpBlur100px { /* 플레이트 show type1(스와이프 위→아래) */
+			0% {opacity:0;filter:blur(10px);transform:translateY(100px);}
+			100% {opacity:1;transform:translateY(0);}
+		}
+
+		@keyframes showUp30per { /* 플레이트 2개 이상 나오는 페이지 show */
+			0%{opacity:0;transform:translate(0,30%);}
+			100%{opacity:1;transform:translate(0,0);}
+		}
+
+		@keyframes showUpBlur100per { /* 플레이트 show type2(스와이프 위→아래) */
+			0% {opacity:0;filter:blur(10px);transform:translateY(100%);}
+			100% {opacity:1;transform:translateY(0);}
+		}
+
+		@keyframes showUp40px {
+			0% {opacity: 0;transform: translateY(40px);}
+			100% {opacity: 1;transform: translateY(0);}
+		}
+
+		@keyframes showUp40vh {
+			0% {opacity: 0;transform: translateY(40vh);}
+			100% {opacity: 1;transform: translateY(0);}
+		}
+
+		/* show down */
+		@keyframes showDown30per { /* 플레이트 2개 이상 나오는 페이지 show */
+			0%{opacity:0;transform:translate(0,-30%);}
+			100%{opacity:1;transform:translate(0,0);}
+		}
+
+		/* hide */
+		@keyframes hideOpacity { 
+			0% {opacity:1;}
+			100% {opacity:0;}
+		}
+
+		/* hide up */
+		@keyframes hideUpBlur40px {
+			0% {opacity:1;transform: translateY(0);}
+			100% {opacity:0;filter:blur(10px);transform: translateY(-40px);}
+		}
+
+		@keyframes hideUpBlur100px { /* 플레이트 hide(스와이프 위→아래) */
+			0% {opacity:1;transform:translateY(0);}
+			100% {opacity:0;filter:blur(10px);transform:translateY(-100px);}
+		}
+
+		@keyframes hideUpBlur30per { /* 플레이트 2개 이상 나오는 페이지 hide */
+			0% {opacity: 1;transform:translate(0,0);}
+			100% {opacity: 0;filter:blur(10px);transform:translate(0,-30%);}
+		}
+
+		@keyframes hideUpBlur40vh {
+			0% {opacity:1;transform: translateY(0);}
+			100% {opacity:0;filter:blur(10px);transform: translateY(-40vh);}
+		}
+
+		/* hide down */
+		@keyframes hideDownBlur100px {/* 플레이트 hide(스와이프 아래→위) */
+			0% {opacity:1;transform:translateY(0);}
+			100% {opacity:0;filter:blur(10px);transform:translateY(100px);}
+		}
+
+		@keyframes hideDownBlur30per { /* 플레이트 2개 이상 나오는 페이지 hide */
+			0% {opacity:1;transform:translate(0,0);}
+			100% {opacity:0;filter:blur(10px);transform:translate(0,30%);}
+		}
+
+		/* show left */
+		@keyframes showLeft30px {
+			0% {opacity: 0;transform: translateX(-30px);}
+			100% {opacity: 1;transform: translateX(0);}
+		}
+
+		@keyframes showLeft100px {
+			0% {opacity: 0;transform: translateX(-100px);}
+			100% {opacity: 1;transform: translateX(0);}
+		}
+
+		/* show right */
+		@keyframes showRight30px {
+			0% {opacity: 0;transform: translateX(030px);}
+			100% {opacity: 1;transform: translateX(0);}
+		}
+
+		/* 텍스트 효과 */
+		@keyframes charAni1 {
+			0% {opacity:0;transform:translateX(40px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni2 {
+			0% {opacity:0;transform:translateX(80px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni3 {
+			0% {opacity:0;transform:translateX(120px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni4 {
+			0% {opacity:0;transform:translateX(160px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni5 {
+			0% {opacity:0;transform:translateX(200px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni6 {
+			0% {opacity:0;transform:translateX(240px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni7 {
+			0% {opacity:0;transform:translateX(280px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni8 {
+			0% {opacity:0;transform:translateX(320px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni9 {
+			0% {opacity:0;transform:translateX(360px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni10 {
+			0% {opacity:0;transform:translateX(400px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni11 {
+			0% {opacity:0;transform:translateX(440px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+		@keyframes charAni12 {
+			0% {opacity:0;transform:translateX(480px);}
+			30%{color:#89ff00;}
+			40%{opacity:1;}
+			50%{transform:translateX(0);}
+			100%{opacity:1;transform:translateX(0);color:#f3ff1f;}
+		}
+
+		/* 타이핑 효과 */
+		.swiper-slide-active .typing span + i {display:none;}
+		.swiper-slide-active .typing span.ing + i {display:inline-flex;width:10px;height:1px;background:#fff;animation: cursor 0.8s infinite;}
+		@keyframes typingShow {
+			0% {width:auto;}
+			100% {width:auto;}
+		}
+		@keyframes cursor {
+			0% {height:1px;}
+			50% {height:0;}
+			100% {height:1px;}
+		}
+		@keyframes cursorHide {
+			100% {height:0;}
+		}
+
+		@media only screen and (max-width: 1200px) {
+			.raffle-h1 {left:40px;}
+		}
+
+		@media only screen and (max-width: 980px) {
+			.raffle-h1 {top:13px;left:24px;background:url('/pconts/images/dx/landing/logo_raffle.png') no-repeat center / 250px 24px;}
+
+			/* 공통 */
+			i.pc-br {display:inline;}
+			i.m-br {display:block;}
+
+			/* 플레이트 */
+			.plate-name {justify-content:center;}
+			.plate-img,
+			.plate-desc-group {flex-grow:0;max-width:100%;text-align:center;}
+			.plate-desc-group {margin-top:20px;}
+			.swiper-conts.type2 .plate-desc-group {margin-top:40px;}
+
+			/* 개별 플레이트 */
+			.swiper-conts{width:100%;flex-direction:column;justify-content:center;}
+			.swiper-conts .plate-img [class*='-plate'] {margin-top:0;margin-left:0;}
+			.swiper-slide-prev.down-wheel .swiper-conts.type2 .plate-img {animation:hideOpacity 0.5s ease-in forwards;}
+			
+			/* 작가 소개 */
+			.plate-writer {margin-top:0;padding-top:0;border-top:none;}
+
+			/* 슬라이드 #2 */
+			.roulette {margin-right:0;}
+
+			/* 슬라이드 #3 */
+			.prize-plate {margin-left:0 !important;}
+
+			/* 슬라이드 #3 #4 */
+			.slide3 .swiper-conts {flex-direction:column-reverse;}
+			.prize {margin-left:0;}
+
+			/* 슬라이드 #5 */
+			.lucky {margin-right:0;}
+			.slide5 .plate-writer {display:none;}
+			.swiper-slide-prev.slide5 .plate-desc-group {animation:hideUpBlur100px 0.5s ease-in forwards;}
+
+			/* 슬라이드 #6 */
+			.champs-plate {margin-left:0 !important;}
+			.slide6 .plate-writer-info {text-align:left;}
+			.slide6.swiper-slide-active .swiper-conts.type2 .plate-img {animation:showOpacity ease-in-out 0.7s forwards}
+			.slide6.swiper-slide-active .plate-writer {animation:showUp40px 0.5s ease-in 0.18s forwards}
+
+			/* 슬라이드 #7 #8 */
+			.slide7 .swiper-conts,
+			.slide8 .swiper-conts {flex-direction:column-reverse;}
+			.champs {margin-left:0;}
+			.slide7 .plate-writer {display:none;}
+
+			/* 슬라이드 #7 */
+			.swiper-slide-prev.slide7 .plate-desc-group {animation:hideUpBlur100px 0.5s ease-in forwards;}	
+
+			/* 슬라이드 #8 */
+			.slide8 .plate-writer-info {text-align:left;}
+			.slide8.swiper-slide-active .swiper-conts.type2 .plate-img {animation:showOpacity ease-in-out 0.7s forwards}
+			.slide8.swiper-slide-active .plate-writer {animation:showUp40px 0.5s ease-in 0.18s forwards}
+		}
+
+		@media only screen and (max-width: 640px) {
+			/* 스와이퍼 */
+			.swiper-container-vertical>.swiper-pagination-bullets {top:10px;right:0;}
+
+			/* 플레이트 모음 - 슬로건 */
+			.slogan {font-size:27px;}
+			.slogan.type2 {font-size:40px;}
+
+			/* 플레이트 모음 */
+			.plate-group .left-plate {top:calc(50% - 150px);left:calc(50% - 175px);width:205px;height:261px;}
+			.plate-group .right-plate {top:calc(50% - 30px);left:calc(50% - 46px);width:230px;height:252px;}
+
+			/* 개별 플레이트 */
+			.plate-name {font-size:30px;}
+			.plate-design {font-size:13px;}
+			.plate-desc {font-size:15px;}
+
+			.swiper-conts {padding:0 24px;}
+			.swiper-conts .plate-img [class*='-plate'] {width:153px;height:249px;margin-top:0;}
+
+			/* swiper-conts type2 */
+			.swiper-conts.type2 .plate-img [class*='-plate'] {width:148px;}
+			.swiper-conts.type2 .plate-img [class*='-plate']::after {bottom:-10px;}
+
+			/* 슬라이드 #7 */
+			.collection-tit {width:227px;height:35px;background:url('/pconts/images/dx/landing/raffle_collection-tit-m.png') no-repeat center / 100% auto;}
+			.collection-slogan {font-size:16px;}
+			.collection-plate {flex-wrap:wrap;width:290px;}
+			.collection-plate li {flex:0 0 180px;margin-left:-67px;}
+			.collection-plate li.lucky {margin-top:-50px;margin-left:-11px;}
+			.collection-plate li.champ {margin-top:-50px;margin-left:-62px;}
+			
+			/* 슬라이드 #10 */
+			.bg-raffle {background:url('/pconts/images/dx/landing/raffle_bg_m.jpg') no-repeat center / cover;}
+			.footer {padding:20px 0 25px;font-size:12px;}
+			.footer-inner {padding:0 24px;}
+			.footer .c-bull3 {font-size:12px;}
+		}
+	</style>
+<h1 class="raffle-h1"><span class="hidden-text">신한카드 | RAFFLE</span></h1>
+<div class="swiper raffle-swiper">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+
+			<div class="swiper-slide plate-group slide1">
+				<div class="slogan">Catch me in the moment!</div>
+				<div class="left-plate prize-show"></div>
+				<div class="right-plate roulette-show"></div>
+				
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide2">
+				<div class="swiper-conts type1">
+					<div class="plate-img roulette">
+						<div class="roulette-plate"></div>
+					</div>
+					<div class="plate-desc-group">
+						<p class="plate-design">Basic Design</p>
+						<strong class="plate-name" role="text">
+							<span>R</span>
+							<span>o</span>
+							<span>u</span>
+							<span>l</span>
+							<span>e</span>
+							<span>t</span>
+							<span>t</span>
+							<span>e</span>
+						</strong>
+						<p class="plate-desc typing typing01">
+							<span></span>
+							<i></i>
+						</p>
+					</div>
+				</div>
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide3">
+				<div class="swiper-conts type1">
+					<div class="plate-desc-group">
+						<p class="plate-design">Basic Design</p>
+						<strong class="plate-name" role="text">
+							<span>P</span>
+							<span>r</span>
+							<span>i</span>
+							<span>z</span>
+							<span>e</span>
+							<span>&nbsp;</span>
+							<span>W</span>
+							<span>h</span>
+							<span>e</span>
+							<span>e</span>
+							<span>l</span>
+						</strong>
+						<p class="plate-desc typing typing02">
+							<span></span>
+							<i></i>
+						</p>
+					</div>
+					<div class="plate-img prize">
+						<div class="prize-plate"></div>
+					</div>
+				</div>
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide plate-group slide4">
+				<div class="slogan type2">Collaboration</div>
+				<div class="left-plate lucky-show"></div>
+				<div class="right-plate champs-show"></div>
+				
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide5">
+				<div class="swiper-conts type2">
+					<div class="plate-img lucky">
+						<div class="lucky-plate"></div>
+					</div>
+					<div class="plate-desc-group">
+						<p class="plate-design type2">Collaboration</p>
+						<strong class="plate-name type2">Lucky Box</strong>
+						<p class="plate-desc type2">래플의 근본인 럭키박스를 신중하게 고르는<br>우리의 모습을 위트있는 표정으로 표현한 카드</p>
+						<div class="plate-writer">
+							<strong class="plate-writer-tit">25일 작가 <span class="plate-write-id">25_jw</span></strong>
+							<p class="plate-writer-info">어릴 때부터 만화를 좋아해서 그림을 그리기 시작했고, <i class="pc-br"></i>『뒤숭숭』으로 이름을 알렸다.<br>먹툰과 현대인이 공감할 수많은 밈(Meme)으로 <i class="pc-br"></i>많은 독자들에게 사랑받고 있다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide6">
+				<div class="swiper-conts type2">
+					<div class="plate-img lucky">
+						<div class="lucky-plate"></div>
+					</div>
+					<div class="plate-desc-group">
+						<div class="plate-writer">
+							<strong class="plate-writer-tit">25일 작가 <span class="plate-write-id">25_jw</span></strong>
+							<p class="plate-writer-info">어릴 때부터 만화를 좋아해서 그림을 그리기 시작했고, <i class="pc-br"></i>『뒤숭숭』으로 이름을 알렸다.<br>먹툰과 현대인이 공감할 수많은 밈(Meme)으로 <i class="pc-br"></i>많은 독자들에게 사랑받고 있다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide7">
+				<div class="swiper-conts type2">
+					<div class="plate-desc-group">
+						<p class="plate-design type2">Collaboration</p>
+						<strong class="plate-name type2">Raffle Champs</strong>
+						<p class="plate-desc type2">'갖고 싶은 것들 모두 래플을 통해서 가져보자'는<br>설램과 당찬 마음을 일러스트로 표현한 카드</p>
+						<div class="plate-writer">
+							<strong class="plate-writer-tit">김정윤 작가 <span class="plate-write-id">vagab</span></strong>
+							<p class="plate-writer-info">김정윤 작가는 수채화나 붓펜을 이용한 수작업부터 <i class="pc-br"></i>디지털 드로잉, 만화, GIF 애니메이션 제작 등 다양한 작업을 한다.<br>크고 작은 전시와 각종 브랜드와의 협업 작업을 진행하고 있으며, <i class="pc-br"></i>숨은 스토리를 견고한 필력을 바탕으로 섬세하게 표현하는 것이 특징이다</p>
+						</div>
+					</div>
+					<div class="plate-img champs">
+						<div class="champs-plate"></div>
+					</div>
+				</div>
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide8">
+				<div class="swiper-conts type2">
+					<div class="plate-desc-group">
+						<div class="plate-writer">
+							<strong class="plate-writer-tit">김정윤 작가</strong>
+							<p class="plate-writer-info">김정윤 작가는 수채화나 붓펜을 이용한 수작업부터 <br>디지털 드로잉, 만화, GIF 애니메이션 제작 등 다양한 작업을 한다.<br>크고 작은 전시와 각종 브랜드와의 협업 작업을 진행하고 있으며, <br>숨은 스토리를 견고한필력을 바탕으로 섬세하게 표현하는 것이 특징이다.</p>
+						</div>
+					</div>
+					<div class="plate-img champs">
+						<div class="champs-plate"></div>
+					</div>
+				</div>
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide9">
+				<div class="collection">
+					<strong class="collection-tit"><span class="hidden-text">RAFFLE</span></strong>
+					<p class="collection-slogan">Catch me in the moment!</p>
+					<ul class="collection-plate">
+						<li class="roulette"><img src="/pconts/images/dx/landing/outtro_plate_roulette.png" alt=""></li>
+						<li class="prize"><img src="/pconts/images/dx/landing/outtro_plate_prize.png" alt=""></li>
+						<li class="lucky"><img src="/pconts/images/dx/landing/outtro_plate_lucky.png" alt=""></li>
+						<li class="champ"><img src="/pconts/images/dx/landing/outtro_plate_champ.png" alt=""></li>
+					</ul>
+				</div>
+				<div class="arrow-bottom"></div>
+			</div>
+
+			<div class="swiper-slide slide10">
+				<div class="bg-raffle">
+					<div class="footer">
+						<div class="footer-inner">
+							<ul class="c-bull3 gap20_10">
+								<li>※ 계약을 체결 전, 상품설명서와 약관을 확인하시기 바랍니다.</li>
+								<li>※ 금융소비자는 금융소비자보호법 제19조 제1항에 따라 해당 금융상품 또는 서비스에 대하여 설명받을 권리가 있습니다.</li>
+								<li>※ 신용카드 발급이 부적정한 경우(개인신용평점 낮음, 연체(단기 포함) 사유 발생 등), 카드발급이 제한될 수 있습니다.</li>
+								<li class="gap20_10">※ 카드 이용대금과 이에 수반되는 모든 수수료는 고객님께서 지정하신 결제일에 상환하여야 합니다.</li>
+									
+								<li>※ 상환능력에 비해 신용카드 사용액이 과도할 경우, 귀하의 개인신용평점이 하락할 수 있습니다.</li>
+								<li>※ 개인신용평점 하락 시 금융거래와 관련된 불이익이 발생할 수 있습니다.</li>
+								<li>※ 일정기간 신용카드 이용대금을 연체할 경우, 결제일이 도래하지 않은 모든 신용카드 이용대금을 변제할 의무가 발생할 수 있습니다.</li>
+							</ul>
+							<p class="footer-jun">준법감시 심의필 제20220907-Cpi-025호(2022.09.07~2023.09.06)</p>
+
+							<address class="footer-address gap20_10">서울특별시 중구 을지로 100 (을지로2가, 파인에비뉴 A동)<br>대표이사 임영진 사업자등록번호 202-81-48079</address>
+							<p class="footer-copyright">copyright © 2020 SHINHANCARD CO.,LTD. ALL RIGHTS RESERVED</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+</div>
+
+
+<button id="btnRemoveSlide" style="display:none">피씨버전에서 슬라이드 삭제 버튼</button>
+
+<div id="slide-id"></div>
+<style>
+	#slide-id {position: fixed;top:30px;left:30px;z-index:1000;padding:20px;background-color:#fff;}
+</style>
+<script>
+	
+	var raffleSwiper = new Swiper('.raffle-swiper .swiper-container', {
+		direction:"vertical",
+		slidesPerView: 1,
+		mousewheel: true,
+		effect: 'fade',
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		on: {
+			init: function(){ 
+				setMobile(); // 모바일 클래스 추가
+			},
+			slideChangeTransitionStart: function(){ 
+				var slideIndex = raffleSwiper.activeIndex;
+				// 마우스 휠 이벤트
+				window.addEventListener('wheel', wheelEvent, {passive:false});
+				function wheelEvent(e) {
+					e.preventDefault();
+					var delta = 0;
+					if(!event) {
+						event = window.event;
+					}
+					if(event.wheelDelta) {
+						delta = event.wheelDelta / 120;
+						if(window.opera) delta = -delta;
+					} else if(event.detail) {
+						delta = -event.detail / 3;
+					}
+					if(delta < 0) {
+						// 마우스 휠 위에서 아래로
+						$('.swiper-slide').removeClass('down-wheel')
+						$('.swiper-slide.slide' + slideIndex).addClass('down-wheel')
+					} else {
+						// 마우스 휠 아래에서 위로
+						$('.swiper-slide').removeClass('down-wheel')
+					}
+					// console.log(slideIndex)
+				}
+
+				// 터치 이벤트
+				document.addEventListener('touchstart', touchEventStart, false);
+				document.addEventListener('touchend', topuchEventEnd, false);
+				var yDown = null;
+				function getTouches(e) {
+					return e.touches || evt.originalEvent.touches;
+				}
+
+				function touchEventStart(e) {
+					var firstThoch = getTouches(e)[0];
+					yDown = firstThoch.clientY;
+				}
+
+				function topuchEventEnd(e) {
+					if(!yDown) {
+						return;
+					}
+					var yUp = e.changedTouches[0].clientY;
+					var yDiff = yDown - yUp;
+					if(yDiff > 0) {
+						// 터치 위에서 아래로
+						console.log('a1')
+						$('.swiper-slide').removeClass('down-wheel')
+					} else {
+						// 터치 아래에서 위로
+						console.log('a2')
+						$('.swiper-slide').removeClass('down-wheel')
+						$('.swiper-slide.slide' + slideIndex).addClass('down-wheel')
+						
+					}
+				}
+
+				// 타이핑 효과
+				function typing(ele, delay, idx) {
+					// 스와이프 시 타이핑 초기화
+					var newEle =  document.createElement('span');
+					document.querySelector(ele + ' > span').remove()
+					document.querySelector(ele).prepend(newEle)
+
+					var k = 0;
+					var content = null;
+					if(ele === '.typing01') {
+						content = '타이포그래피를 Roulette 형태로 배치해 \n행운을 얻는 찰나의 순간을 \n소재의 깊이감을 활용해 표현한 카드';
+					} else if( ele === '.typing02') {
+						content = '강력한 혜택은 볼드한 타이포그래피로 표현하고, \n중앙부가 회전하는 듯한 효과를 추가하여 \n시각적 즐거움까지 놓치지 않는 카드';
+					}
+					var typingTxt = document.querySelector(ele + ' > span');
+
+					function typingInt() {
+						setTimeout(function() {
+							document.querySelector(ele + ' > span').classList.add('ing')
+							if(k < content.length) {
+								var txt = content.charAt(k);
+								typingTxt.innerHTML += txt === '\n' ? '<br>' : txt;
+								k++;
+							} else {
+								clearInterval(tyInt);
+								setTimeout(function() {
+									document.querySelector(ele + ' > span').classList.remove('ing')
+								},1500);
+							}
+						},delay)
+					}
+					if(slideIndex === idx) {
+						var tyInt = setInterval(function() {
+							typingInt();
+						},40);
+					}
+				}
+				typing('.typing01', 1500, 1) //엘리먼트, 딜레이, 스와이프 인덱스
+				typing('.typing02', 1500, 2) //엘리먼트, 딜레이, 스와이프 인덱스
+
+				setMobile(); // 모바일 클래스 추가
+
+
+				var slideClass = $('.swiper-slide');
+				$('.swiper-slide').each(function(index, item){
+					console.log(item.getAttribute('class'))
+					var aa = item.getAttribute('class');
+					alert(item.getAttribute('class'))
+				})
+
+			},
+		},
+	})
+	window.addEventListener('resize', resizeFn)
+	window.addEventListener('DOMContentLoaded', function() {
+		setTimeout(function() {
+			removeSlidePc(); // 피씨버전에서 슬라이드 삭제처리
+		},1000)
+	})
+
+	// 슬라이드 삭제 트리거
+	document.getElementById('btnRemoveSlide').addEventListener('click', function() {
+		raffleSwiper.removeSlide(5)
+		raffleSwiper.removeSlide(6)
+	})
+
+	// 라사이즈 함수
+	function resizeFn() {
+		removeSlidePc(); // 피씨버전에서 슬라이드 삭제처리
+		setMobile(); // 모바일 클래스 추가
+	}
+
+	// 피씨버전에서 슬라이드 삭제처리
+	function removeSlidePc() {
+		if(window.innerWidth < 981 && $('.swiper-slide').length === 8) {
+			// 모바일
+			location.reload();
+		} else if(window.innerWidth >= 981) {
+			// 피씨
+			var removeBtn = document.getElementById('btnRemoveSlide');
+			if(!!removeBtn) {
+				removeBtn.click();
+				removeBtn.remove();
+			}
+		}
+	}
+
+	// 디바이스 980이하에서 모바일 클래스 추가
+	function setMobile() {
+		if(window.innerWidth < 981) {
+			document.querySelector('.raffle-swiper').classList.add('mobile');
+		} else {
+			document.querySelector('.raffle-swiper').classList.remove('mobile');
+		}
+	}
+
+	
+</script>
+</body>
+</html>
