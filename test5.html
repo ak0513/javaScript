@@ -120,16 +120,19 @@
 		</article>
 	</div>
 </div>
+<button id="searchMobileToggle"></button>
 
 <script>
-	alert('5-2');
+	alert('5-3');
 	popOpen('#fnLayerBank', false);
 	$('#accNo').focus();
 	$('#accNo').click();
 
-	onClickButton = function (e) { // 클릭 이벤트 핸들러라 가정한다.
-		alert('aa')
-		$('#accNo').focus();// 원하는 textarea의 포커스 이벤트를 호출하면 키패드가 열린다.
-  	}
-	  onClickButton();
+	var searchMobileToggle = document.querySelector('#searchMobileToggle');
+	var searchField = document.querySelector('#accNo');
+	searchMobileToggle.addEventListener('click', function() {
+            searchField.setAttribute('autofocus', 'autofocus');
+            searchField.focus();
+
+    });
 </script>
