@@ -120,10 +120,10 @@
 		</article>
 	</div>
 </div>
-<button id="searchMobileToggle"></button>
+<button id="searchMobileToggle">1</button>
 
 <script>
-	alert('5-3');
+	alert('5-4');
 	popOpen('#fnLayerBank', false);
 	$('#accNo').focus();
 	$('#accNo').click();
@@ -131,8 +131,10 @@
 	var searchMobileToggle = document.querySelector('#searchMobileToggle');
 	var searchField = document.querySelector('#accNo');
 	searchMobileToggle.addEventListener('click', function() {
+		alert('aa')
             searchField.setAttribute('autofocus', 'autofocus');
             searchField.focus();
 
     });
+	$("#searchMobileToggle").trigger( "click" );
 </script>
