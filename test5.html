@@ -123,11 +123,11 @@
 <button id="searchMobileToggle">1</button>
 
 <script>
-	alert('5-4');
+	alert('5-1');
 	popOpen('#fnLayerBank', false);
 	$('#accNo').focus();
 	$('#accNo').click();
-
+/* 
 	var searchMobileToggle = document.querySelector('#searchMobileToggle');
 	var searchField = document.querySelector('#accNo');
 	searchMobileToggle.addEventListener('click', function() {
@@ -136,5 +136,27 @@
             searchField.focus();
 
     });
-	$("#searchMobileToggle").trigger( "click" );
+	$("#searchMobileToggle").trigger( "click" ); */
+
+	var f = function(event) {
+		$timeout(function() { // angular way, setTimeout is OK
+			input[0].focus();
+			event.preventDefault();
+		})
+	};
+	var mobile = false;
+	$('#accNo').on('click', function(event) {
+		if(mobile) return;
+		f(event);
+	});
+
+	$('#accNo').on('touchstart', function(event) {
+		mobile = true;
+		f(event);
+	});
+
+	$('#accNo').on('touchend', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});
 </script>
