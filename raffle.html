@@ -224,7 +224,7 @@
 		@keyframes showSlogan { /* 슬로건 텍스트 확대 show */
 			0%{transform: translate(-50%, -50%) scale(0);filter:blur(5px);}
 			80%{opacity:1;}
-			100%{transform: translate(-50%, -50%) scale(1);text-shadow:0px 0px 10px rgba(0,0,0,0.5);opacity:1;}
+			100%{text-shadow:0px 0px 10px rgba(0,0,0,0.5);opacity:1;}
 		}
 
 		@keyframes hideSlogan { /* 슬로건 텍스트 확대 hide */
@@ -569,7 +569,7 @@
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 
-			<div class="swiper-slide plate-group slide1 down-wheel">
+			<div class="swiper-slide plate-group slide1">
 				<div class="slogan">Catch me in the moment!</div>
 				<div class="left-plate prize-show"></div>
 				<div class="right-plate roulette-show"></div>
@@ -750,7 +750,7 @@
 
 <button id="btnRemoveSlide" style="display:none">피씨버전에서 슬라이드 삭제 버튼</button>
 
-<div id="slide-id">3</div>
+<div id="slide-id"></div>
 <style>
 	#slide-id {position: fixed;top:30px;left:30px;z-index:1000;padding:20px;background-color:#fff;}
 </style>
@@ -787,11 +787,11 @@
 					}
 					if(delta < 0) {
 						// 마우스 휠 위에서 아래로
-						removeDownWheel();
+						$('.swiper-slide').removeClass('down-wheel')
 						$('.swiper-slide.slide' + slideIndex).addClass('down-wheel')
 					} else {
 						// 마우스 휠 아래에서 위로
-						removeDownWheel();
+						$('.swiper-slide').removeClass('down-wheel')
 					}
 					// console.log(slideIndex)
 				}
@@ -818,14 +818,14 @@
 					if(yDiff > 0) {
 						// 터치 위에서 아래로
 						console.log('a1')
-						removeDownWheel();
+						$('.swiper-slide').removeClass('down-wheel')
 						// $('.swiper-slide.slide' + slideIndex).addClass('down-wheel')
 						$('.swiper-slide-prev').addClass('down-wheel')
 						
 					} else {
 						// 터치 아래에서 위로
 						console.log('a2')
-						removeDownWheel();
+						$('.swiper-slide').removeClass('down-wheel')
 						
 					}
 				}
@@ -896,7 +896,9 @@
 		setMobile(); // 모바일 클래스 추가
 	}
 
-	$('swiper-pagination-bullet').click(removeDownWheel)
+	$('swiper-pagination-bullet').click(function() {
+		$('.swiper-slide').removeClass('down-wheel')
+	})
 
 	function removeDownWheel() {
 		$('.swiper-slide').removeClass('down-wheel')
