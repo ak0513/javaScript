@@ -63,101 +63,69 @@
 	<script src="https://www.shinhancard.com/logic/js/mob/cmm/appinsightor_inc.js"></script>
 	<script src="https://www.shinhancard.com/logic/js/mob/cmm/ibricks_wrc.js"></script>
 </head>
-
+<body>
 
 
 <div id="wrap">
 	<!-- header -->
 	<header></header>
 	<div id="container">
-
-	</div>
-
-	<!-- <div id="fnLayerBank" class="pop_wrap small auto_h mo_full point_filter_pop fnLayerBank" role="dialog"> -->
-	<div id="fnLayerBank" class="pop_wrap small auto_h mo_full point_filter_pop fnLayerBank is_visible is_active" role="dialog">
-		<article class="popup popup_type01">
-			<div class="pop_head has_tab pdt0">
-				<h3 id="fnLayerBankTitle" class="hidden-text">계좌입력</h3>
-				<div class="tab_type01">
-					<div class="tab_pull">
-						<div class="swiper-container">
-							<ul class="tab_list swiper-wrapper" role="tablist">
-								<li id="tabBank_1" class="current" role="none">
-									<button type="button" role="tab" aria-controls="bankinfoArea1" arie-selected="ture"><span>은행</span></button>
-								</li>
-								<li id="tabBank_2" class="current" role="none">
-									<button type="button" role="tab" aria-controls="bankinfoArea2" arie-selected="false"><span>증권사</span></button>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="pop_cont">
-				<div class="tab_wrap">
-					<div class="tab_cont current" role="tabpanel" aria-labelledby="tabBank_1" id="bankinfoArea1">
-						<div class="bank_lists">
-							<li class="bank_item"><span class="bank_radio"><input id="ipr_b1_088"><label for="ipr_b1_088"><span class="icb_088">신한</span></label></span>
-							</li>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="bank_select_wrap">
-				<div class="bank_selected">
-					<p class="bank_name"><span class="icb_004">KB국민</span></p>
-					<div class="bank_account">
-						<input type="tel" class="onlyNumber" id="accNo">
-					</div>
-				</div>
-			</div>
-
-			<div class="pop_btn btn_Wrap">
-				<button type="button" class="btn default blue"><span>확인</span></button>
-			</div>
-			<button type="button" class="btn_close ui-pop-close"><span>팝업닫기</span></button>
-		</article>
+		<button id="searchMobileToggle" onclick="popOpen('#fnLayerBank')">1</button>
 	</div>
 </div>
-<button id="searchMobileToggle">1</button>
 
+<!-- <div id="fnLayerBank" class="pop_wrap small auto_h mo_full point_filter_pop fnLayerBank" role="dialog"> -->
+<div id="fnLayerBank" class="pop_wrap small auto_h mo_full point_filter_pop fnLayerBank is_visible is_active" role="dialog">
+	<article class="popup popup_type01">
+		<div class="pop_head has_tab pdt0">
+			<h3 id="fnLayerBankTitle" class="hidden-text">계좌입력</h3>
+			<div class="tab_type01">
+				<div class="tab_pull">
+					<div class="swiper-container">
+						<ul class="tab_list swiper-wrapper" role="tablist">
+							<li id="tabBank_1" class="current" role="none">
+								<button type="button" role="tab" aria-controls="bankinfoArea1" arie-selected="ture"><span>은행</span></button>
+							</li>
+							<li id="tabBank_2" class="current" role="none">
+								<button type="button" role="tab" aria-controls="bankinfoArea2" arie-selected="false"><span>증권사</span></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pop_cont">
+			<div class="tab_wrap">
+				<div class="tab_cont current" role="tabpanel" aria-labelledby="tabBank_1" id="bankinfoArea1">
+					<div class="bank_lists">
+						<li class="bank_item"><span class="bank_radio"><input id="ipr_b1_088"><label for="ipr_b1_088"><span class="icb_088">신한</span></label></span>
+						</li>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bank_select_wrap">
+			<div class="bank_selected">
+				<p class="bank_name"><span class="icb_004">KB국민</span></p>
+				<div class="bank_account">
+					<input type="tel" class="onlyNumber" id="accNo">
+				</div>
+			</div>
+		</div>
+
+		<div class="pop_btn btn_Wrap">
+			<button type="button" class="btn default blue"><span>확인</span></button>
+		</div>
+		<button type="button" class="btn_close ui-pop-close"><span>팝업닫기</span></button>
+	</article>
+</div>
 <script>
-	alert('5-2s');
-	// popOpen('#fnLayerBank', false);
-	// $('#accNo').focus();
-	// $('#accNo').click();
-/* 
-	var searchMobileToggle = document.querySelector('#searchMobileToggle');
-	var searchField = document.querySelector('#accNo');
-	searchMobileToggle.addEventListener('click', function() {
-		alert('aa')
-            searchField.setAttribute('autofocus', 'autofocus');
-            searchField.focus();
 
-    });
-	$("#searchMobileToggle").trigger( "click" ); */
-
-	var f = function(event) {
-		$timeout(function() { // angular way, setTimeout is OK
-			input[0].focus();
-			event.preventDefault();
-		})
-	};
-	var mobile = false;
-	$('#accNo').on('click', function(event) {
-		if(mobile) return;
-		f(event);
-	});
-
-	$('#accNo').on('touchstart', function(event) {
-		mobile = true;
-		f(event);
-	});
-
-	$('#accNo').on('touchend', function(event) {
-		event.preventDefault();
-		event.stopPropagation();
-	});
+	popOpen('#fnLayerBank', false);
 </script>
+</body>
+
+
+</html>
