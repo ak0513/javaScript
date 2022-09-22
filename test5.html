@@ -124,7 +124,7 @@
 <button id="searchMobileToggle">1</button>
 
 <script>
-	alert('5-3');
+	alert('5-2s');
 	// popOpen('#fnLayerBank', false);
 	// $('#accNo').focus();
 	// $('#accNo').click();
@@ -139,9 +139,25 @@
     });
 	$("#searchMobileToggle").trigger( "click" ); */
 
-	
+	var f = function(event) {
+		$timeout(function() { // angular way, setTimeout is OK
+			input[0].focus();
+			event.preventDefault();
+		})
+	};
+	var mobile = false;
+	$('#accNo').on('click', function(event) {
+		if(mobile) return;
+		f(event);
+	});
 
-$("#accNo").click(function(){ $("input[name='term']").trigger('focus') });
+	$('#accNo').on('touchstart', function(event) {
+		mobile = true;
+		f(event);
+	});
 
-
+	$('#accNo').on('touchend', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});
 </script>
