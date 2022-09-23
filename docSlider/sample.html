@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./docSlider.min.js">
-    <link rel="stylesheet" href="./docSlider.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="./js/docSlider.min.js"></script>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/docSlider.css">
     <style>
         section:nth-child(odd){
             background-color: #eee;
@@ -19,28 +21,89 @@
             font-weight: bold;
             font-size: 2em;
         }
+        /* header */
+        #header {
+            position: fixed;
+            top:0;
+            left:0;
+            z-index: 100;
+        }
+        
+        /* nav */
+        .nav-group {display:flex;}
 
+        #nav-mobile {
+            overflow-y: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100vh;
+            background-color: #21005b;
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.1, 0.2, 0.2, 1),opacity 0.2s linear;
+            transform: translateX(100%);
+        }
+        #nav-mobile.on {
+            opacity: 1;
+            transform: translateX(0);
+        }
     </style>
-    <title>Sample :: docSlider.js</title>
+    <title>Title</title>
 </head>
 <body>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        docSlider.init();
 
-<div class="docSlider">
-    <section>
-        <div class="inner">Page1</div>
-    </section>
-    <section>
-        <div class="inner">Page2</div>
-    </section>
-    <section>
-        <div class="inner">Page3</div>
-    </section>
-    <section>
-        <div class="inner">Page4</div>
-    </section>
+        var navMobile =  document.getElementById('nav-mobile');
+        // gnb 메뉴 열기
+        document.querySelector('.btn-open-gnb').addEventListener('click', function() {
+            navMobile.classList.add('on')
+        });
+
+        // gnb 메뉴 닫기
+        document.querySelector('.btn-close-gnb').addEventListener('click', function() {
+            navMobile.classList.remove('on')
+        })
+    })
+</script>
+<div id="wrap">
+    <header id="header">
+        <div class="logo"></div>
+        <nav id="nav">
+            <ul class="nav-group">
+                <li class="nav-item"><a href="" class="nav-link">ANDTREE</a></li>
+                <li class="nav-item"><a href="" class="nav-link">ANDTREE PROGRAM</a></li>
+                <li class="nav-item"><a href="" class="nav-link">ANDTREE NEWS</a></li>
+                <li class="nav-item"><a href="" class="nav-link">PARTNERS</a></li>
+                <li class="nav-item"><a href="" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+        <button type="button" aria-lable="메뉴 열기" class="btn-open-gnb"></button>
+        <nav id="nav-mobile">
+            <button type="button" aria-lable="메뉴 닫기" class="btn-close-gnb"></button>
+        </nav>
+    </header>
+    <div class="docSlider">
+        <section>
+            <div class="inner">Page1</div>
+        </section>
+        <section>
+            <div class="inner">Page2</div>
+        </section>
+        <section>
+            <div class="inner">Page3</div>
+        </section>
+        <section>
+            <div class="inner"><div style="height:2000px">222</div></div>
+        </section>
+    </div>
 </div>
 
-<script src="docSlider.min.js"></script>
-<script>docSlider.init();</script>
+
 </body>
 </html>
