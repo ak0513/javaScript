@@ -174,7 +174,8 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-item.on .nav-link {
     color: #86e5ff;
 }
 
