@@ -9,3 +9,16 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     });
 })
+
+window.addEventListener('mousemove', function() {
+    var tar = document.querySelectorAll('.motion img');
+    var winH = window.innerHeight;
+    var winW = window.innerWidth;
+    var mouseXpos = event.clientX;
+    var mouseYpos = event.clientY;
+    var Ytransform = (winW / 2 - mouseXpos) * 0.01;
+    var Xtransform = (winH / 2 - mouseYpos) * 0.01;
+    tar.forEach(function(item) {
+        item.style.transform = "translate(" + Ytransform + "px," + Xtransform + "px)"
+    });
+});

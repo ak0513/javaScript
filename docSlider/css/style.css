@@ -297,7 +297,7 @@ button {
 }
 
 .docSlider-current .slogan span {
-    animation: toTop 0.7s ease-in 0.7s forwards;
+    animation: toTop 0.5s ease-in-out 0.7s forwards;
 }
 
 .sub-txt {
