@@ -8,7 +8,9 @@
 </head>
 <body>
 	<style>
+		.motion {transition: all 0.4s ease;}
 		[class*='type'] {position:absolute;top:50%;left:50%;}
+		.type1 {margin-top:-100px;}
 	</style>
 
 		<div class="type1 motion">111</div>
@@ -21,8 +23,8 @@
 			var winW = window.innerWidth;
 			var mouseXpos = event.clientX;
 			var mouseYpos = event.clientY;
-			var Ytransform = (winW / 2 - mouseXpos) * 0.01;
-			var Xtransform = (winH / 2 - mouseYpos) * 0.01;
+			var Ytransform = (winW / 2 - mouseXpos) * 0.02;
+			var Xtransform = (winH / 2 - mouseYpos) * 0.02;
 			tar.forEach(function(item) {
 				item.style.transform = "translate(" + Ytransform + "px," + Xtransform + "px)"
 			});

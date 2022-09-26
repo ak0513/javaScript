@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // 모션
 window.addEventListener('mousemove', function(e) {
-    var tar = document.querySelectorAll('.motion img');
+    var tar = document.querySelectorAll('.motion');
     var winH = window.innerHeight;
     var winW = window.innerWidth;
     var mouseXpos = e.clientX;
