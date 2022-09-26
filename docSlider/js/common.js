@@ -43,17 +43,16 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 })
 
-window.addEventListener('mousemove', function() {
+// 모션
+window.addEventListener('mousemove', function(e) {
     var tar = document.querySelectorAll('.motion img');
     var winH = window.innerHeight;
     var winW = window.innerWidth;
-    var mouseXpos = event.clientX;
-    var mouseYpos = event.clientY;
-    var Ytransform = (winW / 2 - mouseXpos) * 0.01;
-    var Xtransform = (winH / 2 - mouseYpos) * 0.01;
+    var mouseXpos = e.clientX;
+    var mouseYpos = e.clientY;
+    var Ytransform = (winW / 2 - mouseXpos) * 0.02;
+    var Xtransform = (winH / 2 - mouseYpos) * 0.02;
     tar.forEach(function(item) {
-        setTimeout(function() {
-            item.style.transform = "translate(" + Ytransform + "px," + Xtransform + "px)"
-        },200)
+        item.style.transform = "translate(" + Ytransform + "px," + Xtransform + "px)"
     });
 });

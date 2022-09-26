@@ -393,6 +393,10 @@ body {
     transform: translate(0, 0);
 }
 
+.bg-wrap .motion img {
+    transition: all 0.4s ease-out;
+}
+
 .section01 {
     background-color:#1a59bc;
 }
