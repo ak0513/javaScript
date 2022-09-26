@@ -131,6 +131,7 @@ button {
 }
 
 body {
+    background-color: #fff;
     font-family: GmarketSans, sans-serif;
 }
 
@@ -393,7 +394,7 @@ body {
     transform: translate(0, 0);
 }
 
-.bg-wrap .motion img {
+.bg-wrap .motion {
     transition: all 0.4s ease-out;
 }
 
