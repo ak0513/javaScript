@@ -1,11 +1,14 @@
 window.addEventListener('DOMContentLoaded', function() {
     // 모바일 gnb 메뉴 열기
     var wrap =  document.getElementById('wrap');
+    var txt =  document.querySelector('#btn-open-mobile-nav .txt');
     document.querySelector('#btn-open-mobile-nav').addEventListener('click', function() {
         if(wrap.classList.contains('on')) {
             wrap.classList.remove('on');
+            txt.innerHTML = 'MENU';
         } else {
             wrap.classList.add('on');
+            txt.innerHTML = 'CLOSE';
         }
     });
 
@@ -35,7 +38,7 @@ window.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             var self = e.target;
             if(self.parentElement.classList.contains('on')) {
-                self.parentElement.classList.remove('on')
+                self.parentElement.classList.remove('on');
             } else {
                 self.parentElement.classList.add('on');
             }

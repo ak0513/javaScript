@@ -311,14 +311,6 @@ body {
     transform: translateY(4px);
 }
 
-#wrap.on .btn-open-gnb {
-    width: 30px;
-}
-
-#wrap.on .btn-open-gnb .txt {
-    opacity: 0;
-}
-
 #wrap.on .btn-open-gnb .line::before {
     transform: translateY(0) rotateZ(180deg);
 }
@@ -868,19 +860,19 @@ body {
         display: none;
     }
     .btn-open-gnb {
+        overflow: hidden;
+        width: 30px;
+        height: 30px;
         right: 25px;
     }
 
-    .btn-open-gnb {
-        width: 30px;
-    }
-
     .btn-open-gnb .txt {
-        opacity: 0;
+        display: none;
     }
 
     .btn-open-gnb .line {
         height: 2px;
+        margin-right:0;
         background-color: #fff;
     }
 
