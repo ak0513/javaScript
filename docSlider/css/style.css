@@ -130,6 +130,10 @@ button {
     clip-path: inset(50%);
 }
 
+body {
+    font-family: GmarketSans, sans-serif;
+}
+
 .logo {
     flex-shrink: 0;
     width: 198px;
@@ -159,6 +163,7 @@ button {
 }
 
 .nav-item {
+    position: relative;
     list-style:none;
 }
 
@@ -170,6 +175,42 @@ button {
     font-size: 20px;
     color:#fff;
     font-family: 'TmonTium', sans-serif;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    color:#86e5ff;
+}
+
+.nav-dep2-group {
+    position: absolute;
+    top: 40px;
+    left:50%;
+    opacity: 0;
+    background-color: #21005b;
+    padding:25px 37px;
+    border-radius: 3px;
+    transform: translate(-50%, 20px);
+    transition: all 0.4s ease-in-out;
+}
+
+.nav-item.on .nav-dep2-group {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.nav-dep2-item + .nav-dep2-item {
+    margin-top: 15px;
+}
+
+.nav-dep2-link {
+    display: block;
+    color:rgba(255,255,255,0.7);
+    font-size: 17px;
+}
+
+.nav-dep2-link:hover {
+    color:#86e5ff;
 }
 
 #nav-mobile {
@@ -209,8 +250,20 @@ button {
     color:#fff;
 }
 
+.nav-mobile-link:hover,
+.nav-mobile-dep2-link:hover,
+.nav-mobile-item.on .nav-mobile-link {
+    color: #86e5ff;
+}
+
 .nav-mobile-dep2-group {
+    overflow: hidden;
+    height: 0;
     margin-top: 7px;
+    transition: all 0.4s ease-in-out;
+}
+.nav-mobile-item.on .nav-mobile-dep2-group {
+    height: 130px;
 }
 
 .nav-mobile-dep2-link {
