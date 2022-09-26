@@ -366,6 +366,15 @@ body {
     animation: toTop 1s ease-in-out 0.8s forwards;
 }
 
+.arrow-bottom {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 100px;
+    margin-left: -10px;
+    animation: arrowBottom ease-in-out 1.5s infinite alternate forwards;
+}
+
 .bg-wrap>[class*='bg'],
 .bg-wrap>[class*='bg'] .inner {
     position: absolute;
@@ -868,6 +877,18 @@ body {
     0% {
         opacity: 0;
         transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes arrowBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 
     100% {
