@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function() {
-    var wrap =  document.getElementById('wrap');
     // 모바일 gnb 메뉴 열기
+    var wrap =  document.getElementById('wrap');
     document.querySelector('#btn-open-mobile-nav').addEventListener('click', function() {
         if(wrap.classList.contains('on')) {
             wrap.classList.remove('on');
@@ -27,25 +27,20 @@ window.addEventListener('DOMContentLoaded', function() {
         })
     })
 
-    // pc gnb 서브 노출
+    // mo gnb 서브 노출
     var navMobileItem = document.querySelectorAll('.nav-mobile-item');
     var navMobileLink = document.querySelectorAll('.nav-mobile-link.has-dep2');
     navMobileLink.forEach(function(item) {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             var self = e.target;
-            
             if(self.parentElement.classList.contains('on')) {
                 self.parentElement.classList.remove('on')
             } else {
                 self.parentElement.classList.add('on');
             }
-        
-            console.log(self)
         })
     });
-
-
 })
 
 window.addEventListener('mousemove', function() {
