@@ -49,12 +49,8 @@ window.addEventListener('DOMContentLoaded', function() {
 // 모션
 window.addEventListener('mousemove', function(e) {
     var tar = document.querySelectorAll('.motion');
-    var winH = window.innerHeight;
-    var winW = window.innerWidth;
-    var mouseXpos = e.clientX;
-    var mouseYpos = e.clientY;
-    var Ytransform = (winW / 2 - mouseXpos) * 0.02;
-    var Xtransform = (winH / 2 - mouseYpos) * 0.02;
+    var Ytransform = (window.innerHeight / 2 - e.clientX) * 0.02;
+    var Xtransform = (window.innerWidth / 2 - e.clientY) * 0.02;
     tar.forEach(function(item) {
         item.style.transform = "translate(" + Ytransform + "px," + Xtransform + "px)"
     });
