@@ -68,7 +68,6 @@ button {
         url('../fonts/TmonTium.eot') format('embeded-opentype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -80,7 +79,6 @@ button {
         url('../fonts/Gotham-Black.eot') format('embeded-opentype');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -92,7 +90,6 @@ button {
         url('../fonts/GmarketSansTTFLight.eot') format('embeded-opentype');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -104,7 +101,6 @@ button {
         url('../fonts/GmarketSansTTFMedium.eot') format('embeded-opentype');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -116,7 +112,6 @@ button {
         url('../fonts/GmarketSansTTFBold.eot') format('embeded-opentype');
     font-weight: bold;
     font-style: normal;
-    font-display: swap;
 }
 
 .a11y {
