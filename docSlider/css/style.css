@@ -183,9 +183,10 @@ body {
     top: 40px;
     left: 50%;
     opacity: 0;
-    background-color: #21005b;
-    padding: 25px 37px;
-    border-radius: 3px;
+    width: 246px;
+    padding: 16px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     transform: translate(-50%, 20px);
     transition: all 0.4s ease-in-out;
 }
@@ -201,8 +202,9 @@ body {
 
 .nav-dep2-link {
     display: block;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 17px;
+    color: #c0b8cd;
+    font-size: 15px;
+    text-align: center;
 }
 
 .nav-dep2-link:hover {
@@ -362,12 +364,15 @@ body {
 }
 
 .arrow-bottom {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    width: 100px;
-    margin-left: -10px;
-    animation: arrowBottom ease-in-out 1.5s infinite alternate forwards;
+    position: fixed;
+    bottom: 40px;
+    right: 70px;
+    z-index: 100;
+    animation: arrowBottom ease-in-out 0.7s infinite alternate forwards;
+}
+
+.docSlider-index_3 .arrow-bottom {
+    opacity: 0;
 }
 
 .bg-wrap>[class*='bg'],
@@ -415,7 +420,8 @@ body {
 
 .bg01-02 {
     top: 170px;
-    width: 240px;
+    left: -80px;
+    width: 324px;
 }
 
 .docSlider-current .bg01-02 {
@@ -702,6 +708,12 @@ body {
     font-family: 'GmarketSans', sans-serif;
     font-size: 16px;
     color: #fff;
+    transition: all 0.4s ease;
+}
+
+.btn-apply:hover {
+    background-color: #fff;
+    color: #3840a9;
 }
 
 .docSlider-current .btn-apply {
@@ -882,12 +894,10 @@ body {
 
 @keyframes arrowBottom {
     0% {
-        opacity: 0;
         transform: translateY(-10px);
     }
 
     100% {
-        opacity: 1;
         transform: translateY(0);
     }
 }
@@ -950,6 +960,13 @@ body {
 
     .btn-open-gnb .line::after {
         transform: translateY(4px);
+    }
+
+    /* section */
+    .arrow-bottom {
+        right: 20px;
+        bottom: 20px;
+        width: 32px;
     }
 
 
@@ -1019,10 +1036,8 @@ body {
 
     .bg01-02 {
         top: 117px;
-        left: 0;
-        width: 170px;
-        height: 167px;
-        background-size: 170px 167px;
+        left: -45px;
+        width: 237px;
     }
 
     .bg01-03 {
