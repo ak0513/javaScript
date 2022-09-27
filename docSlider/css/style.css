@@ -343,7 +343,7 @@ body {
 }
 
 .docSlider-current .slogan span {
-    animation: toTop 0.5s ease-in-out 0.7s forwards;
+    animation: toTop 0.5s ease-in-out 1.3s forwards;
 }
 
 .sub-txt {
@@ -361,7 +361,7 @@ body {
 }
 
 .docSlider-current .sub-txt span {
-    animation: toTop 1s ease-in-out 0.8s forwards;
+    animation: toTop 1s ease-in-out 1.4s forwards;
 }
 
 .arrow-bottom {
@@ -446,7 +446,7 @@ body {
 }
 
 .docSlider-current .bg01-02 {
-    animation: toBR 0.5s ease-in-out 1.2s forwards;
+    animation: toBR 0.5s ease-in-out 0.8s forwards;
 }
 
 .bg01-03 {
