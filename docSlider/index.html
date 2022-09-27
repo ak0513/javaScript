@@ -151,13 +151,29 @@
 		</section>
 		<!-- // 섹션4 -->
 	</div>
-	<div class="arrow-bottom"><img src="./img/arrow_bottom.png" alt=""></div>
+	<div class="arrow-bottom">
+		<button type="button" aria-label="2번 슬라이드 이동" class="go2"></button>
+		<button type="button" aria-label="3번 슬라이드 이동" class="go3"></button>
+		<button type="button" aria-label="4번 슬라이드 이동" class="go4"></button>
+	</div>
 </div>
 
 <script>
 	window.addEventListener('DOMContentLoaded', function() {
 		docSlider.init();
 	});
+
+	document.querySelector('.arrow-bottom .go2').addEventListener('click', function(e) {
+		document.querySelector('[data-ds-jump="1"]').click();
+	})
+
+	document.querySelector('.arrow-bottom .go3').addEventListener('click', function(e) {
+		document.querySelector('[data-ds-jump="2"]').click();
+	})
+
+	document.querySelector('.arrow-bottom .go4').addEventListener('click', function(e) {
+		document.querySelector('[data-ds-jump="3"]').click();
+	})
 </script>
 </body>
 </html>

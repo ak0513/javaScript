@@ -369,7 +369,27 @@ body {
     bottom: 40px;
     right: 70px;
     z-index: 100;
+    width: 44px;
     animation: arrowBottom ease-in-out 0.7s infinite alternate forwards;
+}
+
+.arrow-bottom button {
+    display: none;
+    width: 100%;
+    height: 65px;
+    background: url(../img/arrow_bottom.png) no-repeat center / 44px 65px;
+}
+
+.docSlider-index_0 .arrow-bottom .go2 {
+    display: block;
+}
+
+.docSlider-index_1 .arrow-bottom .go3 {
+    display: block;
+}
+
+.docSlider-index_2 .arrow-bottom .go4 {
+    display: block;
 }
 
 .docSlider-index_3 .arrow-bottom {
