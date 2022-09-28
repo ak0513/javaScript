@@ -337,13 +337,17 @@ body {
     letter-spacing: -1px;
 }
 
-.slogan span {
+.slogan-txt span {
     opacity: 0;
     display: block;
 }
 
-.docSlider-current .slogan span {
+.docSlider-current .slogan-txt .slogan-ani01 {
     animation: toTop 0.5s ease-in-out 1.3s forwards;
+}
+
+.docSlider-current .slogan-txt .slogan-ani02 {
+    animation: toTop 0.5s ease-in-out 1.5s forwards;
 }
 
 .sub-txt {
@@ -361,7 +365,7 @@ body {
 }
 
 .docSlider-current .sub-txt span {
-    animation: toTop 1s ease-in-out 1.4s forwards;
+    animation: toTop 1s ease-in-out 1.6s forwards;
 }
 
 .arrow-bottom {
@@ -393,7 +397,7 @@ body {
 }
 
 .docSlider-index_3 .arrow-bottom {
-    opacity: 0;
+    display: none;
 }
 
 .bg-wrap>[class*='bg'],
@@ -694,6 +698,14 @@ body {
     font-weight: 700;
 }
 
+.docSlider-current.section04 .slogan-txt .slogan-ani01 {
+    animation-delay: 1.0s;
+}
+
+.docSlider-current.section04 .sub-txt span {
+    animation-delay: 1.1s;
+}
+
 .bg04-01 {
     top: -579px;
     right: -370px;
@@ -839,6 +851,16 @@ body {
 
 .footer-term-link:hover {
     color: #fff;
+}
+
+#footer .go1 {
+    position: absolute;
+    top: 0;
+    right: 94px;
+    display: block;
+    width: 65px;
+    height: 45px;
+    background: url('../img/btn-top.png') no-repeat;
 }
 
 @keyframes toBL {
@@ -1138,6 +1160,15 @@ body {
         width: 138px;
         height: 48px;
         font-size: 14px;
+    }
+
+
+    /* footer */
+    #footer .go1 {
+        right: 50px;
+        width: 45px;
+        height: 31px;
+        background: url('../img/btn-top.png') no-repeat center / 45px 31px;
     }
 }
 

@@ -64,7 +64,10 @@
 		<!-- 섹션 1 -->
 		<section class="section01">
 			<div class="text-wrap">
-				<p class="slogan"><span>andtree<br>abler</span></p>
+				<div class="slogan">
+					<p class="slogan-txt"><span class="slogan-ani01">andtree</span></p>
+					<p class="slogan-txt"><span class="slogan-ani02">abler</span></p>
+				</div>
 				<p class="sub-txt"><span>(주)앤드트리에이블러는 뉴트리션 컴퍼니와의 연계를 통해 전문적이고 지속가능한 건강관리를 <br>관리의 주체 스스로가 꾸준히 할 수 있도록 도와주는 플랫폼 라운지입니다.</span></p>
 			</div>
 			<div class="bg-wrap">
@@ -82,7 +85,10 @@
 		<!-- 섹션2 -->
 		<section class="section02">
 			<div class="text-wrap">
-				<p class="slogan"><span>Personalized<br>Healthcare</span></p>
+				<div class="slogan">
+					<p class="slogan-txt"><span class="slogan-ani01">Personalized</span></p>
+					<p class="slogan-txt"><span class="slogan-ani02">Healthcare</span></p>
+				</div>
 				<p class="sub-txt"><span>앤트리에이블러의 개인 유래 건강데이터와 유전체, 의료데이터의 수집목적은 <br>“습관변화의 동기유발”을 통한 건강한 행동의 지속성을 유지시키는 방법을 찾아주기 위함입니다.</span></p>
 			</div>
 			<div class="bg-wrap">
@@ -101,7 +107,10 @@
 		<!-- 섹션3 -->
 		<section class="section03">
 			<div class="text-wrap">
-				<p class="slogan"><span>Persistence<br>of behavior</span></p>
+				<div class="slogan">
+					<p class="slogan-txt"><span class="slogan-ani01">Persistence</span></p>
+					<p class="slogan-txt"><span class="slogan-ani02">of behavior</span></p>
+				</div>
 				<p class="sub-txt"><span>앤트리에이블러의 개인 유래 건강데이터와 유전체, 의료데이터의 수집목적은 <br>“습관변화의 동기유발”을 통한 건강한 행동의 지속성을 유지시키는 방법을 찾아주기 위함입니다.</span></p>
 			</div>
 			<div class="bg-wrap">
@@ -118,7 +127,9 @@
 		<!-- 섹션4 -->
 		<section class="section04">
 			<div class="text-wrap">
-				<p class="slogan"><span>파트너신청</span></p>
+				<div class="slogan">
+					<p class="slogan-txt"><span class="slogan-ani01">파트너신청</span></p>
+				</div>
 				<p class="sub-txt"><span> 개인 유래 건강데이터와 유전체, 의료데이터의 수집목적은  “습관변화의 동기유발”을 통한 건강한 행동의 지속성을 유지시키는 방법을 찾기위함입니다.<br>(주)앤트리에이블러의 사업 파트너를 제안받습니다.</span></p>
 				<a href="" class="btn-apply">파트너신청하기 ></a>
 			</div>
@@ -146,6 +157,7 @@
 						<li class="footer-term-item"><a href="" class="footer-term-link">개인정보처리방침</a></li>
 					</ul>
 				</div>
+				<button type="button" aria-label="처음으로 이동" class="go1"></button>
 			</footer>
 			<!-- // 푸터 -->
 		</section>
@@ -173,6 +185,10 @@
 
 	document.querySelector('.arrow-bottom .go4').addEventListener('click', function(e) {
 		document.querySelector('[data-ds-jump="3"]').click();
+	})
+
+	document.querySelector('#footer .go1').addEventListener('click', function(e) {
+		document.querySelector('[data-ds-jump="0"]').click();
 	})
 </script>
 </body>
