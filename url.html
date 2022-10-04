@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+	<title>url</title>
+</head>
+<body>
+	<div id="wrap">
+		<div id="container">
+			/url.html?a=12&b=22
+			<h2 class="h-tit1">getUrlParam A</h2>
+			<div id="getParamA"></div>
+			<h2 class="h-tit1">getUrlParam B</h2>
+			<div id="getParamB"></div>
+			<script>
+				window.addEventListener('DOMContentLoaded', function() {
+					var getParamA = getUrlParam('a');
+					var getParamB = getUrlParam('b');
+					document.getElementById('getParamA').innerText = getParamA;
+					document.getElementById('getParamB').innerText = getParamB;
+				})
+			</script>
+		</div>
+	</div>
+</body>
