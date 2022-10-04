@@ -113,6 +113,14 @@ function setAttrRandomNum(ele, attr) {
 	}
 }
 
+// attr 세팅
+function setAttr(ele, attr, value) {
+	var ele = document.querySelectorAll(ele);
+	ele.forEach(function(ele) {
+		ele.setAttribute(attr, value)
+	})
+}
+
 // url파라미터 값 구하기
 function getUrlParam(param) {
 	var urlParams = new URL(location.href).searchParams;
