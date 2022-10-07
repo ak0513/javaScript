@@ -980,11 +980,6 @@ html:not(.sub) #footer {
 
 
 /* 서브 페이지 */
-html.sub,
-html.sub body {
-    overflow: initial;
-}
-
 html.sub #footer {
     position: relative;
 }
