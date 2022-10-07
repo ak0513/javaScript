@@ -604,10 +604,8 @@ caption {
 	flex-grow: 1;
 }
 
-.form > .form-row + .form-row,
-.form > .form-row + .form-ele,
-.form > .form-ele + .form-ele,
-.form > .form-ele + .form-row {
+
+.form > .form-ele + .form-ele {
 	margin-top: 3.8rem;
 }
 
@@ -616,7 +614,6 @@ caption {
 	margin-top: 5.0rem;
 }
 
-.form > .form-row + .form-tit-wrap,
 .form > .form-ele + .form-tit-wrap {
 	margin-top: 8.0rem;
 }
