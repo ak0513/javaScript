@@ -588,19 +588,19 @@ caption {
 	position: relative;
 }
 
-.form-inline {
+.form-ele-inline {
 	display: flex;
 	align-items: center;
 }
 
-.form-inline .form-label {
+.form-ele-inline .form-label {
 	margin-bottom: 0;
 	margin-right: 1.5rem;
 }
 
-.form-inline [class*='wrap'],
-.form-inline .form-group,
-.form-inline .row {
+.form-ele-inline [class*='wrap'],
+.form-ele-inline .form-group,
+.form-ele-inline .row {
 	flex-grow: 1;
 }
 
