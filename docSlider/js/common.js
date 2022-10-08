@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     // pc gnb 서브 노출
+    var header = document.querySelector('#header');
     var nav = document.querySelector('#nav');
     var navItem = document.querySelectorAll('.nav-item');
     var navLink = document.querySelectorAll('.nav-link');
@@ -24,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function() {
             item.parentElement.classList.add('on');
         })
     });
-    nav.addEventListener('mouseleave', function() {
+    header.addEventListener('mouseleave', function() {
         navItem.forEach(function(item) {
             item.classList.remove('on');
         })

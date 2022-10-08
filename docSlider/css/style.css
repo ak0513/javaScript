@@ -13,6 +13,10 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     line-height: 1;
 }
@@ -861,6 +865,9 @@ body {
 
 /* contents */
 .contents {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     margin-top: 136px;
     color: #fff;
     font-family: 'Source Code Pro', sans-serif;
@@ -1021,6 +1028,7 @@ html.sub #header::after {
 
 .greeting-tit {
     font-size: 35px;
+    font-weight: 700;
 }
 
 .greeting-txt {
@@ -1307,17 +1315,21 @@ html.sub #header::after {
     }
 
     .greeting-box {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
         width: auto;
         height: auto;
         border:none;
-        padding:0;
+        margin: 30px 0 0;
+        padding:0 0 0 15px;
     }
 
 
     .greeting-sign {
-        position: absolute;
-        left: 0;
+        left: 15px;
         bottom:0;
+        flex-grow: 1;
     }
 
     .greeting-tit {
