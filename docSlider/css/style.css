@@ -786,6 +786,8 @@ body {
 }
 
 #subNav {
+    position: relative;
+    z-index: 10;
     width: 34%;
     margin-top: 85px;
     margin-right: 5%;
@@ -865,6 +867,8 @@ body {
 
 /* contents */
 .contents {
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -884,6 +888,8 @@ html:not(.sub) #footer {
 }
 
 #footer {
+    position: relative;
+    z-index: 10;
     height: 220px;
     background-color: #000026;
     padding: 0 95px;
@@ -1014,6 +1020,16 @@ html.sub #header.scrolled::after {
     background-color: #1a59bc;
 }
 
+.bg-blue {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    z-index: 1;
+    width: 1203px;
+    height: 1236px;
+    background: url('../img/section01_01.png') no-repeat right center / 1208px 1236px;
+}
+
 
 /* 인사말 */
 .greeting-box {
@@ -1066,7 +1082,7 @@ html.sub #header.scrolled::after {
 
 .greeting-bg {
     position: absolute;
-    bottom: 0;
+    bottom: -115px;
     left: 61.424%;
     width: 498px;
     height: 433px;
@@ -1270,11 +1286,15 @@ html.sub #header.scrolled::after {
         margin-top: 30px;
     }
 
+    .bg-blue {
+        display: none;
+    }
+
 
     /* footer */
     #footer {
         height: auto;
-        padding: 30px 0 40px;
+        padding: 40px 0;
     }
 
     .footer-body {
@@ -1360,6 +1380,7 @@ html.sub #header.scrolled::after {
     .greeting-bg {
         left: auto;
         right: 5px;
+        bottom: -25px;
         width: 283px;
         height: 246px;
         background: url(../img/greeting-img1.png) no-repeat center / 283px 246px;
@@ -1477,7 +1498,7 @@ html.sub #header.scrolled::after {
 
     /* footer */
     #footer .go1 {
-        right: 50px;
+        right: calc(50% - 22px);
         width: 45px;
         height: 31px;
         background: url('../img/btn-top.png') no-repeat center / 45px 31px;
@@ -1499,7 +1520,7 @@ html.sub #header.scrolled::after {
 
     /* footer */
     #footer {
-        padding: 20px 0 30px;
+        padding: 40px 0 30px;
     }
 
     .footer-info-item {
@@ -1519,6 +1540,7 @@ html.sub #header.scrolled::after {
     .greeting-sign {
         left: 0;
     }
+
     .greeting-bg {
         width: 200px;
         height: 174px;

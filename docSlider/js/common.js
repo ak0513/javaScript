@@ -50,8 +50,13 @@ window.addEventListener('DOMContentLoaded', function() {
     var docSlider = document.querySelector('.docSlider');
     document.querySelector('html').classList.add('sub');
     if(!!docSlider) {
-        document.querySelector('html').classList.remove('sub')
+        document.querySelector('html').classList.remove('sub');
     }
+
+    // 서브페이지 상단으로 가기
+    document.querySelector('#footer .go1').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
     // 스크롤시
     var nowScrollTop = window.scrollY;
