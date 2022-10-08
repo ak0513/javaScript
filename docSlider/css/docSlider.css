@@ -42,7 +42,7 @@
 /**------------------------------
   REWRITING IS NOT RECOMMENDED
  -----------------------------**/
-html:not(.sub), html:not(.sub) body {
+html, html body {
   overflow: hidden;
   touch-action: none;
   height: 100%;
