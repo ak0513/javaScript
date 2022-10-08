@@ -1353,8 +1353,10 @@ html.sub #header.scrolled::after {
         position: relative;
         left: 15px;
         bottom: auto;
-        margin-top: 166px;
         flex-grow: 1;
+        margin-top: 166px;
+        padding-top: 25px;
+        background-size: 60px 16px;
     }
 
     .greeting-tit {
