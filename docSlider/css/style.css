@@ -991,7 +991,7 @@ html.sub #footer {
     position: relative;
 }
 
-html.sub #header::before {
+html.sub #header.scrolled::before {
     content: '';
     display: block;
     position: absolute;
@@ -1002,7 +1002,7 @@ html.sub #header::before {
     background-color: rgba(255, 255, 255, 0.08);
 }
 
-html.sub #header::after {
+html.sub #header.scrolled::after {
     content: '';
     display: block;
     position: absolute;
@@ -1523,5 +1523,5 @@ html.sub #header::after {
         width: 200px;
         height: 174px;
         background: url(../img/greeting-img1.png) no-repeat center / 200px 174px;
-    
+    }
 }

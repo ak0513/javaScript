@@ -52,6 +52,16 @@ window.addEventListener('DOMContentLoaded', function() {
     if(!!docSlider) {
         document.querySelector('html').classList.remove('sub')
     }
+
+    // 스크롤시
+    var nowScrollTop = window.scrollY;
+    window.addEventListener('scroll', function() {
+        if(window.scrollY > 0) {
+            header.classList.add('scrolled')
+        } else {
+            header.classList.remove('scrolled')
+        }
+    })
 })
 
 // 모션
