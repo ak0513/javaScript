@@ -1332,6 +1332,13 @@ html.sub #header.scrolled::after {
         display: none;
     }
 
+    #footer .go1 {
+        right: calc(50% - 22px);
+        width: 45px;
+        height: 31px;
+        background: url('../img/btn-top.png') no-repeat center / 45px 31px;
+    }
+
 
     /* 인사말 */
     .greeting-txt {
@@ -1498,15 +1505,6 @@ html.sub #header.scrolled::after {
         width: 138px;
         height: 48px;
         font-size: 14px;
-    }
-
-
-    /* footer */
-    #footer .go1 {
-        right: calc(50% - 22px);
-        width: 45px;
-        height: 31px;
-        background: url('../img/btn-top.png') no-repeat center / 45px 31px;
     }
 }
 
