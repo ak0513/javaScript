@@ -165,7 +165,7 @@ body {
     right: 0;
     z-index: 100;
     display: flex;
-    height:110px;
+    height: 110px;
     padding: 35px 50px 0;
 }
 
@@ -782,7 +782,7 @@ body {
     flex-grow: 1;
     height: 100%;
     padding: 110px 100px 115px 50px;
-    background-color:#1a59bc;
+    background-color: #1a59bc;
 }
 
 #subNav {
@@ -801,7 +801,7 @@ body {
 .h-tit1-sub {
     font-family: 'Source Code Pro', sans-serif;
     font-size: 20px;
-    color:#fff;
+    color: #fff;
 }
 
 .h-tit2 {
@@ -810,12 +810,12 @@ body {
     padding-left: 15px;
     font-family: 'Source Code Pro', sans-serif;
     font-size: 40px;
-    color:#fff;
+    color: #fff;
     letter-spacing: -1px;
 }
 
 .h-tit2::before {
-    content:'';
+    content: '';
     display: block;
     position: absolute;
     top: -5px;
@@ -836,12 +836,12 @@ body {
     display: flex;
 }
 
-.breadcrumb-item + .breadcrumb-item {
+.breadcrumb-item+.breadcrumb-item {
     position: relative;
     padding-left: 27px;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
     content: '';
     display: block;
     position: absolute;
@@ -854,13 +854,13 @@ body {
 }
 
 .breadcrumb-link {
-    font-size:18px;
+    font-size: 18px;
     font-family: 'TmonTium', sans-serif;
     color: #fff;
 }
 
 .breadcrumb-link.active {
-    color:#86e5ff;
+    color: #86e5ff;
 }
 
 /* contents */
@@ -992,24 +992,24 @@ html.sub #footer {
 }
 
 html.sub #header::before {
-    content:'';
-    display:block;
+    content: '';
+    display: block;
     position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color: rgba(255,255,255,0.08);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 html.sub #header::after {
-    content:'';
-    display:block;
+    content: '';
+    display: block;
     position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: -1;
     background-color: #1a59bc;
 }
@@ -1021,8 +1021,8 @@ html.sub #header::after {
     max-width: 793px;
     height: 450px;
     margin-top: 115px;
-    padding:45px 50px;
-    border:1px solid #00e0ff;
+    padding: 45px 50px;
+    border: 1px solid #00e0ff;
     border-radius: 10px;
 }
 
@@ -1066,8 +1066,8 @@ html.sub #header::after {
 
 .greeting-bg {
     position: absolute;
-    bottom:0;
-    left:61.424%;
+    bottom: 0;
+    left: 61.424%;
     width: 498px;
     height: 433px;
     background: url('../img/greeting-img1.png') no-repeat center / 498px 433px;
@@ -1231,18 +1231,16 @@ html.sub #header::after {
     /* container */
     #container {
         flex-direction: column;
-        padding:110px 15px 25px;
+        padding: 110px 15px 25px;
     }
 
     #subNav {
         width: 100%;
+        margin-top: 23px;
+        margin-right: 0;
     }
 
-    .breadcrumb-link {
-        font-size: 16px;
-    }
-
-
+    /* title */
     .h-tit1 {
         font-size: 50px;
     }
@@ -1260,6 +1258,11 @@ html.sub #header::after {
         width: 25px;
         height: 5px;
         padding-left: 12px;
+    }
+
+    /* breadcrumb */
+    .breadcrumb-link {
+        font-size: 16px;
     }
 
     /* contents */
@@ -1320,15 +1323,17 @@ html.sub #header::after {
         flex-grow: 1;
         width: auto;
         height: auto;
-        border:none;
+        border: none;
         margin: 30px 0 0;
-        padding:0 0 0 15px;
+        padding: 0 0 0 15px;
     }
 
 
     .greeting-sign {
+        position: relative;
         left: 15px;
-        bottom:0;
+        bottom: auto;
+        margin-top: 166px;
         flex-grow: 1;
     }
 
@@ -1344,13 +1349,17 @@ html.sub #header::after {
         font-size: 18px;
     }
 
+    .greeting-position {
+        font-size: 10px;
+    }
+
     .greeting-position span {
         display: none;
     }
 
     .greeting-bg {
         left: auto;
-        right:5px;
+        right: 5px;
         width: 283px;
         height: 246px;
         background: url(../img/greeting-img1.png) no-repeat center / 283px 246px;
@@ -1505,4 +1514,14 @@ html.sub #header::after {
     .footer-copyright {
         font-size: 12px;
     }
+
+    /* 인사말 */
+    .greeting-sign {
+        left: 0;
+    }
+    .greeting-bg {
+        width: 200px;
+        height: 174px;
+        background: url(../img/greeting-img1.png) no-repeat center / 200px 174px;
+    
 }
