@@ -1022,7 +1022,7 @@ html.sub #header.scrolled::after {
 
 .bg-blue {
     position: fixed;
-    top: 0;
+    top: -40px;
     right: -340px;
     z-index: 1;
     width: 1203px;
@@ -1033,6 +1033,9 @@ html.sub #header.scrolled::after {
 
 /* 인사말 */
 .greeting-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
     max-width: 793px;
     height: 450px;
@@ -1041,6 +1044,10 @@ html.sub #header.scrolled::after {
     border: 1px solid #00e0ff;
     background-color: #1a59bc;
     border-radius: 10px;
+}
+
+.greeting-top {
+    flex-grow: 1;
 }
 
 .greeting-tit {
@@ -1064,9 +1071,6 @@ html.sub #header.scrolled::after {
 }
 
 .greeting-sign {
-    position: absolute;
-    bottom: 35px;
-    left: 55px;
     padding-top: 50px;
     background: url('../img/greeting-img2.png') no-repeat left top / 111px 38px;
 }
@@ -1359,10 +1363,6 @@ html.sub #header.scrolled::after {
 
 
     .greeting-sign {
-        position: relative;
-        left: 15px;
-        bottom: auto;
-        flex-grow: 1;
         margin-top: 166px;
         padding-top: 25px;
         background-size: 60px 16px;
@@ -1540,10 +1540,6 @@ html.sub #header.scrolled::after {
     }
 
     /* 인사말 */
-    .greeting-sign {
-        left: 0;
-    }
-
     .greeting-bg {
         width: 200px;
         height: 174px;
