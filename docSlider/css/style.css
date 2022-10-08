@@ -1039,6 +1039,7 @@ html.sub #header.scrolled::after {
     margin-top: 115px;
     padding: 45px 50px;
     border: 1px solid #00e0ff;
+    background-color: #1a59bc;
     border-radius: 10px;
 }
 
@@ -1346,6 +1347,7 @@ html.sub #header.scrolled::after {
         border: none;
         margin: 30px 0 0;
         padding: 0 0 0 15px;
+        background-color: transparent;
     }
 
 
@@ -1383,6 +1385,7 @@ html.sub #header.scrolled::after {
         left: auto;
         right: 5px;
         bottom: -25px;
+        z-index: -1;
         width: 283px;
         height: 246px;
         background: url(../img/greeting-img1.png) no-repeat center / 283px 246px;
