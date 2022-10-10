@@ -192,6 +192,11 @@ body {
     color: #299AD6;
 }
 
+.nav-link:hover,
+.nav-item.on .nav-link {
+    color:#235acc
+}
+
 .nav-dep2-group {
     display: none;
     align-items: center;
@@ -381,11 +386,11 @@ body {
     height: 550px;
 }
 
-.support-item:hover .support-tit {
+.support-link:hover .support-tit {
     opacity: 0;
 }
 
-.support-item:hover .support-txt {
+.support-link:hover .support-txt {
     opacity: 1;
 }
 
@@ -428,7 +433,7 @@ body {
     padding: 72px 0 0 40px;
     font-size: 30px;
     color: #fff;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .support-txt strong {
