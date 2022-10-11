@@ -119,15 +119,95 @@ button {
 }
 
 @font-face {
-    font-family: 'Source Code Pro';
-    src: local('SourceCodePro-ExtraLight'),
-        url('../fonts/SourceCodePro-ExtraLight.eot'),
-        url('../fonts/SourceCodePro-ExtraLight.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/SourceCodePro-ExtraLight.woff2') format('woff2'),
-        url('../fonts/SourceCodePro-ExtraLight.woff') format('woff');
-    font-weight: 200;
-    font-style: italic;
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-Thin.eot');
+    src: url('../fonts/S-CoreDream-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-Thin.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-Regular.eot');
+    src: url('../fonts/S-CoreDream-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-Regular.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-Regular.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-Light.eot');
+    src: url('../fonts/S-CoreDream-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-Light.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-Medium.eot');
+    src: url('../fonts/S-CoreDream-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-Medium.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-Bold.eot');
+    src: url('../fonts/S-CoreDream-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-Bold.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-Bold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-ExtraBold.eot');
+    src: url('../fonts/S-CoreDream-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-ExtraBold.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-Heavy.eot');
+    src: url('../fonts/S-CoreDream-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-Heavy.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-Heavy.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url('../fonts/S-CoreDream-Black.eot');
+    src: url('../fonts/S-CoreDream-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/S-CoreDream-Black.woff2') format('woff2'),
+        url('../fonts/S-CoreDream-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 
 .a11y {
     overflow: hidden;
@@ -801,7 +881,7 @@ body {
 }
 
 .h-tit1-sub {
-    font-family: 'Source Code Pro', sans-serif;
+    font-family: 'S-Core Dream', sans-serif;
     font-size: 20px;
     color: #fff;
 }
@@ -810,7 +890,7 @@ body {
     position: relative;
     margin-top: 100px;
     padding-left: 15px;
-    font-family: 'Source Code Pro', sans-serif;
+    font-family: 'S-Core Dream', sans-serif;
     font-size: 40px;
     color: #fff;
     letter-spacing: -1px;
@@ -874,7 +954,7 @@ body {
     flex-grow: 1;
     margin-top: 136px;
     color: #fff;
-    font-family: 'Source Code Pro', sans-serif;
+    font-family: 'S-Core Dream', sans-serif;
     line-height: 1.45;
 }
 
@@ -893,7 +973,7 @@ html:not(.sub) #footer {
     height: 220px;
     background-color: #000026;
     padding: 0 95px;
-    font-family: 'GmarketSans', sans-serif;
+    font-family: 'S-Core Dream', sans-serif;
     color: #9c9ca3;
     font-size: 14px;
 }
