@@ -13,6 +13,10 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     line-height: 1;
 }
@@ -114,6 +118,17 @@ button {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Source Code Pro';
+    src: local('SourceCodePro-ExtraLight'),
+        url('../fonts/SourceCodePro-ExtraLight.eot'),
+        url('../fonts/SourceCodePro-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SourceCodePro-ExtraLight.woff2') format('woff2'),
+        url('../fonts/SourceCodePro-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+}
+
 .a11y {
     overflow: hidden;
     position: absolute;
@@ -135,16 +150,23 @@ body {
     width: 198px;
 }
 
+#wrap {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100%;
+}
+
 /* header */
 #header {
     position: fixed;
-    top: 35px;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 100;
     display: flex;
-    max-width: 1720px;
-    padding: 0 50px;
+    height: 110px;
+    padding: 35px 50px 0;
 }
 
 
@@ -753,16 +775,122 @@ body {
     animation: showUp 0.5s ease-in-out 1.4s forwards;
 }
 
+/* container */
+#container {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    padding: 110px 100px 115px 50px;
+    background-color: #1a59bc;
+}
+
+#subNav {
+    position: relative;
+    z-index: 10;
+    width: 34%;
+    margin-top: 85px;
+    margin-right: 5%;
+}
+
+/* title */
+.h-tit1 {
+    font-size: 60px;
+    font-family: 'TmonTium', sans-serif;
+    color: #fff;
+}
+
+.h-tit1-sub {
+    font-family: 'Source Code Pro', sans-serif;
+    font-size: 20px;
+    color: #fff;
+}
+
+.h-tit2 {
+    position: relative;
+    margin-top: 100px;
+    padding-left: 15px;
+    font-family: 'Source Code Pro', sans-serif;
+    font-size: 40px;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+.h-tit2::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 32px;
+    height: 8px;
+    background-color: #81defb;
+    transform: rotate(-45deg);
+}
+
+
+/* breadcrumb */
+#breadcrumb {
+    margin-bottom: 25px;
+}
+
+.breadcrumb-group {
+    display: flex;
+}
+
+.breadcrumb-item+.breadcrumb-item {
+    position: relative;
+    padding-left: 27px;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 13px;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.breadcrumb-link {
+    font-size: 18px;
+    font-family: 'TmonTium', sans-serif;
+    color: #fff;
+}
+
+.breadcrumb-link.active {
+    color: #86e5ff;
+}
+
+/* contents */
+.contents {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 136px;
+    color: #fff;
+    font-family: 'Source Code Pro', sans-serif;
+    line-height: 1.45;
+}
 
 /* footer */
-#footer {
+html:not(.sub) #footer {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 20;
+}
+
+#footer {
+    position: relative;
+    z-index: 10;
     height: 220px;
-    ;
     background-color: #000026;
     padding: 0 95px;
     font-family: 'GmarketSans', sans-serif;
@@ -863,6 +991,110 @@ body {
     background: url('../img/btn-top.png') no-repeat;
 }
 
+
+/* 서브 페이지 */
+html.sub #footer {
+    position: relative;
+}
+
+html.sub #header.scrolled::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+html.sub #header.scrolled::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: #1a59bc;
+}
+
+.bg-blue {
+    position: fixed;
+    top: -40px;
+    right: -340px;
+    z-index: 1;
+    width: 1203px;
+    height: 1236px;
+    background: url('../img/section01_01.png') no-repeat right center / 1208px 1236px;
+}
+
+
+/* 인사말 */
+.greeting-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    max-width: 793px;
+    height: 450px;
+    margin-top: 115px;
+    padding: 45px 50px;
+    border: 1px solid #00e0ff;
+    background-color: #1a59bc;
+    border-radius: 10px;
+}
+
+.greeting-top {
+    flex-grow: 1;
+}
+
+.greeting-tit {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.greeting-txt {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.7;
+}
+
+.greeting-txt2 {
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+.greeting-txt2 span {
+    color: #00e0ff;
+}
+
+.greeting-sign {
+    padding-top: 50px;
+    background: url('../img/greeting-img2.png') no-repeat left top / 111px 38px;
+}
+
+.greeting-name {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.greeting-position {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.greeting-bg {
+    position: absolute;
+    bottom: -115px;
+    left: 61.424%;
+    width: 498px;
+    height: 433px;
+    background: url('../img/greeting-img1.png') no-repeat center / 498px 433px;
+}
+
+
 @keyframes toBL {
     0% {
         opacity: 0;
@@ -961,6 +1193,11 @@ body {
     .nav-item+.nav-item {
         margin-left: 30px;
     }
+
+    /* 인사말 */
+    .greeting-txt br {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1300px) {
@@ -1012,11 +1249,57 @@ body {
         width: 32px;
     }
 
+    /* container */
+    #container {
+        flex-direction: column;
+        padding: 110px 15px 25px;
+    }
+
+    #subNav {
+        width: 100%;
+        margin-top: 23px;
+        margin-right: 0;
+    }
+
+    /* title */
+    .h-tit1 {
+        font-size: 50px;
+    }
+
+    .h-tit1-sub {
+        font-size: 18px;
+    }
+
+    .h-tit2 {
+        margin-top: 50px;
+        font-size: 24px;
+    }
+
+    .h-tit2::before {
+        width: 25px;
+        height: 5px;
+        padding-left: 12px;
+    }
+
+    /* breadcrumb */
+    .breadcrumb-link {
+        font-size: 16px;
+    }
+
+    /* contents */
+    .contents {
+        margin-top: 30px;
+    }
+
+    .bg-blue {
+        display: none;
+    }
+
 
     /* footer */
     #footer {
         height: auto;
-        padding: 30px 0 40px;
+        padding: 40px 0;
     }
 
     .footer-body {
@@ -1051,6 +1334,68 @@ body {
 
     .footer-term {
         display: none;
+    }
+
+    #footer .go1 {
+        right: calc(50% - 22px);
+        width: 45px;
+        height: 31px;
+        background: url('../img/btn-top.png') no-repeat center / 45px 31px;
+    }
+
+
+    /* 인사말 */
+    .greeting-txt {
+        display: none;
+    }
+
+    .greeting-box {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        width: auto;
+        height: auto;
+        border: none;
+        margin: 30px 0 0;
+        padding: 0 0 0 15px;
+        background-color: transparent;
+    }
+
+
+    .greeting-sign {
+        margin-top: 166px;
+        padding-top: 25px;
+        background-size: 60px 16px;
+    }
+
+    .greeting-tit {
+        font-size: 18px;
+    }
+
+    .greeting-txt2 {
+        font-size: 14px;
+    }
+
+    .greeting-name {
+        font-size: 18px;
+    }
+
+    .greeting-position {
+        font-size: 10px;
+    }
+
+    .greeting-position span {
+        display: none;
+    }
+
+    .greeting-bg {
+        left: auto;
+        right: 5px;
+        bottom: -25px;
+        z-index: -1;
+        width: 283px;
+        height: 246px;
+        background: url(../img/greeting-img1.png) no-repeat center / 283px 246px;
     }
 }
 
@@ -1161,15 +1506,6 @@ body {
         height: 48px;
         font-size: 14px;
     }
-
-
-    /* footer */
-    #footer .go1 {
-        right: 50px;
-        width: 45px;
-        height: 31px;
-        background: url('../img/btn-top.png') no-repeat center / 45px 31px;
-    }
 }
 
 @media only screen and (max-width: 430px) {
@@ -1187,7 +1523,7 @@ body {
 
     /* footer */
     #footer {
-        padding: 20px 0 30px;
+        padding: 40px 0 30px;
     }
 
     .footer-info-item {
@@ -1201,5 +1537,12 @@ body {
 
     .footer-copyright {
         font-size: 12px;
+    }
+
+    /* 인사말 */
+    .greeting-bg {
+        width: 200px;
+        height: 174px;
+        background: url(../img/greeting-img1.png) no-repeat center / 200px 174px;
     }
 }

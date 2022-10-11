@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     // pc gnb 서브 노출
+    var header = document.querySelector('#header');
     var nav = document.querySelector('#nav');
     var navItem = document.querySelectorAll('.nav-item');
     var navLink = document.querySelectorAll('.nav-link');
@@ -24,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function() {
             item.parentElement.classList.add('on');
         })
     });
-    nav.addEventListener('mouseleave', function() {
+    header.addEventListener('mouseleave', function() {
         navItem.forEach(function(item) {
             item.classList.remove('on');
         })
@@ -44,6 +45,28 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         })
     });
+
+    // 서브 페이지에 sub 클래스 추가
+    var docSlider = document.querySelector('.docSlider');
+    document.querySelector('html').classList.add('sub');
+    if(!!docSlider) {
+        document.querySelector('html').classList.remove('sub');
+    }
+
+    // 서브페이지 상단으로 가기
+    document.querySelector('#footer .go1').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // 스크롤시
+    var nowScrollTop = window.scrollY;
+    window.addEventListener('scroll', function() {
+        if(window.scrollY > 0) {
+            header.classList.add('scrolled')
+        } else {
+            header.classList.remove('scrolled')
+        }
+    })
 })
 
 // 모션
