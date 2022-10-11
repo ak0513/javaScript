@@ -107,7 +107,6 @@ body {
     color: #1e1e1e;
 }
 
-
 #skipNav {
     position: relative;
 }
@@ -243,7 +242,7 @@ body {
     height: 100%;
     margin: 0 auto;
     background: url('../img/main.png') no-repeat center bottom;
-    transform: translate(100px, 30px);
+    /* transform: translate(100px, 0); */
 }
 
 
@@ -371,7 +370,6 @@ body {
     padding-top: 214px;
     border-top: 1px solid #646465;
 }
-
 
 .support-group {
     display: flex;
