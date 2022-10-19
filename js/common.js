@@ -71,6 +71,22 @@ function setDeviceInfo() {
 	})();
 }
 
+// 포커스 비활성화(접근성)
+function accessDisable($eleDisable, module) {
+	$eleDisable.attr({'aria-hidden':'true'}).addClass('is-disable-'+module+'-ariaHidden');
+	$eleDisable.find(this.$eleTabindexM).addClass('is-disable-'+module+'-fixed');
+	$eleDisable.find(this.$eleFocusTags).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tags');
+	$eleDisable.find(this.$eleTabindex).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tabindex');
+}
+
+// 포커스 활성화(접근성)
+function accessEnable($eleEnable, module){
+	$eleEnable.attr({'aria-hidden':'false'}).removeClass('is-disable-'+module+'-ariaHidden');
+	$eleEnable.find('.is-disable-'+module+'-tags').removeClass('is-disable-'+module+'-tags').removeAttr('tabindex');
+	$eleEnable.find('.is-disable-'+module+'-tabindex').removeClass('is-disable-'+module+'-tabindex').attr({'tabindex':'0'});
+	$eleEnable.find('.is-disable-'+module+'-fixed').removeClass('is-disable-'+module+'-fixed');
+}
+
 // body에 device별 클래스 추가
 function setBodyClass() {
 	// pc mobile 체크

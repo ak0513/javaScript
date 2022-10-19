@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script src="./js/common.js"></script> -->
+	<link rel="stylesheet" href="./css/style.css">
+	<title>접근성</title>
+</head>
+<body>
+
+	<div id="a">a
+		<button class="btn btn-a" onclick="accessDisable(btn)">btn-a</button>
+	</div>
+	<div id="b">
+		<button class="btn btn-a" onclick="accessDisable()">btn-b</button>
+		b
+		<a href="">b link1</a>
+		<a href="">b link2</a>
+		<div>
+			<a href="">b link1-1</a>
+		</div>
+	</div>
+	<div id="c">c
+		<button class="btn btn-a" onclick="accessDisable()">btn-c</button>
+	</div>
+	<script>
+
+		var btn = document.querySelectorAll('button', 'btn')
+		console.log(btn)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	var eleFocusTags = document.querySelectorAll('input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])');
+	var eleTabindex = document.querySelectorAll('[tabindex="0"]');
+	var eleTabindexM = document.querySelectorAll('[tabindex="-1"]');
+	
+	// 포커스 비활성화(접근성)
+	function accessDisable(eleDisable, module) {
+		eleDisable.forEach(function(item) {
+			item.setAttribute('aria-hidden','true')
+		});
+		// eleDisable.forEach(function(item) {
+		// 	item.setAttribute('aria-hidden','true')
+		// });
+		eleDisable.find(this.eleTabindexM).addClass('is-disable-'+module+'-fixed');
+		// eleDisable.find(this.eleFocusTags).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tags');
+		// eleDisable.find(this.eleTabindex).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tabindex');
+	}
+
+	// 포커스 활성화(접근성)
+	function accessEnable($eleEnable, module){
+		$eleEnable.attr({'aria-hidden':'false'}).removeClass('is-disable-'+module+'-ariaHidden');
+		$eleEnable.find('.is-disable-'+module+'-tags').removeClass('is-disable-'+module+'-tags').removeAttr('tabindex');
+		$eleEnable.find('.is-disable-'+module+'-tabindex').removeClass('is-disable-'+module+'-tabindex').attr({'tabindex':'0'});
+		$eleEnable.find('.is-disable-'+module+'-fixed').removeClass('is-disable-'+module+'-fixed');
+	}
+	</script>
+
+
+</body>
+</html>

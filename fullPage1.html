@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+		body,html {height: 100%;overflow: hidden;}
+body {background-color: #222;}
+
+#wrap {
+	position: relative;
+	height: 100vh;
+}
+#wrap [data-page] {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	color:#fff;
+	transform: translateY(100%) scale(0.9);
+	transition: opacity 0.7s ease, transform 0.7s ease-in-out;
+} 
+
+[data-page="1"] {background-color: goldenrod;}
+[data-page="2"] {background-color: blueviolet;}
+[data-page="3"] {background-color: chocolate;}
+[data-page="4"] {background-color: darkcyan;}
+
+#wrap [class*="active"]{
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+#wrap .prev {
+	opacity: 0;
+	transform: translateY(0) scale(0.8);
+}
+[data-page="3"].prev {
+	opacity: 1;
+	transform: translateY(0) scale(1); 
+}
+
+[data-page="4"] {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	top: auto;
+	bottom: 0px;
+	height: auto;
+	transform: translateY(100%) scale(1);
+
+}
+
+.nav-panel {
+	position:fixed;
+	top:100px;
+	left:100px;
+	z-index:100;
+}
+.nav-btn.active {
+	color:red;
+}
+@media screen and (max-width: 980px) {
+	html, body {overflow: inherit;}
+	#wrap [data-page] {
+		position: static;
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		transition:none;
+	}
+	#wrap .prev {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+	</style>
+	<title>wrap</title>
+</head>
+<body>
+
+<div id="wrap">
+	<section class="page1" data-page="1">
+		<div class="inner">Page1</div>
+	</section>
+	<section class="page2" data-page="2">
+		<div class="inner">Page2</div>
+		<div class="is_ani">is_ani</div>
+	</section>
+	<section class="page3" data-page="3">
+		<div class="inner">Page3</div>
+	</section>
+	<section class="page4" data-page="4">
+		<div class="inner">Page4<br>Page4<br>Page4<br>Page4<br>Page4<br>Page4<br>Page4<br>Page4<br>Page4<br></div>
+	</section>
+</div>
+
+<div class="nav-panel">
+	
+	<button type="button" class="btn btn-prev"><span>이전 섹션이동</span></button>
+	<button type="button" class="btn btn-next"><span>다음 섹션이동</span></button> 
+	
+	<button type="button" data-target="1" class="btn nav-btn nav-page1 active">btn1</button>
+	<button type="button" data-target="2" class="btn nav-btn nav-page2">btn2</button>
+	<button type="button" data-target="3" class="btn nav-btn nav-page3">btn3</button>
+	<button type="button" data-target="4" class="btn nav-btn nav-page4">btn4</button>
+</div>
+
+
+<script>
+	HTMLCollection.prototype.forEach = Array.prototype.forEach;
+	var page = document.querySelectorAll('#wrap > section');
+	var navBtn = document.querySelectorAll('.nav-btn');
+	var navPrevBtn = document.querySelector('.btn-prev');
+	var navNextBtn = document.querySelector('.btn-next');
+	var pages = page.length;
+	var scrolling = false;
+	var currentPage = 1;
+
+
+	var widthMatch = matchMedia("all and (min-width: 980px)");
+	var widthHandler = function(matchList) {
+		if (matchList.matches) {
+			// 980 이상에서
+			window.addEventListener('wheel', wheelEvent, {passive:false});
+		} else {
+			// 980 이하에서
+		}
+	}
+	widthMatch.addListener(widthHandler);
+	widthHandler(widthMatch);
+
+	navPrevBtn.addEventListener('click', navigateUp);
+	navNextBtn.addEventListener('click', navigateDown);
+
+	window.addEventListener('DOMContentLoaded', function() {
+		navBtn.forEach(function(item) {
+			item.addEventListener('click', function(e) {
+				console.log(e.target.dataset.target)
+				if(e.target.classList.contains('active')) return;
+				if (!scrolling) {
+					navBtnClik(e.target);
+				}
+			})
+		})
+
+		setTimeout(function(){
+			page[0].classList.add('active')
+		}, 100);
+	})
+
+	// 휠 이벤트
+	function wheelEvent(e) {
+		// e.preventDefault();
+		var delta = 0;
+		if (!scrolling) {
+			if(!event) {
+				event = window.event;
+			}
+			if(event.wheelDelta) {
+				delta = event.wheelDelta / 120;
+				if(window.opera) delta = -delta;
+			} else if(event.detail) {
+				delta = -event.detail / 3;
+			}
+			if(delta < 0) {
+				// 마우스 휠 위에서 아래로
+				navigateDown();
+			} else {
+				// 마우스 휠 아래에서 위로
+				navigateUp();
+			}
+		}
+	}
+
+	// 이전 슬라이드
+	function navigateUp() {
+		if (currentPage > 1) {
+			currentPage--;
+			pageMove(currentPage);
+		}
+	}
+
+	// 다음 슬라이드
+	function navigateDown() {
+		if (currentPage < pages) {
+			currentPage++;
+			pageMove(currentPage);
+		}
+	}
+
+	
+	// 슬라이드 이동
+	function pageMove(currentPage) {
+		page.forEach(function(item) {
+			var dataOnpage = Number(item.dataset.page);
+			item.classList.remove('active', 'prev');
+			if(currentPage === dataOnpage) {
+				console.log('success')
+				item.classList.add('active');
+				if(item.previousElementSibling === null) return;
+				item.previousElementSibling.classList.add('prev');
+			}
+
+			document.querySelector('body').setAttribute('class', 'active-page' + currentPage);
+			navBtn.forEach(function(item) {
+				item.classList.remove('active')
+			})
+			document.querySelector('.nav-btn.nav-page' + currentPage).classList.add('active');
+			
+		});
+		
+		scrolling = true;
+		setTimeout(function () {
+			scrolling = false;
+		}, 100);
+	}
+
+	// 버튼 클릭
+	function navBtnClik(tar) {
+		currentPage = Number(tar.dataset.target);
+		pageMove(currentPage)
+	}
+
+
+</script>
+
+
+</body>
+</html>
