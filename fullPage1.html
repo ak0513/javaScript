@@ -89,7 +89,6 @@ body {background-color: #222;}
 	</section>
 	<section class="page2" data-page="2">
 		<div class="inner">Page2</div>
-		<div class="is_ani">is_ani</div>
 	</section>
 	<section class="page3" data-page="3">
 		<div class="inner">Page3</div>
@@ -123,7 +122,7 @@ body {background-color: #222;}
 
 
 	var widthMatch = matchMedia("all and (min-width: 980px)");
-	var widthHandler = function(matchList) {
+	function widthHandler(matchList) {
 		if (matchList.matches) {
 			// 980 이상에서
 			window.addEventListener('wheel', wheelEvent, {passive:false});
