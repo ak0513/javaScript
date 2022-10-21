@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="./js/common.js"></script>
+		<link rel="stylesheet" href="./css/style.css">
+	<title>insertAdjacentHTML</title>
+</head>
+<body style="padding:20px">
+	<div class="item">
+		<span style="color:#fff">element</span>
+	</div>
+	<script>
+		var item = document.querySelector('.item');
+		item.insertAdjacentHTML('beforebegin', '<p>beforebegin - element 앞에</p>');
+		item.insertAdjacentHTML('afterbegin', '<p>afterbegin - element 안에 가장 첫번째 child</p>');
+		item.insertAdjacentHTML('beforeend', '<p>beforeend - element 안에 가장 마지막 child</p>');
+		item.insertAdjacentHTML('afterend', '<p>afterend - element 뒤에</p>');
+	</script>
+</body>
+</html>

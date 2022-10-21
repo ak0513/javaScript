@@ -12,22 +12,74 @@
 	<div class="box" style="width: 100px; height: 100px; background: red;"></div>
   
 	<script>
-	  var box = document.querySelector('.box');
-	  var toggleBtn = document.querySelector('.toggle');
-  
-	  var toggle = (function () {
+	var box = document.querySelector('.box');
+	var toggleBtn = document.querySelector('.toggle');
+
+	function toggle() {
 		var isShow = false;
-  
+
+		function box1() {
+			box.style.display = isShow ? 'block' : 'none';
+			// ③ 상태 변경
+			isShow = !isShow;
+		}
 		// ① 클로저를 반환
-		return function () {
-		  box.style.display = isShow ? 'block' : 'none';
-		  // ③ 상태 변경
-		  isShow = !isShow;
-		};
-	  })();
+		return box1;
+	};
+	// toggle();
+
+	/* var toggle = (function () {
+		var isShow = false;
+
+		function box1() {
+			box.style.display = isShow ? 'block' : 'none';
+			// ③ 상태 변경
+			isShow = !isShow;
+		}
+		// ① 클로저를 반환
+		return box1;
+	})(); */
   
-	  // ② 이벤트 프로퍼티에 클로저를 할당
-	  toggleBtn.onclick = toggle;
+	// ② 이벤트 프로퍼티에 클로저를 할당
+	// toggleBtn.onclick = toggle();
+	toggleBtn.addEventListener('click', toggle())
+
+
+
+
+	// 고차함수
+	function makeCounter(predicate) {
+		var counter = 0;
+		return function () {
+			counter = predicate(counter);
+			return counter;
+		};
+	}
+
+	var increase = function(n) {
+		return ++n
+	}
+
+
+	const increaser = makeCounter(increase);
+	console.log(increaser());
+	console.log(increaser());
+	console.log(increaser());
+
+
+
+
+
+	function double(num) {
+  		return console.log(num * 2);
+	}
+	double(2);
+	
+	function doubleNum(func, num) {
+		return func(num);
+	}
+
+	doubleNum(double, 5);
 	</script>
 </body>
 </html>
