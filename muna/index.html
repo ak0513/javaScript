@@ -7,77 +7,129 @@
 	<script src="./js/swiper.min.js"></script>
 	<link rel="stylesheet" href="./css/swiper.min.css">
 	<link rel="stylesheet" href="./css/style.css">
-	<title>Document</title>
+	<title>한국폐기물거래소</title>
 </head>
 <body>
-	<h1></h1>
+	<h1 class="a11y">한국폐기물거래소</h1>
 	<div id="skipNavi">
 		<a href="#container">본문 바로가기</a>
 	</div>
 	<div id="wrap">
 		<header id="header">
 			<div class="header-top">
-				<div class="btn-mobile-menu"><button type="button"></button></div>
-				<div class="logo"></div>
-				<div class="search">
-					<input type="text">
-					<button type="button"></button>
+				<div class="header-inner">
+					<div class="btn-mobile-menu"><button type="button" aria-label="전체메뉴 열기"></button></div>
+					<div class="logo">한국폐기물거래소</div>
+					<a href="" class="btn btn-login">로그인</a>
 				</div>
-				<a href="" class="btn-login"></a>
 			</div>
 			<nav id="nav">
-				<ul>
-					<li class="nav-item"><a href="" class="nav-link"></a></li>
-					<li class="nav-item"><a href="" class="nav-link"></a></li>
-					<li class="nav-item"><a href="" class="nav-link"></a></li>
-					<li class="nav-item"><a href="" class="nav-link"></a></li>
-					<li class="nav-item"><a href="" class="nav-link"></a></li>
-					<li class="nav-item"><a href="" class="nav-link"></a></li>
-					<li class="nav-item"><a href="" class="nav-link"></a></li>
+				<ul class="nav-group">
+					<li class="nav-item"><a href="" class="nav-link">입찰정보</a></li>
+					<li class="nav-item"><a href="" class="nav-link">가격정보</a></li>
+					<li class="nav-item"><a href="" class="nav-link">가격동향</a></li>
+					<li class="nav-item"><a href="" class="nav-link">폐기물업체정보</a></li>
+					<li class="nav-item"><a href="" class="nav-link">폐기물처리현황</a></li>
+					<li class="nav-item"><a href="" class="nav-link">ESG환경성과지표</a></li>
+					<li class="nav-item"><a href="" class="nav-link">고객지원</a></li>
 				</ul>
 			</nav>
+			<div class="top-img">
+				입찰부터 관리까지 폐기물 거래의 시작과 끝
+				<strong>대한민국 폐기물 거래 1번지</strong>
+			</div>
 		</header>
 
 		<div id="container">
-			<div class="top-img">
-				<strong></strong>
-			</div>
+			
 			<div class="row gutter">
 				<div class="col">
+					<!-- 폐기물 처리가격 동향 -->
 					<div class="waste">
 						<div class="h-wrap">
-							<h2 class="h-tit2"></h2>
-							<span class="sub-txt"></span>
+							<h2 class="h-tit2">폐기물 처리가격 동향</h2>
+							<span class="sub-txt">[22년 9월 기준]</span>
+							<span class="sub-txt-unit">[단위:원]</span>
 						</div>
 						<ul class="waste-group">
+							<li class="waste-item up">
+								<h3 class="wate-name">일반-폐합성수지류</h3>
+								<p class="waste-price">21,100</p>
+								<span class="waste-fluctuation">315</span>
+							</li>
 							<li class="waste-item">
-								<h3 class="wate-name"></h3>
-								<p class="waste-price up"></p>
-								<span class="waste-fluctuation"></span>
+								<h3 class="wate-name">유기성-하수처리오니</h3>
+								<p class="waste-price">11,100</p>
+								<span class="waste-fluctuation">0</span>
+							</li>
+							<li class="waste-item down">
+								<h3 class="wate-name">유기성-폐수처리오니</h3>
+								<p class="waste-price">51,100</p>
+								<span class="waste-fluctuation">2,000</span>
+							</li>
+							<li class="waste-item up">
+								<h3 class="wate-name">일반-폐합성고무류</h3>
+								<p class="waste-price">131,100</p>
+								<span class="waste-fluctuation">1,215</span>
+							</li>
+							<li class="waste-item up">
+								<h3 class="wate-name">무기성-공정오니</h3>
+								<p class="waste-price">20,100</p>
+								<span class="waste-fluctuation">121</span>
+							</li>
+							<li class="waste-item down">
+								<h3 class="wate-name">무기성-폐수처리오니</h3>
+								<p class="waste-price">91,100</p>
+								<span class="waste-fluctuation">2,000</span>
+							</li>
+							<li class="waste-item up">
+								<h3 class="wate-name">지정-폐유</h3>
+								<p class="waste-price">8,100</p>
+								<span class="waste-fluctuation">1,015</span>
+							</li>
+							<li class="waste-item">
+								<h3 class="wate-name">지정-폐산</h3>
+								<p class="waste-price">22,100</p>
+								<span class="waste-fluctuation">0</span>
+							</li>
+							<li class="waste-item up">
+								<h3 class="wate-name">건설-폐콘크리트</h3>
+								<p class="waste-price">71,100</p>
+								<span class="waste-fluctuation">1,098</span>
+							</li>
+							<li class="waste-item up">
+								<h3 class="wate-name">건설-폐아스팔트콘크리트</h3>
+								<p class="waste-price">101,100</p>
+								<span class="waste-fluctuation">1,095</span>
+							</li>
+							<li class="waste-item">
+								<h3 class="wate-name">건설-폐합성수지류</h3>
+								<p class="waste-price">31,100</p>
+								<span class="waste-fluctuation">0</span>
 							</li>
 						</ul>
+
+						<div id="chart"></div>
 					</div>
+					<!-- //폐기물 처리가격 동향 -->
 				</div>
 
 				<div class="col">
+					<!-- 주요 입찰 알림 -->
 					<div class="bid">
 						<div class="h-wrap">
-							<h2 class="h-tit2"></h2>
-							<a href="#" class="btn-bid-more"></a>
+							<h2 class="h-tit2">주요 입찰 알림</h2>
+							<a href="#" class="btn-bid-more" aria-label="주요 입찰 알림 더보기"></a>
 						</div>
 						<div class="bid-group">
 							<div class="swiper bid-swiper">
 								<div class="swiper-wrapper">
-									<div class="swiper-slide">Slide 1</div>
-									<div class="swiper-slide">Slide 2</div>
-									<div class="swiper-slide">Slide 3</div>
+									<div class="swiper-slide"><a href="#">삼성 SDI 액정 세척액 폐기물</a></div>
+									<div class="swiper-slide"><a href="#">GC 2022 연구의료 폐기물</a></div>
+									<div class="swiper-slide"><a href="#">한일타이어 연구소 폐타이어</a></div>
 								</div>
 							</div>
 						</div>
-
-						
-						
-						
 						<style>
 							.bid-swiper {height:50px;}
 						</style>
@@ -102,25 +154,28 @@
 							});
 							</script>
 					</div>
+					<!-- //주요 입찰 알림 -->
 
+					<!-- 상담문의 -->
 					<div class="advice">
-						<h2 class="h-tit2"></h2>
-						<div class="advice-tel"></div>
-						<div class="advice-time"></div>
+						<h2 class="h-tit2">상담문의</h2>
+						<div class="advice-tel">02.2048.1200</div>
+						<div class="advice-time">운영시간 09:00~17:00</div>
 					</div>
+					<!-- //상담문의 -->
 
 					<div class="pdf-search">
 						<div class="row gutter">
 							<div class="col">
-								<a href="" class="pdf-download">
-									<span class="eng-tit"></span>
-									<h2 class="h-tit2"></h2>
+								<a href="#" class="pdf-download">
+									<span class="eng-tit">Pdf download</span>
+									<h2 class="h-tit2">서비스 소개서 다운로드</h2>
 								</a>
 							</div>
 							<div class="col">
-								<a href="" class="search">
-									<span class="eng-tit"></span>
-									<h2 class="h-tit2"></h2>
+								<a href="#" class="search">
+									<span class="eng-tit">Search</span>
+									<h2 class="h-tit2">폐기물 업체 검색</h2>
 								</a>
 							</div>
 						</div>
@@ -128,22 +183,23 @@
 				</div>
 			</div>
 
+			<!-- 입찰정보 -->
 			<div class="bid-detail">
-				<h2 class="h-tit2"></h2>
+				<h2 class="h-tit2">입찰정보</h2>
 				<div class="bid-detail-sort">
 					<div class="row">
 						<div class="col">
-							<button type="button"></button>
-							<button type="button"></button>
-							<button type="button"></button>
-							<button type="button"></button>
-							<button type="button"></button>
-							<button type="button"></button>
+							<button type="button">빠른 날짜순</button>
+							<button type="button">늦은 날짜순</button>
+							<button type="button">높은 규모순</button>
+							<button type="button">낮은 규모순</button>
+							<button type="button">높은 가격순</button>
+							<button type="button">낮은 가격순</button>
 						</div>
 						<div class="col">
 							<input type="text">
-							<button type="button"></button>
-							<button type="button"></button>
+							<button type="button">검색</button>
+							<button type="button">설정</button>
 						</div>
 					</div>
 				</div>
@@ -152,18 +208,20 @@
 						<li class="bid-detail-item">
 							<a href="" class="bid-detail-list">
 								<div class="bid-detail-img">
-									<span class="bid-detail-d-day"></span>
+									<span class="bid-detail-d-day">D-3</span>
 									<span class="bid-detail-complete">
-										<strong class="bid-detail-complete-num"></strong>
+										<strong class="bid-detail-complete-num">+2</strong>
+										신청완료
 									</span>
 									<img src="" alt="">
 								</div>
 
 								<div class="bid-detail-text">
-									<strong class="bid-detail-name"></strong>
-									<span class="bid-detail-sub-txt"></span>
+									<strong class="bid-detail-name">2022.08.16 등록 테스트</strong>
+									<span class="bid-detail-sub-txt">액상 - 폐수처리오니</span>
 									<span class="bid-detail-area">
-										<span></span>
+										[경기도]
+										<span>120,000,239</span>
 									</span>
 								</div>
 							</a>
@@ -171,49 +229,93 @@
 					</ul>
 				</div>
 			</div>
+			<!-- //입찰정보 -->
 
 
+			<!-- 서비스 이용절차 안내 -->
 			<div class="service">
 				<div class="h-wrap">
-					<h2 class="h-tit2"></h2>
-					<a href="" class="btn-service-join"></a>
+					<h2 class="h-tit2">서비스 <span>이용절차</span> 안내</h2>
+					<a href="" class="btn-service-join">회원등록</a>
 				</div>
 				<ol class="service-group">
-					<li class="service-item type2"></li>
+					<li class="service-item item1">회원등록</li>
+					<li class="service-item item1 type2">입찰계획</li>
+					<li class="service-item item1 type2">현장설명</li>
+					<li class="service-item item1 type2">입찰참여</li>
+					<li class="service-item item1 type2">계약체결</li>
+					<li class="service-item item1">배출신고</li>
+					<li class="service-item item1">입계서작성</li>
+					<li class="service-item item1">대장관리</li>
+					<li class="service-item item1">실적보고</li>
 				</ol>
 			</div>
+			<!-- //서비스 이용절차 안내 -->
 
 			<div class="board-wrap">
 				<div class="board">
 					<div class="row">
+						<!-- 공지사항 -->
 						<div class="col">
 							<div class="h-wrap">
-								<h2 class="h-tit2"></h2>
-								<a href="" class="btn-board-more"></a>
+								<h2 class="h-tit2">공지사항</h2>
+								<a href="#" class="btn-board-more" aria-label="공지사항 더보기"></a>
 							</div>
 							<ul class="board-group">
 								<li class="board-item">
-									<a href="" class="board-link">
-										<strong class="board-tit"></strong>
-										<span class="board-date"></span>
-									</a>
+									<a href="#" class="board-link">비콘태그 도입 및 신형휴대형리더기 구입 관련 수집운반업체 교육 일정 안내</a>
+									<span class="board-date">2022-08-16</span>
+								</li>
+								<li class="board-item">
+									<a href="#" class="board-link">부산울산경남환경본부 올바로시스템 배출자 원패스 QR코드 모음집 배포</a>
+									<span class="board-date">2022-07-25</span>
+								</li>
+								<li class="board-item">
+									<a href="#" class="board-link">2022년 자원순환 성과관리 대상사업자 선정·공고</a>
+									<span class="board-date">2022-07-07</span>
+								</li>
+								<li class="board-item">
+									<a href="#" class="board-link">불법투기 4고 예방수칙 관련 영상 You-Tube 업로드 안내</a>
+									<span class="board-date">2022-06-27</span>
+								</li>
+								<li class="board-item">
+									<a href="#" class="board-link">2022년 자원순환 성과관리 이행지원 사업 공고</a>
+									<span class="board-date">2022-06-13</span>
 								</li>
 							</ul>
 						</div>
+						<!-- //공지사항 -->
+
+						<!-- 업계동향 -->
 						<div class="col">
 							<div class="h-wrap">
-								<h2 class="h-tit2"></h2>
-								<a href="" class="btn-board-more"></a>
+								<h2 class="h-tit2">업계동향</h2>
+								<a href="" class="btn-board-more" aria-label="업계동향 더보기"></a>
 							</div>
 							<ul class="board-group">
 								<li class="board-item">
-									<a href="" class="board-link">
-										<strong class="board-tit"></strong>
-										<span class="board-date"></span>
-									</a>
+									<a href="" class="board-link">쾌적한 국민생활 위해 폐기물처리시설 검사 강화</a>
+									<span class="board-date">2022-08-11</span>
+								</li>
+								<li class="board-item">
+									<a href="" class="board-link">한정애 환경부 장관, 설 연휴 생활폐기물 관리대책 현장 점검</a>
+									<span class="board-date">2022-07-29</span>
+								</li>
+								<li class="board-item">
+									<a href="" class="board-link">유제철 환경부 차관, 제15회 폐기물.자원순환산업전 개막식 참석</a>
+									<span class="board-date">2022-07-18</span>
+								</li>
+								<li class="board-item">
+									<a href="" class="board-link">한화진 환경부장관, 수해 폐기물 처리현장 점검</a>
+									<span class="board-date">2022-07-01</span>
+								</li>
+								<li class="board-item">
+									<a href="" class="board-link">"양파망 폐기물 줄이자"... 정부.대형마트, 무포장 낱개 판매 해상</a>
+									<span class="board-date">2022-06-27</span>
 								</li>
 							</ul>
 						</div>
+						<!-- //업계동향 -->
 					</div>
 				</div>
 			</div>
@@ -221,6 +323,20 @@
 		</div>
 
 		<footer id="footer">
+			<div class="">한국폐기물거래소</div>
+			<ul class="footer-nav">
+				<li class="footer-nav-item"><a href="#" class="footer-nav-link">서비스 소개</a></li>
+				<li class="footer-nav-item"><a href="#" class="footer-nav-link">이용약관</a></li>
+				<li class="footer-nav-item"><a href="#" class="footer-nav-link">개인정보처리방침</a></li>
+			</ul>
+			<div class="">
+				<select>
+					<option>유관기관 사이트</option>
+					<option>유관기관 사이트2</option>
+				</select>
+			</div>
+			<div class="addresss">(06167) 서울시 강남구 삼성로 528, 부방빌딩   대표전화 : 02-2048-1200</div>
+			<div class="copyright">Copyright. (C) kowax. All rights reserved.</div>
 		</footer>
 	</div>
 </body>
