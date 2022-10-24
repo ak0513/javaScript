@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../common/swiper/swiper.min.js"></script>
+	<link rel="stylesheet" href="../common/swiper/swiper.min.css">
 	<title>Document</title>
 </head>
 <body>
@@ -14,7 +16,7 @@
 	<div id="wrap">
 		<header id="header">
 			<div class="header-top">
-				<div class="btn-mobile"><button type="button"></button></div>
+				<div class="btn-mobile-menu"><button type="button"></button></div>
 				<div class="logo"></div>
 				<div class="search">
 					<input type="text">
@@ -36,7 +38,9 @@
 		</header>
 
 		<div id="container">
-			<div class="top-img"></div>
+			<div class="top-img">
+				<strong></strong>
+			</div>
 			<div class="row gutter">
 				<div class="col">
 					<div class="waste">
@@ -58,13 +62,44 @@
 					<div class="bid">
 						<div class="h-wrap">
 							<h2 class="h-tit2"></h2>
-							<a href="#" class="btn-more"></a>
+							<a href="#" class="btn-bid-more"></a>
 						</div>
-						<ul class="bid-group">
-							<li class="bid-item"><a href="" class="bid-link"></a></li>
-							<li class="bid-item"><a href="" class="bid-link"></a></li>
-							<li class="bid-item"><a href="" class="bid-link"></a></li>
-						</ul>
+						<div class="bid-group">
+							<div class="swiper bid-swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">Slide 1</div>
+									<div class="swiper-slide">Slide 2</div>
+									<div class="swiper-slide">Slide 3</div>
+								</div>
+							</div>
+						</div>
+
+						
+						
+						
+						<style>
+							.bid-swiper {height:50px;}
+						</style>
+						<script>
+							var bidSwiper = new Swiper(".bid-swiper", {
+								loop:true,
+								direction: "vertical",
+								slidePerView: 1,
+								autoplay:true,
+								breakpoints: {
+									1100: {
+										slidesPerView: 3,
+									},
+								},
+								on: {
+									resize: function() {
+										if(window.innerWidth < 1100) {
+											bidSwiper.autoplay.start();
+										}
+									}
+								}
+							});
+							</script>
 					</div>
 
 					<div class="advice">
