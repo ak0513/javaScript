@@ -5,16 +5,19 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>matrix 변환 스크롤시 액션</title>
+	<title>scroll sticky</title>
 </head>
 
 <body>
 	<style>
 		* {box-sizing: border-box;}
 		body{margin:0;}
+
+
 		img{width:100%;height:auto;}
+
 		.sticky-container {
-			height: 200vh;
+			height: 400vh;
 		}
 		.sticky-wrapper {
 			overflow: hidden;
@@ -22,11 +25,22 @@
 			top:0;
 			height: 100vh;
 		}
+		.sticky-inner {
+			background-color: #888;
+			display: flex;
+		}
+		img {width:500px;}
 	</style>
 	<div class="sticky-container">
 		<div class="sticky-wrapper">
 			<div class="sticky-inner" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-				111
+				
+					111
+				<div>
+
+					<div><img src="./showcase__02--pc.jpg"></div>
+					<div><img src="./showcase__03--pc.jpg"></div>
+				</div>
 			</div>
 		</div>
 	</div>
