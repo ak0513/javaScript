@@ -2,6 +2,62 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/* @font-face {
+    font-family: 'Noto Sans KR';
+    src: url('../fonts/NotoSansKR-Light-Alphabetic.eot');
+    src: url('../fonts/NotoSansKR-Light-Alphabetic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NotoSansKR-Light-Alphabetic.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Light-Alphabetic.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url('../fonts/NotoSansKR-Regular-Alphabetic.eot');
+    src: url('../fonts/NotoSansKR-Regular-Alphabetic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NotoSansKR-Regular-Alphabetic.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Regular-Alphabetic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url('../fonts/NotoSansKR-Medium-Alphabetic.eot');
+    src: url('../fonts/NotoSansKR-Medium-Alphabetic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NotoSansKR-Medium-Alphabetic.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Medium-Alphabetic.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url('../fonts/NotoSansKR-Bold-Alphabetic.eot');
+    src: url('../fonts/NotoSansKR-Bold-Alphabetic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NotoSansKR-Bold-Alphabetic.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Bold-Alphabetic.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url('../fonts/NotoSansKR-Black-Alphabetic.eot');
+    src: url('../fonts/NotoSansKR-Black-Alphabetic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NotoSansKR-Black-Alphabetic.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Black-Alphabetic.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+} */
+
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -23,6 +79,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -47,8 +104,23 @@ table {
 	border-spacing: 0;
 }
 
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+input {
+	min-height: 31px;
+	padding:0 10px;
+	background-color: #f7f7f7;
+	border:1px solid #b8b8b8;
+	border-radius: 3px;
+}
+
 a {
 	text-decoration: none;
+	color:#000;
 }
 
 *, *::before, *::after {
@@ -73,6 +145,8 @@ a {
 body {
 	font-weight: 500;
 	line-height: 1.45;
+	font-size: 16px;
+	color: #000;
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -87,6 +161,12 @@ body {
 	color:#fff;
 }
 
+/* tit */
+.h-tit2 {
+	font-size: 25px;
+	font-weight: 700;
+	color:#fff;
+}
 
 /* skipNavi */
 #skipNavi {
@@ -179,4 +259,312 @@ body {
 	margin-top: 7px;
 	font-size: 52px;
 	font-weight: 600;
+}
+
+
+/* 메인 */
+.sec01 {
+	max-width: 1330px;
+	margin: 70px auto 0;
+	padding:0 15px;
+}
+
+.sec01 .row {
+	display: flex;
+	margin:-10px;
+}
+
+.sec01 .col {
+	padding:10px;
+}
+
+.sec01 .col:nth-child(1) {
+	width: 840px;
+}
+
+.sec01 .col:nth-child(2) {
+	width: 480px;
+}
+
+.waste .h-wrap {
+	display: flex;
+	align-items: center;
+	height: 70px;
+	background-color: #034854;
+	padding: 0 18px 0 20px;
+	color:#fff;
+}
+
+.waste .h-wrap .sub-txt {
+	margin-left: 10px;
+}
+
+.waste .h-wrap .sub-txt-unit {
+	margin-left: auto;
+	color: #00a599;
+}
+
+.waste-inner {
+	padding: 20px;
+	border:1px solid #b7b7b7;
+	border-top:none;
+}
+.waste-group {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -20px -10px;
+}
+
+.waste-item {
+	flex:0 0 auto;
+	width: calc(16.6666% - 20px);
+	margin: 20px 10px;
+	text-align: right;
+	line-height: 1;
+}
+
+.wate-name {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.waste-price {
+	margin:7px 0 3px;
+	font-size: 28px;
+}
+
+.waste-item.up .waste-price,
+.waste-item.up .waste-fluctuation {
+	color:#E22D72;
+}
+
+.waste-item.up .waste-fluctuation::before {
+	content:'▲';
+	margin-right:3px;
+	font-size:13px;
+}
+
+.waste-item.down .waste-price,
+.waste-item.down .waste-fluctuation {
+	color:#2D42E2;
+}
+
+.waste-item.down .waste-fluctuation::before {
+	content:'▼';
+	margin-right:3px;
+	font-size:13px;
+}
+
+
+.bid .h-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 70px;
+	background-color: #034854;
+	padding: 0 10px 0 20px;
+	color:#fff;
+}
+
+.btn-bid-more {
+	display:block;
+	width: 38px;
+	height:38px;
+	background: url('../img/btn-plus.svg') no-repeat center;
+}
+
+.bid-group {
+	padding: 25px 30px;
+	border:1px solid #b7b7b7;
+	border-top:none;
+}
+
+.bid-swiper {
+	height:168px;
+}
+
+.bid-link {
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding:10px 0 10px 14px;
+	background: url('../img/bullet1.svg') no-repeat left center;
+	font-size: 18px;
+}
+
+
+.advice {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 195px;
+	margin-top:20px;
+	padding-left: 173px;
+	border:1px solid #b7b7b7;
+	line-height: 1;
+	font-weight: 600;
+}
+
+.advice::before {
+	content:'';
+	display: block;
+	position: absolute;
+	top:50%;
+	left:44px;
+	width: 100px;
+	height: 100px;
+	background: rgba(0, 0, 0, 0.05) url('../img/icon-advice.svg') no-repeat center;
+	transform: translateY(-50%);
+	border-radius: 50%;
+}
+
+.advice .h-tit2 {
+	font-size: 25px;
+	color:#000;
+}
+
+.advice-tel {
+	margin:8px 0;
+	font-size: 35px;
+}
+
+.advice-time {
+	font-size: 18px;
+	color:#999;
+}
+
+
+.pdf-search {
+	margin-top: 20px;
+}
+
+.pdf-search .row {
+	display: flex;
+	margin: -10px;
+}
+
+.pdf-search .col {
+	flex:1;
+	
+}
+
+.pdf-search .col > a {
+	display: flex;
+	flex-direction: column-reverse;
+	height: 195px;
+	padding: 26px 30px;
+	border:1px solid #ccc;
+}
+
+.pdf-search .h-tit2 {
+	margin-top: 8px;
+	font-size: 20px;
+	color:#000;
+	line-height: 1.35;
+}
+
+.pdf-search .eng-tit {
+	font-size: 16px;
+	color:rgba(0, 0, 0, 0.4);
+}
+
+.pdf-search .download {
+	background: rgba(0, 0, 0, 0.03) url('../img/icon-download.svg') no-repeat 31px 32px;
+}
+
+.pdf-search .search {
+	background: rgba(0, 0, 0, 0.03) url('../img/icon-search.svg') no-repeat 33px 29px;
+}
+
+
+
+
+.bid-detail {
+	max-width: 1330px;;
+	margin: 70px auto 0;
+	padding:0 15px;
+}
+
+.bid-detail .h-tit2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70px;
+	background-color: #034854;
+}
+
+.bid-detail-sort {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 72px;
+	border-bottom:1px solid #e1e1e1;
+}
+
+.bid-detail-sort-btn button {
+	position: relative;
+	padding-right: 21px;
+	font-size: 12px;
+	color:#999;
+}
+
+.bid-detail-sort-btn button:last-child {
+	padding-right: 0;
+}
+
+.bid-detail-sort-btn button.on {
+	padding-left: 20px;
+	background: url('../img/icon-check.svg') no-repeat left center;
+	color:#000;
+	font-weight: 600;
+}
+
+.bid-detail-sort-btn button::before {
+	content:'';
+	display:block;
+	position: absolute;
+	top:4px;
+	right:10px;
+	width:1px;
+	height:10px;
+	background-color: #e1e1e1;
+}
+
+.bid-detail-sort-btn button:last-child::before {
+	display: none;
+}
+
+
+.bid-detail-sort-search {
+	display: flex;
+}
+
+.bid-detail-sort-search button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border:1px solid #b7b7b7;
+	border-radius: 3px;
+}
+
+.bid-detail-btn-input {
+	border-radius: 3px 0 0 3px;
+}
+
+.bid-detail-sort-search .bid-detail-btn-search {
+	width: 45px;
+	border-left:none;
+	border-radius: 0 3px 3px 0;
+	font-size:14px;
+	color:#000;
+}
+
+.bid-detail-btn-set {
+	width: 34px;
+	margin-left:5px;
+	background: url('../img/icon-set.svg') no-repeat center;
 }
