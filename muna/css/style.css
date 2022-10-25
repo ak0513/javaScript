@@ -73,6 +73,7 @@ a {
 body {
 	font-weight: 500;
 	line-height: 1.45;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* btn */
@@ -87,6 +88,27 @@ body {
 }
 
 
+/* skipNavi */
+#skipNavi {
+	position: relative;
+}
+
+#skipNavi a {
+	display: block;
+    position: absolute;
+    top: -300px;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+	padding:10px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+#skipNavi a:focus, #skipNavi a:hover {
+	top: 0;
+}
+
 /* header */
 .logo {
 	display: inline-flex;
@@ -98,6 +120,7 @@ body {
 	font-weight: 700;
 	color:#fff;
 }
+
 .header-top {
 	background-color:#034854;
 }
