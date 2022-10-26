@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/swiper.min.js"></script>
+	<script src="./js/chart.js"></script>
+	<link rel="stylesheet" href="./css/fonts.css">
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>test</title>
+</head>
+<body>
+
+	<div style="width: 900px; height: 900px;">
+		<!--차트가 그려질 부분-->
+		<canvas id="myChart"></canvas>
+	</div>
+
+
+	<script type="text/javascript">
+		var context = document
+			.getElementById('myChart')
+			.getContext('2d');
+		var myChart = new Chart(context, {
+			type: 'line', // 차트의 형태
+			data: { // 차트에 들어갈 데이터
+				labels: [
+					//x 축
+					'1월','2월','3월','4월','5월','6월','7월','8월','9월'
+				],
+				datasets: [
+					{ //데이터
+						label: 'test1', // 차트 제목
+						data: [
+							21000,59000,70000,68000,60000,80000,82000,105000,21000 // x축 label에 대응되는 데이터 값
+						],
+						backgroundColor:'rgba(255, 99, 132, 0.2)', // 색상
+						borderColor: 'rgba(255, 99, 132, 1)', // 경계선 색상
+						borderWidth: 1 // 경계선 굵기
+					},
+					{
+						label: 'test2',
+						data: [
+							30000,18000,45000,20000,82000,40000,37000,60000,80000
+						],
+						backgroundColor: 'rgb(157, 109, 12)',
+						borderColor: 'rgb(157, 109, 12)'
+					},
+					{
+						label: 'test3',
+						data: [
+							42000,35000,50000,55000,100000,60000,40000,62000,68000
+						],
+						backgroundColor: 'rgb(5, 109, 12)',
+						borderColor: 'rgb(5, 109, 12)'
+					},
+					{
+						label: 'test4',
+						data: [
+							50000,52000,60000,60000,88000,78000,78000,55000,95000
+						],
+						backgroundColor: 'rgb(5, 109, 12)',
+						borderColor: 'rgb(5, 109, 12)'
+					}
+				]
+			},
+		});
+	</script>
+</body>
+</html>
