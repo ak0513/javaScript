@@ -18,7 +18,26 @@
 		<canvas id="myChart"></canvas>
 	</div>
 
-
+	<script>
+		var bidSwiper = new Swiper(".bid-swiper", {
+			loop:true,
+			direction: "vertical",
+			slidePerView: 1,
+			autoplay:false,
+			breakpoints: {
+				1100: {
+					slidesPerView: 3,
+				},
+			},
+			on: {
+				resize: function() {
+					if(window.innerWidth < 1100) {
+						bidSwiper.autoplay.start();
+					}
+				}
+			}
+		});
+		</script>
 	<script type="text/javascript">
 		var context = document
 			.getElementById('myChart')
