@@ -4,10 +4,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="./js/swiper.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- <script src="./js/swiper.min.js"></script> -->
+	<script src="./js/jquery-ui.min.js"></script>
+	<!-- <script src="./js/bootstrap.bundle.min.js"></script> -->
 	<script src="./js/chart.js"></script>
+	<script src="./js/common.js"></script>
 	<link rel="stylesheet" href="./css/fonts.css">
-	<link rel="stylesheet" href="./css/swiper.min.css">
+	<!-- <link rel="stylesheet" href="./css/swiper.min.css"> -->
+	<link rel="stylesheet" href="./css/jquery-ui.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<title>test</title>
 </head>
@@ -17,9 +22,33 @@
 		<!--차트가 그려질 부분-->
 		<canvas id="myChart"></canvas>
 	</div>
-
+	<button type="button" id="data1">데이터 추가</button>
+	<button type="button" id="delDataset">데이터 삭제</button>
 	<script>
-		var bidSwiper = new Swiper(".bid-swiper", {
+		//데이터셋 추가
+		document.getElementById('data1').addEventListener('click',function() {
+			var newDataset = {
+				label: 'test1',
+				borderColor : 'rgba(255, 99, 132, 0.2)',
+				backgroundColor : 'rgba(255, 99, 132, 1)',
+				data: [21000,59000,70000,68000,60000,80000,82000,105000,21000],
+				borderWidth: 1
+			}
+			myChart.data.datasets.push(newDataset);// chart에 newDataset 푸쉬
+			myChart.update(); //차트 업데이트
+		})
+
+		//데이터셋 삭제
+		document.getElementById('delDataset').onclick = function(){
+			myChart.data.datasets.splice(0,10);
+			myChart.update();//차트 업데이트
+		}
+		
+	</script>
+	<strong data-skin="count">32,845</strong>
+	<strong data-skin="count">32,845</strong>
+	<script>
+		/* var bidSwiper = new Swiper(".bid-swiper", {
 			loop:true,
 			direction: "vertical",
 			slidePerView: 1,
@@ -36,7 +65,7 @@
 					}
 				}
 			}
-		});
+		}); */
 		</script>
 	<script type="text/javascript">
 		var context = document
@@ -84,8 +113,111 @@
 						borderColor: 'rgb(5, 109, 12)'
 					}
 				]
+			
 			},
+			options: {
+				plugins: {
+					legend: {
+						labels: {
+							usePointStyle: 'circle',
+						},
+					}
+				}
+			}
 		});
 	</script>
+	<div class="footer">
+<div data-js="select"> <a href="#"><strong>유관기관 사이트</strong></a>
+	<ul data-scroll="yes" style="display: none;">
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+	</ul>
+</div>
+	</div>
+	
+	<style>
+		#pop {display:none;}
+		#pop.on {display: block;}
+	</style>
+
+	<button class="pop" onclick="pop('#pop')">pop</button>
+	<div id="pop" aria-labelledby="popLabel" aria-modal="true" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="popLabel">Modal title</h5>
+					<button type="button" class="close" onclick="popClose('#pop', '.pop')" aria-label="Close">
+					<span aria-hidden="true">닫기</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Woohoo, you're reading this text in a modal!</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" onclick="popClose('#pop', '.pop')">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="btn-mobile-menu2"><button type="button" aria-label="전체메뉴 열기" class="btn-mobile-menu-open">전체메뉴 열기</button></div>
+	<div id="mobile-menu">
+		<button type="button" aria-label="메뉴닫기" class="btn-mobile-closed">메뉴닫기</button>
+		<ul class="mobile-menu-group">
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link has-sub" aria-controls="mobileMenu1" role="button">menu1</a>
+				<ul id="mobileMenu1" class="mobile-menu-depth2">
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu1-1</a></li>
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu1-2</a></li>
+				</ul>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link has-sub" aria-controls="mobileMenu2" role="button">menu2</a>
+				<ul id="mobileMenu2" class="mobile-menu-depth2">
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu2-1</a></li>
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu2-2</a></li>
+				</ul>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">menu3</a>
+			</li>
+		</ul>
+	</div>
+	<style>
+		.mobile-menu-depth2 {display:none;}
+
+		#mobile-menu {
+			position: fixed;
+			top:0;
+			left:-100%;
+			width:100%;
+			height:100vh;
+			background-color: #ddd;
+			transition: all 0.4s;
+		}
+
+		#mobile-menu.on {
+			left:0;
+		}
+	</style>
+	
+
+<div>Date: <input type="text" id="datepicker1" autocomplete="off" class="datepicker"></div>
+<div>Date: <input type="text" id="datepicker2" autocomplete="off" class="datepicker"></div>
+<style>
+	.datepicker {
+		height: 40px;
+		padding-right:30px;
+		background: url('./img/icon_cal.gif') no-repeat calc(100% - 5px) center;
+	}
+</style>
+
+
+	<div style="height:2000px"></div>
 </body>
 </html>
