@@ -34,8 +34,25 @@
 				data: [21000,59000,70000,68000,60000,80000,82000,105000,21000],
 				borderWidth: 1
 			}
+
+
+			var aa = myChart.data.datasets;
+			console.log(aa)
+			for(var i = 0; i < aa.length; i++) {
+				console.log(aa[i].label)
+				if(aa[i].label !== 'test1') {
+					myChart.data.datasets.push(newDataset);// chart에 newDataset 푸쉬
+					myChart.update(); //차트 업데이트
+				}
+			}
+			
+			
+
+
 			myChart.data.datasets.push(newDataset);// chart에 newDataset 푸쉬
 			myChart.update(); //차트 업데이트
+
+			
 		})
 
 		//데이터셋 삭제
