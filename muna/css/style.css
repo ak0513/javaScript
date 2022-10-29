@@ -128,7 +128,7 @@ body {
 	align-items: center;
 	height: 6rem;
 	padding-left: 9rem;
-	background: url('../img/logo.svg') no-repeat;
+	background: url('../img/logo.svg') no-repeat left center;
 	font-size: 3.4rem;
 	font-weight: 700;
 	color:#fff;
@@ -177,6 +177,9 @@ body {
 	margin:0 auto;
 	padding:0 1.5rem;
 }
+.gnb-item {
+	position: relative;
+}
 
 .gnb-item + .gnb-item {
 	margin-left: 10rem;
@@ -191,6 +194,10 @@ body {
 
 .gnb-link:hover {
 	color:#FFFE88;
+}
+
+.gnb-depth2-group {
+	display:none;
 }
 
 .top-img {
@@ -367,6 +374,7 @@ body {
 	height: 19.5rem;
 	margin-top:2rem;
 	padding-left: 17.3rem;
+	padding-right:3rem;
 	border:1px solid #b7b7b7;
 	line-height: 1;
 	font-weight: 600;
@@ -399,7 +407,6 @@ body {
 	font-size: 1.8rem;
 	color:#999;
 }
-
 
 .pdf-search {
 	margin-top: 2rem;
@@ -442,9 +449,6 @@ body {
 .pdf-search .search {
 	background: rgba(0, 0, 0, 0.03) url('../img/icon-search.svg') no-repeat 3.3rem 2.9rem;
 }
-
-
-
 
 .bid-detail {
 	max-width: 133.0rem;;
@@ -501,6 +505,9 @@ body {
 	display: none;
 }
 
+.bid-detail-sort-select {
+	display: none;
+}
 
 .bid-detail-sort-search {
 	display: flex;
@@ -550,9 +557,8 @@ body {
 }
 
 .bid-detail-item {
-	flex: 1 1 auto;
-	width: 24.4rem;
-	max-width: 24.4rem;
+	flex: 0 0 auto;
+	max-width: calc(20% - 2rem);
 	margin:1.5rem 1rem;
 }
 
@@ -767,6 +773,7 @@ body {
 
 /* 게시판 */
 .board-wrap {
+	overflow: hidden;
 	margin-top: 3rem;
 	padding: 3rem 0;
 	background-color: #efefef;
@@ -898,16 +905,52 @@ body {
 }
 
 .footer-select {
+	position: relative;
 	margin-left: auto;
 }
 
-.footer-select select {
+.footer-select-btn {
+	position: relative;
+	display: flex;
+	align-items: center;
 	width: 21rem;
 	height: 4.2rem;
+	padding-left:3rem;
 	border:1px solid rgba(255,255,255,0.2);
 	border-radius: 10rem;
+	color:#fff;
+	font-weight: 400;
 }
 
+.footer-select-btn::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top:50%;
+	right:3rem;
+	width:1.2rem;
+	height: 0.6rem;
+	background: url('../img/icon-select.svg') no-repeat;
+}
+
+.footer-select-group {
+	position: absolute;
+	bottom: 100%;
+	border:1px solid rgba(64, 92, 104, 0.5);
+	width: 100%;
+	border-radius: 2rem;
+	background-color: #fff;
+}
+
+.footer-select-link {
+	display: block;
+	padding: 1rem 3rem;
+	font-size: 1.4rem;
+}
+
+.footer-select-item + .footer-select-item {
+	border-top: 1px solid rgba(64, 92, 104, 0.5);
+}
 .addresss {
 	display: flex;
 	margin-top: 3rem;
@@ -925,8 +968,9 @@ body {
 }
 
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
 
+	/* 메인 */
 	.sec01 > .row {
 		display: block;
 	}
@@ -937,6 +981,261 @@ body {
 
 	.sec01 > .row > .col:nth-child(2) {
 		display: flex;
+		width: 100%;
+	}
+
+	.bid {
+		width: 40rem;
+	}
+
+	.bid-group {
+		padding:0 3rem;
+	}
+
+	.advice {
+		height: 21.5rem;
+		margin-top: 0;
+		margin-left: 2rem;
+	}
+
+	.pdf-search {
+		flex-grow: 1;
+		margin-top:0;
+		margin-left: 2rem;
+	}
+	.pdf-search .col > a {
+		height: 21.5rem;;
+	}
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+	.m-hide {
+		display: none !important;
+	}
+
+	.h-tit2 {
+		font-size: 2rem;
+	}
+
+	/* 헤더 */
+	.header-inner {
+		height: 6rem;
+		justify-content: center;
+		padding: 0;
+	}
+	.btn-login {
+		display: none;
+	}
+
+	.btn-mobile-menu {
+		display: block;
+		position: absolute;
+		top: 2.1rem;
+		left: 2rem;
+	}
+
+	.btn-mobile-menu button {
+		display: block;
+		width: 1.9rem;
+		height: 1.7rem;
+		background: url('../img/btn-mobile-menu.svg') no-repeat center;
+	}
+
+	.logo {
+		padding-left: 4.3rem;
+		padding-bottom: 0.3rem;
+		background-size: 3.3rem;
+		font-size: 2.6rem;
+	}
+
+
+	/* 메뉴 */
+	.gnb-group {
+		justify-content: space-around;
+	}
+
+	.gnb-item + .gnb-item {
+		margin-left:0;
+	}
+	.gnb-link {
+		padding: 8px 0 9px;
+	}
+
+	.top-img {
+		height: 12.4rem;
+		font-size: 1.4rem;
+	}
+	.top-img strong {
+		font-size: 2.6rem;
+	}
+
+
+	/* 메인 */
+	.sec01 {
+		max-width: 100%;
+		margin:0;
+		padding:0;
+	}
+
+	.sec01 .row {
+		margin:0;
+	}
+
+	.sec01 .col {
+		padding:0;
+	}
+
+	.waste .h-wrap {
+		justify-content: center;
+		height: 5rem;
+	}
+	.waste .h-wrap .sub-txt,
+	.sub-txt-unit {
+		display:none;
+	}
+
+	.waste-inner {
+		margin-top:2rem;
+		padding:0;
+		border:none;
+	}
+
+	.waste-group {
+		overflow-x: auto;
+		flex-wrap: nowrap;
+		margin: 0;
+		padding:0 1rem 1.7rem;
+	}
+
+	.waste-item {
+		width:auto;
+		margin:0;
+		padding:0 2rem;
+	}
+
+	.waste-item + .waste-item {
+		border-left: 1px solid rgba(237, 237, 237, 1);
+	}
+
+	.wate-name {
+		font-size: 1.6rem;
+	}
+
+	.waste-price {
+		font-size: 2.2rem
+	}
+
+	.waste-fluctuation {
+		font-size:1.4rem;
+	}
+
+	.chart {
+		width: calc(100% - 2rem);
+		height: auto;
+		margin: 1.7rem auto 0;
+		padding:1.7rem 0;
+		border-top:1px solid rgba(225, 225, 225, 1);
+		border-bottom:1px solid rgba(225, 225, 225, 1);
+	}
+
+	.sec01 > .row > .col:nth-child(2) {
+		flex-direction: column-reverse;
+		margin-top: 2rem;
+		padding:0 1rem;
+	}
+	.bid {
+		display: none;
+	}
+
+	.pdf-search {
+		margin:0;
+	}
+	.pdf-search .row {
+		margin: -0.5rem;
+	}
+
+	.pdf-search .col {
+		padding: 0.5rem;
+	}
+
+	.pdf-search .col > a {
+		height: 13rem;
+		padding:5.2rem 3rem 1.3rem;
+	}
+
+	.pdf-search .h-tit2 {
+		margin-top: 0.5rem;
+		font-size: 1.6rem;
+	}
+
+	.pdf-search .eng-tit {
+		font-size: 1.4rem;
+	}
+
+	.pdf-search .download {
+		background-size: 2.5rem 2.2rem;
+		background-position: 3rem 1.6rem;
+	}
+	.pdf-search .search {
+		background-size: 2.2rem 2.5rem;
+		background-position: 3rem 1.6rem;
+	}
+
+	.advice {
+		height: 13rem;
+		margin:1rem 0 0;
+		padding-left:15rem;
+	}
+
+	.advice::before {
+		left:4rem;
+		width: 9rem;
+		height: 9rem;
+		background-size: 3rem;
+	}
+
+	.advice .h-tit2 {
+		font-size: 1.8rem;
+	}
+
+	.advice-tel {
+		font-size: 2.4rem;
+	}
+
+	.advice-time {
+		font-size: 1.6rem;
+	}
+
+	.bid-detail-sort-btn {
+		display: none;
+	}
+	
+	.bid-detail-sort-select {
+		display: block;
+	}
+
+
+	.bid-detail-list {
+		overflow-x: auto;
+	}
+
+	.bid-detail-group {
+		flex-wrap: nowrap;
+	}
+
+	.service {
+		display: none;
+	}
+
+
+	.board .row {
+		display: block;
+		margin: 0;
+	}
+
+	.board .col {
 		width: 100%;
 	}
 }

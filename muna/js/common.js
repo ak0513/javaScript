@@ -88,7 +88,7 @@ function countdown(){
 
 // 푸터 셀렉트 박스
 function footer_select_AC(){
-	var obj = $('.footer [data-js="select"]'); 
+	var obj = $('#footer [data-js="select"]'); 
 		obj.btn = obj.find(">a");
 	obj.each(function() {
 		var t = $(this);
@@ -96,7 +96,7 @@ function footer_select_AC(){
 			t.ul = t.find(">ul"); 
 			t.ul.li = t.ul.find(">li"); 
 		
-		$("<em class='hidden'>열기</em>").appendTo(t.btn);
+		$("<em class='a11y'>열기</em>").appendTo(t.btn);
 			
 		t.btn.on("click",function() {
 			if(t.ul.is(":animated")) return false;
@@ -111,14 +111,14 @@ function footer_select_AC(){
 		});
 		
 		t.on("mouseleave",function() {
-			$(this).find(">a").removeAttr("class");
+			$(this).find(">a").removeClass("on");
 			$(this).find(">ul").slideUp(300);
 			t.btn.find(">em").text("열기");
 			return false;
 		});
 		
 		t.ul.li.last().find(">a").on("focusout",function() {
-			$(this).parent().parent().siblings("a").removeAttr("class");
+			$(this).parent().parent().siblings("a").removeClass("on");
 			$(this).parent().parent().slideUp(300);
 			t.btn.find(">em").text("열기");
 			return false;
