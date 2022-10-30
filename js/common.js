@@ -71,6 +71,8 @@ function setDeviceInfo() {
 	})();
 }
 
+var $eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';var $eleTabindex = '[tabindex="0"]';
+var eleTabindexM = '[tabindex="-1"]';
 // 포커스 비활성화(접근성)
 function accessDisable($eleDisable, module) {
 	$eleDisable.attr({'aria-hidden':'true'}).addClass('is-disable-'+module+'-ariaHidden');
