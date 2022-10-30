@@ -591,10 +591,21 @@ select.form-control {
 	font-size:1.3rem;
 }
 
+.waste-link {
+	display: block;
+}
+
 .chart {
+	position: relative;
 	margin: 2.3rem auto 0;
 	width: 70rem;
 	height: 35rem;
+}
+
+.btn-chart-download {
+	position: absolute;
+	top:0.5rem;
+	right:1.5rem;
 }
 
 
