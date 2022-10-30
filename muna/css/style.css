@@ -411,6 +411,8 @@ select.form-control {
 	right:0;
 	bottom:0;
 	z-index: 1;
+	width: 100vw;
+	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -981,7 +983,7 @@ select.form-control {
 
 .popSet-btn-wrap {
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	margin-top:1.5rem;
 }
 
@@ -1011,7 +1013,7 @@ select.form-control {
 
 .popSet-closed {
 	position:absolute;
-	top:1rem;
+	top:0.6rem;
 	right:1rem;
 	width: 2.5rem;
 	height:2.5rem;
