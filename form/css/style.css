@@ -1,16 +1,22 @@
 @charset "UTF-8";
 
 :root {
+	--primary: #007bff;
 	--white: #fff;
 	--light: #f7f7f7;
 	--lightgray: #ddd;
 	--gray: #7f7f7f;
 	--black: #000;
 
+	--gutter4: 0.2rem;
 	--gutter10: 0.5rem;
 	--gutter20: 1.0rem;
+	--gutter30: 1.5rem;
+	--gutter40: 2.0rem;
 	--gutter50: 2.5rem;
 	--gutter100: 5.0rem;
+
+	--form-height: 5.0rem;
 }
 
 /* reset */
@@ -57,7 +63,7 @@ img {
 
 a {
 	text-decoration: none;
-	color: #000;
+	color: var(--primary);
 }
 
 html,
@@ -70,11 +76,11 @@ html {
 }
 
 body {
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	line-height:1.5;
-	font-family: NotoSansKR, sans-serif;
-	font-weight: 500;
-	color: #000;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	color: var(--primary);
 }
 
 /* 접근성 */
@@ -87,6 +93,17 @@ body {
     border: 0;
     clip: rect(1px, 1px, 1px, 1px);
     clip-path: inset(50%);
+}
+
+/* 키보드로 버튼에 포커스 시 */
+:focus-visible {
+	outline: auto;
+}
+
+/* 마우스, 터치로 버튼에 포커스 시 */
+button:focus:not(:focus-visible) {
+	outline: none;
+	box-shadow: 1px 1px 5px rgba(1, 1, 0, .7);
 }
 
 /* gap */
@@ -200,9 +217,10 @@ input[type='search'],
 input[type='number'] {
 	display: block;
 	width: 100%;
-	padding: 1.6rem 2.0rem;
+	height: var(--form-height);
+	padding: 0 1.5rem;
 	border:1px solid var(--lightgray);
-	color: #000;
+	color: var(--black);
 	font-size: 1.4rem;
 }
 
@@ -213,7 +231,7 @@ input[type='password']::placeholder,
 input[type='search']::placeholder,
 input[type='number']::placeholder {
 	font-size: 1.4rem;
-	color: #000;
+	color: var(--black);
 }
 
 input.sm {
@@ -245,8 +263,11 @@ input.sm {
 }
 
 .input-wrap.with-unit .unit {
+	display: flex;
+	align-items: center;
 	flex-shrink: 0;
-	padding: 1.6rem 1.5rem;
+	height: var(--form-height);
+	padding: 0 1.5rem;
 	border: 1px solid var(--lightgray);
 }
 
@@ -528,10 +549,17 @@ caption {
 	flex-grow: 1;
 }
 
+
+.gutter4 {margin: calc(var(--gutter4) * -1);}
+.gutter4 > [class^=col] {padding: var(--gutter4);}
 .gutter10 {margin: calc(var(--gutter10) * -1);}
 .gutter10 > [class^=col] {padding: var(--gutter10);}
 .gutter20 {margin: calc(var(--gutter20) * -1);}
 .gutter20 > [class^=col] {padding: var(--gutter20);}
+.gutter30 {margin: calc(var(--gutter30) * -1);}
+.gutter30 > [class^=col] {padding: var(--gutter30);}
+.gutter40 {margin: calc(var(--gutter40) * -1);}
+.gutter40 > [class^=col] {padding: var(--gutter40);}
 .gutter50 {margin: calc(var(--gutter50) * -1);}
 .gutter50 > [class^=col] {padding: var(--gutter50);}
 .gutter100 {margin: calc(var(--gutter100) * -1);}
@@ -555,7 +583,7 @@ caption {
 
 
 /* bg */
-.bg-ligth {background-color: #f7f7f7;}
+.bg-light {background-color: var(--light);}
 
 
 
@@ -570,7 +598,6 @@ caption {
 .form-label {
 	display: inline-block;
 	margin-bottom: 1.1rem;
-	font-size: 1.6rem;
 }
 
 .input-wrap .form-label {
@@ -581,7 +608,7 @@ caption {
 }
 
 .form-group {
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .form-ele {

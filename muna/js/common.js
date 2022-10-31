@@ -22,6 +22,8 @@ $(function(){
 		$gnbLink.removeClass('on');
 	})
 
+	
+
 	// 모바일 메뉴
 	$('.mobile-menu-link.has-sub').click(function(e) {
 		e.preventDefault();
@@ -39,15 +41,24 @@ $(function(){
 			$(this).parent().removeClass('on');
 		}
 	})
+	
 
 	$('.btn-mobile-menu-open').click(function() {
 		$('#mobile-menu').addClass('on').attr('tabindex', 0).focus();
 		accessDisable($('#mobile-menu').siblings(), 'modal')
 	})
 	$('.btn-mobile-closed').click(function() {
+		closeMobileMenu();
+	})
+
+	function closeMobileMenu() {
 		$('#mobile-menu').removeClass('on').removeAttr('tabindex');
 		$('.btn-mobile-menu-open').focus();
 		accessEnable($('#mobile-menu').siblings(), 'modal');
+	}
+
+	$('.mobile-menu-dim').click(function() {
+		closeMobileMenu();
 	})
 
 	$('.mobile-menu-login').click(function() {
@@ -75,6 +86,13 @@ $(function(){
 		changeMonth: true,
 		changeYear: true
 	});
+
+	// 입찰정보 sort
+	var $bidDetailSortBtn = $('.bid-detail-sort-btn > button');
+	$bidDetailSortBtn.on('click',function() {
+		$bidDetailSortBtn.removeClass('on');
+		$(this).addClass('on');
+	})
 });
 
 // 팝업 열기
