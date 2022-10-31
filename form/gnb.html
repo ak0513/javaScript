@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/fonts.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>기본 스타일</title>
+</head>
+<body>
+	<div id="wrap">
+        <header id="header">
+            <nav id="nav">
+                <ul class="nav-group">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">MENU1</a>
+                        <ul class="nav-dep2-group">
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-1</a></li>
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-2</a></li>
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">MENU2</a>
+                        <ul class="nav-dep2-group">
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-1</a></li>
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-2</a></li>
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-3</a></li>
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-4</a></li>
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-5</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">MENU3</a>
+                    </li>
+                </ul>
+            </nav>
+            <script>
+                var nav = document.querySelector('#nav');
+                var navLink = document.querySelectorAll('.nav-link');
+
+               
+                navLink.forEach(function(item) {
+                    item.addEventListener('mouseenter', navEnter);
+                    item.addEventListener('mouseleave', navClosed);
+                })
+            
+
+                function navEnter(e) {
+                    var tar = e.target;
+                    nav.classList.add('nav-open');
+                    console.log(tar)
+                }
+
+                function navClosed() {
+                    nav.classList.remove('nav-open');
+                }
+            
+            </script>
+        </header>
+
+        <section id="container">
+            container
+        </section>
+
+        <footer id="footer">
+            footer
+        </footer>
+    </div>
+</body>
+</html>
