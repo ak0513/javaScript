@@ -508,8 +508,12 @@ select.form-control {
 
 .mobile-menu-depth2-link {
 	font-size: 1.4rem;
-	color: rgba(3, 72, 84, 1);
+	color: #555;
 	font-weight: 400;
+}
+
+.mobile-menu-depth2-link:hover {
+	color:rgba(3, 72, 84, 1);
 }
 
 .btn-mobile-closed {
