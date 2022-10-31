@@ -109,77 +109,77 @@
 							<div class="waste-inner">
 								<ul class="waste-group">
 									<li class="waste-item up">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart1">
 											<h3 class="wate-name">일반-폐합성수지류</h3>
 											<p class="waste-price" data-skin="count">21,100</p>
 											<span class="waste-fluctuation">315</span>
 										</a>
 									</li>
 									<li class="waste-item">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart2">
 											<h3 class="wate-name">유기성-하수처리오니</h3>
 											<p class="waste-price" data-skin="count">11,100</p>
 											<span class="waste-fluctuation">0</span>
 										</a>
 									</li>
 									<li class="waste-item down">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart3">
 											<h3 class="wate-name">유기성-폐수처리오니</h3>
 											<p class="waste-price" data-skin="count">51,100</p>
 											<span class="waste-fluctuation">2,000</span>
 										</a>
 									</li>
 									<li class="waste-item up">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart4">
 											<h3 class="wate-name">일반-폐합성고무류</h3>
 											<p class="waste-price" data-skin="count">131,100</p>
 											<span class="waste-fluctuation">1,215</span>
 										</a>
 									</li>
 									<li class="waste-item up">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart5">
 											<h3 class="wate-name">무기성-공정오니</h3>
 											<p class="waste-price" data-skin="count">20,100</p>
 											<span class="waste-fluctuation">121</span>
 										</a>
 									</li>
 									<li class="waste-item down">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart6">
 											<h3 class="wate-name">무기성-폐수처리오니</h3>
 											<p class="waste-price" data-skin="count">91,100</p>
 											<span class="waste-fluctuation">2,000</span>
 										</a>
 									</li>
 									<li class="waste-item up">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart7">
 											<h3 class="wate-name">지정-폐유</h3>
 											<p class="waste-price" data-skin="count">8,100</p>
 											<span class="waste-fluctuation">1,015</span>
 										</a>
 									</li>
 									<li class="waste-item">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart8">
 											<h3 class="wate-name">지정-폐산</h3>
 											<p class="waste-price" data-skin="count">22,100</p>
 											<span class="waste-fluctuation">0</span>
 										</a>
 									</li>
 									<li class="waste-item up">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart9">
 											<h3 class="wate-name">건설-폐콘크리트</h3>
 											<p class="waste-price" data-skin="count">71,100</p>
 											<span class="waste-fluctuation">1,098</span>
 										</a>
 									</li>
 									<li class="waste-item up">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart10">
 											<h3 class="wate-name">건설-폐아스팔트콘크리트</h3>
 											<p class="waste-price" data-skin="count">101,100</p>
 											<span class="waste-fluctuation">1,095</span>
 										</a>
 									</li>
 									<li class="waste-item">
-										<a href="#" class="waste-link">
+										<a href="#" class="waste-link" data-chart="chart11">
 											<h3 class="wate-name">건설-폐합성수지류</h3>
 											<p class="waste-price" data-skin="count">31,100</p>
 											<span class="waste-fluctuation">0</span>
@@ -187,8 +187,9 @@
 									</li>
 								</ul>
 								<div class="chart">
-									<canvas id="myChart"></canvas>
-									<a href="#" class="btn-chart-download"><img src="./img/icon-download2.svg" alt="챠트 다운로드"></a>
+									<div class="chart-img"><a href="#" title="챠트 다운로드"><img src="./img/chart1.png" alt="일반-폐합성수지류 챠트"></a></div>
+									<!-- <canvas id="myChart"></canvas> -->
+									<!-- <a href="#" class="btn-chart-download"><img src="./img/icon-download2.svg" alt="챠트 다운로드"></a> -->
 								</div>
 							</div>
 						</div>
@@ -732,6 +733,7 @@
 	<!-- //모바일 메뉴 -->
 
 	<script type="text/javascript">
+		/*  chart 주석
 		var context = document
 			.getElementById('myChart')
 			.getContext('2d');
@@ -781,7 +783,7 @@
 					}
 				]
 			},
-		});
+		}); */
 	</script>
 </body>
 </html>

@@ -63,6 +63,15 @@ $(function(){
 
 	$('.mobile-menu-login').click(function() {
 		accessEnable($('#popLogin'), 'modal');
+	});
+
+	// chart 이미지 변경
+	var $chartBtn = $('.waste-link');
+	var $chartImg = $('.chart-img img');
+	$chartBtn.on('click', function(e) {
+		e.preventDefault();
+		var chartImg = $(this).attr('data-chart');
+		$chartImg.attr('src', './img/' + chartImg + '.png')
 	})
 
 	// 달력
