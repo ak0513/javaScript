@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Video</title>
+</head>
+<body>
+
+	<video id="video" width="320" height="240">
+		<source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/movie.mp4" type="video/mp4">
+		<source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/movie.ogg" type="video/ogg">
+	</video>
+	<button type="button" id="btn-play">PLAY VIDEO</button>
+	<button type="button" id="btn-pause">pause VIDEO</button>
+	<button type="button" id="btn-mute">enableMute VIDEO</button>
+	<button type="button" id="btn-unmute">disableMute VIDEO</button>
+	
+
+	<script>
+	
+	window.addEventListener('DOMContentLoaded', function() {
+		var player = document.getElementById("video"),
+			btnPlay = document.getElementById("btn-play"),
+			btnPause = document.getElementById("btn-pause");
+			btnMute = document.getElementById("btn-mute");
+			btnUnmute = document.getElementById("btn-unmute");
+		
+		btnPlay.addEventListener("click",function(){
+			playVideo(player);
+		});
+		btnPause.addEventListener("click",function(){
+			pauseVideo(player);
+		});
+		btnMute.addEventListener("click",function(){
+			disableMute(player);
+		});
+		btnUnmute.addEventListener("click",function(){
+			enableMute(player);
+		});
+
+		video.onplaying = function() { 
+			console.log('playing')
+		}
+	});
+
+
+	function playVideo(ele) {
+		ele.play();
+	}
+	function pauseVideo(ele) {
+		ele.pause();
+	}
+	function enableMute(ele) {
+		ele.muted = true;
+	}
+
+	function disableMute(ele) {
+		ele.muted = false;
+	}
+
+	</script>
+</body>
+</html>

@@ -11,6 +11,32 @@
 <body>
 	<div id="wrap">
         <header id="header">
+            <style>
+/* nav */
+#nav {
+	width: 100%;
+	background-color: var(--primary);
+}
+.nav-group {
+	display: flex;
+	justify-content: space-around;
+}
+.nav-item {
+	flex-grow: 1;
+}
+
+.nav-link {
+	display: block;
+	padding:1rem 0;
+	color:#fff;
+	text-align: center;
+}
+
+.nav-dep2-group {
+	position: absolute;
+    top:-1000%;
+}
+            </style>
             <nav id="nav">
                 <ul class="nav-group">
                     <li class="nav-item">
@@ -33,7 +59,14 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">MENU3</a>
+                        <ul class="nav-dep2-group">
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU3-1</a></li>
+                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU3-2</a></li>
+                        </ul>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a href="#" class="nav-link">MENU4</a>
+                    </li> -->
                 </ul>
             </nav>
             <script>
@@ -48,15 +81,33 @@
             
 
                 function navEnter(e) {
-                    var tar = e.target;
+                    var ele = e.target;
                     nav.classList.add('nav-open');
-                    console.log(tar)
+                    setAttr('.nav-link', 'aria-selected', false);
+                    ele.setAttribute('aria-selected', true);
+                    console.log(ele)
                 }
 
                 function navClosed() {
                     nav.classList.remove('nav-open');
                 }
             
+                var navDep2Group = document.querySelectorAll('.nav-dep2-group')
+                navDep2Group.forEach(function(item) {
+                    var depth2Height = 0;
+                    depth2Height = item.clientHeight > depth2Height ? item.clientHeight : depth2Height;
+                    console.log(item.clientHeight);
+                    console.log('depth2Height', depth2Height);
+                })
+
+
+// attr 세팅
+function setAttr(ele, attr, value) {
+	var ele = document.querySelectorAll(ele);
+	ele.forEach(function(ele) {
+		ele.setAttribute(attr, value)
+	})
+}
             </script>
         </header>
 

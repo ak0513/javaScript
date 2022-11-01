@@ -715,29 +715,7 @@ caption {
 	justify-content: space-between;
 }
 
-/* nav */
-#nav {
-	width: 100%;
-	background-color: var(--primary);
-}
-.nav-group {
-	display: flex;
-	justify-content: space-around;
-}
-.nav-item {
-	flex-grow: 1;
-}
 
-.nav-link {
-	display: block;
-	padding:1rem 0;
-	color:#fff;
-	text-align: center;
-}
-
-.nav-dep2-group {
-	display: none;
-}
 
 
 /* container */

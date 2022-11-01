@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+:root {
+	--primary: red;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	word-break: keep-all;
+	word-wrap: break-word;
+}
+
+.a11y {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	line-height: 1.45;
+	font-size: 1.6rem;
+	color: #000;
+	font-weight: 500;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#header {
+	background-color: var(--primary);
+}
+
+
+.video-wrap {
+	position: relative;
+	width: 30%;
+	margin:0 auto;
+}
+
+.video-wrap  video {
+	width: 100%;
+	height: auto;
+	object-fit: fill;
+}
+
+.diesel-swiper {
+	padding-bottom:100px;
+}
+
+.diesel-swiper .swiper-slide-link {
+	display: block;
+	height: 300px;
+	background-color: #000;
+}
+
+
+.diesel-swiper .swiper-slide {
+	width: 300px !important;
+}
+
+.diesel-swiper .slide1 .swiper-slide-link {
+	background-color: rebeccapurple;
+}
+
+@media (max-width: 768px) {
+	.diesel-swiper .swiper-slide {
+		width: 100% !important;
+	}
+}
