@@ -17,14 +17,17 @@
 		</header>
 		<div id="container">
 			<div class="video-wrap">
-				<video id="video">
+				<video id="video" controls>
 					<source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/movie.mp4" type="video/mp4">
 					<source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/movie.ogg" type="video/ogg">
 				</video>
-				<button type="button" id="btn-play">PLAY VIDEO</button>
-				<button type="button" id="btn-pause">pause VIDEO</button>
-				<button type="button" id="btn-mute">enableMute VIDEO</button>
-				<button type="button" id="btn-unmute">disableMute VIDEO</button>
+				<div class="video-inner">
+					<button type="button" id="btn-play" class="btn-controls">재생</button>
+					<button type="button" id="btn-pause" class="btn-controls">일시정지</button>
+					<button type="button" id="btn-mute" class="btn-controls">음소거 하기</button>
+					<button type="button" id="btn-unmute" class="btn-controls">음소거 풀기</button>
+					<p class="video-txt">111</p>
+				</div>
 			</div>
 			<div class="info">
 				<strong class="info-tit"></strong>
@@ -89,7 +92,7 @@
 			slidesPerView: 'auto',
 			spaceBetween: 30,
 			centeredSlides: true,
-			// autoHeight: true,
+			autoHeight: true,
 			breakpoints: {
 				320: {
 					slidesPerView: 1,

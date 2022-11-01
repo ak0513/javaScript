@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', function() {
-	var player = document.getElementById("video"),
+	var video = document.querySelector('.video-wrap'),
+		player = document.getElementById("video"),
 		btnPlay = document.getElementById("btn-play"),
 		btnPause = document.getElementById("btn-pause");
 		btnMute = document.getElementById("btn-mute");
@@ -12,14 +13,20 @@ window.addEventListener('DOMContentLoaded', function() {
 		pauseVideo(player);
 	});
 	btnMute.addEventListener("click",function(){
-		disableMute(player);
+		enableMute(player);
+		video.classList.add('mute');
 	});
 	btnUnmute.addEventListener("click",function(){
-		enableMute(player);
+		disableMute(player);
+		video.classList.remove('mute');
 	});
 
-	video.onplaying = function() { 
-		console.log('playing')
+	player.onplaying = function() { 
+		video.classList.add('playing');
+	}
+
+	player.onpause = function() { 
+		video.classList.remove('playing');
 	}
 });
 
@@ -27,9 +34,11 @@ window.addEventListener('DOMContentLoaded', function() {
 function playVideo(ele) {
 	ele.play();
 }
+
 function pauseVideo(ele) {
 	ele.pause();
 }
+
 function enableMute(ele) {
 	ele.muted = true;
 }

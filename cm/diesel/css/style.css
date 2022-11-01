@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-	--primary: red;
+	--primary: #e4002b;
 }
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -118,6 +118,59 @@ body {
 	object-fit: fill;
 }
 
+.video-inner {
+	position: relative;
+}
+
+#btn-pause {
+	display: none;
+}
+
+
+#btn-unmute {
+	display: none;
+}
+
+
+.video-txt {
+	padding: 20px;
+	background-color: var(--primary);
+	color:#fff;
+	text-align: center;
+}
+
+.btn-controls {
+	opacity: 0;
+	transition: all 0.4s;
+}
+
+.video-wrap:hover .btn-controls {
+	opacity: 1;
+}
+
+.video-wrap.playing .video-txt {
+	display: none;
+}
+
+.video-wrap.playing #btn-play {
+	display: none;
+}
+
+.video-wrap.playing #btn-pause {
+	display: block;
+}
+
+.video-wrap.mute #btn-unmute {
+	display: block;
+}
+
+.video-wrap.mute #btn-mute {
+	display: none;
+}
+
+
+
+
 .diesel-swiper {
 	padding-bottom:100px;
 }
@@ -130,7 +183,7 @@ body {
 
 
 .diesel-swiper .swiper-slide {
-	width: 300px !important;
+	width: 640px !important;
 }
 
 .diesel-swiper .slide1 .swiper-slide-link {
