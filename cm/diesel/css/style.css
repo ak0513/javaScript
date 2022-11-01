@@ -3,6 +3,18 @@
 :root {
 	--primary: #e4002b;
 }
+
+@font-face {
+    font-family: 'Franklin';
+    src: url('../fonts/FranklinGothic-DemiCond.eot');
+    src: url('../fonts/FranklinGothic-DemiCond.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FranklinGothic-DemiCond.woff2') format('woff2'),
+        url('../fonts/FranklinGothic-DemiCond.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -98,7 +110,7 @@ body {
 	font-size: 1.6rem;
 	color: #000;
 	font-weight: 500;
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: Franklin, sans-serif;
 }
 
 #header {
@@ -108,11 +120,12 @@ body {
 
 .video-wrap {
 	position: relative;
-	width: 30%;
+	width: 100%;
 	margin:0 auto;
 }
 
-.video-wrap  video {
+#video {
+	display: block;
 	width: 100%;
 	height: auto;
 	object-fit: fill;
@@ -133,15 +146,48 @@ body {
 
 
 .video-txt {
+	position: absolute;
+	bottom:0;
+	z-index: 5;
+	width:100%;
 	padding: 20px;
 	background-color: var(--primary);
 	color:#fff;
 	text-align: center;
+	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+}
+
+.video-txt::after {
+	content: '';
+	position: absolute;
+	top:-14px;
+	left:50%;
+	width: 0;
+	height: 0;
+	border-bottom: 14px solid var(--primary);
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	transform: translateX(-10px);
+	/* 20 14 */
 }
 
 .btn-controls {
+	position: absolute;
+	z-index: 10;
 	opacity: 0;
 	transition: all 0.4s;
+}
+
+#btn-play,
+#btn-pause {
+	bottom:10px;
+	left:10px;
+}
+
+#btn-mute,
+#btn-unmute {
+	top:10px;
+	right:10px;
 }
 
 .video-wrap:hover .btn-controls {
@@ -177,8 +223,6 @@ body {
 
 .diesel-swiper .swiper-slide-link {
 	display: block;
-	height: 300px;
-	background-color: #000;
 }
 
 

@@ -28,6 +28,8 @@ window.addEventListener('DOMContentLoaded', function() {
 	player.onpause = function() { 
 		video.classList.remove('playing');
 	}
+
+	console.log(player)
 });
 
 
