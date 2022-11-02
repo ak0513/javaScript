@@ -6,10 +6,10 @@
 
 @font-face {
     font-family: 'Franklin';
-    src: url('../fonts/FranklinGothic-DemiCond.eot');
-    src: url('../fonts/FranklinGothic-DemiCond.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/FranklinGothic-DemiCond.woff2') format('woff2'),
-        url('../fonts/FranklinGothic-DemiCond.woff') format('woff');
+    src: url('../fonts/FranklinGothic.eot');
+    src: url('../fonts/FranklinGothic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FranklinGothic.woff2') format('woff2'),
+        url('../fonts/FranklinGothic.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
