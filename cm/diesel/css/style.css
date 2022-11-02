@@ -157,20 +157,6 @@ body {
 	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
 }
 
-.video-txt::after {
-	content: '';
-	position: absolute;
-	top:-14px;
-	left:50%;
-	width: 0;
-	height: 0;
-	border-bottom: 14px solid var(--primary);
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	transform: translateX(-10px);
-	/* 20 14 */
-}
-
 .btn-controls {
 	position: absolute;
 	z-index: 10;
@@ -229,8 +215,44 @@ body {
 }
 
 .diesel-swiper {
+	position: relative;
 	padding:50px 0;
 	background-color: var(--primary);
+}
+
+.swiper-pagination {
+	position: absolute;
+	top:0;
+	left:0;
+	/* display: none; */
+}
+
+.swiper-button-wrap {
+	position: absolute;
+	top:0;
+	right:100px;
+	width:100px;
+}
+
+.swiper-button-prev {
+	width: 0;
+	height: 0;
+	border-right: 36px solid #fff;
+	border-top: 18px solid transparent;
+	border-bottom: 18px solid transparent;
+}
+
+.swiper-button-next {
+	width: 0;
+	height: 0;
+	border-left: 36px solid #fff;
+	border-top: 18px solid transparent;
+	border-bottom: 18px solid transparent;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+	display: none;
 }
 
 .diesel-swiper .swiper-slide-link {
@@ -246,5 +268,29 @@ body {
 @media (max-width: 768px) {
 	.diesel-swiper .swiper-slide {
 		width: 100% !important;
+	}
+
+	.swiper-pagination {
+		display: block;
+	}
+
+
+	.video-txt {
+		background-color: var(--primary);
+		background-image: none;
+	}
+
+	.video-txt::after {
+		content: '';
+		position: absolute;
+		top:-14px;
+		left:50%;
+		width: 0;
+		height: 0;
+		border-bottom: 14px solid var(--primary);
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		transform: translateX(-10px);
+		/* 20 14 */
 	}
 }
