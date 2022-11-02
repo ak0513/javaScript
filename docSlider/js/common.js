@@ -66,7 +66,9 @@ window.addEventListener('DOMContentLoaded', function() {
         } else {
             header.classList.remove('scrolled')
         }
-    })
+    });
+
+    cheHeight();
 })
 
 // 모션
@@ -78,3 +80,16 @@ window.addEventListener('mousemove', function(e) {
         item.style.transform = "translate(" + Ytransform + "px," + Xtransform + "px)"
     });
 });
+
+window.addEventListener('resize', function(e) {
+    cheHeight();
+});
+
+// 높이 900이하인 경우
+function cheHeight() {
+    if(window.innerHeight < 900 && window.innerWidth > 980) {
+        document.querySelector('body').classList.add('type2');
+    } else {
+        document.querySelector('body').classList.remove('type2');
+    }
+}
