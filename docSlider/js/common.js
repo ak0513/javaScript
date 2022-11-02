@@ -21,13 +21,26 @@ window.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('mouseenter', function(e) {
             navItem.forEach(function(item) {
                 item.classList.remove('on');
+                item.classList.add('active');
+                setTimeout(function() {
+                    item.classList.remove('active');
+                },200)
             })
-            item.parentElement.classList.add('on');
+            // item.parentElement.classList.add('on');
+            item.parentElement.classList.add('active');
+            setTimeout(function() {
+                item.parentElement.classList.remove('active');
+                item.parentElement.classList.add('on');
+            },200);
         })
     });
     header.addEventListener('mouseleave', function() {
         navItem.forEach(function(item) {
             item.classList.remove('on');
+            item.classList.add('active');
+            setTimeout(function() {
+                item.classList.remove('active');
+            },200)
         })
     })
 
