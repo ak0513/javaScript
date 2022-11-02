@@ -23,11 +23,11 @@
 					이 문장은 여러분의 브라우저가 video 태그를 지원하지 않을 때 화면에 표시됩니다!
 				</video>
 				
-				<button type="button" id="btn-play" class="btn-controls">재생</button>
-				<button type="button" id="btn-pause" class="btn-controls">일시정지</button>
-				<button type="button" id="btn-mute" class="btn-controls">음소거 하기</button>
-				<button type="button" id="btn-unmute" class="btn-controls">음소거 풀기</button>
-				<p class="video-txt">111</p>
+				<button type="button" id="btn-play" class="btn-controls" aria-label="재생"></button>
+				<button type="button" id="btn-pause" class="btn-controls" aria-label="일시정지"></button>
+				<button type="button" id="btn-mute" class="btn-controls" aria-label="음소거 하기"></button>
+				<button type="button" id="btn-unmute" class="btn-controls" aria-label="음소거 풀기"></button>
+				<p class="video-txt">크리에이티브 디렉터 글렌 마틴스와 함께 작업한<br> 콜라보레이션 캠페인에 등장한 박재범의 모습을 지금 바로 영상으로 만나보세요. </p>
 			
 			</div>
 			<div class="info">
@@ -53,10 +53,9 @@
 			</div>
 			<div class="swiper diesel-swiper">
 				<div class="swiper-pagination"></div>
-				<div class="swiper-button-wrap">
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
-				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="swiper-slide-inner">
@@ -111,10 +110,15 @@
 				</div>
 			</div>
 		</div>
-		<style>
-			
-		</style>
-		<footer id="footer">footer</footer>
+
+		<footer id="footer">
+			<span>상호명 : 오티비코리아 유한회사</span>
+			<span>대표자 : 윌리엄우영윤, 디에고메나린</span>
+			<span>사업자번호 : 874-86-02266</span>
+			<span>주소 : 서울특별시 종로구 새문안로 76, 11층</span>
+			<span>대표번호 : 0507-1388-8770</span>
+			<span>이메일 : cs@otb.net</span>
+		</footer>
 	</div>
 
 	<script>
@@ -128,7 +132,7 @@
 				prevEl: ".swiper-button-prev",
 			},
 			slidesPerView: 'auto',
-			spaceBetween: 30,
+			spaceBetween: 60,
 			centeredSlides: true,
 			autoHeight: true,
 			breakpoints: {
