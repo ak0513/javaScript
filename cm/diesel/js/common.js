@@ -8,9 +8,11 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	btnPlay.addEventListener("click",function(){
 		playVideo(player);
+		video.classList.add('playing');
 	});
 	btnPause.addEventListener("click",function(){
 		pauseVideo(player);
+		video.classList.remove('playing');
 	});
 	btnMute.addEventListener("click",function(){
 		enableMute(player);
