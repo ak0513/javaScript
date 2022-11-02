@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var navLink = document.querySelectorAll('.nav-link');
     navLink.forEach(function(item) {
         item.addEventListener('mouseenter', function(e) {
+            console.log('aa')
             navItem.forEach(function(item) {
                 item.classList.remove('on');
                 item.classList.add('active');
@@ -26,7 +27,6 @@ window.addEventListener('DOMContentLoaded', function() {
                     item.classList.remove('active');
                 },200)
             })
-            // item.parentElement.classList.add('on');
             item.parentElement.classList.add('active');
             setTimeout(function() {
                 item.parentElement.classList.remove('active');
@@ -36,11 +36,13 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     header.addEventListener('mouseleave', function() {
         navItem.forEach(function(item) {
-            item.classList.remove('on');
-            item.classList.add('active');
-            setTimeout(function() {
-                item.classList.remove('active');
-            },200)
+            if(item.classList.contains('on')) {
+                item.classList.remove('on');
+                item.classList.add('active');
+                setTimeout(function() {
+                    item.classList.remove('active');
+                },200)
+            }
         })
     })
 
@@ -81,7 +83,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    cheHeight();
+    chkHeight();
 })
 
 // 모션
@@ -95,11 +97,11 @@ window.addEventListener('mousemove', function(e) {
 });
 
 window.addEventListener('resize', function(e) {
-    cheHeight();
+    chkHeight();
 });
 
 // 높이 900이하인 경우
-function cheHeight() {
+function chkHeight() {
     if(window.innerHeight < 900 && window.innerWidth > 980) {
         document.querySelector('body').classList.add('type2');
     } else {
