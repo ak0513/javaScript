@@ -116,15 +116,13 @@ body {
 #header {
 	display: flex;
 	align-items: center;
-	height: 124px;
-	padding-left:50px;
+	padding: 20px 50px;
 	background-color: var(--primary);
 }
 
 #header .logo {
 	width:154px;
 }
-
 
 .video-wrap {
 	position: relative;
@@ -373,6 +371,22 @@ body {
 }
 
 @media (max-width: 768px) {
+
+	#header {
+		padding: 14px 24px;
+	}
+	#header .logo {
+		width: 72px;
+	}
+
+	.info {
+		margin-top: 17px;
+		font-size: 1.3rem;
+	}
+	
+	.info-tit {
+		font-size: 5.0rem;
+	}
 
 	.diesel-swiper .swiper-slide {
 		width: 100% !important;
