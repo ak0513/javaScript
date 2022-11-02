@@ -216,9 +216,21 @@ body {
 
 
 
+.info {
+	max-width: 1200px;
+	margin: 50px auto;
+	display: flex;
+	justify-content: center;
+	color: var(--primary);
+}
+
+.info-txt {
+	margin-left: 100px;
+}
 
 .diesel-swiper {
-	padding-bottom:100px;
+	padding:50px 0;
+	background-color: var(--primary);
 }
 
 .diesel-swiper .swiper-slide-link {
@@ -230,9 +242,6 @@ body {
 	width: 640px !important;
 }
 
-.diesel-swiper .slide1 .swiper-slide-link {
-	background-color: rebeccapurple;
-}
 
 @media (max-width: 768px) {
 	.diesel-swiper .swiper-slide {
