@@ -5,7 +5,7 @@
 }
 
 @font-face {
-	font-family: 'Suit';
+	font-family: 'SUIT';
 	src: url('../fonts/SUIT-Regular.eot');
 	src: url('../fonts/SUIT-Regular.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/SUIT-Regular.woff2') format('woff2'),
@@ -16,7 +16,7 @@
 }
 
 @font-face {
-	font-family: 'Suit';
+	font-family: 'SUIT';
 	src: url('../fonts/SUIT-SemiBold.eot');
 	src: url('../fonts/SUIT-SemiBold.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/SUIT-SemiBold.woff2') format('woff2'),
@@ -143,7 +143,7 @@ body {
 	font-size: 1.8rem;
 	color: #000;
 	font-weight: 400;
-	font-family: Suit, sans-serif;
+	font-family: SUIT, sans-serif;
 }
 
 #header {
