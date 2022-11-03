@@ -139,11 +139,12 @@ html {
 }
 
 body {
-	line-height: 1.45;
+	line-height: 1.55;
 	font-size: 1.8rem;
 	color: #000;
 	font-weight: 400;
 	font-family: SUIT, sans-serif;
+	letter-spacing: -0.03em;
 }
 
 /* header */
@@ -170,7 +171,6 @@ body {
 	width: 100%;
 	height: auto;
 	object-fit: fill;
-	background-color: #000;
 }
 
 .video-inner {
@@ -233,23 +233,22 @@ body {
 .video-wrap:not(.playing) #btn-pause,
 .video-wrap.playing #btn-play,
 .video-wrap.mute #btn-mute,
-.video-wrap:not(.mute) #btn-unmute {
+.video-wrap:not(.mute) #btn-unmute,
+.video-wrap.playing .video-txt {
 	display: none;
 }
 
 .video-wrap.playing #btn-play,
 .video-wrap.playing #btn-pause,
 .video-wrap.playing #btn-mute,
-.video-wrap.playing #btn-unmute,
-.video-wrap.playing .video-txt {
+.video-wrap.playing #btn-unmute {
 	opacity: 0;
 }
 
 .video-wrap.playing:hover #btn-play,
 .video-wrap.playing:hover #btn-pause,
 .video-wrap.playing:hover #btn-mute,
-.video-wrap.playing:hover #btn-unmute,
-.video-wrap.playing:hover .video-txt {
+.video-wrap.playing:hover #btn-unmute {
 	opacity: 1;
 }
 
@@ -268,6 +267,7 @@ body {
 	font-size: 7.2rem;
 	line-height: 1;
 	font-family: 'FranklinGothic Book', sans-serif;
+	line-height: 0.9;
 }
 
 .info-tit>span {
@@ -386,6 +386,10 @@ body {
 }
 
 @media (max-width: 768px) {
+	body {
+		font-size: 1.4rem;
+	}
+	
 	/* header */
 	#header {
 		padding: 1.4rem 2.4rem;
@@ -398,7 +402,6 @@ body {
 	/* info */
 	.info {
 		margin-top: 5rem;
-		font-size: 1.3rem;
 	}
 
 	.info-tit {
@@ -465,6 +468,11 @@ body {
 		width: 100% !important;
 	}
 
+	.swiper-slide-txt {
+		padding: 1rem 1.4rem;
+		font-weight: 400;
+	}
+
 	.swiper-pagination {
 		display: block;
 	}
@@ -516,6 +524,7 @@ body {
 	/* footer */
 	#footer {
 		padding: 1.7rem;
+		font-size: 1.2rem;
 	}
 
 }
