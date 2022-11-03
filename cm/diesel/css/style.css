@@ -146,15 +146,17 @@ body {
 	font-family: SUIT, sans-serif;
 }
 
+/* header */
 #header {
 	display: flex;
 	align-items: center;
-	padding: 20px 50px;
+	padding: 2rem 5rem;
 	background-color: var(--primary);
 }
 
+/* video */
 #header .logo {
-	width: 154px;
+	width: 15.4rem;
 }
 
 .video-wrap {
@@ -182,8 +184,8 @@ body {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: 150px;
-	padding-left: 130px;
+	height: 15rem;
+	padding-left: 13rem;
 	background-color: var(--primary);
 	color: #fff;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
@@ -198,106 +200,64 @@ body {
 
 #btn-play,
 #btn-pause {
-	bottom: 50px;
-	left: 50px;
-	width: 60px;
-	height: 60px;
+	bottom: 5rem;
+	left: 5rem;
+	width: 6rem;
+	height: 6rem;
 }
 
 #btn-play {
-	background: url('../img/bttn_play.svg') no-repeat center / 60px;
+	background: url('../img/bttn_play.svg') no-repeat center / 6rem;
 }
 
 #btn-pause {
-	background: url('../img/bttn_pause.svg') no-repeat center / 60px;
+	background: url('../img/bttn_pause.svg') no-repeat center / 6rem;
 }
 
 #btn-mute,
 #btn-unmute {
-	bottom: 50px;
-	right: 50px;
-	width: 30px;
-	height: 30px;
+	bottom: 5rem;
+	right: 5rem;
+	width: 3rem;
+	height: 3rem;
 }
 
 #btn-mute {
-	background: url('../img/icon_sound_on.svg') no-repeat center / 30px;
+	background: url('../img/icon_sound_on.svg') no-repeat center / 3rem;
 }
 
 #btn-unmute {
-	background: url('../img/icon_sound_off.svg') no-repeat center / 30px;
+	background: url('../img/icon_sound_off.svg') no-repeat center / 3rem;
 }
 
-.video-wrap:not(.playing) #btn-pause {display: none;}
-.video-wrap.playing #btn-play {display: none;}
-
-.video-wrap.mute #btn-mute{display: none;}
-.video-wrap:not(.mute) #btn-unmute {display: none;}
-
+.video-wrap:not(.playing) #btn-pause,
+.video-wrap.playing #btn-play,
+.video-wrap.mute #btn-mute,
+.video-wrap:not(.mute) #btn-unmute {
+	display: none;
+}
 
 .video-wrap.playing #btn-play,
 .video-wrap.playing #btn-pause,
 .video-wrap.playing #btn-mute,
 .video-wrap.playing #btn-unmute,
-.video-wrap.playing .video-txt {opacity: 0;}
+.video-wrap.playing .video-txt {
+	opacity: 0;
+}
 
 .video-wrap.playing:hover #btn-play,
 .video-wrap.playing:hover #btn-pause,
 .video-wrap.playing:hover #btn-mute,
 .video-wrap.playing:hover #btn-unmute,
-.video-wrap.playing:hover .video-txt {opacity: 1;}
-
-/* .video-wrap:not(.playing) #btn-pause {
-	display: none;
-}
-
-.video-wrap.playing .video-txt,
-.video-wrap.playing #btn-play,
-.video-wrap.playing #btn-pause,
-.video-wrap.playing.mute #btn-mute,
-.video-wrap.playing.mute #btn-unmute {
-	opacity: 0;
-}
-
-.video-wrap.playing #btn-pause {
-	display: block;
-}
-
-.playing #btn-play {
-	display: none;
-	opacity: 0;
-}
-
-.video-wrap.mute #btn-mute {
-	display: none;
-}
-
-.video-wrap:not(.mute) #btn-unmute {
-	display: none;
-}
-
 .video-wrap.playing:hover .video-txt {
 	opacity: 1;
 }
 
-.video-wrap.playing:hover #btn-pause {
-	display: block;
-	opacity: 1;
-}
-
-.playing #btn-mute {
-	opacity: 0;
-}
-
-.video-wrap.playing:hover.mute #btn-unmute,
-.video-wrap.playing:not(.mute):hover #btn-mute {
-	opacity: 1;
-} */
-
+/* info */
 .info {
 	max-width: 1240px;
-	margin: 130px auto;
-	padding: 0 20px;
+	margin: 13rem auto;
+	padding: 0 2rem;
 	display: flex;
 	justify-content: center;
 	color: var(--primary);
@@ -316,12 +276,14 @@ body {
 }
 
 .info-txt {
-	margin-left: 200px;
+	margin-left: 20rem;
 }
 
+
+/* swiper */
 .diesel-swiper {
 	position: relative;
-	padding: 190px 0 130px;
+	padding: 19rem 0 13rem;
 	background-color: var(--primary);
 }
 
@@ -330,7 +292,7 @@ body {
 }
 
 .swiper-slide-txt {
-	padding: 14px 20px;
+	padding: 1.4rem 2rem;
 	color: #fff;
 	font-weight: 600;
 }
@@ -340,14 +302,14 @@ body {
 }
 
 .swiper-button-prev {
-	top: 130px;
+	top: 13rem;
 	left: auto;
-	right: 90px;
-	width: 30px;
-	height: 30px;
+	right: 9rem;
+	width: 3rem;
+	height: 3rem;
 	margin-top: 0;
 	background-repeat: no-repeat;
-	background-size: 30px;
+	background-size: 3rem;
 	background-image: url('../img/bttn_left_on.svg');
 	transition: all 0.4s;
 	opacity: 0.5;
@@ -358,14 +320,14 @@ body {
 }
 
 .swiper-button-next {
-	top: 130px;
+	top: 13rem;
 	left: auto;
-	right: 50px;
-	width: 30px;
-	height: 30px;
+	right: 5rem;
+	width: 3rem;
+	height: 3rem;
 	margin-top: 0;
 	background-repeat: no-repeat;
-	background-size: 30px;
+	background-size: 3rem;
 	background-image: url('../img/bttn_right_on.svg');
 	opacity: 0.5;
 	transition: all 0.4s;
@@ -384,18 +346,18 @@ body {
 	display: block;
 }
 
-
 .diesel-swiper .swiper-slide {
-	width: 640px !important;
+	width: 64rem !important;
 }
 
+/* footer */
 #footer {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	min-height: 48px;
-	padding: 10px 0;
+	min-height: 4.8rem;
+	padding: 1rem 0;
 	font-size: 1.4rem;
 	color: var(--primary);
 }
@@ -406,34 +368,36 @@ body {
 
 #footer span {
 	display: block;
-	margin: 0 5px;
+	margin: 0 0.5rem;
 }
 
 
 @media (max-width: 1024px) {
 	.info {
 		display: block;
-		margin: 50px auto;
-		padding: 0 27px;
+		margin: 5rem auto;
+		padding: 0 2.7rem;
 	}
 
 	.info-txt {
-		margin-top: 27px;
+		margin-top: 2.7rem;
 		margin-left: 0;
 	}
 }
 
 @media (max-width: 768px) {
+	/* header */
 	#header {
-		padding: 14px 24px;
+		padding: 1.4rem 2.4rem;
 	}
 
 	#header .logo {
-		width: 72px;
+		width: 7.2rem;
 	}
 
+	/* info */
 	.info {
-		margin-top: 50px;
+		margin-top: 5rem;
 		font-size: 1.3rem;
 	}
 
@@ -441,22 +405,14 @@ body {
 		font-size: 5.0rem;
 	}
 
-	.diesel-swiper .swiper-slide {
-		width: 100% !important;
-	}
-
-	.swiper-pagination {
-		display: block;
-	}
-
 	.video-txt {
-		bottom: -35px;
-		left:0;
-		right:0;
-		width: calc(100% - 34px);
+		bottom: -3.5rem;
+		left: 0;
+		right: 0;
+		width: calc(100% - 3.4rem);
 		height: auto;
 		margin: 0 auto;
-		padding: 10px;
+		padding: 1rem;
 		background-color: var(--primary);
 		background-image: none;
 		font-size: 1.2rem;
@@ -466,14 +422,14 @@ body {
 	.video-txt::after {
 		content: '';
 		position: absolute;
-		top: -14px;
+		top: -1.4rem;
 		left: 50%;
 		width: 0;
 		height: 0;
-		border-bottom: 14px solid var(--primary);
-		border-left: 10px solid transparent;
-		border-right: 10px solid transparent;
-		transform: translateX(-10px);
+		border-bottom: 1.4rem solid var(--primary);
+		border-left: 1rem solid transparent;
+		border-right: 1rem solid transparent;
+		transform: translateX(-1rem);
 	}
 
 	.video-txt br {
@@ -484,55 +440,64 @@ body {
 		top: 50%;
 		bottom: auto;
 		left: 50%;
-		width: 67px;
-		height: 67px;
+		width: 6.7rem;
+		height: 6.7rem;
 		transform: translate(-50%, -80%);
-		background-size: 67px;
+		background-size: 6.7rem;
 	}
 
 	#btn-mute, #btn-unmute {
-		top: 17px;
-		right: 17px;
+		top: 1.7rem;
+		right: 1.7rem;
 		bottom: auto;
 		left: auto;
-		width: 21px;
-		height: 21px;
-		background-size: 21px;
+		width: 2.1rem;
+		height: 2.1rem;
+		background-size: 2.1rem;
 	}
 
 	.diesel-swiper {
-		padding: 50px 35px;
+		padding: 5rem 3.5rem;
+	}
+
+	/* swiper */
+	.diesel-swiper .swiper-slide {
+		width: 100% !important;
+	}
+
+	.swiper-pagination {
+		display: block;
 	}
 
 	.swiper-button-prev,
 	.swiper-button-next {
 		top: 50%;
-		width: 18px;
-		height: 18px;
-		margin-top: -9px;
-		background-size: 18px;
+		width: 1.8rem;
+		height: 1.8rem;
+		margin-top: -0.9rem;
+		background-size: 1.8rem;
 	}
 
 	.swiper-button-prev {
-		left: 8px;
+		left: 0.8rem;
 		right: auto;
 	}
 
 	.swiper-button-next {
-		right: 8px;
+		right: 0.8rem;
 	}
 
 	.swiper-pagination {
 		display: flex;
-		top: 33px;
-		left: 35px !important;
+		top: 3.3rem;
+		left: 3.5rem !important;
 		bottom: auto !important;
-		height: 7px;
+		height: 0.7rem;
 	}
 
 	.swiper-pagination-bullet {
-		width: 7px;
-		height: 7px;
+		width: 0.7rem;
+		height: 0.7rem;
 		margin: 0 !important;
 		border: 1px solid #fff;
 		background-color: transparent;
@@ -541,15 +506,16 @@ body {
 	}
 
 	.swiper-pagination-bullet+.swiper-pagination-bullet {
-		margin-left: 3px !important;
+		margin-left: 0.3rem !important;
 	}
 
 	.swiper-pagination-bullet.swiper-pagination-bullet-active {
 		background-color: #fff;
 	}
 
+	/* footer */
 	#footer {
-		padding: 17px;
+		padding: 1.7rem;
 	}
 
 }
