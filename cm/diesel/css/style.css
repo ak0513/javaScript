@@ -266,13 +266,16 @@ body {
 	flex-shrink: 0;
 	font-size: 7.2rem;
 	line-height: 1;
-	font-family: 'FranklinGothic Book', sans-serif;
 	line-height: 0.9;
 }
 
 .info-tit>span {
 	display: block;
 	font-family: 'FranklinGothic DemiCond', sans-serif;
+}
+
+.info-tit>span.font-Book {
+	font-family: 'FranklinGothic Book', sans-serif;
 }
 
 .info-txt {
