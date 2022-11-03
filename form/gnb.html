@@ -33,8 +33,7 @@
 }
 
 .nav-dep2-group {
-	position: absolute;
-    top:-1000%;
+    display: none;
 }
             </style>
             <nav id="nav">
@@ -70,8 +69,10 @@
                 </ul>
             </nav>
             <script>
+                var body = document.querySelector('body');
                 var nav = document.querySelector('#nav');
                 var navLink = document.querySelectorAll('.nav-link');
+                var navItem = document.querySelectorAll('.nav-item');
 
                
                 navLink.forEach(function(item) {
@@ -82,14 +83,17 @@
 
                 function navEnter(e) {
                     var ele = e.target;
-                    nav.classList.add('nav-open');
+                    body.classList.add('nav-open');
                     setAttr('.nav-link', 'aria-selected', false);
+                    removeClass(navItem, 'on');
                     ele.setAttribute('aria-selected', true);
-                    console.log(ele)
+                    ele.parentElement.classList.add('on')
+                    
                 }
 
                 function navClosed() {
-                    nav.classList.remove('nav-open');
+                    body.classList.remove('nav-open');
+                    removeClass(navItem, 'on');
                 }
             
                 var navDep2Group = document.querySelectorAll('.nav-dep2-group')
@@ -107,6 +111,13 @@ function setAttr(ele, attr, value) {
 	ele.forEach(function(ele) {
 		ele.setAttribute(attr, value)
 	})
+}
+
+// class 삭제
+function removeClass(ele, className) {
+	for(var i = 0; i < ele.length; i++) {
+		ele[i].classList.remove(className)
+	}
 }
             </script>
         </header>

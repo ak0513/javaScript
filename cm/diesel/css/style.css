@@ -442,7 +442,7 @@ body {
 		left: 50%;
 		width: 6.7rem;
 		height: 6.7rem;
-		transform: translate(-50%, -80%);
+		transform: translate(-50%, -50%);
 		background-size: 6.7rem;
 	}
 
