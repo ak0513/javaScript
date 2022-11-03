@@ -188,16 +188,6 @@ body {
 	transition: all 0.4s;
 }
 
-.video-bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 5;
-	background: url('../img/video-bg.jpg') no-repeat center;
-}
-
 .btn-controls {
 	position: absolute;
 	z-index: 15;
@@ -240,8 +230,7 @@ body {
 .video-wrap.playing #btn-play,
 .video-wrap.mute #btn-mute,
 .video-wrap:not(.mute) #btn-unmute,
-.video-wrap.playing .video-txt,
-.video-wrap.playing .video-bg {
+.video-wrap.playing .video-txt {
 	display: none;
 }
 
