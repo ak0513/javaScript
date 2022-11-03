@@ -173,14 +173,10 @@ body {
 	object-fit: fill;
 }
 
-.video-inner {
-	position: relative;
-}
-
 .video-txt {
 	position: absolute;
 	bottom: 0;
-	z-index: 5;
+	z-index: 10;
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -204,7 +200,7 @@ body {
 
 .btn-controls {
 	position: absolute;
-	z-index: 10;
+	z-index: 15;
 	transition: all 0.4s;
 }
 
