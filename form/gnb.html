@@ -9,126 +9,243 @@
 	<title>기본 스타일</title>
 </head>
 <body>
-	<div id="wrap">
-        <header id="header">
-            <style>
-/* nav */
-#nav {
-	width: 100%;
-	background-color: var(--primary);
-}
-.nav-group {
-	display: flex;
-	justify-content: space-around;
-}
-.nav-item {
-	flex-grow: 1;
-}
-
-.nav-link {
-	display: block;
-	padding:1rem 0;
-	color:#fff;
-	text-align: center;
-}
-
-.nav-dep2-group {
-    display: none;
-}
-            </style>
-            <nav id="nav">
-                <ul class="nav-group">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">MENU1</a>
-                        <ul class="nav-dep2-group">
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-1</a></li>
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-2</a></li>
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-3</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">MENU2</a>
-                        <ul class="nav-dep2-group">
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-1</a></li>
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-2</a></li>
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-3</a></li>
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-4</a></li>
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-5</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">MENU3</a>
-                        <ul class="nav-dep2-group">
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU3-1</a></li>
-                            <li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU3-2</a></li>
-                        </ul>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a href="#" class="nav-link">MENU4</a>
-                    </li> -->
-                </ul>
-            </nav>
-            <script>
-                var body = document.querySelector('body');
-                var nav = document.querySelector('#nav');
-                var navLink = document.querySelectorAll('.nav-link');
-                var navItem = document.querySelectorAll('.nav-item');
-
-               
-                navLink.forEach(function(item) {
-                    item.addEventListener('mouseenter', navEnter);
-                    item.addEventListener('mouseleave', navClosed);
-                })
-            
-
-                function navEnter(e) {
-                    var ele = e.target;
-                    body.classList.add('nav-open');
-                    setAttr('.nav-link', 'aria-selected', false);
-                    removeClass(navItem, 'on');
-                    ele.setAttribute('aria-selected', true);
-                    ele.parentElement.classList.add('on')
-                    
-                }
-
-                function navClosed() {
-                    body.classList.remove('nav-open');
-                    removeClass(navItem, 'on');
-                }
-            
-                var navDep2Group = document.querySelectorAll('.nav-dep2-group')
-                navDep2Group.forEach(function(item) {
-                    var depth2Height = 0;
-                    depth2Height = item.clientHeight > depth2Height ? item.clientHeight : depth2Height;
-                    console.log(item.clientHeight);
-                    console.log('depth2Height', depth2Height);
-                })
-
-
-// attr 세팅
-function setAttr(ele, attr, value) {
-	var ele = document.querySelectorAll(ele);
-	ele.forEach(function(ele) {
-		ele.setAttribute(attr, value)
-	})
-}
-
-// class 삭제
-function removeClass(ele, className) {
-	for(var i = 0; i < ele.length; i++) {
-		ele[i].classList.remove(className)
+<style>
+	#wrap {
+		background-color: #666;
 	}
-}
-            </script>
-        </header>
+	/* nav */
+	#nav {
+		position: relative;
+		width: 100%;
+		background-color: var(--primary);
+	}
+	.nav-group {
+		display: flex;
+		justify-content: space-around;
+	}
+	.nav-item {
+		position: relative;
+		flex-grow: 1;
+	}
+	
+	.nav-link {
+		display: block;
+		padding:1rem 0;
+		color:#fff;
+		text-align: center;
+	}
+	
+	.nav-dep2-group {
+		position: absolute;
+		z-index: 10;
+		width: 100%;
+	
+	}
+	
+	.nav-dep2-link {
+		display: block;
+		padding: 5px;
+	}
+	
+	.nav-dep2-link:hover {
+		color:#000;
+	}
+	
+	.nav-dim {
+		position: absolute;
+		top:44px;
+		left:0;
+		right:0;
+		z-index: 5;
+		width:100%;
+		height: 0;
+		background-color: #fff;
+		transition: all 0.2s;
+	}
+	
+	.nav-item.on .nav-link {
+		color:#000;
+	}
+	
+	.nav-dep2-group {
+		display: none;
+		opacity: 0;
+		padding: 20px 0;
+		transform: translateY(-20px);
+		transition: all 0.2s ease-in-out;
+	}
+	
+	#nav.collapsing .nav-dep2-group {
+		display: block;
+		opacity: 0;
+	}
+	
+	#nav.collapsed .nav-dep2-group {
+		display: block;
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	</style>
+<div id="wrap">
+	<header id="header">
+		<button nav-focus-out>nav닫기</button>
+		<nav id="nav">
+			<ul class="nav-group">
+				<li class="nav-item">
+					<a href="#" class="nav-link">MENU1</a>
+					<ul class="nav-dep2-group">
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-1</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-2</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-3</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-3</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-3</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-3</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU1-3</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">MENU2</a>
+					<ul class="nav-dep2-group">
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-1</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-2</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-3</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-4</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU2-5</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">MENU3</a>
+					<ul class="nav-dep2-group">
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU3-1</a></li>
+						<li class="nav-dep2-item"><a href="#" class="nav-dep2-link">MENU3-2</a></li>
+					</ul>
+				</li>
+				<!-- <li class="nav-item">
+					<a href="#" class="nav-link">MENU4</a>
+				</li> -->
+			</ul>
+			<div class="nav-dim"></div>
+		</nav>
+		<button nav-focus-out>nav닫기</button>
+	</header>
 
-        <section id="container">
-            container
-        </section>
+	<section id="container">
+		container
+	</section>
 
-        <footer id="footer">
-            footer
-        </footer>
-    </div>
+	<footer id="footer">
+		footer
+	</footer>
+</div>
+
+<script>
+	var body = document.querySelector('body');
+	var nav = document.querySelector('#nav');
+	var navDim = document.querySelector('.nav-dim');
+	var navLink = document.querySelectorAll('.nav-link');
+	var navItem = document.querySelectorAll('.nav-item');
+	var navDep2Group = document.querySelectorAll('.nav-dep2-group');
+	var navDep2Link = document.querySelectorAll('.nav-dep2-link');
+	var navFocusOut = document.querySelectorAll('[nav-focus-out]')
+
+	
+	navLink.forEach(function(ele) {
+		ele.addEventListener('mouseenter', navOpen);
+		ele.addEventListener('focus', navOpen);
+	});
+
+	navDep2Link.forEach(function(ele) {
+		ele.addEventListener('mouseenter', getFocusNavItem);
+		ele.addEventListener('focus', getFocusNavItem);
+	});
+
+	nav.addEventListener('mouseleave', navClosed);
+	navFocusOut.forEach(function(ele) {
+		ele.addEventListener('focus', navClosed);
+	});
+
+
+
+	// Nav 열기
+	function navOpen(e) {
+		var ele = e.target;
+		body.classList.add('nav-open');
+		removeClass(navItem, 'on');
+		ele.parentElement.classList.add('on');
+
+		nav.classList.add('collapsing');
+		setTimeout(function() {
+			nav.classList.remove('collapsing');
+			nav.classList.add('collapsed');
+		},0);
+		navDim.style.height = getGnbDepth2Height() + 'px';
+	}
+
+	// depth2에서 navItem
+	function getFocusNavItem(e) {
+		var ele = e.target;
+		removeClass(navItem, 'on');
+		closest(ele, '.nav-item').classList.add('on');
+	}
+
+	// Nav 닫기
+	function navClosed() {
+		body.classList.remove('nav-open');
+		navDim.style.height = 0;
+		removeClass(navItem, 'on');
+
+		nav.classList.remove('collapsed');
+		nav.classList.add('collapsing');
+		setTimeout(function() {
+			nav.classList.remove('collapsing');
+		},300)
+	}
+
+	// depth2 높이 구하기
+	function getGnbDepth2Height() {
+		var depth2Height = 0;
+		navDep2Group.forEach(function(ele) {
+			depth2Height = ele.clientHeight > depth2Height ? ele.clientHeight : depth2Height;
+		})
+		return depth2Height
+	}
+
+	
+	
+	// attr 세팅
+	function setAttr(ele, attr, value) {
+		ele.forEach(function(ele) {
+			ele.setAttribute(attr, value);
+		})
+	}
+	
+	// attr 삭제
+	function removeAttr(ele, attr) {
+		ele.forEach(function(ele) {
+			ele.removeAttribute(attr)
+		})
+	}
+	
+	// class 삭제
+	function removeClass(ele, className) {
+		ele.forEach(function(ele) {
+			ele.classList.remove(className)
+		})
+	}
+	
+	// 가장 가까운 부모 찾기
+	function closest(ele, selector) {
+		var matchesSelector = ele.matches || ele.webkitMatchesSelector || ele.mozMatchesSelector || ele.msMatchesSelector;
+		while (ele) {
+			if (matchesSelector.call(ele, selector)) {
+				return ele;
+			} else {
+				ele = ele.parentElement;
+			}
+		}
+		return null;
+	}
+</script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="note" data-id="1">note</div>
+	<div class="alert">
+		<p>alert</p>
+	</div>
+
+	<div class="container">
+		<div class="inner">inner</div>
+		<span class="inners">inners</span>
+		<span class="inners">inners</span>
+		<span class="inners">inners</span>
+		<span class="inners">inners</span>
+		<span class="inners">inners</span>
+	</div>
+	<script>
+		var matches = document.querySelectorAll("div.note, div.alert");
+		var matches2 = document.querySelectorAll("[data-id]");
+		var matches3 = document.querySelectorAll("div.alert > p");
+
+		
+		var container = document.querySelector(".container");
+		var containerInner = container.querySelector(".inner");
+		var containerInners = container.querySelectorAll(".inners");
+
+		console.group();
+		console.log('matches',matches)
+		console.log('matches2',matches)
+		console.log('matches3',matches)
+		console.log('container',container)
+		console.log('containerInner',containerInner)
+		console.log('containerInners',containerInners)
+		console.groupEnd()
+	</script>
+</body>
+</html>

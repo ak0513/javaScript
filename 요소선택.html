@@ -8,14 +8,21 @@
 </head>
 <body>
 	<div class="grandparents">
-		<div class="parents">
-			<div>첫번째 div</div>
-			<div class="child">두번째 div / class child</div>
+		<p>grandparents</p>
+		<ul class="parents">
+			<li>item1</li>
+			<li class="child">
+				item2
+				<ol>
+					<li>item2-1</li>
+					<li>item2-2</li>
+				</ol>
+			</li>
 			<!--주석(Comment)-->
-			텍스트
-			<p class="child2">child2</p>
-			<span class="child3">child3</span>
-		</div>
+			<li class="child2">item3</li>
+			<li class="child3">item4</li>
+		</ul>
+		텍스트
 	</div>
 	<script>
 		const parents = document.querySelector(".parents");

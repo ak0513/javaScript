@@ -14,10 +14,11 @@
 		<div id="container">
 			<div class="class">.class에 id new 적용</div>
 			<script>
-				
+				var ele = document.querySelectorAll('meta[name="keywords"]');
+				var ele2 = document.querySelectorAll('.class');
 				document.addEventListener('DOMContentLoaded', function() {
-					setAttr('meta[name="keywords"]', 'keywords', '키워드1, 키워드2');
-					setAttr('.class', 'id', 'new');
+					setAttr(ele, 'keywords', '키워드1, 키워드2');
+					setAttr(ele2, 'id', 'new');
 				});
 			</script>
 		</div>

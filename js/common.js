@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-	setAttrRandomNum('link[rel="stylesheet"]', 'href');
-	setAttrRandomNum('script[src]', 'src');
+	setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
+	setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
 	setDeviceInfo();
 	setBodyClass();
@@ -123,7 +123,6 @@ function getRandomNum() {
 
 // attr에 랜덤함수
 function setAttrRandomNum(ele, attr) {
-	var ele = document.querySelectorAll(ele);
 	for(var i =0; i < ele.length; i++) {
 		var eleAttr = ele[i].getAttribute(attr)
 		eleAttr = eleAttr + '?' + getRandomNum();
@@ -133,7 +132,6 @@ function setAttrRandomNum(ele, attr) {
 
 // attr 세팅
 function setAttr(ele, attr, value) {
-	var ele = document.querySelectorAll(ele);
 	ele.forEach(function(ele) {
 		ele.setAttribute(attr, value)
 	})
@@ -144,4 +142,17 @@ function getUrlParam(param) {
 	var urlParams = new URL(location.href).searchParams;
 	var name = urlParams.get(param);
 	return name;
+}
+
+// 가장 가까운 부모 찾기
+function closest(ele, selector) {
+	var matchesSelector = ele.matches || ele.webkitMatchesSelector || ele.mozMatchesSelector || ele.msMatchesSelector;
+	while (ele) {
+		if (matchesSelector.call(ele, selector)) {
+			return ele;
+		} else {
+			ele = ele.parentElement;
+		}
+	}
+	return null;
 }
