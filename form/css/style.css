@@ -665,7 +665,9 @@ caption {
 }
 
 
-.form > .form-ele + .form-ele {
+.form > .form-ele + .form-ele,
+.form > .form-ele + .row,
+.form > .row + .form-ele {
 	margin-top: 3.8rem;
 }
 
