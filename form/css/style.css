@@ -8,6 +8,8 @@
 	--gray: #7f7f7f;
 	--black: #000;
 
+	--font-basic: 1.6rem;
+
 	--gutter4: 0.2rem;
 	--gutter6: 0.3rem;
 	--gutter10: 0.5rem;
@@ -17,9 +19,11 @@
 	--gutter50: 2.5rem;
 	--gutter100: 5.0rem;
 
+	--form-ele-font: 1.6rem;
 	--form-ele-height: 5.0rem;
 	--form-ele-height-sm: 3.0rem;
 	--form-ele-margin: 0.6rem;
+	--form-ele-radius: 0.3rem;
 }
 
 /* reset */
@@ -79,10 +83,10 @@ html {
 }
 
 body {
-	font-size: 1.6rem;
 	line-height:1.5;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 400;
+	font-size: var(--font-basic);
 	color: var(--black);
 }
 
@@ -224,7 +228,8 @@ input[type='number'] {
 	padding: 0 1.5rem;
 	border:1px solid var(--lightgray);
 	color: var(--black);
-	font-size: 1.4rem;
+	font-size: var(--form-ele-font);
+	border-radius: var(--form-ele-radius);
 }
 
 input[type='tel']::placeholder,
@@ -252,15 +257,21 @@ input.sm {
 
 .input-wrap.side-btn input {
 	flex-grow: 1;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 .input-wrap.side-btn .btn {
 	flex-grow: 1;
 	flex-shrink: 0;
+	min-width: auto;
 	height: var(--form-ele-height);
+	padding: 0 2.0rem;
 	border-left:none;
 	padding-top:0;
 	padding-bottom:0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 /* unit 추가 */
@@ -298,16 +309,16 @@ button {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	/* min-height: 3.0rem; */
 	min-width: 12.0rem;
 	height: var(--form-ele-height);
 	padding: 0 3.0rem;
 	border:1px solid var(--lightgray);
-	font-size: 1.4rem;
+	font-size: var(--form-ele-font);
+	border-radius: var(--form-ele-radius);
 }
 
 .btn.sm {
-	min-width: 8.0rem;
+	min-width: 4.0rem;
 	padding:0 1.5rem;
 	height: var(--form-ele-height-sm);
 }
@@ -338,7 +349,8 @@ select {
 	border:1px solid var(--lightgray);
 	padding: 0 3.0rem 0 2.0rem;
 	background: url('../img/chevron-down.svg') no-repeat calc(100% - 1.5rem) center / 9px auto;
-	font-size: 1.4rem;
+	font-size: var(--form-ele-font);
+	border-radius: var(--form-ele-radius);
 	appearance: none;
 }
 
@@ -448,7 +460,6 @@ select.round {
 	margin-bottom: 1.0rem;
 	margin-right: 5.0rem;
     cursor: pointer;
-	font-size: 1.4rem;
 }
 
 .radio-wrap .form-label:last-child {
@@ -504,7 +515,7 @@ select.round {
 /* textarea */
 textarea {
 	width: 100%;
-	min-height: 18.2rem;
+	min-height: 10.0rem;
 	padding: 1.5rem;
 	border: 1px solid var(--lightgray);
 }
@@ -691,6 +702,11 @@ caption {
 	margin-top: 0.5rem;
 }
 
+/* title */
+.h-tit2 {
+	margin-top: 2.0rem;
+	font-size: 2.4rem;
+}
 
 /* box */
 .box {
