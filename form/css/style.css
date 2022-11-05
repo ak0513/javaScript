@@ -23,6 +23,7 @@
 	--form-ele-height: 5.0rem;
 	--form-ele-height-sm: 3.0rem;
 	--form-ele-margin: 0.6rem;
+	--form-ele-border-color: #e3e3e3;
 	--form-ele-radius: 0.3rem;
 }
 
@@ -385,8 +386,19 @@ select.round {
     position: absolute;
     top: 0.5rem;
     left: 0;
-    width: 1.5rem;
-    height: 1.5rem;
+	width: 1.6rem;
+    height: 1.6rem;
+	border-radius: var(--form-ele-radius);
+	border:1px solid var(--form-ele-border-color);
+	appearance: none;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.check-wrap input[type='checkbox']:checked {
+	border-color:#0d6efd;
+	/* background: #0d6efd url('../img/check-copy.svg') no-repeat center / 100%; */
+	background: #0d6efd url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e") no-repeat center / 100%;
 }
 
 .check-wrap input[type='checkbox']:focus-visible {
@@ -399,25 +411,25 @@ select.round {
     position: relative;
     min-height: 2.0rem;
     padding-left: 2.5rem;
+	font-size:var(--form-ele-font);
 }
 
 .check-wrap input[type='checkbox'] + .check-txt::before,
 .check-wrap input[type='checkbox'] + .check-txt::after {
-    content: '';
+    /* content: ''; */
     display: block;
-    position: absolute;	
+    position: absolute;
 }
 
 .check-wrap input[type='checkbox'] + .check-txt::before {
     top: 0.5rem;
     left: 0;
-    width: 1.5rem;
-    height: 1.5rem;
     background-color: #fff;
-    border: 1px solid #000;
+    border: 1px solid var(--form-ele-border-color);
+	border-radius: var(--form-ele-radius);
 }
 .check-wrap input[type='checkbox']:checked + .check-txt::before {
-	background-color: #000;
+	background-color: #0d6efd;
 }
 
 .check-wrap input[type='checkbox']:checked + .check-txt::after {
