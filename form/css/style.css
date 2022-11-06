@@ -74,7 +74,7 @@ img {
 
 a {
 	text-decoration: none;
-	color: var(--primary);
+	color: #000;
 }
 
 html,
@@ -108,7 +108,7 @@ body {
 
 /* 키보드로 버튼에 포커스 시 */
 :focus-visible {
-	outline: auto;
+	/* outline: auto; */
 }
 
 /* 마우스, 터치로 버튼에 포커스 시 */
