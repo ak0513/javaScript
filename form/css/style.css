@@ -229,7 +229,7 @@ input[type='number'] {
 	display: block;
 	width: 100%;
 	height: var(--form-ele-height);
-	padding: 0 1.5rem;
+	padding: 0 1.2rem;
 	border:1px solid var(--lightgray);
 	color: var(--black);
 	font-size: var(--form-ele-font);
@@ -268,13 +268,9 @@ input.sm {
 .input-wrap.side-btn .btn {
 	flex-grow: 1;
 	flex-shrink: 0;
-	min-width: auto;
 	height: var(--form-ele-height);
 	margin: 0;
-	padding: 0 2.0rem;
 	border-left:none;
-	padding-top:0;
-	padding-bottom:0;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
@@ -289,7 +285,7 @@ input.sm {
 	align-items: center;
 	flex-shrink: 0;
 	height: var(--form-ele-height);
-	padding: 0 1.5rem;
+	padding: 0 1.2rem;
 	border: 1px solid var(--lightgray);
 }
 
@@ -337,6 +333,7 @@ button {
 
 .btn.btn-round {
 	border-radius: 3.0rem;
+	padding: 0 1.2em;
 }
 
 .btn:disabled, .btn.disabled {
@@ -610,7 +607,12 @@ caption {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 3.0rem;
+	margin-top: 3.0rem;
+	margin-bottom: 2.0rem;
+}
+
+.form-tit-wrap [class*='h-tit'] {
+	margin:0;
 }
 
 .form-label {
