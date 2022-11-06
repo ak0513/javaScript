@@ -308,6 +308,7 @@ button {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
+	color:inherit;
 }
 
 .btn {
@@ -695,7 +696,7 @@ caption {
 }
 
 
-/* layout */
+
 #wrap {
 	position: relative;
 	overflow: hidden;
@@ -717,7 +718,22 @@ caption {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-	padding:2.0rem;
+}
+
+.container {
+	max-width: 1300px;
+	margin:0 auto;;
+}
+
+.main-visual {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 512px;
+	background: url('../img/visual.jpg') no-repeat center top;
+	font-size: 3.0rem;
+	color:#fff;
 }
 
 
