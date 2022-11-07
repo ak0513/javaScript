@@ -114,7 +114,7 @@ a {
 
 /* 키보드로 버튼에 포커스 시 outline auto */
 :focus-visible {
-	outline: auto;
+	outline: revert;
 }
 
 /* 마우스 또는 터치로 버튼에 포커스 시 추가 설정 */
