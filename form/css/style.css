@@ -376,6 +376,7 @@ select {
 	background-position: right 0.9rem center;
 	background-size: 1.6rem 1.2rem;
 	font-size: var(--form-ele-font);
+	color:var(--black);
 	border-radius: var(--form-ele-radius);
 	appearance: none;
 }
