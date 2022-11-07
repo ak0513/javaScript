@@ -491,16 +491,6 @@ textarea {
 	flex-direction: column;
 }
 
-button:focus,
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	/* outline: 0; */
-	/* box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%); */
-}
-
-
 /* table */
 table {
 	width: 100%;
@@ -723,11 +713,7 @@ table td {
 	font-size: 2.0rem;
 }
 
-/* box */
-.box {
-	padding: 3.0rem;
-	background-color: #f7f7f7;
-}
+
 
 
 
