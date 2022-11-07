@@ -296,16 +296,18 @@ input.sm {
 	height: var(--form-ele-height);
 	padding: 0 1.2rem;
 	border: 1px solid var(--lightgray);
+	border-right: none;
 }
 
 .input-wrap.with-unit .unit + input {
-	margin-left: -1px;
-	border-left-color: var(--white);
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
 }
 
 .input-wrap.with-unit input + .unit {
-	border-left-color: var(--white);
-	margin-left: -1px;
+	border-left-color: transparent;
+	border-right:1px solid var(--lightgray);
 }
 
 /* button */
@@ -707,15 +709,14 @@ table td {
 	margin-top: 8.0rem;
 }
 
-.form-group > [class*=-wrap] + [class*=-wrap],
-.form-ele > .input-wrap + .input-wrap,
-.form-ele > .input-wrap + .row,
-.form-ele > .row + .input-wrap {
+.form-group > div + div {
 	margin-top: var(--form-ele-margin);
 }
 
 .form-txt {
 	margin-top: 0.5rem;
+	font-size: 1.4rem;
+	color:var(--gray)
 }
 
 /* title */
