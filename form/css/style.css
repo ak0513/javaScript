@@ -433,6 +433,7 @@ select.round {
 }
 
 .check-wrap.only-check {
+	display: inline-flex;
 	margin-bottom: 0;
 }
 
