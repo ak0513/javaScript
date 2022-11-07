@@ -106,15 +106,21 @@ body {
     clip-path: inset(50%);
 }
 
-/* 키보드로 버튼에 포커스 시 */
-:focus-visible {
-	/* outline: auto; */
+/* 기본 outline 삭제 */
+button,
+a {
+	outline:none;
 }
 
-/* 마우스, 터치로 버튼에 포커스 시 */
+/* 키보드로 버튼에 포커스 시 outline auto */
+:focus-visible {
+	outline: auto;
+}
+
+/* 마우스 또는 터치로 버튼에 포커스 시 추가 설정 */
 button:focus:not(:focus-visible),
 a:focus:not(:focus-visible) {
-	/* outline: none; */
+	/* outline: auto; */
 	/* box-shadow: 1px 1px 5px rgba(1, 1, 0, .2); */
 }
 
@@ -332,11 +338,6 @@ button {
 	height: var(--form-ele-height-lg);
 	padding: 0 2.0rem;
 	font-size: var(--form-ele-font-lg);
-	outline:none;
-}
-
-.btn.btn-lg:focus-visible {
-	/* border:3px solid red; */
 }
 
 .btn.btn-round {
