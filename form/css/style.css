@@ -186,15 +186,17 @@ button:focus:not(:focus-visible) {
 
 /* flex */
 .d-flex {display: flex !important;}
-.align-items-center {align-items: center !important;}
-.justify-content-center {justify-content: center !important;}
+.a-i-center {align-items: center !important;}
+.j-c-center {justify-content: center !important;}
+.j-c-space-between {justify-content: space-between !important;}
+.j-c-space-around {justify-content: space-around !important;}
 .flex-nowrap {flex-wrap: nowrap !important;}
 .grow1 {flex-grow: 1 !important;}
 .grow0 {flex-grow: 0 !important;}
 .shrink0 {flex-shrink: 0 !important;}
 
 hr {
-	margin: 5.0rem 0;
+	margin: 2.0rem 0;
 	border: none;
 	height: 1px;
 	background-color: var(--lightgray);
@@ -308,7 +310,7 @@ button {
 }
 
 .btn {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	height: var(--form-ele-height);
@@ -722,9 +724,10 @@ caption {
 	flex-grow: 1;
 }
 
-.container {
-	max-width: 1300px;
-	margin:0 auto;;
+.container-inner {
+	max-width: 1340px;
+	margin:0 auto;
+	padding:0 20px;
 }
 
 .main-visual {
