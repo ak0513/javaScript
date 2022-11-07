@@ -336,7 +336,7 @@ button {
 }
 
 .btn.btn-lg:focus-visible {
-	border:3px solid red;
+	/* border:3px solid red; */
 }
 
 .btn.btn-round {
