@@ -74,7 +74,7 @@ img {
 
 a {
 	text-decoration: none;
-	color: #000;
+	color: var(--black);
 }
 
 html,
@@ -332,6 +332,11 @@ button {
 	height: var(--form-ele-height-lg);
 	padding: 0 2.0rem;
 	font-size: var(--form-ele-font-lg);
+	outline:none;
+}
+
+.btn.btn-lg:focus-visible {
+	border:3px solid red;
 }
 
 .btn.btn-round {
@@ -519,24 +524,21 @@ caption {
 }
 
 .table thead th {
-	padding: 2.0rem;
-	border-bottom: 1px solid #000;
-	color: rgba(0,0,0,0.5);
+	padding: 1.0rem 2.0rem;
+	background-color: var(--light);
+	border: 1px solid var(--lightgray);
+	color: var(--black);
 	font-weight: 500;
 }
 
 .table tbody td {
 	padding:2.0rem;
+	
 	border-bottom: 1px solid var(--lightgray);
-	color: #000;
+	color: var(--black);
 	text-align: center;
 }
 
-.table .img {
-	width: 11.3rem;
-	height: 11.3rem;
-	border:1px solid var(--lightgray);
-}
 
 
 /* grid */
@@ -745,6 +747,10 @@ caption {
 
 
 @media (max-width: 768px) {
+	:root {
+		--font-basic: 1.6rem;
+	}
+
 	.gutter-md-x4 {margin-left: calc(var(--gutter4) * -1);margin-right: calc(var(--gutter4) * -1);}
 	.gutter-md-x4 > [class^=col] {padding-left: var(--gutter4);padding-right: var(--gutter4);}
 	.gutter-md-x6 {margin-left: calc(var(--gutter6) * -1);margin-right: calc(var(--gutter6) * -1);}
