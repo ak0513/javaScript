@@ -6,6 +6,7 @@
 	--light: #f7f7f7;
 	--lightgray: #ddd;
 	--gray: #7f7f7f;
+	--darkgray: #333;
 	--black: #000;
 
 	--font-basic: 1.6rem;
@@ -96,14 +97,14 @@ body {
 
 /* 접근성 */
 .a11y {
-    overflow: hidden;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
 }
 
 /* gap */
@@ -159,19 +160,15 @@ body {
 .w95 {width: 95% !important;}
 .w100 {width: 100% !important;}
 
-
-
 /* align */
 .align-c {text-align: center !important;}
 .align-l {text-align: left !important;}
 .align-r {text-align: right !important;}
 
-
 /* visible */
 .hidden {overflow: hidden !important;}
 .block {display: block !important;}
 .none {display: none !important;}
-
 
 /* flex */
 .d-flex {display: flex !important;}
@@ -191,8 +188,6 @@ hr {
 	background-color: var(--lightgray);
 }
 
-
-
 /* badge */
 .badge-wrap {
 	display: flex;
@@ -204,9 +199,9 @@ hr {
 .badge {
 	display: inline-flex;
 	margin: 0.5rem 0 0 0.5rem;
-    padding: 0.3rem 2.0rem 0.4rem;
+	padding: 0.3rem 2.0rem 0.4rem;
 	background-color: #f7f7f7;
-    border-radius: 3.0rem;
+	border-radius: 3.0rem;
 }
 
 /* input */
@@ -390,7 +385,7 @@ select.round {
 
 /* checkbox */
 .check-wrap {
-    display: flex;
+	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: -1.0rem;
 }
@@ -401,7 +396,7 @@ select.round {
 	margin-bottom: 1.0rem;
 	margin-right: 5.0rem;
 	font-size: var(--form-ele-font);
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .check-wrap .form-label:last-child {
@@ -410,12 +405,12 @@ select.round {
 
 .check-wrap input[type='checkbox'] {
 	width: 1.6rem;
-    height: 1.6rem;
+	height: 1.6rem;
 	border-radius: var(--form-ele-radius);
 	border:1px solid var(--form-ele-border-color);
 	appearance: none;
 	-webkit-appearance: none;
-    -moz-appearance: none;
+	-moz-appearance: none;
 }
 
 .check-wrap input[type='checkbox']:checked {
@@ -439,7 +434,7 @@ select.round {
 
 /* radio */
 .radio-wrap {
-    display: flex;
+	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: -1.0rem;
 }
@@ -450,7 +445,7 @@ select.round {
 	margin-bottom: 1.0rem;
 	margin-right: 5.0rem;
 	font-size: var(--form-ele-font);
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .radio-wrap .form-label:last-child {
@@ -459,17 +454,17 @@ select.round {
 
 .radio-wrap input[type='radio'] {
 	width: 1.6rem;
-    height: 1.6rem;
+	height: 1.6rem;
 	border-radius: var(--form-ele-radius);
 	border:1px solid var(--form-ele-border-color);
 	border-radius: 50%;
 	appearance: none;
 	-webkit-appearance: none;
-    -moz-appearance: none;
+	-moz-appearance: none;
 }
 
 .radio-wrap input[type='radio'] + .radio-txt {
-    margin-left:0.5rem;
+	margin-left:0.5rem;
 }
 
 .radio-wrap input[type='radio']:checked {
@@ -499,14 +494,14 @@ table {
 }
 
 caption {
-    overflow: hidden;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
 }
 
 table th {
@@ -701,6 +696,7 @@ table td {
 	color:var(--gray)
 }
 
+
 /* title */
 .h-tit2 {
 	margin-top: 2.0rem;
@@ -717,7 +713,7 @@ table td {
 
 
 
-
+/* wrap */
 #wrap {
 	position: relative;
 	overflow: hidden;
