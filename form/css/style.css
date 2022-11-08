@@ -703,21 +703,23 @@ table td {
 .form-txt {
 	margin-top: 0.5rem;
 	font-size: 1.4rem;
-	color:var(--gray)
+	color:var(--gray);
 }
 
 
 /* title */
 .h-tit2 {
-	margin-top: 2.0rem;
+	margin-top: 5.0rem;
 	margin-bottom:1.0rem;
 	font-size: 2.4rem;
+	font-weight: 500;
 }
 
 .h-tit3 {
-	margin-top: 2.0rem;
+	margin-top: 3.0rem;
 	margin-bottom:1.0rem;
 	font-size: 2.0rem;
+	font-weight: 500;
 }
 
 
