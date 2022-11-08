@@ -575,9 +575,10 @@
 
 
 	<aside id="mobileNav">
-			<a href="">link</a>
-			<button type="button" class="btn-pop-close" aria-label="팝업 닫기" onclick="popClose('#mobileNav')">팝업 닫기</button>
-		
+		<div class="mobile-nav-inner">
+				<a href="">link</a>
+				<button type="button" class="btn-pop-close" aria-label="팝업 닫기" onclick="popClose('#mobileNav')">팝업 닫기</button>
+		</div>
 		<div class="mobile-dim"></div>
 	</aside>
 
@@ -604,7 +605,6 @@
 		})
 
 		// 팝업
-		var wrap = document.querySelectorAll('#wrap');
 		function popOpen(ele, btn) {
 			var tar = document.querySelector(ele);
 			var mobileDim = document.querySelector('.mobile-dim');

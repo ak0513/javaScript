@@ -739,7 +739,7 @@ table td {
 	background: url('../img/btn-all.svg') no-repeat;
 }
 
-#mobileNav {
+.mobile-nav-inner {
 	position: fixed;
 	top:0;
 	left:0;
@@ -752,7 +752,7 @@ table td {
 	transition: all 0.4s;
 }
 
-#mobileNav.pop-open {
+.pop-open .mobile-nav-inner {
 	transform: translateX(0);
 }
 
@@ -764,11 +764,13 @@ table td {
 	right:0;
 	bottom:0;
 	z-index:10;
+	width: 100vw;
+	height: 100vh;
 	background-color: #000;
 	opacity: 0.7;
 }
 
-#mobileNav.pop-open + .mobile-dim {
+#mobileNav.pop-open .mobile-dim {
 	display: block;
 }
 
