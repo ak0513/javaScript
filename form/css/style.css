@@ -393,8 +393,8 @@ select.round {
 .check-wrap .form-label {
 	display: flex;
 	align-items: center;
-	margin-bottom: 1.0rem;
-	margin-right: 5.0rem;
+	margin-bottom: 0.5rem;
+	margin-right: 2.0rem;
 	font-size: var(--form-ele-font);
 	cursor: pointer;
 }
@@ -427,9 +427,19 @@ select.round {
 	outline:1
 }
 
-.check-wrap.only-check {
-	display: inline-flex;
-	margin-bottom: 0;
+.check-only .form-label {
+	margin:0;
+}
+
+.check-only .check-txt {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
 }
 
 /* radio */
