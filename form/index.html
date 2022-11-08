@@ -59,8 +59,14 @@
 						<a href="#" class="btn btn-round">Round Link</a>
 					</div>
 				
+
+                    <h2 class="h-tit2">input</h2>
+                    <div class="input-wrap">
+                        <input type="text" id="input1">
+                    </div>
+
+
 					<h2 class="h-tit2">셀렉트박스</h2>
-					
 					<div class="select-wrap">
 						<select name="">
 							<option value="">셀렉트</option>
@@ -610,7 +616,6 @@
 			},10)
 			tar.classList.add('pop-open');
 			btn.setAttribute('data-pop', tar.getAttribute('id'));
-			
 			accessDisable(siblings(tar), 'nav');
 		}
 
@@ -621,10 +626,11 @@
 			tar.classList.remove('pop-open');
 			accessEnable(siblings(tar), 'nav');
 			btns.forEach(function(ele) {
-				var eleData = ele.dataset.pop;
-				if(eleData === tar.getAttribute('id')) {
-					ele.focus();
-					ele.removeAttribute('data-pop');
+				if(ele.dataset.pop === tar.getAttribute('id')) {
+                    setTimeout(function() {
+                        ele.focus();
+                        ele.removeAttribute('data-pop');
+                    },10)
 				}
 			})
 		}

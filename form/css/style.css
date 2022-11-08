@@ -4,10 +4,10 @@
 	--primary: #007bff;
 	--white: #fff;
 	--light: #f7f7f7;
-	--lightgray: #ddd;
+	--lightgray: #ced4da;
 	--gray: #7f7f7f;
 	--darkgray: #333;
-	--black: #000;
+	--black: #212529;
 
 	--font-basic: 1.6rem;
 
@@ -28,7 +28,7 @@
 	--form-ele-height-lg: 4.8rem;
 	--form-ele-margin: 0.6rem;
 	--form-ele-border-color: #e3e3e3;
-	--form-ele-radius: 0.3rem;
+	--form-ele-radius: 0.5rem;
 }
 
 /* reset */
@@ -89,10 +89,10 @@ html {
 
 body {
 	line-height:1.5;
-	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 400;
 	font-size: var(--font-basic);
 	color: var(--black);
+	font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans KR","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 /* 접근성 */
@@ -637,7 +637,7 @@ table td {
 
 .form-label {
 	display: inline-block;
-	margin-bottom: 1.1rem;
+	margin-bottom: 0.8rem;
 }
 
 .input-wrap .form-label {
@@ -645,10 +645,6 @@ table td {
 	margin-bottom: 0;
 	color: var(--gray);
 	font-size: 1.4rem;
-}
-
-.form-group {
-	/* overflow: hidden; */
 }
 
 .form-ele {
@@ -675,7 +671,7 @@ table td {
 .form > .form-ele + .form-ele,
 .form > .form-ele + .row,
 .form > .row + .form-ele {
-	margin-top: 3.8rem;
+	margin-top: 1.6rem;
 }
 
 .form > .form-group + .btn-wrap,
