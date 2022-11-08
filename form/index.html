@@ -11,9 +11,17 @@
 	<title>기본 스타일</title>
 </head>
 <body>
+	<div>
+		<a href="" tabindex="0">asfdsadF</a>
+		<a href="" tabindex="-1">asfdsadF</a>
+		<a href="">asfdsadF</a>
+		<a href="">asfdsadF</a>
+	</div>
 	<div id="wrap">
 		<header id="header">
-			<button type="button" class="btn-nav-open" id="btnNavOpen" onclick="popOpen('#mobileNav', this)" aria-lable="전체메뉴 열기"></button>
+			<button type="button" class="btn-nav-open" onclick="popOpen('#mobileNav', this)" aria-lable="전체메뉴 열기"></button>
+
+			<button type="button" onclick="popOpen('#popup', this)"> 팝업열기</button>
 		</header>
 
 		<section id="container">
@@ -566,13 +574,28 @@
 	</div>
 
 
-	<aside id="mobileNavWrap">
-		<div id="mobileNav">
+	<aside id="mobileNav">
 			<a href="">link</a>
 			<button type="button" class="btn-pop-close" aria-label="팝업 닫기" onclick="popClose('#mobileNav')">팝업 닫기</button>
-		</div>
+		
 		<div class="mobile-dim"></div>
 	</aside>
+
+	<!-- 팝업 -->
+	<div id="popup" class="pop-wrap">
+		<div class="pop-inner">
+			<div class="pop-header">
+				팝업 타이틀
+			</div>
+			<div class="pop-conts">
+				팝업 내용
+			</div>
+			<div class="pop-footer">
+				팝업 하단
+				<button type="button" class="" onclick="popClose('#popup')">팝업 닫기</button>
+			</div>
+		</div>
+	</div>
 
 	<script>
 		var link = document.querySelectorAll('a');
@@ -581,7 +604,7 @@
 		})
 
 		// 팝업
-		var wrap = $('#wrap');
+		var wrap = document.querySelectorAll('#wrap');
 		function popOpen(ele, btn) {
 			var tar = document.querySelector(ele);
 			var mobileDim = document.querySelector('.mobile-dim');
@@ -589,8 +612,9 @@
 			tar.setAttribute('tabindex', 0)
 			tar.focus();
 			tar.classList.add('pop-open');
-			btn.setAttribute('data-pop', tar.getAttribute('id'))
-			accessDisable(wrap, 'nav');
+			btn.setAttribute('data-pop', tar.getAttribute('id'));
+			
+			accessDisable(siblings(tar), 'nav');
 		}
 
 		function popClose(ele) {
@@ -598,7 +622,7 @@
 			var btns = document.querySelectorAll('[data-pop]');
 			tar.removeAttribute('tabindex');
 			tar.classList.remove('pop-open');
-			accessEnable(wrap, 'nav');
+			accessEnable(siblings(tar), 'nav');
 			btns.forEach(function(ele) {
 				var eleData = ele.dataset.pop;
 				if(eleData === tar.getAttribute('id')) {
@@ -607,6 +631,9 @@
 				}
 			})
 		}
+
+
+		
 	</script>
 </body>
 </html>

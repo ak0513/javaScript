@@ -71,7 +71,59 @@ function setDeviceInfo() {
 	})();
 }
 
-var $eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';var $eleTabindex = '[tabindex="0"]';
+var eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';
+var eleTabindex = '[tabindex="0"]';
+var eleTabindexM = '[tabindex="-1"]';
+// 포커스 비활성화(접근성)
+function accessDisable(eleDisable, module) {
+	eleDisable.forEach(function(ele) {
+		var eleTabindexMChild = ele.querySelectorAll(eleTabindexM);
+		var eleFocusTagsChild = ele.querySelectorAll(eleFocusTags);
+		var eleTabindexChild = ele.querySelectorAll(eleTabindex);
+		ele.setAttribute('aria-hidden', true);
+		ele.classList.add('is-disable-'+module+'-ariaHidden');
+		eleTabindexMChild.forEach(function(ele) {
+			ele.classList.add('is-disable-'+module+'-fixed')
+		});
+		eleFocusTagsChild.forEach(function(ele) {
+			ele.setAttribute('tabindex', '-1');
+			ele.classList.add('is-disable-'+module+'-tags')
+		});
+		eleTabindexChild.forEach(function(ele) {
+			ele.setAttribute('tabindex', '-1');
+			ele.classList.add('is-disable-'+module+'-tabindex')
+		});
+	});
+}
+
+// 포커스 활성화(접근성)
+function accessEnable(eleEnable, module){
+	eleEnable.forEach(function(ele) {
+		
+		var eleTabindexMChild = ele.querySelectorAll('.is-disable-'+module+'-fixed');
+		var eleFocusTagsChild = ele.querySelectorAll('.is-disable-'+module+'-tags');
+		var eleTabindexChild = ele.querySelectorAll('.is-disable-'+module+'-tabindex');
+		ele.setAttribute('aria-hidden', false);
+		ele.classList.remove('is-disable-'+module+'-ariaHidden');
+		eleTabindexMChild.forEach(function(ele) {
+			console.log(ele)
+			ele.classList.remove('is-disable-'+module+'-fixed')
+		});
+		eleFocusTagsChild.forEach(function(ele) {
+			console.log(ele)
+			ele.removeAttribute('tabindex');
+			ele.classList.remove('is-disable-'+module+'-tags')
+		});
+		eleTabindexChild.forEach(function(ele) {
+			console.log(ele)
+			ele.setAttribute('tabindex', '0');
+			ele.classList.remove('is-disable-'+module+'-tabindex')
+		});
+	});
+}
+
+/* var $eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';
+var $eleTabindex = '[tabindex="0"]';
 var eleTabindexM = '[tabindex="-1"]';
 // 포커스 비활성화(접근성)
 function accessDisable($eleDisable, module) {
@@ -87,7 +139,7 @@ function accessEnable($eleEnable, module){
 	$eleEnable.find('.is-disable-'+module+'-tags').removeClass('is-disable-'+module+'-tags').removeAttr('tabindex');
 	$eleEnable.find('.is-disable-'+module+'-tabindex').removeClass('is-disable-'+module+'-tabindex').attr({'tabindex':'0'});
 	$eleEnable.find('.is-disable-'+module+'-fixed').removeClass('is-disable-'+module+'-fixed');
-}
+} */
 
 // body에 device별 클래스 추가
 function setBodyClass() {
