@@ -6,12 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/fonts.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="../js/common.js"></script>
 	<title>기본 스타일</title>
 </head>
 <body>
 	<div id="wrap">
 		<header id="header">
-			header
+			<button type="button" class="btn-nav-open" id="btnNavOpen" onclick="popOpen('#mobileNav', this)" aria-lable="전체메뉴 열기"></button>
 		</header>
 
 		<section id="container">
@@ -89,10 +91,7 @@
 					<h2 class="h-tit2">체크박스</h2>
 					<h3 class="h-tit3">checkbox</h3>
 					<div class="check-wrap check-only">
-						<label class="form-label" for="chk1-1">
-							<input type="checkbox" id="chk1-1" name="chk" checked>
-							<span class="check-txt">체크박스 텍스트 히든</span>
-						</label>
+						<input type="checkbox" id="chk1-1" name="chk" title="체크박스 혼자면 title에 삽입" checked>
 					</div>
 
 					<h3 class="h-tit3">checkbox + label</h3>
@@ -110,34 +109,25 @@
 							<span class="check-txt">체크박스3</span>
 						</label>
 					</div>
-					<h3 class="h-tit3">checkbox test</h3>
-					<div class="check-wrap">
-						<label class="form-label" for="chk3-1">
-							<span class="check-txt">체크박스1</span>
-						</label>
-						<input type="checkbox" id="chk3-1" name="chk" checked>
-
-						<input type="checkbox" id="chk3-2" name="chk">
-						<label class="form-label" for="chk3-2">
-							<span class="check-txt">체크박스2</span>
-						</label>
-
-						<input type="checkbox" id="chk3-3" name="chk" title="체크박스3">
-					</div>
-					
 
 					<h2 class="h-tit2">라디오 버튼</h2>
+					<h3 class="h-tit3">radio</h3>
+					<div class="radio-wrap radio-only">
+						<input type="radio" id="radio1-1" name="radio1" title="라디오박스 혼자면 title에 삽입">
+					</div>
+
+					<h3 class="h-tit3">radio + label</h3>
 					<div class="radio-wrap">
-						<label class="form-label" for="radio1">
-							<input type="radio" id="radio1" name="radio" checked>
+						<label class="form-label" for="radio2-1">
+							<input type="radio" id="radio2-1" name="radio2" checked>
 							<span class="radio-txt">라디오버튼1</span>
 						</label>
-						<label class="form-label" for="radio2">
-							<input type="radio" id="radio2" name="radio">
+						<label class="form-label" for="radio2-1">
+							<input type="radio" id="radio2-1" name="radio2">
 							<span class="radio-txt">라디오버튼2</span>
 						</label>
-						<label class="form-label" for="radio3">
-							<input type="radio" id="radio3" name="radio">
+						<label class="form-label" for="radio2-3">
+							<input type="radio" id="radio2-3" name="radio2">
 							<span class="radio-txt">라디오버튼3</span>
 						</label>
 					</div>
@@ -575,11 +565,48 @@
 		</footer>
 	</div>
 
+
+	<aside id="mobileNavWrap">
+		<div id="mobileNav">
+			<a href="">link</a>
+			<button type="button" class="btn-pop-close" aria-label="팝업 닫기" onclick="popClose('#mobileNav')">팝업 닫기</button>
+		</div>
+		<div class="mobile-dim"></div>
+	</aside>
+
 	<script>
 		var link = document.querySelectorAll('a');
-		link.forEach(function(ele) {
+		link.forEach(function(ele, btn) {
 			ele.setAttribute('role', 'button')
 		})
+
+		// 팝업
+		var wrap = $('#wrap');
+		function popOpen(ele, btn) {
+			var tar = document.querySelector(ele);
+			var mobileDim = document.querySelector('.mobile-dim');
+			
+			tar.setAttribute('tabindex', 0)
+			tar.focus();
+			tar.classList.add('pop-open');
+			btn.setAttribute('data-pop', tar.getAttribute('id'))
+			accessDisable(wrap, 'nav');
+		}
+
+		function popClose(ele) {
+			var tar = document.querySelector(ele);
+			var btns = document.querySelectorAll('[data-pop]');
+			tar.removeAttribute('tabindex');
+			tar.classList.remove('pop-open');
+			accessEnable(wrap, 'nav');
+			btns.forEach(function(ele) {
+				var eleData = ele.dataset.pop;
+				if(eleData === tar.getAttribute('id')) {
+					ele.focus();
+					ele.removeAttribute('data-pop');
+				}
+			})
+		}
 	</script>
 </body>
 </html>
