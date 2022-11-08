@@ -631,10 +631,8 @@
 			btns.forEach(function(ele) {
 				var eleData = ele.dataset.pop;
 				if(eleData === tar.getAttribute('id')) {
-					setTimeout(function() {
-						ele.focus();
-						ele.removeAttribute('data-pop');
-					},10)
+					ele.focus();
+					ele.removeAttribute('data-pop');
 				}
 			})
 		}
