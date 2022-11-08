@@ -106,16 +106,13 @@ function accessEnable(eleEnable, module){
 		ele.setAttribute('aria-hidden', false);
 		ele.classList.remove('is-disable-'+module+'-ariaHidden');
 		eleTabindexMChild.forEach(function(ele) {
-			console.log(ele)
 			ele.classList.remove('is-disable-'+module+'-fixed')
 		});
 		eleFocusTagsChild.forEach(function(ele) {
-			console.log(ele)
 			ele.removeAttribute('tabindex');
 			ele.classList.remove('is-disable-'+module+'-tags')
 		});
 		eleTabindexChild.forEach(function(ele) {
-			console.log(ele)
 			ele.setAttribute('tabindex', '0');
 			ele.classList.remove('is-disable-'+module+'-tabindex')
 		});

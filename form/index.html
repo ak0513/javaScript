@@ -609,8 +609,10 @@
 			var tar = document.querySelector(ele);
 			var mobileDim = document.querySelector('.mobile-dim');
 			
-			tar.setAttribute('tabindex', 0)
-			tar.focus();
+			tar.setAttribute('tabindex', 0);
+			setTimeout(function() {
+				tar.focus();
+			},10)
 			tar.classList.add('pop-open');
 			btn.setAttribute('data-pop', tar.getAttribute('id'));
 			
