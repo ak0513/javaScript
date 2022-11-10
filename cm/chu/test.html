@@ -130,36 +130,43 @@
 
     #wrap ~ .side-menu-depth2 {display:block !important;position:absolute;top:-999999px;height:auto !important;}
 </style>
-<div id="side-menu">
+<div id="sideMenu">
     <div class="side-menu-logo"></div>
     <ul class="side-menu-group">
         <li class="side-menu-item">
-            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu1" role="button">menu1<i class="side-menu-link-icon"></i></a>
-            <ul id="sideMenu1" class="side-menu-depth2 collapse">
-                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-1</a></li>
-                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-2</a></li>
-                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-3</a></li>
+            <a href="#" class="side-menu-link has-sub" aria-controls="sideProject">Project<i class="side-menu-link-icon"></i></a>
+            <ul id="sideProject" class="side-menu-depth2 collapse">
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">team</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">TaaS</a></li>
+            </ul>
+        </li>
+        <li class="side-menu-item"><a href="#" class="side-menu-link">Road Map</a></li>
+        <li class="side-menu-item"><a href="#" class="side-menu-link">Story</a></li>
+        <li class="side-menu-item">
+            <a href="#" class="side-menu-link has-sub" aria-controls="sidePoint">Point<i class="side-menu-link-icon"></i></a>
+            <ul id="sidePoint" class="side-menu-depth2 collapse">
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">Check</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">Histroy</a></li>
             </ul>
         </li>
         <li class="side-menu-item">
-            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu2" role="button">menu2<i class="side-menu-link-icon"></i></a>
-            <ul id="sideMenu2" class="side-menu-depth2 collapse">
-                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu2-1</a></li>
-                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu2-2</a></li>
+            <a href="#" class="side-menu-link has-sub" aria-controls="sideShop">Shop<i class="side-menu-link-icon"></i></a>
+            <ul id="sideShop" class="side-menu-depth2 collapse">
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">Goods</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">Raffle</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">Offine</a></li>
             </ul>
         </li>
         <li class="side-menu-item">
-            <a href="#" class="side-menu-link">menu3</a>
-        </li>
-        <li class="side-menu-item">
-            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu4" role="button">menu4<i class="side-menu-link-icon"></i></a>
-            <ul id="sideMenu4" class="side-menu-depth2 collapse">
-                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu4-1</a></li>
-                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu4-2</a></li>
+            <a href="#" class="side-menu-link has-sub" aria-controls="sidePlayground">Playground<i class="side-menu-link-icon"></i></a>
+            <ul id="sidePlayground" class="side-menu-depth2 collapse">
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">News</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">Mini-Game</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">CHul-Check</a></li>
             </ul>
         </li>
     </ul>
-    <button type="button" aria-label="전체 메뉴닫기" class="btn-side-closed" onclick="popClose('#popLogin', '.side-menu-login')"><img src="./img/btn-side-menu-closed.svg" alt=""></button>
+    <button type="button" aria-label="전체 메뉴닫기" class="btn-side-closed" onclick="popClose('#sideMenu')"></button>
     <div class="side-menu-dim"></div>
 </div>
 <!-- //모바일 메뉴 -->

@@ -2,16 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
-	var sideMenuLink = document.querySelectorAll('.side-menu-link.has-sub');
-	var sideMenuItem = document.querySelectorAll('.side-menu-item');
-	var sideMenuDepth2 = document.querySelectorAll('.side-menu-depth2');
-	sideMenuLink.forEach(function(ele) {
-		ele.setAttribute('aria-expanded', false);
-		ele.addEventListener('click', showMenuDepth2)
-	});
-
-
-
 	var eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';
 	var eleTabindex = '[tabindex="0"]';
 	var eleTabindexM = '[tabindex="-1"]';
@@ -120,6 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		return null;
 	}
 
+	var sideMenuLink = document.querySelectorAll('.side-menu-link.has-sub');
+	var sideMenuItem = document.querySelectorAll('.side-menu-item');
+	var sideMenuDepth2 = document.querySelectorAll('.side-menu-depth2');
+	sideMenuLink.forEach(function(ele) {
+		ele.setAttribute('aria-expanded', false);
+		ele.addEventListener('click', showMenuDepth2)
+	});
+	
 	// sidemenu
 	function showMenuDepth2(e) {
 		var ele = e.target;
