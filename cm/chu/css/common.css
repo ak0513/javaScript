@@ -3,6 +3,7 @@
 :root {
 	--primary: #3c2d50;
 	--secondary: #ffb9cd;
+	--menu: #98ced2;
 	--white: #fff;
 	--light: #f7f7f7;
 	--lightgray: #ced4da;
@@ -24,7 +25,7 @@
 	--form-ele-font: 1.6rem;
 	--form-ele-font-sm: 1.4rem;
 	--form-ele-font-lg: 2.0rem;
-	--form-ele-height: 3.8rem;
+	--form-ele-height: 3.4rem;
 	--form-ele-height-sm: 3.0rem;
 	--form-ele-height-lg: 4.8rem;
 	--form-ele-margin: 0.6rem;
@@ -873,4 +874,9 @@ table td {
 	.col-sm-10 {max-width:83.3333% !important;}
 	.col-sm-11 {max-width:91.6666% !important;}
 	.col-sm-12 {max-width:100% !important;}
+}
+
+
+.docSlider-button {
+	opacity: 1;
 }
