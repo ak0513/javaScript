@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		return null;
 	}
 
-	var sideMenuLink = document.querySelectorAll('.side-menu-link.has-sub');
-	var sideMenuItem = document.querySelectorAll('.side-menu-item');
-	var sideMenuDepth2 = document.querySelectorAll('.side-menu-depth2');
+	var sideMenuLink = document.querySelectorAll('.menu-link.has-sub');
+	var sideMenuItem = document.querySelectorAll('.menu-item');
+	var sideMenuDepth2 = document.querySelectorAll('.menu-depth2');
 	sideMenuLink.forEach(function(ele) {
 		ele.setAttribute('aria-expanded', false);
 		ele.addEventListener('click', showMenuDepth2)
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// sidemenu
 	function showMenuDepth2(e) {
 		var ele = e.target;
-		var eleParents = closest(ele, '.side-menu-item');
+		var eleParents = closest(ele, '.menu-item');
 		var eleDepth2 = ele.nextElementSibling;
 		// aria-expanded 세팅
 		sideMenuLink.forEach(function(ele) {
