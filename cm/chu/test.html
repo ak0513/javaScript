@@ -66,6 +66,7 @@
         width: 10px;
         height: 10px;
         margin-left:5px;
+        pointer-events: none;
     }
     .side-menu-link-icon::before,
     .side-menu-link-icon::after {
@@ -87,13 +88,24 @@
         height:100%;
     }
 
+    .collapse:not(.show) {
+        display: none;
+    }
+
+    .collapsing {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        transition: height .35s ease;
+    }
+
     .side-menu-depth2 {
-        overflow:hidden;
-        height:0;
         padding-left: 30px;
         border-left: 1px solid #000;
-        transition: height 0.4s;
+        transition: height .35s ease;
     }
+
+
 
     .side-menu-item:last-child .side-menu-depth2 {
         border-left: none;
@@ -116,28 +128,32 @@
         background-color: #000;
     }
 
-    #wrap ~ .side-menu-depth2 {position:absolute;top:-999999px;height:auto !important;}
+    #wrap ~ .side-menu-depth2 {display:block !important;position:absolute;top:-999999px;height:auto !important;}
 </style>
 <div id="side-menu">
-    <div class="side-menu-logo">로고</div>
+    <div class="side-menu-logo"></div>
     <ul class="side-menu-group">
         <li class="side-menu-item">
             <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu1" role="button">menu1<i class="side-menu-link-icon"></i></a>
-            <ul id="sideMenu1" class="side-menu-depth2">
+            <ul id="sideMenu1" class="side-menu-depth2 collapse">
                 <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-1</a></li>
                 <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-2</a></li>
                 <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-3</a></li>
             </ul>
         </li>
         <li class="side-menu-item">
-            <a href="#" class="side-menu-link">menu2</a>
+            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu2" role="button">menu2<i class="side-menu-link-icon"></i></a>
+            <ul id="sideMenu2" class="side-menu-depth2 collapse">
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu2-1</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu2-2</a></li>
+            </ul>
         </li>
         <li class="side-menu-item">
             <a href="#" class="side-menu-link">menu3</a>
         </li>
         <li class="side-menu-item">
-            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu2" role="button">menu4<i class="side-menu-link-icon"></i></a>
-            <ul id="sideMenu2" class="side-menu-depth2">
+            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu4" role="button">menu4<i class="side-menu-link-icon"></i></a>
+            <ul id="sideMenu4" class="side-menu-depth2 collapse">
                 <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu4-1</a></li>
                 <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu4-2</a></li>
             </ul>
@@ -149,43 +165,43 @@
 <!-- //모바일 메뉴 -->
 
 <script>
-    var sideMenuLink = document.querySelectorAll('.side-menu-link.has-sub');
+    /* var sideMenuLink = document.querySelectorAll('.side-menu-link.has-sub');
     var sideMenuItem = document.querySelectorAll('.side-menu-item');
     var sideMenuDepth2 = document.querySelectorAll('.side-menu-item:not(.on) .side-menu-depth2');
     sideMenuLink.forEach(function(ele) {
         ele.setAttribute('aria-expanded', false);
         ele.addEventListener('click', showMenuDepth2)
     });
-
+ 
     function showMenuDepth2(e) {
         var ele = e.target;
         var eleParents = closest(ele, '.side-menu-item');
         var eleDepth2 = ele.nextElementSibling;
-        /* aria-expanded 세팅 */
+        // aria-expanded 세팅
         sideMenuLink.forEach(function(ele) {
             ele.setAttribute('aria-expanded', false);
         });
         ele.setAttribute('aria-expanded', true);
-        /* on 삭제 */
+        // on 삭제
         removeClass(sideMenuItem, 'on');
         sideMenuDepth2.forEach(function(ele) {
             ele.style.height = 0;
         });
-        /* on 추가 */
+        // on 추가
         eleParents.classList.add('on');
-        /* eleDepth2 높이 설정 */
+        // eleDepth2 높이 설정
         var eleDepth2Height = getEleHeight(eleDepth2);
         eleDepth2.style.height = eleDepth2Height + 'px';
     }
 
-    /* 높이 구하기 */
+    // 높이 구하기
     function getEleHeight(ele) {
         var eleClone = ele.cloneNode(true);
         document.body.append(eleClone);
         var eleCloneHeight = eleClone.clientHeight;
         eleClone.remove();
         return eleCloneHeight
-    }
+    }*/
 </script>
         </header>
 
