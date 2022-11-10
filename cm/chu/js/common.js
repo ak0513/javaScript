@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 	setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
-
-	setBodyClass();
 })
 
 var eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';
@@ -51,14 +49,6 @@ function accessEnable(eleEnable, module){
 			ele.classList.remove('is-disable-'+module+'-tabindex')
 		});
 	});
-}
-
-// body에 device별 클래스 추가
-function setBodyClass() {
-	// pc mobile 체크
-	var setPlatform = deviceInfo.mobile ? 'mobile' : 'pc';
-	var bodyClass = setPlatform + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device;
-	document.querySelector('body').setAttribute('class', bodyClass)
 }
 
 

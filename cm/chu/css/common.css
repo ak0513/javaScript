@@ -93,7 +93,7 @@ body {
 	font-weight: 400;
 	font-size: var(--font-basic);
 	color: var(--black);
-	font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans KR","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 /* 접근성 */

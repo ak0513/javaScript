@@ -20,11 +20,7 @@
 /* wrap */
 #wrap {
     position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    min-height: 100%;
+
 }
 
 .header-wallet {

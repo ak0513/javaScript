@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/fonts.css">
+	<link rel="stylesheet" href="./css/docSlider.css">
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/docSlider.min.js"></script>
+	<script src="./js/swiper.min.js"></script>
+	<script src="./js/common.js"></script>
+    <title>Close Your Eyes</title>
+</head>
+<body>
+    <div id="skipNav">
+        <a href="#container" class="skipNav-link">본문 바로가기</a>
+    </div>
+    <div id="wrap">
+        <header id="header">
+            <!-- 모바일 메뉴-->
+<style>
+    #side-menu {margin:20px;}
+
+    
+    .side-menu-group {
+        padding-left:5px;
+    }
+    .side-menu-item {
+        position:relative;
+    }
+    .side-menu-item::before,
+    .side-menu-item::after {
+        content:'';
+        display: block;
+        position:absolute;
+        background-color: #000;
+    }
+
+    .side-menu-item::before {
+        top:13px;
+        left:-5px;
+        width: 10px;
+        height:3px;
+    }
+    .side-menu-item::after {
+        top:10px;
+        left:-1px;
+        width: 3px;
+        height:10px;
+    }
+
+    .side-menu-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-top:10px;
+        padding-left: 30px;
+        border-left: 1px solid #000;
+    }
+
+    .side-menu-link-icon {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        margin-left:5px;
+    }
+    .side-menu-link-icon::before,
+    .side-menu-link-icon::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top:50%;
+        left:50%;
+        background-color: #000;
+        transform: translate(-50%, -50%);
+    }
+    .side-menu-link-icon::before {
+        width:100%;
+        height:2px;
+    }
+
+    .side-menu-item.on .side-menu-link-icon::after {
+        width:2px;
+        height:100%;
+    }
+
+    .side-menu-depth2 {
+        overflow:hidden;
+        height:0;
+        padding-left: 30px;
+        border-left: 1px solid #000;
+        transition: height 0.4s;
+    }
+
+    .side-menu-item:last-child .side-menu-depth2 {
+        border-left: none;
+    }
+
+    .side-menu-depth2-link {
+        display: block;
+        position: relative;
+        padding-left:15px;
+    }
+
+    .side-menu-depth2-link::before {
+        content:'';
+        display: block;
+        position: absolute;
+        top:9px;
+        left:0;
+        width:6px;
+        height:1px;
+        background-color: #000;
+    }
+
+    #wrap ~ .side-menu-depth2 {position:absolute;top:-999999px;height:auto !important;}
+</style>
+<div id="side-menu">
+    <div class="side-menu-logo">로고</div>
+    <ul class="side-menu-group">
+        <li class="side-menu-item">
+            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu1" role="button">menu1<i class="side-menu-link-icon"></i></a>
+            <ul id="sideMenu1" class="side-menu-depth2">
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-1</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-2</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu1-3</a></li>
+            </ul>
+        </li>
+        <li class="side-menu-item">
+            <a href="#" class="side-menu-link">menu2</a>
+        </li>
+        <li class="side-menu-item">
+            <a href="#" class="side-menu-link">menu3</a>
+        </li>
+        <li class="side-menu-item">
+            <a href="#" class="side-menu-link has-sub" aria-controls="sideMenu2" role="button">menu4<i class="side-menu-link-icon"></i></a>
+            <ul id="sideMenu2" class="side-menu-depth2">
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu4-1</a></li>
+                <li class="side-menu-depth2-item"><a href="#" class="side-menu-depth2-link">menu4-2</a></li>
+            </ul>
+        </li>
+    </ul>
+    <button type="button" aria-label="전체 메뉴닫기" class="btn-side-closed" onclick="popClose('#popLogin', '.side-menu-login')"><img src="./img/btn-side-menu-closed.svg" alt=""></button>
+    <div class="side-menu-dim"></div>
+</div>
+<!-- //모바일 메뉴 -->
+
+<script>
+    var sideMenuLink = document.querySelectorAll('.side-menu-link.has-sub');
+    var sideMenuItem = document.querySelectorAll('.side-menu-item');
+    var sideMenuDepth2 = document.querySelectorAll('.side-menu-item:not(.on) .side-menu-depth2');
+    sideMenuLink.forEach(function(ele) {
+        ele.setAttribute('aria-expanded', false);
+        ele.addEventListener('click', showMenuDepth2)
+    });
+
+    function showMenuDepth2(e) {
+        var ele = e.target;
+        var eleParents = closest(ele, '.side-menu-item');
+        var eleDepth2 = ele.nextElementSibling;
+        /* aria-expanded 세팅 */
+        sideMenuLink.forEach(function(ele) {
+            ele.setAttribute('aria-expanded', false);
+        });
+        ele.setAttribute('aria-expanded', true);
+        /* on 삭제 */
+        removeClass(sideMenuItem, 'on');
+        sideMenuDepth2.forEach(function(ele) {
+            ele.style.height = 0;
+        });
+        /* on 추가 */
+        eleParents.classList.add('on');
+        /* eleDepth2 높이 설정 */
+        var eleDepth2Height = getEleHeight(eleDepth2);
+        eleDepth2.style.height = eleDepth2Height + 'px';
+    }
+
+    /* 높이 구하기 */
+    function getEleHeight(ele) {
+        var eleClone = ele.cloneNode(true);
+        document.body.append(eleClone);
+        var eleCloneHeight = eleClone.clientHeight;
+        eleClone.remove();
+        return eleCloneHeight
+    }
+</script>
+        </header>
+
+<style>
+    .swiper-slide {opacity: 0;z-index: 10;transition: all 0.2s;border-radius: 10px;padding:10px;border:1px solid #ddd;background-color: #fff;width: 400px !important;}
+    .swiper-slide-prev, .swiper-slide-next {opacity: 0.5;}
+    .swiper-slide-active {opacity: 1; z-index: 20;}
+
+    .swiper-slide-prev {transform: translateX(10%) !important;}
+    .swiper-slide-next {transform: translateX(-10%) !important;}
+
+    .loadmap-item {
+        position: relative;
+        padding-left:15px;
+    }
+
+    .loadmap-item .icon-check {
+        position: absolute;
+        top:0;
+        left:0;
+        display: block;
+        width:15px;
+        height: 15px;
+        border-radius: 5px;
+        background: #000 url('./img/check.svg') no-repeat center;
+    }
+</style>
+        <div style="margin: 30px auto">
+            <div class="swiper loadmap-swiper">
+                <div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="loadmap">
+                            <li class="loadmap-item"><i class="icon-check"></i>sfsdfsdfsdfsd</li>
+                            <li class="loadmap-item"><i class="icon-check"></i>sfsdfsdfsdfsd</li>
+                            <li class="loadmap-item"><i class="icon-check"></i>sfsdfsdfsdfsd</li>
+                            <li class="loadmap-item">sadfsdf</li>
+                            <li class="loadmap-item">sadfsdf</li>
+                            <li class="loadmap-item">sadfsdf</li>
+                            <li class="loadmap-item">sadfsdf</li>
+                            <li class="loadmap-item">sadfsdf</li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide">
+                        <ul>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide">
+                        <ul>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                            <li>sadfsdf</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+          <!-- Initialize Swiper -->
+          <script>
+            var loadmapSwiper = new Swiper(".loadmap-swiper", {
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                slidesPerView: 'auto',
+                // spaceBetween: -50,
+                centeredSlides: true,
+            });
+          </script>
+
+        <footer id="footer"></footer>
+    </div>
+
+</body>
+</html>
