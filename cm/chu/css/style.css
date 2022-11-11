@@ -57,23 +57,24 @@
 .header-sns li a {
     position: relative;
     display: block;
-    width: 43px;
-    height: 43px;
+    width: 40px;
+    height: 40px;
     background-repeat: no-repeat;
     background-position: top center;
+    background-size: 100%;
 }
 
 .header-sns li.discord a {
-    background-image: url('../img/btn-discord.png');
+    background-image: url('../img/discord-white.svg');
 }
 
 .header-sns li.twitter a {
     height: 55px;
-    background-image: url('../img/btn-twitter.png');
+    background-image: url('../img/twitter-white.svg');
 }
 
 .header-sns li.telegram a {
-    background-image: url('../img/btn-telegram.png');
+    background-image: url('../img/telegram-white.svg');
 }
 
 .header-sns .sns-txt {
@@ -351,23 +352,24 @@
 .menu-sns li a {
     position: relative;
     display: block;
-    width: 43px;
-    height: 43px;
+    width: 26px;
+    height: 26px;
     background-repeat: no-repeat;
     background-position: top center;
+    background-size: 100%;
 }
 
 .menu-sns li.discord a {
-    background-image: url('../img/sns-discord.png');
+    background-image: url('../img/discord-mint.svg');
 }
 
 .menu-sns li.twitter a {
     height: 45px;
-    background-image: url('../img/sns-twitter.png');
+    background-image: url('../img/twitter-mint.svg');
 }
 
 .menu-sns li.telegram a {
-    background-image: url('../img/sns-telegram.png');
+    background-image: url('../img/telegram-mint.svg');
 }
 
 .menu-sns .sns-txt {
@@ -569,19 +571,23 @@
     background: url('../img/icon-twitter.png') no-repeat left center;
 }
 
+.team-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
 .team-item.item1,
 .team-item.item2 {
     min-height: 469px;
 }
 
-.team-item.item1 {
-    padding-left: 325px;
-    background: url('../img/team1.png') no-repeat left center;
+.team-img {
+    flex-shrink: 0;
 }
 
 .team-item.item2 {
-    padding: 0 290px 0 500px;
-    background: url('../img/team2.png') no-repeat right center;
+    /* padding: 0 290px 0 500px; */
+    padding: 0 15% 0 25%;
 }
 
 .team-item.item3,
@@ -589,15 +595,17 @@
     min-height: 269px;
 }
 
-.team-item.item3 {
-    padding-left: 500px;
-    background: url('../img/team3.png') no-repeat left center;
+.team-item.item1 .team-img,
+.team-item.item3 .team-img {
+   margin-right: 10%;
 }
 
-.team-item.item4 {
-    padding-right: 480px;
-    background: url('../img/team4.png') no-repeat right center;
+.team-item.item2 .team-img,
+.team-item.item4 .team-img {
+   margin-left: 10%;
 }
+
+
 
 
 
