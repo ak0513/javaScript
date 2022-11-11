@@ -231,7 +231,6 @@
     color:var(--menu);
     font-weight: 700;
     font-size: 30px;
-    letter-spacing: -0.5px;
 }
 
 .menu-link::before {
@@ -420,7 +419,6 @@
     font-size: 92px;
     color: var(--primary);
     font-family: 'S-Core Dream', sans-serif;
-    letter-spacing: -2px;
     line-height: 1.2;
 }
 
@@ -514,8 +512,9 @@
     display: block;
     height: 0;
     margin:0 auto;
+    max-width: 1097px;
     padding-top:42.6618%;
-    background: url('../img/tiket-bg.png') no-repeat bottom center / cover;}
+    background: url('../img/tiket-bg.png') no-repeat bottom center / 100%;}
 
 
 
@@ -534,7 +533,7 @@
     font-size: 60px;
     color: var(--primary);
     font-family: 'S-Core Dream', sans-serif;
-    letter-spacing: -3px;
+    line-height: 1.2;
 }
 
 .team-title span {
@@ -659,9 +658,12 @@
     position: absolute;
     bottom: -18px;
     left: -47px;
-    width: 425px;
-    height: 379px;
-    background: url('../img/service1-bg2.png') no-repeat;
+    width: 100%;
+    height: 0;
+    /* width: 425px;
+    height: 379px; */
+    padding-top: 89.1764%;
+    background: url('../img/service1-bg2.png') no-repeat center / 100%;
 }
 
 .service-item.item2 {
