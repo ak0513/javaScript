@@ -768,3 +768,23 @@
     /* section07 */
     
 }
+
+
+@media (max-width: 768px) {
+    /* section01 */
+
+    /* section02 */
+
+    /* section03 */
+    .team-text {
+        font-size: 12px;
+    }
+    /* section04 */
+
+    /* section05 */
+
+    /* section06 */
+
+    /* section07 */
+    
+}
