@@ -5,241 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/fonts.css">
-	<link rel="stylesheet" href="./css/docSlider.css">
+	<!-- <link rel="stylesheet" href="./css/docSlider.css"> -->
 	<link rel="stylesheet" href="./css/swiper.min.css">
 	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/style.css">
-	<script src="./js/docSlider.min.js"></script>
+	<!-- <script src="./js/docSlider.min.js"></script> -->
 	<script src="./js/swiper.min.js"></script>
 	<script src="./js/common.js"></script>
-    <title>Close Your Eyes</title>
+    <title>test</title>
 </head>
 <body>
-    <div id="skipNav">
-        <a href="#container" class="skipNav-link">본문 바로가기</a>
-    </div>
+
     <div id="wrap">
-        <header id="header">
-            <!-- 모바일 메뉴-->
+
+
 <style>
 
 
-    
-    .menu-group {
-        padding-left:5px;
-    }
-    .menu-item {
-        position:relative;
-    }
-    .menu-item::before,
-    .menu-item::after {
-        content:'';
-        display: block;
-        position:absolute;
-        background-color: #000;
-    }
-
-    .menu-item::before {
-        top:13px;
-        left:-5px;
-        width: 10px;
-        height:3px;
-    }
-    .menu-item::after {
-        top:10px;
-        left:-1px;
-        width: 3px;
-        height:10px;
-    }
-
-    .menu-link {
-        position: relative;
-        display: flex;
-        align-items: center;
-        padding:5px 0 5px 20px;
-        border-left: 1px solid #000;
-    }
-
-    .menu-link-icon {
-        position: relative;
-        width: 10px;
-        height: 10px;
-        margin-left:5px;
-        pointer-events: none;
-    }
-    .menu-link-icon::before,
-    .menu-link-icon::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top:50%;
-        left:50%;
-        background-color: #000;
-        transform: translate(-50%, -50%);
-    }
-    .menu-link-icon::before {
-        width:100%;
-        height:2px;
-    }
-
-    .menu-item.on .menu-link-icon::after {
-        width:2px;
-        height:100%;
-    }
-
-    .collapse:not(.show) {
-        display: none;
-    }
-
-    .collapsing {
-        position: relative;
-        height: 0;
-        overflow: hidden;
-        transition: height .35s ease;
-    }
-
-    .menu-depth2 {
-        padding-left: 30px;
-        border-left: 1px solid #000;
-        transition: height .35s ease;
-    }
+    body {font-size:12px;}
 
 
 
-    .menu-item:last-child .menu-depth2 {
-        border-left: none;
-    }
+    .loadmap-swiper .swiper-slide {opacity: 0;z-index: 10;transition: all 0.2s;border-radius: 10px;padding:10px;border:1px solid #ddd;background-color: #fff;width: 400px !important;}
+    .loadmap-swiper .swiper-slide-prev, 
+    .loadmap-swiper .swiper-slide-next {opacity: 0.5;}
+    .loadmap-swiper .swiper-slide-active {opacity: 1; z-index: 20;}
 
-    .menu-depth2-link {
-        display: block;
-        position: relative;
-        padding-left:15px;
-    }
+    .loadmap-swiper .swiper-slide-prev {transform: translateX(10%) !important;}
+    .loadmap-swiper .swiper-slide-next {transform: translateX(-10%) !important;}
 
-    .menu-depth2-link::before {
-        content:'';
-        display: block;
-        position: absolute;
-        top:9px;
-        left:0;
-        width:6px;
-        height:1px;
-        background-color: #000;
-    }
-
-    #wrap ~ .menu-depth2 {display:block !important;position:absolute;top:-999999px;height:auto !important;}
-</style>
-<div id="sideMenu">
-    <div class="menu-logo"></div>
-    <ul class="menu-group">
-        <li class="menu-item">
-            <a href="#" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></a>
-            <ul id="sideProject" class="menu-depth2 collapse">
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">team</a></li>
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">TaaS</a></li>
-            </ul>
-        </li>
-        <li class="menu-item"><a href="#" class="menu-link">Road Map</a></li>
-        <li class="menu-item"><a href="#" class="menu-link">Story</a></li>
-        <li class="menu-item">
-            <a href="#" class="menu-link has-sub" aria-controls="sidePoint">Point<i class="menu-link-icon"></i></a>
-            <ul id="sidePoint" class="menu-depth2 collapse">
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Check</a></li>
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Histroy</a></li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="#" class="menu-link has-sub" aria-controls="sideShop">Shop<i class="menu-link-icon"></i></a>
-            <ul id="sideShop" class="menu-depth2 collapse">
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Goods</a></li>
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Raffle</a></li>
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Offine</a></li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="#" class="menu-link has-sub" aria-controls="sidePlayground">Playground<i class="menu-link-icon"></i></a>
-            <ul id="sidePlayground" class="menu-depth2 collapse">
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">News</a></li>
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Mini-Game</a></li>
-                <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">CHul-Check</a></li>
-            </ul>
-        </li>
-    </ul>
-
-    <ul class="menu-sns">
-        <li class="discord"><a href="https://discord.com/invite/cye" target="_blank"><span class="a11y">디스코드</span></a></li>
-        <li class="twitter">
-            <a href="https://twitter.com/closeyoureyesV0" target="_blank">
-                <span class="a11y">트위터</span>
-                <span class="sns-txt">V0</span>
-           </a>
-        </li>
-        <li class="twitter">
-            <a href="https://twitter.com/CYE_nft" target="_blank">
-                <span class="a11y">트위터</span>
-                <span class="sns-txt">V1</span>
-            </a>
-        </li>
-        <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li>
-    </ul>
-
-    <ul class="menu-lang">
-        <li class="menu-lang-item"><a href="" target="_blank" class="menu-lang-link"></a></li>
-        <li class="menu-lang-item"><a href="" target="_blank" class="menu-lang-link"></a></li>
-    </ul>
-    <button type="button" aria-label="전체 메뉴닫기" class="btn-side-closed" onclick="popClose('#sideMenu')"></button>
-    <div class="menu-dim"></div>
-</div>
-<!-- //모바일 메뉴 -->
-
-<script>
-    /* var sideMenuLink = document.querySelectorAll('.menu-link.has-sub');
-    var sideMenuItem = document.querySelectorAll('.menu-item');
-    var sideMenuDepth2 = document.querySelectorAll('.menu-item:not(.on) .menu-depth2');
-    sideMenuLink.forEach(function(ele) {
-        ele.setAttribute('aria-expanded', false);
-        ele.addEventListener('click', showMenuDepth2)
-    });
- 
-    function showMenuDepth2(e) {
-        var ele = e.target;
-        var eleParents = closest(ele, '.menu-item');
-        var eleDepth2 = ele.nextElementSibling;
-        // aria-expanded 세팅
-        sideMenuLink.forEach(function(ele) {
-            ele.setAttribute('aria-expanded', false);
-        });
-        ele.setAttribute('aria-expanded', true);
-        // on 삭제
-        removeClass(sideMenuItem, 'on');
-        sideMenuDepth2.forEach(function(ele) {
-            ele.style.height = 0;
-        });
-        // on 추가
-        eleParents.classList.add('on');
-        // eleDepth2 높이 설정
-        var eleDepth2Height = getEleHeight(eleDepth2);
-        eleDepth2.style.height = eleDepth2Height + 'px';
-    }
-
-    // 높이 구하기
-    function getEleHeight(ele) {
-        var eleClone = ele.cloneNode(true);
-        document.body.append(eleClone);
-        var eleCloneHeight = eleClone.clientHeight;
-        eleClone.remove();
-        return eleCloneHeight
-    }*/
-</script>
-        </header>
-
-<style>
-    .swiper-slide {opacity: 0;z-index: 10;transition: all 0.2s;border-radius: 10px;padding:10px;border:1px solid #ddd;background-color: #fff;width: 400px !important;}
-    .swiper-slide-prev, .swiper-slide-next {opacity: 0.5;}
-    .swiper-slide-active {opacity: 1; z-index: 20;}
-
-    .swiper-slide-prev {transform: translateX(10%) !important;}
-    .swiper-slide-next {transform: translateX(-10%) !important;}
 
     .loadmap-item {
         position: relative;
@@ -256,7 +50,18 @@
         border-radius: 5px;
         background: #000 url('./img/check.svg') no-repeat center;
     }
+
+    @media (max-width: 768px) {
+        .loadmap-swiper .swiper-wrapper {display: block;height:auto;}
+        .loadmap-swiper .swiper-slide {opacity: 1;width: 100% !important;}
+        .loadmap-swiper .swiper-slide-prev, 
+        .loadmap-swiper .swiper-slide-next {opacity: 1; transform: translateX(0) !important}
+        .loadmap-swiper .swiper-button-prev,
+        .loadmap-swiper .swiper-button-next {display: none;}
+    }
 </style>
+
+
         <div style="margin: 30px auto">
             <div class="swiper loadmap-swiper">
                 <div class="swiper-button-prev"></div>
@@ -264,7 +69,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <ul class="loadmap">
-                            <li class="loadmap-item"><i class="icon-check"></i>sfsdfsdfsdfsd</li>
+                            <li class="loadmap-item"><i class="icon-check"></i>1</li>
                             <li class="loadmap-item"><i class="icon-check"></i>sfsdfsdfsdfsd</li>
                             <li class="loadmap-item"><i class="icon-check"></i>sfsdfsdfsdfsd</li>
                             <li class="loadmap-item">sadfsdf</li>
@@ -307,30 +112,100 @@
                     </div>
                 </div>
             </div>
+
+
+            <button type="button" class="thumb" onclick="popOpen('#popup', this);">팝업열기</button>
         </div>
+
+
       
-          <!-- Initialize Swiper -->
           <script>
-            var loadmapSwiper = new Swiper(".loadmap-swiper", {
-                loop: true,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                slidesPerView: 'auto',
-                centeredSlides: true,
-                on: {
-                    init: function() {
-                        this.slides.forEach(function(ele) {
-                            ele.setAttribute('tabindex', 0)
+                var loadmapSwiper = undefined;
+                function initLoadmapSwiper() {
+                    var screenWidth = window.innerWidth;
+                    if(screenWidth > 768 && loadmapSwiper === undefined) {
+                        loadmapSwiper = new Swiper('.loadmap-swiper',{
+                            loop: true,
+                            navigation: {
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                            },
+                            slidesPerView: 'auto',
+                            centeredSlides: true,
+                            on: {
+                                init: function() {
+                                    this.slides.forEach(function(ele) {
+                                        ele.setAttribute('tabindex', 0)
+                                    });
+                                }
+                            },
                         });
+                    } else if(screenWidth < 769 && loadmapSwiper !== undefined) {
+                        loadmapSwiper.destroy();
+                        loadmapSwiper = undefined;
+                        document.querySelector('.loadmap-swiper .swiper-wrapper').removeAttribute('style');
+                        document.querySelector('.loadmap-swiper .swiper-slide').removeAttribute('style');
                     }
                 }
-            });
+                initLoadmapSwiper();
+                window.addEventListener('resize', function() {
+                    initLoadmapSwiper();
+                })
           </script>
+
+          
 
         <footer id="footer"></footer>
     </div>
+
+    <div id="popup" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+		<div class="pop-inner">
+			<div id="popupLabel" class="pop-header">
+				팝업 타이틀
+			</div>
+			<div class="pop-conts">
+				<div class="swiper thumb-swiper">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-1.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                           <img src="https://swiperjs.com/demos/images/nature-2.jpg">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-3.jpg">
+                        </div>
+                    </div>
+                </div>
+			</div>
+			<div class="pop-footer">
+				팝업 하단
+				<button type="button" class="" onclick="popClose('#popup')">팝업 닫기</button>
+			</div>
+		</div>
+	</div>
+
+    <script>
+        var thumbSwiper = new Swiper('.thumb-swiper',{
+            
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 'auto',
+            observer: true,
+            obserParents:true,
+            on: {
+                init: function() {
+                    this.slides.forEach(function(ele) {
+                        ele.setAttribute('tabindex', 0)
+                    });
+                }
+            },
+        });
+    </script>
 
 </body>
 </html>

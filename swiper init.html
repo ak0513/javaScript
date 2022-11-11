@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../common/swiper/swiper.min.css">
+	<script src="../common/swiper/swiper.min.js"></script>
+    <title>Swiper init</title>
+</head>
+<body>
+
+
+
+<style>
+*{margin:0;padding:0;box-sizing: border-box;}
+    .swiper-slide {border-radius: 10px;padding:10px;border:1px solid #ddd;background-color: #fff;}
+@media (max-width: 768px) {
+    .swiper-wrapper{display: block;}
+    .swiper-button-prev, .swiper-button-next {display: none;}
+}
+</style>
+        <div style="margin: 30px auto">
+            <div class="swiper loadmap-swiper">
+                <div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                       1
+                    </div>
+                    <div class="swiper-slide">
+                       2
+                    </div>
+                    <div class="swiper-slide">
+                        3
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+          <script>
+                var loadmapSwiper = undefined;
+                function initSwiper() {
+                    var screenWidth = window.innerWidth;
+                    if(screenWidth > 768 && loadmapSwiper === undefined) {
+                        loadmapSwiper = new Swiper('.loadmap-swiper',{
+                            loop: true,
+                            navigation: {
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                            },
+                            slidesPerView: 'auto',
+                            on: {
+                                init: function() {
+                                    this.slides.forEach(function(ele) {
+                                        ele.setAttribute('tabindex', 0)
+                                    });
+                                }
+                            },
+                        });
+                    } else if(screenWidth < 769 && loadmapSwiper !== undefined) {
+                        loadmapSwiper.destroy();
+                        loadmapSwiper = undefined;
+                        document.querySelector('.loadmap-swiper .swiper-wrapper').removeAttribute('style');
+                        document.querySelector('.loadmap-swiper .swiper-slide').removeAttribute('style');
+                    }
+                }
+                initSwiper();
+                window.addEventListener('resize', function() {
+                    initSwiper();
+                })
+          </script>
+
+</body>
+</html>
