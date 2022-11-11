@@ -16,10 +16,14 @@
 </head>
 <body>
     <h1 class="a11y">Close Your Eyes</h1>
+    <!-- skipNav -->
     <div id="skipNav">
         <a href="#container" class="skipNav-link">본문 바로가기</a>
     </div>
+    <!-- //skipNav -->
+
     <div id="wrap">
+        <!-- header -->
         <header id="header">
             <button type="button" class="btn-nav-open" aria-label="전체메뉴 열기" onclick="popOpen('#sideMenu', this);"><span></span></button>
             <!-- 로그인 전 -->
@@ -46,16 +50,21 @@
                 <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li>
             </ul>
         </header>
+        <!-- //header -->
 
+        <!-- container -->
         <div id="container">
             <div class="docSlider">
+                <!-- section01 -->
                 <section class="section01">
                     <video id="video" loop muted >
                         <source src="./img/chuchuCAT_V3_promo.mp4" type="video/mp4">
                         이 문장은 여러분의 브라우저가 video 태그를 지원하지 않을 때 화면에 표시됩니다.
                     </video>
                 </section>
+                <!-- // section01 -->
 
+                <!-- section02 -->
                 <section class="section02">
                     <ul class="tiket">
                         <li class="tiket-item item1"><a href="https://opensea.io/collection/cye-chuchucat-v0" target="_blank" class="tiket-link"><span class="a11y">OPEN SEA</span></a></li>
@@ -66,7 +75,9 @@
                     </ul>
                     <div class="tiket-bg"><span></span></div>
                 </section>
+                <!-- //section02 -->
 
+                <!-- section03 -->
                 <section class="section03">
                     <div class="team-wrap">
                         <h2 class="title">Project <span>Team</span></h2>
@@ -122,6 +133,9 @@
                         </ul>
                     </div>
                 </section>
+                <!-- //section03 -->
+
+                <!-- section04 -->
                 <section class="section04">
                     <div class="servie-wrap">
                         <h2 class="title"><span>TaaS:</span>Toy as a Service</h2>
@@ -172,19 +186,85 @@
                         </div>
 
                         <h2 class="title"><span>TaaS:</span>진행절차</h2>
-
+                        <div class="process-wrap">
+                            <ul class="process">
+                                <li class="process-item">
+                                    <div class="process-num"></div>
+                                    <div class="process-img"><img src="./img/process-img1.jpg" alt=""></div>
+                                    <h3 class="process-title"></h3>
+                                    <ul class="process-info">
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                    </ul>
+                                </li>
+                                <li class="process-item">
+                                    <div class="process-num"></div>
+                                    <div class="process-img"><img src="./img/process-img2.jpg" alt=""></div>
+                                    <h3 class="process-title"></h3>
+                                    <ul class="process-info">
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                    </ul>
+                                </li>
+                                <li class="process-item">
+                                    <div class="process-num"></div>
+                                    <div class="process-img"><img src="./img/process-img3.jpg" alt=""></div>
+                                    <h3 class="process-title"></h3>
+                                    <ul class="process-info">
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                    </ul>
+                                </li>
+                                <li class="process-item">
+                                    <div class="process-num"></div>
+                                    <div class="process-img"><img src="./img/process-img4.jpg" alt=""></div>
+                                    <h3 class="process-title"></h3>
+                                    <ul class="process-info">
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                    </ul>
+                                </li>
+                                <li class="process-item">
+                                    <div class="process-num"></div>
+                                    <div class="process-img"><img src="./img/process-img5.jpg" alt=""></div>
+                                    <h3 class="process-title"></h3>
+                                    <ul class="process-info">
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                        <li class="process-info-item"></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
-                <section class="section05">55</section>
-                <section class="section06">66</section>
-                <section class="section07">77</section>
+                <!-- //section04 -->
+
+                <!-- section05 -->
+                <section class="section05">
+                    <h2 class="title">Road Map</h2>
+                </section>
+                <!-- //section05 -->
+
+                <!-- section06 -->
+                <section class="section06">
+                    <h2 class="title">Story</h2>
+
+                    <!-- footer -->
+                    <footer id="footer"></footer>
+                    <!-- //footer -->
+                </section>
+                <!-- //section06 -->
             </div>
         </div>
-
-        <footer id="footer"></footer>
-
+        <!-- //container -->
     </div>
 
+    <!-- 전체메뉴 -->
     <div id="sideMenu">
         <div class="menu-wrap">
             <div class="menu-logo"><img src="./img/logo.png" alt=""></div>
@@ -253,12 +333,12 @@
         </div>
         <div class="menu-dim" onclick="popClose('#sideMenu')"></div>
     </div>
-
-    <script>
+    <!-- //전체메뉴 -->
+   
+   <script>
         window.addEventListener('DOMContentLoaded', function() {
             docSlider.init();
         });
-
     </script>
 </body>
 </html>
