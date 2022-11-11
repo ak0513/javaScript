@@ -21,6 +21,22 @@
 #wrap {
     position: relative;
     z-index: 10;
+    display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+/* container */
+#container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.container-inner {
+	max-width: 1340px;
+	margin:0 auto;
+	padding:0 20px;
 }
 
 .header-wallet {
@@ -731,4 +747,24 @@
 
 .service-info + .title {
     margin-top:170px;
+}
+
+
+@media (max-width: 1280px) {
+    /* section01 */
+
+    /* section02 */
+
+    /* section03 */
+    .team-text {
+        font-size: 17px;
+    }
+    /* section04 */
+
+    /* section05 */
+
+    /* section06 */
+
+    /* section07 */
+    
 }
