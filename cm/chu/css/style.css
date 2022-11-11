@@ -750,6 +750,32 @@
 }
 
 
+.loadmap-swiper .swiper-slide {opacity: 0;z-index: 10;transition: all 0.2s;border-radius: 10px;padding:10px;border:1px solid #ddd;background-color: #fff;width: 400px !important;}
+.loadmap-swiper .swiper-slide-prev, 
+.loadmap-swiper .swiper-slide-next {opacity: 0.5;}
+.loadmap-swiper .swiper-slide-active {opacity: 1; z-index: 20;}
+
+.loadmap-swiper .swiper-slide-prev {transform: translateX(10%) !important;}
+.loadmap-swiper .swiper-slide-next {transform: translateX(-10%) !important;}
+
+
+.loadmap-item {
+    position: relative;
+    padding-left:15px;
+}
+
+.loadmap-item .icon-check {
+    position: absolute;
+    top:0;
+    left:0;
+    display: block;
+    width:15px;
+    height: 15px;
+    border-radius: 5px;
+    background: #000 url('./img/check.svg') no-repeat center;
+}
+
+
 @media (max-width: 1280px) {
     /* section01 */
 
@@ -782,6 +808,12 @@
     /* section04 */
 
     /* section05 */
+    .loadmap-swiper .swiper-wrapper {display: block;height:auto;}
+    .loadmap-swiper .swiper-slide {opacity: 1;width: 100% !important;}
+    .loadmap-swiper .swiper-slide-prev, 
+    .loadmap-swiper .swiper-slide-next {opacity: 1; transform: translateX(0) !important}
+    .loadmap-swiper .swiper-button-prev,
+    .loadmap-swiper .swiper-button-next {display: none;}
 
     /* section06 */
 
