@@ -1279,9 +1279,19 @@
         padding-left: 48px;
     }
 
+    .menu-lang-link {
+        font-size: 17px;
+    }
+
     .menu-logout {
         margin:15px 0;
         padding-left: 45px;
+    }
+
+    .btn-logout {
+        width: 84px;
+        height: 24px;
+        font-size: 11px;
     }
 
 
