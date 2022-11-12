@@ -1127,6 +1127,15 @@
         width: 450px !important;
     }
 
+    .loadmap-swiper .swiper-button-prev {
+        margin-left: -290px;
+    }
+
+    .loadmap-swiper .swiper-button-next {
+        margin-left: 262px;
+    }
+
+
 }
 
 @media (max-width: 980px) {
