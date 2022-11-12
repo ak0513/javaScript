@@ -776,6 +776,31 @@ table td {
 	display: none;
 }
 
+@media (min-width: 981px) {
+	.h-tit1 {
+		overflow: hidden;
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		border: 0;
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(50%);
+	}
+}
+
+@media (max-width: 980px) {
+	.h-tit1 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 68px;
+		background-color: #fff;
+		border-bottom:1px solid #000;
+		font-size:16px;
+	}
+}
+
 @media (max-width: 768px) {
 	:root {
 		--font-basic: 1.6rem;

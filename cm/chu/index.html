@@ -15,7 +15,6 @@
     <title>Close Your Eyes</title>
 </head>
 <body>
-    <h1 class="a11y">Close Your Eyes</h1>
     <!-- skipNav -->
     <div id="skipNav">
         <a href="#container" class="skipNav-link">본문 바로가기</a>
@@ -25,13 +24,14 @@
     <div id="wrap">
         <!-- header -->
         <header id="header">
+            <h1 class="h-tit1">Close Your Eyes</h1>
             <button type="button" class="btn-nav-open" aria-label="전체메뉴 열기" onclick="popOpen('#sideMenu', this);"><span></span></button>
-            <!-- 로그인 전 -->
+            <!-- PC 로그인 전 -->
             <div class="header-wallet">Connect Wallet</div>
-            <!-- //로그인 전 -->
-            <!-- 로그인 후 -->
+            <!-- //PC 로그인 전 -->
+            <!-- PC 로그인 후 -->
             <div class="header-wallet login">0x43E8...0532</div>
-            <!-- //로그인 후 -->
+            <!-- //PC 로그인 후 -->
 
             <ul class="header-sns">
                 <li class="discord"><a href="https://discord.com/invite/cye" target="_blank"><span class="a11y">디스코드</span></a></li>
@@ -371,6 +371,15 @@
     <div id="sideMenu">
         <div class="menu-wrap">
             <div class="menu-logo"><img src="./img/logo.png" alt=""></div>
+            <!-- MO 로그인 후 -->
+            <div class="header-login-m">
+                <img src="./img/login-img.png" alt=""  class="login-img">
+                <div class="login-info">
+                    <div class="login-id">0x43E8...0532</div>
+                    <div class="login-point">총 가용 추<span>(포인트)</span> : 999,350</div>
+                </div>
+            </div>
+            <!-- //MO 로그인 후 -->
             <ul class="menu-group">
                 <li class="menu-item">
                     <a href="#" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></a>
