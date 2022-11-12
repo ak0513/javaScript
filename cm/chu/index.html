@@ -88,7 +88,7 @@
                                     <h3 class="team-title"><span>artist</span> 205</h3>
                                     <p class="team-text">
                                         "이공오" 작가는 국내 최고 아트토이 그룹 "NWT"의 대표 입니다.<br>
-                                        현재 팝마트, 나이키, 텐센트 등 다양한 글로벌 브랜드와 협업 중이고, 일러스트레이터를 겸하며 새로운 IP 생산에 매진 중 입니다.<br>
+                                        현재 팝마트, 나이키, 텐센트 등 다양한 글로벌 브랜드와 협업 중이고, <br>일러스트레이터를 겸하며 새로운 IP 생산에 매진 중 입니다.<br>
                                         대표작으로는 astroCAT, rabbiTT, ohFACE, spaceHOOD, chuchuCAT 등이 있습니다.
                                     </p>
                                     <div class="team-sns">
@@ -118,7 +118,7 @@
                                 <div class="team-info">
                                     <h3 class="team-title">Marketing & CM Unit</h3>
                                     <p class="team-text">
-                                        NFT 크리에이티브 유닛 - CYE의 방향성 기획, 커뮤니티 빌드업 & 운영, 이벤트 기획 및 운영 등 프로젝트 전반의 활동을 담당합니다.<br>
+                                        NFT 크리에이티브 유닛 - CYE의 방향성 기획, 커뮤니티 빌드업 & 운영, <br>이벤트 기획 및 운영 등 프로젝트 전반의 활동을 담당합니다.<br>
                                         PM - Rara C, PL - ZΞRO, Unit - Vella, 1ETH, LangYi, Raon, JUDDY
                                     </p>
                                 </div>
@@ -142,34 +142,39 @@
                         <p class="sub-txt">"Toy와 Goods를 국내외 NFT 팀들이 손쉽게 확보할 수 있는 서비스"</p>
                         <div class="service">
                             <ul class="service-group">
-                                <li class="service-item item1">10년간<br>
+                                <li class="service-item item1">
+                                    10년간<br class="pc">
                                     다양한 종류의 <br>
-                                    <strong>아트토이를<br>
+                                    <strong>아트토이를<br class="pc">
                                     자체 IP로 <br>
                                     직접 제작 및 판매</strong>
-                                    </li>
-                                <li class="service-item item2">세계 최고 토이 기업 <br>
+                                </li>
+                                <li class="service-item item2">
+                                    세계 최고 토이 기업 <br>
                                     <strong>팝마트와 전속 계약</strong> 및 <br>
                                     <strong>다양한 브랜드와 협업</strong><br>
-                                    (나이키, 팝마트, <br>
-                                    PUBG, <br>
-                                    GXG 등)</li>
-                                <li class="service-item item3">다양한 내부 네트 워크, <br>
+                                    (나이키, 팝마트, <br class="pc">
+                                    PUBG, <br class="pc">
+                                    GXG 등)
+                                </li>
+                                <li class="service-item item3">
+                                    다양한 내부 네트 워크, <br class="pc">
                                     글로벌 탑클래 <br>
-                                    스토리 작가, <br>
+                                    스토리 작가, <br class="pc">
                                     3D 모델러,<br>
                                     일러스트레이터,<br> 
-                                    <strong>생산자 라인 구축</strong></li>
+                                    <strong>생산자 라인 구축</strong>
+                                </li>
                                 <li class="service-item item4">
                                     <strong>해외 전시를 통한 글로벌<br> 
                                     오프라인 인프라확보 : </strong><br>
-                                    중국 을 시작으로 <br>
+                                    중국 을 시작으로 <br class="pc">
                                     세계 각국의 <br>
-                                    아트 토이 <br>
-                                    전시를 통한 <br>
+                                    아트 토이 <br class="pc">
+                                    전시를 통한 <br class="pc">
                                     오프라인 <br>
-                                    트래픽에 <br>
-                                    브랜드 홍보 및<br> 
+                                    트래픽에 <br class="pc">
+                                    브랜드 홍보 및<br class="pc"> 
                                     노출
                                 </li>
                             </ul>
@@ -440,7 +445,7 @@
             var loadmapSwiper = undefined;
             function initLoadmapSwiper() {
                 var screenWidth = window.innerWidth;
-                if(screenWidth > 768 && loadmapSwiper === undefined) {
+                if(screenWidth > 980 && loadmapSwiper === undefined) {
                     loadmapSwiper = new Swiper('.loadmap-swiper',{
                         loop: true,
                         navigation: {
@@ -457,7 +462,7 @@
                             }
                         },
                     });
-                } else if(screenWidth < 769 && loadmapSwiper !== undefined) {
+                } else if(screenWidth < 981 && loadmapSwiper !== undefined) {
                     loadmapSwiper.destroy();
                     loadmapSwiper = undefined;
                     document.querySelector('.loadmap-swiper .swiper-wrapper').removeAttribute('style');
