@@ -234,14 +234,14 @@ body {
 	display: none;
 }
 
-.video-wrap.playing #btn-play,
+/* .video-wrap.playing #btn-play, */
 .video-wrap.playing #btn-pause,
 .video-wrap.playing #btn-mute,
 .video-wrap.playing #btn-unmute {
 	opacity: 0;
 }
 
-.video-wrap.playing:hover #btn-play,
+/* .video-wrap.playing:hover #btn-play, */
 .video-wrap.playing:hover #btn-pause,
 .video-wrap.playing:hover #btn-mute,
 .video-wrap.playing:hover #btn-unmute {
