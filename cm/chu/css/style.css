@@ -458,7 +458,7 @@
 .section04,
 .section05,
 .section06 {
-    padding:7.5% 10% 9%;
+    padding:calc(7.5% + 68px) 10% 9%;
 }
 
 /* section01 */
@@ -690,6 +690,10 @@
     color: var(--secondary);
 }
 
+.section04 .sub-txt br.mo {
+    display: none;
+}
+
 .service {
     margin: 7.2% auto 0;
 }
@@ -707,10 +711,6 @@
     height: 684px;
     margin: 10px;
     padding: 57px 40px 0;
-}
-
-.service-item br.mo {
-    display: none;
 }
 
 .service-item.item1 {
@@ -1406,9 +1406,6 @@
     .service-item br.pc {
         display: none;
     }
-    .service-item br.mo {
-        display: inline;
-    }
     .service-item.item1 {
         background: url('../img/service1-bg-m.png') no-repeat center / 100%;
     }
@@ -1443,17 +1440,6 @@
         height:152px;
         background: url('../img/service4-bg2-m.png') no-repeat center / 100%;
     }
-
-
-
-
-
-
-
-
-
-
-
 
     .process-wrap {
         margin: 60px 0 0;
@@ -1648,6 +1634,14 @@
         padding: 0 16px;
     }
 
+    .tiket-item + .tiket-item {
+        margin-left:3px;
+    }
+
+    .tiket-item.item2 {
+        margin-left:21px;
+    }
+
     /* section03 */
 
     .team-item.item3,
@@ -1703,6 +1697,10 @@
         font-size: 12px;
     }
 
+    .team-text br.pc {
+        display: none;
+    }
+
     .team-title {
         font-size: 21px;
     }
@@ -1737,6 +1735,9 @@
     }
 
     /* section04 */
+    .section04 .sub-txt br.mo {
+        display: inline;
+    }
     .service-info .sub-txt2 {
         font-size: 12px;
     }

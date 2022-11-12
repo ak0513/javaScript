@@ -95,6 +95,8 @@ body {
 	font-size: var(--font-basic);
 	color: var(--black);
 	font-family: 'Nanum Gothic', sans-serif;
+	word-break: keep-all;
+    word-wrap: break-word;
 }
 
 /* 접근성 */
@@ -806,10 +808,6 @@ table td {
 @media (max-width: 768px) {
 	:root {
 		--font-basic: 1.6rem;
-	}
-
-	br.pc {
-		display: none;
 	}
 
 	.gutter-md-x4 {margin-left: calc(var(--gutter4) * -1);margin-right: calc(var(--gutter4) * -1);}
