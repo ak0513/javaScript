@@ -241,11 +241,13 @@ body {
 	opacity: 0;
 }
 
-/* .video-wrap.playing:hover #btn-play, */
-.video-wrap.playing:hover #btn-pause,
-.video-wrap.playing:hover #btn-mute,
-.video-wrap.playing:hover #btn-unmute {
-	opacity: 1;
+@media (hover: hover) {
+	/* .video-wrap.playing:hover #btn-play, */
+	.video-wrap.playing:hover #btn-pause,
+	.video-wrap.playing:hover #btn-mute,
+	.video-wrap.playing:hover #btn-unmute {
+		opacity: 1;
+}
 }
 
 /* info */
