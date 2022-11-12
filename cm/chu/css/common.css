@@ -797,9 +797,11 @@ table td {
 		height: 68px;
 		background-color: #fff;
 		border-bottom:1px solid #000;
-		font-size:16px;
+		font-size:24px;
 	}
 }
+
+
 
 @media (max-width: 768px) {
 	:root {
@@ -848,8 +850,8 @@ table td {
 	.col-md-12 {max-width:100% !important;}
 
 
-	.main-visual {
-		height: 200px;
+	.h-tit1 {
+		font-size:16px;
 	}
 
 }
@@ -891,9 +893,4 @@ table td {
 	.col-sm-10 {max-width:83.3333% !important;}
 	.col-sm-11 {max-width:91.6666% !important;}
 	.col-sm-12 {max-width:100% !important;}
-}
-
-
-.docSlider-button {
-	opacity: 1;
 }

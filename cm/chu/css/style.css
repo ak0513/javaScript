@@ -1178,6 +1178,7 @@
 
     /* nav */
     .menu-wrap {
+        width: 300px;
         padding-top:67px;
     }
 
@@ -1197,7 +1198,7 @@
         display: flex;
         align-items: center;
         background-color: #fff;
-        padding: 10px 18px;
+        padding: 10px 18px 10px 10px;
     }
 
     .login-img {
@@ -1215,6 +1216,7 @@
         background-color: #5c0071;
         border-radius: 5px;
         color:#fff200;
+        font-size: 14px;
     }
 
     .login-point span {
