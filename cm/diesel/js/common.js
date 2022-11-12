@@ -6,19 +6,20 @@ window.addEventListener('DOMContentLoaded', function() {
 		btnMute = document.getElementById("btn-mute");
 		btnUnmute = document.getElementById("btn-unmute");
 	
-	btnPlay.addEventListener("click",function(){
+	btnPlay.addEventListener("click",function() {
 		playVideo(player);
 		video.classList.add('playing');
+		video.focus();
 	});
-	btnPause.addEventListener("click",function(){
+	btnPause.addEventListener("click",function() {
 		pauseVideo(player);
 		video.classList.remove('playing');
 	});
-	btnMute.addEventListener("click",function(){
+	btnMute.addEventListener("click",function() {
 		enableMute(player);
 		video.classList.add('mute');
 	});
-	btnUnmute.addEventListener("click",function(){
+	btnUnmute.addEventListener("click",function() {
 		disableMute(player);
 		video.classList.remove('mute');
 	});
