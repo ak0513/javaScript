@@ -37,15 +37,6 @@ window.addEventListener('DOMContentLoaded', function() {
 	player.addEventListener('touchstart', function() {
 		video.classList.add('touch')
 	})
-
-	var aa = this.document.querySelectorAll('.btn-controls');
-	aa.forEach(function(ele) {
-		ele.addEventListener('click',function() {
-			alert(
-				video.classList
-			)
-		})
-	})
 });
 
 
