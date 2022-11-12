@@ -247,7 +247,14 @@ body {
 	.video-wrap.playing:hover #btn-mute,
 	.video-wrap.playing:hover #btn-unmute {
 		opacity: 1;
+	}
 }
+
+.video-wrap.touch:hover #btn-play,
+.video-wrap.touch:hover #btn-pause,
+.video-wrap.touch:hover #btn-mute,
+.video-wrap.touch:hover #btn-unmute {
+	opacity: 1;
 }
 
 /* info */

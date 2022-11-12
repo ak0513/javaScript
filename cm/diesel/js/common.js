@@ -31,7 +31,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		video.classList.remove('playing');
 	}
 
-	console.log(player)
+	video.addEventListener('touchstart', function() {
+		alert('aa');
+		video.classList.add('touch')
+	})
 });
 
 
