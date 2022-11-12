@@ -1297,13 +1297,13 @@
 
 
     /* 메인 */
-    .docSlider {
+    /* .docSlider {
 		top: 68px;
 		height: calc(100vh - 68px);
 	}
 	.docSlider-inner {
 		top: 68px;
-	}
+	} */
 
     .title {
         font-size: 62px;
@@ -1319,6 +1319,10 @@
 
     .title2+.sub-txt {
         font-size: 20px;
+    }
+
+    .section02 {
+        padding-top:118px;
     }
 
     .section03,
@@ -1636,7 +1640,7 @@
     .section04,
     .section05,
     .section06 {
-        padding:50px 16px;
+        padding:118px 16px 50px;
     }
 
     /* section02 */
