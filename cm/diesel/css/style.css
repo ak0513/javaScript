@@ -167,6 +167,8 @@ body {
 }
 
 #video {
+	position: relative;
+	z-index: 5;
 	display: block;
 	width: 100%;
 	height: auto;

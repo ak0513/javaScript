@@ -13,14 +13,17 @@ window.addEventListener('DOMContentLoaded', function() {
 	btnPause.addEventListener("click",function() {
 		pauseVideo(player);
 		video.classList.remove('playing');
+		video.classList.remove('touch');
 	});
 	btnMute.addEventListener("click",function() {
 		enableMute(player);
 		video.classList.add('mute');
+		video.classList.remove('touch');
 	});
 	btnUnmute.addEventListener("click",function() {
 		disableMute(player);
 		video.classList.remove('mute');
+		video.classList.remove('touch');
 	});
 
 	player.onplaying = function() { 
@@ -31,8 +34,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		video.classList.remove('playing');
 	}
 
-	video.addEventListener('touchstart', function() {
-		alert('aa');
+	player.addEventListener('touchstart', function() {
 		video.classList.add('touch')
 	})
 });
