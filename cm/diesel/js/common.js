@@ -9,7 +9,10 @@ window.addEventListener('DOMContentLoaded', function() {
 	btnPlay.addEventListener("click",function() {
 		playVideo(player);
 		video.classList.add('playing');
-		video.focus();
+		setTimeout(function() {
+			video.classList.remove('playing')
+			video.classList.add('playing')
+		},1000)
 	});
 	btnPause.addEventListener("click",function() {
 		pauseVideo(player);
