@@ -632,6 +632,36 @@
     font-size: 22px;
 }
 
+/* 서브 page-header */
+#page-header {
+    margin-bottom: 65px;
+    color:#5c0071;
+}
+.page-header-txt {
+   font-size: 20px;
+   font-weight: 700;
+}
+
+.page-tit {
+    font-size: 62px;
+    font-weight: 700;
+    font-family: 'S-Core Dream', sans-serif;
+}
+
+.page-tit span {
+    font-family: 'Nanum Gothic';
+    font-weight: 400;
+}
+
+.page-tit span small {
+    font-size: 36px;
+}
+
+.page-tit span small i {
+    font-style: normal;
+    font-size: 20px;
+}
+
 @media (max-width: 1600px) {
     /* section03 1600px */
     .team-text {
