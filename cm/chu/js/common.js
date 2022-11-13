@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// this 슬라이드
 		if(eleDepth2.classList.contains('show')) {
+			removeClass(sideMenuItem, 'on');
 			hideCollapse(eleDepth2);
 		} else {
 			showCollapse(eleDepth2);

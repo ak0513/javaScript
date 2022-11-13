@@ -1060,6 +1060,14 @@ table td {
     background-color: var(--menu);
 }
 
+.menu-depth2-link:hover {
+	color:#fff;
+}
+
+.menu-depth2-link:hover::before {
+	background-color: #fff;
+}
+
 #wrap~.menu-depth2 {
     display: block !important;
     position: absolute;
@@ -1337,10 +1345,6 @@ table td {
 
 	.menu-depth2-link::before {
 		top:13px;
-	}
-	
-	.menu-depth2-link:hover {
-		color:#fff;
 	}
 
     .menu-item::before {
