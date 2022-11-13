@@ -1335,6 +1335,14 @@ table td {
         font-size: 18px;
     }
 
+	.menu-depth2-link::before {
+		top:13px;
+	}
+	
+	.menu-depth2-link:hover {
+		color:#fff;
+	}
+
     .menu-item::before {
         top: 15px;
         left: -4px;

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<!-- <meta property="og:url" content="공유시 이동 url"> -->
+	<meta property="og:title" content="Close Your Eyes">
+	<meta property="og:type" content="website">
+	<!-- <meta property="og:image" content="./img/og-img.png"> -->
+	<!-- <meta property="og:description" content="공유시 보여질 설명"> -->
+    <!-- <link rel="icon" href="./img/favicon.ico"> -->
     <link rel="stylesheet" href="./css/fonts.css">
 	<link rel="stylesheet" href="./css/docSlider.css">
     <link rel="stylesheet" href="./css/swiper.min.css">
@@ -384,12 +390,12 @@
                 <li class="menu-item">
                     <a href="#" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></a>
                     <ul id="sideProject" class="menu-depth2 collapse">
-                        <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">team</a></li>
-                        <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">TaaS</a></li>
+                        <li class="menu-depth2-item"><a href="#" id="team" class="menu-depth2-link">team</a></li>
+                        <li class="menu-depth2-item"><a href="#" id="tass" class="menu-depth2-link">TaaS</a></li>
                     </ul>
                 </li>
-                <li class="menu-item"><a href="#" class="menu-link">Road Map</a></li>
-                <li class="menu-item"><a href="#" class="menu-link">Story</a></li>
+                <li class="menu-item"><a href="#" id="roadMap" class="menu-link">Road Map</a></li>
+                <li class="menu-item"><a href="#" id="story" class="menu-link">Story</a></li>
                 <li class="menu-item">
                     <a href="#" class="menu-link has-sub" aria-controls="sidePoint">Point<i class="menu-link-icon"></i></a>
                     <ul id="sidePoint" class="menu-depth2 collapse">
@@ -483,6 +489,22 @@
                 initLoadmapSwiper();
             })
         });
+
+        document.querySelector('#team').addEventListener('click', function(e) {
+            document.querySelector('[data-ds-jump="2"]').click();
+        })
+
+        document.querySelector('#tass').addEventListener('click', function(e) {
+            document.querySelector('[data-ds-jump="3"]').click();
+        })
+
+        document.querySelector('#roadMap').addEventListener('click', function(e) {
+            document.querySelector('[data-ds-jump="4"]').click();
+        })
+
+        document.querySelector('#story').addEventListener('click', function(e) {
+            document.querySelector('[data-ds-jump="5"]').click();
+        })
     </script>
 </body>
 </html>
