@@ -33,10 +33,11 @@ window.addEventListener('DOMContentLoaded', function() {
 	player.onpause = function() { 
 		video.classList.remove('playing');
 	}
-
-	player.addEventListener('touchstart', function() {
-		video.classList.add('touch')
-	})
+	if(video.classList.contains('playing')) {
+		player.addEventListener('touchstart', function() {
+			video.classList.add('touch')
+		})
+	}
 });
 
 
