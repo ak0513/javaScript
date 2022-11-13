@@ -4,6 +4,8 @@
 	--primary: #3c2d50;
 	--secondary: #ffb9cd;
 	--menu: #98ced2;
+	--red:#ed1c24;
+	--blue:#005bb0;
 	--white: #fff;
 	--light: #f7f7f7;
 	--lightgray: #ced4da;
@@ -3887,6 +3889,10 @@ table td {
     opacity: 0.7;
 }
 
+.sub .menu-dim {
+	display: none !important;
+}
+
 #sideMenu {
     position: relative;
     z-index: 20;
@@ -4135,6 +4141,83 @@ table td {
 }
 
 
+/* footer */
+#footer {
+    margin-top: auto;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 307px;
+}
+
+.footer-copyright {
+    font-size: 22px;
+}
+
+.sub #footer {
+	margin:475px 0 120px 0;
+	padding:0 120px 0 515px;
+	color:#1d1d1b;
+}
+
+/* pager */
+#pager {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 45px;
+}
+
+#pager .page-num {
+	font-size: 20px;
+	color:var(--black);
+}
+
+#pager .page-num + .page-num {
+	margin-left: 20px;
+}
+
+#pager .page-num.current {
+	font-weight: 700;
+}
+
+#pager .page-first,
+#pager .page-last,
+#pager .page-prev,
+#pager .page-next {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#pager .page-first {
+	background-image: url('../img/btn-board-first.png');
+}
+
+#pager .page-last {
+	background-image: url('../img/btn-board-last.png');
+}
+
+#pager .page-prev {
+	margin-right:10px;
+	background-image: url('../img/btn-board-prev.png');
+}
+
+#pager .page-next {
+	margin-left: 10px;
+	background-image: url('../img/btn-board-next.png');
+}
+
 /* container */
 #container {
     display: flex;
@@ -4142,9 +4225,13 @@ table td {
     flex-grow: 1;
 }
 
+.sub #wrap {
+	background-color: #d4d4d4;
+}
+
 .container-inner {
 	margin-top: 160px;
-    padding: 0 20px 0 515px;
+    padding: 0 120px 0 515px;
 }
 
 
@@ -4385,6 +4472,14 @@ table td {
         background-size: 100%;
     }
 
+	/* footer 980 */
+    .footer-logo img {
+        width: 205px;
+    }
+
+    .footer-copyright {
+        font-size: 16px;
+    }
 
 }
 
@@ -4436,6 +4531,15 @@ table td {
 	.h-tit1 {
 		font-size:16px;
 	}
+
+	/* footer */
+	.footer-logo img {
+        width: 103px;
+    }
+
+    .footer-copyright {
+        font-size: 11px;
+    }
 
 }
 
