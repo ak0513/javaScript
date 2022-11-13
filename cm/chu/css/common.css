@@ -739,6 +739,433 @@ table td {
 }
 
 
+/* 본문 바로가기 */
+.skipNav-link {
+    display: block;
+    position: absolute;
+    top: -300px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.skipNav-link:focus,
+.skipNav-link:hover {
+    top: 0;
+}
+
+/* header */
+.header-wallet {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #35223f;
+    font-size: 20px;
+}
+
+.header-wallet.login {
+    font-size: 26px;
+}
+
+.header-sns {
+    position: fixed;
+    top: 160px;
+    right: 50px;
+    z-index: 20;
+}
+
+.header-sns li+li {
+    margin-top: 25px;
+}
+
+.header-sns li a {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+}
+
+.header-sns li.discord a {
+    background-image: url('../img/discord-white.svg');
+}
+
+.header-sns li.twitter a {
+    height: 60px;
+    background-image: url('../img/twitter-white.svg');
+}
+
+.header-sns li.telegram a {
+    background-image: url('../img/telegram-white.svg');
+}
+
+.header-sns .sns-txt {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* nav */
+.header-login-m {
+    display: none;
+}
+
+.btn-nav-open {
+    display: block;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    padding-left: 14px;
+    background-color: #ace2df;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+.btn-nav-open[data-pop] {
+    opacity: 0;
+}
+
+.btn-nav-open span {
+    position: relative;
+    display: block;
+    width: 15px;
+    height: 5px;
+    background-color: #41294f;
+}
+
+.btn-nav-open span::before,
+.btn-nav-open span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 5px;
+    background-color: #41294f;
+}
+
+.btn-nav-open span::before {
+    bottom: 9px;
+}
+
+.btn-nav-open span::after {
+    top: 9px;
+}
+
+.menu-wrap {
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 400px;
+    height: 100%;
+    background-color: rgba(43, 24, 53, 0.88);
+    transform: translateX(-100%);
+    transition: all 0.4s;
+    font-family: 'S-Core Dream', sans-serif;
+}
+
+.menu-wrap::-webkit-scrollbar {
+    width: 4px;
+}
+
+.menu-wrap::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.pop-open .menu-wrap {
+    transform: translateX(0);
+}
+
+.menu-dim {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.7;
+}
+
+#sideMenu {
+    position: relative;
+    z-index: 20;
+}
+
+#sideMenu.pop-open .menu-dim {
+    display: block;
+}
+
+.menu-logo {
+    margin-top: 110px;
+    padding-left: 145px;
+}
+
+.menu-group {
+    margin-top: 40px;
+    padding-left: 56px;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item+.menu-item {
+    margin-top: 10px;
+}
+
+.menu-item::before,
+.menu-item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: var(--menu);
+}
+
+.menu-item::before {
+    top: 20px;
+    left: -6px;
+    width: 13px;
+    height: 3px;
+}
+
+.menu-item::after {
+    top: 15px;
+    left: -1px;
+    width: 3px;
+    height: 13px;
+}
+
+.menu-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: var(--menu);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.menu-link::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 1px;
+    height: calc(100% + 15px);
+    background-color: var(--menu);
+}
+
+.menu-item:first-child .menu-link:before {
+    top: 15px;
+}
+
+.menu-item:last-child .menu-link:before {
+    top: -33px;
+}
+
+.menu-link-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin: 4px 0 0 10px;
+    pointer-events: none;
+}
+
+.menu-link-icon::before,
+.menu-link-icon::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--menu);
+    transform: translate(-50%, -50%);
+}
+
+.menu-link-icon::before {
+    width: 100%;
+    height: 4px;
+}
+
+.menu-item.on .menu-link-icon::after {
+    width: 4px;
+    height: 100%;
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height .35s ease;
+}
+
+.menu-depth2 {
+    padding-left: 30px;
+    border-left: 1px solid var(--menu);
+    transition: height .35s ease;
+}
+
+.menu-item:last-child .menu-depth2 {
+    border-left: none;
+}
+
+.menu-depth2-link {
+    display: block;
+    position: relative;
+    padding-left: 18px;
+    font-size: 25px;
+    color: var(--menu);
+}
+
+.menu-depth2-link::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 9px;
+    height: 2px;
+    background-color: var(--menu);
+}
+
+#wrap~.menu-depth2 {
+    display: block !important;
+    position: absolute;
+    top: -999999px;
+    height: auto !important;
+}
+
+.btn-menu-closed {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 49px;
+    height: 49px;
+    background: url('../img/btn-close.png') no-repeat;
+}
+
+.menu-sns {
+    display: flex;
+    margin-top: 60px;
+    padding-left: 90px;
+}
+
+.menu-sns li+li {
+    margin-left: 20px;
+}
+
+.menu-sns li a {
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+}
+
+.menu-sns li.discord a {
+    background-image: url('../img/discord-mint.svg');
+}
+
+.menu-sns li.twitter a {
+    height: 50px;
+    background-image: url('../img/twitter-mint.svg');
+}
+
+.menu-sns li.telegram a {
+    background-image: url('../img/telegram-mint.svg');
+}
+
+.menu-sns .sns-txt {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #ace2df;
+    text-align: center;
+}
+
+.menu-lang {
+    display: flex;
+    margin-top: 27px;
+    padding-left: 93px;
+}
+
+.menu-lang-item+.menu-lang-item {
+    margin-left: 30px;
+}
+
+.menu-lang-link {
+    font-size: 24px;
+    color: var(--menu);
+    font-weight: 700;
+}
+
+.menu-lang-link.eng {
+    color: #b188ba;
+}
+
+.menu-logout {
+    margin: 20px 0;
+    padding-left: 88px;
+}
+
+.btn-logout {
+    width: 118px;
+    background-color: #b188ba;
+    border-color: #b188ba;
+    color: var(--primary);
+}
+
+
+/* container */
+#container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.container-inner {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 
 /* breadcrumb */
 #breadcrumb {
@@ -792,6 +1219,7 @@ table td {
 }
 
 @media (max-width: 980px) {
+	/* 타이틀 */
 	.h-tit1 {
 		display: flex;
 		align-items: center;
@@ -801,6 +1229,175 @@ table td {
 		border-bottom:1px solid #000;
 		font-size:24px;
 	}
+
+	/* header 980px */
+    #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 68px;
+        z-index: 100;
+        background-color: #fff;
+    }
+
+    .header-sns,
+    .header-wallet {
+        display: none;
+    }
+
+
+    /* nav 980px */
+    .btn-nav-open {
+        position: absolute;
+        top: 50%;
+        left: 18px;
+        width: 24px;
+        height: 24px;
+        padding-left: 0;
+        background-color: transparent;
+        transform: translateY(-50%);
+    }
+
+    .btn-nav-open span {
+        width: 100%;
+        height: 3px;
+        background-color: #000;
+    }
+
+    .btn-nav-open span::after {
+        top: 11px;
+    }
+
+    .btn-nav-open span::before {
+        bottom: 11px;
+    }
+
+    .btn-nav-open span::before,
+    .btn-nav-open span::after {
+        width: 100%;
+        height: 3px;
+        background-color: #000;
+    }
+
+    .menu-wrap {
+        width: 300px;
+        padding-top: 67px;
+    }
+
+    .menu-logo {
+        display: none;
+    }
+
+    .header-login-m {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px 18px 10px 10px;
+    }
+
+    .login-img {
+        width: 67px;
+    }
+
+    .login-info {
+        margin-left: 12px;
+        font-size: 16px;
+        color: #5c0071;
+    }
+
+    .login-point {
+        margin-top: 5px;
+        padding: 5px 10px;
+        background-color: #5c0071;
+        border-radius: 5px;
+        color: #fff200;
+        font-size: 14px;
+    }
+
+    .login-point span {
+        font-size: 11px;
+    }
+
+    .header-login-m+.menu-group {
+        margin-top: 27px;
+    }
+
+    .menu-group {
+        padding-left: 25px;
+    }
+
+    .menu-link {
+        font-size: 21px;
+    }
+
+    .menu-depth2-link {
+        font-size: 18px;
+    }
+
+    .menu-item::before {
+        top: 15px;
+        left: -4px;
+        width: 9px;
+    }
+
+    .menu-item::after {
+        top: 12px;
+        height: 9px;
+    }
+
+    .menu-link-icon {
+        width: 8px;
+        height: 8px;
+    }
+
+    .menu-link-icon::before,
+    .menu-link-icon::after {
+        height: 2px;
+    }
+
+    .menu-item.on .menu-link-icon::after {
+        width: 2px;
+    }
+
+    .menu-sns {
+        margin-top: 40px;
+        padding-left: 48px;
+    }
+
+    .menu-sns li a {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-lang {
+        padding-left: 48px;
+    }
+
+    .menu-lang-link {
+        font-size: 17px;
+    }
+
+    .menu-logout {
+        margin: 15px 0;
+        padding-left: 45px;
+    }
+
+    .btn-logout {
+        width: 84px;
+        height: 24px;
+        font-size: 11px;
+    }
+
+    .btn-menu-closed {
+        top: 18px;
+        left: 16px;
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+    }
+
+
 }
 
 

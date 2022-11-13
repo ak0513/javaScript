@@ -259,6 +259,7 @@ body {
 .video-wrap.touch:hover #btn-mute,
 .video-wrap.touch:hover #btn-unmute {
 	opacity: 1;
+	z-index: 15;
 }
 
 /* info */
