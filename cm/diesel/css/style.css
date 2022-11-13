@@ -241,6 +241,7 @@ body {
 .video-wrap.playing #btn-mute,
 .video-wrap.playing #btn-unmute {
 	opacity: 0;
+	z-index: -1;
 }
 
 @media (hover: hover) {
@@ -249,6 +250,7 @@ body {
 	.video-wrap.playing:hover #btn-mute,
 	.video-wrap.playing:hover #btn-unmute {
 		opacity: 1;
+		z-index: 15;
 	}
 }
 
