@@ -1340,11 +1340,14 @@ table td {
     }
 
     .menu-depth2-link {
+		padding-left: 14px;
         font-size: 18px;
     }
 
 	.menu-depth2-link::before {
 		top:13px;
+		width: 6px;
+		height: 1px;
 	}
 
     .menu-item::before {
