@@ -386,23 +386,23 @@
             <!-- //MO 로그인 후 -->
             <ul class="menu-group">
                 <li class="menu-item item1">
-                    <a href="#" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></a>
+                    <button type="button" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></button>
                     <ul id="sideProject" class="menu-depth2 collapse">
-                        <li class="menu-depth2-item"><a href="#" id="team" class="menu-depth2-link">team</a></li>
-                        <li class="menu-depth2-item"><a href="#" id="tass" class="menu-depth2-link">TaaS</a></li>
+                        <li class="menu-depth2-item"><a href="#" id="team" class="menu-depth2-link" role="button">team</a></li>
+                        <li class="menu-depth2-item"><a href="#" id="tass" class="menu-depth2-link" role="button">TaaS</a></li>
                     </ul>
                 </li>
-                <li class="menu-item item2"><a href="#" id="roadMap" class="menu-link">Road Map</a></li>
-                <li class="menu-item item3"><a href="#" id="story" class="menu-link">Story</a></li>
+                <li class="menu-item item2"><button type="button" id="roadMap" class="menu-link">Road Map</button></li>
+                <li class="menu-item item3"><button type="button" id="story" class="menu-link">Story</button></li>
                 <li class="menu-item item4">
-                    <a href="#" class="menu-link has-sub" aria-controls="sidePoint">Point<i class="menu-link-icon"></i></a>
+                    <button type="button" class="menu-link has-sub" aria-controls="sidePoint">Point<i class="menu-link-icon"></i></button>
                     <ul id="sidePoint" class="menu-depth2 collapse">
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Check</a></li>
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Histroy</a></li>
                     </ul>
                 </li>
                 <li class="menu-item item5">
-                    <a href="#" class="menu-link has-sub" aria-controls="sideShop">Shop<i class="menu-link-icon"></i></a>
+                    <button type="button" class="menu-link has-sub" aria-controls="sideShop">Shop<i class="menu-link-icon"></i></button>
                     <ul id="sideShop" class="menu-depth2 collapse">
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Goods</a></li>
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Raffle</a></li>
@@ -410,7 +410,7 @@
                     </ul>
                 </li>
                 <li class="menu-item item66">
-                    <a href="#" class="menu-link has-sub" aria-controls="sidePlayground">Playground<i class="menu-link-icon"></i></a>
+                    <button type="button" class="menu-link has-sub" aria-controls="sidePlayground">Playground<i class="menu-link-icon"></i></button>
                     <ul id="sidePlayground" class="menu-depth2 collapse">
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">News</a></li>
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Mini-Game</a></li>
@@ -498,58 +498,59 @@
 
         document.querySelector('#team').addEventListener('click', function(e) {
             document.querySelector('[data-ds-jump="2"]').click();
-            setSideOpen('#team.menu-depth2-link');
+            openSide('#team.menu-depth2-link');
             popClose('#sideMenu');
         })
 
         document.querySelector('#tass').addEventListener('click', function(e) {
             document.querySelector('[data-ds-jump="3"]').click();
-            setSideOpen('#tass.menu-depth2-link');
+            openSide('#tass.menu-depth2-link');
             popClose('#sideMenu');
         })
 
         document.querySelector('#roadMap').addEventListener('click', function(e) {
             document.querySelector('[data-ds-jump="4"]').click();
-            setSideOpen('#roadMap');
+            openSide('#roadMap');
             popClose('#sideMenu');
         })
 
         document.querySelector('#story').addEventListener('click', function(e) {
             document.querySelector('[data-ds-jump="5"]').click();
-            setSideOpen('#story');
+            openSide('#story');
             popClose('#sideMenu');
         });
 
-        switch (window.location.hash) {
-            case '#team' : 
+        var slideNum = getUrlParam('slide');
+        switch (slideNum) {
+            case '2' : 
+                openSide('#team.menu-depth2-link');
                 setTimeout(() => {
                     document.querySelector('[data-ds-jump="2"]').click();
                     document.querySelector('.menu-item.item1 .menu-link').click();
                 }, 100);
-                setSideOpen('#team.menu-depth2-link');
                 break;
-            case '#tass' : 
+            case '3' : 
+                openSide('#tass.menu-depth2-link');
                 setTimeout(() => {
                     document.querySelector('[data-ds-jump="3"]').click();
-                    document.querySelector('.menu-item.item2 .menu-link').click();
+                    document.querySelector('.menu-item.item1 .menu-link').click();
                 }, 100);
-                setSideOpen('#tass.menu-depth2-link');
                 break;
-            case '#roadMap' : 
+            case '4' : 
                 setTimeout(() => {
+                    openSide('#roadMap');
                     document.querySelector('[data-ds-jump="4"]').click();
-                    setSideOpen('#roadMap');
             }, 100);
                 break;
-            case '#story' : 
+            case '5' : 
                 setTimeout(() => {
+                    openSide('#story');
                     document.querySelector('[data-ds-jump="5"]').click();
-                    setSideOpen('#story');
             }, 100);
                 break;
         }
 
-        function setSideOpen(ele) {
+        function openSide(ele) {
             removeClass(menuLink, 'on');
             removeClass(menuDepth2Link, 'on');
             document.querySelector(ele).classList.add('on');
