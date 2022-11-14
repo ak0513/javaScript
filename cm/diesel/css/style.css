@@ -481,6 +481,10 @@ body {
 		width: 100% !important;
 	}
 
+	.diesel-swiper .swiper-slide-figure img {
+		display: block;
+	}
+
 	.swiper-slide-txt {
 		padding: 1rem 1.4rem;
 		font-weight: 400;
@@ -495,7 +499,8 @@ body {
 		top: 50%;
 		width: 1.8rem;
 		height: 1.8rem;
-		margin-top: -0.9rem;
+		/* margin-top: -0.9rem; */
+		margin-top: -5.1rem;
 		background-size: 1.8rem;
 	}
 
