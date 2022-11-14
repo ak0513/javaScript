@@ -80,6 +80,7 @@
 
 
             <button type="button" class="thumb" onclick="popOpen('#popup', this);">팝업열기</button>
+            <button type="button" class="thumb" onclick="popOpen('#popup2', this);">팝업열기2</button>
 
 
 
@@ -116,6 +117,73 @@
 		</div>
 	</div>
 
+    <div id="popup2" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+		<div class="pop-inner">
+			<div id="popupLabel" class="pop-header">
+				팝업 타이틀
+			</div>
+			<div class="pop-conts">
+				<div class="form">
+                    <div class="form-ele">
+						<label class="form-label" for="input1">타이틀</label>
+						<div class="text-wrap">텍스트</div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="input2">타이틀</label>
+						<div class="input-wrap side-btn">
+							<input type="text" id="input2">
+							<button type="button" class="btn btn-primary btn-small">btn</button>
+						</div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="input5">타이틀</label>
+                        <div class="row gutter-x10">
+                            <div class="col-6">
+                                <div class="form-ele">
+                                    <div class="input-wrap">
+                                        <input type="text" id="input8">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-ele">
+                                    <select name="">
+                                        <option value="">cm</option>
+                                        <option value="">cm2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="input5">타이틀</label>
+						<div class="form-group">
+							<div class="input-wrap side-btn" style="width:200px">
+                                <input type="text" id="input2">
+                                <button type="button" class="btn btn-primary btn-small">btn</button>
+                            </div>
+							<div class="input-wrap">
+								<input type="text">
+							</div>
+							<div class="input-wrap">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+                </div>
+			</div>
+			<div class="pop-footer">
+                <div class="btn-wrap btn-group">
+                    <button type="button" class="btn btn-primary btn-block">A</button>
+                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">B</button>
+                </div>
+			</div>
+		</div>
+	</div>
+
     <script>
         var thumbSwiper = new Swiper('.thumb-swiper',{
             
@@ -134,6 +202,8 @@
                 }
             },
         });
+
+        popOpen('#popup2');
     </script>
 
 </body>

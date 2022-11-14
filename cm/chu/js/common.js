@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	// sidemenu
 	function showMenuDepth2(e) {
+		e.preventDefault();
 		var ele = e.target;
 		var eleParents = closest(ele, '.menu-item');
 		var eleDepth2 = ele.nextElementSibling;

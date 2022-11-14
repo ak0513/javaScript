@@ -3223,8 +3223,6 @@ input.sm {
 
 .input-wrap.side-btn input {
 	flex-grow: 1;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
 }
 
 .input-wrap.side-btn .btn {
@@ -3232,10 +3230,7 @@ input.sm {
 	flex-shrink: 0;
 	height: var(--form-ele-height);
 	margin: 0;
-	margin-left: -1px;
-	/* border-left:none; */
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+	margin-left: 10px;
 }
 
 /* unit 추가 */
@@ -3300,6 +3295,10 @@ button {
 	padding: 0 1.2em;
 }
 
+.btn.btn-block {
+	width: 100%;
+}
+
 .btn:disabled, .btn.disabled {
 	opacity: 0.7;
 	pointer-events:none;
@@ -3313,6 +3312,17 @@ button {
 	display: flex;
 	flex-wrap: wrap;
 	margin: -0.5rem;
+}
+
+.btn-group {
+	display: grid;
+	grid-template-columns:1fr 1fr;
+	column-gap:10px;
+	margin:0;
+}
+
+.btn-group .btn {
+	margin:0;
 }
 
 .btn-primary {
@@ -3626,21 +3636,18 @@ table td {
 
 .form-ele {
 	position: relative;
-}
-
-.form-ele-inline {
 	display: flex;
 	align-items: center;
 }
 
-.form-ele-inline .form-label {
+.form-ele .form-label {
 	margin-bottom: 0;
 	margin-right: 1.5rem;
 }
 
-.form-ele-inline [class*='wrap'],
-.form-ele-inline .form-group,
-.form-ele-inline .row {
+.form-ele [class*='wrap'],
+.form-ele .form-group,
+.form-ele .row {
 	flex-grow: 1;
 }
 
@@ -3709,6 +3716,14 @@ table td {
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 15px;
+}
+
+.pop-header {
+	text-align: center;
+}
+
+.pop-wrap .btn-group {
+	margin-top:30px;
 }
 
 
@@ -3907,6 +3922,10 @@ table td {
     padding-left: 145px;
 }
 
+.menu-logo img {
+	cursor: pointer;
+}
+
 .menu-group {
     margin-top: 40px;
     padding-left: 56px;
@@ -3969,6 +3988,18 @@ table td {
 
 .menu-item:last-child .menu-link:before {
     top: -33px;
+}
+
+.menu-link:hover,
+.menu-link.on {
+	color:#fff;
+}
+
+.menu-link:hover .menu-link-icon::before,
+.menu-link:hover .menu-link-icon::after,
+.menu-link.on .menu-link-icon::before,
+.menu-link.on .menu-link-icon::after {
+	background-color: #fff;
 }
 
 .menu-link-icon {
@@ -4040,11 +4071,13 @@ table td {
     background-color: var(--menu);
 }
 
-.menu-depth2-link:hover {
+.menu-depth2-link:hover,
+.menu-depth2-link.on {
 	color:#fff;
 }
 
-.menu-depth2-link:hover::before {
+.menu-depth2-link:hover::before,
+.menu-depth2-link.on::before {
 	background-color: #fff;
 }
 
