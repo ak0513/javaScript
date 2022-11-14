@@ -52,15 +52,18 @@ window.addEventListener('DOMContentLoaded', function() {
 	}) */
 
 	player.addEventListener('touchstart', function() {
-		clearTimeout(timer);
-		var timer = setTimeout(function() {
+		// clearTimeout(timer);
+		/* var timer = setTimeout(function() {
 			video.classList.remove('touch');
-		},2000);
-		if(video.classList.contains('touch')) {
+		},2000); */
+	/* 	if(video.classList.contains('touch')) {
 			clearTimeout(timer);
-		}
+		} */
 		if(video.classList.contains('playing')) {
 			video.classList.add('touch');
+			setTimeout(function() {
+				video.classList.remove('touch');
+			},2000)
 		}
 	})
 });
