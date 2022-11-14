@@ -36,19 +36,36 @@ window.addEventListener('DOMContentLoaded', function() {
 		video.classList.remove('playing');
 	}
 	
-	player.addEventListener('touchstart', function() {
+	/* player.addEventListener('touchstart', function() {
 		if(video.classList.contains('touch')) {
+			console.log('clear')
 			clearTimeout(timer);
 		}
 		if(video.classList.contains('playing')) {
 			video.classList.add('touch');
 			var timer = setTimeout(function() {
 				video.classList.remove('touch');
+				console.log('2초')
 			},2000);
 		}
-		
+
+	}) */
+
+	player.addEventListener('touchstart', function() {
+		clearTimeout(timer);
+		var timer = setTimeout(function() {
+			video.classList.remove('touch');
+		},2000);
+		if(video.classList.contains('touch')) {
+			clearTimeout(timer);
+		}
+		if(video.classList.contains('playing')) {
+			video.classList.add('touch');
+		}
 	})
 });
+
+
 
 
 function playVideo(ele) {
