@@ -1,14 +1,16 @@
 window.addEventListener('DOMContentLoaded', function() {
 	var video = document.querySelector('.video-wrap'),
 		player = document.getElementById("video"),
+		videoTxt = document.querySelector(".video-txt"),
 		btnPlay = document.getElementById("btn-play"),
-		btnPause = document.getElementById("btn-pause");
-		btnMute = document.getElementById("btn-mute");
+		btnPause = document.getElementById("btn-pause"),
+		btnMute = document.getElementById("btn-mute"),
 		btnUnmute = document.getElementById("btn-unmute");
 	
 	btnPlay.addEventListener("click",function() {
 		playVideo(player);
 		video.classList.add('playing');
+		videoTxt.style.display = 'none';
 	});
 	btnPause.addEventListener("click",function() {
 		pauseVideo(player);
@@ -36,7 +38,10 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	player.addEventListener('touchstart', function() {
 		if(video.classList.contains('playing')) {
-			video.classList.add('touch')
+			video.classList.add('touch');
+			setTimeout(function() {
+				video.classList.remove('touch');
+			},2000)
 		}
 	})
 });

@@ -231,33 +231,31 @@ body {
 .video-wrap:not(.playing) #btn-pause,
 .video-wrap.playing #btn-play,
 .video-wrap.mute #btn-mute,
-.video-wrap:not(.mute) #btn-unmute,
-.video-wrap.playing .video-txt {
+.video-wrap:not(.mute) #btn-unmute {
 	display: none;
 }
 
-/* .video-wrap.playing #btn-play, */
-.video-wrap.playing #btn-pause,
+/* .video-wrap.playing #btn-play,
 .video-wrap.playing #btn-mute,
-.video-wrap.playing #btn-unmute {
+.video-wrap.playing #btn-unmute */
+.video-wrap.playing #btn-pause {
 	opacity: 0;
 	/* z-index: -1; */
 }
 
 @media (hover: hover) {
-	/* .video-wrap.playing:hover #btn-play, */
-	.video-wrap.playing:hover #btn-pause,
+	/* .video-wrap.playing:hover #btn-play,
 	.video-wrap.playing:hover #btn-mute,
-	.video-wrap.playing:hover #btn-unmute {
+	.video-wrap.playing:hover #btn-unmute */
+	.video-wrap.playing:hover #btn-pause {
 		opacity: 1;
 		/* z-index: 15; */
 	}
 }
-
+/* .video-wrap.touch:hover #btn-mute,
+.video-wrap.touch:hover #btn-unmute */
 .video-wrap.touch:hover #btn-play,
-.video-wrap.touch:hover #btn-pause,
-.video-wrap.touch:hover #btn-mute,
-.video-wrap.touch:hover #btn-unmute {
+.video-wrap.touch:hover #btn-pause {
 	opacity: 1;
 	/* z-index: 15; */
 }
