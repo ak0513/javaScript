@@ -37,12 +37,16 @@ window.addEventListener('DOMContentLoaded', function() {
 	}
 	
 	player.addEventListener('touchstart', function() {
+		if(video.classList.contains('touch')) {
+			clearTimeout(timer);
+		}
 		if(video.classList.contains('playing')) {
 			video.classList.add('touch');
-			setTimeout(function() {
+			var timer = setTimeout(function() {
 				video.classList.remove('touch');
-			},2000)
+			},2000);
 		}
+		
 	})
 });
 
