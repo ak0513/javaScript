@@ -260,10 +260,6 @@ body {
 	/* z-index: 15; */
 }
 
-.video-wrap.touch {
-	touch-action: none;
-}
-
 /* info */
 .info {
 	max-width: 1240px;
