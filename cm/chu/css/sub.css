@@ -184,7 +184,8 @@
 }
 
 .page-tit-point span {
-    display: block;
+    display: flex;
+    align-items: center;
     padding-left:20px;
     background: url('../img/page-tit-point.png') no-repeat left center / 15px;
     font-size: 20px;
@@ -221,9 +222,10 @@
     }
 
     .page-tit-point {
-        justify-content: flex-end;
+        /* justify-content: flex-end; */
         width:auto;
         height: auto;
+        margin-left: auto;
         background-color: transparent;
         color:var(--primary);
     }
