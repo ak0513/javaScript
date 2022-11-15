@@ -165,6 +165,32 @@
     color:var(--blue)
 }
 
+/* check */
+.page-tit-point {
+    position: absolute;
+    top:50%;
+    right:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    width: 332px;
+    height: 61px;
+    background-color: #5142fd;
+    border-radius: 5px;
+    color:#fff;
+}
+
+.page-tit-point span {
+    display: block;
+    padding-left:20px;
+    background: url('../img/page-tit-point.png') no-repeat left center / 15px;
+    font-size: 20px;
+}
+
+.page-tit-point small {
+    font-size: 15px;
+}
 
 
 @media (max-width: 1600px) {
@@ -177,7 +203,11 @@
 
 
 @media (max-width: 1280px) {
-    
+    /* check */
+    .page-tit-point {
+        position: relative;
+        transform: translate(0);
+    }
 }
 
 
@@ -187,19 +217,20 @@
         margin-bottom:16px;
     }
 
-    .page-tit-history {
-        display: flex;
+    .page-tit-point {
         justify-content: flex-end;
+        width:auto;
+        height: auto;
+        background-color: transparent;
+        color:var(--primary);
     }
 
-    .page-tit-history span {
-        display: block;
-        padding-left:20px;
-        background: url('../img/page-tit-history-icon.png') no-repeat left center / 15px;
+    .page-tit-point span {
+        background: url('../img/page-tit-point-m.png') no-repeat left center / 15px;
         font-size: 18px;
     }
 
-    .page-tit-history small {
+    .page-tit-point small {
         font-size: 14px;
     }
     
@@ -242,6 +273,7 @@
     .list01 .list-num .grade {
         margin-left:8px;
         width: 60px;
+        height: 23px;
     }
 
     .list01 .list-period {

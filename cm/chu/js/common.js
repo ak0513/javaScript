@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 	setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
+	sideMenuToggel()
 
 	var sideMenuLink = document.querySelectorAll('.menu-link.has-sub');
 	var sideMenuLink2 = document.querySelectorAll('.menu-link');
@@ -218,7 +219,9 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 
-
+window.addEventListener('resize', function() {
+	sideMenuToggel()
+});
 
 var eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';
 var eleTabindex = '[tabindex="0"]';
@@ -358,3 +361,12 @@ function popClose(ele) {
 	})
 }
 
+function sideMenuToggel() {
+	if(window.innerWidth < 1600) {
+		popClose('#sideMenu');
+		document.body.classList.remove('open-side');
+	} else {
+		popOpen('#sideMenu', document.querySelector('.btn-nav-open'));
+		document.body.classList.add('open-side');
+	}
+}

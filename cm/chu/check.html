@@ -53,7 +53,7 @@
                         <span class="sns-txt">V1</span>
                     </a>
                 </li>
-                <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li>
+                <!-- <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li> -->
             </ul>
         </header>
         <!-- //header -->
@@ -62,13 +62,9 @@
         <section id="container">
             <div class="container-inner">
                 <div id="page-header">
-                    <div class="m-hide">
-                        <p class="page-header-txt">Total available</p>
-                        <h2 class="page-tit">CHU.POINT _<span>1,350<small>츄<i>(포인트)</i></small></span></h2>
-                    </div>
-                    <div class="pc-hide">
-                        <h2 class="page-tit-history"><span>츄<small>(포인트)</small> 히스토리</span></h2>
-                    </div>
+                    <p class="page-header-txt m-hide">Total available</p>
+                    <h2 class="page-tit m-hide">CHU.POINT _<span>1,350<small>츄<i>(포인트)</i></small></span></h2>
+                    <div class="page-tit-point"><span>츄<small>(포인트)</small> 히스토리</span></div>
                 </div>
 
                 <div class="contents">
@@ -342,7 +338,7 @@
                         <span class="sns-txt">V1</span>
                     </a>
                 </li>
-                <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li>
+                <!-- <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li> -->
             </ul>
         
             <ul class="menu-lang">
@@ -359,44 +355,4 @@
         <div class="menu-dim" onclick="popClose('#sideMenu')"></div>
     </div>
     <!-- //전체메뉴 -->
-
-    <script>
-         window.addEventListener('DOMContentLoaded', function() {
-            sideMenuToggel()
-        });
-        window.addEventListener('resize', function() {
-            sideMenuToggel()
-        });
-
-        function sideMenuToggel() {
-            if(window.innerWidth < 1600) {
-                popClose('#sideMenu');
-                document.body.classList.remove('open-side');
-            } else {
-                popOpen('#sideMenu', document.querySelector('.btn-nav-open'));
-                document.body.classList.add('open-side');
-            }
-        }
-        
-
-        document.querySelector('#team').addEventListener('click', function(e) {
-            document.querySelector('[data-ds-jump="2"]').click();
-            popClose('#sideMenu');
-        })
-
-        document.querySelector('#tass').addEventListener('click', function(e) {
-            document.querySelector('[data-ds-jump="3"]').click();
-            popClose('#sideMenu');
-        })
-
-        document.querySelector('#roadMap').addEventListener('click', function(e) {
-            document.querySelector('[data-ds-jump="4"]').click();
-            popClose('#sideMenu');
-        })
-
-        document.querySelector('#story').addEventListener('click', function(e) {
-            document.querySelector('[data-ds-jump="5"]').click();
-            popClose('#sideMenu');
-        })
-    </script>
 </body>

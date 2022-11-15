@@ -3158,6 +3158,9 @@ body {
 .grow0 {flex-grow: 0 !important;}
 .shrink0 {flex-shrink: 0 !important;}
 
+.pc-hide {display:none !important;}
+.m-hide {display:block !important;}
+
 hr {
 	margin: 2.0rem 0;
 	border: none;
@@ -4365,6 +4368,13 @@ table td {
 }
 .docSlider-pager {
 	display: none;
+} 
+
+@media (max-width: 1280px) {
+	.sub #footer {
+		margin-top:200px;
+		margin-bottom:50px;
+	}
 }
 
 @media (min-width: 981px) {
@@ -4381,6 +4391,8 @@ table td {
 }
 
 @media (max-width: 980px) {
+	.pc-hide {display: block !important;}
+	.m-hide {display:none !important;}
 	/* 타이틀 */
 	.h-tit1 {
 		display: flex;
