@@ -1,0 +1,287 @@
+
+/* 리스트 */
+.list01 .list-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+}
+.list01 .list-item {
+    width: 222px;
+    margin: 5px;
+    padding: 10px 20px 25px;
+    background-color: #1f1e2f;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.list01 .list-img {
+    overflow: hidden;
+    position: relative;
+    /* width: 202px; */
+    height: 253px;
+    margin:0 -10px;
+    border-radius: 20px;
+}
+
+.list01 .list-img img {
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    max-width: 253px;
+}
+
+.list01 .list-num {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size:20px;
+    color:#ecd871;
+}
+
+.list01 .list-num .grade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 73px;
+    height: 27px;
+    margin-left: 25px;
+    border-radius: 5px;
+    color:#fff;
+    font-size: 11px;
+}
+
+.list01 .list-num .grade.normal {
+    background-color: #2e2e2e;
+}
+
+.list01 .list-num .grade.rare {
+    background-color: #5142fd;
+}
+
+.list01 .list-num .grade.unique {
+    background-color: #f2434a;
+}
+
+.list01 .list-num .grade.legend {
+    background-color: #f7b500;
+}
+
+.list01 .list-period {
+    position: relative;
+    margin-top: 20px;
+    color:#fff;
+}
+
+.list01 .list-period::before {
+    content:'';
+    display:block;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    height: 1px;
+    background-color: #3c2d50;
+}
+
+.list01 .list-period-title {
+    padding-left: 22px;
+    background:url('../img/icon-period.png') no-repeat left center;
+    font-size: 15px;
+}
+.list01 .list-period-date {
+    font-size: 19px;
+}
+
+.list01 .list-point {
+    margin-top: 10px;
+    padding: 10px 0 10px;
+    background-color: #5c0071;
+    border-radius: 5px;
+    font-size:15px;
+    color:#ecd871;
+    text-align: center;
+}
+
+.list01 .list-point span {
+    font-size: 12px;
+}
+
+
+.list02 {
+    border-top: 2px solid #000;
+    border-bottom:2px solid #000;
+}
+
+.list02 .list-item {
+    display: flex;
+    padding: 20px 0;
+}
+
+.list02 .list-item + .list-item {
+    border-top:1px solid #999;
+}
+
+.list02 .list-num {
+    align-self:flex-start;
+    width: 70px;
+    padding-bottom: 5px;
+    color:#555;
+    font-size: 16px;
+    border-bottom:1px solid #000;
+    text-align: right;
+}
+
+.list02 .list-date {
+    margin-left: 30px;
+    font-size: 30px;
+    color:#000;
+}
+
+.list02 .list-date .year {
+    display: block;
+    font-size: 16px;
+}
+
+.list02 .list-title {
+    align-self:flex-end;
+    margin-left: 65px;
+    margin-right: auto;
+    font-size: 34px;
+}
+
+.list02 .list-point {
+    align-self:flex-end;
+    margin-right:50px;
+    font-size: 34px;
+}
+
+.list02 .list-point.red {
+    color:var(--red)
+}
+
+.list02 .list-point.blue {
+    color:var(--blue)
+}
+
+
+
+@media (max-width: 1600px) {
+   
+    /* list01 */
+    .list01 .list-item {
+        flex:1 1 calc(25% - 10px)
+    }
+}
+
+
+@media (max-width: 1280px) {
+    
+}
+
+
+@media (max-width: 980px) {
+
+    #page-header {
+        margin-bottom:16px;
+    }
+
+    .page-tit-history {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .page-tit-history span {
+        display: block;
+        padding-left:20px;
+        background: url('../img/page-tit-history-icon.png') no-repeat left center / 15px;
+        font-size: 18px;
+    }
+
+    .page-tit-history small {
+        font-size: 14px;
+    }
+    
+    /* list01 980 */
+    .list01 .list-group {
+        margin: -10px;
+    }
+	.list01 .list-item {
+		flex:1 1 calc(50% - 20px);
+        margin: 10px;
+        padding:0;
+        background-color: transparent;
+	}
+
+    .list01 .list-img img {
+        max-width: 100%;
+    }
+
+    .list01 .list-img {
+        width: 100%;
+        height: auto;
+        margin:0;
+        border-radius: 0;
+    }
+
+    .list01 .list-img img {
+        position: relative;
+        top:0;
+        left:0;
+        transform: translate(0,0);
+        width: 100%;
+    }
+
+    .list01 .list-num {
+        margin-top: 14px;
+        font-size: 18px;
+        color:var(--primary);
+    }
+
+    .list01 .list-num .grade {
+        margin-left:8px;
+        width: 60px;
+    }
+
+    .list01 .list-period {
+        margin-top:8px;
+        color:#000;
+    }
+
+    .list01 .list-period::before {
+        display: none;
+    }
+
+    .list01 .list-period-title {
+        padding-left: 17px;
+        background: url('../img/icon-period-m.png') no-repeat left center / 10px auto;
+        color:#767676;
+        font-size: 14px;
+    }
+    .list01 .list-period-date {
+        font-size: 14px;
+    }
+
+    .list01 .list-point {
+        color:#fff;
+        font-size: 13px;
+    }
+
+    .list01 .list-point span {
+        font-size: 11px;
+    }
+
+    .list01 .list-point::before {
+        content:'';
+        display: inline-block;
+        width: 11px;
+        height:11px;
+        background: url('../img/icon-point.png') no-repeat center / 11px 11px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    
+}

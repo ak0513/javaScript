@@ -4248,8 +4248,12 @@ table td {
 
 .sub #footer {
 	margin:475px 0 120px 0;
-	padding:0 120px 0 515px;
+	padding:0 120px 0 50px;
 	color:#1d1d1b;
+}
+
+.sub .open-side #footer {
+	padding:0 120px 0 515px;
 }
 
 /* pager */
@@ -4315,11 +4319,15 @@ table td {
 	background-color: #d4d4d4;
 }
 
+
 .container-inner {
 	margin-top: 160px;
-    padding: 0 120px 0 515px;
+    padding: 0 120px 0 40px;
 }
 
+.open-side .container-inner {
+    padding: 0 120px 0 515px;
+}
 
 /* breadcrumb */
 #breadcrumb {
@@ -4567,6 +4575,15 @@ table td {
         font-size: 16px;
     }
 
+	/* container 980 */
+	.container-inner {
+		margin-top: 86px;
+		padding:0 16px;
+	}
+
+	.sub #wrap {
+		background-color: #fff;
+	}
 }
 
 

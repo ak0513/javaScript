@@ -113,7 +113,7 @@
     height: 0;
     margin: 0 auto;
     max-width: 1097px;
-    padding-top: 42.6618%;
+    padding-top: 27.15%;
     background: url('../img/tiket-bg.png') no-repeat bottom center / 100%;
 }
 
@@ -634,11 +634,22 @@
     margin-bottom: 65px;
     color:#5c0071;
 }
+
+#page-header .pc-hide {
+    display: none;
+}
+
+#page-header .m-hide {
+    display: block;
+}
+
 .page-header-txt {
    font-size: 20px;
    font-weight: 700;
    font-family: 'S-Core Dream', sans-serif;
 }
+
+
 
 .page-tit {
     margin-top: -15px;
@@ -684,153 +695,6 @@
 }
 
 .total-use {
-    color:var(--blue)
-}
-
-/* 리스트 */
-.list01 .list-group {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -5px;
-}
-.list01 .list-item {
-    width: 222px;
-    margin: 5px;
-    padding: 10px 20px 25px;
-    background-color: #1f1e2f;
-    border-radius: 10px;
-    font-weight: 700;
-}
-
-.list01 .list-num {
-    display: flex;
-    align-items: center;
-    font-size:20px;
-    color:#ecd871;
-}
-
-.list01 .list-num .grade {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 73px;
-    height: 27px;
-    margin-left: 25px;
-    border-radius: 5px;
-    color:#fff;
-    font-size: 11px;
-}
-
-.list01 .list-num .grade.normal {
-    background-color: #2e2e2e;
-}
-
-.list01 .list-num .grade.rare {
-    background-color: #5142fd;
-}
-
-.list01 .list-num .grade.unique {
-    background-color: #f2434a;
-}
-
-.list01 .list-num .grade.legend {
-    background-color: #f7b500;
-}
-
-.list01 .list-period {
-    position: relative;
-    margin-top: 20px;
-    color:#fff;
-}
-
-.list01 .list-period::before {
-    content:'';
-    display:block;
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    height: 1px;
-    background-color: #3c2d50;
-}
-
-.list01 .list-period-title {
-    padding-left: 22px;
-    background:url('../img/icon-period.png') no-repeat left center;
-    font-size: 15px;
-}
-.list01 .list-period-date {
-    font-size: 19px;
-}
-
-.list01 .list-point {
-    margin-top: 10px;
-    padding: 10px 0 10px;
-    background-color: #5c0071;
-    border-radius: 5px;
-    font-size:15px;
-    color:#ecd871;
-    text-align: center;
-}
-
-.list01 .list-point span {
-    font-size: 12px;
-}
-
-
-.list02 {
-    border-top: 2px solid #000;
-    border-bottom:2px solid #000;
-}
-
-.list02 .list-item {
-    display: flex;
-    padding: 20px 0;
-}
-
-.list02 .list-item + .list-item {
-    border-top:1px solid #999;
-}
-
-.list02 .list-num {
-    align-self:flex-start;
-    width: 70px;
-    padding-bottom: 5px;
-    color:#555;
-    font-size: 16px;
-    border-bottom:1px solid #000;
-    text-align: right;
-}
-
-.list02 .list-date {
-    margin-left: 30px;
-    font-size: 30px;
-    color:#000;
-}
-
-.list02 .list-date .year {
-    display: block;
-    font-size: 16px;
-}
-
-.list02 .list-title {
-    align-self:flex-end;
-    margin-left: 65px;
-    margin-right: auto;
-    font-size: 34px;
-}
-
-.list02 .list-point {
-    align-self:flex-end;
-    margin-right:50px;
-    font-size: 34px;
-}
-
-.list02 .list-point.red {
-    color:var(--red)
-}
-
-.list02 .list-point.blue {
     color:var(--blue)
 }
 
@@ -1190,6 +1054,17 @@
         margin-bottom: 178px;
         font-size: 23px;
     }
+
+
+    /* 서브 page-header */
+    #page-header .pc-hide {
+        display: block;
+    }
+
+    #page-header .m-hide {
+        display: none;
+    }
+
 }
 
 
@@ -1198,7 +1073,7 @@
     .title {
         font-size: 33px;
     }
-
+ 
     .title2 {
         font-size: 17px;
     }
