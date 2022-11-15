@@ -3956,7 +3956,7 @@ table td {
     opacity: 0.7;
 }
 
-.sub .menu-dim {
+.open-side .menu-dim {
 	display: none !important;
 }
 
@@ -4578,11 +4578,16 @@ table td {
 	/* container 980 */
 	.container-inner {
 		margin-top: 86px;
-		padding:0 16px;
+		padding:0 16px 50px;
 	}
 
 	.sub #wrap {
 		background-color: #fff;
+	}
+
+	.sub #footer {
+		display: none;
+		padding:0 16px;
 	}
 }
 

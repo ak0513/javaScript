@@ -254,8 +254,8 @@
     }
 
     .list01 .list-period-title {
-        padding-left: 17px;
-        background: url('../img/icon-period-m.png') no-repeat left center / 10px auto;
+        padding-left: 19px;
+        background: url('../img/icon-period-m.png') no-repeat left center / 14px auto;
         color:#767676;
         font-size: 14px;
     }
@@ -264,6 +264,7 @@
     }
 
     .list01 .list-point {
+        padding: 7px 0;
         color:#fff;
         font-size: 13px;
     }
