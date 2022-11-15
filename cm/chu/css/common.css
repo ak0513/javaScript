@@ -3233,6 +3233,16 @@ input.sm {
 	margin-left: 10px;
 }
 
+/* txt 추가 */
+.input-wrap.side-txt {
+	display: flex;
+	align-items: center;
+}
+
+.input-wrap.side-txt .text-wrap {
+	margin-left:10px;
+}
+
 /* unit 추가 */
 .input-wrap.with-unit {
 	display: flex;
@@ -3256,6 +3266,48 @@ input.sm {
 .input-wrap.with-unit input + .unit {
 	border-left-color: transparent;
 	border-right:1px solid var(--lightgray);
+}
+
+/* 수량 */
+.input-wrap.qty {
+	display: flex;
+	align-items: center;
+}
+
+.input-wrap.qty input {
+	margin:0 5px;
+	padding-right: 0;
+	width: 50px;
+}
+
+.input-wrap.qty .btn-plus,
+.input-wrap.qty .btn-minus {
+	position: relative;
+	width: 10px;
+	height:10px;
+}
+
+.input-wrap.qty .btn-plus::before,
+.input-wrap.qty .btn-plus::after,
+.input-wrap.qty .btn-minus::before {
+	content:'';
+	display: block;
+	background-color: var(--primary);
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+
+.input-wrap.qty .btn-plus::before,
+.input-wrap.qty .btn-minus::before {
+	width: 100%;
+	height:2px;
+}
+
+.input-wrap.qty .btn-plus::after {
+	width: 2px;
+	height:100%;
 }
 
 /* button */
