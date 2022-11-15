@@ -210,7 +210,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 })
 
-
+// 서브 페이지에 sub 클래스 추가
+var docSlider = document.querySelector('.docSlider');
+document.querySelector('html').classList.add('sub');
+if(!!docSlider) {
+	document.querySelector('html').classList.remove('sub');
+}
 
 
 var eleFocusTags = 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])';
