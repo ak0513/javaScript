@@ -368,5 +368,6 @@ function sideMenuToggel() {
 	} else {
 		popOpen('#sideMenu', document.querySelector('.btn-nav-open'));
 		document.body.classList.add('open-side');
+		accessEnable(siblings(document.querySelector('#sideMenu')), 'nav');
 	}
 }
