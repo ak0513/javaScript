@@ -32,6 +32,7 @@
     flex-wrap: wrap;
     margin: -5px;
 }
+
 .list01 .list-item {
     flex:1 1 calc(16.6666% - 10px);
     max-width: calc(16.6666% - 10px);
@@ -138,21 +139,84 @@
 }
 
 
-.list02 {
+/* list02 */
+.list02 .list-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -34px;
+}
+
+.list02 .list-item {
+    position: relative;
+    flex:1 1 calc(20% - 68px);
+    max-width: calc(20% - 68px);
+    margin: 34px;
+    font-weight: 700;
+}
+
+.list02 .list-img {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 368px;
+    border-radius: 150px;
+}
+
+.list02 .list-img img {
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    max-width: 368px;
+}
+
+.list02 .list-title {
+    overflow: hidden;
+    display: -webkit-box;
+    position: absolute;
+    bottom:54px;
+    left:0;
+    padding: 5px 14px;
+    background-color: #5142fd;
+    font-size: 22px;
+    color:#fff;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.list02 .list-point {
+    position: absolute;
+    bottom:20px;
+    left:0;
+    padding: 5px 14px;
+    background-color: #5142fd;
+    font-size: 16px;
+    color:#fff;
+    letter-spacing: -1px;
+}
+
+.list02 .list-point small {
+    font-size: 12px;
+}
+
+/* list03 */
+.list03 {
     border-top: 2px solid #000;
     border-bottom:2px solid #000;
 }
 
-.list02 .list-item + .list-item {
+.list03 .list-item + .list-item {
     border-top:1px solid #999;
 }
 
-.list02 .list-link {
+.list03 .list-link {
     display: flex;
     padding: 20px 0;
 }
 
-.list02 .list-num {
+.list03 .list-num {
     align-self:flex-start;
     width: 70px;
     padding-bottom: 5px;
@@ -162,35 +226,35 @@
     text-align: right;
 }
 
-.list02 .list-date {
+.list03 .list-date {
     margin-left: 30px;
     font-size: 30px;
     color:#000;
 }
 
-.list02 .list-date .year {
+.list03 .list-date .year {
     display: block;
     font-size: 16px;
 }
 
-.list02 .list-title {
+.list03 .list-title {
     align-self:flex-end;
     margin-left: 65px;
     margin-right: auto;
     font-size: 34px;
 }
 
-.list02 .list-point {
+.list03 .list-point {
     align-self:flex-end;
     margin-right:50px;
     font-size: 34px;
 }
 
-.list02 .list-point.red {
+.list03 .list-point.red {
     color:var(--red)
 }
 
-.list02 .list-point.blue {
+.list03 .list-point.blue {
     color:var(--blue)
 }
 
@@ -263,6 +327,17 @@
 
     .total-use {
         background-color: var(--blue);
+    }
+
+    /* list02 */
+    .list02 .list-group {
+        margin: -15px;
+    }
+
+    .list02 .list-item {
+        flex: 1 1 calc(20% - 30px);
+        max-width: calc(20% - 30px);
+        margin: 15px;
     }
 }
 
@@ -337,7 +412,7 @@
         width: 100%;
         height: auto;
         margin:0;
-        border-radius: 0;
+        border-radius: 3px;
     }
 
     .list01 .list-img img {
@@ -383,6 +458,7 @@
         padding: 7px 0;
         color:#fff;
         font-size: 13px;
+        border-radius: 3px;
     }
 
     .list01 .list-point span {
@@ -397,47 +473,99 @@
         background: url('../img/icon-point.png') no-repeat center / 11px 11px;
     }
 
-    /* list02 */
-    .list02 {
+
+    /* list02 980 */
+    .list02 .list-group {
+        margin: -10px;
+    }
+	.list02 .list-item {
+		flex:1 1 calc(50% - 20px);
+        margin: 10px;
+        padding:0;
+        max-width: 100%;
+        background-color: transparent;
+	}
+
+    .list02 .list-img img {
+        max-width: 100%;
+    }
+
+    .list02 .list-img {
+        width: 100%;
+        height: auto;
+        margin:0;
+        border-radius: 3px;
+    }
+
+    .list02 .list-img img {
+        position: relative;
+        top:0;
+        left:0;
+        transform: translate(0,0);
+        width: 100%;
+    }
+
+    .list02 .list-title {
+        position: relative;
+        bottom:auto;
+        margin-top:10px;
+        padding:0;
+        background-color: transparent;
+        -webkit-line-clamp:1;
+        color:#5c0071;
+    }
+
+    .list02 .list-point {
+        position: relative;
+        margin-top:5px;
+        padding:0 0 0 14px;
+        bottom:auto;
+        background-color: transparent;
+        background: transparent url('../img/icon-point2.png') no-repeat left center / 10px 11px;
+        color:var(--black);
+    }
+
+    /* list03 */
+    .list03 {
         border-top:1px solid #f1f0f0;
         border-bottom:1px solid #f1f0f0;
     }
 
-    .list02 .list-item + .list-item {
+    .list03 .list-item + .list-item {
         border-color:#f1f0f0;
     }
 
-    .list02 .list-link {
+    .list03 .list-link {
         position: relative;
         flex-direction: column;
         padding:12px 0;
     }
 
-    .list02 .list-num {
+    .list03 .list-num {
         display: none;
     }
 
-    .list02 .list-date {
+    .list03 .list-date {
         display: flex;
         margin-left:0;
         font-size:12px;
     }
 
-    .list02 .list-date .year {
+    .list03 .list-date .year {
         font-size: 12px;
     }
 
-    .list02 .list-date .year::after{
+    .list03 .list-date .year::after{
         content:'.';
         display: inline-block;
     }
 
-    .list02 .list-title {
+    .list03 .list-title {
         margin-left:0;
         font-size: 14px;
     }
 
-    .list02 .list-point {
+    .list03 .list-point {
         position: absolute;
         bottom: 12px;
         right:0;
