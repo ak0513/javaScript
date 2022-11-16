@@ -1,3 +1,30 @@
+/* history 상단 */
+.total-point {
+    position: absolute;
+    top:35px;
+    right:0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.total-point span:first-child::after {
+    margin-left:5px;
+    content: ':';
+}
+
+.total-point [class*='total-'] {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-acquisition {
+    color:var(--red)
+}
+
+.total-use {
+    color:var(--blue)
+}
+
 
 /* 리스트 */
 .list01 .list-group {
@@ -101,13 +128,13 @@
     padding: 10px 0 10px;
     background-color: #5c0071;
     border-radius: 5px;
-    font-size:15px;
+    font-size:14px;
     color:#ecd871;
     text-align: center;
 }
 
 .list01 .list-point span {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
@@ -116,13 +143,13 @@
     border-bottom:2px solid #000;
 }
 
-.list02 .list-item {
-    display: flex;
-    padding: 20px 0;
-}
-
 .list02 .list-item + .list-item {
     border-top:1px solid #999;
+}
+
+.list02 .list-link {
+    display: flex;
+    padding: 20px 0;
 }
 
 .list02 .list-num {
@@ -211,6 +238,31 @@
     .page-tit-point {
         position: relative;
         transform: translate(0);
+        margin-top:20px;
+    }
+
+    /* history */
+    .total-point {
+        position: relative;
+        top:0;
+        display: flex;
+        margin:20px -10px 0;
+    }
+
+    .total-point [class*='total-'] {
+        flex:1;
+        margin: 0 10px;
+        padding: 12px 20px;
+        color:#fff;
+        border-radius: 3px;
+    }
+
+    .total-acquisition {
+        background-color: var(--red);
+    }
+
+    .total-use {
+        background-color: var(--blue);
     }
 }
 
@@ -221,10 +273,17 @@
         margin-bottom:16px;
     }
 
+    .page-tit,
+    .page-header-txt {
+        display: none;
+    }
+
+    /* check */
     .page-tit-point {
         /* justify-content: flex-end; */
         width:auto;
         height: auto;
+        margin-top: 0;
         margin-left: auto;
         background-color: transparent;
         color:var(--primary);
@@ -237,6 +296,25 @@
 
     .page-tit-point small {
         font-size: 14px;
+    }
+
+    /* history */
+    .total-point {
+        margin-top: 0;
+    }
+
+    .total-point [class*='total-'] {
+        flex-direction: column;
+        align-items: center;
+        padding: 8px 15px;
+        font-size: 15px;
+    }
+    .total-point span:first-child::after {
+        display: none;
+    }
+
+    .total-point [class*='total-'] small {
+        font-size:12px;
     }
     
     /* list01 980 */
@@ -317,6 +395,54 @@
         width: 11px;
         height:11px;
         background: url('../img/icon-point.png') no-repeat center / 11px 11px;
+    }
+
+    /* list02 */
+    .list02 {
+        border-top:1px solid #f1f0f0;
+        border-bottom:1px solid #f1f0f0;
+    }
+
+    .list02 .list-item + .list-item {
+        border-color:#f1f0f0;
+    }
+
+    .list02 .list-link {
+        position: relative;
+        flex-direction: column;
+        padding:12px 0;
+    }
+
+    .list02 .list-num {
+        display: none;
+    }
+
+    .list02 .list-date {
+        display: flex;
+        margin-left:0;
+        font-size:12px;
+    }
+
+    .list02 .list-date .year {
+        font-size: 12px;
+    }
+
+    .list02 .list-date .year::after{
+        content:'.';
+        display: inline-block;
+    }
+
+    .list02 .list-title {
+        margin-left:0;
+        font-size: 14px;
+    }
+
+    .list02 .list-point {
+        position: absolute;
+        bottom: 12px;
+        right:0;
+        margin-right:0;
+        font-size: 14px;
     }
 }
 

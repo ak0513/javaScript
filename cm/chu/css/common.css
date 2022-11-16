@@ -4295,10 +4295,7 @@ table td {
 	font-weight: 700;
 }
 
-#pager .page-first,
-#pager .page-last,
-#pager .page-prev,
-#pager .page-next {
+#pager [class*='page-'] {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -4324,6 +4321,10 @@ table td {
 #pager .page-next {
 	margin-left: 10px;
 	background-image: url('../img/btn-board-next.png');
+}
+
+#pager .btn-wrap {
+	display:none;
 }
 
 /* container */
@@ -4415,6 +4416,10 @@ table td {
 }
 
 @media (max-width: 980px) {
+	:root {
+		--form-ele-font-lg: 1.4rem;
+	}
+
 	.pc-hide {display: block !important;}
 	.m-hide {display:none !important;}
 	/* 타이틀 */
@@ -4613,8 +4618,8 @@ table td {
 
 	/* container 980 */
 	.container-inner {
-		margin-top: 86px;
-		padding:0 16px 50px;
+		margin-top: 68px;
+		padding:20px 16px 50px;
 	}
 
 	.sub #wrap {
@@ -4624,6 +4629,27 @@ table td {
 	.sub #footer {
 		display: none;
 		padding:0 16px;
+	}
+
+	/* pager 980 */
+	#pager {
+		margin-top:25px;
+	}
+
+	#pager [class*='page-'] {
+		display:none;
+	}
+
+	#pager .btn-wrap {
+		display: flex;
+		width: 100%;
+		margin:0;
+	} 
+
+	#pager .btn-wrap .btn {
+		display: flex;
+		width: 100%;
+		margin:0;
 	}
 }
 

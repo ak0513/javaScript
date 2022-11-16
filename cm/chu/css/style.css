@@ -664,34 +664,6 @@
     font-size: 20px;
 }
 
-.total-point {
-    position: absolute;
-    top:35px;
-    right:0;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.total-point span:first-child::after {
-    margin-left:5px;
-    content: ':';
-}
-
-.total-point [class*='total-'] {
-    display: flex;
-    justify-content: space-between;
-}
-
-.total-acquisition {
-    color:var(--red)
-}
-
-.total-use {
-    color:var(--blue)
-}
-
-
-
 @media (max-width: 1600px) {
     /* section03 1600px */
     .team-text {
