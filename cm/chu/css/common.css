@@ -3692,12 +3692,14 @@ table td {
 .form-ele {
 	position: relative;
 	display: flex;
-	align-items: center;
 }
 
 .form-ele .form-label {
+	flex-shrink: 0;
+	width: 60px;
 	margin-bottom: 0;
 	margin-right: 1.5rem;
+	padding-top:4px;
 }
 
 .form-ele [class*='wrap'],
@@ -3730,6 +3732,14 @@ table td {
 	margin-top: 0.5rem;
 	font-size: 1.4rem;
 	color:var(--gray);
+}
+
+.input-wrap.zip-code {
+	width:200px;
+}
+
+.pop-conts .form {
+	padding-right:100px;
 }
 
 /* title */
@@ -3775,6 +3785,11 @@ table td {
 
 .pop-header {
 	text-align: center;
+}
+
+.pop-header .pop-title-label {
+	display: block;
+	text-align: left;
 }
 
 .pop-wrap .btn-group {
@@ -4371,9 +4386,18 @@ table td {
 } 
 
 @media (max-width: 1280px) {
+	/* footer */
 	.sub #footer {
 		margin-top:200px;
 		margin-bottom:50px;
+	}
+
+	.sub #footer .footer-logo img {
+		width: 150px;
+	}
+	
+	.sub #footer .footer-copyright {
+		font-size: 18px;
 	}
 }
 

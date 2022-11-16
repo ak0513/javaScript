@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		ele.addEventListener('click', showMenuDepth2)
 	});
 	
-	// sidemenu
+	// 사이드메뉴
 	function showMenuDepth2(e) {
 		e.preventDefault();
 		var ele = e.target;
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.querySelector('html').classList.add('sub');
 	}
 
-	// 사이드 메뉴 세팅
+	// 사이드메뉴 세팅
 	function setSideMenu(ele) {
 		removeClass(sideMenuLink2, 'on');
 		removeClass(sideMenuDepth2Link, 'on');

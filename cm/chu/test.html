@@ -120,56 +120,59 @@
     <div id="popup3" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
-				<h2 class="pop-title">제목</h2>
+				<h2 class="pop-title">BAYC TaaS</h2>
 			</div>
 			<div class="pop-conts">
 				<div class="form">
                     <div class="form-ele">
-						<label class="form-label" for="input1">타이틀</label>
-						<div class="text-wrap">텍스트</div>
+						<div class="text-wrap">구매 가능 츄<small>(포인트)</small> : 35,000</div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input2">타이틀</label>
-						<div class="input-wrap side-btn">
-							<input type="text" id="input2">
-							<button type="button" class="btn btn-primary btn-small">btn</button>
+						<label class="form-label" for="qty">구매갯수</label>
+						<div class="input-wrap qty">
+							<button type="button" class="btn-plus" aria-label="수량감소"></button>
+							<input type="number" id="qty" value="0">
+							<button type="button" class="btn-minus" aria-label="수량증가"></button>
 						</div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input5">타이틀</label>
+						<label class="form-label" for="recipient">수령인</label>
+						<div class="input-wrap side-btn">
+							<input type="text" id="recipient">
+							<button type="button" class="btn btn-primary btn-small">개인정보 취급방침</button>
+						</div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="cellphone">연락처</label>
                         <div class="row gutter-x10">
                             <div class="col-6">
-                                <div class="form-ele">
-                                    <div class="input-wrap">
-                                        <input type="text" id="input8">
-                                    </div>
-                                </div>
+                                <select name="" id="cellphone">
+                                    <option value="">010</option>
+                                </select>
                             </div>
                             <div class="col-6">
-                                <div class="form-ele">
-                                    <select name="">
-                                        <option value="">cm</option>
-                                        <option value="">cm2</option>
-                                    </select>
+                                <div class="input-wrap">
+                                    <input type="text" title="연락처 뒷번호" value="01000101">
                                 </div>
                             </div>
                         </div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input5">타이틀</label>
+						<label class="form-label" for="address">배송주소</label>
 						<div class="form-group">
-							<div class="input-wrap side-btn" style="width:200px">
-                                <input type="text" id="input2">
+							<div class="input-wrap side-btn zip-code">
+                                <input type="text" id="address">
                                 <button type="button" class="btn btn-primary btn-small">btn</button>
                             </div>
 							<div class="input-wrap">
-								<input type="text">
+								<input type="text" title="상세주소">
 							</div>
 							<div class="input-wrap">
-								<input type="text">
+								<input type="text" title="상세주소">
 							</div>
 						</div>
 					</div>
@@ -177,8 +180,8 @@
 			</div>
 			<div class="pop-footer">
                 <div class="btn-wrap btn-group">
-                    <button type="button" class="btn btn-primary btn-block">A</button>
-                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">B</button>
+                    <button type="button" class="btn btn-primary btn-block">신청완료</button>
+                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">닫기</button>
                 </div>
 			</div>
 		</div>
@@ -188,17 +191,18 @@
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
                 <span class="pop-title-label">제목</span>
-				<h2 class="pop-title">제목2</h2>
+				<h2 class="pop-title">BAYC 랜드 민팅 개시... 얼마나 벌 수 있나...?</h2>
 			</div>
 			<div class="pop-conts">
-				
-                    내용
-                
+                <div class="form">
+                    <div class="form-ele">
+						<div class="text-wrap">조회시 차감 츄(포인트) : 1츄</div>
+					</div>
 			</div>
 			<div class="pop-footer">
                 <div class="btn-wrap btn-group">
-                    <button type="button" class="btn btn-primary btn-block">A</button>
-                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">B</button>
+                    <button type="button" class="btn btn-primary btn-block">확인</button>
+                    <button type="button" class="btn btn-light btn-block" onclick="popClose('#popup')">취소</button>
                 </div>
 			</div>
 		</div>
@@ -207,49 +211,43 @@
     <div id="popup5" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
-				<h2 class="pop-title">제목</h2>
+				<h2 class="pop-title">ㅉㅉㅉ - 영화관람</h2>
 			</div>
 			<div class="pop-conts">
 				<div class="form">
                     <div class="form-ele">
-						<label class="form-label" for="input1">타이틀</label>
-						<div class="text-wrap">텍스트</div>
+						<div class="text-wrap">구매 가능 츄<small>(포인트)</small> : 35,000</div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input2">타이틀</label>
+						<label class="form-label" for="qty">참여횟수</label>
 						<div class="input-wrap qty">
 							<button type="button" class="btn-plus" aria-label="수량감소"></button>
-							<input type="number" id="input2">
+							<input type="number" id="qty" value="0">
 							<button type="button" class="btn-minus" aria-label="수량증가"></button>
 						</div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input2">타이틀</label>
+						<label class="form-label" for="participant">참가자</label>
 						<div class="input-wrap side-btn">
-							<input type="text" id="input2">
+							<input type="text" id="participant">
 							<button type="button" class="btn btn-primary btn-small">btn</button>
 						</div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input5">타이틀</label>
+						<label class="form-label" for="cellphone">연락처</label>
                         <div class="row gutter-x10">
                             
                             <div class="col-6">
-                                <div class="form-ele">
-                                    <select name="">
-                                        <option value="">셀렉트</option>
-                                        <option value="">cm2</option>
-                                    </select>
-                                </div>
+                                <select name="" id="cellphone">
+                                    <option value="">010</option>
+                                </select>
                             </div>
                             <div class="col-6">
-                                <div class="form-ele">
-                                    <div class="input-wrap">
-                                        <input type="text" id="input8">
-                                    </div>
+                                <div class="input-wrap">
+                                    <input type="text" title="연락처 뒷번호" value="01000101">
                                 </div>
                             </div>
                         </div>
@@ -259,8 +257,8 @@
 			</div>
 			<div class="pop-footer">
                 <div class="btn-wrap btn-group">
-                    <button type="button" class="btn btn-primary btn-block">A</button>
-                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">B</button>
+                    <button type="button" class="btn btn-primary btn-block">신청완료</button>
+                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">닫기</button>
                 </div>
 			</div>
 		</div>
@@ -269,29 +267,28 @@
     <div id="popup2" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
-				<h2 class="pop-title">제목</h2>
+				<h2 class="pop-title">BAYC TaaS</h2>
 			</div>
 			<div class="pop-conts">
 				<div class="form">
                     <div class="form-ele">
-						<label class="form-label" for="input1">타이틀</label>
-						<div class="text-wrap">텍스트</div>
+						<div class="text-wrap">구매 가능 츄<small>(포인트)</small> : 35,000</div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input2">타이틀</label>
+						<label class="form-label" for="qty">참여횟수</label>
 						<div class="input-wrap qty">
 							<button type="button" class="btn-plus" aria-label="수량감소"></button>
-							<input type="number" id="input2">
+							<input type="number" id="qty" value="0">
 							<button type="button" class="btn-minus" aria-label="수량증가"></button>
 						</div>
 					</div>
 
                     <div class="form-ele">
-						<label class="form-label" for="input2">타이틀</label>
+						<label class="form-label" for="participant">참가자</label>
 						<div class="input-wrap side-txt">
-							<input type="text" id="input2">
-							<div class="text-wrap">텍스트</div>
+							<input type="text" id="participant" value="Rara | CYE">
+							<div class="text-wrap">디스코드 아이디</div>
 						</div>
 					</div>
 
@@ -300,8 +297,8 @@
 			</div>
 			<div class="pop-footer">
                 <div class="btn-wrap btn-group">
-                    <button type="button" class="btn btn-primary btn-block">A</button>
-                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">B</button>
+                    <button type="button" class="btn btn-primary btn-block">신청완료</button>
+                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popup')">닫기</button>
                 </div>
 			</div>
 		</div>
@@ -326,7 +323,7 @@
             },
         });
 
-        popOpen('#popup2');
+        popOpen('#popup4');
     </script>
 
 </body>
