@@ -279,7 +279,7 @@
     <!-- 전체메뉴 -->
     <div id="sideMenu">
         <div class="menu-wrap">
-            <div class="menu-logo"><img src="./img/logo.png" alt=""></div>
+            <div class="menu-logo"><img src="./img/logo.png" alt="" class="menu-logo-btn"></div>
             <!-- MO 로그인 후 -->
             <div class="header-login-m">
                 <img src="./img/login-img.png" alt=""  class="login-img">
@@ -290,32 +290,32 @@
             </div>
             <!-- //MO 로그인 후 -->
             <ul class="menu-group">
-                <li class="menu-item">
-                    <a href="#" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></a>
+                <li class="menu-item item1">
+                    <button type="button" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></button>
                     <ul id="sideProject" class="menu-depth2 collapse">
-                        <li class="menu-depth2-item"><a href="#" id="team" class="menu-depth2-link">team</a></li>
-                        <li class="menu-depth2-item"><a href="#" id="tass" class="menu-depth2-link">TaaS</a></li>
+                        <li class="menu-depth2-item"><a href="./index.html?slide=2" id="team" class="menu-depth2-link" role="button">team</a></li>
+                        <li class="menu-depth2-item"><a href="./index.html?slide=3" id="tass" class="menu-depth2-link" role="button">TaaS</a></li>
                     </ul>
                 </li>
-                <li class="menu-item"><a href="#" id="roadMap" class="menu-link">Road Map</a></li>
-                <li class="menu-item"><a href="#" id="story" class="menu-link">Story</a></li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link has-sub" aria-controls="sidePoint">Point<i class="menu-link-icon"></i></a>
+                <li class="menu-item item2"><a href="./index.html?slide=4" id="roadMap" class="menu-link" role="button">Road Map</a></li>
+                <li class="menu-item item3"><a href="./index.html?slide=5" id="story" class="menu-link" role="button">Story</a></li>
+                <li class="menu-item item4">
+                    <button type="button" class="menu-link has-sub" aria-controls="sidePoint">Point<i class="menu-link-icon"></i></button>
                     <ul id="sidePoint" class="menu-depth2 collapse">
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Check</a></li>
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Histroy</a></li>
                     </ul>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link has-sub" aria-controls="sideShop">Shop<i class="menu-link-icon"></i></a>
+                <li class="menu-item item5">
+                    <button type="button" class="menu-link has-sub" aria-controls="sideShop">Shop<i class="menu-link-icon"></i></button>
                     <ul id="sideShop" class="menu-depth2 collapse">
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Goods</a></li>
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Raffle</a></li>
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Offine</a></li>
                     </ul>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link has-sub" aria-controls="sidePlayground">Playground<i class="menu-link-icon"></i></a>
+                <li class="menu-item item6">
+                    <button type="button" class="menu-link has-sub" aria-controls="sidePlayground">Playground<i class="menu-link-icon"></i></button>
                     <ul id="sidePlayground" class="menu-depth2 collapse">
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">News</a></li>
                         <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">Mini-Game</a></li>
@@ -356,22 +356,6 @@
     </div>
     <!-- //전체메뉴 -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            sideMenuToggel()
-        })
-        window.addEventListener('resize', function() {
-	sideMenuToggel()
-});
-       function sideMenuToggel() {
-		if(window.innerWidth < 1600) {
-			popClose('#sideMenu');
-			console.log('aa')
-			document.body.classList.remove('open-side');
-		} else {
-			popOpen('#sideMenu', document.querySelector('.btn-nav-open'));
-			document.body.classList.add('open-side');
-			accessEnable(siblings(document.querySelector('#sideMenu')), 'nav');
-		}
-    }
+      
     </script>
 </body>
