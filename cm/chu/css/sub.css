@@ -217,6 +217,7 @@
 }
 
 .list03 .list-num {
+    flex-shrink: 0;
     align-self:flex-start;
     width: 70px;
     padding-bottom: 5px;
@@ -238,10 +239,14 @@
 }
 
 .list03 .list-title {
+    text-overflow: ellipsis;
     align-self:flex-end;
     margin-left: 65px;
     margin-right: auto;
     font-size: 34px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .list03 .list-point {
@@ -338,6 +343,14 @@
         flex: 1 1 calc(20% - 30px);
         max-width: calc(20% - 30px);
         margin: 15px;
+    }
+
+    .list02 .list-title {
+        bottom:73px;
+    }
+
+    .list02 .list-point span {
+        display: block;
     }
 }
 
@@ -561,6 +574,7 @@
     }
 
     .list03 .list-title {
+        width: calc(100% - 80px);
         margin-left:0;
         font-size: 14px;
     }
