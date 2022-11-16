@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	var sideMenuDepth2Link = document.querySelectorAll('.menu-depth2-link');
 
 	var eleDocSlider = document.querySelector('.docSlider');
-	console.log(eleDocSlider)
 	var isMain = !!eleDocSlider ? true : false;
 
 	sideMenuLink.forEach(function(ele) {
@@ -44,11 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			showCollapse(eleDepth2);
 		}
 
-		document.querySelector('.menu-logo-btn').addEventListener('click', function() {
-			hideCollapse(eleDepth2);
-			removeClass(sideMenuItem, 'on');
-		});
-		
 		//sideMenuDepth2 슬라이드
 		sideMenuDepth2.forEach(function(ele) {
 			if(ele.classList.contains('show')) {
@@ -99,8 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.querySelector('.menu-logo-btn').addEventListener('click', function(e) {
 			document.querySelector('[data-ds-jump="0"]').click();
 			popClose('#sideMenu');
-			removeClass(sideMenuLink2, 'on');
-			removeClass(sideMenuDepth2Link, 'on');
 		})
 
 		document.querySelector('#team').addEventListener('click', function(e) {
@@ -135,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				closeSideMenuItem1();
 				setSideMenu();
 			}
-
 			if(docHtml.classList.contains('docSlider-page_3')) {
 				openSideMenuItem1();
 				setSideMenu('#team.menu-depth2-link');
@@ -144,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				openSideMenuItem1();
 				setSideMenu('#tass.menu-depth2-link');
 			}
-
 			if(docHtml.classList.contains('docSlider-page_5')) {
 				closeSideMenuItem1();
 				setSideMenu('#roadMap.menu-link');
@@ -154,6 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
 				setSideMenu('#story.menu-link');
 			}
 		});
+
+		// 링크 초기화
+		var slideBtn = document.querySelectorAll('#team, #tass, #story, #roadMap');
+		slideBtn.forEach(function(ele) {
+			ele.setAttribute('href', '#');
+		})
 	}
 
 	// 메인이 아닌 경우
@@ -353,7 +349,6 @@ function popOpen(ele, btn) {
 	},10)
 	tar.classList.add('pop-open');
 	btn.setAttribute('data-pop', tar.getAttribute('id'));
-	console.log(siblings(tar))
 	accessDisable(siblings(tar), 'nav');
 }
 
