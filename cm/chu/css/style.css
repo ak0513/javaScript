@@ -114,7 +114,7 @@
     margin: 0 auto;
     max-width: 1097px;
     padding-top: 27.15%;
-    background: url('../img/tiket-bg.png') no-repeat bottom center / 100%;
+    background: url('../img/tiket-bg.png') no-repeat bottom center / contain;
 }
 
 
@@ -780,6 +780,11 @@
     .section05,
     .section06 {
         padding: calc(7.5% + 68px) 32px 0 32px;
+    }
+
+    /* section02 980px */
+    .tiket-bg span {
+        padding-top:42.6618%;
     }
 
 

@@ -6,8 +6,8 @@
     margin: -5px;
 }
 .list01 .list-item {
-    flex:1 1 calc(20% - 10px);
-    max-width: calc(20% - 10px);
+    flex:1 1 calc(16.6666% - 10px);
+    max-width: calc(16.6666% - 10px);
     /* width: 222px; */
     margin: 5px;
     padding: 10px 20px 25px;
