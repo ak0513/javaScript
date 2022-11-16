@@ -209,13 +209,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	/* 서브 페이지 메뉴 노출 */
 	function sideMenuToggle() {
 		if(!isMain) {
-			if(window.innerWidth < 1600) {
-				popClose('#sideMenu');
-				document.body.classList.remove('open-side');
-			} else {
+			if(window.innerWidth > 1600) {
 				document.body.classList.add('open-side');
 				popOpen('#sideMenu', document.querySelector('.btn-nav-open'));
 				accessEnable(siblings(document.querySelector('#sideMenu')), 'nav');
+			} else {
+				popClose('#sideMenu');
+				document.body.classList.remove('open-side');
 			}
 		}
 	}
