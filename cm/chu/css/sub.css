@@ -287,6 +287,10 @@
     max-width: 410px;
 }
 
+.board-thumb-swiper {
+    display: none;
+}
+
 .board-read {
     flex-grow: 1;
 }
@@ -704,6 +708,15 @@
 
     .board-read-header {
         flex-direction: column;
+    }
+
+    .board-img {
+        display: none;
+        
+    }
+    
+    .board-thumb-swiper {
+        display: block;
     }
 }
 

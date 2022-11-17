@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.querySelector("[data-ds-jump=\'" + num + "\']").click();
 		popClose('#sideMenu');
 	}
+	
 	// 메인인 경우
 	if(isMain) {
 		// 슬라이드 이동 click
@@ -347,7 +348,6 @@ function closest(ele, selector) {
 	}
 	return null;
 }
-
 
 // 레이어 팝업
 function popOpen(ele, btn) {

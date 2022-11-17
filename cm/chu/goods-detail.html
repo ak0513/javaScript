@@ -68,8 +68,22 @@
 
                 <div class="contents">
                     <div class="board-read-wrap">
-                        <div class="board-img"><img src="./img/board-info-mainimg.jpg" alt=""></div>
-                
+                        <!-- 피씨 노출 -->
+                        <div class="board-img"><a href="#" role="button" onclick="popOpen('#popupThumb', this)"><img src="./img/board-info-mainimg.jpg" alt=""></a></div>
+                        <!-- //피씨 노출 -->
+                        <!-- 모바일 노출 -->
+                        <div class="swiper board-thumb-swiper">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                            </div>
+                        </div>
+                        <!-- //모바일 노출 -->
                         <div class="board-read">
                             <div class="board-read-header">
                                 <div class="board-tit-wrap">
@@ -195,4 +209,67 @@
         <div class="menu-dim" onclick="popClose('#sideMenu')"></div>
     </div>
     <!-- //전체메뉴 -->
+
+    <div id="popupThumb" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+		<div class="pop-inner">
+			<div id="popupLabel" class="pop-header">
+				팝업 타이틀
+			</div>
+			<div class="pop-conts">
+				<div class="swiper pop-thumb-swiper">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                    </div>
+                </div>
+			</div>
+			<div class="pop-footer">
+				팝업 하단
+				<button type="button" class="" onclick="popClose('#popupThumb')">팝업 닫기</button>
+			</div>
+		</div>
+	</div>
+
+    <script>
+        var popThumbSwiper = new Swiper('.pop-thumb-swiper',{
+            
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 'auto',
+            observer: true,
+            obserParents:true,
+            on: {
+                init: function() {
+                    this.slides.forEach(function(ele) {
+                        ele.setAttribute('tabindex', 0)
+                    });
+                }
+            },
+        });
+
+        var boardThumbSwiper = new Swiper('.board-thumb-swiper',{
+            
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 'auto',
+            observer: true,
+            obserParents:true,
+            on: {
+                init: function() {
+                    this.slides.forEach(function(ele) {
+                        ele.setAttribute('tabindex', 0)
+                    });
+                }
+            },
+        });
+    </script>
 </body>
