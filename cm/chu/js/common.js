@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
-	var sideMenu = document.querySelectorAll('#sideMenu');
+	var sideMenu = document.querySelector('#sideMenu');
 	var sideMenuLink = document.querySelectorAll('.menu-link.has-sub');
 	var sideMenuLink2 = document.querySelectorAll('.menu-link');
 	var sideMenuItem = document.querySelectorAll('.menu-item');
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// 메인인 경우
 	if(isMain) {
 		// 슬라이드 이동 click
-		document.querySelector('.menu-logo-btn').addEventListener('click', function(e) {
+		document.querySelector('.menu-logo-link').addEventListener('click', function(e) {
 			moveSlide(0);
 		})
 
