@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="sub">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./css/swiper.min.css">
 	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/sub.css">
+    <link rel="stylesheet" href="./css/sub.css">
 	<script src="./js/docSlider.min.js"></script>
     <script src="./js/swiper.min.js"></script>
 	<script src="./js/common.js"></script>
@@ -29,25 +29,227 @@
 
     <div id="wrap">
         <!-- header -->
-        <button type="button" class="btn-nav-open" aria-label="전체메뉴 열기" onclick="popOpen('#sideMenu', this);"><span></span></button>
+        <header id="header">
+            <h1 class="h-tit1"><a href="./index.html?slide=1">CLOSE YOUR EYES</a></h1>
+            <button type="button" class="btn-nav-open" aria-label="전체메뉴 열기" onclick="popOpen('#sideMenu', this);"><span></span></button>
+            <!-- PC 로그인 전 -->
+            <div class="header-wallet">Connect Wallet</div>
+            <!-- //PC 로그인 전 -->
+            <!-- PC 로그인 후 -->
+            <div class="header-wallet login">0x43E8...0532</div>
+            <!-- //PC 로그인 후 -->
+
+            <ul class="header-sns">
+                <li class="discord"><a href="https://discord.com/invite/cye" target="_blank"><span class="a11y">디스코드</span></a></li>
+                <li class="twitter">
+                    <a href="https://twitter.com/closeyoureyesV0" target="_blank">
+                        <span class="a11y">트위터</span>
+                        <span class="sns-txt">V0</span>
+                   </a>
+                </li>
+                <li class="twitter">
+                    <a href="https://twitter.com/CYE_nft" target="_blank">
+                        <span class="a11y">트위터</span>
+                        <span class="sns-txt">V1</span>
+                    </a>
+                </li>
+                <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li>
+            </ul>
+        </header>
+        <!-- //header -->
 
         <!-- container -->
         <section id="container">
             <div class="container-inner">
-				111
-				<div style="height:1500px"></div>
-			</div>
+
+                <div class="contents">
+                    <div class="board-read-wrap">
+                        <!-- 피씨 노출 -->
+                        <div class="board-img"><a href="#" role="button" onclick="popOpen('#popupThumb', this)"><img src="./img/board-info-mainimg.jpg" alt=""></a></div>
+                        <!-- //피씨 노출 -->
+                        <!-- 모바일 노출 -->
+                        <div class="swiper board-thumb-swiper">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                            </div>
+                        </div>
+                        <!-- //모바일 노출 -->
+                        <div class="board-read">
+                            <div class="board-read-header">
+                                <div class="board-tit-wrap">
+                                    <div class="board-date">2022.10.31 23:15</div>
+                                    <div class="board-tit">브로스키 TaaS 브로스키 TaaS 브로스키 TaaS 브로스키 TaaS 브로스키 TaaS 브로스키 TaaS</div>
+                                </div>
+                                <div class="board-point-wrap">
+                                    <div class="board-point-tit">필요 츄<small>(포인트)</small></div>
+                                    <div class="board-point">99,999</div>
+                                    <button type="button"  class="board-btn-apply">신청하기</button>
+                                </div>
+                            </div>
+                
+                           
+                
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div class="footer-logo"><img src="./img/foot-logo-sub.png" alt=""></div>
+            <div class="footer-copyright">NWT Copyright 2021~, All Right Reserved.</div>
+        </footer>
+        <!-- //footer -->
     </div>
 
     <!-- 전체메뉴 -->
     <div id="sideMenu">
         <div class="menu-wrap">
-            <div style="height:10000px"></div>
+            <div class="menu-logo"><a href="./index.html?slide=1" class="menu-logo-link"><img src="./img/logo.png" alt=""></a></div>
+            <!-- MO 로그인 후 -->
+            <div class="header-login-m">
+                <img src="./img/login-img.png" alt=""  class="login-img">
+                <div class="login-info">
+                    <div class="login-id">0x43E8...0532</div>
+                    <div class="login-point">총 가용 추<span>(포인트)</span> : 999,350</div>
+                </div>
+            </div>
+            <!-- //MO 로그인 후 -->
+            <ul class="menu-group">
+                <li class="menu-item item1">
+                    <button type="button" class="menu-link has-sub" aria-controls="sideProject">Project<i class="menu-link-icon"></i></button>
+                    <ul id="sideProject" class="menu-depth2 collapse">
+                        <li class="menu-depth2-item"><a href="./index.html?slide=2" id="team" class="menu-depth2-link" role="button">team</a></li>
+                        <li class="menu-depth2-item"><a href="./index.html?slide=3" id="tass" class="menu-depth2-link" role="button">TaaS</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item item2"><a href="./index.html?slide=4" id="roadMap" class="menu-link" role="button">Road Map</a></li>
+                <li class="menu-item item3"><a href="./index.html?slide=5" id="story" class="menu-link" role="button">Story</a></li>
+                <li class="menu-item item4">
+                    <button type="button" class="menu-link has-sub" aria-controls="sidePoint">Point<i class="menu-link-icon"></i></button>
+                    <ul id="sidePoint" class="menu-depth2 collapse">
+                        <li class="menu-depth2-item"><a href="./check.html" id="check" class="menu-depth2-link">Check</a></li>
+                        <li class="menu-depth2-item"><a href="./history.html" id="history" class="menu-depth2-link">Histroy</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item item5">
+                    <button type="button" class="menu-link has-sub" aria-controls="sideShop">Shop<i class="menu-link-icon"></i></button>
+                    <ul id="sideShop" class="menu-depth2 collapse">
+                        <li class="menu-depth2-item"><a href="./goods.html" id="goods" class="menu-depth2-link">Goods</a></li>
+                        <li class="menu-depth2-item"><a href="./raffle.html" id="raffle" class="menu-depth2-link">Raffle</a></li>
+                        <li class="menu-depth2-item"><a href="./offine.html" id="offine" class="menu-depth2-link">Offine</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item item6">
+                    <button type="button" class="menu-link has-sub" aria-controls="sidePlayground">Playground<i class="menu-link-icon"></i></button>
+                    <ul id="sidePlayground" class="menu-depth2 collapse">
+                        <li class="menu-depth2-item"><a href="./news.html" id="news" class="menu-depth2-link">News</a></li>
+                        <li class="menu-depth2-item"><a href="./minigame.html" id="minigame" class="menu-depth2-link">Mini-Game</a></li>
+                        <li class="menu-depth2-item"><a href="./chulCheck.html" id="chulCheck" class="menu-depth2-link">CHul-Check</a></li>
+                    </ul>
+                </li>
+            </ul>
+        
+            <ul class="menu-sns">
+                <li class="discord"><a href="https://discord.com/invite/cye" target="_blank"><span class="a11y">디스코드</span></a></li>
+                <li class="twitter">
+                    <a href="https://twitter.com/closeyoureyesV0" target="_blank">
+                        <span class="a11y">트위터</span>
+                        <span class="sns-txt">V0</span>
+                    </a>
+                </li>
+                <li class="twitter">
+                    <a href="https://twitter.com/CYE_nft" target="_blank">
+                        <span class="a11y">트위터</span>
+                        <span class="sns-txt">V1</span>
+                    </a>
+                </li>
+                <!-- <li class="telegram"><a href="" target="_blank"><span class="a11y">텔레그램</span></a></li> -->
+            </ul>
+        
+            <ul class="menu-lang">
+                <li class="menu-lang-item"><a href="#" target="_blank" class="menu-lang-link" aria-label="국문 사이트 바로가기">Kor</a></li>
+                <li class="menu-lang-item"><a href="#" target="_blank" class="menu-lang-link eng" aria-label="영문 사이트 바로가기">Eng</a></li>
+            </ul>
+
+            <div class="btn-wrap menu-logout">
+                <button type="button" class="btn btn-logout">Logout</button>
+            </div>
 
             <button type="button" aria-label="전체 메뉴닫기" class="btn-menu-closed" onclick="popClose('#sideMenu')"></button>
         </div>
         <div class="menu-dim" onclick="popClose('#sideMenu')"></div>
     </div>
     <!-- //전체메뉴 -->
+
+    <div id="popupThumb" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+		<div class="pop-inner">
+			<div id="popupLabel" class="pop-header">
+				팝업 타이틀
+			</div>
+			<div class="pop-conts">
+				<div class="swiper pop-thumb-swiper">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
+                    </div>
+                </div>
+			</div>
+			<div class="pop-footer">
+				팝업 하단
+				<button type="button" class="" onclick="popClose('#popupThumb')">팝업 닫기</button>
+			</div>
+		</div>
+	</div>
+
+    <script>
+        var popThumbSwiper = new Swiper('.pop-thumb-swiper',{
+            
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 'auto',
+            observer: true,
+            obserParents:true,
+            on: {
+                init: function() {
+                    this.slides.forEach(function(ele) {
+                        ele.setAttribute('tabindex', 0)
+                    });
+                }
+            },
+        });
+
+        var boardThumbSwiper = new Swiper('.board-thumb-swiper',{
+            
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 'auto',
+            observer: true,
+            obserParents:true,
+            on: {
+                init: function() {
+                    this.slides.forEach(function(ele) {
+                        ele.setAttribute('tabindex', 0)
+                    });
+                }
+            },
+        });
+    </script>
 </body>
