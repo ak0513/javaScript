@@ -88,29 +88,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// 슬라이드 이동 fn
 	function moveSlide(num) {
+		event.preventDefault();
 		document.querySelector("[data-ds-jump=\'" + num + "\']").click();
 		popClose('#sideMenu');
 	}
 	// 메인인 경우
 	if(isMain) {
 		// 슬라이드 이동 click
-		document.querySelector('.menu-logo-link').addEventListener('click', function(e) {
+		document.querySelector('.menu-logo-link').addEventListener('click', function() {
+			moveSlide(0);
+		});
+
+		document.querySelector('h1.h-tit1 > a').addEventListener('click', function() {
 			moveSlide(0);
 		})
 
-		document.querySelector('#team').addEventListener('click', function(e) {
+		document.querySelector('#team').addEventListener('click', function() {
 			moveSlide(2);
 		})
 
-		document.querySelector('#tass').addEventListener('click', function(e) {
+		document.querySelector('#tass').addEventListener('click', function() {
 			moveSlide(3);
 		})
 
-		document.querySelector('#roadMap').addEventListener('click', function(e) {
+		document.querySelector('#roadMap').addEventListener('click', function() {
 			moveSlide(4);
 		})
 
-		document.querySelector('#story').addEventListener('click', function(e) {
+		document.querySelector('#story').addEventListener('click', function() {
 			moveSlide(5);
 		});
 
