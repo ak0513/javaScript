@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var sideMenuDepth2 = document.querySelectorAll('.menu-depth2');
 	var sideMenuDepth2Link = document.querySelectorAll('.menu-depth2-link');
 
-	var eleDocSlider = document.querySelector('.docSlider');
-	var isMain = !!eleDocSlider ? true : false;
+	var isMain = !!document.querySelector('.docSlider') ? true : false;
 
 	sideMenuLink.forEach(function(ele) {
 		ele.setAttribute('aria-expanded', false);
@@ -87,33 +86,32 @@ document.addEventListener('DOMContentLoaded', function() {
 		return eleCloneHeight
 	}
 
-	
-	// 메인인 경우 
+	// 슬라이드 이동 fn
+	function moveSlide(num) {
+		document.querySelector("[data-ds-jump=\'" + num + "\']").click();
+		popClose('#sideMenu');
+	}
+	// 메인인 경우
 	if(isMain) {
-		// 슬라이드 이동
+		// 슬라이드 이동 click
 		document.querySelector('.menu-logo-btn').addEventListener('click', function(e) {
-			document.querySelector('[data-ds-jump="0"]').click();
-			popClose('#sideMenu');
+			moveSlide(0);
 		})
 
 		document.querySelector('#team').addEventListener('click', function(e) {
-			document.querySelector('[data-ds-jump="2"]').click();
-			popClose('#sideMenu');
+			moveSlide(2);
 		})
 
 		document.querySelector('#tass').addEventListener('click', function(e) {
-			document.querySelector('[data-ds-jump="3"]').click();
-			popClose('#sideMenu');
+			moveSlide(3);
 		})
 
 		document.querySelector('#roadMap').addEventListener('click', function(e) {
-			document.querySelector('[data-ds-jump="4"]').click();
-			popClose('#sideMenu');
+			moveSlide(4);
 		})
 
 		document.querySelector('#story').addEventListener('click', function(e) {
-			document.querySelector('[data-ds-jump="5"]').click();
-			popClose('#sideMenu');
+			moveSlide(5);
 		});
 
 
@@ -147,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 		// 링크 초기화
-		var slideBtn = document.querySelectorAll('#team, #tass, #story, #roadMap');
+		var slideBtn = document.querySelectorAll('#team, #tass, #story, #roadMap, h1.h-tit1 > a');
 		slideBtn.forEach(function(ele) {
 			ele.setAttribute('href', '#');
 		})
@@ -185,6 +183,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	// 서브페이지에서 메인 이동시 사이드 메뉴
 	var slideNum = getUrlParam('slide');
 	switch (slideNum) {
+		case '1' : 
+			setTimeout(() => {
+				document.querySelector('[data-ds-jump="0"]').click();
+			}, 100);
+			break;
 		case '2' : 
 			setTimeout(() => {
 				document.querySelector('[data-ds-jump="2"]').click();
