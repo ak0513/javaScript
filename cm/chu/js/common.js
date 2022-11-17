@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
+	var sideMenu = document.querySelectorAll('#sideMenu');
 	var sideMenuLink = document.querySelectorAll('.menu-link.has-sub');
 	var sideMenuLink2 = document.querySelectorAll('.menu-link');
 	var sideMenuItem = document.querySelectorAll('.menu-item');
@@ -212,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			if(window.innerWidth > 1600) {
 				document.body.classList.add('open-side');
 				popOpen('#sideMenu', document.querySelector('.btn-nav-open'));
-				accessEnable(siblings(document.querySelector('#sideMenu')), 'nav');
+				accessEnable(siblings(sideMenu), 'nav');
 			} else {
 				popClose('#sideMenu');
 				document.body.classList.remove('open-side');

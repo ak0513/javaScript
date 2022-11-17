@@ -3947,7 +3947,7 @@ table td {
     left: 0;
     z-index: 20;
     width: 400px;
-    height: 100%;
+    height:100vh;
     background-color: rgba(43, 24, 53, 0.88);
     transform: translateX(-100%);
     transition: all 0.4s;
@@ -3987,6 +3987,7 @@ table td {
 
 #sideMenu {
     position: relative;
+	
     z-index: 20;
 }
 
