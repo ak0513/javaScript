@@ -719,18 +719,31 @@
         flex-direction: column;
     }
 
+    .board-thumb-swiper {
+        margin:0 -16px;
+    }
+
+    .board-thumb-swiper .swiper-slide img {
+        display: block;
+    }
+
     .board-read-header {
         flex-direction: column;
     }
 
-    .board-img {
+    .board-point-wrap {
+        display: flex;
+    }
+
+    .board-img,
+    .board-info-img {
         display: none;
-        
     }
     
     .board-thumb-swiper {
         display: block;
     }
+    
 }
 
 

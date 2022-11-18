@@ -212,13 +212,10 @@
 
     <div id="popupThumb" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
-			<div id="popupLabel" class="pop-header">
-				팝업 타이틀1
-			</div>
 			<div class="pop-conts">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
 				<div class="swiper pop-thumb-swiper">
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
                         <div class="swiper-slide"><img src="./img/board-info-img1.jpg" alt=""></div>
@@ -229,7 +226,6 @@
                 </div>
 			</div>
 			<div class="pop-footer">
-				팝업 하단
 				<button type="button" class="btn-pop-close" onclick="popClose('#popupThumb')">팝업 닫기</button>
 			</div>
 		</div>
@@ -239,8 +235,8 @@
         var popThumbSwiper = new Swiper('.pop-thumb-swiper',{
             
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                nextEl: "#popupThumb .swiper-button-next",
+                prevEl: "#popupThumb .swiper-button-prev",
             },
             slidesPerView: 'auto',
             observer: true,
