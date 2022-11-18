@@ -3612,7 +3612,7 @@ table td {
 }
 
 .row > [class^=col] {
-	flex-grow: 1;
+	flex: 1 0 0%
 }
 
 .gutter-x4 {margin-left: calc(var(--gutter4) * -1);margin-right: calc(var(--gutter4) * -1);}
