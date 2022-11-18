@@ -3803,6 +3803,12 @@ table td {
 	margin-top:30px;
 }
 
+#popupThumb .btn-pop-close {
+	position: fixed;
+	top:10px;
+	right:10px;
+}
+
 
 /* 본문 바로가기 */
 .skipNav-link {
@@ -4345,11 +4351,11 @@ table td {
 
 .container-inner {
 	margin-top: 160px;
-    padding: 0 120px 0 40px;
+    padding: 0 110px 0 40px;
 }
 
 .open-side .container-inner {
-    padding: 0 120px 0 515px;
+    padding: 0 110px 0 515px;
 }
 
 /* breadcrumb */
