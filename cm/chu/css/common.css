@@ -27,12 +27,12 @@
 	--form-ele-font: 1.6rem;
 	--form-ele-font-sm: 1.4rem;
 	--form-ele-font-lg: 2.0rem;
-	--form-ele-height: 5.0rem;
+	--form-ele-height: 3.4rem;
 	--form-ele-height-sm: 3.0rem;
 	--form-ele-height-lg: 4.8rem;
 	--form-ele-margin: 0.6rem;
-	--form-ele-border-color: #e3e3e3;
-	--form-ele-radius: 0.3rem;
+	--form-ele-border-color: #5142fd;
+	--form-ele-radius: 0;
 }
 
 @font-face {
@@ -3231,9 +3231,15 @@ input.sm {
 .input-wrap.side-btn .btn {
 	flex-grow: 1;
 	flex-shrink: 0;
+	min-width: 0;
 	height: var(--form-ele-height);
 	margin: 0;
 	margin-left: 10px;
+	background-color: var(--blue);
+	border-color:var(--blue);
+	color:#fff;
+	border-radius: 3px;
+	font-size: 12px;
 }
 
 /* txt 추가 */
@@ -3279,15 +3285,16 @@ input.sm {
 
 .input-wrap.qty input {
 	margin:0 5px;
-	padding-right: 0;
+	padding: 0;
 	width: 50px;
+	text-align: center;
 }
 
 .input-wrap.qty .btn-plus,
 .input-wrap.qty .btn-minus {
 	position: relative;
-	width: 10px;
-	height:10px;
+	width: 14px;
+	height:14px;
 }
 
 .input-wrap.qty .btn-plus::before,
@@ -3295,7 +3302,7 @@ input.sm {
 .input-wrap.qty .btn-minus::before {
 	content:'';
 	display: block;
-	background-color: var(--primary);
+	background-color: var(--blue);
 	position: absolute;
 	top:50%;
 	left:50%;
@@ -3412,6 +3419,7 @@ select {
 	font-size: var(--form-ele-font);
 	color:var(--black);
 	border-radius: var(--form-ele-radius);
+	vertical-align: top;
 	appearance: none;
 }
 
@@ -3719,7 +3727,22 @@ table td {
 .form > .form-ele + .form-ele,
 .form > .form-ele + .row,
 .form > .row + .form-ele {
-	margin-top: 1.6rem;
+	margin-top: 1.0rem;
+}
+
+.form > .form-ele input {
+	border-color:var(--form-ele-border-color);
+	background-color: #1f1e2f;
+	color:#fff;
+}
+
+.form .text-wrap {
+	color:#fff;
+	font-size: 20px;;
+}
+
+.form .text-wrap small {
+	font-size: 15px;
 }
 
 .form > .form-group + .btn-wrap,
@@ -3742,7 +3765,7 @@ table td {
 }
 
 .input-wrap.zip-code {
-	width:200px;
+	width:170px;
 }
 
 
@@ -3801,8 +3824,8 @@ table td {
 	text-align: left;
 }
 
-.pop-wrap .btn-group {
-	margin-top:30px;
+.pop-footer .btn-group {
+	margin-top:40px;
 }
 
 .pop-conts .form {
@@ -3817,8 +3840,26 @@ table td {
 
 
 
+/* popup form */
+.pop-footer .btn {
+	height: 40px;
+	color:#fff;
+	border-radius: 3px;
+}
+.pop-footer .btn-done {
+	background-color: var(--blue);
+	border-color:var(--blue);
+}
+.pop-footer .btn-close {
+	background-color: #d4d4d4;
+	border-color:#d4d4d4;
+	color:#1f1e2f;
+}
 
-
+/* 팝업 */
+.form-view-mo {
+	display: none;
+}
 
 #popupThumb .pop-thumb-swiper {
 	width: 808px;
@@ -4090,8 +4131,7 @@ table td {
 
 #sideMenu {
     position: relative;
-	
-    z-index: 20;
+    z-index: 50;
 }
 
 #sideMenu.pop-open .menu-dim {
@@ -4540,7 +4580,9 @@ table td {
 
 @media (max-width: 980px) {
 	:root {
-		--form-ele-font-lg: 1.4rem;
+		--font-basic: 1.6rem;
+		--form-ele-height:3.8rem;
+		--form-ele-font:1.2rem;
 	}
 
 	.pc-hide {display: block !important;}
@@ -4559,6 +4601,20 @@ table td {
 	/* 버튼 */
 	.btn-wrap .btn {
 		flex: 1;
+	}
+
+
+	/* 폼 */
+	.form-view-pc {
+		display: none;
+	}
+	.form-view-mo {
+		display: flex;
+	}
+
+	/* 신청하기 팝업 */
+	#popupApply .pop-header {
+		display: none;
 	}
 
 	/* header 980px */
@@ -4735,6 +4791,85 @@ table td {
         background-size: 100%;
     }
 
+	/* 팝업 */
+	.pop-wrap {
+		top: 68px;
+		background-color: transparent;
+	}
+	.pop-inner {
+		display: flex;
+		flex-direction: column;
+		max-width: 100%;
+		width: 100%;
+		height: 100%;
+		padding: 16px;
+		border-radius: 0;
+		background-color: #fff;
+	}
+
+	/* 폼 */
+	.form > .form-ele + .form-ele, 
+	.form > .form-ele + .row, 
+	.form > .row + .form-ele {
+		margin-top: 16px;
+	}
+
+	.form-ele {
+		flex-direction: column;
+	}
+
+	.form-ele .form-label {
+		margin-bottom:5px;
+		padding-top:0;
+		width: 100%;
+	}
+
+
+	
+
+	.form > .form-ele input {
+		background-color: #fff;
+		color:#000;
+		border-color:#d8d8d8;
+	}
+
+	.form .text-wrap {
+		color:#000;
+	}
+
+	.input-wrap.side-btn .btn {
+		margin-left: 3px;
+		background-color: #d8d8d8;
+		border-color:#d8d8d8;
+		color:#000;
+	}
+
+	.input-wrap.qty .btn-plus::before,
+	.input-wrap.qty .btn-minus::before {
+		background-color: #5c0071;
+	}
+
+
+	/* 폼 팝업 */
+	.pop-conts .form-ele .form-label {
+		width: 100%;
+		color:#000;
+		font-size: 12px;
+	}
+	
+	.pop-conts .form {
+		padding-right:0;
+	}
+
+	.pop-footer .btn-close  {
+		border-color:#5c0071;
+		background-color: #fff;
+	}
+
+	.input-wrap.zip-code {
+		width: 100%;
+	}
+
 	/* footer 980 */
     .footer-logo img {
         width: 205px;
@@ -4784,9 +4919,7 @@ table td {
 
 
 @media (max-width: 768px) {
-	:root {
-		--font-basic: 1.6rem;
-	}
+
 
 	.gutter-md-x4 {margin-left: calc(var(--gutter4) * -1);margin-right: calc(var(--gutter4) * -1);}
 	.gutter-md-x4 > [class^=col] {padding-left: var(--gutter4);padding-right: var(--gutter4);}
@@ -4825,29 +4958,9 @@ table td {
 	.col-md-11 {max-width:91.6666% !important;}
 	.col-md-12 {max-width:100% !important;}
 
-	/* 팝업 */
-	.pop-wrap {
-		top: 68px;
-		background-color: transparent;
-	}
-	.pop-inner {
-		display: flex;
-		flex-direction: column;
-		max-width: 100%;
-		width: 100%;
-		height: 100%;
-		border-radius: 0;
-	}
+	
 
-	.form-ele {
-		flex-direction: column;
-	}
-
-	.form-ele .form-label {
-		margin-bottom:5px;
-		padding-top:0;
-		width: 100%;
-	}
+	
 
 
 	/* 타이틀 */

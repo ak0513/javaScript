@@ -243,6 +243,7 @@
     align-self:flex-end;
     margin-left: 65px;
     margin-right: auto;
+    padding-right: 50px;
     font-size: 34px;
     font-weight: 700;
     white-space: nowrap;
@@ -705,6 +706,7 @@
     .list03 .list-title {
         width: calc(100% - 80px);
         margin-left:0;
+        padding-right: 0;
         font-size: 14px;
     }
 
@@ -793,7 +795,8 @@
     .board-read .btn-wrap{
         margin:20px 0 0;
     }
-    .btn-wrap .btn {
+    
+    .board-read .btn-wrap .btn {
         margin:0;
         background-color: var(--primary);
         border-color:var(--primary);
