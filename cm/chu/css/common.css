@@ -3818,6 +3818,29 @@ table td {
 	display: block;
 }
 
+
+.board-thumb-swiper [class*='swiper-button-'] {
+	width: 15px;
+	height: 29px;
+	opacity: 0.5;
+}
+
+.board-thumb-swiper [class*='swiper-button-']:hover {
+	opacity: 1;
+}
+
+.board-thumb-swiper .swiper-button-next::after {
+	width: 15px;
+	height:29px;
+	background: url('../img/btn-arrow-right.png') no-repeat center / 15px 29px;
+}
+
+.board-thumb-swiper .swiper-button-prev::after {
+	width: 15px;
+	height:29px;
+	background: url('../img/btn-arrow-left.png') no-repeat center / 15px 29px;
+}
+
 /* 본문 바로가기 */
 .skipNav-link {
     display: block;
