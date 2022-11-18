@@ -489,9 +489,6 @@
         display: none;
     }
 
-    .contents {
-        margin-top: 16px;
-    }
 
     
 
@@ -500,8 +497,7 @@
         /* justify-content: flex-end; */
         width:auto;
         height: auto;
-        margin-top: 0;
-        margin-left: auto;
+        margin:0 0 16px auto;
         background-color: transparent;
         color:var(--primary);
     }

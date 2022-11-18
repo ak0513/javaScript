@@ -3745,9 +3745,6 @@ table td {
 	width:200px;
 }
 
-.pop-conts .form {
-	padding-right:100px;
-}
 
 /* title */
 .h-tit2 {
@@ -3783,15 +3780,20 @@ table td {
 }
 
 .pop-inner {
-	max-width: 800px;
+	max-width: 600px;
 	margin:0 auto;
-	background-color: #fff;
-	border-radius: 10px;
-	padding: 15px;
+	background-color: rgba(31,30,47,0.92);
+	border-radius: 5px;
+	padding: 40px;
 }
 
 .pop-header {
 	text-align: center;
+}
+
+.pop-header .pop-title {
+	font-size: 34px;
+	color:#ecd871;
 }
 
 .pop-header .pop-title-label {
@@ -3803,10 +3805,37 @@ table td {
 	margin-top:30px;
 }
 
+.pop-conts .form {
+	padding-right:140px;
+}
+
+.pop-conts .form-ele .form-label {
+	width: 95px;
+	font-size: 20px;
+	color:#fff;
+}
+
+
+
+
+
+
+#popupThumb .pop-thumb-swiper {
+	width: 808px;
+}
+
 #popupThumb .btn-pop-close {
 	position: fixed;
-	top:10px;
-	right:10px;
+	top:50px;
+	right:50px;
+	width: 52px;
+	height:51px;
+	background: url('../img/btn-pop-close.png') no-repeat;
+	opacity: 0.5;
+}
+
+#popupThumb .btn-pop-close:hover {
+	opacity: 1;
 }
 
 #popupThumb .pop-inner {
@@ -3816,6 +3845,40 @@ table td {
 
 #popupThumb .swiper-slide img {
 	display: block;
+}
+
+#popupThumb [class*='swiper-button-'] {
+	left:50%;
+	right:auto;
+	width: 43px;
+	height: 84px;
+	opacity: 0.5;
+}
+
+#popupThumb .swiper-button-next {
+	margin-left: 468px;
+}
+
+#popupThumb .swiper-button-prev {
+	margin-left: -504px;
+}
+
+#popupThumb [class*='swiper-button-']:hover {
+	opacity: 1;
+}
+
+#popupThumb [class*='swiper-button-']::after {
+	content: '';
+	width: 43px;
+	height:84px;
+}
+
+#popupThumb .swiper-button-next::after {
+	background: url('../img/btn-arrow-right.png') no-repeat center;
+}
+
+#popupThumb .swiper-button-prev::after {
+	background: url('../img/btn-arrow-left.png') no-repeat center;
 }
 
 
@@ -3829,15 +3892,18 @@ table td {
 	opacity: 1;
 }
 
-.board-thumb-swiper .swiper-button-next::after {
+.board-thumb-swiper [class*='swiper-button-']::after {
+	content: '';
 	width: 15px;
 	height:29px;
+	font-family: initial;
+}
+
+.board-thumb-swiper .swiper-button-next::after {
 	background: url('../img/btn-arrow-right.png') no-repeat center / 15px 29px;
 }
 
 .board-thumb-swiper .swiper-button-prev::after {
-	width: 15px;
-	height:29px;
 	background: url('../img/btn-arrow-left.png') no-repeat center / 15px 29px;
 }
 
@@ -4428,6 +4494,19 @@ table td {
 } 
 
 @media (max-width: 1280px) {
+	/* 팝업 */
+	#popupThumb .pop-thumb-swiper {
+		width: 600px;
+	}
+
+	#popupThumb .swiper-button-next {
+		margin-left: 388px;
+	}
+
+	#popupThumb .swiper-button-prev {
+		margin-left: -424px;
+	}
+
 	/* footer */
 	.sub #footer {
 		margin-top:200px;
@@ -4441,6 +4520,9 @@ table td {
 	.sub #footer .footer-copyright {
 		font-size: 18px;
 	}
+
+	
+
 }
 
 @media (min-width: 981px) {

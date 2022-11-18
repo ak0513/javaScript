@@ -210,6 +210,7 @@
     </div>
     <!-- //전체메뉴 -->
 
+    <!-- 썸네일 스와이프 -->
     <div id="popupThumb" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div class="pop-conts">
@@ -226,12 +227,86 @@
                 </div>
 			</div>
 			<div class="pop-footer">
-				<button type="button" class="btn-pop-close" onclick="popClose('#popupThumb')">팝업 닫기</button>
+				<button type="button" class="btn-pop-close" onclick="popClose('#popupThumb')" aria-label="팝업 닫기"></button>
 			</div>
 		</div>
 	</div>
+     <!-- //썸네일 스와이프 -->
+
+    <!-- 신청하기 팝업 -->
+    <div id="popupApply" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+		<div class="pop-inner">
+			<div id="popupLabel" class="pop-header">
+				<h2 class="pop-title">BAYC TaaS</h2>
+			</div>
+			<div class="pop-conts">
+				<div class="form">
+                    <div class="form-ele">
+						<div class="text-wrap">구매 가능 츄<small>(포인트)</small> : 35,000</div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="qty">구매갯수</label>
+						<div class="input-wrap qty">
+							<button type="button" class="btn-plus" aria-label="수량감소"></button>
+							<input type="number" id="qty" value="0">
+							<button type="button" class="btn-minus" aria-label="수량증가"></button>
+						</div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="recipient">수령인</label>
+						<div class="input-wrap side-btn">
+							<input type="text" id="recipient">
+							<button type="button" class="btn btn-primary btn-small">개인정보 취급방침</button>
+						</div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="cellphone">연락처</label>
+                        <div class="row gutter-x10">
+                            <div class="col-6">
+                                <select name="" id="cellphone">
+                                    <option value="">010</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-wrap">
+                                    <input type="text" title="연락처 뒷번호" value="01000101">
+                                </div>
+                            </div>
+                        </div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="address">배송주소</label>
+						<div class="form-group">
+							<div class="input-wrap side-btn zip-code">
+                                <input type="text" id="address">
+                                <button type="button" class="btn btn-primary btn-small">btn</button>
+                            </div>
+							<div class="input-wrap">
+								<input type="text" title="상세주소">
+							</div>
+							<div class="input-wrap">
+								<input type="text" title="상세주소">
+							</div>
+						</div>
+					</div>
+                </div>
+			</div>
+			<div class="pop-footer">
+                <div class="btn-wrap btn-group">
+                    <button type="button" class="btn btn-primary btn-block">신청완료</button>
+                    <button type="button" class="btn btn-light btn-block"  onclick="popClose('#popupApply')">닫기</button>
+                </div>
+			</div>
+		</div>
+	</div>
+    <!-- //신청하기 팝업 -->
 
     <script>
+        popOpen('#popupApply')
         var popThumbSwiper = new Swiper('.pop-thumb-swiper',{
             
             navigation: {
