@@ -213,7 +213,7 @@
 
 .list03 .list-link {
     display: flex;
-    padding: 20px 0;
+    padding: 20px 50px 20px 0;
 }
 
 .list03 .list-num {
@@ -233,9 +233,8 @@
     color:#000;
 }
 
-.list03 .list-date .year {
-    display: block;
-    font-size: 16px;
+.list03 .list-date .writer {
+    display: none;
 }
 
 .list03 .list-title {
@@ -243,16 +242,21 @@
     align-self:flex-end;
     margin-left: 65px;
     margin-right: auto;
-    padding-right: 50px;
     font-size: 34px;
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
 }
 
+.list03 .list-sub-title {
+    display: block;
+    font-size: 16px;
+    color:#555;
+}
+
 .list03 .list-point {
     align-self:flex-end;
-    margin-right:50px;
+    margin-left:50px;
     font-size: 34px;
 }
 
@@ -263,6 +267,23 @@
 .list03 .list-point.blue {
     color:var(--blue)
 }
+
+.list03 .list-use-point {
+    margin-left:50px;
+    font-size: 34px;
+    color:var(--blue);
+}
+
+.list03 .list-hit {
+    margin-left: 60px;
+    font-size: 34px;
+}
+
+.list03.type2 .list-title {
+    width: 100%;
+    margin-right:0;
+}
+
 
 
 /* 상세 */
@@ -538,7 +559,8 @@
     text-align: center;
 }
 
-.game-result-data li {
+.game-result-data li,
+.game-result-nodata {
     background-color: #fff;
     padding:7px 0;
     font-size:24px;
@@ -553,15 +575,6 @@
 
 .game-result-data li + li {
     margin-top:10px;
-}
-
-.game-result-nodata {
-    background-color: #fff;
-    padding:7px 0;
-    font-size:24px;
-    color:#000;
-    border-radius: 5px;
-    text-align: center;
 }
 
 .btn-game-history {
@@ -855,34 +868,80 @@
         display: none;
     }
 
+    .list03 .list-title {
+        width: calc(100% - 80px);
+        margin-left:0;
+        font-size: 14px;
+    }
+
+    .list03 .list-title.row2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: inherit;
+    }
+
+    .list03 .list-sub-title {
+        font-size: 12px;
+    }
+
     .list03 .list-date {
         display: flex;
         margin-left:0;
         font-size:12px;
     }
 
-    .list03 .list-date .year {
-        font-size: 12px;
-    }
-
-    .list03 .list-date .year::after{
+    .list03 .list-date .list-sub-title::after{
         content:'.';
         display: inline-block;
-    }
-
-    .list03 .list-title {
-        width: calc(100% - 80px);
-        margin-left:0;
-        padding-right: 0;
-        font-size: 14px;
     }
 
     .list03 .list-point {
         position: absolute;
         bottom: 12px;
         right:0;
-        margin-right:0;
+        margin-left:0;
         font-size: 14px;
+    }
+    .list03 .list-use-point {
+        position: absolute;
+        bottom: 12px;
+        right:0;
+        margin-left:0;
+        font-size: 14px;
+        text-align: right;
+    }
+    
+
+    
+
+    /* NEWS 커스텀 */
+    .list03.news .list-date .writer {
+        position: relative;
+        display: block;
+        padding-left:15px;
+    }
+
+    .list03.news .list-date .writer::before {
+        content:'';
+        display: block;
+        position: absolute;
+        top:5px;
+        left:7px;
+        width:1px;
+        height:10px;
+        background-color: #555;
+    }
+    .list03.news .list-date .writer::after {
+        display: none;
+    }
+
+    .list03.news .list-title .writer {
+        display: none;
+    }
+
+    .list03.news .list-hit {
+        display: none;
     }
 
     /* 상세 */
@@ -995,13 +1054,8 @@
         font-size: 12px;
     }
 
-    .game-result-data li {
-        padding: 4px 0;
-        font-size: 12px;
-    }
-
+    .game-result-data li,
     .game-result-nodata {
-        padding: 4px 0;
         font-size: 12px;
     }
 

@@ -3158,8 +3158,6 @@ body {
 .grow0 {flex-grow: 0 !important;}
 .shrink0 {flex-shrink: 0 !important;}
 
-.pc-hide {display:none !important;}
-.m-hide {display:block !important;}
 
 hr {
 	margin: 2.0rem 0;
@@ -3396,6 +3394,11 @@ button {
 	color:#fff;
 }
 
+.btn-line-primary {
+	border-color: var(--primary);
+	color:var(--primary);
+}
+
 .btn-blue {
 	background-color: var(--blue);
 	border-color: var(--blue);
@@ -3404,6 +3407,7 @@ button {
 
 .btn-light {
 	background-color: var(--light);
+	color:#1f1e2f;
 }
 
 /* select */
@@ -3819,15 +3823,18 @@ table td {
 .pop-header .pop-title {
 	font-size: 34px;
 	color:#ecd871;
+	line-height: 1.3;
 }
 
 .pop-header .pop-title-label {
 	display: block;
 	text-align: left;
+	font-size: 16px;
+	color:#ecd871;
 }
 
-.pop-footer .btn-group {
-	margin-top:40px;
+.pop-conts {
+	margin-top:15px;
 }
 
 .pop-conts .form {
@@ -3840,17 +3847,22 @@ table td {
 	color:#fff;
 }
 
+.pop-footer .btn-group {
+	margin-top:40px;
+}
+
+
 
 
 /* popup form */
 .pop-footer .btn {
 	height: 40px;
-	color:#fff;
 	border-radius: 3px;
 }
 .pop-footer .btn-done {
 	background-color: var(--blue);
 	border-color:var(--blue);
+	color:#fff;
 }
 .pop-footer .btn-close {
 	background-color: #d4d4d4;
@@ -3923,6 +3935,10 @@ table td {
 #popupThumb .swiper-button-prev::after {
 	background: url('../img/btn-arrow-left.png') no-repeat center;
 }
+
+
+
+
 
 
 .board-thumb-swiper [class*='swiper-button-'] {
@@ -4579,6 +4595,8 @@ table td {
 		clip: rect(1px, 1px, 1px, 1px);
 		clip-path: inset(50%);
 	}
+
+	.pc-hide {display: none !important;}
 }
 
 @media (max-width: 980px) {
@@ -4590,7 +4608,6 @@ table td {
 		--form-ele-height-lg:4.0rem;
 	}
 
-	.pc-hide {display: block !important;}
 	.m-hide {display:none !important;}
 	/* 타이틀 */
 	.h-tit1 {
@@ -4606,7 +4623,7 @@ table td {
 	/* 버튼 */
 	.btn-wrap .btn {
 		flex: 1;
-		min-width: 100%;
+		min-width: auto;
 	}
 
 	.btn.btn-lg {
@@ -4621,9 +4638,25 @@ table td {
 		display: flex;
 	}
 
+	/* popup form */
+	.pop-footer .btn {
+		height: 40px;
+		border-radius: 3px;
+	}
+	.pop-footer .btn-done {
+		background-color: var(--primary);
+		border-color:var(--primary);
+	}
+	.pop-footer .btn-close {
+		background-color: var(--primary);
+		border-color:var(--primary);
+		color:var(--primary);
+	}
+
 	/* 신청하기 팝업 */
 	#popupApply .pop-header,
-	#popupApply2 .pop-header {
+	#popupApply2 .pop-header,
+	#popNews .pop-header {
 		display: none;
 	}
 
@@ -4916,7 +4949,7 @@ table td {
 	}
 
 	#pager .btn-wrap {
-		display: flex;
+		display: grid;
 		width: 100%;
 		margin:0;
 	} 

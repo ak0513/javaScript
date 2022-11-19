@@ -351,6 +351,7 @@ function closest(ele, selector) {
 
 // 레이어 팝업
 function popOpen(ele, btn) {
+	event.preventDefault();
 	var tar = document.querySelector(ele);
 	tar.setAttribute('tabindex', 0);
 	setTimeout(function() {
