@@ -374,7 +374,7 @@
     <!-- //전체메뉴 -->
 
     <!-- news 팝업 -->
-    <div id="popNews" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+    <div id="popNews" class="pop-wrap pop-form" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
                 <span class="pop-title-label">제목</span>
@@ -383,20 +383,20 @@
 			<div class="pop-conts">
                 <div class="form">
                     <!-- 피씨 노출 -->
-                    <div class="form-ele form-view-pc">
+                    <div class="form-ele m-hide">
                         <div class="text-wrap">조회시 차감 츄(포인트) : 1츄</div>
                     </div>
                     <!-- //피씨 노출 -->
                 
                     <!-- 모바일 노출 -->
-                    <div class="form-ele form-view-mo">
+                    <div class="form-ele pc-hide">
 						<label class="form-label" for="subject">제목</label>
 						<div class="input-wrap">
 							<input type="text" id="subject" value="BAYC 랜드 민팅 개시... 얼마나 벌 수 있나...?" readonly>
 						</div>
 					</div>
 
-                    <div class="form-ele form-view-mo">
+                    <div class="form-ele pc-hide">
 						<label class="form-label" for="point">조회시 차감 츄(포인트)</label>
 						<div class="input-wrap">
 							<input type="text" id="point" value="999,999" readonly>
