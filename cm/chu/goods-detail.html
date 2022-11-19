@@ -114,7 +114,7 @@
                             </div>
                 
                             <div class="btn-wrap">
-                                <button type="button" class="btn btn-blue">목록</button>
+                                <button type="button" class="btn btn-blue btn-lg">목록</button>
                             </div>
                         </div>
                     </div>
@@ -233,7 +233,7 @@
 	</div>
      <!-- //썸네일 스와이프 -->
 
-    <!-- 신청하기 팝업 -->
+     <!-- 신청하기 팝업 -->
     <div id="popupApply" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
@@ -267,9 +267,9 @@
                     <div class="form-ele">
 						<label class="form-label" for="qty">구매갯수</label>
 						<div class="input-wrap qty">
-							<button type="button" class="btn-plus" aria-label="수량감소"></button>
+							<button type="button" class="btn-minus" aria-label="수량감소"></button>
 							<input type="text" id="qty" value="0">
-							<button type="button" class="btn-minus" aria-label="수량증가"></button>
+							<button type="button" class="btn-plus" aria-label="수량증가"></button>
 						</div>
 					</div>
                     
@@ -324,9 +324,85 @@
 	</div>
     <!-- //신청하기 팝업 -->
 
+    <!-- 신청하기2 팝업 -->
+    <div id="popupApply2" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+		<div class="pop-inner">
+			<div id="popupLabel" class="pop-header">
+				<h2 class="pop-title">ㅉㅉㅉ - 영화관람</h2>
+			</div>
+			<div class="pop-conts">
+				<div class="form">
+                    <!-- 모바일 노출 -->
+                    <div class="form-ele form-view-mo">
+						<label class="form-label" for="subject">제목</label>
+						<div class="input-wrap">
+							<input type="text" id="subject" value="BAYC TaaS" readonly>
+						</div>
+					</div>
+
+                    <div class="form-ele form-view-mo">
+						<label class="form-label" for="point">구매 가능한 츄<small>(포인트)</small></label>
+						<div class="input-wrap">
+							<input type="text" id="point" value="999,999" readonly>
+						</div>
+					</div>
+                     <!-- //모바일 노출 -->
+
+                     <!-- 피씨 노출 -->
+                    <div class="form-ele form-view-pc">
+						<div class="text-wrap">구매 가능 츄<small>(포인트)</small> : 35,000</div>
+					</div>
+                    <!-- //피씨 노출 -->
+
+                    
+                    <div class="form-ele">
+						<label class="form-label" for="participation">참여횟수</label>
+						<div class="input-wrap qty">
+							<button type="button" class="btn-minus" aria-label="수량감소"></button>
+							<input type="text" id="participation" value="0">
+							<button type="button" class="btn-plus" aria-label="수량증가"></button>
+						</div>
+					</div>
+                    
+                    <div class="form-ele">
+						<label class="form-label" for="participant">참가자</label>
+						<div class="input-wrap side-btn">
+							<input type="text" id="participant" value="Rara | CYE">
+							<button type="button" class="btn btn-small">개인정보 취급방침</button>
+						</div>
+					</div>
+
+                    <div class="form-ele">
+						<label class="form-label" for="cellphone">연락처</label>
+                        <div class="row gutter-x10">
+                            <div class="col-4">
+                                <select name="" id="cellphone">
+                                    <option value="">010</option>
+                                </select>
+                            </div>
+                            <div class="col-8">
+                                <div class="input-wrap">
+                                    <input type="text" title="연락처 뒷번호" value="01000101">
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                </div>
+			</div>
+			<div class="pop-footer">
+                <div class="btn-wrap btn-group">
+                    <button type="button" class="btn btn-done btn-block">신청완료</button>
+                    <button type="button" class="btn btn-close btn-block"  onclick="popClose('#popupApply2')">닫기</button>
+                </div>
+			</div>
+		</div>
+	</div>
+    <!-- //신청하기2 팝업 -->
+
+    
+
     <script>
         var popThumbSwiper = new Swiper('.pop-thumb-swiper',{
-            
             navigation: {
                 nextEl: "#popupThumb .swiper-button-next",
                 prevEl: "#popupThumb .swiper-button-prev",

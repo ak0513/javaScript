@@ -26,10 +26,10 @@
 
 	--form-ele-font: 1.6rem;
 	--form-ele-font-sm: 1.4rem;
-	--form-ele-font-lg: 2.0rem;
+	--form-ele-font-lg: 1.6rem;
 	--form-ele-height: 3.4rem;
 	--form-ele-height-sm: 3.0rem;
-	--form-ele-height-lg: 4.8rem;
+	--form-ele-height-lg: 5.0rem;
 	--form-ele-margin: 0.6rem;
 	--form-ele-border-color: #5142fd;
 	--form-ele-radius: 0;
@@ -3351,6 +3351,8 @@ button {
 	height: var(--form-ele-height-lg);
 	padding: 0 2.0rem;
 	font-size: var(--form-ele-font-lg);
+	border-radius: 0.5rem;
+	font-weight: 700;
 }
 
 .btn.btn-round {
@@ -4386,6 +4388,7 @@ table td {
 
 .btn-logout {
     width: 118px;
+	min-width: auto;
     background-color: #b188ba;
     border-color: #b188ba;
     color: var(--primary);
@@ -4583,6 +4586,8 @@ table td {
 		--font-basic: 1.6rem;
 		--form-ele-height:3.8rem;
 		--form-ele-font:1.2rem;
+		--form-ele-font-lg:1.4rem;
+		--form-ele-height-lg:4.0rem;
 	}
 
 	.pc-hide {display: block !important;}
@@ -4601,8 +4606,12 @@ table td {
 	/* 버튼 */
 	.btn-wrap .btn {
 		flex: 1;
+		min-width: 100%;
 	}
 
+	.btn.btn-lg {
+		border-radius: 5px;
+	}
 
 	/* 폼 */
 	.form-view-pc {
@@ -4613,7 +4622,8 @@ table td {
 	}
 
 	/* 신청하기 팝업 */
-	#popupApply .pop-header {
+	#popupApply .pop-header,
+	#popupApply2 .pop-header {
 		display: none;
 	}
 
@@ -4807,6 +4817,7 @@ table td {
 		background-color: #fff;
 	}
 
+
 	/* 폼 */
 	.form > .form-ele + .form-ele, 
 	.form > .form-ele + .row, 
@@ -4835,6 +4846,7 @@ table td {
 
 	.form .text-wrap {
 		color:#000;
+		font-size: 14px;
 	}
 
 	.input-wrap.side-btn .btn {

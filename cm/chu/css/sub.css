@@ -409,6 +409,173 @@
     font-size: 15px;
 }
 
+/* minigame */
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-board-wrap {
+    width: 500px;
+}
+
+.game-number {
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.game-number-control {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-number-control input {
+	margin:0 10px;
+	padding: 0;
+	width: 50px;
+    border:1px solid #5c0071;
+	text-align: center;
+}
+
+.game-number-control .btn-plus,
+.game-number-control .btn-minus {
+	position: relative;
+	width: 21px;
+	height:21px;
+}
+
+.game-number-control .btn-plus::before,
+.game-number-control .btn-plus::after,
+.game-number-control .btn-minus::before {
+	content:'';
+	display: block;
+	background-color: #5c0071;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+
+.game-number-control .btn-plus::before,
+.game-number-control .btn-minus::before {
+	width: 100%;
+	height:4px;
+}
+
+.game-number-control .btn-plus::after {
+	width: 4px;
+	height:100%;
+}
+
+.game-board {
+    position: relative;
+    margin-top:33px;
+}
+
+.game-board::after {
+    content:'';
+    display: block;
+    position: absolute;
+    bottom:-70px;
+    left:50%;
+    width:220px;
+    height:66px;
+    background: url('../img/game-shadow-pc.png') no-repeat;
+    transform: translateX(-50%);
+}
+
+.game-board-pin {
+    position: absolute;
+    top:-10px;
+    left:50%;
+    z-index: 1;
+    width: 49px;
+    height:58px;
+    margin:0 auto -50px;
+    background: url('../img/game-img2.png') no-repeat center / 49px auto;
+    transform: translateX(-50%);
+}
+
+.game-board-img {
+    width: 500px;
+    height:500px;
+    background: url('../img/game-img1.png') no-repeat center / 500px;
+    transition: all 0.4s;
+}
+
+.game-btn-start {
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 144px;
+    height:143px;
+    background: url('../img/btn-game-start.png') no-repeat center / 144px auto;
+    transform: translate(-50%, -50%);
+}
+
+.game-result-wrap {
+    width: 280px;
+    margin-top:100px;
+    margin-left: 12%;
+}
+
+.game-result-group {
+    background-color: #5c0071;
+    padding:15px 10px;
+    border-radius: 10px;
+}
+
+.game-result-title {
+    margin-bottom:15px;
+    font-size: 24px;
+    font-weight: 700;
+    color:#fff;
+    text-align: center;
+}
+
+.game-result-data li {
+    background-color: #fff;
+    padding:7px 0;
+    font-size:24px;
+    color:#000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.game-result-data li:nth-child(even) {
+    background-color: #d4d4d4;
+}
+
+.game-result-data li + li {
+    margin-top:10px;
+}
+
+.game-result-nodata {
+    background-color: #fff;
+    padding:7px 0;
+    font-size:24px;
+    color:#000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-game-history {
+    margin:15px 0 0;
+}
+
+.btn-game-history .btn {
+    width: 100%;
+    margin:0;
+    border-radius: 10px;
+}
+
+
+
 
 @media (max-width: 1600px) {
    
@@ -801,10 +968,82 @@
         background-color: var(--primary);
         border-color:var(--primary);
     }
+
+    /* minigame */
+    .game {
+        flex-direction: column;
+        padding:0 15%;
+    }
+
+    .game-board-wrap {
+        width: 100%;
+    }
+
+    .game-number {
+        font-size: 20px;
+    }
+
+
+    .game-board-img {
+        width: 100%;
+        height: 0;
+        padding-top:100%;
+        background-size: cover;
+    } 
+
+    .game-result-title {
+        font-size: 12px;
+    }
+
+    .game-result-data li {
+        padding: 4px 0;
+        font-size: 12px;
+    }
+
+    .game-result-nodata {
+        padding: 4px 0;
+        font-size: 12px;
+    }
+
+    .game-board::after {
+        bottom: -40px;
+        width: 197px;
+        height: 23px;
+        background: url('../img/game-shadow-mo.png') no-repeat center / cover;
+    }
+    
+    .game-result-wrap {
+        width: 100%;
+        margin:70px 0 0;
+        
+    }
+    
+    .btn-game-history .btn {
+        border-radius: 5px;
+    }
     
 }
 
 
 @media (max-width: 768px) {
-    
+    /* minigame */
+    .game {
+        padding:0;
+    }
+
+    .game-btn-start {
+        width: 87px;
+        height: 87px;
+        background-size: cover;
+    }
+    .game-number-control input {
+        height: 38px;
+        border-radius: 3px;
+        border-color:#d8d8d8;
+    }
+    .game-board::after {
+        width: 134px;
+        height: 16px;
+        background: url('../img/game-shadow-mo.png') no-repeat center / cover;
+    }
 }
