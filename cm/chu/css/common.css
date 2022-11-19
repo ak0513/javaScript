@@ -4148,6 +4148,7 @@ table td {
 #sideMenu {
     position: relative;
     z-index: 50;
+	/* height: 100vh; */
 }
 
 #sideMenu.pop-open .menu-dim {
@@ -4842,6 +4843,7 @@ table td {
 }
 
 .list03 .list-hit {
+	min-width: 62px;
     margin-left: 60px;
     font-size: 34px;
 }
