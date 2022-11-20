@@ -11,6 +11,7 @@
         display: none !important;
     }
 
+    
     /* 타이틀 */
     .h-tit1 {
         display: flex;
@@ -22,6 +23,7 @@
         font-size: 24px;
     }
 
+
     /* 버튼 */
     .btn-wrap .btn {
         flex: 1;
@@ -31,6 +33,7 @@
     .btn.btn-lg {
         border-radius: 5px;
     }
+
 
     /* header 980px */
     #header {
@@ -207,6 +210,7 @@
         background-size: 100%;
     }
 
+
     /* 폼 980px */
     .form>.form-ele+.form-ele,
     .form>.form-ele+.row,
@@ -236,6 +240,7 @@
     .input-wrap.qty .btn-minus::before {
         background-color: #5c0071;
     }
+
 
     /* pager 980px */
     #pager {
@@ -267,6 +272,7 @@
         display: none;
     }
 
+
     /* 팝업 980px */
     .pop-wrap {
         top: 68px;
@@ -285,6 +291,7 @@
         background-color: #fff;
     }
 
+
     /* 팝업 폼 980px */
     .pop-form .form .form-ele input {
         background-color: #fff;
@@ -294,8 +301,8 @@
 
     .pop-form .form .form-ele select {
         background-color: #fff;
-        border-color:#d8d8d8;
-        color:#000;
+        border-color: #d8d8d8;
+        color: #000;
     }
 
     .pop-form .form-ele .form-label {
@@ -344,31 +351,6 @@
         display: none;
     }
 
-    
-
-    /* footer 980px */
-    .footer-logo img {
-        width: 205px;
-    }
-
-    .footer-copyright {
-        font-size: 16px;
-    }
-
-    /* container 980px */
-    .container-inner {
-        margin-top: 68px;
-        padding: 20px 16px 50px;
-    }
-
-    .sub #wrap {
-        background-color: #fff;
-    }
-
-    .sub #footer {
-        display: none;
-        padding: 0 16px;
-    }
 
     /* list01 980px */
     .list01 .list-group {
@@ -510,6 +492,7 @@
         display: inline;
     }
 
+
     /* list03 980px */
     .list03 {
         border-top: 1px solid #f1f0f0;
@@ -576,8 +559,6 @@
     }
 
 
-
-
     /* NEWS 커스텀 980px */
     .list03.news .list-date .writer {
         position: relative;
@@ -607,6 +588,7 @@
     .list03.news .list-hit {
         display: none;
     }
+
 
     /* 상세페이지 980px */
     .board-read-wrap {
@@ -688,6 +670,7 @@
         border-color: var(--primary);
     }
 
+
     /* 상세페이지 스와이프 */
     .board-thumb-swiper {
         display: block;
@@ -698,7 +681,33 @@
         display: block;
     }
 
-    
+
+    /* wrap */
+    .sub #wrap {
+        background-color: #fff;
+    }
+
+
+    /* footer 980px */
+    .footer-logo img {
+        width: 205px;
+    }
+
+    .footer-copyright {
+        font-size: 16px;
+    }
+
+    .sub #footer {
+        display: none;
+        padding: 0 16px;
+    }
+
+
+    /* container 980px */
+    .container-inner {
+        margin-top: 68px;
+        padding: 20px 16px 50px;
+    }
 
 
     /* check 980px */
@@ -720,6 +729,7 @@
         font-size: 14px;
     }
 
+
     /* history 980px */
     .total-point {
         margin-top: 0;
@@ -740,6 +750,7 @@
         font-size: 12px;
     }
 
+
     /* minigame 980px */
     .game {
         flex-direction: column;
@@ -753,7 +764,6 @@
     .game-number {
         font-size: 20px;
     }
-
 
     .game-board-img {
         width: 100%;
@@ -787,6 +797,7 @@
     .btn-game-history .btn {
         border-radius: 5px;
     }
+
 
     /* 상세페이지 뉴스 980px */
     .news .board-read-header {
@@ -870,7 +881,6 @@
     .news .board-read-footer .recom-wrap+.btn-wrap {
         margin-top: 20px;
     }
-
 }
 
 
@@ -1025,10 +1035,12 @@
         max-width: 100% !important;
     }
 
+
     /* 타이틀 768px */
     .h-tit1 {
         font-size: 16px;
     }
+
 
     /* footer 768px */
     .footer-logo img {
