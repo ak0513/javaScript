@@ -5590,6 +5590,13 @@ table td {
 		flex: 1 1 calc(25% - 10px);
 		max-width: calc(25% - 10px);
 	}
+
+	/* list02 */
+	.list02 .list-item {
+		flex: 1 1 calc(20% - 30px);
+		max-width: calc(20% - 30px);
+		margin: 15px;
+	}
 }
 
 
@@ -5612,12 +5619,6 @@ table td {
 	/* list02 1280px */
 	.list02 .list-group {
 		margin: -15px;
-	}
-
-	.list02 .list-item {
-		flex: 1 1 calc(20% - 30px);
-		max-width: calc(20% - 30px);
-		margin: 15px;
 	}
 
 	.list02 .list-title {
