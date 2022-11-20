@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if(!isMain) {
 		// 서브페이지에 클래스 추가
 		document.querySelector('html').classList.add('sub');
+		// window.scrollTo(0,0);
 	}
 
 	// 사이드메뉴 세팅
@@ -234,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		sideMenuToggle();
 	});
 })
-
 
 window.addEventListener('resize', function() {
 
