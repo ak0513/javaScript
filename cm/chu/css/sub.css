@@ -192,7 +192,7 @@
         padding-left: 45px;
     }
 
-    .btn-logout {
+    .menu-logout .btn-logout {
         flex: none !important;
         width: 84px;
         height: 24px;
@@ -232,6 +232,7 @@
     }
 
     .input-wrap.qty .btn-plus::before,
+    .input-wrap.qty .btn-plus::after,
     .input-wrap.qty .btn-minus::before {
         background-color: #5c0071;
     }
