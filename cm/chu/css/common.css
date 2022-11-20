@@ -5129,8 +5129,7 @@ table td {
 
 /* nav */
 #sideMenu {
-	overflow: hidden;
-	position: relative;
+	position: fixed;
 	z-index: 50;
 	opacity: 0;
 }
@@ -5280,6 +5279,7 @@ table td {
 	color: var(--menu);
 	font-weight: 700;
 	font-size: 30px;
+	line-height: 1.5;
 }
 
 .menu-link::before {
@@ -5812,6 +5812,10 @@ table td {
         font-size: 21px;
     }
 
+	.menu-depth2 {
+		margin-top:7px;
+	}
+
     .menu-depth2-link {
         padding-left: 14px;
         font-size: 18px;
@@ -5973,6 +5977,7 @@ table td {
         background-color: #fff;
         color: #000;
         border-color: #d8d8d8;
+		border-radius: 3px;
     }
 
     .pop-form .form .form-ele select {
@@ -6193,6 +6198,7 @@ table td {
         width: calc(100% - 80px);
         margin-left: 0;
         font-size: 14px;
+		font-weight: 700;
     }
 
     .list03 .list-title.row2 {

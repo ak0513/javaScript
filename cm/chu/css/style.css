@@ -805,9 +805,31 @@ main .stroy-txt {
 }
 
 .game-result-group {
+    position: relative;
 	background-color: #5c0071;
-	padding: 15px 10px;
+	padding: 15px 10px 30px;
 	border-radius: 10px;
+}
+
+.game-result-group::before,
+.game-result-group::after {
+    content:'';
+    position: absolute;
+    bottom:8px;
+    display: block;
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 0px #3e004c;
+}
+
+.game-result-group::before {
+    left:8px;
+}
+
+.game-result-group::after {
+    right: 8px;
 }
 
 .game-result-title {
@@ -816,6 +838,27 @@ main .stroy-txt {
 	font-weight: 700;
 	color: #fff;
 	text-align: center;
+}
+
+.game-result-title::before,
+.game-result-title::after {
+    content:'';
+    position: absolute;
+    top:8px;
+    display: block;
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 0px #3e004c;
+}
+
+.game-result-title::before {
+    left:8px;
+}
+
+.game-result-title::after {
+    right: 8px;
 }
 
 .game-result-data li,
@@ -1409,7 +1452,12 @@ main .stroy-txt {
 
     /* 상세페이지 뉴스 980px */
     .news .board-read-header {
+        flex-direction: column;
         padding: 15px 0;
+    }
+
+    .news .board-read-header .board-tit {
+        display: inline;
     }
 
     .news .board-read-header .board-sub-title.writer {
