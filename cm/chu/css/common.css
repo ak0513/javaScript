@@ -4913,6 +4913,13 @@ table td {
 	font-size: 34px;
 }
 
+.board-read-header .board-tit-wrap {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	margin-right: 20px;
+}
+
 .board-read-header .board-sub-title {
 	display: block;
 	font-size: 16px;
@@ -4922,15 +4929,9 @@ table td {
 	font-size: 12px;
 }
 
-.board-read-header .board-tit-wrap {
-	display: flex;
-	flex-direction: column;
-	min-width: 0;
-	margin-right: 20px;
-}
-
 .board-read-header .board-tit {
-	font-weight: 400;
+	display: block;
+	font-weight: 700;
 	/* overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; */
@@ -4938,10 +4939,6 @@ table td {
 
 .board-read-header .board-date-wrap {
 	margin-right: 80px;
-}
-
-.board-read-header .board-tit {
-	font-weight: 700;
 }
 
 .board-read-header .board-btn-apply {
