@@ -5585,6 +5585,21 @@ html.sub {
 	font-size: 20px;
 }
 
+@media (min-width: 1920px) {
+	/* 메인 */
+	main .tiket {
+		margin:0;
+	}
+
+	main .tiket-bg span {
+		padding-top:21% !important;
+	}
+
+	/* list01 */
+	.list01 .list-img img {
+		max-width: 300px;
+	}
+}
 
 @media (max-width: 1600px) {
 	.open-side .btn-menu-closed {

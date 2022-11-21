@@ -381,7 +381,8 @@ function setSideCurrent(dep1, dep2) {
 	var sideMenuItem = document.querySelectorAll('.menu-item');
 	var dep1Parents = sideMenuItem[dep1];
 	setTimeout(function() {
-		dep1Parents.querySelector('.menu-link').click();
+		sideMenuItem[dep1].classList.add('on');
+		dep1Parents.querySelector('.menu-depth2 ').classList.add('show');
 		console.log(dep2)
 		if(dep2 > -1 && dep2 !== undefined) {
 			dep1Parents.querySelectorAll('.menu-depth2-item')[dep2].firstElementChild.classList.add('on');
