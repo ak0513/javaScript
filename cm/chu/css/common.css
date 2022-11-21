@@ -4496,6 +4496,10 @@ table td {
 
 
 /* 팝업 썸네일 스와이프 */
+#popupThumb {
+	z-index:100;
+}
+
 #popupThumb .pop-inner {
 	max-width: 808px;
 	height: 808px;
@@ -4741,7 +4745,8 @@ table td {
 .list02 .list-item {
 	position: relative;
 	flex: 1 1 calc(20% - 68px);
-	max-width: calc(20% - 68px);
+	/* max-width: calc(20% - 68px); */
+	max-width: 368px;
 	margin: 34px;
 	font-weight: 700;
 }
@@ -4975,7 +4980,8 @@ table td {
 
 .board-read-body .board-info-img li {
 	flex: 0 0 calc(20% - 20px);
-	max-width: calc(20% - 20px);
+	/* max-width: calc(20% - 20px); */
+	max-width: 200px;
 	margin: 0 10px;
 }
 
@@ -5053,7 +5059,7 @@ table td {
 	flex-grow: 1;
 }
 
-.sub #wrap {
+html.sub {
 	background-color: #d4d4d4;
 }
 
