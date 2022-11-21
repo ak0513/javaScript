@@ -383,7 +383,6 @@ function setSideCurrent(dep1, dep2) {
 	setTimeout(function() {
 		sideMenuItem[dep1].classList.add('on');
 		dep1Parents.querySelector('.menu-depth2 ').classList.add('show');
-		console.log(dep2)
 		if(dep2 > -1 && dep2 !== undefined) {
 			dep1Parents.querySelectorAll('.menu-depth2-item')[dep2].firstElementChild.classList.add('on');
 		}
