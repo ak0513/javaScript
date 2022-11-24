@@ -9,3 +9,6 @@ CYE 메인 ver3.zip
 
 2022.11.21
 CYE 통합 ver1.zip
+
+2022.11.24
+CYE 통합 ver2.zip

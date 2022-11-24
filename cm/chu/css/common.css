@@ -3975,8 +3975,8 @@ select.select-lg {
 .check-wrap input[type='checkbox'] {
 	flex-shrink: 0;
 	flex-grow: 0;
-	width: 1.6rem;
-	height: 1.6rem;
+	width: 2.0rem;
+	height: 2.0rem;
 	border-radius: var(--form-ele-radius);
 	border: 1px solid var(--form-ele-border-color);
 	appearance: none;
@@ -3986,8 +3986,7 @@ select.select-lg {
 
 .check-wrap input[type='checkbox']:checked {
 	border-color: #0d6efd;
-	/* background: #0d6efd url('../img/check-copy.svg') no-repeat center / 100%; */
-	background: #0d6efd url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e") no-repeat center;
+	background: #0d6efd url('../img/check-blue.svg') no-repeat center;
 }
 
 .check-wrap .check-txt {
@@ -4507,7 +4506,7 @@ table td {
 }
 
 .pop-form .form .policy input[type='text'] {
-	width: 100px;
+	width: 115px;
 }
 
 .pop-form .form .policy .check-wrap {
@@ -4550,7 +4549,85 @@ table td {
 	margin-bottom:5px;
 }
 
+.pop-policy .pop-inner{
+	position: relative;
+	max-width: 1024px;
+	padding-top: 130px;
+	background-color: #000;
+}
+
+.pop-policy .pop-header .pop-title {
+	color:#fff;
+}
+
+.pop-policy .pop-conts {
+	margin-top: 50px;
+	color:#fff;
+}
+
+.pop-policy .pop-footer {
+	margin-top: 50px;
+}
+
+.pop-policy .pop-footer .btn-group {
+	justify-content: center;
+	grid-template-columns: 250px 250px;
+}
+
+.pop-policy .pop-footer .btn-done {
+	background-color: var(--blue);
+	border-color: var(--blue);
+	color: #fff;
+}
+
+.pop-policy .pop-footer .btn-close {
+	background-color: #d4d4d4;
+	border-color: #d4d4d4;
+	color: #1f1e2f;
+}
+
+.pop-policy .btn-pop-closed {
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	width: 52px;
+    height: 51px;
+    background: url(../img/btn-pop-close.png) no-repeat;
+}
+
+.list-policy {
+	font-size: 24px;
+}
+
+.list-policy + .list-policy {
+	margin-top: 50px;
+}
+
+.list-policy li + li {
+	margin-top: 50px;
+}
+
+.list-policy .num li {
+	padding-left:27px;
+	text-indent: -27px;
+}
+
+.list-policy .hangul li {
+	padding-left: 35px;
+	text-indent: -35px;
+}
+
+.list-policy .refer li {
+	padding-left: 31px;
+	text-indent: -31px;
+}
+
+
 @media (max-width: 980px) {
+	.check-wrap input[type='checkbox']:checked {
+		background: #0d6efd url('../img/check-violet.svg') no-repeat center;
+	}
+
 	.pop-form .form .policy .side-btn {
 		flex-wrap: wrap;
 	}
@@ -4561,6 +4638,53 @@ table td {
 	.pop-form .form .policy input[type='text'] {
 		width: 100%;
 		margin-bottom:5px;
+	}
+
+	.pop-policy .pop-inner {
+		padding-top: 50px;
+	}
+
+	.pop-policy .pop-header .pop-title {
+		font-size: 18px;
+	}
+
+	.pop-policy .btn-pop-closed {
+		top: 20px;
+		right: 20px;
+		width: 25px;
+		height: 25px;
+		background-size: 25px;
+	}
+
+	.pop-policy .pop-footer .btn-group {
+		grid-template-columns:1fr 1fr;
+	}
+	
+
+	.list-policy {
+		font-size: 14px;
+	}
+
+	.list-policy + .list-policy {
+		margin-top: 20px;
+	}
+	
+	.list-policy li + li {
+		margin-top: 20px;
+	}
+
+	.list-policy .num li {
+		padding-left:17px;
+		text-indent: -17px;
+	}
+	
+	.list-policy .hangul li {
+		padding-left: 21px;
+		text-indent: -21px;
+	}
+	.list-policy .refer li {
+		padding-left: 18px;
+		text-indent: -18px;
 	}
 }
 

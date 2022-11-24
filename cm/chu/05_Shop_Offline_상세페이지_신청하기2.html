@@ -234,7 +234,7 @@
      <!-- //썸네일 스와이프 -->
 
      <!-- 신청하기 팝업 -->
-    <div id="popupApply" class="pop-wrap pop-form" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+     <div id="popupApply" class="pop-wrap pop-form" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
 				<h2 class="pop-title">BAYC TaaS</h2>
@@ -277,7 +277,7 @@
 						<label class="form-label" for="recipient">수령인</label>
 						<div class="input-wrap side-btn">
 							<input type="text" id="recipient">
-							<button type="button" class="btn btn-small">개인정보 취급방침</button>
+							<button type="button" class="btn btn-small" onclick="popOpen('#popupPolicy', this)">개인정보 취급방침</button>
                             <div class="check-wrap">
                                 <label class="form-label" for="agree">
                                     <input type="checkbox" id="agree" name="agree">
@@ -374,10 +374,10 @@
 						<label class="form-label" for="participant">참가자 | 디스코드 아이디</label>
 						<div class="input-wrap side-btn">
 							<input type="text" id="participant" value="Rara | CYE">
-							<button type="button" class="btn btn-small">개인정보 취급방침</button>
+							<button type="button" class="btn btn-small" onclick="popOpen('#popupPolicy', this)">개인정보 취급방침</button>
                             <div class="check-wrap">
-                                <label class="form-label" for="agree">
-                                    <input type="checkbox" id="agree" name="agree">
+                                <label class="form-label" for="agree2">
+                                    <input type="checkbox" id="agree2" name="agree">
                                     <span class="check-txt">정보 제공 동의</span>
                                 </label>
                             </div>
@@ -410,6 +410,50 @@
 		</div>
 	</div>
     <!-- //신청하기2 팝업 -->
+
+    <!-- 개인정보 팝업 -->
+    <div id="popupPolicy" class="pop-wrap pop-policy" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+		<div class="pop-inner">
+			<div id="popupLabel" class="pop-header">
+				<h2 class="pop-title">개인정보 취급 방침</h2>
+			</div>
+			<div class="pop-conts">
+                <div class="list-policy">
+                    <ul class="num">
+                        <li>
+                            1. 개인정보 수집목적 및 이용목적
+                            <ul class="hangul">
+                                <li>가. 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 정산 이벤트 참여, 본인 확인, 콘텐츠 제공, 구매 및 포인트 결제, 물품배송 등 발송 서비스
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                        2. 수집하는 개인정보 항목<br>
+                        이름, 생년월일, 디스코드ID , 휴대전화번호, 주소
+                        </li>
+                        <li>
+                            3. 개인정보의 보유기간 및 이용기간<br>
+                            개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. <br>
+                            (이벤트 지급 절차완료 후 즉시)
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-policy">
+                    <ul class="refer">
+                        <li>※ 정보 제공 동의 거부시 서비스 이용이 불가 할 수 있습니다.</li>
+                    </ul>
+                </div>
+                <div class="pop-footer">
+                    <div class="btn-wrap btn-group">
+                        <button type="button" class="btn btn-done btn-block">동의</button>
+                        <button type="button" class="btn btn-close btn-block" onclick="popClose('#popupPolicy')">동의안함</button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn-pop-closed" aria-label="팝업 닫기" onclick="popClose('#popupPolicy')"></button>
+        </div>
+    </div>
+    <!-- //개인정보 팝업 -->
 
     
     <script>
