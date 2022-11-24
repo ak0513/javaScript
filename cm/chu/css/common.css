@@ -4447,10 +4447,6 @@ table td {
 
 
 /* 팝업 폼 */
-.pop-form .form {
-	/* padding-right: 140px; */
-}
-
 .pop-form .form .form-ele input {
 	border-color: #5142fd;
 	background-color: #1f1e2f;
