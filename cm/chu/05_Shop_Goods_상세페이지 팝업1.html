@@ -59,7 +59,7 @@
 
         <!-- container -->
         <section id="container">
-            <div class="container-inner">
+            <div class="container-inner pc-hide">
                 <div id="page-header">
                     <p class="page-header-txt">Total available</p>
                     <h2 class="page-tit">CHU.POINT _<span>1,350<small>츄<i>(포인트)</i></small></span></h2>
@@ -273,14 +273,6 @@
 						</div>
 					</div>
                     
-                    <!-- <div class="form-ele">
-						<label class="form-label" for="recipient">수령인</label>
-						<div class="input-wrap side-btn">
-							<input type="text" id="recipient">
-							<button type="button" class="btn btn-small">개인정보 취급방침</button>
-						</div>
-					</div> -->
-
                     <div class="form-ele policy">
 						<label class="form-label" for="recipient">수령인</label>
                         <div class="input-wrap side-btn">
@@ -450,6 +442,8 @@
                 }
             },
         });
+
+        popOpen('#popupApply')
     </script>
     <!-- 사이드메뉴 현재 위치 설정 -->
     <script>setSideCurrent(4,0)</script>

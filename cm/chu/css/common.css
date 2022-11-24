@@ -3973,6 +3973,8 @@ select.select-lg {
 }
 
 .check-wrap input[type='checkbox'] {
+	flex-shrink: 0;
+	flex-grow: 0;
 	width: 1.6rem;
 	height: 1.6rem;
 	border-radius: var(--form-ele-radius);
@@ -4338,6 +4340,11 @@ table td {
 .form-ele {
 	position: relative;
 	display: flex;
+	padding-right: 140px;
+}
+
+.form-ele.full {
+	padding-right:0;
 }
 
 .form-ele .form-label {
@@ -4441,7 +4448,7 @@ table td {
 
 /* 팝업 폼 */
 .pop-form .form {
-	padding-right: 140px;
+	/* padding-right: 140px; */
 }
 
 .pop-form .form .form-ele input {
@@ -4463,11 +4470,15 @@ table td {
 	color: #fff;
 }
 
+.pop-form .check-wrap .form-label {
+	width: 100%;
+}
 
 .pop-form .form .text-wrap {
 	color: #fff;
 	font-size: 20px;
 }
+
 
 .pop-form .form .text-wrap small {
 	font-size: 15px;
@@ -4492,6 +4503,69 @@ table td {
 	background-color: #d4d4d4;
 	border-color: #d4d4d4;
 	color: #1f1e2f;
+}
+
+/* 팝업 폼 개별 커스텀 */
+.pop-form .form .policy {
+	padding-right: 0;
+}
+
+.pop-form .form .policy input[type='text'] {
+	width: 100px;
+}
+
+.pop-form .form .policy .check-wrap {
+	margin: 0 0 0 10px;
+}
+
+.pop-form .form .policy .check-wrap .form-label {
+	margin: 0;
+	padding:0;
+}
+
+.pop-form .form .policy2 {
+	padding-right: 0;
+}
+
+.pop-form .form .policy2 .form-label {
+	width: 220px;
+}
+
+.pop-form .form .policy2 .check-wrap {
+	margin: 0 0 0 10px;
+}
+
+.pop-form .form .policy2 .check-wrap .form-label {
+	margin: 0;
+	padding:0;
+	width: 100%;
+}
+
+.pop-form .form .policy2 .side-btn {
+	flex-wrap: wrap;
+}
+
+.pop-form .form .policy2 .side-btn .btn {
+	margin-left: 0;
+}
+
+.pop-form .form .policy2 input[type='text'] {
+	width: 100%;
+	margin-bottom:5px;
+}
+
+@media (max-width: 980px) {
+	.pop-form .form .policy .side-btn {
+		flex-wrap: wrap;
+	}
+
+	.pop-form .form .policy .side-btn .btn {
+		margin-left: 0;
+	}
+	.pop-form .form .policy input[type='text'] {
+		width: 100%;
+		margin-bottom:5px;
+	}
 }
 
 
@@ -4768,12 +4842,16 @@ table td {
 	max-width: 368px;
 }
 
+.list02 .list-info {
+	display:flex;
+	flex-direction:column;
+	position:absolute;
+	bottom:20px;
+}
+
 .list02 .list-title {
 	overflow: hidden;
 	display: -webkit-box;
-	position: absolute;
-	bottom: 54px;
-	left: 0;
 	padding: 5px 14px;
 	background-color: #5142fd;
 	font-size: 22px;
@@ -4784,9 +4862,7 @@ table td {
 }
 
 .list02 .list-point {
-	position: absolute;
-	bottom: 20px;
-	left: 0;
+	align-self: flex-start;
 	padding: 5px 14px;
 	background-color: #5142fd;
 	font-size: 16px;
@@ -5918,6 +5994,7 @@ html.sub {
 
     .form-ele {
         flex-direction: column;
+		padding-right: 0;
     }
 
     .form-ele .form-label {
@@ -6011,7 +6088,7 @@ html.sub {
     }
 
     .pop-form .form {
-        padding-right: 0;
+        /* padding-right: 0; */
     }
 
     .pop-form .input-wrap.zip-code {
@@ -6167,9 +6244,12 @@ html.sub {
         width: 100%;
     }
 
+	.list02 .list-info {
+		position: relative;
+		bottom: auto;
+	}
+
     .list02 .list-title {
-        position: relative;
-        bottom: auto;
         margin-top: 10px;
         padding: 0;
         background-color: transparent;
@@ -6178,10 +6258,8 @@ html.sub {
     }
 
     .list02 .list-point {
-        position: relative;
         margin-top: 5px;
         padding: 0 0 0 14px;
-        bottom: auto;
         background-color: transparent;
         background: transparent url('../img/icon-point2.png') no-repeat left center / 10px 11px;
         color: var(--black);
