@@ -331,7 +331,7 @@
     <!-- //신청하기 팝업 -->
 
     <!-- 신청하기2 팝업 -->
-    <div id="popupApply2" class="pop-wrap" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
+    <div id="popupApply2" class="pop-wrap pop-form" aria-modal="true" role="dialog" aria-labelledby="popupLabel">
 		<div class="pop-inner">
 			<div id="popupLabel" class="pop-header">
 				<h2 class="pop-title">ㅉㅉㅉ - 영화관람</h2>
@@ -370,11 +370,17 @@
 						</div>
 					</div>
                     
-                    <div class="form-ele">
-						<label class="form-label" for="participant">참가자</label>
+                    <div class="form-ele policy2">
+						<label class="form-label" for="participant">참가자 | 디스코드 아이디</label>
 						<div class="input-wrap side-btn">
 							<input type="text" id="participant" value="Rara | CYE">
-							<button type="button" class="btn btn-small">개인정보 취급방침</button>
+							<button type="button" class="btn btn-small" onclick="popOpen('#popupPolicy', this)">개인정보 취급방침</button>
+                            <div class="check-wrap">
+                                <label class="form-label" for="agree2">
+                                    <input type="checkbox" id="agree2" name="agree">
+                                    <span class="check-txt">정보 제공 동의</span>
+                                </label>
+                            </div>
 						</div>
 					</div>
 

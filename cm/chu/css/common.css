@@ -5332,7 +5332,7 @@ html.sub {
 /* nav */
 #sideMenu {
 	position: fixed;
-	z-index: 50;
+	z-index: 20;
 	opacity: 0;
 }
 
@@ -5905,6 +5905,11 @@ html.sub {
         display: none !important;
     }
 
+
+	/* nav */
+	#sideMenu {
+		z-index: 50;
+	}
     
     /* 타이틀 */
     .h-tit1 {
