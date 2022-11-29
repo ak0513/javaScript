@@ -15,6 +15,7 @@
 	<style>
 		*{margin:0;padding:0;box-sizing: border-box;}
 		ul,li {list-style: none;}
+		.swiper-container {overflow: hidden;}
 	</style>
 	
 <div id="shcMainSec1" class="m-section1">
@@ -130,8 +131,8 @@
 		if($('#mainFavSwiper .swiper-slide').length>1){
 			var mainFavSwiper = new Swiper('#mainFavSwiper .swiper-container', {
 				slidesPerView: 1,
-				autoHeight:true,
-          		loop:true,
+				// autoHeight:true,
+          		// loop:true,
 				navigation: {
 					nextEl:'#mainFavSwiper .swiper-button-next',
 					prevEl: '#mainFavSwiper .swiper-button-prev',
@@ -154,8 +155,8 @@
 		  if($('#mainFavSwiper2 .swiper-slide').length>1){
 			var mainFavSwiper = new Swiper('#mainFavSwiper2 .swiper-container', {
 				slidesPerView: 1,
-				autoHeight:true,
-          		loop:true,
+				// autoHeight:true,
+          		// loop:true,
 				navigation: {
 					nextEl:'#mainFavSwiper2 .swiper-button-next',
 					prevEl: '#mainFavSwiper2 .swiper-button-prev',
