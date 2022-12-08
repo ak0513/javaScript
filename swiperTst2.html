@@ -230,7 +230,7 @@
 					setTimeout(function(){
 					//자주찾는 메뉴 스와이프
 						if($('#mainFavSwiper10 .swiper-slide').length>1){
-							var mainFavSwiper = new Swiper('#mainFavSwiper10 .swiper-container', {
+							var mainFavSwiper2 = new Swiper('#mainFavSwiper10 .swiper-container', {
 								slidesPerView: 1,
 								autoHeight:true,
 								// loop:true,
@@ -258,58 +258,6 @@
 						}else{
 							$('#mainFavSwiper10').addClass('no-swiper')
 						}
-
-						if($('#mainFavSwiper11 .swiper-slide').length>1){
-						var mainFavSwiper = new Swiper('#mainFavSwiper11 .swiper-container', {
-							slidesPerView: 1,
-							// autoHeight:true,
-							loop:true,
-							navigation: {
-								nextEl:'#mainFavSwiper11 .swiper-button-next',
-								prevEl: '#mainFavSwiper11 .swiper-button-prev',
-							},
-							pagination: {
-								el: '#mainFavSwiper11 .swiper-pagination',
-							},
-							watchSlidesVisibility: true,
-							on: {
-					init: function(){ 
-						ui.swiperAccess($('#mainFavSwiper11 .swiper-container'), 'auto');
-					},
-					slideChangeTransitionStart: function(){ 
-						ui.swiperAccess($('#mainFavSwiper11 .swiper-container'), 'auto');
-					},
-					resize: function(){ 
-						ui.swiperAccess($('#mainFavSwiper11 .swiper-container'), 'auto');
-					}
-				}
-						});
-					$('#mainFavSwiper11 .swiper-controls').show();
-					}else{
-						$('#mainFavSwiper11').addClass('no-swiper')
-					}
-
-
-
-					if($('#mainFavSwiper12 .swiper-slide').length>1){
-							var mainFavSwiper = new Swiper('#mainFavSwiper12 .swiper-container', {
-								slidesPerView: 1,
-								// autoHeight:true,
-								loop:true,
-								navigation: {
-									nextEl:'#mainFavSwiper12 .swiper-button-next',
-									prevEl: '#mainFavSwiper12 .swiper-button-prev',
-								},
-								pagination: {
-									el: '#mainFavSwiper12 .swiper-pagination',
-								},
-								watchSlidesVisibility: true,
-							});
-						$('#mainFavSwiper12 .swiper-controls').show();
-						}else{
-							$('#mainFavSwiper12').addClass('no-swiper')
-						}
-					
 					},300)
 					</script>
 				</div> 
