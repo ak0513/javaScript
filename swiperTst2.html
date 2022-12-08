@@ -233,6 +233,7 @@
 							var mainFavSwiper2 = new Swiper('#mainFavSwiper10 .swiper-container', {
 								slidesPerView: 1,
 								autoHeight:true,
+								autoplay:true,
 								// loop:true,
 								navigation: {
 									nextEl:'#mainFavSwiper10 .swiper-button-next',
@@ -255,16 +256,16 @@
 								}
 							});
 						$('#mainFavSwiper10 .swiper-controls').show();
+						$('#mainFavSwiper10').focusin(function() {
+							mainFavSwiper2.autoplay.stop();
+						}) 
+						$('#mainFavSwiper10').focusout(function() {
+							mainFavSwiper2.autoplay.start();
+						}) 
 						}else{
 							$('#mainFavSwiper10').addClass('no-swiper')
 						}
 					},300)
-					</script>
-
-					<script>
-						$('#mainFavSwiper10').focusin(function() {
-							alert('aa')
-						}) 
 					</script>
 				</div> 
 			</div>
