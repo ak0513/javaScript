@@ -277,7 +277,7 @@
 			<hr>
 			<div><button type="button" class="ui_select_btn" aria-expanded="false" aria-haspopup="listbox" title="알뜰폰 종류선택"><span class="ui_select_value">알뜰폰 버튼</span></button></div>
 			<hr>
-			<div><select class="text_lightgray" title="알뜰폰 종류선택" data-plugin-each="t05.tcEtc" data-plugin-value="t05.tcs" data-plugin-focus="t05-tcs" data-plugin-watch="t05-tc" data-plugin-change="t05.chgSms()">
+			<div><select class="text_lightgray" title="알뜰폰 종류선택" data-plugin-each="t05.tcEtc" data-plugin-value="t05.tcs" data-plugin-focus="t05-tcs" data-plugin-watch="t05-tc" data-plugin-change="t05.chgSms()" aria-hidden="true">
 				<option value="">알뜰폰</option>
 			
 				<option value="5">SKT알뜰폰</option>
@@ -290,14 +290,13 @@
 			<hr>
 			<hr>
 			<style>
-				/* .progress-box .progress_bar {text-indent: -9999px;overflow: hidden;} */
-				.progress-box .bar_val ol {height:6px;}
+				.progress-box.t2 .progress_bar {text-indent: -9999px;overflow: hidden;}
+				.progress-box.t2 .bar_val ol {height:6px;}
 				@media only screen and (max-width: 1100px) {
-					.progress-box .bar_val ol {height:3px;}
+					.progress-box.t2 .bar_val ol {height:3px;}
 				}
 			</style>
 			<div class="n-card">
-				
 				<div class="progress-box"><!-- 2022-07-14 1차 수정: <div class="ly_inner w-prog"> 영역 안에 포함-->
 					<div class="progress-txt" role="text"><strong>11카드정보</strong>를 <strong>선택</strong>해주세요.</div><!-- 2022-08-23 위치수정 -->
 					<div class="progress">
@@ -327,18 +326,27 @@
 					</div>
 				</div>
 				<hr>
-				<div class="progress-box"><!-- 2022-07-14 1차 수정: <div class="ly_inner w-prog"> 영역 안에 포함-->                
-					<div class="progress-txt" role="text"><strong>4카드정보</strong>를 <strong>선택</strong>해주세요.</div><!-- 2022-08-23 위치수정 -->
+				<div class="progress-box t2"><!-- 2022-07-14 1차 수정: <div class="ly_inner w-prog"> 영역 안에 포함-->                
+					<div class="progress-txt"><strong>카드정보</strong>를 <strong>선택</strong>해주세요.</div><!-- 2022-08-23 위치수정 -->
 					<div class="progress">
-						<div class="progress_bar" role="text">
-							<div class="bar_val step1">
-									<span style="position:absolute;top:0;left:0;right:0;height:3px;width:100%;">6단계 중 1단계 진행중</span>
-
+						<div class="progress_bar"  role="text">
+							<div class="bar_val step1"><!-- 2022-08-29 class="step1" -->
+								<div>    
+									<ol>
+										<li>1단계 카드정보 선택</li>
+										<li>2단계 신청인정보 입력</li>
+										<li>3단계 본인인증</li>
+										<li>4단계 신분증 확인 후 약관동의</li>
+										<li>5단계 신청정보 입력</li>
+										<li>6단계 결제정보 선택</li>
+									</ol>
+									<span>6단계 중 1단계 진행중</span>
+								</div>
 							</div>
-						</div>
-					</div>
+						</div>					
+					</div>                
 				</div>
-				
+				<hr>
 			</div>
 			<div style="height:300px"></div>
 			<!-- //추가 -->
