@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>월별 명세서 &lt; 신한카드</title>
+	<base href="https://www.shinhancard.com/">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<script src="/pconts/js/externalLib.css.js"></script>
+	<script src="/pconts/js/shinhancard.css.js"></script>
+	<script src="/pconts/js/externalLib.js"></script>
+	<script src="/pconts/js/shinhancard.ui.js"></script>
+	<script src="/logic/js/mob/cmm/pesn-common.js"></script>
+	<!-- <script type="text/javascript" src="/logic/js/mob/mobfm043/MOBFM043R01.js?v=20221124"></script> -->
+</head>
+<body>
+<!-- skipNavi -->
+<div id="skipNavi">
+	<a href="#container">본문 바로가기</a>
+</div>
+<!-- //skipNavi -->
+<!-- wrap -->
+<div id="wrap">
+	<!-- header -->
+	<header id="header" data-bind-include="cmmHeader" data-head-title="월별 명세서"></header>
+	<!-- //header -->
+
+	<!-- container -->
+	<div id="container">
+		<!-- contents -->
+		<section class="contents mypage myused_list">
+			<div class="expend_wrap bg_lightgray card_reportlist_wrap gap60_40">
+				<div class="swiper-container report_month_swiper swiper-container-initialized swiper-container-horizontal">
+					<!-- 20.03.10 웹접근성 스와이퍼 컨트롤러 위치이동 -->
+					<button type="button" class="swiper-button-prev print_hide" tabindex="0" role="button">03월</button>
+					<button type="button" class="swiper-button-next print_hide swiper-button-disabled" tabindex="0" role="button"></button>
+					<!--// 20.03.10 웹접근성 스와이퍼 컨트롤러 위치이동 -->
+					<div class="swiper-wrapper">
+						<!-- dashdesk -->
+						<div class="dashdesk swiper-slide">
+							<dl>
+								<dt>
+									<button type="button" name="mData0719_selectMonth" id="mData0719_fr0" class="this_month open_smw is-disable-swiper-tabindex" tabindex="-1" role="button" value="202201" title="달력 월선택 레이어열기" data-bind-click="popCalendar();" data-bind-item="mDataSwiper,0">
+										<span>01월</span>
+									</button>이용금액
+								</dt>
+								<dd><span>0</span>원</dd>
+							</dl>
+							<div class="single_payinfo" data-bind-visible="!multi_visible">
+								<dl>
+									<dt>결제일:</dt>
+									<dd>2022.01.12</dd>
+								</dl>
+								
+							</div>
+						</div>
+						<!-- //dashdesk -->
+					
+						<!-- dashdesk -->
+						<div class="dashdesk swiper-slide">
+							<dl>
+								<dt>
+									<button type="button" name="mData0719_selectMonth" id="mData0719_fr1" class="this_month open_smw is-disable-swiper-tabindex is-disable-swiper-fixed" tabindex="-1" role="button" value="202202" title="달력 월선택 레이어열기" data-bind-click="popCalendar();" data-bind-item="mDataSwiper,1">
+										<span>02월</span>
+									</button>이용금액
+								</dt>
+								<dd><span>899,100</span>원</dd>
+							</dl>
+							<div class="single_payinfo" data-bind-visible="!multi_visible">
+								<dl>
+									<dt>결제일:</dt>
+									<dd>2022.02.12</dd>
+								</dl>
+								
+								<dl>
+									<dt>출금예정일:</dt>
+									<dd>2022.02.14</dd>
+								</dl>
+								
+							</div>
+						</div>
+						<!-- //dashdesk -->
+					
+						<!-- dashdesk -->
+						<div class="dashdesk swiper-slide">
+							<dl>
+								<dt>
+									<button type="button" name="mData0719_selectMonth" id="mData0719_fr2" class="this_month open_smw is-disable-swiper-tabindex is-disable-swiper-fixed" tabindex="-1" role="button" value="202203" title="달력 월선택 레이어열기" data-bind-click="popCalendar();" data-bind-item="mDataSwiper,2">
+										<span>03월</span>
+									</button>이용금액
+								</dt>
+								<dd><span>270,000</span>원</dd>
+							</dl>
+							<div class="single_payinfo" data-bind-visible="!multi_visible">
+								<dl>
+									<dt>결제일:</dt>
+									<dd>2022.03.12</dd>
+								</dl>
+								
+								<dl>
+									<dt>출금예정일:</dt>
+									<dd>2022.03.14</dd>
+								</dl>
+								
+							</div>
+						</div>
+						<!-- //dashdesk -->
+					
+						<!-- dashdesk -->
+						<div class="dashdesk swiper-slide" aria-hidden="false">
+							<dl>
+								<dt>
+									<button type="button" name="mData0719_selectMonth" id="mData0719_fr3" class="this_month open_smw" tabindex="0" role="button" value="202204" title="달력 월선택 레이어열기" data-bind-click="popCalendar();" data-bind-item="mDataSwiper,3">
+										<span>04월</span>
+									</button>이용금액
+								</dt>
+								<dd><span>0</span>원</dd>
+							</dl>
+							<div class="single_payinfo" data-bind-visible="!multi_visible">
+								<dl>
+									<dt>결제일:</dt>
+									<dd>2022.04.12</dd>
+								</dl>
+								
+							</div>
+						</div>
+						<!-- //dashdesk -->
+					</div>
+				<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+				<!-- //swiper-container -->
+				
+				
+			</div>
+
+			<script>
+				function report_month_swiper2() {
+					// $log("=======report_month_swiper()");
+					
+					month_swiper = new Swiper('.report_month_swiper.swiper-container', {
+						slidesPerView: 'auto',
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+						},
+						simulateTouch: false,
+						allowTouchMove: false,
+						watchSlidesVisibility: true,
+						on: {
+							init: function () {
+								ui.swiperAccess($('.report_month_swiper.swiper-container'));
+							},
+							slideChangeTransitionStart: function () {
+								ui.swiperAccess($('.report_month_swiper.swiper-container'));
+								$('.thisMonthArea').attr('style','display:none !important');
+								$('.nextMonthArea').attr('style','display:none !important');
+							},
+						}
+					});
+
+					//스와이프 이벤트 함수
+					month_swiper.on('slideChange', function() {
+						month_slideIndex = this.activeIndex;				
+						summartDataSet();
+					});
+				}
+				report_month_swiper2();
+			</script>
+		</section>
+		<!-- //contents -->
+	</div>
+	<!-- //container -->
+
+	<!-- footer -->
+	<footer id="footer" data-bind-include="cmmFooter"></footer>
+	<!-- //footer -->
+</div>
+<!-- //wrap -->
+</body>
+</html>
