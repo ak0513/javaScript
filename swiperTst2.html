@@ -274,7 +274,21 @@
 
 			<button type="button" onclick="alert('활성화')" title="팝엽 열기">활성화 버튼</button><br><br>
 			<button type="button" disabled onclick="alert('비활성화')" title="팝업 확인 완료">비활성화 버튼</button>
-
+			<hr>
+			<div><button type="button" class="ui_select_btn" aria-expanded="false" aria-haspopup="listbox" title="알뜰폰 종류선택"><span class="ui_select_value">알뜰폰 버튼</span></button></div>
+			<hr>
+			<div><select class="text_lightgray" title="알뜰폰 종류선택" data-plugin-each="t05.tcEtc" data-plugin-value="t05.tcs" data-plugin-focus="t05-tcs" data-plugin-watch="t05-tc" data-plugin-change="t05.chgSms()" aria-hidden="true" tabindex="-1">
+				<option value="">알뜰폰</option>
+			
+				<option value="5">SKT알뜰폰</option>
+			
+				<option value="6">KT알뜰폰</option>
+			
+				<option value="7">LG U+알뜰폰</option>
+			</select></div>
+			<hr>
+			<hr>
+			<hr>
 			<style>
 				.progress-box .progress_bar {text-indent: -9999px;overflow: hidden;}
 				.progress-box .bar_val ol {height:6px;}
