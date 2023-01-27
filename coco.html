@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .searchBox {
+            margin: 20px 0;
+        }
+
+        .listBox {
+            max-width: 500px;
+        }
+
+        .item {
+            background-color: #dedede;
+            margin: 10px 5px;
+            padding: 4px;
+        }
+
+        .item span {
+            display: block;
+        }
+
+        .number {
+            font-weight: bold;
+        }
+    </style>
+    <div class="searchBox">
+        <input type="text" id="search" onkeyup="filter()" placeholder="검색하세요.">
+    </div>
+
+    <div class="listBox">
+        <div class="item">
+            <span class="number">1234</span>
+            <span class="product">Canberra</span>
+        </div>
+        <div class="item">
+            <span class="number">5677</span>
+            <span class="product">Buenos Aires</span>
+        </div>
+    </div>
+
+    <script>
+        function filter() {
+            let search = document.getElementById("search").value.toLowerCase();
+            let item = document.getElementsByClassName("item");
+
+            for (let i = 0; i < item.length; i++) {
+                product = item[i].getElementsByClassName("product");
+                number = item[i].getElementsByClassName("number");
+                if (product[0].innerHTML.toLowerCase().indexOf(search) != -1 ||
+                    number[0].innerHTML.toLowerCase().indexOf(search) != -1
+                ) {
+                    item[i].style.display = "flex"
+                } else {
+                    item[i].style.display = "none"
+                }
+            }
+        }
+    </script>
+</body>
+</html>
