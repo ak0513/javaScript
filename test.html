@@ -26,9 +26,10 @@
 	<h3>id 없음/aria-hidden</h3>
 	<div class="flex">
 		<label for="a">
-			<input type="checkbox">
+			
 			<span role="text" class="a11y">이름</span>
 		</label>
+		<input type="checkbox">
 		<div>
 			<p aria-hidden="true">이름</p>
 			<p>홍길동</p>
@@ -38,6 +39,7 @@
 	</div>
 
 	<hr>
+
 
 	<h3>id 있음/aria-hidden</h3>
 	<div class="flex">
@@ -67,6 +69,19 @@
 		</label>
 	</div>
 
+	<hr>
 
+	<h3>position</h3>
+	<div style="position:relative;padding-left:20px;">
+		<label for="d">
+			<input id="d" type="checkbox" style="position:absolute;top:50%;left:0;transform:translateY(-50%)">
+			<span role="text">이름</span>
+		</label>
+		<div>
+			<p>홍길동</p>
+			<p>1234</p>
+			<p>100,000원</p>
+		</div>
+	</div>
 </body>
 </html>
