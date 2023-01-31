@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+	<title>checkbox</title>
+</head>
+<body>
+
+	<h3>id 없음/aria-hidden</h3>
+	<div class="flex">
+		<label for="a">
+			
+			<span role="text" class="a11y">이름</span>
+		</label>
+		<input type="checkbox">
+		<div>
+			<p aria-hidden="true">이름</p>
+			<p>홍길동</p>
+			<p>1234</p>
+			<p>100,000원</p>
+		</div>
+	</div>
+
+	<hr>
+
+
+	<h3>id 있음/aria-hidden</h3>
+	<div class="flex">
+		<label for="b">
+			<input id="b" type="checkbox">
+			<span role="text" class="a11y">이름</span>
+		</label>
+		<div>
+			<p aria-hidden="true">이름</p>
+			<p>홍길동</p>
+			<p>1234</p>
+			<p>100,000원</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<h3>id 있음/aria-hidden 없음</h3>
+	<div class="flex">
+		<label for="c">
+			<input id="c" type="checkbox">
+			<span role="text" class="a11y">이름</span>
+			<p>이름</p>
+			<p>홍길동</p>
+			<p>1234</p>
+			<p>100,000원</p>
+		</label>
+	</div>
+	<hr>
+
+	<h3>input label 분리</h3>
+	<div class="flex">
+		<input id="e" type="checkbox">
+		<div>
+			<label for="e">Chrome DevTool</label>
+			<p>홍길동</p>
+			<p>1234</p>
+			<p>100,000원</p>
+		</div>
+	</div>
+	<hr>
+
+	<h3>input label 분리2</h3>
+	<div class="flex">
+		<input id="f" type="checkbox">
+		<div>
+			
+			<p>홍길동</p>
+			<p>1234</p>
+			<p>100,000원</p>
+		</div>
+        <div>
+            <p>100,000원</p>
+            <p>100,000원</p>
+            <label for="f">Chrome DevTool</label>
+        </div>
+	</div>
+
+	<hr>
+
+	<h3>position</h3>
+	<div style="position:relative;padding-left:40px;">
+		<label for="d">
+			<input id="d" type="checkbox" style="position:absolute;top:50%;left:0;transform:translateY(-50%)">
+			<span role="text">Chrome DevTool</span>
+		</label>
+		<div>
+			<p>홍길동</p>
+			<p>1234</p>
+			<p>100,000원</p>
+		</div>
+	</div>
+</body>
+</html>
