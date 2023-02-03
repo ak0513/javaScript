@@ -17,9 +17,10 @@
         .item-product {margin-top:4px;color:#fff;}
         .item-date {padding:10px 16px;border-top:1px solid #111;font-size:13px;color:#fff;}
         .price-wrap {text-align:right;}
+        .price-wrap > span {display:block;}
         .price {text-decoration:line-through;font-size:13px;}
         .sale-price {color:#fff}
-        .reduced-price {font-size:14px;}
+        .reduced-price {font-size:13px;}
     </style>
     <div class="searchBox">
         <input type="text" id="search" onkeyup="filter()" placeholder="검색어를 입력하세요.">
@@ -35,9 +36,11 @@
                 </div>
                 <div class="item-right">
                     <div class="price-wrap">
-                        <div class="price">8890</div>
-                        <div class="sale-price"></div>
-                        <div class="reduced-price">1200</div>
+                        <div>
+                            <span class="price">8890</span>
+                            <span class="reduced-price">1200</span>
+                        </div>
+                        <span class="sale-price"></span>
                     </div>
                 </div>
             </div>
@@ -49,9 +52,11 @@
                 </div>
                 <div class="item-right">
                     <div class="price-wrap">
-                        <div class="price">15790</div>
-                        <div class="sale-price"></div>
-                        <div class="reduced-price">2200</div>
+                        <div>
+                            <span class="price">15790</span>
+                            <span class="reduced-price">2200</span>
+                        </div>
+                        <span class="sale-price"></span>
                     </div>
                 </div>
             </div>
@@ -66,9 +71,11 @@
                 </div>
                 <div class="item-right">
                     <div class="price-wrap">
-                        <div class="price">35990</div>
-                        <div class="sale-price"></div>
-                        <div class="reduced-price">9000</div>
+                        <div>
+                            <span class="price">35990</span>
+                            <span class="reduced-price">9000</span>
+                        </div>
+                        <span class="sale-price"></span>
                     </div>
                 </div>
             </div>
@@ -79,9 +86,11 @@
                 </div>
                 <div class="item-right">
                     <div class="price-wrap">
-                        <div class="price">4390</div>
-                        <div class="sale-price"></div>
-                        <div class="reduced-price">0</div>
+                        <div>
+                            <span class="price">4390</span>
+                            <span class="reduced-price">0</span>
+                        </div>
+                        <span class="sale-price"></span>
                     </div>
                 </div>
             </div>
@@ -92,9 +101,11 @@
                 </div>
                 <div class="item-right">
                     <div class="price-wrap">
-                        <div class="price">13990</div>
-                        <div class="sale-price"></div>
-                        <div class="reduced-price">2000</div>
+                        <div>
+                            <span class="price">13990</span>
+                            <span class="reduced-price">2000</span>
+                        </div>
+                        <span class="sale-price"></span>
                     </div>
                 </div>
             </div>
@@ -149,7 +160,7 @@
         })
 
         // 소숫점 찍기
-        var price = document.querySelectorAll('.price-wrap div');
+        var price = document.querySelectorAll('.price-wrap span');
         price.forEach(function(ele) {
             var elePrice = ele.innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             ele.innerText = elePrice + '원';
