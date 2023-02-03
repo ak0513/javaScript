@@ -131,22 +131,16 @@
                 ) {
                     item[i].style.display = "flex";
                     item[i].classList.add('on')
-                    // item[i].parentElement.querySelector('.item-date').style.display = "block";
                 } else {
                     item[i].style.display = "none";
                     item[i].classList.remove('on')
-                    // item[i].parentElement.querySelector('.item-date').style.display = "none";
                 }
-                
-                
-                    if(item[i].classList.contains('on')) {
-                        console.log('block', item[i].parentElement)
-                        item[i].parentElement.querySelector('.item-date').style.display = "block";
-                    } else {
-                        console.log('none', item[i].parentElement)
-                        // item[i].parentElement.querySelector('.item-date').style.display = "none";
-                    }
-                
+                if(item[i].classList.contains('on')) {
+                    console.log('block', item[i].parentElement)
+                    item[i].parentElement.querySelector('.item-date').style.display = "block";
+                } else {
+                    console.log('none', item[i].parentElement)
+                }
             }
         }
 
