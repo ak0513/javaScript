@@ -205,3 +205,31 @@ function closest(ele, selector) {
 	}
 	return null;
 }
+
+// highlight
+$(function() {
+	var highlightEle = $('.highlight');
+	highlightEle.on('click', function() {
+		if($(this).hasClass('html')) {
+			var ele2 = $($(this).children().not('pre'));
+			var eleHtml = ele2.parent().html();
+			eleHtml = eleHtml.replaceAll('<', '&lt;');
+			eleHtml = eleHtml.replaceAll('>', '&gt;');
+			eleHtml = eleHtml.trim();
+			$(this).append('<pre><code>' + eleHtml + '</code></pre>');
+			ele2.remove();
+		} else if($(this).hasClass('js')) {
+			var eleHtml = $(this).html();
+			eleHtml = eleHtml.trim();
+			$(this).before('<div class="highlight js"><pre><code>' + eleHtml + '</code></pre></div>');
+			$(this).remove();
+		} else if($(this).hasClass('css')) {
+			var eleHtml = $(this).html();
+			eleHtml = eleHtml.trim();
+			$(this).before('<div class="highlight css"><pre><code>' + eleHtml + '</code></pre></div>');
+			$(this).remove();
+		}
+	})
+	highlightEle.click().off();
+	hljs.initHighlightingOnLoad();
+})

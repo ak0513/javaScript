@@ -59,10 +59,23 @@ ol + ol {
 .h-tit1 {
 	margin-top: 2.0rem;
 	margin-bottom: 0.5rem;
+	font-size: 2.4rem;
+	font-weight: 400;
+}
+
+.h-tit2 {
+	margin-top: 2.0rem;
+	margin-bottom: 0.5rem;
 	font-size: 1.8rem;
 	font-weight: 400;
 }
 
+.h-tit2 {
+	margin-top: 2.0rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.6rem;
+	font-weight: 400;
+}
 
 
 /* 버튼 */
