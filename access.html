@@ -13,9 +13,15 @@
 	
 	<!-- <button class="btn btn-a" onclick="accessDisable(document.querySelectorAll('#a'), 'modal')">accessDisable</button> -->
 	<!-- <button class="btn btn-a" onclick="accessDisable(siblings(document.querySelector('#b')), 'modal')">accessDisable</button> -->
-	<button class="btn btn-a" onclick="">accessDisable1</button>
-	<button class="btn btn-a1" onclick="">accessDisable2</button>
-	<button class="btn btn-b" onclick="accessEnable(document.querySelectorAll('#a'), 'modal')">accessEnable</button>
+	<button class="btn btn-a">this</button>
+	<button class="btn btn-a1">형제</button>
+	<button class="btn btn-a2">이전</button>
+	<button class="btn btn-a3">다음</button>
+
+	<button class="btn btn-b">this</button>
+	<button class="btn btn-b1">형제</button>
+	<button class="btn btn-b2">이전</button>
+	<button class="btn btn-b3">다음</button>
 	
 
 	<div id="a">
@@ -29,15 +35,14 @@
 		<hr>
 		<textarea>textarea</textarea>
 	</div>
-	<div id="b">b</div>
+	<div id="b">b
+		<div>1</div>
+	</div>
 	<div id="c">c</div>
 	<div id="d">d</div>
 	<div id="e">e</div>
 	<script>
 
-
-		var btn = document.querySelectorAll('button', 'btn')
-		// console.log(btn)
 
 
 
@@ -53,36 +58,56 @@ function siblings(ele) {
 	return siblings
 }
 
+// 이전 요소 찾기
+function prevAll(ele) {
+    var result = [];
+    while (ele = ele.previousElementSibling)
+        result.push(ele);
+    return result.reverse();
+}
 
-
-console.log(document.querySelectorAll('#c').length)
-console.log(document.querySelector('#b').length)
-
-console.log(typeof(document.querySelectorAll('#a')))
-console.log(typeof(document.querySelector('#a')))
-
+// 다음 요소 찾기
+function nextAll(ele) {
+    var result = [];
+    while (ele = ele.nextElementSibling)
+        result.push(ele);
+    return result;
+}
 
 	document.querySelector('.btn-a').addEventListener('click', function() {
-		// accessDisable(document.querySelector('#b').previousElementSibling, 'modal')
 		accessDisable(document.querySelector('#a'), 'modal')
-		// accessDisable(siblings(document.querySelector('#b')), 'modal')
 	})
 	document.querySelector('.btn-a1').addEventListener('click', function() {
-		// accessDisable(document.querySelector('#b').previousElementSibling, 'modal')
-		// accessDisable(document.querySelector('#a'), 'modal')
 		accessDisable(siblings(document.querySelector('#b')), 'modal')
 	})
+	document.querySelector('.btn-a2').addEventListener('click', function() {
+		accessDisable(prevAll(document.querySelector('#b')), 'modal')
+	})
+	document.querySelector('.btn-a3').addEventListener('click', function() {
+		accessDisable(nextAll(document.querySelector('#b')), 'modal')
+	})
 
-	console.log(siblings(document.querySelector('#b')))
+	document.querySelector('.btn-b').addEventListener('click', function() {
+		accessEnable(document.querySelector('#a'), 'modal')
+	})
+	document.querySelector('.btn-b1').addEventListener('click', function() {
+		accessEnable(siblings(document.querySelector('#b')), 'modal')
+	})
+	document.querySelector('.btn-b2').addEventListener('click', function() {
+		accessEnable(prevAll(document.querySelector('#b')), 'modal')
+	})
+	document.querySelector('.btn-b3').addEventListener('click', function() {
+		accessEnable(nextAll(document.querySelector('#b')), 'modal')
+	})
 
 
-	var eleFocusTags = document.querySelectorAll('input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])');
-	var eleTabindex = document.querySelectorAll('[tabindex="0"]');
-	var eleTabindexM = document.querySelectorAll('[tabindex="-1"]');
+
+
 	
 	// 포커스 비활성화(접근성)
 	function accessDisable(eleDisable, module) {
 		if(eleDisable.length > 0) {
+			eleDisable = Array.from(eleDisable);
 			eleDisable.forEach(function(item) {
 				accessDisableFn(item)
 			})
@@ -100,59 +125,46 @@ console.log(typeof(document.querySelector('#a')))
 				item.setAttribute('tabindex', -1);
 				item.classList.add('is-disable-' + module + '-tags');
 			})
-			eleTabindex.forEach(function(item) {
+			itemTabindex.forEach(function(item) {
 				item.setAttribute('tabindex', -1);
 				item.classList.add('is-disable-' + module + '-tabindex');
 			})
-			eleTabindexM.forEach(function(item) {
+			itemTabindexM.forEach(function(item) {
 				item.classList.add('is-disable-' + module + '-fixed');
 			})
 		}
 	}
-	
-	
-	/* function accessDisable(eleDisable, module) {
-		eleDisable.forEach(function(item) {
-			var itemFocusTags = item.querySelectorAll('input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])');
-			var itemTabindex = item.querySelectorAll('[tabindex="0"]');
-			var itemTabindexM = item.querySelectorAll('[tabindex="-1"]');
-			item.setAttribute('aria-hidden','true');
-			item.classList.add('is-disable-' + module + '-ariaHidden');
-			itemFocusTags.forEach(function(item) {
-				item.setAttribute('tabindex', -1);
-				item.classList.add('is-disable-' + module + '-tags');
-			})
-			eleTabindex.forEach(function(item) {
-				item.setAttribute('tabindex', -1);
-				item.classList.add('is-disable-' + module + '-tabindex');
-			})
-			eleTabindexM.forEach(function(item) {
-				item.classList.add('is-disable-' + module + '-fixed');
-			})
-		});
-	} */
 
 	function accessEnable(eleEnable, module) {
-		eleEnable.forEach(function(item) {
-			item.removeAttribute('aria-hidden');
-			item.classList.remove('is-disable-' + module + '-ariaHidden');
+		if(eleEnable.length > 0) {
+			eleEnable = Array.from(eleEnable);
+			eleEnable.forEach(function(item) {
+				accessEnableFn(item)
+			})
+		} else {
+			accessEnableFn(eleEnable)
+		}
 
-			var itemFocusTags = item.querySelectorAll('.is-disable-' + module + '-tags');
-			var itemTabindex = item.querySelectorAll('.is-disable-' + module + '-tabindex');
-			var itemTabindexM = item.querySelectorAll('.is-disable-' + module + '-fixed');
+		function accessEnableFn(ele) {
+			ele.removeAttribute('aria-hidden');
+			ele.classList.remove('is-disable-' + module + '-ariaHidden');
+
+			var itemFocusTags = ele.querySelectorAll('.is-disable-' + module + '-tags');
+			var itemTabindex = ele.querySelectorAll('.is-disable-' + module + '-tabindex');
+			var itemTabindexM = ele.querySelectorAll('.is-disable-' + module + '-fixed');
 
 			itemFocusTags.forEach(function(item) {
 				item.removeAttribute('tabindex');
 				item.classList.remove('is-disable-' + module + '-tags');
 			})
-			eleTabindex.forEach(function(item) {
+			itemTabindex.forEach(function(item) {
 				item.setAttribute('tabindex', 0);
 				item.classList.remove('is-disable-' + module + '-tabindex');
 			})
-			eleTabindexM.forEach(function(item) {
+			itemTabindexM.forEach(function(item) {
 				item.classList.remove('is-disable-' + module + '-fixed');
 			})
-		});
+		};
 	}
 	</script>
 
