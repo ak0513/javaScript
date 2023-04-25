@@ -10,37 +10,70 @@
 </head>
 <body>
 
-	<div id="a">a
-		<button class="btn btn-a" onclick="accessDisable(btn)">btn-a</button>
+	
+	<!-- <button class="btn btn-a" onclick="accessDisable(document.querySelectorAll('#a'), 'modal')">accessDisable</button> -->
+	<!-- <button class="btn btn-a" onclick="accessDisable(siblings(document.querySelector('#b')), 'modal')">accessDisable</button> -->
+	<button class="btn btn-a" onclick="">accessDisable1</button>
+	<button class="btn btn-a1" onclick="">accessDisable2</button>
+	<button class="btn btn-b" onclick="accessEnable(document.querySelectorAll('#a'), 'modal')">accessEnable</button>
+	
+
+	<div id="a">
+		<a href="#">a1 link</a>
+		<hr>
+		<a href="#" tabindex="0">a1 link tabindex 0</a>
+		<hr>
+		<a href="#" tabindex="-1">a1 link tabindex -1</a>
+		<hr>
+		<input type="text" value="input">
+		<hr>
+		<textarea>textarea</textarea>
 	</div>
-	<div id="b">
-		<button class="btn btn-a" onclick="accessDisable()">btn-b</button>
-		b
-		<a href="">b link1</a>
-		<a href="">b link2</a>
-		<div>
-			<a href="">b link1-1</a>
-		</div>
-	</div>
-	<div id="c">c
-		<button class="btn btn-a" onclick="accessDisable()">btn-c</button>
-	</div>
+	<div id="b">b</div>
+	<div id="c">c</div>
+	<div id="d">d</div>
+	<div id="e">e</div>
 	<script>
 
+
 		var btn = document.querySelectorAll('button', 'btn')
-		console.log(btn)
+		// console.log(btn)
 
 
 
 
+// 형제요소 찾기
+function siblings(ele) {
+	if(typeof(ele) === 'string') {
+		ele = document.querySelector(ele)
+	}
+	var siblings = [...ele.parentNode.children].filter((child) =>
+		child !== ele
+	)
+	return siblings
+}
 
 
 
+console.log(document.querySelectorAll('#c').length)
+console.log(document.querySelector('#b').length)
+
+console.log(typeof(document.querySelectorAll('#a')))
+console.log(typeof(document.querySelector('#a')))
 
 
+	document.querySelector('.btn-a').addEventListener('click', function() {
+		// accessDisable(document.querySelector('#b').previousElementSibling, 'modal')
+		accessDisable(document.querySelector('#a'), 'modal')
+		// accessDisable(siblings(document.querySelector('#b')), 'modal')
+	})
+	document.querySelector('.btn-a1').addEventListener('click', function() {
+		// accessDisable(document.querySelector('#b').previousElementSibling, 'modal')
+		// accessDisable(document.querySelector('#a'), 'modal')
+		accessDisable(siblings(document.querySelector('#b')), 'modal')
+	})
 
-
-
+	console.log(siblings(document.querySelector('#b')))
 
 
 	var eleFocusTags = document.querySelectorAll('input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])');
@@ -49,23 +82,77 @@
 	
 	// 포커스 비활성화(접근성)
 	function accessDisable(eleDisable, module) {
-		eleDisable.forEach(function(item) {
-			item.setAttribute('aria-hidden','true')
-		});
-		// eleDisable.forEach(function(item) {
-		// 	item.setAttribute('aria-hidden','true')
-		// });
-		eleDisable.find(this.eleTabindexM).addClass('is-disable-'+module+'-fixed');
-		// eleDisable.find(this.eleFocusTags).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tags');
-		// eleDisable.find(this.eleTabindex).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tabindex');
-	}
+		if(eleDisable.length > 0) {
+			eleDisable.forEach(function(item) {
+				accessDisableFn(item)
+			})
+		} else {
+			accessDisableFn(eleDisable)
+		}
 
-	// 포커스 활성화(접근성)
-	function accessEnable($eleEnable, module){
-		$eleEnable.attr({'aria-hidden':'false'}).removeClass('is-disable-'+module+'-ariaHidden');
-		$eleEnable.find('.is-disable-'+module+'-tags').removeClass('is-disable-'+module+'-tags').removeAttr('tabindex');
-		$eleEnable.find('.is-disable-'+module+'-tabindex').removeClass('is-disable-'+module+'-tabindex').attr({'tabindex':'0'});
-		$eleEnable.find('.is-disable-'+module+'-fixed').removeClass('is-disable-'+module+'-fixed');
+		function accessDisableFn(ele) {
+			var itemFocusTags = ele.querySelectorAll('input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])');
+			var itemTabindex = ele.querySelectorAll('[tabindex="0"]');
+			var itemTabindexM = ele.querySelectorAll('[tabindex="-1"]');
+			ele.setAttribute('aria-hidden','true');
+			ele.classList.add('is-disable-' + module + '-ariaHidden');
+			itemFocusTags.forEach(function(item) {
+				item.setAttribute('tabindex', -1);
+				item.classList.add('is-disable-' + module + '-tags');
+			})
+			eleTabindex.forEach(function(item) {
+				item.setAttribute('tabindex', -1);
+				item.classList.add('is-disable-' + module + '-tabindex');
+			})
+			eleTabindexM.forEach(function(item) {
+				item.classList.add('is-disable-' + module + '-fixed');
+			})
+		}
+	}
+	
+	
+	/* function accessDisable(eleDisable, module) {
+		eleDisable.forEach(function(item) {
+			var itemFocusTags = item.querySelectorAll('input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])');
+			var itemTabindex = item.querySelectorAll('[tabindex="0"]');
+			var itemTabindexM = item.querySelectorAll('[tabindex="-1"]');
+			item.setAttribute('aria-hidden','true');
+			item.classList.add('is-disable-' + module + '-ariaHidden');
+			itemFocusTags.forEach(function(item) {
+				item.setAttribute('tabindex', -1);
+				item.classList.add('is-disable-' + module + '-tags');
+			})
+			eleTabindex.forEach(function(item) {
+				item.setAttribute('tabindex', -1);
+				item.classList.add('is-disable-' + module + '-tabindex');
+			})
+			eleTabindexM.forEach(function(item) {
+				item.classList.add('is-disable-' + module + '-fixed');
+			})
+		});
+	} */
+
+	function accessEnable(eleEnable, module) {
+		eleEnable.forEach(function(item) {
+			item.removeAttribute('aria-hidden');
+			item.classList.remove('is-disable-' + module + '-ariaHidden');
+
+			var itemFocusTags = item.querySelectorAll('.is-disable-' + module + '-tags');
+			var itemTabindex = item.querySelectorAll('.is-disable-' + module + '-tabindex');
+			var itemTabindexM = item.querySelectorAll('.is-disable-' + module + '-fixed');
+
+			itemFocusTags.forEach(function(item) {
+				item.removeAttribute('tabindex');
+				item.classList.remove('is-disable-' + module + '-tags');
+			})
+			eleTabindex.forEach(function(item) {
+				item.setAttribute('tabindex', 0);
+				item.classList.remove('is-disable-' + module + '-tabindex');
+			})
+			eleTabindexM.forEach(function(item) {
+				item.classList.remove('is-disable-' + module + '-fixed');
+			})
+		});
 	}
 	</script>
 

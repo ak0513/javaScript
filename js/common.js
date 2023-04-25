@@ -206,6 +206,44 @@ function closest(ele, selector) {
 	return null;
 }
 
+var ui = (function() {
+    var current = 0;
+
+	function co(ele) {
+		console.log('console.log' + ele)
+	}
+
+	function getCurrentValue() {
+		co(current);
+		return current;
+	}
+
+	function increaseValue() {
+		current = current + 1;
+		return current;
+	}
+
+	function decreaseValue() {
+		current = current - 1;
+		return current;
+	}
+
+    return {
+        getCurrentValue: getCurrentValue,
+		increaseValue: increaseValue,
+		decreaseValue: decreaseValue,
+		co: co
+    };
+})();
+
+console.log(ui.getCurrentValue()); // 0
+console.log(ui.increaseValue()); // 1
+console.log(ui.decreaseValue()); // 0
+console.log(ui.co()); // 0
+
+
+
+
 // highlight
 $(function() {
 	var highlightEle = $('.highlight');
