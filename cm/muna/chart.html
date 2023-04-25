@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- <script src="./js/swiper.min.js"></script> -->
+	<script src="./js/jquery-ui.min.js"></script>
+	<!-- <script src="./js/bootstrap.bundle.min.js"></script> -->
+	<script src="./js/chart.js"></script>
+	<script src="./js/common.js"></script>
+	<link rel="stylesheet" href="./css/fonts.css">
+	<!-- <link rel="stylesheet" href="./css/swiper.min.css"> -->
+	<link rel="stylesheet" href="./css/jquery-ui.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>test</title>
+</head>
+<body>
+
+	
+
+	<div style="width: 900px; height: 900px;">
+		<!--차트가 그려질 부분-->
+		<canvas id="myChart"></canvas>
+	</div>
+	<button type="button" id="data1">데이터 추가</button>
+	<button type="button" id="delDataset">데이터 삭제</button>
+	<script>
+		//데이터셋 추가
+		document.getElementById('data1').addEventListener('click',function() {
+			var newDataset = {
+				label: '폐수처리오니',
+				borderColor : 'rgba(255, 99, 132, 0.2)',
+				backgroundColor : 'rgba(255, 99, 132, 1)',
+				data: [21000,59000,70000,68000,60000,80000,82000,105000,21000],
+				borderWidth: 1
+			}
+
+			myChart.data.datasets.splice(0,10);
+			myChart.data.datasets.push(newDataset);// chart에 newDataset 푸쉬
+			myChart.update(); //차트 업데이트
+
+			
+		})
+
+		//데이터셋 삭제
+		document.getElementById('delDataset').onclick = function(){
+			myChart.data.datasets.splice(0,10);
+			myChart.update();//차트 업데이트
+		}
+		
+	</script>
+
+
+<br><br>
+<div class="bid-detail-sort-btn">
+	<button type="button" class="on">빠른 날짜순</button>
+	<button type="button">늦은 날짜순</button>
+	<button type="button">높은 규모순</button>
+	<button type="button">낮은 규모순</button>
+	<button type="button">높은 가격순</button>
+	<button type="button">낮은 가격순</button>
+</div>
+
+<script>
+	// 입찰정보 sort
+	var $bidDetailSortBtn = $('.bid-detail-sort-btn > button');
+	$bidDetailSortBtn.on('click',function() {
+		$bidDetailSortBtn.removeClass('on');
+		$(this).addClass('on');
+	})
+</script>
+<br><br>
+	<strong data-skin="count">32,845</strong>
+	<strong data-skin="count">32,845</strong>
+	<script>
+		/* var bidSwiper = new Swiper(".bid-swiper", {
+			loop:true,
+			direction: "vertical",
+			slidePerView: 1,
+			autoplay:false,
+			breakpoints: {
+				1100: {
+					slidesPerView: 3,
+				},
+			},
+			on: {
+				resize: function() {
+					if(window.innerWidth < 1100) {
+						bidSwiper.autoplay.start();
+					}
+				}
+			}
+		}); */
+		</script>
+	<script type="text/javascript">
+		var context = document
+			.getElementById('myChart')
+			.getContext('2d');
+		var myChart = new Chart(context, {
+			type: 'line', // 차트의 형태
+			data: { // 차트에 들어갈 데이터
+				labels: [
+					//x 축
+					'1월','2월','3월','4월','5월','6월','7월','8월','9월'
+				],
+				datasets: [
+					{ //데이터
+						label: 'test1', // 차트 제목
+						data: [
+							21000,59000,70000,68000,60000,80000,82000,105000,21000 // x축 label에 대응되는 데이터 값
+						],
+						backgroundColor:'rgba(255, 99, 132, 0.2)', // 색상
+						borderColor: 'rgba(255, 99, 132, 1)', // 경계선 색상
+						borderWidth: 1 // 경계선 굵기
+					},
+					{
+						label: 'test2',
+						data: [
+							30000,18000,45000,20000,82000,40000,37000,60000,80000
+						],
+						backgroundColor: 'rgb(157, 109, 12)',
+						borderColor: 'rgb(157, 109, 12)'
+					},
+					{
+						label: 'test3',
+						data: [
+							42000,35000,50000,55000,100000,60000,40000,62000,68000
+						],
+						backgroundColor: 'rgb(5, 109, 12)',
+						borderColor: 'rgb(5, 109, 12)'
+					},
+					{
+						label: 'test4',
+						data: [
+							50000,52000,60000,60000,88000,78000,78000,55000,95000
+						],
+						backgroundColor: 'rgb(5, 109, 12)',
+						borderColor: 'rgb(5, 109, 12)'
+					}
+				]
+			
+			},
+			options: {
+				plugins: {
+					legend: {
+						labels: {
+							usePointStyle: 'circle',
+						},
+					}
+				}
+			}
+		});
+	</script>
+	<div class="footer">
+<div data-js="select"> <a href="#"><strong>유관기관 사이트</strong></a>
+	<ul data-scroll="yes" style="display: none;">
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+		<li><a href="#" target="_blank" title="" rel="noopener noreferrer"><span>유관기관 사이트</span></a></li>
+	</ul>
+</div>
+	</div>
+	
+	<style>
+		#pop {display:none;}
+		#pop.on {display: block;}
+	</style>
+
+	<button class="pop" onclick="pop('#pop')">pop</button>
+	<div id="pop" aria-labelledby="popLabel" aria-modal="true" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="popLabel">Modal title</h5>
+					<button type="button" class="close" onclick="popClose('#pop', '.pop')" aria-label="Close">
+					<span aria-hidden="true">닫기</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Woohoo, you're reading this text in a modal!</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" onclick="popClose('#pop', '.pop')">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="btn-mobile-menu2"><button type="button" aria-label="전체메뉴 열기" class="btn-mobile-menu-open">전체메뉴 열기</button></div>
+	<div id="mobile-menu">
+		<button type="button" aria-label="메뉴닫기" class="btn-mobile-closed">메뉴닫기</button>
+		<ul class="mobile-menu-group">
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link has-sub" aria-controls="mobileMenu1" role="button">menu1</a>
+				<ul id="mobileMenu1" class="mobile-menu-depth2">
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu1-1</a></li>
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu1-2</a></li>
+				</ul>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link has-sub" aria-controls="mobileMenu2" role="button">menu2</a>
+				<ul id="mobileMenu2" class="mobile-menu-depth2">
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu2-1</a></li>
+					<li class="mobile-menu-depth2-item"><a href="#" class="mobile-menu-depth2-link">menu2-2</a></li>
+				</ul>
+			</li>
+			<li class="mobile-menu-item">
+				<a href="#" class="mobile-menu-link">menu3</a>
+			</li>
+		</ul>
+	</div>
+	<style>
+		.mobile-menu-depth2 {display:none;}
+
+		#mobile-menu {
+			position: fixed;
+			top:0;
+			left:-100%;
+			width:100%;
+			height:100vh;
+			background-color: #ddd;
+			transition: all 0.4s;
+		}
+
+		#mobile-menu.on {
+			left:0;
+		}
+	</style>
+	
+
+<div>Date: <input type="text" id="datepicker1" autocomplete="off" class="datepicker"></div>
+<div>Date: <input type="text" id="datepicker2" autocomplete="off" class="datepicker"></div>
+<style>
+	.datepicker {
+		height: 40px;
+		padding-right:30px;
+		background: url('./img/icon_cal.gif') no-repeat calc(100% - 5px) center;
+	}
+</style>
+
+
+	<div style="height:2000px"></div>
+</body>
+</html>

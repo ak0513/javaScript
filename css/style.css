@@ -79,9 +79,11 @@ ol + ol {
 
 
 /* 버튼 */
+* + .btn-wrap {
+	margin-top: 2.0rem;
+}
 .btn-wrap {
 	display: flex;
-	margin-top: 2.0rem;
 }
 
 .btn {
