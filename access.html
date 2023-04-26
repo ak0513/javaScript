@@ -4,20 +4,18 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <script src="./js/common.js"></script> -->
+	<script src="./js/common.js"></script>
 	<link rel="stylesheet" href="./css/style.css">
 	<title>접근성</title>
 </head>
 <body>
 
 	
-	<!-- <button class="btn btn-a" onclick="accessDisable(document.querySelectorAll('#a'), 'modal')">accessDisable</button> -->
-	<!-- <button class="btn btn-a" onclick="accessDisable(siblings(document.querySelector('#b')), 'modal')">accessDisable</button> -->
 	<button class="btn btn-a">this</button>
 	<button class="btn btn-a1">형제</button>
 	<button class="btn btn-a2">이전</button>
-	<button class="btn btn-a3">다음</button>
-
+	<button class="btn btn-a3" aria-hidden="true">다음</button>
+<br>
 	<button class="btn btn-b">this</button>
 	<button class="btn btn-b1">형제</button>
 	<button class="btn btn-b2">이전</button>
@@ -39,133 +37,37 @@
 		<div>1</div>
 	</div>
 	<div id="c">c</div>
-	<div id="d">d</div>
+	<div id="d" aria-hidden="true">
+		<div>aria-hidden</div>
+		<a href="#">d1 link</a>
+	</div>
 	<div id="e">e</div>
 	<script>
-
-
-
-
-
-// 형제요소 찾기
-function siblings(ele) {
-	if(typeof(ele) === 'string') {
-		ele = document.querySelector(ele)
-	}
-	var siblings = [...ele.parentNode.children].filter((child) =>
-		child !== ele
-	)
-	return siblings
-}
-
-// 이전 요소 찾기
-function prevAll(ele) {
-    var result = [];
-    while (ele = ele.previousElementSibling)
-        result.push(ele);
-    return result.reverse();
-}
-
-// 다음 요소 찾기
-function nextAll(ele) {
-    var result = [];
-    while (ele = ele.nextElementSibling)
-        result.push(ele);
-    return result;
-}
-
 	document.querySelector('.btn-a').addEventListener('click', function() {
-		accessDisable(document.querySelector('#a'), 'modal')
+		ui.accessDisable(document.querySelector('#a'), 'modal')
 	})
 	document.querySelector('.btn-a1').addEventListener('click', function() {
-		accessDisable(siblings(document.querySelector('#b')), 'modal')
+		ui.accessDisable(ui.siblings(document.querySelector('#a')), 'modal')
 	})
 	document.querySelector('.btn-a2').addEventListener('click', function() {
-		accessDisable(prevAll(document.querySelector('#b')), 'modal')
+		ui.accessDisable(ui.prevAll(document.querySelector('#a')), 'modal')
 	})
 	document.querySelector('.btn-a3').addEventListener('click', function() {
-		accessDisable(nextAll(document.querySelector('#b')), 'modal')
+		ui.accessDisable(ui.nextAll(document.querySelector('#a')), 'modal')
 	})
 
 	document.querySelector('.btn-b').addEventListener('click', function() {
-		accessEnable(document.querySelector('#a'), 'modal')
+		ui.accessEnable(document.querySelector('#a'), 'modal')
 	})
 	document.querySelector('.btn-b1').addEventListener('click', function() {
-		accessEnable(siblings(document.querySelector('#b')), 'modal')
+		ui.accessEnable(ui.siblings(document.querySelector('#a')), 'modal')
 	})
 	document.querySelector('.btn-b2').addEventListener('click', function() {
-		accessEnable(prevAll(document.querySelector('#b')), 'modal')
+		ui.accessEnable(ui.prevAll(document.querySelector('#a')), 'modal')
 	})
 	document.querySelector('.btn-b3').addEventListener('click', function() {
-		accessEnable(nextAll(document.querySelector('#b')), 'modal')
+		ui.accessEnable(ui.nextAll(document.querySelector('#a')), 'modal')
 	})
-
-
-
-
-	
-	// 포커스 비활성화(접근성)
-	function accessDisable(eleDisable, module) {
-		if(eleDisable.length > 0) {
-			eleDisable = Array.from(eleDisable);
-			eleDisable.forEach(function(item) {
-				accessDisableFn(item)
-			})
-		} else {
-			accessDisableFn(eleDisable)
-		}
-
-		function accessDisableFn(ele) {
-			var itemFocusTags = ele.querySelectorAll('input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])');
-			var itemTabindex = ele.querySelectorAll('[tabindex="0"]');
-			var itemTabindexM = ele.querySelectorAll('[tabindex="-1"]');
-			ele.setAttribute('aria-hidden','true');
-			ele.classList.add('is-disable-' + module + '-ariaHidden');
-			itemFocusTags.forEach(function(item) {
-				item.setAttribute('tabindex', -1);
-				item.classList.add('is-disable-' + module + '-tags');
-			})
-			itemTabindex.forEach(function(item) {
-				item.setAttribute('tabindex', -1);
-				item.classList.add('is-disable-' + module + '-tabindex');
-			})
-			itemTabindexM.forEach(function(item) {
-				item.classList.add('is-disable-' + module + '-fixed');
-			})
-		}
-	}
-
-	function accessEnable(eleEnable, module) {
-		if(eleEnable.length > 0) {
-			eleEnable = Array.from(eleEnable);
-			eleEnable.forEach(function(item) {
-				accessEnableFn(item)
-			})
-		} else {
-			accessEnableFn(eleEnable)
-		}
-
-		function accessEnableFn(ele) {
-			ele.removeAttribute('aria-hidden');
-			ele.classList.remove('is-disable-' + module + '-ariaHidden');
-
-			var itemFocusTags = ele.querySelectorAll('.is-disable-' + module + '-tags');
-			var itemTabindex = ele.querySelectorAll('.is-disable-' + module + '-tabindex');
-			var itemTabindexM = ele.querySelectorAll('.is-disable-' + module + '-fixed');
-
-			itemFocusTags.forEach(function(item) {
-				item.removeAttribute('tabindex');
-				item.classList.remove('is-disable-' + module + '-tags');
-			})
-			itemTabindex.forEach(function(item) {
-				item.setAttribute('tabindex', 0);
-				item.classList.remove('is-disable-' + module + '-tabindex');
-			})
-			itemTabindexM.forEach(function(item) {
-				item.classList.remove('is-disable-' + module + '-fixed');
-			})
-		};
-	}
 	</script>
 
 
