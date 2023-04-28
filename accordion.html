@@ -135,6 +135,7 @@
         })
     })
 
+    // slideDown
     var collapseShow = function(ele, speed) {
         ele.classList.remove('collapse');
         ele.classList.add('collapsing');
@@ -146,6 +147,7 @@
         }, speed)
     }
 
+    // slideUp
     var collapseHide = function(ele, speed) {
         ele.style.height = ele.scrollHeight + 'px';
         setTimeout(function() {
