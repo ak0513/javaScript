@@ -117,7 +117,7 @@ var ui = (function() {
 		}
 	}
 
-	// 포커스 활성화(접근성)
+	// 포커스 비활성화(접근성)
 	var accessEnable = function(eleEnable, module) {
 		if(eleEnable.length > 0) {
 			eleEnable = Array.from(eleEnable);
@@ -278,8 +278,7 @@ var ui = (function() {
                     collapseShow(accCollapse, 350);
                     // 클릭 요소의 형제 accordion-collapse hide
                     accCollapseSiblings.forEach(function(accCollapseSiblingsEle) {
-                        var accordionCollapseShow = accCollapseSiblingsEle.querySelector('.accordion-collapse');
-                        if(accordionCollapseShow.classList.contains('show')) {
+                        if(accCollapseSiblingsEle.querySelector('.accordion-collapse').classList.contains('show')) {
                             collapseHide(accCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
                         }
                     });
@@ -327,27 +326,22 @@ var ui = (function() {
 	}
 
 	return {
-		setDeviceInfo: setDeviceInfo, // deviceInfo 세팅
-		setBodyClass: setBodyClass, // body에 device별 클래스 추가
-		accessDisable: accessDisable,
-		accessEnable: accessEnable,
-		siblings: siblings,
-		prevAll: prevAll,
-		nextAll: nextAll,
-		closest: closest,
-		removeClass: removeClass, // class 삭제
-		getRandomNum: getRandomNum, // 난수 생성
+		setDeviceInfo: setDeviceInfo,       // deviceInfo 세팅
+		setBodyClass: setBodyClass,         // body에 device별 클래스 추가
+		accessDisable: accessDisable,       // 포커스 비활성화(접근성)
+		accessEnable: accessEnable,         // 포커스 활성화(접근성)
+		siblings: siblings,                 // 형제요소 찾기
+		prevAll: prevAll,                   // 이전 요소 찾기
+		nextAll: nextAll,                   // 다음 요소 찾기
+		closest: closest,                   // 가장 가까운 부모 찾기
+		removeClass: removeClass,           // class 삭제
+		getRandomNum: getRandomNum,         // 난수 생성
 		setAttrRandomNum: setAttrRandomNum, // attr 난수 적용
-		setAttr: setAttr, // attr 세팅
-		getUrlParam: getUrlParam, // url파라미터 값 구하기
+		setAttr: setAttr,                   // attr 세팅
+		getUrlParam: getUrlParam,           // url파라미터 값 구하기
 
+		accordion: accordion,               // 아코디언
 
-
-
-		accordion: accordion, // 아코디언
-
-
-
-		setHighlight: setHighlight // hlight.js
+		setHighlight: setHighlight          // hlight.js
 	};
 })();

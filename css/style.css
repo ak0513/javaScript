@@ -1,3 +1,39 @@
+@charset "UTF-8";
+
+:root {
+	--primary: #007bff;
+	--white: #fff;
+	--light: #f7f7f7;
+	--lightgray: #ced4da;
+	--gray: #7f7f7f;
+	--darkgray: #333;
+	--black: #212529;
+
+	--font-basic: 1.6rem;
+
+	--gutter4: 0.2rem;
+	--gutter6: 0.3rem;
+	--gutter10: 0.5rem;
+	--gutter20: 1.0rem;
+	--gutter30: 1.5rem;
+	--gutter40: 2.0rem;
+	--gutter50: 2.5rem;
+	--gutter100: 5.0rem;
+
+	--form-ele-font: 1.6rem;
+	--form-ele-font-sm: 1.4rem;
+	--form-ele-font-lg: 2.0rem;
+	--form-ele-height: 3.8rem;
+	--form-ele-height-sm: 3.0rem;
+	--form-ele-height-lg: 4.8rem;
+	--form-ele-margin: 0.6rem;
+	--form-ele-border-color: #e3e3e3;
+	--form-ele-radius: 0.5rem;
+
+	--border-color-darklight: #666;
+	--border-color-dark: #333;
+}
+
 *, *::before,*::after{
 	margin:0;
 	padding:0;
