@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+	<script src="./js/common.js"></script>
+	<script src="./js/highlight.min.js"></script>
+	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>accordion</title>
+</head>
+<body>
+1
+<div class="accordion" id="accordion1">
+    <div class="accordion-item 1">
+        <h2 class="accordion-header" id="accordionTit1">
+            <button class="accordion-button" type="button" aria-expanded="true" aria-controls="accordionBody1">
+                accordion-header1
+            </button>
+        </h2>
+        <div id="accordionBody1" class="accordion-collapse collapse show" aria-labelledby="accordionTit1">
+            <div class="accordion-body">
+                accordion-body1
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item 2">
+        <h2 class="accordion-header" id="accordionTit2">
+            <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody2">
+                accordion-header2
+            </button>
+        </h2>
+        <div id="accordionBody2" class="accordion-collapse collapse" aria-labelledby="accordionTit2">
+            <div class="accordion-body">
+                accordion-body2<br>
+                This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item 3">
+        <h2 class="accordion-header" id="accordionTit3">
+            <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody3">
+                accordion-header3
+            </button>
+        </h2>
+        <div id="accordionBody3" class="accordion-collapse collapse" aria-labelledby="accordionTit3">
+            <div class="accordion-body">
+                accordion-body3<br>
+                This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow.
+            </div>
+        </div>
+    </div>
+</div>
+2
+<div class="accordion" id="accordion2">
+    <div class="accordion-item 4">
+        <h2 class="accordion-header" id="accordionTit4">
+            <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody4">
+                accordion-header4
+            </button>
+        </h2>
+        <div id="accordionBody4" class="accordion-collapse collapse" aria-labelledby="accordionTit34">
+            <div class="accordion-body">
+                accordion-body34
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item 5">
+        <h2 class="accordion-header" id="accordionTit5">
+            <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody5">
+                accordion-header5
+            </button>
+        </h2>
+        <div id="accordionBody5" class="accordion-collapse collapse" aria-labelledby="accordionTit5">
+            <div class="accordion-body">
+                accordion-body5
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item 6">
+        <h2 class="accordion-header" id="accordionTit6">
+            <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody6">
+                accordion-header6
+            </button>
+        </h2>
+        <div id="accordionBody6" class="accordion-collapse collapse" aria-labelledby="accordionTit6">
+            <div class="accordion-body">
+                accordion-body6
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var accordionBtns = document.querySelectorAll('.accordion-button');
+    accordionBtns.forEach(function(accordionBtnsEle) {
+        accordionBtnsEle.addEventListener('click', function(e) {
+            var accordion =  ui.closest(accordionBtnsEle, '.accordion'); // 클릭 요소의 .accordion
+            var accordionBtn = accordion.querySelectorAll('.accordion-button'); // 클릭 요소 부모의 모든 아코디언 버튼
+            var accordionItem = ui.closest(accordionBtnsEle, '.accordion-item'); // 클릭 요소의 .accordion-item
+            var accordionCollapseSiblings = ui.siblings(accordionItem); // 클릭 요소의 형제 .accordion-item
+            var accordionCollapse = accordion.querySelector('#' + accordionBtnsEle.getAttribute('aria-controls')); // 클릭 요소의 .accordion-collapse
+
+            console.log(accordionBtnsEle)
+            console.log(accordionBtn)
+            // 닫혀 있는 아코디언 클릭 하는 경우
+            if(e.currentTarget.classList.contains('collapsed')) {
+                // 클릭 요소의 accordion-collapse show
+                collapseShow(accordionCollapse, 350);
+               
+                // 클릭 요소의 형제 accordion-collapse hide
+                accordionCollapseSiblings.forEach(function(accordionCollapseSiblingsEle) {
+                    var accordionCollapseShow = accordionCollapseSiblingsEle.querySelector('.accordion-collapse');
+                    if(accordionCollapseShow.classList.contains('show')) {
+                        collapseHide(accordionCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
+                    }
+                });
+                // accordion-header show
+                accordionBtn.forEach(function(item) {
+                    item.classList.add('collapsed');
+                    item.setAttribute('aria-expanded', false);
+                })
+                e.currentTarget.classList.remove('collapsed');
+                e.currentTarget.setAttribute('aria-expanded', true);
+            } else { // 열려 있는 아코디언 클릭하는 경우
+                // accordion-collapse hide
+                collapseHide(accordionCollapse, 350);
+                // accordion-header hide
+                e.currentTarget.classList.add('collapsed');
+                accordionBtn.forEach(item => item.setAttribute('aria-expanded', false));
+            }
+        })
+    })
+
+    var collapseShow = function(ele, speed) {
+        ele.classList.remove('collapse');
+        ele.classList.add('collapsing');
+        ele.style.height = ele.scrollHeight + 'px';
+        setTimeout(function() {
+            ele.classList.remove('collapsing');
+            ele.classList.add('collapse', 'show');
+            ele.removeAttribute('style', 'height');
+        }, speed)
+    }
+
+    var collapseHide = function(ele, speed) {
+        ele.style.height = ele.scrollHeight + 'px';
+        setTimeout(function() {
+            ele.removeAttribute('style', 'height');
+        })
+        ele.classList.remove('collapse', 'show');
+        ele.classList.add('collapsing');
+        setTimeout(function() {
+            ele.classList.remove('collapsing');
+            ele.classList.add('collapse');
+        }, speed)
+    }
+</script>
+
+
+<style>
+    /* collapse */
+    .collapse:not(.show) {
+        display: none;
+    }
+    
+    .collapsing {
+        overflow: hidden;
+        height: 0;
+        transition: height .35s ease;
+    }
+
+
+
+    .accordion-button {
+        color:#fff;
+    }
+
+    .accordion-button.collapsed {
+        color:#999
+    }
+
+    
+
+    
+    .accordion-body {
+        padding:10px 0;
+    }
+</style>
+
+</body>
+</html>

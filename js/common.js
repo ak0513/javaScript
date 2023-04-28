@@ -116,6 +116,7 @@ var ui = (function() {
 		}
 	}
 
+	// 포커스 활성화(접근성)
 	var accessEnable = function(eleEnable, module) {
 		if(eleEnable.length > 0) {
 			eleEnable = Array.from(eleEnable);

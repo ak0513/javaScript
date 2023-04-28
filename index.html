@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 	<script src="./js/common.js"></script>
 	<script src="./js/highlight.min.js"></script>
-	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
+	<link rel="stylesheet" href="./css/style.css">
 	<title>Document</title>
 </head>
 <body>
@@ -23,46 +23,99 @@
 
     </style>
 <div id="wrap">
-    <h1 class="h-tit1">제목</h1>
-    <p class="">sdfsdfsd</p>
-    <h2 class="h-tit2">CSS</h2>
-    <h3 class="h-tit3">CSS</h3>
-    <div class="highlight css">
-* + .highlight {
-    margin-top: 16px;
-}
-.highlight code.hljs {
-    font-family: Consolas, Monaco, monospace;
-    font-size: 14px;
-}
-    </div>
-        
+    <h1 class="h-tit1">요소 찾기</h1>
+    <h2 class="h-tit2">부요요소 찾기</h2>
     <div class="highlight html">
-<nav>
-    // dfsdf
-    <h2 id="gnb-title">전체메뉴 보기</h2>
-    <a href="#a">menu1</a><br>
-    <button>btn</button>
-    <button>btn</button>
-    <button>btn</button>
-    <button class="btn-gnb-closed" aria-label="메뉴 닫기">X</button>
-</nav>
+<div id="parent">
+    <div id="firstChild">firstChild</div>
+    <div id="self">
+        self
+        <div id="child1">child1</div>
+        <div id="child2">child2</div>
     </div>
-
-
+    <div id="lastChild">lastChild</div>
+</div>
+    </div>
+    <h3 class="h-tit3">node(노드) 탐색</h3>
+    <p>NodeList로 반환</p>
     <div class="highlight js">
-// url파라미터 값 구하기
-function getUrlParam(param) {
-    var urlParams = new URL(location.href).searchParams;
-    var name = urlParams.get(param);
-    return name;
-}
-
-// 랜덤숫자 얻기
-function getRandomNum() {
-    return new Date().setDate(new Date().getDate())
-}
+var self = document.querySelector('#self');
+var parentNode = self.parentNode;
+var firstChild = self.firstChild;
+var lastChild = self.lastChild;
+var childNodes = self.childNodes;
+var previousSibling = self.previousSibling;
+var nextSibling = self.nextSibling;
     </div>
+
+    <h3 class="h-tit3">element(요소) 탐색</h3>
+    <p>HTMLCollection으로 반환</p>
+    <div class="highlight js">
+var parentElement = self.parentElement;
+var firstElementChild = self.firstElementChild;
+var lastElementChild = self.lastElementChild;
+var children = self.children;
+var previousElementSibling  = self.previousElementSibling;
+var nextElementSibling = self.nextElementSibling;
+    </div>
+
+
+    <div id="parent">
+        <div id="firstChild">firstChild</div>
+        <div id="self">
+            self
+            <div id="child1">child1</div>
+            <div id="child2">child2</div>
+        </div>
+        <div id="lastChild">lastChild</div>
+    </div>
+
+
+
+    <script>
+        var self = document.querySelector('#self');
+        var parentNode = self.parentNode;
+        var firstChild = self.firstChild;
+        var lastChild = self.lastChild;
+        var childNodes = self.childNodes;
+        var previousSibling = self.previousSibling;
+        var nextSibling = self.nextSibling;
+
+        var parentElement = self.parentElement;
+        var firstElementChild = self.firstElementChild;
+        var lastElementChild = self.lastElementChild;
+        var children = self.children;
+        var previousElementSibling  = self.previousElementSibling;
+        var nextElementSibling = self.nextElementSibling;
+
+
+
+        console.log('self', self)
+        console.log('parentNode', parentNode)
+        console.log('firstChild', firstChild)
+        console.log('lastChild', lastChild)
+        console.log('childNodes', childNodes)
+        console.log('previousSibling', previousSibling)
+        console.log('nextSibling', nextSibling)
+
+        console.log('parentElement ', parentElement )
+        console.log('firstElementChild', firstElementChild)
+        console.log('lastElementChild', lastElementChild)
+        console.log('children', children)
+        console.log('previousElementSibling', previousElementSibling)
+        console.log('nextElementSibling', nextElementSibling)
+    </script>
+
+
+
+
+
+    <h1 class="h-tit1">Attr</h1>
+
+
+
+
+
 </div>
 
 </body>
