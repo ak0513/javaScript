@@ -95,45 +95,45 @@
 </div>
 
 <script>
-    var accordionBtns = document.querySelectorAll('.accordion-button');
-    accordionBtns.forEach(function(accordionBtnsEle) {
-        accordionBtnsEle.addEventListener('click', function(e) {
-            var accordion =  ui.closest(accordionBtnsEle, '.accordion'); // 클릭 요소의 .accordion
-            var accordionBtn = accordion.querySelectorAll('.accordion-button'); // 클릭 요소 부모의 모든 아코디언 버튼
-            var accordionItem = ui.closest(accordionBtnsEle, '.accordion-item'); // 클릭 요소의 .accordion-item
-            var accordionCollapseSiblings = ui.siblings(accordionItem); // 클릭 요소의 형제 .accordion-item
-            var accordionCollapse = accordion.querySelector('#' + accordionBtnsEle.getAttribute('aria-controls')); // 클릭 요소의 .accordion-collapse
-
-            console.log(accordionBtnsEle)
-            console.log(accordionBtn)
-            // 닫혀 있는 아코디언 클릭 하는 경우
-            if(e.currentTarget.classList.contains('collapsed')) {
-                // 클릭 요소의 accordion-collapse show
-                collapseShow(accordionCollapse, 350);
-               
-                // 클릭 요소의 형제 accordion-collapse hide
-                accordionCollapseSiblings.forEach(function(accordionCollapseSiblingsEle) {
-                    var accordionCollapseShow = accordionCollapseSiblingsEle.querySelector('.accordion-collapse');
-                    if(accordionCollapseShow.classList.contains('show')) {
-                        collapseHide(accordionCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
-                    }
-                });
-                // accordion-header show
-                accordionBtn.forEach(function(item) {
-                    item.classList.add('collapsed');
-                    item.setAttribute('aria-expanded', false);
-                })
-                e.currentTarget.classList.remove('collapsed');
-                e.currentTarget.setAttribute('aria-expanded', true);
-            } else { // 열려 있는 아코디언 클릭하는 경우
-                // accordion-collapse hide
-                collapseHide(accordionCollapse, 350);
-                // accordion-header hide
-                e.currentTarget.classList.add('collapsed');
-                accordionBtn.forEach(item => item.setAttribute('aria-expanded', false));
-            }
+    var accordion = function() {
+        var accordionBtns = document.querySelectorAll('.accordion-button');
+        accordionBtns.forEach(function(accBtnsEle) {
+            accBtnsEle.addEventListener('click', function(e) {
+                var accordion =  ui.closest(accBtnsEle, '.accordion'); // 클릭 요소의 부모 .accordion
+                var accBtn = accordion.querySelectorAll('.accordion-button'); // 클릭 요소 부모의 모든 버튼
+                var accItem = ui.closest(accBtnsEle, '.accordion-item'); // 클릭 요소의 .accordion-item
+                var accCollapseSiblings = ui.siblings(accItem); // 클릭 요소의 형제 .accordion-item
+                var accCollapse = accordion.querySelector('#' + accBtnsEle.getAttribute('aria-controls')); // 클릭 요소의 .accordion-collapse
+                // 닫혀 있는 아코디언 클릭 하는 경우
+                if(e.currentTarget.classList.contains('collapsed')) {
+                    // 클릭 요소의 accordion-collapse show
+                    collapseShow(accCollapse, 350);
+                    // 클릭 요소의 형제 accordion-collapse hide
+                    accCollapseSiblings.forEach(function(accCollapseSiblingsEle) {
+                        var accordionCollapseShow = accCollapseSiblingsEle.querySelector('.accordion-collapse');
+                        if(accordionCollapseShow.classList.contains('show')) {
+                            collapseHide(accCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
+                        }
+                    });
+                    // 클릭 요소의 형제 accordion-header hide
+                    accBtn.forEach(function(item) {
+                        item.classList.add('collapsed');
+                        item.setAttribute('aria-expanded', false);
+                    })
+                    // 클릭 요소의 accordion-header show
+                    e.currentTarget.classList.remove('collapsed');
+                    e.currentTarget.setAttribute('aria-expanded', true);
+                } else { // 열려 있는 아코디언 클릭하는 경우
+                    // 클릭 요소의 accordion-collapse hide
+                    collapseHide(accCollapse, 350);
+                    // 클릭 요소의 accordion-header hide
+                    e.currentTarget.classList.add('collapsed');
+                    e.currentTarget.setAttribute('aria-expanded', false);
+                }
+            })
         })
-    })
+    }
+    
 
     // slideDown
     var collapseShow = function(ele, speed) {
@@ -160,6 +160,8 @@
             ele.classList.add('collapse');
         }, speed)
     }
+
+    accordion();
 </script>
 
 
