@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	ui.setHighlight(); // hlight.js
 	ui.setDeviceInfo(); // deviceInfo 세팅
 	ui.setBodyClass(); // body에 device별 클래스 추가
+	ui.accordion() // 아코디언
 })
 
 
@@ -228,6 +229,79 @@ var ui = (function() {
 		return name;
 	}
 
+	// slideDown
+    var collapseShow = function(ele, speed) {
+        ele.classList.remove('collapse');
+        ele.classList.add('collapsing');
+        ele.style.height = ele.scrollHeight + 'px';
+        setTimeout(function() {
+            ele.classList.remove('collapsing');
+            ele.classList.add('collapse', 'show');
+            ele.removeAttribute('style', 'height');
+        }, speed)
+    }
+
+    // slideUp
+    var collapseHide = function(ele, speed) {
+        ele.style.height = ele.scrollHeight + 'px';
+        setTimeout(function() {
+            ele.removeAttribute('style', 'height');
+        })
+        ele.classList.remove('collapse', 'show');
+        ele.classList.add('collapsing');
+        setTimeout(function() {
+            ele.classList.remove('collapsing');
+            ele.classList.add('collapse');
+        }, speed)
+    }
+
+
+
+
+
+
+
+
+	// 아코디언
+    var accordion = function() {
+        var accordionBtns = document.querySelectorAll('.accordion-button');
+        accordionBtns.forEach(function(accBtnsEle) {
+            accBtnsEle.addEventListener('click', function(e) {
+                var accordion =  ui.closest(accBtnsEle, '.accordion'); // 클릭 요소의 부모 .accordion
+                var accBtn = accordion.querySelectorAll('.accordion-button'); // 클릭 요소 부모의 모든 버튼
+                var accItem = ui.closest(accBtnsEle, '.accordion-item'); // 클릭 요소의 .accordion-item
+                var accCollapseSiblings = ui.siblings(accItem); // 클릭 요소의 형제 .accordion-item
+                var accCollapse = accordion.querySelector('#' + accBtnsEle.getAttribute('aria-controls')); // 클릭 요소의 .accordion-collapse
+                // 닫혀 있는 아코디언 클릭 하는 경우
+                if(e.currentTarget.classList.contains('collapsed')) {
+                    // 클릭 요소의 accordion-collapse show
+                    collapseShow(accCollapse, 350);
+                    // 클릭 요소의 형제 accordion-collapse hide
+                    accCollapseSiblings.forEach(function(accCollapseSiblingsEle) {
+                        var accordionCollapseShow = accCollapseSiblingsEle.querySelector('.accordion-collapse');
+                        if(accordionCollapseShow.classList.contains('show')) {
+                            collapseHide(accCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
+                        }
+                    });
+                    // 클릭 요소의 형제 accordion-header hide
+                    accBtn.forEach(function(item) {
+                        item.classList.add('collapsed');
+                        item.setAttribute('aria-expanded', false);
+                    })
+                    // 클릭 요소의 accordion-header show
+                    e.currentTarget.classList.remove('collapsed');
+                    e.currentTarget.setAttribute('aria-expanded', true);
+                } else { // 열려 있는 아코디언 클릭하는 경우
+                    // 클릭 요소의 accordion-collapse hide
+                    collapseHide(accCollapse, 350);
+                    // 클릭 요소의 accordion-header hide
+                    e.currentTarget.classList.add('collapsed');
+                    e.currentTarget.setAttribute('aria-expanded', false);
+                }
+            })
+        })
+    }
+
 	// hlight.js
 	var setHighlight = function() {
 		var highlightEle = document.querySelectorAll('.highlight');
@@ -266,6 +340,14 @@ var ui = (function() {
 		setAttrRandomNum: setAttrRandomNum, // attr 난수 적용
 		setAttr: setAttr, // attr 세팅
 		getUrlParam: getUrlParam, // url파라미터 값 구하기
+
+
+
+
+		accordion: accordion, // 아코디언
+
+
+
 		setHighlight: setHighlight // hlight.js
 	};
 })();

@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 	<script src="./js/common.js"></script>
 	<script src="./js/highlight.min.js"></script>
 	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
@@ -12,7 +11,7 @@
 	<title>accordion</title>
 </head>
 <body>
-1
+
 <div class="accordion" id="accordion1">
     <div class="accordion-item 1">
         <h2 class="accordion-header" id="accordionTit1">
@@ -54,7 +53,7 @@
         </div>
     </div>
 </div>
-2
+
 <div class="accordion" id="accordion2">
     <div class="accordion-item 4">
         <h2 class="accordion-header" id="accordionTit4">
@@ -93,76 +92,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    var accordion = function() {
-        var accordionBtns = document.querySelectorAll('.accordion-button');
-        accordionBtns.forEach(function(accBtnsEle) {
-            accBtnsEle.addEventListener('click', function(e) {
-                var accordion =  ui.closest(accBtnsEle, '.accordion'); // 클릭 요소의 부모 .accordion
-                var accBtn = accordion.querySelectorAll('.accordion-button'); // 클릭 요소 부모의 모든 버튼
-                var accItem = ui.closest(accBtnsEle, '.accordion-item'); // 클릭 요소의 .accordion-item
-                var accCollapseSiblings = ui.siblings(accItem); // 클릭 요소의 형제 .accordion-item
-                var accCollapse = accordion.querySelector('#' + accBtnsEle.getAttribute('aria-controls')); // 클릭 요소의 .accordion-collapse
-                // 닫혀 있는 아코디언 클릭 하는 경우
-                if(e.currentTarget.classList.contains('collapsed')) {
-                    // 클릭 요소의 accordion-collapse show
-                    collapseShow(accCollapse, 350);
-                    // 클릭 요소의 형제 accordion-collapse hide
-                    accCollapseSiblings.forEach(function(accCollapseSiblingsEle) {
-                        var accordionCollapseShow = accCollapseSiblingsEle.querySelector('.accordion-collapse');
-                        if(accordionCollapseShow.classList.contains('show')) {
-                            collapseHide(accCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
-                        }
-                    });
-                    // 클릭 요소의 형제 accordion-header hide
-                    accBtn.forEach(function(item) {
-                        item.classList.add('collapsed');
-                        item.setAttribute('aria-expanded', false);
-                    })
-                    // 클릭 요소의 accordion-header show
-                    e.currentTarget.classList.remove('collapsed');
-                    e.currentTarget.setAttribute('aria-expanded', true);
-                } else { // 열려 있는 아코디언 클릭하는 경우
-                    // 클릭 요소의 accordion-collapse hide
-                    collapseHide(accCollapse, 350);
-                    // 클릭 요소의 accordion-header hide
-                    e.currentTarget.classList.add('collapsed');
-                    e.currentTarget.setAttribute('aria-expanded', false);
-                }
-            })
-        })
-    }
-    
-
-    // slideDown
-    var collapseShow = function(ele, speed) {
-        ele.classList.remove('collapse');
-        ele.classList.add('collapsing');
-        ele.style.height = ele.scrollHeight + 'px';
-        setTimeout(function() {
-            ele.classList.remove('collapsing');
-            ele.classList.add('collapse', 'show');
-            ele.removeAttribute('style', 'height');
-        }, speed)
-    }
-
-    // slideUp
-    var collapseHide = function(ele, speed) {
-        ele.style.height = ele.scrollHeight + 'px';
-        setTimeout(function() {
-            ele.removeAttribute('style', 'height');
-        })
-        ele.classList.remove('collapse', 'show');
-        ele.classList.add('collapsing');
-        setTimeout(function() {
-            ele.classList.remove('collapsing');
-            ele.classList.add('collapse');
-        }, speed)
-    }
-
-    accordion();
-</script>
 
 
 <style>
