@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	ui.setHighlight(); // hlight.js
 	ui.setDeviceInfo(); // deviceInfo 세팅
 	ui.setBodyClass(); // body에 device별 클래스 추가
-	ui.accordion() // 아코디언
+	// ui.accordion() // 아코디언
 })
 
 
@@ -230,7 +230,7 @@ var ui = (function() {
 	}
 
 	// slideDown
-    var collapseShow = function(ele, speed) {
+    var showCollapse = function(ele, speed) {
         ele.classList.remove('collapse');
         ele.classList.add('collapsing');
         ele.style.height = ele.scrollHeight + 'px';
@@ -242,7 +242,7 @@ var ui = (function() {
     }
 
     // slideUp
-    var collapseHide = function(ele, speed) {
+    var hideCollapse = function(ele, speed) {
         ele.style.height = ele.scrollHeight + 'px';
         setTimeout(function() {
             ele.removeAttribute('style', 'height');
@@ -275,11 +275,11 @@ var ui = (function() {
                 // 닫혀 있는 아코디언 클릭 하는 경우
                 if(e.currentTarget.classList.contains('collapsed')) {
                     // 클릭 요소의 accordion-collapse show
-                    collapseShow(accCollapse, 350);
+                    showCollapse(accCollapse, 350);
                     // 클릭 요소의 형제 accordion-collapse hide
                     accCollapseSiblings.forEach(function(accCollapseSiblingsEle) {
                         if(accCollapseSiblingsEle.querySelector('.accordion-collapse').classList.contains('show')) {
-                            collapseHide(accCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
+                            hideCollapse(accCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
                         }
                     });
                     // 클릭 요소의 형제 accordion-header hide
@@ -292,7 +292,7 @@ var ui = (function() {
                     e.currentTarget.setAttribute('aria-expanded', true);
                 } else { // 열려 있는 아코디언 클릭하는 경우
                     // 클릭 요소의 accordion-collapse hide
-                    collapseHide(accCollapse, 350);
+                    hideCollapse(accCollapse, 350);
                     // 클릭 요소의 accordion-header hide
                     e.currentTarget.classList.add('collapsed');
                     e.currentTarget.setAttribute('aria-expanded', false);
@@ -340,7 +340,7 @@ var ui = (function() {
 		setAttr: setAttr,                   // attr 세팅
 		getUrlParam: getUrlParam,           // url파라미터 값 구하기
 
-		accordion: accordion,               // 아코디언
+		// accordion: accordion,               // 아코디언
 
 		setHighlight: setHighlight          // hlight.js
 	};

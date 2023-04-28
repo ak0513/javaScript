@@ -13,87 +13,166 @@
 <body>
 
 <div id="wrap">
-    <div class="accordion" id="accordion1">
-        <div class="accordion-item 1">
+    <div class="accordion" id="accordion1" data-module="accordion">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="accordionTit1">
-                <button class="accordion-button" type="button" aria-expanded="true" aria-controls="accordionBody1">
-                    accordion-header1
+                <button class="accordion-button" type="button" aria-expanded="true" aria-controls="accordionBody1" role="button">
+                    아코디언 헤더1-1
                 </button>
             </h2>
             <div id="accordionBody1" class="accordion-collapse collapse show" aria-labelledby="accordionTit1">
                 <div class="accordion-body">
-                    accordion-body1
+                    아코디언 바디1-1
                 </div>
             </div>
         </div>
-        <div class="accordion-item 2">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="accordionTit2">
-                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody2">
-                    accordion-header2
+                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody2" role="button">
+                    아코디언 헤더1-2
                 </button>
             </h2>
             <div id="accordionBody2" class="accordion-collapse collapse" aria-labelledby="accordionTit2">
                 <div class="accordion-body">
-                    accordion-body2<br>
-                    This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow.
+                    아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2
                 </div>
             </div>
         </div>
 
-        <div class="accordion-item 3">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="accordionTit3">
-                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody3">
-                    accordion-header3
+                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody3" role="button">
+                    아코디언 헤더1-3
                 </button>
             </h2>
             <div id="accordionBody3" class="accordion-collapse collapse" aria-labelledby="accordionTit3">
                 <div class="accordion-body">
-                    accordion-body3<br>
-                    This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow.
+                    아코디언 바디1-2
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="accordion" id="accordion2">
-        <div class="accordion-item 4">
+    <div class="accordion" id="accordion2" data-module="accordion">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="accordionTit4">
-                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody4">
-                    accordion-header4
+                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody4" role="button">
+                    아코디언 헤더2-1
                 </button>
             </h2>
             <div id="accordionBody4" class="accordion-collapse collapse" aria-labelledby="accordionTit34">
                 <div class="accordion-body">
-                    accordion-body34
+                    아코디언 바디2-1
                 </div>
             </div>
         </div>
-        <div class="accordion-item 5">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="accordionTit5">
-                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody5">
-                    accordion-header5
+                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody5" role="button">
+                    아코디언 헤더2-2
                 </button>
             </h2>
             <div id="accordionBody5" class="accordion-collapse collapse" aria-labelledby="accordionTit5">
                 <div class="accordion-body">
-                    accordion-body5
+                    아코디언 바디2-2
                 </div>
             </div>
         </div>
-        <div class="accordion-item 6">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="accordionTit6">
-                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody6">
-                    accordion-header6
+                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody6" role="button">
+                    아코디언 헤더2-3
                 </button>
             </h2>
             <div id="accordionBody6" class="accordion-collapse collapse" aria-labelledby="accordionTit6">
                 <div class="accordion-body">
-                    accordion-body6
+                    아코디언 바디2-3
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    var accordion = function() {
+        var accordionBtns = document.querySelectorAll('.accordion-button');
+        accordionBtns.forEach(function(accBtnsEle) {
+            accBtnsEle.addEventListener('click', function() {
+                accordionToggle(event.target)
+            })
+        })
+
+        function accordionToggle(target) {
+            var self = target;
+            var accordion =  ui.closest(self, '.accordion'); // 클릭 요소의 부모 .accordion
+            var accBtn = accordion.querySelectorAll('.accordion-button'); // 클릭 요소 부모의 모든 버튼
+            var accItem = ui.closest(self, '.accordion-item'); // 클릭 요소의 .accordion-item
+            var accCollapseSiblings = ui.siblings(accItem); // 클릭 요소의 형제 .accordion-item
+            var accCollapse = accordion.querySelector('#' + self.getAttribute('aria-controls')); // 클릭 요소의 .accordion-collapse
+            // 닫혀 있는 아코디언 클릭 하는 경우
+            if(self.classList.contains('collapsed')) {
+                // 클릭 요소의 accordion-collapse show
+                showCollapse(accCollapse, 350);
+                // 클릭 요소의 형제 accordion-collapse hide
+                accCollapseSiblings.forEach(function(accCollapseSiblingsEle) {
+                    if(accCollapseSiblingsEle.querySelector('.accordion-collapse').classList.contains('show')) {
+                        hideCollapse(accCollapseSiblingsEle.querySelector('.accordion-collapse'), 350);
+                    }
+                });
+                // 클릭 요소의 형제 accordion-header hide
+                accBtn.forEach(function(accBtnEle) {
+                    hideHeader(accBtnEle);
+                })
+                // 클릭 요소의 accordion-header show
+                showHeader(self);
+            } else { // 열려 있는 아코디언 클릭하는 경우
+                // 클릭 요소의 accordion-collapse hide
+                hideCollapse(accCollapse, 350);
+                // 클릭 요소의 accordion-header hide
+                hideHeader(self);
+            }
+        }
+
+        function hideHeader(target) {
+            target.classList.add('collapsed');
+            target.setAttribute('aria-expanded', false);
+        }
+
+        function showHeader(target) {
+            target.classList.remove('collapsed');
+            target.setAttribute('aria-expanded', true);
+        }
+    }
+
+    accordion();
+
+
+    // slideDown
+    var showCollapse = function(ele, speed) {
+        ele.classList.remove('collapse');
+        ele.classList.add('collapsing');
+        ele.style.height = ele.scrollHeight + 'px';
+        setTimeout(function() {
+            ele.classList.remove('collapsing');
+            ele.classList.add('collapse', 'show');
+            ele.removeAttribute('style', 'height');
+        }, speed)
+    }
+
+    // slideUp
+    var hideCollapse = function(ele, speed) {
+        ele.style.height = ele.scrollHeight + 'px';
+        setTimeout(function() {
+            ele.removeAttribute('style', 'height');
+        })
+        ele.classList.remove('collapse', 'show');
+        ele.classList.add('collapsing');
+        setTimeout(function() {
+            ele.classList.remove('collapsing');
+            ele.classList.add('collapse');
+        }, speed)
+    }
+</script>
 
 <style>
     /* collapse */
@@ -123,13 +202,30 @@
     }
 
     .accordion-button {
+        display: flex;
+        align-items: center;
+        width: 100%;
         padding: 1.6rem;
         color:var(--white);
         font-size: 1.6rem;
     }
 
+    .accordion-button::after {
+        content: '';
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-left: auto;
+        background: url('./img/caret-down-fill.svg') no-repeat center;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .accordion-button.collapsed::after {
+        transform:rotate(180deg);
+    }
+
     .accordion-button.collapsed {
-        color:#999
+        color:var(--gray)
     }
 
     .accordion-body {
