@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<script src="./js/highlight.min.js"></script>
+	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>URL 정보</title>
+</head>
+
+<body>
+    <div id="wrap">
+        window.location
+    
+    
+        <script>
+            console.log(window.location) // 전체 URL 문자열을 가져옵니다.
+            console.log(window.location.href) // 전체 URL 문자열을 가져옵니다.
+            console.log(window.location.protocol) // 마지막 ':'를 포함한 프로토콜 정보를 가져옵니다.
+            console.log(window.location.host) // URL의 호스트 정보를 가져옵니다. 
+            console.log(window.location.hostname) // URL의 호스트명을 가져옵니다. 이 값은 ':'과 포트번호를 포함하지 않습니다.
+            console.log(window.location.port) // URL의 포트 번호입니다.
+            console.log(window.location.pathname) // hostname 뒤의 '/'문자 뒤의 경로를 가져옵니다.
+            console.log(window.location.search) // '?' 뒤의 쿼리스트링을 가져옵니다.
+            setTimeout(function() {
+                // window.location.reload()
+            },1000)
+
+            https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-URL-%EA%B0%9D%EC%B2%B4-%EC%A0%95%EB%A6%AC
+            var url = new URL("https://ak0513.github.io/javaScript/index.html");
+            console.log(url)
+            console.log(url.href)
+            console.log(url.protocol)
+            console.log(url.host)
+            console.log(url.hostname)
+            console.log(url.port)
+            console.log(url.pathname)
+            console.log(url.search)
+            console.log(url.host)
+            console.log(url.host)
+        </script>
+    </div>
+</body>
+</html>
