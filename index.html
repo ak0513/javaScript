@@ -35,25 +35,6 @@
     <div id="lastChild">lastChild</div>
 </div>
                     </div>
-                    <h3 class="h-tit3">node(노드) 탐색</h3>
-                    <p>NodeList로 반환</p>
-                    <div class="highlight js">
-var self = document.querySelector('#self');
-// &lt;div id="self"&gt;...&lt;/div&gt;
-var parentNode = self.parentNode;
-// &lt;div id="parent"&gt;...&lt;/div&gt;
-var firstChild = self.firstChild;
-// self
-var lastChild = self.lastChild;
-// #text
-var childNodes = self.childNodes;
-// NodeList(5)
-var previousSibling = self.previousSibling;
-// #text
-var nextSibling = self.nextSibling;
-// #text
-                    </div>
-
                     <h3 class="h-tit3">element(요소) 탐색</h3>
                     <p>HTMLCollection으로 반환</p>
                     <div class="highlight js">
@@ -71,6 +52,25 @@ var previousElementSibling  = self.previousElementSibling;
 // &lt;div id="firstChild"&gt;...&lt;/div&gt;
 var nextElementSibling = self.nextElementSibling;
 // &lt;div id="lastChild"&gt;...&lt;/div&gt;
+                    </div>
+                    
+                    <h3 class="h-tit3">node(노드) 탐색</h3>
+                    <p>NodeList로 반환</p>
+                    <div class="highlight js">
+var self = document.querySelector('#self');
+// &lt;div id="self"&gt;...&lt;/div&gt;
+var parentNode = self.parentNode;
+// &lt;div id="parent"&gt;...&lt;/div&gt;
+var firstChild = self.firstChild;
+// self
+var lastChild = self.lastChild;
+// #text
+var childNodes = self.childNodes;
+// NodeList(5)
+var previousSibling = self.previousSibling;
+// #text
+var nextSibling = self.nextSibling;
+// #text
                     </div>
                 </div>
             </div>
