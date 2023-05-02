@@ -40,7 +40,7 @@
         <!-- offset -->
         <h2 class="h-tit2">offset</h2>
         <ul>
-            <li>padding, border 를 포함한 컨텐츠의 사이즈</li>
+            <li>padding, border 를 포함한 콘텐츠의 사이즈</li>
             <li>margin 제외</li>
         </ul>
         <h3 class="h-tit3">
@@ -62,7 +62,7 @@
         <!-- client -->
         <h2 class="h-tit2">client</h2>
         <ul>
-            <li>padding 을 포함한 컨텐츠의 사이즈</li>
+            <li>padding 을 포함한 콘텐츠의 사이즈</li>
             <li>margin, border 제외</li>
         </ul>
         <h3 class="h-tit3">
@@ -70,21 +70,21 @@
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth" target="_blank" class="link-mdn">MDN</a>
         </h3>
         <ul>
-            <li>clientWidth(226) = width(200) + padding(10+10)</li>
+            <li>clientWidth(220) = width(200) + padding(10+10)</li>
         </ul>
         <h3 class="h-tit3">
             element.clientHeight
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight" target="_blank" class="link-mdn">MDN</a>
         </h3>
         <ul>
-            <li>clientHeight(226) = hegiht(200) + padding(10+10)</li>
+            <li>clientHeight(220) = hegiht(200) + padding(10+10)</li>
         </ul>
         <!-- //client -->
 
         <!-- scroll -->
         <h2 class="h-tit2">scroll</h2>
         <ul>
-            <li>padding 을 포함한 컨텐츠의 사이즈</li>
+            <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
             <li>margin, border 제외</li>
         </ul>
         <h3 class="h-tit3">
@@ -106,7 +106,7 @@
         <!-- scroll -->
         <h2 class="h-tit2">getBoundingClientRect()</h2>
         <ul>
-            <li>padding, border 를 포함한 컨텐츠의 사이즈</li>
+            <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
             <li>margin 제외</li>
         </ul>
         <h3 class="h-tit3">
@@ -162,13 +162,13 @@
            
             console.group('box')
                 console.log('offsetWidth', box.offsetWidth)
-                // padding, border 를 포함한 컨텐츠의 너비 / margin 제외
+                // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
                 console.log('offsetHeight', box.offsetHeight)
-                // padding, border 를 포함한 컨텐츠의 높이 / margin 제외
+                // padding, border 를 포함한 콘텐츠의 높이 / margin 제외
                 console.log('clientWidth', box.clientWidth)
-                // padding 을 포함한 컨텐츠의 너비 / margin, border 제외
+                // padding 을 포함한 콘텐츠의 너비 / margin, border 제외
                 console.log('clientHeight', box.clientHeight)
-                // padding 을 포함한 컨텐츠의 높이 / margin, border 제외
+                // padding 을 포함한 콘텐츠의 높이 / margin, border 제외
                 console.log('scrollWidth', box.scrollWidth)
                 // clientWidth + 자식요소 높이
                 console.log('scrollHeight', box.scrollHeight)
@@ -176,9 +176,9 @@
 
             console.group('box2')
                 console.log('offsetWidth', box2.offsetWidth)
-                // padding, border 를 포함한 컨텐츠의 너비 / margin 제외
+                // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
                 console.log('offsetHeight', box2.offsetHeight)
-                // padding, border 를 포함한 컨텐츠의 너비 / margin 제외
+                // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
                 console.log('getBoundingClientRect', box2.getBoundingClientRect().width)
             console.groupEnd()
 
