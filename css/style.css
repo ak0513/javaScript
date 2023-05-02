@@ -81,6 +81,7 @@ button {
 
 [class*='h-tit'] {
 	color: #fff;
+	line-height: 1.45;
 }
 
 /* 타이틀 */
