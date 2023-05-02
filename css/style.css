@@ -71,16 +71,7 @@ button {
 	cursor: pointer;
 }
 
-ul, ol {
-	margin-left: 2.0rem;
-}
 
-ul + ul,
-ul + ol,
-ol + ul,
-ol + ol {
-	margin-top: 1.0rem;
-}
 
 #wrap {
 	padding: 1.6rem;
@@ -110,6 +101,16 @@ ol + ol {
 	margin-bottom: 0.5rem;
 	font-size: 1.6rem;
 	font-weight: 400;
+}
+
+/* ul, ol */
+ul, ol {
+	margin-left: 2.0rem;
+}
+
+* + ul,
+* + ol {
+	margin-top:1.6rem;
 }
 
 /* 단락 */
