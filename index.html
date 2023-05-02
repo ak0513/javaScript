@@ -92,6 +92,10 @@ var nextElementSibling = self.nextElementSibling;
 .box-inner.box-scroll-y {height: 300px;margin-top: 10px;}
                     </div>
                     <h3 class="h-tit3">element.offsetWidth/offsetHeight</h3>
+                    <ul>
+                        <li>padding, border 를 포함한 콘텐츠의 사이즈</li>
+                        <li>margin 제외</li>
+                    </ul>
                     <div class="highlight js">
 var box = document.querySelector('.box');
 box.offsetWidth // 226 = width(200) + padding(10+10) + border(3+3)
@@ -101,6 +105,10 @@ box.offsetHeight // 226 = height(200) + padding(10+10) + border(3+3)
                     </div>
 
                     <h3 class="h-tit3">element.clientWidth/clientHeight</h3>
+                    <ul>
+                        <li>padding 을 포함한 콘텐츠의 사이즈</li>
+                        <li>margin, border 제외</li>
+                    </ul>
                     <div class="highlight js">
 box.clientWidth // 220 = height(200) + padding(10+10)
 // padding 을 포함한 컨텐츠의 너비 / margin, border 제외
@@ -109,6 +117,10 @@ box.clientHeight // 220 = height(200) + padding(10+10)
                     </div>
 
                     <h3 class="h-tit3">element.scrollWidth/scrollHeight</h3>
+                    <ul>
+                        <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
+                        <li>margin, border 제외</li>
+                    </ul>
                     <div class="highlight js">
 box.scrollWidth // 320 = padding(10+10) + box-scroll-x(300)
 // padding 을 포함한 컨텐츠의 너비(자식요소 포함)
@@ -117,6 +129,10 @@ box.scrollHeight // 385 = padding(10+10) + box-scroll-x(55) + margin(10) + box-s
                     </div>
 
                     <h3 class="h-tit3">element.getBoundingClientRect().width/height</h3>
+                    <ul>
+                        <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
+                        <li>margin 제외</li>
+                    </ul>
                     <div class="highlight js">
 // offsetWidth, offsetHeight와 동일
 box.getBoundingClientRect().width // 226 = width(200) + padding(10+10) + border(3+3)
