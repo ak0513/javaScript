@@ -12,20 +12,20 @@
 	<title>Document</title>
 </head>
 <body>
-    <style>
-        * + .highlight {
-            margin-top: 16px;
-        }
-        .highlight code.hljs {
-            font-family: Consolas, Monaco, monospace;
-            font-size: 14px;
-        }
 
-    </style>
 <div id="wrap">
-    <h1 class="h-tit1">요소 찾기</h1>
-    <h2 class="h-tit2">부요요소 찾기</h2>
-    <div class="highlight html">
+    <div class="accordion">
+        <!-- 요소 찾기 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="eleFindTit">
+                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="eleFindBody" role="button">
+                    요소 찾기
+                </button>
+            </h2>
+            <div id="eleFindBody" class="accordion-collapse collapse" aria-labelledby="eleFindTit">
+                <div class="accordion-body">
+                    <h2 class="h-tit2">부요요소 찾기</h2>
+                    <div class="highlight html">
 <div id="parent">
     <div id="firstChild">firstChild</div>
     <div id="self">
@@ -35,84 +35,78 @@
     </div>
     <div id="lastChild">lastChild</div>
 </div>
-    </div>
-    <h3 class="h-tit3">node(노드) 탐색</h3>
-    <p>NodeList로 반환</p>
-    <div class="highlight js">
+                    </div>
+                    <h3 class="h-tit3">node(노드) 탐색</h3>
+                    <p>NodeList로 반환</p>
+                    <div class="highlight js">
 var self = document.querySelector('#self');
+// &lt;div id="self"&gt;...&lt;/div&gt;
 var parentNode = self.parentNode;
+// &lt;div id="parent"&gt;...&lt;/div&gt;
 var firstChild = self.firstChild;
+// self
 var lastChild = self.lastChild;
+// #text
 var childNodes = self.childNodes;
+// NodeList(5)
 var previousSibling = self.previousSibling;
+// #text
 var nextSibling = self.nextSibling;
-    </div>
+// #text
+                    </div>
 
-    <h3 class="h-tit3">element(요소) 탐색</h3>
-    <p>HTMLCollection으로 반환</p>
-    <div class="highlight js">
+                    <h3 class="h-tit3">element(요소) 탐색</h3>
+                    <p>HTMLCollection으로 반환</p>
+                    <div class="highlight js">
+var self = document.querySelector('#self');
+// &lt;div id="self"&gt;...&lt;/div&gt;
 var parentElement = self.parentElement;
+// &lt;div id="parent"&gt;...&lt;/div&gt;
 var firstElementChild = self.firstElementChild;
+// &lt;div id="child1"&gt;...&lt;/div&gt;
 var lastElementChild = self.lastElementChild;
+// &lt;div id="child2"&gt;...&lt;/div&gt;
 var children = self.children;
+// HTMLCollection(2)
 var previousElementSibling  = self.previousElementSibling;
+// &lt;div id="firstChild"&gt;...&lt;/div&gt;
 var nextElementSibling = self.nextElementSibling;
-    </div>
-
-
-    <div id="parent">
-        <div id="firstChild">firstChild</div>
-        <div id="self">
-            self
-            <div id="child1">child1</div>
-            <div id="child2">child2</div>
+// &lt;div id="lastChild"&gt;...&lt;/div&gt;
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="lastChild">lastChild</div>
+        <!-- // 요소 찾기 -->
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="eleSizeTit">
+                <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="eleSizeBody" role="button">
+                    높이 구하기
+                </button>
+            </h2>
+            <div id="eleSizeBody" class="accordion-collapse collapse" aria-labelledby="eleSizeTit">
+                <div class="accordion-body">
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
 
 
     <script>
-        var self = document.querySelector('#self');
-        var parentNode = self.parentNode;
-        var firstChild = self.firstChild;
-        var lastChild = self.lastChild;
-        var childNodes = self.childNodes;
-        var previousSibling = self.previousSibling;
-        var nextSibling = self.nextSibling;
+        setTimeout(function() {
 
-        var parentElement = self.parentElement;
-        var firstElementChild = self.firstElementChild;
-        var lastElementChild = self.lastElementChild;
-        var children = self.children;
-        var previousElementSibling  = self.previousElementSibling;
-        var nextElementSibling = self.nextElementSibling;
-
-
-
-        console.log('self', self)
-        console.log('parentNode', parentNode)
-        console.log('firstChild', firstChild)
-        console.log('lastChild', lastChild)
-        console.log('childNodes', childNodes)
-        console.log('previousSibling', previousSibling)
-        console.log('nextSibling', nextSibling)
-
-        console.log('parentElement ', parentElement )
-        console.log('firstElementChild', firstElementChild)
-        console.log('lastElementChild', lastElementChild)
-        console.log('children', children)
-        console.log('previousElementSibling', previousElementSibling)
-        console.log('nextElementSibling', nextElementSibling)
-    </script>
+            document.querySelector('#eleSizeTit button').click();
+        },100)
+    </script> 
 
 
 
 
 
     <h1 class="h-tit1">Attr</h1>
-
-
 
 
 

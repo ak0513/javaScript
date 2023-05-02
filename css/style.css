@@ -47,7 +47,6 @@ html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	height: 100%;
-	overflow: hidden;
 }
 
 
@@ -84,7 +83,7 @@ ol + ol {
 }
 
 #wrap {
-	padding: 2.0rem;
+	padding: 1.6rem;
 }
 
 [class*='h-tit'] {
@@ -93,7 +92,7 @@ ol + ol {
 
 /* 타이틀 */
 .h-tit1 {
-	margin-top: 2.0rem;
+	margin-top: 2.4rem;
 	margin-bottom: 0.5rem;
 	font-size: 2.4rem;
 	font-weight: 400;
@@ -107,10 +106,24 @@ ol + ol {
 }
 
 .h-tit3 {
-	margin-top: 2.0rem;
+	margin-top: 1.6rem;
 	margin-bottom: 0.5rem;
 	font-size: 1.6rem;
 	font-weight: 400;
+}
+
+/* 단락 */
+p {
+	margin-bottom: 1.2rem;
+	font-size:1.4rem;
+}
+
+* + p {
+	margin-top:1.2rem;
+}
+
+p:last-child {
+	margin-bottom:0;
 }
 
 
@@ -136,4 +149,76 @@ ol + ol {
 
 .btn + .btn {
 	margin-left: 0.5rem;
+}
+
+
+/* collapse */
+.collapse:not(.show) {
+	display: none;
+}
+
+.collapsing {
+	overflow: hidden;
+	height: 0;
+	transition: height .35s ease;
+}
+
+
+/* 아코디언 */
+* + .accordion {
+	margin-top:16px;
+}
+
+.accordion {
+	border-top:1px solid var(--border-color-darklight);
+	border-bottom:1px solid var(--border-color-darklight);
+}
+
+.accordion-item + .accordion-item {
+	border-top:1px solid var(--border-color-dark);
+}
+
+.accordion-button {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1.6rem 0;
+	color:var(--white);
+	font-size: 1.6rem;
+}
+
+.accordion-button::after {
+	content: '';
+	display: block;
+	width: 1.6rem;
+	height: 1.6rem;
+	margin-left: auto;
+	background: url('../img/caret-down-fill.svg') no-repeat center;
+	transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button.collapsed::after {
+	transform:rotate(180deg);
+}
+
+.accordion-button.collapsed {
+	color:var(--gray)
+}
+
+.accordion-body {
+	padding: 1.6rem 0;
+}
+
+.accordion-body .h-tit2:first-child {
+	margin-top:0;
+}
+
+
+/* highlight.js */
+* + .highlight {
+	margin-top: 16px;
+}
+.highlight code.hljs {
+	font-family: Consolas, Monaco, monospace;
+	font-size: 14px;
 }

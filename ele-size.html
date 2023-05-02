@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<script src="./js/highlight.min.js"></script>
+	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>요소 높이 구하기</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <style>
+            *, *::before, *::after {
+                box-sizing: content-box;
+            }
+            .box {
+                width:200px;
+                height:200px;
+                padding:10px;
+                border:3px solid #000;
+            }
+            .box .box-inner {
+                margin:10px;
+                padding:10px;
+                border:3px solid #000;
+                background-color: #333;
+            }
+            .box-inner.box-scroll-x {
+                width: 400px;
+            }
+            .box-inner.box-scroll-y {
+                height: 400px;
+            }
+        </style>
+        <h1 class="h-tit1">offset</h1>
+        <h2 class="h-tit2">
+            offsetWidth
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth" target="_blank">MDN</a>
+        </h2>
+        <p>offsetWidth(226) = width(200) + padding(10 + 10) + border(3 + 3)</p>
+        <h2 class="h-tit2">
+            offsetHeight
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight" target="_blank">MDN</a>
+        </h2>
+        <p>offsetHeight(226) = hegiht(200) + padding(10 + 10) + border(3 + 3)</p>
+
+        <h1 class="h-tit1">client</h1>
+        <h2 class="h-tit2">
+            clientWidth
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/clientWidth" target="_blank">MDN</a>
+        </h2>
+        <p>clientWidth(226) = width(200) + padding(10 + 10)</p>
+        <h2 class="h-tit2">
+            clientHeight
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/clientHeight" target="_blank">MDN</a>
+        </h2>
+        <p>clientHeight(226) = hegiht(200) + padding(10 + 10)</p>
+
+
+
+
+
+        <div class="box">
+            <div class="box-inner">box-scroll-x</div>
+            <div class="box-inner box-scroll-x">box-scroll-x</div>
+            <div class="box-inner box-scroll-y">box-scroll-y</div>
+        </div>
+        
+    
+    
+        
+        <script>
+            var box = document.querySelector('.box');
+           
+            console.group('box')
+                console.log('offsetWidth', box.offsetWidth)
+                // padding, border 를 포함한 컨텐츠의 너비 / margin 제외
+                console.log('offsetHeight', box.offsetHeight)
+                // padding, border 를 포함한 컨텐츠의 높이 / margin 제외
+                console.log('clientWidth', box.clientWidth)
+                // padding 을 포함한 컨텐츠의 너비 / margin, border 제외
+                console.log('clientHeight', box.clientHeight)
+                // padding 을 포함한 컨텐츠의 높이 / margin, border 제외
+                console.log('scrollWidth', box.scrollWidth)
+                // clientWidth + 자식요소 높이
+                console.log('scrollHeight', box.scrollHeight)
+                // clientHeight + 자식요소 높이
+            console.groupEnd()
+
+        </script>
+    </div>
+</body>
+</html>

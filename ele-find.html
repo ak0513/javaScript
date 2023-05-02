@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<script src="./js/highlight.min.js"></script>
+	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>요소 찾기</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="parent">
+            <div id="firstChild">firstChild</div>
+            <div id="self">
+                self
+                <div id="child1">child1</div>
+                <div id="child2">child2</div>
+            </div>
+            <div id="lastChild">lastChild</div>
+        </div>
+    
+    
+    
+        <script>
+            var self = document.querySelector('#self');
+            var parentNode = self.parentNode;
+            var firstChild = self.firstChild;
+            var lastChild = self.lastChild;
+            var childNodes = self.childNodes;
+            var previousSibling = self.previousSibling;
+            var nextSibling = self.nextSibling;
+    
+            var parentElement = self.parentElement;
+            var firstElementChild = self.firstElementChild;
+            var lastElementChild = self.lastElementChild;
+            var children = self.children;
+            var previousElementSibling  = self.previousElementSibling;
+            var nextElementSibling = self.nextElementSibling;
+    
+    
+    
+            console.log('self', self)
+            console.log('parentNode', parentNode)
+            console.log('firstChild', firstChild)
+            console.log('lastChild', lastChild)
+            console.log('childNodes', childNodes)
+            console.log('previousSibling', previousSibling)
+            console.log('nextSibling', nextSibling)
+    
+            console.log('parentElement ', parentElement )
+            console.log('firstElementChild', firstElementChild)
+            console.log('lastElementChild', lastElementChild)
+            console.log('children', children)
+            console.log('previousElementSibling', previousElementSibling)
+            console.log('nextElementSibling', nextElementSibling)
+        </script>
+    </div>
+</body>
+</html>
