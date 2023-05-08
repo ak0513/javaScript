@@ -17,6 +17,7 @@
     
     
         <script>
+            
             console.log(window.location) // 전체 URL 문자열을 가져옵니다.
             console.log(window.location.href) // 전체 URL 문자열을 가져옵니다.
             console.log(window.location.protocol) // 마지막 ':'를 포함한 프로토콜 정보를 가져옵니다.
@@ -42,14 +43,34 @@
             console.log(url.host)
             console.log(url.host)
 
-            
+            console.log(window.location)
+            console.log(url)
         </script>
-        1
-        <hr>
-        <span><img src="./iphone.png" width="200" alt="이미지"></span>
-        <hr>
-        <span><img src="./iphone.png" width="200" alt="이미지 텍스트" role="text"></span>
-        <hr>
+
+location.href 와 location.replace 차이점
+https://action713.tistory.com/entry/locationhref-%EC%99%80-locationreplace-%EC%B0%A8%EC%9D%B4%EC%A0%90
+
+
+<hr>
+
+<div role="text">
+    <span>11</span>
+    <span>22</span>
+    <span role="text">role text</span>
+</div>
+<hr>
+<div role="text">
+    <span>11</span>
+    <span>22</span>
+    <span role="text" style="overflow:hidden;">role text overflow:hidden</span>
+</div>
+<hr>
+<div role="text">
+    <span>11</span>
+    <span>22</span>
+    <span>33</span>
+</div>
+
     </div>
 </body>
 </html>

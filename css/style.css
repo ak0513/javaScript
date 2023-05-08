@@ -54,6 +54,7 @@ html {
 
 body {
 	background-color: #1c1c1c;
+	background-color: #1B1A20;
 	height: 100%;
 	font-size: 1.6rem;
 	line-height:1.8;
@@ -94,15 +95,15 @@ button {
 .h-tit2 {
 	margin-top: 5.2rem;
 	margin-bottom: 1.2rem;
-	font-size: 2.8rem;
-	font-weight: 400;
+	font-size: 2.0rem;
+	font-weight: 700;
 }
 
 .h-tit3 {
 	margin-top: 4.0rem;
 	margin-bottom: 0.8rem;
-	font-size: 1.8rem;
-	font-weight: 400;
+	font-size: 1.6rem;
+	font-weight: 700;
 }
 
 /* ul, ol */
@@ -152,6 +153,22 @@ p:last-child {
 
 .btn + .btn {
 	margin-left: 0.5rem;
+}
+
+/* conts */
+.conts {
+	padding: 2.4rem;
+	background-color: #25252C;
+	border-radius: 0.8rem;
+	box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.conts + .conts {
+	margin-top:2.4rem;
+}
+
+.conts [class*='h-tit']:first-child {
+	margin-top: 0;
 }
 
 
