@@ -140,6 +140,24 @@ button {
 	font-weight: 400;
 }
 
+#menu {
+	padding:10px 20px;
+	background-color:#2b3035;
+	border:1px solid #495057;
+	border-radius:8px;
+}
+
+#menu ul {
+	margin:0;
+}
+
+#menu li {
+	list-style-type:none;
+}
+#menu a {
+	font-size:1.4rem;
+}
+
 /* ul, ol */
 ul, ol {
 	margin-left: 2.0rem;
