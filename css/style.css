@@ -109,7 +109,7 @@ button {
 	margin-bottom: 1.2rem;
 	padding-left:2.0rem;
 	font-size: 2.2rem;
-	font-weight: 700;
+	font-weight: 400;
 }
 
 .h-tit2::before {
@@ -284,6 +284,9 @@ pre code.hljs::-webkit-scrollbar-track {background-color:transparent;}
 
 
 @media only screen and (max-width: 768px) {
+	.h-tit2 {
+		font-weight: 700;
+	}
 	hr {
 		height:2.4rem;
 	}
