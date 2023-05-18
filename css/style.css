@@ -140,7 +140,7 @@ button {
 	font-weight: 400;
 }
 
-#menu a {
+#menu .menu-link {
 	display: block;
 	font-size:1.4rem;
 }
