@@ -117,6 +117,14 @@ button {
 	font-weight: 400;
 }
 
+hr {
+	height:1.2rem;
+	margin:3.0rem -2.4rem;
+	background-color:#1b1f22;
+	border:none;
+	box-shadow:inset 0 0 10px rgba(0,0,0,0.3);
+}
+
 /* ul, ol */
 ul, ol {
 	margin-left: 2.0rem;
