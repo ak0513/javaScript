@@ -327,7 +327,7 @@ var ui = (function() {
 	// 팝업
 	var popup = function() {
 		var popWrap = document.querySelectorAll('.pop-wrap')
-		var btnPopOpen = document.querySelectorAll('[data-popup]');
+		var btnPopOpen = document.querySelectorAll('.pop-btn-open');
 		var btnPopClose = document.querySelectorAll('.btn-pop-close');
 
 		console.log(btnPopOpen)

@@ -9,13 +9,23 @@
 </head>
 
 <body>
+	<div id="wrap">
+		<header id="header">
+			header
+			<button type="button" class="btn-nav-open" data-popup="#mobileNav" aria-lable="전체메뉴 열기"></button>
+		</header>
 
-
-
-	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup1">open1</button>
-	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup2">open2</button>
-	
-
+		<section id="container">
+			<div class="container-inner">
+				<div class="btn-wrap">
+					<div class="btn-inner">
+						<button type="button" class="btn btn-primary pop-btn-open" title="팝업 열기" data-popup="#popup1">팝업1</button>
+						<button type="button" class="btn btn-secondary pop-btn-open" title="팝업 열기" data-popup="#popup2">팝업2</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 
 	<div id="popup1" class="pop-wrap" aria-labelledby="pop-title">
 		<div class="inner">
