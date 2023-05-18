@@ -80,7 +80,15 @@ button {
 
 
 #wrap {
-	padding: 1.6rem;
+	
+}
+
+#header {
+	height:2.4rem;
+}
+
+#container {
+	padding:0 2.4rem;
 }
 
 [class*='h-tit'] {
@@ -98,14 +106,14 @@ button {
 .h-tit2 {
 	margin-top: 5.2rem;
 	margin-bottom: 1.2rem;
-	font-size: 2.0rem;
+	font-size: 2.2rem;
 	font-weight: 400;
 }
 
 .h-tit3 {
 	margin-top: 4.0rem;
 	margin-bottom: 0.8rem;
-	font-size: 1.6rem;
+	font-size: 1.8rem;
 	font-weight: 400;
 }
 
@@ -240,6 +248,11 @@ p:last-child {
 /* highlight.js */
 * + .highlight {
 	margin-top: 16px;
+}
+.highlight {
+	margin:0 -2.4rem;
+	padding:0 2.4rem;
+	background-color:#282c34;
 }
 .highlight code.hljs {
 	font-family: Consolas, Monaco, monospace;
