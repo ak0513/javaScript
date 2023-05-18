@@ -55,7 +55,7 @@
 
             
             
-            <h2 class="h-tit2">element.offsetWidth/offsetHeight</h2>
+            <h2 class="h-tit2">element.offsetWidth<br>element.offsetHeight</h2>
             <ul>
                 <li>padding, border 를 포함한 콘텐츠의 사이즈</li>
                 <li>margin 제외</li>
@@ -94,7 +94,7 @@ box.offsetHeight
 // 226 = height(200) + padding(10+10) + border(3+3)
             </div>
 
-            <h2 class="h-tit2">element.clientWidth/clientHeight</h2>
+            <h2 class="h-tit2">element.clientWidth<br>element.clientHeight</h2>
             <ul>
                 <li>padding 을 포함한 콘텐츠의 사이즈</li>
                 <li>margin, border 제외</li>
@@ -130,7 +130,7 @@ box.clientHeight
 // 220 = height(200) + padding(10+10)
                         </div>
 
-                        <h3 class="h-tit2">element.scrollWidth/scrollHeight</h3>
+                        <h3 class="h-tit2">element.scrollWidth<br>element.scrollHeight</h3>
                         <ul>
                             <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
                             <li>margin, border 제외</li>
@@ -142,7 +142,7 @@ box.scrollHeight
 // 385 = padding(10+10) + box-scroll-x(55) + margin(10) + box-scroll-y(300)
                         </div>
 
-                        <h3 class="h-tit2">element.getBoundingClientRect().width/height</h3>
+                        <h3 class="h-tit2">element.getBoundingClientRect().width<br>element.getBoundingClientRect().height</h3>
                         <ul>
                             <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
                             <li>margin 제외</li>
