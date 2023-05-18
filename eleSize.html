@@ -16,6 +16,12 @@
         <header id="header"></header>
         <section id="container">
             <h1 class="h-tit1">요소(element) 사이즈 구하기</h1>
+            <nav id="menu">
+                <ul>
+                </ul>
+            </nav>
+
+            
             <h2 class="h-tit2">CSS</h2>
             <div class="highlight css">
 .box {width:200px;height:200px;padding:10px;border:3px solid #000;box-sizing: content-box;}
@@ -25,7 +31,7 @@
             </div>
 
 
-            <h2 class="h-tit2">element.offsetWidth<br>element.offsetHeight</h2>
+            <h2 class="h-tit2" id="offset">element.offsetWidth<br>element.offsetHeight</h2>
             <ul>
                 <li>padding, border 를 포함한 콘텐츠의 사이즈</li>
                 <li>margin 제외</li>
@@ -66,7 +72,7 @@ box.offsetHeight
             
             
 
-            <h2 class="h-tit2">element.clientWidth<br>element.clientHeight</h2>
+            <h2 class="h-tit2" id="client">element.clientWidth<br>element.clientHeight</h2>
             <ul>
                 <li>padding 을 포함한 콘텐츠의 사이즈</li>
                 <li>margin, border 제외</li>
@@ -104,7 +110,7 @@ box.clientHeight
             
             
             
-            <h2 class="h-tit2">element.scrollWidth<br>element.scrollHeight</h2>
+            <h2 class="h-tit2" id="scroll">element.scrollWidth<br>element.scrollHeight</h2>
             <ul>
                 <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
                 <li>margin, border 제외</li>
@@ -168,7 +174,10 @@ box.scrollHeight
 // 385 = padding(10+10) + box-scroll-x(55) + margin(10) + box-scroll-y(300)
             </div>
 
-            <h2 class="h-tit2">element.getBoundingClientRect().width<br>element.getBoundingClientRect().height</h2>
+
+
+
+            <h2 class="h-tit2" id="getBoundingClientRect">element.getBoundingClientRect().width<br>element.getBoundingClientRect().height</h2>
             <ul>
                 <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
                 <li>margin 제외</li>
@@ -273,6 +282,19 @@ box.getBoundingClientRect().height
                     console.log('getBoundingClientRect', box2.getBoundingClientRect().height)
                 console.groupEnd()
 
+
+                var elm = document.querySelectorAll('.h-tit2');
+                var menu = document.querySelector('#menu ul');
+                elm.forEach(function(ele) {
+                    var id = ele.getAttribute('id');
+                    console.log(id)
+                    var htmlEle = [];
+                    if(id !== null) {
+                        htmlEle.push('<li><a href="#' + id +'">' + id + '</a></li>')
+                        menu.innerHTML = menu.innerHTML + htmlEle.join('');
+                    }
+                    
+                })
             </script>
         </section>
     </div>
