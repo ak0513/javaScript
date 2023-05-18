@@ -105,33 +105,30 @@ button {
 
 .h-tit2 {
 	position: relative;
-	margin-top: 5.2rem;
-	margin-bottom: 1.2rem;
-	padding-left:2.0rem;
+	margin:5.2rem -2.4rem 1.2rem;
+	padding:4.0rem 2.4rem 0 4.4rem;
+	border-top:1.2rem solid #1b1f22;
 	font-size: 2.2rem;
 	font-weight: 400;
+}
+
+.mobile.h-tit2 {
+	font-weight: 700;
+	border-top-width:2.41rem;
 }
 
 .h-tit2::before {
 	content:'#';
 	position: absolute;
-	top:0;
-	left:0;
+	top:4.0rem;
+	left:2.4rem;
 }
+
 .h-tit3 {
 	margin-top: 4.0rem;
 	margin-bottom: 0.8rem;
 	font-size: 1.8rem;
 	font-weight: 400;
-}
-
-hr {
-	height:1.2rem;
-	margin:3.0rem -2.4rem;
-	background-color:#1b1f22;
-	border:none;
-	border-top:1px solid #131618;
-	border-bottom:1px solid #131618;
 }
 
 /* ul, ol */
@@ -281,13 +278,3 @@ pre code.hljs::-webkit-scrollbar {height:8px;}
 pre code.hljs::-webkit-scrollbar-thumb {background-color:#666;border-radius:10px;}
 pre code.hljs::-webkit-scrollbar-track {background-color:transparent;}
 
-
-
-@media only screen and (max-width: 768px) {
-	.h-tit2 {
-		font-weight: 700;
-	}
-	hr {
-		height:2.4rem;
-	}
-}

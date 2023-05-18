@@ -25,8 +25,8 @@
             </div>
 
             <div class="box" style="margin-bottom:215px;">
-                <div class="box-inner box-scroll-x">box-scroll-x</div>
-                <div class="box-inner box-scroll-y">box-scroll-y</div>
+                <div class="box-inner box-scroll-x">box-scroll-x w300</div>
+                <div class="box-inner box-scroll-y">box-scroll-y h300</div>
             </div>
             <style>
                 .box,
@@ -93,6 +93,8 @@ box.offsetWidth
 box.offsetHeight
 // 226 = height(200) + padding(10+10) + border(3+3)
             </div>
+            
+            
 
             <h2 class="h-tit2">element.clientWidth<br>element.clientHeight</h2>
             <ul>
@@ -128,26 +130,52 @@ box.clientWidth
 // 220 = height(200) + padding(10+10)
 box.clientHeight
 // 220 = height(200) + padding(10+10)
+            </div>
+            
+            
+            
+            <h2 class="h-tit2">element.scrollWidth<br>element.scrollHeight</h2>
+            <ul>
+                <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
+                <li>margin, border 제외</li>
+            </ul>
+            <div class="computed p s">
+                <div class="margin">
+                    <span class="tit">margin</span>
+                    <span class="top">-</span>
+                    <span class="right">-</span>
+                    <span class="bottom">-</span>
+                    <span class="left">-</span>
+                    <div class="border">
+                        <span class="tit">border</span>
+                        <span class="top">3</span>
+                        <span class="right">3</span>
+                        <span class="bottom">3</span>
+                        <span class="left">3</span>
+                        <div class="padding">
+                            <span class="tit">padding</span>
+                            <span class="top">10</span>
+                            <span class="right">10</span>
+                            <span class="bottom">10</span>
+                            <span class="left">10</span>
+                            <div class="size">200x200</div>
                         </div>
-
-                        <h3 class="h-tit2">element.scrollWidth<br>element.scrollHeight</h3>
-                        <ul>
-                            <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
-                            <li>margin, border 제외</li>
-                        </ul>
-                        <div class="highlight js">
+                    </div>
+                </div>
+            </div>
+            <div class="highlight js">
 box.scrollWidth
 // 320 = padding(10+10) + box-scroll-x(300)
 box.scrollHeight
 // 385 = padding(10+10) + box-scroll-x(55) + margin(10) + box-scroll-y(300)
-                        </div>
+            </div>
 
-                        <h3 class="h-tit2">element.getBoundingClientRect().width<br>element.getBoundingClientRect().height</h3>
-                        <ul>
-                            <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
-                            <li>margin 제외</li>
-                        </ul>
-                        <div class="highlight js">
+            <h2 class="h-tit2">element.getBoundingClientRect().width<br>element.getBoundingClientRect().height</h2>
+            <ul>
+                <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
+                <li>margin 제외</li>
+            </ul>
+            <div class="highlight js">
 // offsetWidth, offsetHeight와 동일
 box.getBoundingClientRect().width
 // 226 = width(200) + padding(10+10) + border(3+3)
@@ -159,115 +187,13 @@ box.getBoundingClientRect().width
 // 113(transform:scale(50%))
 box.getBoundingClientRect().height
 // 113(transform:scale(50%))
-                        </div>
-
-
-                        <hr>
-            <!-- offset -->
-            <article class="conts">
-                <h2 class="h-tit2">offset</h2>
-                <ul>
-                    <li>padding, border 를 포함한 콘텐츠의 사이즈</li>
-                    <li>margin 제외</li>
-                </ul>
-                <h3 class="h-tit3">
-                    element.offsetWidth
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth" target="_blank">MDN</a>
-                </h3>
-                <ul>
-                    <li>offsetWidth(226) = width(200) + padding(10+10) + border(3+3)</li>
-                </ul>
-                <h3 class="h-tit3">
-                    element.offsetHeight
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight" target="_blank">MDN</a>
-                </h3>
-                <ul>
-                    <li>offsetHeight(226) = hegiht(200) + padding(10+10) + border(3+3)</li>
-                </ul>
-            </article>
-            <!-- //offset -->
-
-            <!-- client -->
-            <article class="conts">
-                <h2 class="h-tit2">client</h2>
-                <ul>
-                    <li>padding 을 포함한 콘텐츠의 사이즈</li>
-                    <li>margin, border 제외</li>
-                </ul>
-                <h3 class="h-tit3">
-                    element.clientWidth
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth" target="_blank" class="link-mdn">MDN</a>
-                </h3>
-                <ul>
-                    <li>clientWidth(220) = width(200) + padding(10+10)</li>
-                </ul>
-                <h3 class="h-tit3">
-                    element.clientHeight
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight" target="_blank" class="link-mdn">MDN</a>
-                </h3>
-                <ul>
-                    <li>clientHeight(220) = hegiht(200) + padding(10+10)</li>
-                </ul>
-            </article>
-            <!-- //client -->
-
-            <!-- scroll -->
-            <article class="conts">
-                <h2 class="h-tit2">scroll</h2>
-                <ul>
-                    <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
-                    <li>margin, border 제외</li>
-                </ul>
-            
-                <h3 class="h-tit3">
-                    element.scrollWidth
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth" target="_blank" class="link-mdn">MDN</a>
-                </h3>
-                <ul>
-                    <li>scrollWidth(320) = padding(10+10) + box-scroll-x(300)</li>
-                </ul>
-                <h3 class="h-tit3">
-                    element.scrollHeight
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight" target="_blank" class="link-mdn">MDN</a>
-                </h3>
-                <ul>
-                    <li>scrollHeight(385) = padding(10+10) +  box-scroll-x(55) + margin(10) + box-scroll-y(300)</li>
-                </ul>
-            </article>
-            <!-- //scroll -->
-
-            <!-- scroll -->
-            <article class="conts">
-                <h2 class="h-tit2">getBoundingClientRect()</h2>
-                <ul>
-                    <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
-                    <li>margin 제외</li>
-                </ul>
-                <h3 class="h-tit3">
-                    element.getBoundingClientRect().width
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect" target="_blank" class="link-mdn">MDN</a>
-                </h3>
-                <ul>
-                    <li>scrollWidth(320) = padding(10+10) + box-scroll-x(300)</li>
-                </ul>
-                <h3 class="h-tit3">
-                    element.getBoundingClientRect().height
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect" target="_blank" class="link-mdn">MDN</a>
-                </h3>
-                <ul>
-                    <li>scrollHeight(385) = padding(10+10) +  box-scroll-x(55) + margin(10) + box-scroll-y(300)</li>
-                </ul>
-            </article>
-            <!-- //scroll -->
-
-            <div class="box" style="margin-bottom:215px;">
-                <div class="box-inner box-scroll-x">box-scroll-x</div>
-                <div class="box-inner box-scroll-y">box-scroll-y</div>
             </div>
-
+            
+            
+            
             <!-- offset과 getBoundingClientRect() 차이 -->
-            <h2 class="h-tit2">offset과 getBoundingClientRect() 차이</h3>
-            <h3 class="h-tit3">offsetWidth</h2>
+            <h2 class="h-tit2">offset과 getBoundingClientRect() 차이</h2>
+            <h3 class="h-tit3">offsetWidth</h3>
             <ul>
                 <li>offsetWidth = 226</li>
                 <li>layout 사이즈 반환</li>
@@ -285,9 +211,6 @@ box.getBoundingClientRect().height
             </div>
             <!-- //offset과 getBoundingClientRect() 차이 -->
 
-
-            
-            
             <style>
                 .computed {margin:20px 0;}
                 .computed .margin,
