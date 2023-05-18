@@ -281,7 +281,6 @@ p:last-child {
 
 .highlight code.hljs {
 	font-family: Consolas, Monaco, monospace;
-	font-size: 1.4rem;
 }
 pre code.hljs::-webkit-scrollbar {height:8px;}
 pre code.hljs::-webkit-scrollbar-thumb {background-color:#666;border-radius:10px;}
