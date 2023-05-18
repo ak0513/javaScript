@@ -172,6 +172,7 @@ box.scrollHeight
             <ul>
                 <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
                 <li>margin 제외</li>
+                <li>렌더링된 사이즈 반환</li>
             </ul>
             <div class="highlight js">
 // offsetWidth, offsetHeight와 동일
@@ -190,21 +191,7 @@ box.getBoundingClientRect().height
             
             
             <!-- offset과 getBoundingClientRect() 차이 -->
-            <h2 class="h-tit2">offset과 getBoundingClientRect() 차이</h2>
-            <h3 class="h-tit3">offsetWidth</h3>
-            <ul>
-                <li>offsetWidth = 226</li>
-                <li>layout 사이즈 반환</li>
-                <li>소수점까지 반환</li>
-            </ul>
-            <h3 class="h-tit3">getBoundingClientRect().width</h3>
-            <ul>
-                <li>getBoundingClientRect().width = 203.39999389648438</li>
-                <li>getBoundingClientRect()은 렌더링된 사이즈 반환</li>
-                <li>반올림된 정수값을 반환</li>
-            </ul>
-
-            <div class="box2" style="transform:scale(50%);">
+            <div class="box2" style="transform:scale(50%);position:absolute;top:-9999px;">
                 <div class="box-inner">box2</div>
             </div>
             <!-- //offset과 getBoundingClientRect() 차이 -->
