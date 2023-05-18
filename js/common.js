@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	ui.setDeviceInfo(); // deviceInfo 세팅
 	ui.setBodyClass(); // body에 device별 클래스 추가
 	ui.accordion() // 아코디언
+
+	// 꾸미기 용도
 	ui.setHighlight(); // hlight.js
 	ui.menuHtml(); // menuHtml
 })
@@ -369,6 +371,7 @@ var ui = (function() {
 
 		accordion: accordion,               // 아코디언
 
+		// 꾸미기 용도
 		setHighlight: setHighlight,         // hlight.js
 		menuHtml: menuHtml                  // menuHtml
 	};
