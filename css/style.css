@@ -53,8 +53,6 @@ html {
 
 
 body {
-	background-color: #1c1c1c;
-	background-color: #1B1A20;
 	background-color: #212529;
 	height: 100%;
 	font-size: 1.6rem;
@@ -65,7 +63,6 @@ body {
 }
 
 a {
-	color: #969696;
 	color: #adb5bd;
 	text-decoration: none;
 }
@@ -107,7 +104,7 @@ button {
 	position: relative;
 	margin:5.2rem -2.4rem 1.2rem;
 	padding:4.0rem 2.4rem 0 4.4rem;
-	border-top:1.2rem solid #1b1f22;
+	border-top:1.2rem solid #111;
 	font-size: 2.2rem;
 	font-weight: 400;
 }
@@ -123,7 +120,7 @@ button {
 
 .mobile .h-tit2 {
 	font-weight: 700;
-	border-top-width:2.4rem;
+	border-top-width:2.0rem;
 }
 
 .h-tit2::before {
