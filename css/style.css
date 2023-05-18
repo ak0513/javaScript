@@ -121,9 +121,9 @@ button {
 	top:0;
 }
 
-.mobile.h-tit2 {
+.mobile .h-tit2 {
 	font-weight: 700;
-	border-top-width:2.41rem;
+	border-top-width:2.4rem;
 }
 
 .h-tit2::before {
@@ -276,12 +276,12 @@ p:last-child {
 }
 
 * + .highlight {
-	margin-top: 16px;
+	margin-top: 2.4rem;
 }
 
 .highlight code.hljs {
 	font-family: Consolas, Monaco, monospace;
-	font-size: 14px;
+	font-size: 1.4rem;
 }
 pre code.hljs::-webkit-scrollbar {height:8px;}
 pre code.hljs::-webkit-scrollbar-thumb {background-color:#666;border-radius:10px;}
