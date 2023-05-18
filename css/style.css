@@ -112,6 +112,15 @@ button {
 	font-weight: 400;
 }
 
+.h-tit1 + .h-tit2 {
+	padding:0 2.4rem 0 4.4rem;
+	border-top:none;
+}
+
+.h-tit1 + .h-tit2::before {
+	top:0;
+}
+
 .mobile.h-tit2 {
 	font-weight: 700;
 	border-top-width:2.41rem;
