@@ -2,10 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	ui.setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	ui.setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
-	ui.setHighlight(); // hlight.js
 	ui.setDeviceInfo(); // deviceInfo 세팅
 	ui.setBodyClass(); // body에 device별 클래스 추가
 	ui.accordion() // 아코디언
+	ui.setHighlight(); // hlight.js
+	ui.menuHtml(); // menuHtml
 })
 
 
@@ -337,6 +338,20 @@ var ui = (function() {
 		hljs.initHighlightingOnLoad();
 	}
 
+	var menuHtml = function() {
+		var elm = document.querySelectorAll('.h-tit2');
+		var menu = document.querySelector('#menu .menu-group');
+		elm.forEach(function(ele) {
+			var id = ele.getAttribute('id');
+			console.log(id)
+			var htmlEle = [];
+			if(id !== null) {
+				htmlEle.push('<li class="menu-item"><a href="#' + id +'" class="menu-link">' + id + '</a></li>')
+				menu.innerHTML = menu.innerHTML + htmlEle.join('');
+			}
+		})
+	}
+
 	return {
 		setDeviceInfo: setDeviceInfo,       // deviceInfo 세팅
 		setBodyClass: setBodyClass,         // body에 device별 클래스 추가
@@ -354,6 +369,7 @@ var ui = (function() {
 
 		accordion: accordion,               // 아코디언
 
-		setHighlight: setHighlight          // hlight.js
+		setHighlight: setHighlight,         // hlight.js
+		menuHtml: menuHtml                  // menuHtml
 	};
 })();
