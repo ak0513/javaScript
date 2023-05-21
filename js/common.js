@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	ui.setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
 	ui.setDeviceInfo(); // deviceInfo 세팅
-	ui.setBodyClass(); // body에 device별 클래스 추가
-	ui.accordion() // 아코디언
+	ui.setBodyClass();  // body에 device별 클래스 추가
+	ui.accordion()      // 아코디언
+	ui.popup()          // 팝업
 
 	// 꾸미기 용도
-	ui.setHighlight(); // hlight.js
-	ui.menuHtml(); // menuHtml
+	ui.setHighlight();  // hlight.js
+	ui.menuHtml();      // menuHtml
 })
 
 
@@ -316,6 +317,70 @@ var ui = (function() {
         }
     }
 
+	// 팝업
+	var popup = function() {
+		var popWrap = document.querySelectorAll('.pop-wrap')
+		var btnPopOpen = document.querySelectorAll('.pop-btn-open');
+		var btnPopClose = document.querySelectorAll('.btn-pop-close');
+
+		popWrap.forEach(function(ele) {
+			ele.setAttribute('aria-modal', 'true');
+			ele.setAttribute('role', 'dialog');
+			ele.setAttribute('tabindex', 0);
+			document.querySelector('#' + ele.getAttribute('aria-labelledby'));
+			ele.addEventListener('keydown', function(e) {
+				if(e.keyCode === 27) {
+					popClose(ele);
+				}
+			});
+		})
+	
+		btnPopOpen.forEach(function(ele, i) {
+			ele.setAttribute('aria-haspopup', 'dialog');
+			btnPopOpens(i);
+		})
+		
+		btnPopClose.forEach(function(ele, i) {
+			btnPopCloses(ele, i); 
+		})
+
+		function btnPopOpens(i) {
+			btnPopOpen[i].addEventListener('click', popOpen);
+		}
+
+		function btnPopCloses(ele, i) {
+			btnPopClose[i].addEventListener('click', function() {
+				popClose(ele);
+			});
+		}
+
+		function popOpen(e) {
+			ele = e.target;
+			var controls = ele.dataset.popup;
+			var target = document.querySelector(controls);
+			setTimeout(function() {target.focus()},1);
+			target.classList.add('visible');
+			setTimeout(function() {target.classList.add('active')},100);
+			target.setAttribute('aria-modal', 'true');
+			// 포커스 회귀하기 위해 클래스 추가
+			ele.classList.add(controls.slice(1));
+			// 접근성 소스
+			accessDisable(prevAll(target), 'modal');
+		}
+
+		function popClose(ele) {
+			var target = ele.closest('.pop-wrap')
+			var openedBtn = document.querySelector('.pop-btn-open.'+ target.getAttribute('id'));
+			target.classList.remove('active')
+			setTimeout(function() {target.classList.remove('visible')},100);
+			// 포커스 회귀
+			openedBtn.focus();
+			openedBtn.classList.remove(target.getAttribute('id'));
+			// 접근성 소스
+			accessEnable(prevAll(target), 'modal');
+		}
+	}
+
 	// hlight.js
 	var setHighlight = function() {
 		var highlightEle = document.querySelectorAll('.highlight');
@@ -370,6 +435,7 @@ var ui = (function() {
 		getUrlParam: getUrlParam,           // url파라미터 값 구하기
 
 		accordion: accordion,               // 아코디언
+		popup: popup,                       // 팝업
 
 		// 꾸미기 용도
 		setHighlight: setHighlight,         // hlight.js

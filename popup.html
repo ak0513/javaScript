@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Side Menu</title>
+	<script src="./js/common.js"></script>
+	<script src="./js/highlight.min.js"></script>
+	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>팝업</title>
 </head>
 
 <body>
@@ -22,6 +25,7 @@
 			bottom: 0;
 			background-color: rgba(0,0,0,0.5);
 			transition: all 0.4s;
+			border:5px solid #000;
 		}
 
 		.pop-wrap.visible {
@@ -39,24 +43,27 @@
 			border:1px solid #ccc;
 			background-color :#fff;
 		}
+
+		.pop-wrap:focus {border:5px solid red}
 	</style>
 
-	<button type="button" class="pop-btn-open" title="팝업 열기" aria-controls="popup1">open1</button>
+	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup1">open1</button>
+	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup2">open2</button>
 	
-	<a href="#">aaa</a>
+
 
 	<div id="popup1" class="pop-wrap" aria-labelledby="pop-title">
 		<div class="inner">
 			<div class="pop-header">
-				<h2 id="pop-title">팝업 타이틀</h2>
-				<button class="pop-btn-closed" aria-label="팝업 닫기">X</button>
+				<h2 id="pop-title">팝업1</h2>
+				<button class="btn-pop-close" aria-label="팝업 닫기">X</button>
 			</div>
 			<div class="pop-body">
-				<button type="button" class="pop-btn-open" title="팝업 열기" aria-controls="popup2">open2</button>
+				<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup2">open2</button>
 				<a href="#">aaa</a><a href="#">aaa</a>
 			</div>
 			<div class="pop-footer">
-				<button class="pop-btn-closed" aria-label="팝업 닫기">X</button>
+				<button class="btn-pop-close" aria-label="팝업 닫기">X</button>
 			</div>
 		</div>
 	</div>
@@ -64,298 +71,14 @@
 	<div id="popup2" class="pop-wrap" aria-labelledby="pop-title2">
 		<div class="inner">
 			<div class="pop-header">
-				<h2 id="pop-title2">팝업 타이틀</h2>
+				<h2 id="pop-title2">팝업2</h2>
 			</div>
 			<div class="pop-conts">
-				내용
+				내용2
 			</div>
-			<button class="pop-btn-closed" aria-label="팝업 닫기">X</button>
+			<button class="btn-pop-close" aria-label="팝업 닫기">X</button>
 		</div>
 	</div>
-
-
-	<script>
-		window.addEventListener('load', function(){
-			common.init()
-		});
-
-		var common = {
-			init: function() {
-				common.popup();
-			},
-			access: {
-				$eleFocusTags: 'input:not([tabindex]), button:not([tabindex]), a:not([tabindex]), select:not([tabindex]), textarea:not([tabindex])',
-				$eleTabindex: '[tabindex="0"]',
-				$eleTabindexM: '[tabindex="-1"]',
-
-				// 포커스 비활성화
-				disable: function($eleDisable, module) {
-					$eleDisable.attr({'aria-hidden':'true'}).addClass('is-disable-'+module+'-ariaHidden');
-					$eleDisable.find(this.$eleTabindexM).addClass('is-disable-'+module+'-fixed');
-					$eleDisable.find(this.$eleFocusTags).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tags');
-					$eleDisable.find(this.$eleTabindex).attr({'tabindex':'-1'}).addClass('is-disable-'+module+'-tabindex');
-				},
-
-				// 포커스 활성화
-				enable: function($eleEnable, module){
-					$eleEnable.attr({'aria-hidden':'false'}).removeClass('is-disable-'+module+'-ariaHidden');
-					$eleEnable.find('.is-disable-'+module+'-tags').removeClass('is-disable-'+module+'-tags').removeAttr('tabindex');
-					$eleEnable.find('.is-disable-'+module+'-tabindex').removeClass('is-disable-'+module+'-tabindex').attr({'tabindex':'0'});
-					$eleEnable.find('.is-disable-'+module+'-fixed').removeClass('is-disable-'+module+'-fixed');
-				},
-			},
-			popup: function() {
-				var popWrap = document.querySelectorAll('.pop-wrap')
-				var btnPopOpen = document.querySelectorAll('.pop-btn-open');
-				var btnpopClosed = document.querySelectorAll('.pop-btn-closed');
-
-				for(var i = 0; i < popWrap.length; i++) {
-					popWrap[i].setAttribute('aria-hidden', 'true');
-					popWrap[i].setAttribute('aria-modal', 'true');
-					popWrap[i].setAttribute('role', 'dialog');
-					popWrap[i].setAttribute('tabindex', 0);
-					document.querySelector('#' + popWrap[i].getAttribute('aria-labelledby'));
-					popWrap[i].addEventListener('keydown', function(e) {
-						console.log(popWrap[i])
-						if(e.keyCode === 27) {
-							popClose(popWrap[i]);
-						}
-					});
-				}
-
-				for(var i = 0; i < btnPopOpen.length; i++) {
-					btnPopOpen[i].setAttribute('aria-haspopup', 'dialog');
-					btnPopOpens(i);
-				}
-				
-				for(var i = 0; i < btnpopClosed.length; i++) {
-					btnpopCloseds(i);
-				}
-
-				
-
-				function btnPopOpens(i) {
-					btnPopOpen[i].addEventListener('click', popOpen);
-				}
-
-				function btnpopCloseds(i) {
-					btnpopClosed[i].addEventListener('click', function() {
-						popClose(this);
-					});
-				}
-
-				
-
-				function popOpen(e) {
-					ele = e.target;
-					var controls = ele.getAttribute('aria-controls');
-					var target = document.querySelector('#' + controls);
-					var targetFoucs = document.querySelector('#' + target.getAttribute('aria-labelledby'));
-					// targetFoucs.setAttribute('tabindex', 0);
-					target.setAttribute('aria-hidden', 'false');
-					
-					var popFocus = target.querySelectorAll('button, input:not([type="hidden"]), select, iframe, textarea, [href], [tabindex]:not([tabindex="-1"])');
-					var firstEle = popFocus[0];
-					var lastEle = popFocus[popFocus.length - 1];
-
-					lastEle.setAttribute('data-pop-focus', controls)
-
-
-					setTimeout(function() {targetFoucs.focus()},1);
-
-					target.classList.add('visible');
-					setTimeout(function() {target.classList.add('active')},100);
-					target.setAttribute('aria-modal', 'true');
-
-					firstEle.addEventListener('keydown', function() {
-						if((event.shiftKey && !!popFocus[0])) {
-							event.preventDefault();
-							popFocus[popFocus.length - 1].focus();
-						}
-					})
-
-					lastEle.addEventListener('keydown', function() {
-						if(event.keyCode != 9) {
-							return;
-						} else if((!event.shiftKey && !!lastEle)) {
-							event.preventDefault();
-							popFocus[0].focus();
-						}
-					})
-				}
-
-				function popClose(tar) {
-					if(tar.classList.contains('pop-wrap')) {
-						// console.log(tar.getAttribute('id'))
-						var target = document.querySelector(tar).getAttribute('id')
-					} else{
-						var ele = event.target;
-						var controls = ele.getAttribute('data-pop-focus');
-						var target = document.querySelector('#' + controls);
-					}
-					console.log(ele, target)
-					
-					
-				
-					var targetFoucs = document.querySelector('[aria-controls = ' + ele.getAttribute('data-pop-focus') + ']');
-
-					target.classList.remove('active')
-					setTimeout(function() {target.classList.remove('visible')},100);
-					target.setAttribute('aria-modal', 'false');
-					target.setAttribute('aria-hidden', 'true');
-					targetFoucs.focus();
-
-					ele.removeAttribute('data-pop-focus');
-				}
-			}
-		}
-		
-	</script>
-
-	<script>
-		function modalDialog() {
-			'use strict';
-			var $body = document.body,
-				$targetAreas = $body.querySelectorAll('[aria-haspopup=dialog]'),
-				modals = $body.querySelectorAll('[role=dialog], [role=alertdialog]'),
-				$modal = null, $firstTab, $lastTab, $closeModal, $targetArea;
-			
-			$targetAreas.forEach(function ($el) {
-				$el.addEventListener('click', initialize, false);
-			});
-
-			function initialize(event) {
-				setTimeout(function () {
-					$targetArea = event.target;
-					modals.forEach(function ($el) {
-						if ($targetArea.getAttribute('aria-controls') && $targetArea.getAttribute('aria-controls') == $el.getAttribute('id') && 'true' == $el.getAttribute('aria-modal') && window.getComputedStyle($el).display === "block" || $el.getAttribute('aria-hidden') === 'false') {
-							$modal = $el;
-							if ($modal.querySelector(".autoFocus")) {
-								$modal.querySelector(".autoFocus").focus();
-							}
-						}
-					});
-
-					if ($modal) {
-						var focusable = $($modal).find('a[href], input, select, textarea, button, [tabindex="0"], [contenteditable]').not('[disabled], [tabindex="-1"], :hidden')
-						$closeModal = $modal.querySelector('.closeModal')
-						if ($modal.querySelector(".firstTab")) {
-							$firstTab = $modal.querySelector('.firstTab')
-						} else {
-							$firstTab = focusable[0];
-						}
-						if ($modal.querySelector(".lastTab")) {
-							$lastTab = $modal.querySelector('.lastTab');
-						} else {
-							$lastTab = focusable[focusable.length - 1]
-						}
-						if ($firstTab === $lastTab) {
-							$lastTab = null
-						}
-						setHiddenExceptForThis($modal);
-						if (!$modal.getAttribute('aria-label') || $modal.getAttribute('aria-labelledby')) {
-							$modal.setAttribute('aria-label', $targetArea.textContent);
-						}
-						$modal.addEventListener('keydown', bindKeyEvt);
-						var observer = new MutationObserver((mutations) => {
-							setHiddenExceptForThis($modal, 'off');
-							$targetArea.focus();
-							$modal.removeEventListener("keydown", bindKeyEvt, false);
-							$modal = null
-							observer.disconnect();
-						});
-						var option = {
-							attributes: true,
-							attributeFilter: ['class', 'style'],
-							childList: true
-						};
-						observer.observe($modal, option);
-					}
-				}, 500);
-			}
-
-			function bindKeyEvt(event) {
-				event = event || window.event;
-				var keycode = event.keycode || event.which;
-				var $target = event.target;
-
-				switch (keycode) {
-					case 9:  // tab key
-						if ($firstTab && $lastTab) {
-							if (event.shiftKey) {
-								if ($firstTab && $target == $firstTab) {
-									event.preventDefault();
-									if ($lastTab) $lastTab.focus();
-								}
-							} else {
-								if ($lastTab && $target == $lastTab) {
-									event.preventDefault();
-									if ($firstTab) $firstTab.focus();
-								}
-							}
-						} else {
-							event.preventDefault();
-						}
-						break;
-					case 27:  // esc key
-						event.preventDefault();
-						$closeModal.click();
-						break;
-					default:
-						break;
-				}
-			}
-
-
-			/*
-			1. element 파라미터에는 role="dialog"가 붙은 컨테이너를 document.querySelector()나 document.getElementById()등으로 가져와서 넣습니다.
-			2. turn은 'on'과 'off'값이 허용되며, on이면 element로 지정된 요소가 속한 부모 요소들과 element의 하위 요소, 그리고 element 자신을 제외한 모든 요소에 aria-hidden="true"를 추가해 줍니다.
-			3. 이 함수로 aria-hidden="true" 가 부여된 요소는 is-sr-hidden 서브클래스가 붙으며, 같은 요소에 'off'를 사용하여 이 함수를 다시 부르면 aria-hidden 속성이 제거됩니다.
-			*/
-
-			function setHiddenExceptForThis(element, turn = 'on') {
-
-				// 다른 라이브러리로 인해 aria-hidden이 추가된 요소를 제외한 모든 요소를 가져옵니다. (버그 방지를 위해 aria-hidden이 없는 요소만을 가져옵니다)
-				var allElems = document.body.querySelectorAll('*:not([aria-hidden="true"])');
-
-				// 혹시 모를 버그를 방지하기 위해 aria-hidden을 초기화합니다.
-				allElems.forEach(function (el) {
-					el.removeAttribute('aria-hidden');
-				})
-
-				// Array.from과 같은 간단한 방법으로 Array로 바꿀 수 있으나 호환성 이슈로 NodeList에서 Array로 바꾸는 작업에 반복문을 사용합니다.
-				var _allElems = [];
-				for (var i = 0; i < allElems.length; i++) {
-					_allElems.push(allElems[i]);
-				}
-
-				// 숨겨질, 중요하지 않은 요소들과 그렇지 않은 대화상자 요소를 걸러내어, 대화상자와 관계없는 요소들을 모두 추려냅니다.
-				var notImportants = _allElems.filter(function (el) {
-					if (element.contains(el) === false && el.contains(element) === false) {
-						return el
-					}
-				})
-
-
-				// 'on'일 때 notImportants안에 들어있는 요소들을 모두 aria-hidden="true" 처리하고, is-sr-hidden 클래스를 추가합니다.
-				if (turn === 'on') {
-					notImportants.forEach(function (el) {
-						el.setAttribute('aria-hidden', 'true');
-						el.setAttribute('is-sr-hidden', 'true');
-					})
-				}
-
-				// 'off'일 때 'is-sr-hidden'클래스를 가진 요소 목록을 가져와서 aria-hidden과 식별용 is-sr-hidden 클래스를 제거합니다.
-				if (turn === 'off') {
-					document.querySelectorAll('[is-sr-hidden]').forEach(function (el) {
-						el.removeAttribute('is-sr-hidden');;
-						el.removeAttribute('aria-hidden');
-					})
-				}
-			};
-		};
-	</script>
-	
 </body>
 
 </html>
