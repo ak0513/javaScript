@@ -14,9 +14,7 @@
 	
 	<div id="wrap">
 		<header id="header">
-			<button type="button" class="btn-nav-open" onclick="popOpen('#mobileNav', this)" aria-lable="전체메뉴 열기"></button>
-
-			<button type="button" onclick="popOpen('#popup', this)"> 팝업열기</button>
+			header
 		</header>
 
 		<section id="container">
@@ -617,35 +615,6 @@
 			ele.setAttribute('role', 'button')
 		})
 
-		// 팝업
-		function popOpen(ele, btn) {
-			var tar = document.querySelector(ele);
-			var mobileDim = document.querySelector('.mobile-dim');
-			
-			tar.setAttribute('tabindex', 0);
-			setTimeout(function() {
-				tar.focus();
-			},10)
-			tar.classList.add('pop-open');
-			btn.setAttribute('data-pop', tar.getAttribute('id'));
-			accessDisable(siblings(tar), 'nav');
-		}
-
-		function popClose(ele) {
-			var tar = document.querySelector(ele);
-			var btns = document.querySelectorAll('[data-pop]');
-			tar.removeAttribute('tabindex');
-			tar.classList.remove('pop-open');
-			accessEnable(siblings(tar), 'nav');
-			btns.forEach(function(ele) {
-				if(ele.dataset.pop === tar.getAttribute('id')) {
-                    setTimeout(function() {
-                        ele.focus();
-                        ele.removeAttribute('data-pop');
-                    },10)
-				}
-			})
-		}
 
 
 		
