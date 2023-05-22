@@ -4,8 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./css/fonts.css">
-	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/ui.js"></script>
 	<title>기본 스타일</title>
 </head>
 <body>
@@ -165,13 +164,11 @@
 		ele.addEventListener('focus', navClosed);
 	});
 
-
-
 	// Nav 열기
 	function navOpen(e) {
 		var ele = e.target;
 		body.classList.add('nav-open');
-		removeClass(navItem, 'on');
+		ui.removeClass(navItem, 'on');
 		ele.parentElement.classList.add('on');
 
 		nav.classList.add('collapsing');
@@ -185,15 +182,15 @@
 	// depth2에서 navItem
 	function getFocusNavItem(e) {
 		var ele = e.target;
-		removeClass(navItem, 'on');
-		closest(ele, '.nav-item').classList.add('on');
+		ui.removeClass(navItem, 'on');
+		ui.closest(ele, '.nav-item').classList.add('on');
 	}
 
 	// Nav 닫기
 	function navClosed() {
 		body.classList.remove('nav-open');
 		navDim.style.height = 0;
-		removeClass(navItem, 'on');
+		ui.removeClass(navItem, 'on');
 
 		nav.classList.remove('collapsed');
 		nav.classList.add('collapsing');
@@ -209,42 +206,6 @@
 			depth2Height = ele.clientHeight > depth2Height ? ele.clientHeight : depth2Height;
 		})
 		return depth2Height
-	}
-
-	
-	
-	// attr 세팅
-	function setAttr(ele, attr, value) {
-		ele.forEach(function(ele) {
-			ele.setAttribute(attr, value);
-		})
-	}
-	
-	// attr 삭제
-	function removeAttr(ele, attr) {
-		ele.forEach(function(ele) {
-			ele.removeAttribute(attr)
-		})
-	}
-	
-	// class 삭제
-	function removeClass(ele, className) {
-		ele.forEach(function(ele) {
-			ele.classList.remove(className)
-		})
-	}
-	
-	// 가장 가까운 부모 찾기
-	function closest(ele, selector) {
-		var matchesSelector = ele.matches || ele.webkitMatchesSelector || ele.mozMatchesSelector || ele.msMatchesSelector;
-		while (ele) {
-			if (matchesSelector.call(ele, selector)) {
-				return ele;
-			} else {
-				ele = ele.parentElement;
-			}
-		}
-		return null;
 	}
 </script>
 </body>

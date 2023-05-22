@@ -214,17 +214,6 @@
 	border-radius: 3.0rem;
 }
 
-/* collapse */
-.collapse:not(.show) {
-	display: none;
-}
-
-.collapsing {
-	overflow: hidden;
-	height: 0;
-	transition: height .35s ease;
-}
-
 
 /* 아코디언 */
 * + .accordion {
@@ -273,6 +262,16 @@
 
 .accordion-body .h-tit2:first-child {
 	margin-top:0;
+}
+
+.accordion .collapse:not(.show) {
+	display: none;
+}
+
+.accordion .collapsing {
+	overflow: hidden;
+	height: 0;
+	transition: height .35s ease;
 }
 
 /* popup */

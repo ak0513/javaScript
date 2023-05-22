@@ -226,6 +226,13 @@ var ui = (function() {
 		})
 	}
 
+	// attr 삭제
+	var removeAttr = function(ele, attr) {
+		ele.forEach(function(ele) {
+			ele.removeAttribute(attr)
+		})
+	}
+
 	// url파라미터 값 구하기
 	var getUrlParam = function(param) {
 		var urlParams = new URL(location.href).searchParams;
@@ -322,6 +329,8 @@ var ui = (function() {
 		var popWrap = document.querySelectorAll('.pop-wrap')
 		var btnPopOpen = document.querySelectorAll('[data-popup]');
 		var btnPopClose = document.querySelectorAll('.btn-pop-close');
+
+		console.log(btnPopOpen)
 
 		popWrap.forEach(function(ele) {
 			ele.setAttribute('aria-modal', 'true');
@@ -432,6 +441,7 @@ var ui = (function() {
 		getRandomNum: getRandomNum,         // 난수 생성
 		setAttrRandomNum: setAttrRandomNum, // attr 난수 적용
 		setAttr: setAttr,                   // attr 세팅
+		removeAttr: removeAttr,             // attr 삭제
 		getUrlParam: getUrlParam,           // url파라미터 값 구하기
 
 		accordion: accordion,               // 아코디언

@@ -4,14 +4,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./css/fonts.css">
-	<link rel="stylesheet" href="./css/common.css">
-	<link rel="stylesheet" href="./css/style.css">
-	<script src="./js/common.js"></script>
-	
-	
-	<link rel="stylesheet" href="./css/highlight.css">
-	<script src="./js/highlight.min.js"></script>
+	<script src="./js/ui.js"></script>
+	<!-- <link rel="stylesheet" href="./css/fonts.css"> -->
 	<title>기본 스타일</title>
 </head>
 <body>
@@ -606,6 +600,45 @@
 	<aside id="mobileNav" class="pop-wrap">
 		<div class="mobile-nav-inner">
 			<button type="button" class="btn-pop-close" aria-label="메뉴 닫기">메뉴 닫기</button>
+			<div class="accordion" id="accordion1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionTit1">
+                        <button class="accordion-button" type="button" aria-expanded="true" aria-controls="accordionBody1" role="button">
+                            아코디언 헤더1-1
+                        </button>
+                    </h2>
+                    <div id="accordionBody1" class="accordion-collapse collapse show" aria-labelledby="accordionTit1">
+                        <div class="accordion-body">
+                            아코디언 바디1-1
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionTit2">
+                        <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody2" role="button">
+                            아코디언 헤더1-2
+                        </button>
+                    </h2>
+                    <div id="accordionBody2" class="accordion-collapse collapse" aria-labelledby="accordionTit2">
+                        <div class="accordion-body">
+                            아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2<br>아코디언 바디1-2
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionTit3">
+                        <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody3" role="button">
+                            아코디언 헤더1-3
+                        </button>
+                    </h2>
+                    <div id="accordionBody3" class="accordion-collapse collapse" aria-labelledby="accordionTit3">
+                        <div class="accordion-body">
+                            아코디언 바디1-2
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</aside>
 

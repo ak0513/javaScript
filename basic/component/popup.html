@@ -4,49 +4,13 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="./js/common.js"></script>
-	<script src="./js/highlight.min.js"></script>
-	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
-	<link rel="stylesheet" href="./css/common.css">
-	<link rel="stylesheet" href="./css/style.css">
+	<script src="../js/ui.js"></script>
 	<title>팝업</title>
 </head>
 
 <body>
-	<style>
-		.pop-wrap {
-			display: none;
-			opacity: 0;
-			align-items: center;
-			justify-content: center;
-			position: fixed;
-			top: 100px;
-			left: 100px;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0,0,0,0.5);
-			transition: all 0.4s;
-			border:5px solid #000;
-		}
 
-		.pop-wrap.visible {
-			display: block;
-		}
 
-		.pop-wrap.active {
-			opacity: 1;
-			bottom: 0;
-		}
-
-		.pop-wrap .inner {
-			width:400px;
-			padding:20px;
-			border:1px solid #ccc;
-			background-color :#fff;
-		}
-
-		.pop-wrap:focus {border:5px solid red}
-	</style>
 
 	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup1">open1</button>
 	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup2">open2</button>
