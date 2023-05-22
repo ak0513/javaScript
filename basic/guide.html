@@ -18,53 +18,76 @@
 		</header>
 
 		<section id="container">
-			<!-- <div class="main-visual">메인 이미지</div> -->
 			<div class="container-inner">
 				<div class="form">
-					<h2 class="h-tit2">버튼</h2>
-					<h3 class="h-tit3">칼라</h3>
+					<h2 class="h-tit1"># 버튼</h2>
+					<h3 class="h-tit2">칼라</h3>
 
 					<div class="btn-wrap">
-						<button type="button" class="btn btn-primary">메인버튼</button>
-						<button type="button" class="btn btn-light">서브버튼</button>
+						<div class="btn-inner">
+							<button type="button" class="btn btn-primary">메인버튼</button>
+							<button type="button" class="btn btn-secondary">서브버튼</button>
+						</div>
 					</div>
-					<h3 class="h-tit3">비활성화</h3>
+					<h3 class="h-tit2">비활성화</h3>
 					<div class="btn-wrap">
-						<button type="button" class="btn btn-primary" disabled>메인버튼</button>
-						<button type="button" class="btn btn-light" disabled>서브버튼</button>
+						<div class="btn-inner">
+							<button type="button" class="btn btn-primary" disabled>메인버튼</button>
+							<button type="button" class="btn btn-secondary" disabled>서브버튼</button>
+						</div>
 					</div>
-					<h3 class="h-tit3">기본 버튼</h3>
+
+					<h3 class="h-tit2">버튼 사이즈</h3>
+					<h4 class="h-tit3">기본 버튼</h4>
 					<div class="btn-wrap">
-						<button type="button" class="btn">Button</button>
-						<a href="#" class="btn">Link</a>
-						<a href="#" class="btn btn-round">Round</a>
+						<div class="btn-inner">
+							<button type="button" class="btn">Button</button>
+							<a href="#" class="btn">Link</a>
+							<a href="#" class="btn btn-round">Round</a>
+						</div>
 					</div>
-					<h3 class="h-tit3">Large 버튼</h3>
+					<h4 class="h-tit3">Small 버튼</h4>
+					<div class="btn-wrap">
+						<div class="btn-inner">
+							<button type="button" class="btn btn-sm">Small Button</button>
+							<a href="#" class="btn btn-sm">Small Link</a>
+							<a href="#" class="btn btn-sm btn-round">라운드 버튼</a>
+						</div>
+					</div>
+					<h4 class="h-tit3">Large 버튼</h4>
 					<div class="btn-wrap">
 						<button type="button" class="btn btn-lg">Large Button</button>
 						<a href="#" class="btn btn-lg">Large Link</a>
 						<a href="#" class="btn btn-lg btn-round">라운드 버튼</a>
 					</div>
-					<h3 class="h-tit3">Small 버튼</h3>
-					<div class="btn-wrap">
-						<button type="button" class="btn btn-sm">Small Button</button>
-						<a href="#" class="btn btn-sm">Small Link</a>
-						<a href="#" class="btn btn-sm btn-round">라운드 버튼</a>
-					</div>
-					<h3 class="h-tit3">Round 버튼</h3>
-					<div class="btn-wrap">
-						<button type="button" class="btn btn-round">Round Button</button>
-						<a href="#" class="btn btn-round">Round Link</a>
-					</div>
-				
 
-                    <h2 class="h-tit2">input</h2>
+					<h3 class="h-tit2">버튼 유형</h3>
+					<h4 class="h-tit3">Round 버튼</h4>
+					<div class="btn-wrap">
+						<div class="btn-inner">
+							<button type="button" class="btn btn-round">Round Button</button>
+							<a href="#" class="btn btn-round">Round Link</a>
+						</div>
+					</div>
+					<h4 class="h-tit3">가로 100%</h4>
+					<div class="btn-wrap">
+						<div class="btn-inner">
+							<button type="button" class="btn btn-block">Button</button>
+							<a href="#" class="btn btn-block">Link</a>
+							<a href="#" class="btn btn-block btn-round">Round</a>
+						</div>
+					</div>
+
+					<hr>
+
+                    <h2 class="h-tit1"># input</h2>
                     <div class="input-wrap">
                         <input type="text" id="input1">
                     </div>
 
+					<hr>
 
-					<h2 class="h-tit2">셀렉트박스</h2>
+					<h2 class="h-tit1"># 셀렉트박스</h2>
 					<div class="select-wrap">
 						<select name="">
 							<option value="">셀렉트</option>
@@ -95,13 +118,13 @@
 						</select>
 					</div>
 
-					<h2 class="h-tit2">체크박스</h2>
-					<h3 class="h-tit3">checkbox</h3>
+					<h2 class="h-tit1"># 체크박스</h2>
+					<h3 class="h-tit2">checkbox</h3>
 					<div class="check-wrap check-only">
 						<input type="checkbox" id="chk1-1" name="chk" title="체크박스 혼자면 title에 삽입" checked>
 					</div>
 
-					<h3 class="h-tit3">checkbox + label</h3>
+					<h3 class="h-tit2">checkbox + label</h3>
 					<div class="check-wrap">
 						<label class="form-label" for="chk2-1">
 							<input type="checkbox" id="chk2-1" name="chk" checked>
@@ -117,13 +140,13 @@
 						</label>
 					</div>
 
-					<h2 class="h-tit2">라디오 버튼</h2>
-					<h3 class="h-tit3">radio</h3>
+					<h2 class="h-tit1"># 라디오 버튼</h2>
+					<h3 class="h-tit2">radio</h3>
 					<div class="radio-wrap radio-only">
 						<input type="radio" id="radio1-1" name="radio1" title="라디오박스 혼자면 title에 삽입">
 					</div>
 
-					<h3 class="h-tit3">radio + label</h3>
+					<h3 class="h-tit2">radio + label</h3>
 					<div class="radio-wrap">
 						<label class="form-label" for="radio2-1">
 							<input type="radio" id="radio2-1" name="radio2" checked>
@@ -139,8 +162,8 @@
 						</label>
 					</div>
 
-					<h2 class="h-tit2">테이블</h2>
-					<h2 class="h-tit3">기본</h2>
+					<h2 class="h-tit1"># 테이블</h2>
+					<h3 class="h-tit2">기본</h3>
 					<div class="table-wrap">
 						<table class="table">
 							<caption></caption>
@@ -257,22 +280,7 @@
 						</table>
 					</div>
 
-					<h2 class="h-tit2">아코디언</h2>
-					<div class="accordion" id="accordionExample">
-						<div class="accordion-item">
-							<div class="accordion-header" id="headingOne">
-								<button class="accordion-btn" type="button" aria-expanded="true" aria-controls="accordion1-1">타이틀1</button>
-							</div>
-							<div id="accordion1-1" class="collapse show" aria-labelledby="headingOne">내용1</div>
-						</div>
-						<div class="accordion-item">
-							<div class="accordion-header" id="headingOne">
-								<button class="accordion-btn" type="button" aria-expanded="true" aria-controls="accordion1-2">타이틀1</button>
-							</div>
-							<div id="accordion1-2" class="collapse show" aria-labelledby="headingOne">내용2</div>
-						</div>
-					</div>
-				
+					
 					<div class="form-tit-wrap">
 						<h3 class="h-tit3">폼 타이틀 Input</h3>
 					</div>
@@ -608,16 +616,5 @@
 			</div>
 		</div>
 	</div>
-
-	<script>
-		var link = document.querySelectorAll('a');
-		link.forEach(function(ele, btn) {
-			ele.setAttribute('role', 'button')
-		})
-
-
-
-		
-	</script>
 </body>
 </html>
