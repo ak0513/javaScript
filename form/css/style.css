@@ -758,6 +758,21 @@ table td {
 	background: url('../img/btn-all.svg') no-repeat;
 }
 
+
+
+#mobileNav {
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 20;
+	width:80%;
+	height:100%;
+	background-color: #fff;
+	border-right:1px solid var(--lightgray);
+	transform: translateX(-100%);
+	transition: all 0.4s;
+}
+
 .mobile-nav-inner {
 	position: fixed;
 	top:0;

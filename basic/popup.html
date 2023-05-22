@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/common.js"></script>
+	<script src="./js/highlight.min.js"></script>
+	<link rel="stylesheet" href="./css/highlight/atom-one-dark.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>팝업</title>
+</head>
+
+<body>
+	<style>
+		.pop-wrap {
+			display: none;
+			opacity: 0;
+			align-items: center;
+			justify-content: center;
+			position: fixed;
+			top: 100px;
+			left: 100px;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.5);
+			transition: all 0.4s;
+			border:5px solid #000;
+		}
+
+		.pop-wrap.visible {
+			display: block;
+		}
+
+		.pop-wrap.active {
+			opacity: 1;
+			bottom: 0;
+		}
+
+		.pop-wrap .inner {
+			width:400px;
+			padding:20px;
+			border:1px solid #ccc;
+			background-color :#fff;
+		}
+
+		.pop-wrap:focus {border:5px solid red}
+	</style>
+
+	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup1">open1</button>
+	<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup2">open2</button>
+	
+
+
+	<div id="popup1" class="pop-wrap" aria-labelledby="pop-title">
+		<div class="inner">
+			<div class="pop-header">
+				<h2 id="pop-title">팝업1</h2>
+				<button class="btn-pop-close" aria-label="팝업 닫기">X</button>
+			</div>
+			<div class="pop-body">
+				<button type="button" class="pop-btn-open" title="팝업 열기" data-popup="#popup2">open2</button>
+				<a href="#">aaa</a><a href="#">aaa</a>
+			</div>
+			<div class="pop-footer">
+				<button class="btn-pop-close" aria-label="팝업 닫기">X</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup2" class="pop-wrap" aria-labelledby="pop-title2">
+		<div class="inner">
+			<div class="pop-header">
+				<h2 id="pop-title2">팝업2</h2>
+			</div>
+			<div class="pop-conts">
+				내용2
+			</div>
+			<button class="btn-pop-close" aria-label="팝업 닫기">X</button>
+		</div>
+	</div>
+</body>
+
+</html>

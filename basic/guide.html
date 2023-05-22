@@ -5,9 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/fonts.css">
+	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/style.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="../js/common.js"></script>
+	<script src="./js/common.js"></script>
+
+
+	<script src="./js/highlight.min.js"></script>
 	<title>기본 스타일</title>
 </head>
 <body>
@@ -15,6 +18,7 @@
 	<div id="wrap">
 		<header id="header">
 			header
+			<button type="button" class="btn-nav-open" data-popup="#mobileNav" aria-lable="전체메뉴 열기"></button>
 		</header>
 
 		<section id="container">
@@ -126,40 +130,44 @@
 
 					<h3 class="h-tit2">checkbox + label</h3>
 					<div class="check-wrap">
-						<label class="form-label" for="chk2-1">
-							<input type="checkbox" id="chk2-1" name="chk" checked>
-							<span class="check-txt">체크박스1</span>
-						</label>
-						<label class="form-label" for="chk2-2">
-							<input type="checkbox" id="chk2-2" name="chk">
-							<span class="check-txt">체크박스2</span>
-						</label>
-						<label class="form-label" for="chk2-3">
-							<input type="checkbox" id="chk2-3" name="chk">
-							<span class="check-txt">체크박스3</span>
-						</label>
+						<div class="check-inner">
+							<label class="form-label" for="chk2-1">
+								<input type="checkbox" id="chk2-1" name="chk" checked>
+								<span class="check-txt">체크박스1</span>
+							</label>
+							<label class="form-label" for="chk2-2">
+								<input type="checkbox" id="chk2-2" name="chk">
+								<span class="check-txt">체크박스2</span>
+							</label>
+							<label class="form-label" for="chk2-3">
+								<input type="checkbox" id="chk2-3" name="chk">
+								<span class="check-txt">체크박스3</span>
+							</label>
+						</div>
 					</div>
 
 					<h2 class="h-tit1"># 라디오 버튼</h2>
 					<h3 class="h-tit2">radio</h3>
 					<div class="radio-wrap radio-only">
-						<input type="radio" id="radio1-1" name="radio1" title="라디오박스 혼자면 title에 삽입">
+						<input type="radio" id="radio1-1" name="radio1" title="라디오박스 혼자면 title에 삽입" checked>
 					</div>
 
 					<h3 class="h-tit2">radio + label</h3>
 					<div class="radio-wrap">
-						<label class="form-label" for="radio2-1">
-							<input type="radio" id="radio2-1" name="radio2" checked>
-							<span class="radio-txt">라디오버튼1</span>
-						</label>
-						<label class="form-label" for="radio2-1">
-							<input type="radio" id="radio2-1" name="radio2">
-							<span class="radio-txt">라디오버튼2</span>
-						</label>
-						<label class="form-label" for="radio2-3">
-							<input type="radio" id="radio2-3" name="radio2">
-							<span class="radio-txt">라디오버튼3</span>
-						</label>
+						<div class="radio-inner">
+							<label class="form-label" for="radio2-1">
+								<input type="radio" id="radio2-1" name="radio2" checked>
+								<span class="radio-txt">라디오버튼1</span>
+							</label>
+							<label class="form-label" for="radio2-1">
+								<input type="radio" id="radio2-1" name="radio2">
+								<span class="radio-txt">라디오버튼2</span>
+							</label>
+							<label class="form-label" for="radio2-3">
+								<input type="radio" id="radio2-3" name="radio2">
+								<span class="radio-txt">라디오버튼3</span>
+							</label>
+						</div>
 					</div>
 
 					<h2 class="h-tit1"># 테이블</h2>
@@ -593,12 +601,10 @@
 	</div>
 
 
-	<aside id="mobileNav">
+	<aside id="mobileNav" class="pop-wrap">
 		<div class="mobile-nav-inner">
-				<a href="">link</a>
-				<button type="button" class="btn-pop-close" aria-label="팝업 닫기" onclick="popClose('#mobileNav')">팝업 닫기</button>
+			<button type="button" class="btn-pop-close" aria-label="메뉴 닫기">메뉴 닫기</button>
 		</div>
-		<div class="mobile-dim"></div>
 	</aside>
 
 	<!-- 팝업 -->
@@ -612,7 +618,7 @@
 			</div>
 			<div class="pop-footer">
 				팝업 하단
-				<button type="button" class="" onclick="popClose('#popup')">팝업 닫기</button>
+				<button type="button" class="btn-pop-close">팝업 닫기</button>
 			</div>
 		</div>
 	</div>
