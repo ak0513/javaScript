@@ -92,7 +92,219 @@
 	color:#fff;
 }
 
+/**** 공통 디자인 ****/
 
+
+/* bg */
+.bg-light {background-color: var(--light);}
+
+
+
+/* form */
+.form-tit-wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 4.0rem;
+	margin-bottom: 2.0rem;
+}
+
+.form-tit-wrap [class*='h-tit'] {
+	margin:0;
+}
+
+.form-label {
+	display: inline-block;
+	margin-bottom: 0.8rem;
+}
+
+.input-wrap .form-label {
+	margin-top: 1.1rem;
+	margin-bottom: 0;
+	color: var(--gray);
+	font-size: 1.4rem;
+}
+
+.form-ele {
+	position: relative;
+}
+
+.form-ele-inline {
+	display: flex;
+	align-items: center;
+}
+
+.form-ele-inline .form-label {
+	margin-bottom: 0;
+	margin-right: 1.6rem;
+}
+
+.form-ele-inline [class*='wrap'],
+.form-ele-inline .form-group,
+.form-ele-inline .row {
+	flex-grow: 1;
+}
+
+
+.form > .form-ele + .form-ele,
+.form > .form-ele + .row,
+.form > .row + .form-ele {
+	margin-top: 1.6rem;
+}
+
+.form > .form-group + .btn-wrap,
+.form > .form-ele + .btn-wrap {
+	margin-top: 5.0rem;
+}
+
+.form > .form-ele + .form-tit-wrap {
+	margin-top: 8.0rem;
+}
+
+.form-group > div + div {
+	margin-top: 0.6rem;
+}
+
+.form-txt {
+	margin-top: 0.4rem;
+	font-size: 1.4rem;
+	color:var(--gray);
+}
+
+
+/* title */
+[class*='h-tit'] {
+	line-height: var(--line-height);
+}
+
+.h-tit1 {
+    margin-top:6.0rem;
+	margin-bottom: 2.4rem;
+	font-size: 3.0rem;
+	font-weight: 700;
+}
+
+.h-tit2 {
+	position: relative;
+	margin:5.2rem 0 1.2rem;
+	font-size: 2.2rem;
+	font-weight: 400;
+}
+
+.h-tit3 {
+	margin-top: 4.0rem;
+	margin-bottom: 0.8rem;
+	font-size: 1.8rem;
+	font-weight: 400;
+}
+
+/* badge */
+.badge-wrap {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: -0.5rem 0 0 -0.5rem;
+}
+
+.badge {
+	display: inline-flex;
+	margin: 0.5rem 0 0 0.5rem;
+	padding: 0.3rem 2.0rem 0.4rem;
+	background-color: #f7f7f7;
+	border-radius: 3.0rem;
+}
+
+/* collapse */
+.collapse:not(.show) {
+	display: none;
+}
+
+.collapsing {
+	overflow: hidden;
+	height: 0;
+	transition: height .35s ease;
+}
+
+
+/* 아코디언 */
+* + .accordion {
+	margin-top:16px;
+}
+
+.accordion {
+	border-top:1px solid var(--lightgray);
+	border-bottom:1px solid var(--light);
+}
+
+.accordion-item + .accordion-item {
+	border-top:1px solid var(--lightgray);
+}
+
+.accordion-button {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1.6rem 0;
+	color:var(--black);
+	font-size: 1.6rem;
+}
+
+.accordion-button::after {
+	content: '';
+	display: block;
+	width: 1.6rem;
+	height: 1.6rem;
+	margin-left: auto;
+	background: url('../img/caret-down-fill.svg') no-repeat center;
+	transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button.collapsed::after {
+	transform:rotate(180deg);
+}
+
+.accordion-button.collapsed {
+	color:var(--gray)
+}
+
+.accordion-body {
+	padding: 1.6rem 0;
+}
+
+.accordion-body .h-tit2:first-child {
+	margin-top:0;
+}
+
+/* popup */
+.pop-wrap {
+    display: none;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    transition: all 0.4s;
+}
+
+.pop-wrap.visible {
+    display: block;
+}
+
+.pop-wrap.active {
+    opacity: 1;
+    bottom: 0;
+}
+
+.pop-wrap .inner {
+    width:400px;
+    padding:20px;
+    border:1px solid #ccc;
+    background-color :#fff;
+}
 
 @media (max-width: 768px) {
 	
