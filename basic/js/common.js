@@ -326,11 +326,10 @@ var ui = (function() {
 
 	// 팝업
 	var popup = function() {
-		var popWrap = document.querySelectorAll('.pop-wrap')
-		var btnPopOpen = document.querySelectorAll('.pop-btn-open');
+		var popWrap = document.querySelectorAll('[data-popup]')
+		var btnPopOpen = document.querySelectorAll('[data-popup-open]');
 		var btnPopClose = document.querySelectorAll('.btn-pop-close');
 
-		console.log(btnPopOpen)
 
 		popWrap.forEach(function(ele) {
 			ele.setAttribute('aria-modal', 'true');
@@ -365,7 +364,7 @@ var ui = (function() {
 
 		function popOpen(e) {
 			ele = e.target;
-			var controls = ele.dataset.popup;
+			var controls = ele.dataset.popupOpen;
 			var target = document.querySelector(controls);
 			setTimeout(function() {target.focus()},1);
 			target.classList.add('visible');
@@ -379,7 +378,7 @@ var ui = (function() {
 
 		function popClose(ele) {
 			var target = ele.closest('.pop-wrap')
-			var openedBtn = document.querySelector('.pop-btn-open.'+ target.getAttribute('id'));
+			var openedBtn = document.querySelector('[data-popup-open].'+ target.getAttribute('id'));
 			target.classList.remove('active')
 			setTimeout(function() {target.classList.remove('visible')},100);
 			// 포커스 회귀

@@ -12,22 +12,27 @@
 	<div id="wrap">
 		<header id="header">
 			header
-			<button type="button" class="btn-nav-open" data-popup="#mobileNav" aria-lable="전체메뉴 열기"></button>
 		</header>
 
 		<section id="container">
 			<div class="container-inner">
 				<div class="btn-wrap">
 					<div class="btn-inner">
-						<button type="button" class="btn btn-primary pop-btn-open" title="팝업 열기" data-popup="#popup1">팝업1</button>
-						<button type="button" class="btn btn-secondary pop-btn-open" title="팝업 열기" data-popup="#popup2">팝업2</button>
+						<button type="button" class="btn btn-primary" title="팝업 열기" data-popup-open="#popup1">팝업1</button>
+						<button type="button" class="btn btn-secondary" title="팝업 열기" data-popup-open="#popup2">팝업2</button>
 					</div>
 				</div>
 			</div>
 		</section>
+		<button type="button" class="btn btn-primary"  title="팝업 열기" data-popup-open="#popup1">팝업1</button>
 	</div>
 
-	<div id="popup1" class="pop-wrap" aria-labelledby="pop-title">
+	<script>
+		var a = document.querySelector('[data-popup-open]');
+		console.log(a.dataset.popupOpen)
+	</script>
+
+	<div id="popup1" class="pop-wrap" data-popup aria-labelledby="pop-title">
 		<div class="inner">
 			<div class="pop-header">
 				<h2 id="pop-title">팝업1</h2>
