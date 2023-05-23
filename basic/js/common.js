@@ -377,7 +377,7 @@ var ui = (function() {
 		}
 
 		function popClose(ele) {
-			var target = ele.closest('.pop-wrap')
+			var target = ele.closest('.popup-wrap')
 			var openedBtn = document.querySelector('[data-popup-open].'+ target.getAttribute('id'));
 			target.classList.remove('active')
 			setTimeout(function() {target.classList.remove('visible')},100);
