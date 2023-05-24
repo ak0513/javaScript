@@ -28,7 +28,8 @@
 }
 
 .container-inner {
-	max-width: 1340px;
+	width: 100%;
+	max-width: 1920px;
 	margin:0 auto;
 	padding:0 2.4rem;
 }
