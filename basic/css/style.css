@@ -49,6 +49,9 @@
 	transition: all 0.4s;
 }
 
+#mobileNav {
+	justify-content: flex-start;
+}
 #mobileNav.active .mobile-nav-inner {
 	transform: translateX(0);
 }
@@ -236,7 +239,11 @@
 }
 
 @media (max-width: 768px) {
-	
+
+	.modal {padding: 2.4rem;}
+	.modal .modal-inner {
+		min-width: 90%;
+	}
 
 
 
