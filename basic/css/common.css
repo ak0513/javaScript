@@ -46,7 +46,6 @@
 	--form-ele-radius: 0.2rem;
 
 	--form-ele-margin-top: 0.8rem;
-	--btn-gap: 0.5rem;
 
 }
 
@@ -221,7 +220,6 @@ button {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	margin: var(--btn-gap);
 	padding: var(--form-ele-padding-y) var(--form-ele-padding-x);
 	border:1px solid var(--lightgray);
 	font-size: var(--form-ele-font);
@@ -252,37 +250,14 @@ button {
 	pointer-events:none;
 }
 
-.btn + .btn {
-	margin-left: 0.5rem;
+.btn-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap:0.5rem;
 }
 
 * + .btn-wrap {
 	margin-top:3.0rem;
-}
-
-.btn-inner {
-	display: flex;
-	flex-wrap: wrap;
-	margin: calc(var(--btn-gap) * -1);
-}
-
-.btn-group {
-	display: grid;
-	grid-template-columns:1fr 1fr;
-	column-gap:10px;
-	margin:0;
-}
-
-.btn-group .btn {
-	margin:0;
-}
-
-.btn-group {
-	display: flex;
-}
-
-.btn-group .btn {
-	flex:1;
 }
 
 .btn-primary {
