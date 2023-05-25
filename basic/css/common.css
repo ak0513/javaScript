@@ -110,7 +110,7 @@ body {
 	line-height:var(--line-height);
 	font-weight: 400;
 	font-size: var(--font-basic);
-	color: var(--black);
+	color: var(--gray);
 	font-family: -apple-system, BlinkMacSystemFont, Pretendard, sans-serif;
 }
 
@@ -322,26 +322,26 @@ input[type='number']::placeholder {
 	color: var(--black);
 }
 
-* + .input-wrap {
+* + .form-input {
 	margin-top: var(--form-ele-margin-top);
 }
 
-.input-wrap {
+.form-input {
 	position: relative;
 }
 
 /* btn 추가 */
-.input-wrap.side-btn {
+.form-input.side-btn {
 	display: flex;
 }
 
-.input-wrap.side-btn input {
+.form-input.side-btn input {
 	flex-grow: 1;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
 
-.input-wrap.side-btn .btn {
+.form-input.side-btn .btn {
 	flex-grow: 1;
 	flex-shrink: 0;
 	height: var(--form-ele-min-hegiht);
@@ -355,11 +355,11 @@ input[type='number']::placeholder {
 }
 
 /* unit 추가 */
-.input-wrap.with-unit {
+.form-input.with-unit {
 	display: flex;
 }
 
-.input-wrap.with-unit .unit {
+.form-input.with-unit .unit {
 	display: flex;
 	align-items: center;
 	flex-shrink: 0;
@@ -371,11 +371,11 @@ input[type='number']::placeholder {
 	font-size:var(--form-label);
 }
 
-.input-wrap.with-unit .unit + input {
+.form-input.with-unit .unit + input {
 	border-radius: 0;
 }
 
-.input-wrap.with-unit input + .unit {
+.form-input.with-unit input + .unit {
 	border-left-color: transparent;
 	border-right:1px solid var(--lightgray);
 }
@@ -420,31 +420,44 @@ select.round {
 }
 
 /* checkbox + radio */
-* + .check-wrap,
-* + .radio-wrap {
+* + .form-check {
 	margin-top: 1.6rem;
 }
 
-.check-group,
-.radio-group {
+.form-check-group {
 	display: flex;
 	flex-wrap: wrap;
 	margin: -0.5rem -2.0rem;
 }
 
-.check-wrap .form-label,
-.radio-wrap .form-label {
+.form-check-item {
+	display:flex;
+	position: relative;
+	align-items: center;
+	margin: 0.5rem 2.0rem;
+}
+
+.form-check .form-label {
 	font-size: var(--form-ele-font);
 	cursor: pointer;
 }
 
-.check-wrap .check-group .form-label,
-.radio-wrap .radio-group .form-label {
-	margin: 0.5rem 2.0rem;
+.form-check-item input + .form-label {
+	margin-left: 0.5rem;
+}
+
+
+.form-only {
+	display: inline-flex;
+	margin:0;
+}
+
+.form-check .form-check-txt {
+	margin-left:0.5rem;
 }
 
 /* checkbox */
-.check-wrap input[type='checkbox'] {
+.form-check input[type='checkbox'] {
 	display: flex;
 	width: 2.0rem;
 	height: 2.0rem;
@@ -455,27 +468,19 @@ select.round {
 	-moz-appearance: none;
 }
 
-.check-wrap input[type='checkbox']:checked {
+.form-check input[type='checkbox']:checked {
 	border-color:#0d6efd;
 	background: #0d6efd url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e") no-repeat center;
 }
 
-.check-wrap .check-txt {
-	margin-left:0.5rem;
-}
 
-.check-wrap input[type='checkbox']:focus-visible {
+.form-check input[type='checkbox']:focus-visible {
 	outline:1
-}
-
-.check-only {
-	display: inline-flex;
-	margin:0;
 }
 
 
 /* radio */
-.radio-wrap input[type='radio'] {
+.form-check input[type='radio'] {
 	display: flex;
 	width: 2.0rem;
 	height: 2.0rem;
@@ -486,11 +491,7 @@ select.round {
 	-moz-appearance: none;
 }
 
-.radio-wrap input[type='radio'] + .radio-txt {
-	margin-left:0.5rem;
-}
-
-.radio-wrap input[type='radio']:checked {
+.form-check input[type='radio']:checked {
 	border-color:#0d6efd;
 	background:#0d6efd url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e") no-repeat center;
 }
@@ -544,15 +545,16 @@ textarea {
 	display: flex;
 	align-items: center;
 	font-size:var(--form-label);
+	color: var(--black);
 }
 
-.input-wrap .form-label {
+.form-input .form-label {
 	margin-bottom: var(--form-ele-margin-top);
 	color: var(--gray);
 	font-size: 1.4rem;
 }
 
-.input-wrap input + .form-label {
+.form-input input + .form-label {
 	margin-top: var(--form-ele-margin-top);
 	margin-bottom: 0;
 }
@@ -562,9 +564,9 @@ textarea {
 	margin-right: 1.6rem;
 }
 
-.form-ele-inline .input-wrap,
-.form-ele-inline .check-wrap,
-.form-ele-inline .radio-wrap {
+.form-ele-inline .form-input,
+.form-ele-inline .form-check,
+.form-ele-inline .form-check {
 	margin-top: 0;
 }
 

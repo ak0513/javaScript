@@ -94,6 +94,7 @@
 /* title */
 [class*='h-tit'] {
 	line-height: var(--line-height);
+	color: var(--black);
 }
 
 .h-tit1 {
@@ -107,14 +108,14 @@
 	position: relative;
 	margin:5.2rem 0 1.2rem;
 	font-size: 2.2rem;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 .h-tit3 {
 	margin-top: 4.0rem;
 	margin-bottom: 0.8rem;
 	font-size: 1.8rem;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 /* badge */
