@@ -434,6 +434,9 @@ select.round {
 	display:flex;
 	position: relative;
 	align-items: center;
+}
+
+.form-check-group .form-check-item {
 	margin: 0.5rem 2.0rem;
 }
 
