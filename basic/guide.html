@@ -159,21 +159,29 @@
 						<input type="radio" id="radio1-1" name="radio1" title="라디오박스 혼자면 title에 삽입" checked>
 					</div>
 
-					<h3 class="h-tit2">radio + label</h3>
+					<h3 class="h-tit2">radio + label(single)</h3>
+					<div class="form-check">
+						<div class="form-check-item">
+							<input type="radio" id="radio2-1" name="radio2" checked>
+							<label class="form-label" for="radio2-1">라디오버튼1</label>
+						</div>
+					</div>
+
+					<h3 class="h-tit2">radio + label(group)</h3>
 					<div class="form-check">
 						<div class="form-check-group">
-							<label class="form-label" for="radio2-1">
-								<input type="radio" id="radio2-1" name="radio2" checked>
-								<span class="radio-txt">라디오버튼1</span>
-							</label>
-							<label class="form-label" for="radio2-1">
-								<input type="radio" id="radio2-1" name="radio2">
-								<span class="radio-txt">라디오버튼2</span>
-							</label>
-							<label class="form-label" for="radio2-3">
-								<input type="radio" id="radio2-3" name="radio2">
-								<span class="radio-txt">라디오버튼3</span>
-							</label>
+							<div class="form-check-item">
+								<input type="radio" id="radio3-1" name="radio3" checked>
+								<label class="form-label" for="radio3-1">라디오버튼1</label>
+							</div>
+							<div class="form-check-item">
+								<input type="radio" id="radio3-2" name="radio3" checked>
+								<label class="form-label" for="radio3-2">라디오버튼1</label>
+							</div>
+							<div class="form-check-item">
+								<input type="radio" id="radio3-3" name="radio3" checked>
+								<label class="form-label" for="radio3-3">라디오버튼1</label>
+							</div>
 						</div>
 					</div>
 
@@ -370,34 +378,18 @@
 							<div class="form-label">Categories</div>
 							<div class="form-check">
 								<div class="form-check-group">
-									<label class="form-label" for="prototype">
+									<div class="form-check-item">
 										<input type="checkbox" id="prototype" name="categories" checked>
-										<span class="form-check-txt">prototype</span>
-									</label>
-									<label class="form-label" for="fineart">
-										<input type="checkbox" id="fineart" name="categories" checked>
-										<span class="form-check-txt">fine-art</span>
-									</label>
-									<label class="form-label" for="oil">
+										<label class="form-label" for="prototype">prototype</label>
+									</div>
+									<div class="form-check-item">
+										<input type="checkbox" id="fineart" name="categories">
+										<label class="form-label" for="fineart">fineart</label>
+									</div>
+									<div class="form-check-item">
 										<input type="checkbox" id="oil" name="categories">
-										<span class="form-check-txt">oil</span>
-									</label>
-									<label class="form-label" for="painting">
-										<input type="checkbox" id="painting" name="categories" checked>
-										<span class="form-check-txt">painting</span>
-									</label>
-									<label class="form-label" for="colorfull">
-										<input type="checkbox" id="colorfull" name="categories">
-										<span class="form-check-txt">colorfull</span>
-									</label>
-									<label class="form-label" for="prototype2">
-										<input type="checkbox" id="prototype2" name="categories">
-										<span class="form-check-txt">prototype</span>
-									</label>
-									<label class="form-label" for="fineart2">
-										<input type="checkbox" id="fineart2" name="categories">
-										<span class="form-check-txt">fine-art</span>
-									</label>
+										<label class="form-label" for="oil">oil</label>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -405,10 +397,10 @@
 						<div class="form-ele form-ele-inline">
 							<p class="form-label mgb0">체크박스 혼자</p>
 							<div class="form-check">
-								<label class="form-label" for="categories">
-									<input type="checkbox" id="categories" name="categories" checked>
-									<span class="form-check-txt">카테고리</span>
-								</label>
+								<div class="form-check-item">
+									<input type="checkbox" id="prototype2" name="categories2" checked>
+									<label class="form-label" for="prototype2">prototype</label>
+								</div>
 							</div>
 						</div>
 
