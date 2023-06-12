@@ -7,13 +7,13 @@
 	--white: #fff;
 	--light: #f7f7f7;
 	--lightgray: #ced4da;
-	--gray: #7f7f7f;
+	--gray: #666666;
 	--darkgray: #333;
 	--black: #212529;
 
 	--link-color: var(--black);
 
-	--font-basic: 1.6rem;
+	--font-basic: 1.7rem;
 
 	--line-height: 1.5;
 
@@ -110,7 +110,7 @@ body {
 	font-weight: 400;
 	font-size: var(--font-basic);
 	color: var(--darkgrays);
-	font-family: -apple-system, BlinkMacSystemFont, Pretendard, sans-serif;
+	font-family: 'NanumGothic', -apple-system, BlinkMacSystemFont, Pretendard, sans-serif;
 }
 
 /* 접근성 */
