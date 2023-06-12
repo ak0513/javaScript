@@ -154,6 +154,23 @@ ol[class*='list'] li + li {
 	padding-left: 1.7rem;
 }
 
+.list-dot > li {
+	position: relative;
+	padding-left:2.0rem;
+}
+
+.list-dot > li::before {
+	content:'';
+	display: block;
+	position: absolute;
+	top: 1.0rem;
+	left:0;
+	width: 0.8rem;
+	height: 0.8rem;
+	background-color: var(--lightgray);
+	border-radius: 50%;
+}
+
 /* badge */
 .badge-wrap {
 	display: flex;
