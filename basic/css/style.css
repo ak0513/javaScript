@@ -269,5 +269,17 @@
 }
 
 @media (max-width: 576px) {
+	.h-tit1 {
+		font-size: 3.0rem;
+	}
 	
+	.h-tit2 {
+		font-size: 2.2rem;
+		font-weight: 400;
+	}
+	
+	.h-tit3 {
+		font-size: 1.8rem;
+		font-weight: 400;
+	}
 }
