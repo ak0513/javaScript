@@ -139,6 +139,22 @@
 	font-weight: 400;
 }
 
+/* list */
+ul.list, ol.list {
+	margin-top:2.0rem;
+	margin-left: 2.0rem;
+	color:var(--gray);
+}
+
+ol.list li {
+	list-style: auto;
+}
+
+ul.list li + li,
+ol.list li + li {
+	margin-top:0.4rem;
+}
+
 /* badge */
 .badge-wrap {
 	display: flex;
@@ -271,15 +287,16 @@
 @media (max-width: 576px) {
 	.h-tit1 {
 		font-size: 3.0rem;
+		font-weight: 700;
 	}
 	
 	.h-tit2 {
 		font-size: 2.2rem;
-		font-weight: 400;
+		font-weight: 700;
 	}
 	
 	.h-tit3 {
 		font-size: 1.8rem;
-		font-weight: 400;
+		font-weight: 700;
 	}
 }
