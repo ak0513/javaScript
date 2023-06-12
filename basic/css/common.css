@@ -172,7 +172,7 @@ body {
 	line-height:var(--line-height);
 	font-weight: 400;
 	font-size: var(--font-basic);
-	color: var(--darkgrays);
+	color: var(--darkgray);
 	font-family: -apple-system, Pretendard, BlinkMacSystemFont, sans-serif;
 }
 

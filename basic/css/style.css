@@ -140,19 +140,20 @@
 }
 
 /* list */
-ul.list, ol.list {
+ul[class*='list'],
+ol[class*='list'] {
 	margin-top:2.0rem;
-	margin-left: 2.0rem;
-	color:var(--gray);
+	color:var(--darkgray);
 }
 
-ol.list li {
-	list-style: decimal;
-}
-
-ul.list li + li,
-ol.list li + li {
+ul[class*='list'] li + li,
+ol[class*='list'] li + li {
 	margin-top:0.4rem;
+}
+
+.list-num > li {
+	text-indent: -1.7rem;
+	padding-left: 1.7rem;
 }
 
 /* badge */
