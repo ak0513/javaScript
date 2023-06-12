@@ -147,7 +147,7 @@ ul.list, ol.list {
 }
 
 ol.list li {
-	list-style: auto;
+	list-style: decimal;
 }
 
 ul.list li + li,
