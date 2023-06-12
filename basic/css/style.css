@@ -156,7 +156,7 @@ ol[class*='list'] li + li {
 
 .list-dot > li {
 	position: relative;
-	padding-left:2.0rem;
+	padding-left:1.6rem;
 }
 
 .list-dot > li::before {
@@ -167,7 +167,7 @@ ol[class*='list'] li + li {
 	left:0;
 	width: 0.8rem;
 	height: 0.8rem;
-	background-color: var(--lightgray);
+	background-color: var(--gray);
 	border-radius: 50%;
 }
 
