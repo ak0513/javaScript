@@ -98,14 +98,14 @@
 [class*='h-tit'] {
 	line-height: var(--line-height);
 	color: var(--black);
-	font-family: -apple-system, Pretendard, BlinkMacSystemFont, sans-serif;;
+	font-family: -apple-system, Pretendard, BlinkMacSystemFont, sans-serif;
+	font-weight: 600;
 }
 
 .h-tit1 {
     margin-top:6.0rem;
 	margin-bottom: 2.4rem;
 	font-size: 3.2rem;
-	font-weight: 600;
 	border-bottom:2px solid #e3e3e3;
 }
 
@@ -129,14 +129,12 @@
 	position: relative;
 	margin:5.2rem 0 1.2rem;
 	font-size: 2.6rem;
-	font-weight: 500;
 }
 
 .h-tit3 {
 	margin-top: 4.0rem;
 	margin-bottom: 0.8rem;
 	font-size: 2.2rem;
-	font-weight: 500;
 }
 
 /* list */
