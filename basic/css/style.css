@@ -156,17 +156,17 @@ ol[class*='list'] li + li {
 
 .list-dot > li {
 	position: relative;
-	padding-left:1.6rem;
+	padding-left:1.2rem;
 }
 
 .list-dot > li::before {
 	content:'';
 	display: block;
 	position: absolute;
-	top: 1.0rem;
+	top: 1.1rem;
 	left:0;
-	width: 0.8rem;
-	height: 0.8rem;
+	width: 0.6rem;
+	height: 0.6rem;
 	background-color: var(--gray);
 	border-radius: 50%;
 }
