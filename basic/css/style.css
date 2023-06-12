@@ -98,14 +98,14 @@
 [class*='h-tit'] {
 	line-height: var(--line-height);
 	color: var(--black);
-	font-family: 'Maplestory OTF', -apple-system, BlinkMacSystemFont, Pretendard, sans-serif;;
+	font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;;
 }
 
 .h-tit1 {
     margin-top:6.0rem;
 	margin-bottom: 2.4rem;
 	font-size: 3.2rem;
-	font-weight: 400;
+	font-weight: 600;
 	border-bottom:2px solid #e3e3e3;
 }
 
@@ -129,14 +129,14 @@
 	position: relative;
 	margin:5.2rem 0 1.2rem;
 	font-size: 2.6rem;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 .h-tit3 {
 	margin-top: 4.0rem;
 	margin-bottom: 0.8rem;
 	font-size: 2.2rem;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 /* list */
@@ -287,16 +287,13 @@ ol.list li + li {
 @media (max-width: 576px) {
 	.h-tit1 {
 		font-size: 3.0rem;
-		font-weight: 700;
 	}
 	
 	.h-tit2 {
 		font-size: 2.2rem;
-		font-weight: 700;
 	}
 	
 	.h-tit3 {
 		font-size: 1.8rem;
-		font-weight: 700;
 	}
 }
