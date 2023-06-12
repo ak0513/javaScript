@@ -98,7 +98,7 @@
 [class*='h-tit'] {
 	line-height: var(--line-height);
 	color: var(--black);
-	font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;;
+	font-family: -apple-system, Pretendard, BlinkMacSystemFont, sans-serif;;
 }
 
 .h-tit1 {
