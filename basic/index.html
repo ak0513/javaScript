@@ -58,7 +58,7 @@
 				
 
                     <h2 class="h-tit2">input</h2>
-                    <div class="input-wrap">
+                    <div class="form-input">
                         <input type="text" id="input1">
                     </div>
 
@@ -96,8 +96,10 @@
 
 					<h2 class="h-tit2">체크박스</h2>
 					<h3 class="h-tit3">checkbox</h3>
-					<div class="check-wrap check-only">
-						<input type="checkbox" id="chk1-1" name="chk" title="체크박스 혼자면 title에 삽입" checked>
+					<div class="form-check check-only">
+						<div class="form-check-item">
+							<input type="checkbox" id="chk2-1" name="chk" checked>
+						</div>
 					</div>
 
 					<h3 class="h-tit3">checkbox + label</h3>
@@ -116,27 +118,60 @@
 						</div>
 					</div>
 
+					<div class="form-check col">
+						<div class="form-check-item">
+							<input type="checkbox" id="chk3-1" name="chk" checked>
+							<label class="form-check-label" for="chk3-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
+							<input type="checkbox" id="chk3-2" name="chk">
+							<label class="form-check-label" for="chk3-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
+							<input type="checkbox" id="chk3-3" name="chk">
+							<label class="form-check-label" for="chk3-3">체크박스3</label>
+						</div>
+					</div>
+
 					<h2 class="h-tit2">라디오 버튼</h2>
 					<h3 class="h-tit3">radio</h3>
-					<div class="radio-wrap radio-only">
-						<input type="radio" id="radio1-1" name="radio1" title="라디오박스 혼자면 title에 삽입">
+					<div class="form-check check-only">
+						<div class="form-check-item">
+							<input type="radio" id="radio1-1" name="radio1" checked>
+						</div>
 					</div>
 
 					<h3 class="h-tit3">radio + label</h3>
-					<div class="radio-wrap">
-						<label class="form-label" for="radio2-1">
+					<div class="form-check">
+						<div class="form-check-item">
 							<input type="radio" id="radio2-1" name="radio2" checked>
-							<span class="radio-txt">라디오버튼1</span>
-						</label>
-						<label class="form-label" for="radio2-1">
-							<input type="radio" id="radio2-1" name="radio2">
-							<span class="radio-txt">라디오버튼2</span>
-						</label>
-						<label class="form-label" for="radio2-3">
+							<label class="form-check-label" for="radio2-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
+							<input type="radio" id="radio2-2" name="radio2">
+							<label class="form-check-label" for="radio2-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
 							<input type="radio" id="radio2-3" name="radio2">
-							<span class="radio-txt">라디오버튼3</span>
-						</label>
+							<label class="form-check-label" for="radio2-3">체크박스3</label>
+						</div>
 					</div>
+
+					<div class="form-check col">
+						<div class="form-check-item">
+							<input type="radio" id="radio3-1" name="radio3" checked>
+							<label class="form-check-label" for="radio3-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
+							<input type="radio" id="radio3-2" name="radio3">
+							<label class="form-check-label" for="radio3-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
+							<input type="radio" id="radio3-3" name="radio3">
+							<label class="form-check-label" for="radio3-3">체크박스3</label>
+						</div>
+					</div>
+
 
 					<h2 class="h-tit2">테이블</h2>
 					<h2 class="h-tit3">기본</h2>
@@ -284,19 +319,19 @@
 
 					<div class="form-ele">
 						<label class="form-label" for="input1">input</label>
-						<div class="input-wrap"><input type="text" id="input1"></div>
+						<div class="form-input"><input type="text" id="input1"></div>
 						<p class="form-txt">안내 텍스트</p>
 					</div>
 
 					<div class="form-ele form-ele-inline">
 						<label class="form-label" for="input9">input row</label>
-						<div class="input-wrap"><input type="text" id="input9"></div>
+						<div class="form-input"><input type="text" id="input9"></div>
 					</div>
 
 
 					<div class="form-ele">
 						<label class="form-label" for="input2">input + btn</label>
-						<div class="input-wrap side-btn">
+						<div class="form-input side-btn">
 							<input type="text" id="input2">
 							<button type="button" class="btn btn-light">btn</button>
 						</div>
@@ -304,7 +339,7 @@
 
 					<div class="form-ele">
 						<label class="form-label" for="input3">input + unit</label>
-						<div class="input-wrap with-unit">
+						<div class="form-input with-unit">
 							<span class="unit">약정</span>
 							<input type="text" id="input3" class="align-r">
 							<span class="unit">%</span>
@@ -313,7 +348,7 @@
 
 					<div class="form-ele">
 						<label class="form-label" for="input4">input + btn + unit</label>
-						<div class="input-wrap side-btn with-unit">
+						<div class="form-input side-btn with-unit">
 							<span class="unit">가격</span>
 							<input type="text" id="input4">
 							<span class="unit">원</span>
@@ -324,10 +359,10 @@
 					<div class="form-ele">
 						<label class="form-label" for="input5">input row</label>
 						<div class="form-group">
-							<div class="input-wrap">
+							<div class="form-input">
 								<input type="text" id="input5">
 							</div>
-							<div class="input-wrap">
+							<div class="form-input">
 								<input type="text">
 							</div>
 							<div class="select-wrap">
@@ -343,7 +378,7 @@
 						<div class="col-6">
 							<div class="form-ele">
 								<label class="form-label" for="input6">input</label>
-								<div class="input-wrap">
+								<div class="form-input">
 									<input type="text" id="input6">
 								</div>
 							</div>
@@ -351,7 +386,7 @@
 						<div class="col-6">
 							<div class="form-ele">
 								<label class="form-label" for="input7">input + btn</label>
-								<div class="input-wrap side-btn">
+								<div class="form-input side-btn">
 									<input type="text" id="input7">
 									<button type="button" class="btn bg-ligth">btn</button>
 								</div>
@@ -365,14 +400,14 @@
 						<div class="row gutter-x20">
 							<div class="col-6">
 								<div class="form-ele">
-									<div class="input-wrap">
+									<div class="form-input">
 										<input type="text" id="input8">
 									</div>
 								</div>
 							</div>
 							<div class="col-6">
 								<div class="form-ele">
-									<div class="input-wrap side-btn">
+									<div class="form-input side-btn">
 										<input type="text" id="">
 										<button type="button" class="btn bg-ligth">btn</button>
 									</div>
@@ -409,15 +444,15 @@
 								<div class="form-ele">
 									<div class="form-label">*Dimension</div>
 									<div class="row gutter-x6 flex-nowrap">
-										<div class="col input-wrap">
+										<div class="col form-input">
 											<input type="text" id="height">
 											<label class="form-label" for="height">Height</label>
 										</div>
-										<div class="col input-wrap">
+										<div class="col form-input">
 											<input type="text" id="width">
 											<label class="form-label" for="width">Width</label>
 										</div>
-										<div class="col input-wrap">
+										<div class="col form-input">
 											<input type="text" id="depth">
 											<label class="form-label" for="depth">Depth</label>
 										</div>
@@ -435,11 +470,11 @@
 								<div class="form-ele">
 									<div class="form-label">Production year</div>
 									<div class="row gutter-x6">
-										<div class="col input-wrap grow0">
+										<div class="col form-input">
 											<input type="text" id="yForm" class="sm">
 											<label class="form-label" for="yForm">From</label>
 										</div>
-										<div class="col input-wrap grow0">
+										<div class="col form-input">
 											<input type="text" id="yTo" class="sm">
 											<label class="form-label" for="yTo">To</label>
 										</div>
@@ -447,60 +482,6 @@
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="form-ele">
-						<div class="form-label">Categories</div>
-						<div class="check-wrap">
-							<label class="form-label" for="prototype">
-								<input type="checkbox" id="prototype" name="categories" checked>
-								<span class="check-txt">prototype</span>
-							</label>
-							<label class="form-label" for="fineart">
-								<input type="checkbox" id="fineart" name="categories" checked>
-								<span class="check-txt">fine-art</span>
-							</label>
-							<label class="form-label" for="oil">
-								<input type="checkbox" id="oil" name="categories">
-								<span class="check-txt">oil</span>
-							</label>
-							<label class="form-label" for="painting">
-								<input type="checkbox" id="painting" name="categories" checked>
-								<span class="check-txt">painting</span>
-							</label>
-							<label class="form-label" for="colorfull">
-								<input type="checkbox" id="colorfull" name="categories">
-								<span class="check-txt">colorfull</span>
-							</label>
-							<label class="form-label" for="prototype2">
-								<input type="checkbox" id="prototype2" name="categories">
-								<span class="check-txt">prototype</span>
-							</label>
-							<label class="form-label" for="fineart2">
-								<input type="checkbox" id="fineart2" name="categories">
-								<span class="check-txt">fine-art</span>
-							</label>
-							<label class="form-label" for="oil2">
-								<input type="checkbox" id="oil2" name="categories">
-								<span class="check-txt">oil</span>
-							</label>
-							<label class="form-label" for="painting2">
-								<input type="checkbox" id="painting2" name="categories">
-								<span class="check-txt">painting</span>
-							</label>
-							<label class="form-label" for="colorfull2">
-								<input type="checkbox" id="colorfull2" name="categories">
-								<span class="check-txt">colorfull</span>
-							</label>
-						</div>
-					</div>
-
-					<div class="form-ele d-flex a-i-center">
-						<label class="form-label mgb0" for="add">체크박스 혼자</label>
-						<label class="form-label" for="categories">
-							<input type="checkbox" id="categories" name="categories" checked>
-							<span class="check-txt">카테고리</span>
-						</label>
 					</div>
 
 					<hr>
@@ -512,22 +493,22 @@
 						<div class="col-12">
 							<div class="form-ele">
 								<div class="form-group">
-									<div class="input-wrap side-btn">
+									<div class="form-input side-btn">
 										<input type="text" id="location">
 										<button type="button" class="btn bg-ligth">search</button>
 									</div>
-									<div class="input-wrap">
+									<div class="form-input">
 										<input type="text" placeholder="Place Name">
 									</div>
-									<div class="input-wrap">
+									<div class="form-input">
 										<input type="text" placeholder="Address">
 									</div>
 									<div class="row gutter-x6">
-										<div class="col-6 input-wrap">
+										<div class="col-6 form-input">
 											<input type="text" id="latittude">
 											<label class="form-label" for="latittude">Latittude</label>
 										</div>
-										<div class="col-6 input-wrap">
+										<div class="col-6 form-input">
 											<input type="text" id="longitude">
 											<label class="form-label" for="longitude">Longitude</label>
 										</div>
@@ -547,7 +528,7 @@
 					</div>
 					<div class="form-ele side-btn">
 						<label class="form-label a11y" for="provenance">Provenance</label>
-						<div class="input-wrap"><input type="text" id="provenance"></div>
+						<div class="form-input"><input type="text" id="provenance"></div>
 					</div>
 				</div>
 			</div>

@@ -462,8 +462,13 @@ select.round {
 	margin-top: 1.6rem;
 }
 
-.form-check-item + .form-check-item {
-	margin-top:0.4rem;
+.form-check {
+	display: flex;
+	gap: 1.6rem;
+}
+
+.form-check.col {
+	flex-direction: column;
 }
 
 .form-check-item {
@@ -484,11 +489,11 @@ select.round {
 }
 
 .form-check-item input + .form-check-label {
-	margin-left: 0.4rem;
+	margin-left: 0.8rem;
 }
 
 
-.form-only {
+.check-only {
 	display: inline-flex;
 	margin:0;
 }
@@ -723,6 +728,7 @@ table td {
 }
 
 .row > [class^=col] {
+	margin:0;
 	flex: 1 0 0%;
 }
 
