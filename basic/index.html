@@ -11,9 +11,9 @@
 	
 	<div id="wrap">
 		<header id="header">
-			<button type="button" class="btn-nav-open" onclick="popOpen('#mobileNav', this)" aria-lable="전체메뉴 열기"></button>
+			<button type="button" class="btn btn-primary" title="전체메뉴 열기" data-modal-open="#mobileNav">팝업1</button>
 
-			<button type="button" onclick="popOpen('#popup', this)"> 팝업열기</button>
+			
 		</header>
 
 		<section id="container">
@@ -101,19 +101,19 @@
 					</div>
 
 					<h3 class="h-tit3">checkbox + label</h3>
-					<div class="check-wrap">
-						<label class="form-label" for="chk2-1">
+					<div class="form-check">
+						<div class="form-check-item">
 							<input type="checkbox" id="chk2-1" name="chk" checked>
-							<span class="check-txt">체크박스1</span>
-						</label>
-						<label class="form-label" for="chk2-2">
+							<label class="form-check-label" for="chk2-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
 							<input type="checkbox" id="chk2-2" name="chk">
-							<span class="check-txt">체크박스2</span>
-						</label>
-						<label class="form-label" for="chk2-3">
+							<label class="form-check-label" for="chk2-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
 							<input type="checkbox" id="chk2-3" name="chk">
-							<span class="check-txt">체크박스3</span>
-						</label>
+							<label class="form-check-label" for="chk2-3">체크박스3</label>
+						</div>
 					</div>
 
 					<h2 class="h-tit2">라디오 버튼</h2>
@@ -584,68 +584,13 @@
 	</div>
 
 
-	<aside id="mobileNav">
+	<aside id="mobileNav" class="modal" >
 		<div class="mobile-nav-inner">
 				<a href="">link</a>
-				<button type="button" class="btn-pop-close" aria-label="팝업 닫기" onclick="popClose('#mobileNav')">팝업 닫기</button>
+				<button type="button" class="btn btn-primary" data-modal-close="#mobileNav">팝업 닫기</button>
 		</div>
 		<div class="mobile-dim"></div>
 	</aside>
 
-	<!-- 팝업 -->
-	<div id="popup" class="pop-wrap">
-		<div class="pop-inner">
-			<div class="pop-header">
-				팝업 타이틀
-			</div>
-			<div class="pop-conts">
-				팝업 내용
-			</div>
-			<div class="pop-footer">
-				팝업 하단
-				<button type="button" class="" onclick="popClose('#popup')">팝업 닫기</button>
-			</div>
-		</div>
-	</div>
-
-	<script>
-		var link = document.querySelectorAll('a');
-		link.forEach(function(ele, btn) {
-			ele.setAttribute('role', 'button')
-		})
-
-		// 팝업
-		function popOpen(ele, btn) {
-			var tar = document.querySelector(ele);
-			var mobileDim = document.querySelector('.mobile-dim');
-			
-			tar.setAttribute('tabindex', 0);
-			setTimeout(function() {
-				tar.focus();
-			},10)
-			tar.classList.add('pop-open');
-			btn.setAttribute('data-pop', tar.getAttribute('id'));
-			accessDisable(siblings(tar), 'nav');
-		}
-
-		function popClose(ele) {
-			var tar = document.querySelector(ele);
-			var btns = document.querySelectorAll('[data-pop]');
-			tar.removeAttribute('tabindex');
-			tar.classList.remove('pop-open');
-			accessEnable(siblings(tar), 'nav');
-			btns.forEach(function(ele) {
-				if(ele.dataset.pop === tar.getAttribute('id')) {
-                    setTimeout(function() {
-                        ele.focus();
-                        ele.removeAttribute('data-pop');
-                    },10)
-				}
-			})
-		}
-
-
-		
-	</script>
 </body>
 </html>
