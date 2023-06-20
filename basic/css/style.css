@@ -274,26 +274,56 @@ ol[class*='list'] li + li {
 .modal .modal-inner {
 	position: relative;
     min-width:64.0rem;
-    padding:2.4rem;
     border:1px solid #ccc;
     background-color :#fff;
 	border-radius:0.8rem;
 }
 
-.modal-btn-close {
+.modal-header {
+	padding:1.4rem;
+	border-bottom:1px solid var(--lightgray);
+}
+
+.btn-modal-close {
 	position: absolute;
-	top:10px;
-	right:10px;
+	top:32px;
+	right:20px;
 	width: 24px;
 	height: 24px;
-	background: url('../img/btm-close.svg') no-repeat center / 100%;
+	background: url('../img/btn-close.svg') no-repeat center / 100%;
 }
+
+.modal-body {
+	padding:1.4rem;
+}
+
+.modal-footer {
+	padding:1.4rem;
+	border-top:1px solid var(--lightgray);
+}
+
 
 @media (max-width: 768px) {
 
 	.modal {padding: 2.4rem;}
 	.modal .modal-inner {
 		min-width: 90%;
+	}
+
+	/* 하단에서 노출 */
+	.modal.bottom {
+		align-items: flex-end;
+		padding:0;
+	}
+
+	.modal.bottom .modal-inner {
+		min-width: 100%;
+		border-radius: 0.8rem 0.8rem 0 0;
+		transform: translateY(100%);
+		transition: all 0.4s;
+	}
+	.modal.bottom.active .modal-inner {
+		transform: translateY(0);
 	}
 
 

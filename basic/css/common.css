@@ -79,6 +79,7 @@
 	--font-basic: 1.7rem;
 
 	--line-height: 1.8;
+	--form-line-height: 1.5;
 
 	--gutter4: 0.2rem;
 	--gutter6: 0.3rem;
@@ -99,12 +100,12 @@
 	--form-ele-margin: 0.6rem;
 	--form-ele-margin-x: 0.6rem;
 	--form-ele-margin-y: 0.6rem;
-	--form-ele-padding-x: 3.0rem;
-	--form-ele-padding-y: 1.0rem;
+	--form-ele-padding-x: 1.6rem;
+	--form-ele-padding-y: 1.2rem;
 	--form-ele-padding-sm-x: calc(var(--form-ele-padding-x) * 0.6);
 	--form-ele-padding-sm-y: calc(var(--form-ele-padding-y) * 0.6);
-	--form-ele-padding-lg-x: calc(var(--form-ele-padding-x) * 1.5);
-	--form-ele-padding-lg-y: calc(var(--form-ele-padding-y) * 1.5);
+	--form-ele-padding-lg-x: calc(var(--form-ele-padding-x) * 1.2);
+	--form-ele-padding-lg-y: calc(var(--form-ele-padding-y) * 1.2);
 	--form-ele-border-color: #e3e3e3;
 	--form-ele-radius: 0.2rem;
 
@@ -255,6 +256,7 @@ body {
 .d-flex {display: flex !important;}
 .a-i-center {align-items: center !important;}
 .j-c-center {justify-content: center !important;}
+.j-c-end {justify-content: flex-end !important;}
 .j-c-space-between {justify-content: space-between !important;}
 .j-c-space-around {justify-content: space-around !important;}
 .flex-nowrap {flex-wrap: nowrap !important;}
@@ -342,12 +344,12 @@ input[type='search'],
 input[type='number'] {
 	display: block;
 	width: 100%;
-	min-height:var(--form-ele-min-hegiht);
-	padding: 0 1.2rem;
+	padding: var(--form-ele-padding-y) var(--form-ele-padding-x);
 	border:1px solid var(--lightgray);
 	color: var(--black);
 	font-size: var(--form-ele-font);
 	border-radius: var(--form-ele-radius);
+	line-height: var(--form-line-height);
 }
 
 input[type='tel']::placeholder,
@@ -382,11 +384,9 @@ input[type='number']::placeholder {
 .form-input.side-btn .btn {
 	flex-grow: 1;
 	flex-shrink: 0;
-	height: var(--form-ele-min-hegiht);
 	margin: 0;
 	margin-left: -1px;
 	padding:0 1.6rem;
-	/* border-left:none; */
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	font-size:var(--form-label);
@@ -422,7 +422,6 @@ input[type='number']::placeholder {
 select {
 	position: relative;
 	width: 100%;
-	min-height:var(--form-ele-min-hegiht);
 	border:1px solid var(--lightgray);
 	padding: var(--form-ele-padding-y) 3.6rem var(--form-ele-padding-y) 1.2rem;
 	background-color: #fff;
@@ -434,6 +433,7 @@ select {
 	color:var(--black);
 	border-radius: var(--form-ele-radius);
 	appearance: none;
+	line-height: var(--form-line-height);
 }
 
 select.select-sm  {
