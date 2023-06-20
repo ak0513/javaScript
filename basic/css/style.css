@@ -137,29 +137,29 @@
 	font-size: 2.2rem;
 }
 
-/* list */
-ul[class*='list'],
-ol[class*='list'] {
+/* bullet */
+ul[class*='bullet'],
+ol[class*='bullet'] {
 	margin-top:2.0rem;
 	color:var(--darkgray);
 }
 
-ul[class*='list'] li + li,
-ol[class*='list'] li + li {
+ul[class*='bullet'] li + li,
+ol[class*='bullet'] li + li {
 	margin-top:0.4rem;
 }
 
-.list-num > li {
+.bullet-num > li {
 	text-indent: -1.7rem;
 	padding-left: 1.7rem;
 }
 
-.list-dot > li {
+.bullet-dot > li {
 	position: relative;
 	padding-left:1.2rem;
 }
 
-.list-dot > li::before {
+.bullet-dot > li::before {
 	content:'';
 	display: block;
 	position: absolute;
@@ -169,6 +169,22 @@ ol[class*='list'] li + li {
 	height: 0.6rem;
 	background-color: var(--gray);
 	border-radius: 50%;
+}
+
+.bullet-hyphen > li {
+	position: relative;
+	padding-left:1.2rem;
+}
+
+.bullet-hyphen > li::before {
+	content:'';
+	display: block;
+	position: absolute;
+	top: 1.4rem;
+	left:0;
+	width: 0.6rem;
+	height: 0.1rem;
+	background-color: var(--gray);
 }
 
 /* badge */

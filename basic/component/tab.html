@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../js/ui.js"></script>
+	<title>탭</title>
+</head>
+
+<body>
+	<div id="wrap">
+		<header id="header">
+			header
+		</header>
+
+		<section id="container">
+			<div class="container-inner">
+				<div class="tab">
+					<ul class="tab-group" role="tablist">
+						<li class="tab-item current" role="presentation"><button type="button" id="tab01_01" class="tab-btn" role="tab" aria-controls="section01_01" aria-selected="true">탭1</button></li>
+						<li class="tab-item" role="presentation"><button type="button" id="tab01_02" class="tab-btn" role="tab" aria-controls="section01_02" aria-selected="false">탭2</button></li>
+						<li class="tab-item" role="presentation"><button type="button" id="tab01_03" class="tab-btn" role="tab" aria-controls="section01_03" aria-selected="false">탭3</button></li>
+					</ul>
+
+					<div class="tab-content">
+						<div class="tab-panel current" id="section01_01" role="tabpanel" aria-labelledby="tab01_01">본문1</div>
+						<div class="tab-panel" id="section01_02" role="tabpanel" aria-labelledby="tab01_02">본문2</div>
+						<div class="tab-panel" id="section01_03" role="tabpanel" aria-labelledby="tab01_03">본문3</div>
+					</div>
+				</div>
+
+				<div class="tab">
+					<ul class="tab-group" role="tablist">
+						<li class="tab-item current" role="presentation"><button type="button" id="tab02_01" class="tab-btn" role="tab" aria-controls="section02_01" aria-selected="true">탭1</button></li>
+						<li class="tab-item" role="presentation"><button type="button" id="tab02_02" class="tab-btn" role="tab" aria-controls="section02_02" aria-selected="false">탭2</button></li>
+						<li class="tab-item" role="presentation"><button type="button" id="tab02_03" class="tab-btn" role="tab" aria-controls="section02_03" aria-selected="false">탭3</button></li>
+					</ul>
+
+					<div class="tab-content">
+						<div class="tab-panel current" id="section02_01" role="tabpanel" aria-labelledby="tab02_01">본문1</div>
+						<div class="tab-panel" id="section02_02" role="tabpanel" aria-labelledby="tab02_02">본문2</div>
+						<div class="tab-panel" id="section02_03" role="tabpanel" aria-labelledby="tab02_03">본문3</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<style>
+		.tab-group {display: flex;}
+		.tab-btn {display: block;margin:0 30px;font-size: 16px;}
+		.tab-item.current .tab-btn {color:red;}
+		.tab-content {margin-top:20px;}
+		.tab-panel {display: none;}
+		.tab-panel.current {display:block;}
+	</style>
+
+
+</body>
+
+</html>

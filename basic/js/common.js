@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	ui.setDeviceInfo(); // deviceInfo 세팅
 	ui.setBodyClass();  // body에 device별 클래스 추가
+	ui.tab()            // 탭
 	ui.accordion()      // 아코디언
 	ui.popup()          // 팝업
 
@@ -268,7 +269,30 @@ var ui = (function() {
 
 
 
-
+	// 탭
+	var tab = function() {
+		var btnTab = document.querySelectorAll('.tab-btn');
+		btnTab.forEach(function(ele) {
+			ele.addEventListener('click', function() {
+				if(ele.parentElement.classList.contains('current')) {
+					return;
+				}
+				var tab = ele.closest('.tab');
+				var tabBtn = tab.querySelectorAll('.tab-btn');
+				var tabItem = tab.querySelectorAll('.tab-item');
+				var tabPannel = tab.querySelectorAll('.tab-panel');
+				var controls = this.getAttribute('aria-controls');
+				// 초기화
+				ui.removeClass(tabItem, 'current');
+				ui.removeClass(tabPannel, 'current');
+				ui.setAttr(tabBtn, 'aria-selected', 'false')
+				// 세팅
+				this.parentElement.classList.add('current');
+				this.setAttribute('aria-selected', true)
+				tab.querySelector('#' + controls).classList.add('current');
+			});
+		})
+	}
 
 
 
@@ -443,6 +467,7 @@ var ui = (function() {
 		removeAttr: removeAttr,             // attr 삭제
 		getUrlParam: getUrlParam,           // url파라미터 값 구하기
 
+		tab: tab,                           // 탭
 		accordion: accordion,               // 아코디언
 		popup: popup,                       // 팝업
 
