@@ -76,6 +76,8 @@
 
 	--link-color: var(--black);
 
+	--border-color:var(--lightgray);
+
 	--font-basic: 1.7rem;
 
 	--line-height: 1.8;
@@ -265,7 +267,7 @@ body {
 .shrink0 {flex-shrink: 0 !important;}
 
 hr {
-	margin: 4.0rem -2.4rem;;
+	margin: 4.0rem -2.4rem;
 	border: none;
 	height: 10px;
 	background-color: var(--lightgray);
@@ -286,7 +288,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	padding: var(--form-ele-padding-y) var(--form-ele-padding-x);
-	border:1px solid var(--lightgray);
+	border:1px solid var(--border-color);
 	font-size: var(--form-ele-font);
 	border-radius: var(--form-ele-radius);
 	line-height:var(--line-height);
@@ -345,7 +347,7 @@ input[type='number'] {
 	display: block;
 	width: 100%;
 	padding: var(--form-ele-padding-y) var(--form-ele-padding-x);
-	border:1px solid var(--lightgray);
+	border:1px solid var(--border-color);
 	color: var(--black);
 	font-size: var(--form-ele-font);
 	border-radius: var(--form-ele-radius);
@@ -404,7 +406,7 @@ input[type='number']::placeholder {
 	height: var(--form-ele-height);
 	padding: 0 1.2rem;
 	background-color: var(--light);
-	border: 1px solid var(--lightgray);
+	border: 1px solid var(--border-color);
 	border-right: none;
 	font-size:var(--form-label);
 }
@@ -415,14 +417,14 @@ input[type='number']::placeholder {
 
 .form-input.with-unit input + .unit {
 	border-left-color: transparent;
-	border-right:1px solid var(--lightgray);
+	border-right:1px solid var(--border-color);
 }
 
 /* select */
 select {
 	position: relative;
 	width: 100%;
-	border:1px solid var(--lightgray);
+	border:1px solid var(--border-color);
 	padding: var(--form-ele-padding-y) 3.6rem var(--form-ele-padding-y) 1.2rem;
 	background-color: #fff;
 	background-image: url("../img/chevron-down.svg");
@@ -679,33 +681,33 @@ table td {
 }
 
 .table thead th {
-	border-top: 1px solid var(--lightgray);
-	border-bottom: 1px solid var(--lightgray);
+	border-top: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color);
 }
 
 .table tfoot th {
-	border-right:1px solid var(--lightgray);
-	border-bottom: 1px solid var(--lightgray);
+	border-right:1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color);
 }
 
 .table tfoot td {
 	padding:1.2rem;
-	border-bottom: 1px solid var(--lightgray);
+	border-bottom: 1px solid var(--border-color);
 }
 
 .table tbody th {
-	border-right:1px solid var(--lightgray);
-	border-bottom: 1px solid var(--lightgray);
+	border-right:1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color);
 }
 
 .table tbody td {
 	padding:1.2rem;
-	border-bottom: 1px solid var(--lightgray);
+	border-bottom: 1px solid var(--border-color);
 }
 
 .table-wrap.border th,
 .table-wrap.border td {
-	border:1px solid var(--lightgray)
+	border:1px solid var(--border-color)
 }
 .table-wrap.border thead th {
 	border-bottom:none;

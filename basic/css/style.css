@@ -16,7 +16,7 @@
 /* header */
 #header {
 	padding:2.0rem;
-	border-bottom:1px solid var(--lightgray)
+	border-bottom:1px solid var(--border-color)
 }
 
 /* container */
@@ -204,18 +204,51 @@ ol[class*='bullet'] li + li {
 }
 
 
+/* 탭 */
+.tab-group {
+	display: flex;
+}
+.tab-item {
+	position: relative;
+}
+.tab-item + .tab-item {
+	margin-left: -1px;
+}
+.tab-btn {
+	display:block;
+	padding:1.2rem 3.0rem;
+	border:1px solid var(--border-color);
+	font-size:1.6rem;
+}
+.tab-item.current {
+	z-index: 1;
+}
+.tab-item.current .tab-btn {
+	border-color:var(--primary);
+}
+.tab-content {
+	margin-top:1.2rem;
+}
+.tab-panel {
+	display: none;
+}
+.tab-panel.current {
+	display:block;
+}
+
+
 /* 아코디언 */
 * + .accordion {
-	margin-top:16px;
+	margin-top:1.6rem;
 }
 
 .accordion {
-	border-top:1px solid var(--lightgray);
+	border-top:1px solid var(--border-color);
 	border-bottom:1px solid var(--light);
 }
 
 .accordion-item + .accordion-item {
-	border-top:1px solid var(--lightgray);
+	border-top:1px solid var(--border-color);
 }
 
 .accordion-button {
@@ -290,14 +323,14 @@ ol[class*='bullet'] li + li {
 .modal .modal-inner {
 	position: relative;
     min-width:64.0rem;
-    border:1px solid #ccc;
+    border:1px solid var(--border-color);
     background-color :#fff;
 	border-radius:0.8rem;
 }
 
 .modal-header {
 	padding:1.4rem;
-	border-bottom:1px solid var(--lightgray);
+	border-bottom:1px solid var(--border-color);
 }
 
 .btn-modal-close {
@@ -315,7 +348,7 @@ ol[class*='bullet'] li + li {
 
 .modal-footer {
 	padding:1.4rem;
-	border-top:1px solid var(--lightgray);
+	border-top:1px solid var(--border-color);
 }
 
 
