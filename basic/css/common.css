@@ -364,10 +364,6 @@ input[type='number']::placeholder {
 	color: var(--black);
 }
 
-* + .form-input {
-	margin-top: var(--form-ele-margin-top);
-}
-
 .form-input {
 	position: relative;
 }
@@ -557,7 +553,7 @@ textarea {
 }
 
 /* form */
-.form-tit-wrap {
+.form-tit {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -565,11 +561,11 @@ textarea {
 	margin-bottom: 2.0rem;
 }
 
-.form-tit-wrap [class*='h-tit'] {
+.form-tit [class*='h-tit'] {
 	margin:0;
 }
 
-.form-tit-wrap .btn-wrap {
+.form-tit .btn-wrap {
 	margin-top: 0;
 }
 
@@ -586,9 +582,15 @@ textarea {
 	align-items: center;
 }
 
+.form-info {
+	margin-top:0.8rem;
+	font-size: 1.4rem;
+}
+
 .form-label {
 	display: flex;
 	align-items: center;
+	margin-bottom: var(--form-ele-margin-top);
 	font-size:var(--form-label);
 	color: var(--black);
 }
@@ -630,7 +632,7 @@ textarea {
 	margin-top: 5.0rem;
 }
 
-.form > .form-ele + .form-tit-wrap {
+.form > .form-ele + .form-tit {
 	margin-top: 8.0rem;
 }
 

@@ -268,16 +268,15 @@ var ui = (function() {
     }
 
 
-
 	// 탭
 	var tab = function() {
-		var btnTab = document.querySelectorAll('.tab-btn');
-		btnTab.forEach(function(ele) {
-			ele.addEventListener('click', function() {
-				if(ele.parentElement.classList.contains('current')) {
+		var tabBtns = document.querySelectorAll('.tab-btn');
+		tabBtns.forEach(function(tabBtnsEle) {
+			tabBtnsEle.addEventListener('click', function() {
+				if(tabBtnsEle.parentElement.classList.contains('current')) {
 					return;
 				}
-				var tab = ele.closest('.tab');
+				var tab = tabBtnsEle.closest('.tab');
 				var tabBtn = tab.querySelectorAll('.tab-btn');
 				var tabItem = tab.querySelectorAll('.tab-item');
 				var tabPannel = tab.querySelectorAll('.tab-panel');
@@ -293,8 +292,6 @@ var ui = (function() {
 			});
 		})
 	}
-
-
 
 
 	// 아코디언
