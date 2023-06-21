@@ -719,18 +719,18 @@ table td {
 
 
 /**** grid ****/
-* + .row {
-	margin-top:1.6rem;
-}
-
 .row {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.row > [class^=col] {
+.row > [class^='col'] {
 	margin:0;
-	flex: 1 0 0%;
+	flex: 1;
+}
+
+.row > [class*='col-'] {
+	flex: 1 1 auto;
 }
 
 .gutter-x4 {margin-left: calc(var(--gutter4) * -1);margin-right: calc(var(--gutter4) * -1);}
@@ -747,6 +747,21 @@ table td {
 .gutter-x40 > [class^=col] {padding-left: var(--gutter40);padding-right: var(--gutter40);}
 .gutter-x50 {margin-left: calc(var(--gutter50) * -1);margin-right: calc(var(--gutter50) * -1);}
 .gutter-x50 > [class^=col] {padding-left: var(--gutter50);padding-right: var(--gutter50);}
+
+.gutter-y4 {margin-top: calc(var(--gutter4) * -1);margin-bottom: calc(var(--gutter4) * -1);}
+.gutter-y4 > [class^=col] {padding-top: var(--gutter4);padding-bottom: var(--gutter4);}
+.gutter-y6 {margin-top: calc(var(--gutter6) * -1);margin-bottom: calc(var(--gutter6) * -1);}
+.gutter-y6 > [class^=col] {padding-top: var(--gutter6);padding-bottom: var(--gutter6);}
+.gutter-y10 {margin-top: calc(var(--gutter10) * -1);margin-bottom: calc(var(--gutter10) * -1);}
+.gutter-y10 > [class^=col] {padding-top: var(--gutter10);padding-bottom: var(--gutter10);}
+.gutter-y20 {margin-top: calc(var(--gutter20) * -1);margin-bottom: calc(var(--gutter20) * -1);}
+.gutter-y20 > [class^=col] {padding-top: var(--gutter20);padding-bottom: var(--gutter20);}
+.gutter-y30 {margin-top: calc(var(--gutter30) * -1);margin-bottom: calc(var(--gutter30) * -1);}
+.gutter-y30 > [class^=col] {padding-top: var(--gutter30);padding-bottom: var(--gutter30);}
+.gutter-y40 {margin-top: calc(var(--gutter40) * -1);margin-bottom: calc(var(--gutter40) * -1);}
+.gutter-y40 > [class^=col] {padding-top: var(--gutter40);padding-bottom: var(--gutter40);}
+.gutter-y50 {margin-top: calc(var(--gutter50) * -1);margin-bottom: calc(var(--gutter50) * -1);}
+.gutter-y50 > [class^=col] {padding-top: var(--gutter50);padding-bottom: var(--gutter50);}
 
 .gutter4 {margin: calc(var(--gutter4) * -1);}
 .gutter4 > [class^=col] {padding: var(--gutter4);}
