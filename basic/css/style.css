@@ -95,26 +95,29 @@
 
 
 /* title */
-[class*='h-tit'] {
+[class*='h-dep'] {
 	line-height: var(--line-height);
 	color: var(--black);
 	font-family: -apple-system, Pretendard, BlinkMacSystemFont, sans-serif;
 	font-weight: 600;
 }
 
-.h-tit1 {
+.h-dep1 {
     margin-top:6.0rem;
 	margin-bottom: 2.4rem;
-	font-size: 3.2rem;
 	border-bottom:2px solid #e3e3e3;
 }
 
-.h-tit1 span {
+.h-dep1 .h-tit {
+	font-size: 3.2rem;
+}
+
+.h-dep1 .h-tit span {
 	display: inline-block;
 	position: relative;
 }
 
-.h-tit1 span::after {
+.h-dep1 .h-tit span::after {
 	content:'';
 	display: block;
 	position: absolute;
@@ -125,15 +128,21 @@
 	background-color: rgb(220, 86, 86);
 }
 
-.h-tit2 {
+.h-dep2 {
 	position: relative;
 	margin:5.2rem 0 1.2rem;
+}
+
+.h-dep2 .h-tit {
 	font-size: 2.6rem;
 }
 
-.h-tit3 {
+.h-dep3 {
 	margin-top: 4.0rem;
 	margin-bottom: 0.8rem;
+}
+
+.h-dep3 .h-tit {
 	font-size: 2.2rem;
 }
 
