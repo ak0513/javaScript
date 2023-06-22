@@ -39,6 +39,7 @@ var ui = (function() {
 		os: null,
 		device: null,
 		browser : null,
+		version : null,
 		mobile : userAgent.isMobile(),
 	}
 	
@@ -46,7 +47,7 @@ var ui = (function() {
 	var setBodyClass = function() {
 		// pc mobile 체크
 		var setPlatform = deviceInfo.mobile ? 'mobile' : 'pc';
-		var bodyClass = setPlatform + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device;
+		var bodyClass = setPlatform + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device+ ' ' + deviceInfo.version;
 		document.querySelector('body').setAttribute('class', bodyClass)
 	}
 	
@@ -84,6 +85,42 @@ var ui = (function() {
 				default : return deviceInfo.browser = 'other-browser';
 			}
 		})();
+
+		// 버전 체크
+		var VersionName = (function() {
+			switch(true) {
+				case userAgent.edge() : return deviceInfo.version = getVersion('edge');
+				case userAgent.opera() && !!window.opr: return deviceInfo.version = getVersion('opera');
+				case userAgent.chrome() && !!window.chrome: return deviceInfo.version = getVersion('chrome');
+				case userAgent.msie() : return deviceInfo.version = getVersion('msie');
+				case userAgent.firefox() : return deviceInfo.version = getVersion('firefox');
+				case userAgent.safari() : return deviceInfo.version = getVersion('safari');
+				default : return deviceInfo.browser = 'other-browser';
+			}
+		})();
+	}
+
+	// 버전 구하기
+	var getVersion = function(agent) {
+		var version = null;
+		if(agent === 'edge') {
+			var matches = ua.match(/edg\/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/);
+		} else if(agent === 'opera') {
+			var matches = ua.match(/opera\/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/);
+		} else if(agent === 'chrome') {
+			var matches = ua.match(/chrome\/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/);
+		} else if(agent === 'msie') {
+			var matches = ua.match(/msie\/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/);
+		} else if(agent === 'firefox') {
+			var matches = ua.match(/firefox\/([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/);
+		} else if(agent === 'safari') {
+			var matches = ua.match(/version\/([0-9]+\.[0-9]+)/);
+			console.log('safari', matches)
+		}
+		if (matches) {
+			version = 'version' + matches[1].split('.')[0];
+		}
+		return version;
 	}
 
 	// 포커스 비활성화(접근성)

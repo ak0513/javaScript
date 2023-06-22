@@ -316,6 +316,7 @@ ol[class*='bullet'] li + li {
     left: 0;
     right: 0;
     bottom: 0;
+	z-index: 100;
     background-color: rgba(0,0,0,0.5);
     transition: all 0.4s;
 }
@@ -344,10 +345,10 @@ ol[class*='bullet'] li + li {
 
 .btn-modal-close {
 	position: absolute;
-	top:32px;
-	right:20px;
-	width: 24px;
-	height: 24px;
+	top:1.8rem;
+	right:1.4rem;
+	width: 3.6rem;
+	height: 3.6rem;
 	background: url('../img/btn-close.svg') no-repeat center / 100%;
 }
 
