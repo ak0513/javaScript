@@ -584,15 +584,15 @@ textarea {
 	align-items: center;
 }
 
-/* .form-item .row {
+.form-item .row {
 	margin-top: calc(var(--form-item-margin) / 2 * -1);
     margin-bottom: calc(var(--form-item-margin) / 2 * -1);
 }
 
 .form-item .row > [class^=col] {
-	padding-top: var(--form-item-margin) / 2;
-    padding-bottom: var(--form-item-margin) / 2;
-} */
+	padding-top: calc(var(--form-item-margin) / 2);
+    padding-bottom: calc(var(--form-item-margin) / 2);
+}
 
 .form-info {
 	margin-top:0.8rem;
