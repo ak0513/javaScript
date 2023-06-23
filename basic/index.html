@@ -80,7 +80,7 @@
 					<h2 class="h-tit"><span>Input</span></h2>
 				</div>
 				<div class="form-input">
-					<input type="text" id="input1">
+					<input type="text" id="input1-1">
 				</div>
 
 
@@ -339,7 +339,7 @@
 				</div>
 				<div class="form">
 					<div class="h-dep1">
-						<h3 class="h-tit">폼 타이틀 Input</h3>
+						<h3 class="h-tit">Input</h3>
 					</div>
 
 					<div class="form-item">
@@ -348,54 +348,58 @@
 					</div>
 
 					<div class="form-item">
-						<label class="form-label" for="input1">input</label>
-						<div class="form-input"><input type="text" id="input1"></div>
+						<label class="form-label" for="input2-1">input</label>
+						<div class="form-input"><input type="text" id="input2-1"></div>
 						<p class="form-info">폼 안내 텍스트</p>
 					</div>
 
 					<div class="form-item form-item-inline">
-						<label class="form-label" for="input9">input row</label>
-						<div class="form-input grow1"><input type="text" id="input9"></div>
+						<label class="form-label" for="input2-2">input row</label>
+						<div class="form-input grow1"><input type="text" id="input2-2"></div>
 					</div>
 
 
 					<div class="form-item">
-						<label class="form-label" for="input2">input + btn</label>
+						<label class="form-label" for="input2-3">input + btn</label>
 						<div class="form-input side-btn">
-							<input type="text" id="input2">
+							<input type="text" id="input2-3">
 							<button type="button" class="btn btn-light">btn</button>
 						</div>
 					</div>
 
 					<div class="form-item">
-						<label class="form-label" for="input3">input + unit</label>
+						<label class="form-label" for="input2-4">input + unit</label>
 						<div class="form-input with-unit">
 							<span class="unit">약정</span>
-							<input type="text" id="input3" class="align-r">
+							<input type="text" id="input2-4" class="align-r">
 							<span class="unit">%</span>
 						</div>
 					</div>
 
 					<div class="form-item">
-						<label class="form-label" for="input4">input + btn + unit</label>
+						<label class="form-label" for="input2-5">input + btn + unit</label>
 						<div class="form-input side-btn with-unit">
 							<span class="unit">가격</span>
-							<input type="text" id="input4">
+							<input type="text" id="input2-5">
 							<span class="unit">원</span>
 							<button type="button" class="btn btn-light">btn</button>
 						</div>
 					</div>
 
+					<div class="h-dep1">
+						<h3 class="h-tit">Form group</h3>
+					</div>
+					
 					<div class="form-item">
-						<label class="form-label" for="input5">input row</label>
+						<label class="form-label" for="input2-6">input group</label>
 						<div class="form-group">
 							<div class="form-input">
-								<input type="text" id="input5">
+								<input type="text" id="input2-6">
 							</div>
 							<div class="form-input">
-								<input type="text">
+								<input type="text" title="">
 							</div>
-							<div class="select-wrap">
+							<div class="select-wrap" title="">
 								<select name="">
 									<option value="">cm</option>
 									<option value="">cm2</option>
@@ -407,20 +411,16 @@
 					<div class="form-item">
 						<div class="row gutter-x20">
 							<div class="col-6">
-								<div class="form-item">
-									<label class="form-label" for="input6">input</label>
-									<div class="form-input">
-										<input type="text" id="input6">
-									</div>
+								<label class="form-label" for="input2-7">input</label>
+								<div class="form-input">
+									<input type="text" id="input2-7">
 								</div>
 							</div>
 							<div class="col-6">
-								<div class="form-item">
-									<label class="form-label" for="input7">input + btn</label>
-									<div class="form-input side-btn">
-										<input type="text" id="input7">
-										<button type="button" class="btn bg-ligth">btn</button>
-									</div>
+								<label class="form-label" for="input2-8">input + btn</label>
+								<div class="form-input side-btn">
+									<input type="text" id="input2-8">
+									<button type="button" class="btn bg-ligth">btn</button>
 								</div>
 							</div>
 						</div>
@@ -428,12 +428,12 @@
 
 
 					<div class="form-item">
-						<label class="form-label" for="input8">input</label>
+						<label class="form-label" for="input2-9">input</label>
 						<div class="row gutter-x20">
 							<div class="col-6">
 								<div class="form-item">
 									<div class="form-input">
-										<input type="text" id="input8">
+										<input type="text" id="input2-9">
 									</div>
 								</div>
 							</div>
@@ -447,10 +447,52 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="form-item">
+						<div class="row gutter-x50 gutter-md-x20 gutter-y20">
+							<div class="col-6 col-md-12">
+								<div class="form-label">Dimension</div>
+								<div class="row gutter-x6 flex-nowrap">
+									<div class="col form-input">
+										<input type="text" id="height">
+										<label class="form-label" for="height">Height</label>
+									</div>
+									<div class="col form-input">
+										<input type="text" id="width">
+										<label class="form-label" for="width">Width</label>
+									</div>
+									<div class="col form-input">
+										<input type="text" id="depth">
+										<label class="form-label" for="depth">Depth</label>
+									</div>
+									<div class="col select-wrap shrink0">
+										<select name="" title="">
+											<option value="">cm</option>
+											<option value="">cm2</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-12">
+								<div class="form-label">Production year</div>
+								<div class="row gutter-x6">
+									<div class="col form-input">
+										<input type="text" id="yForm" class="sm">
+										<label class="form-label" for="yForm">From</label>
+									</div>
+									<div class="col form-input">
+										<input type="text" id="yTo" class="sm">
+										<label class="form-label" for="yTo">To</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				
 
 					<div class="h-dep1">
-						<h3 class="h-tit">폼 타이틀 Input + Select</h3>
+						<h3 class="h-tit">Select</h3>
 					</div>
 					<div class="form-item">
 						<div class="select-wrap">
@@ -460,7 +502,10 @@
 							</select>
 						</div>
 					</div>
-				
+
+					<div class="h-dep1">
+						<h3 class="h-tit">Textarea</h3>
+					</div>
 					<div class="form-item">
 						<label class="form-label" for="description">Description</label>
 						<div class="textarea-wrap">
@@ -468,88 +513,10 @@
 						</div>
 					</div>
 
-					<div class="form-item">
-						<div class="row gutter-x50 gutter-md-x20 gutter-y20">
-							<div class="col-6 col-md-12">
-								<div class="form-item">
-									<div class="form-label">*Dimension</div>
-									<div class="row gutter-x6 flex-nowrap">
-										<div class="col form-input">
-											<input type="text" id="height">
-											<label class="form-label" for="height">Height</label>
-										</div>
-										<div class="col form-input">
-											<input type="text" id="width">
-											<label class="form-label" for="width">Width</label>
-										</div>
-										<div class="col form-input">
-											<input type="text" id="depth">
-											<label class="form-label" for="depth">Depth</label>
-										</div>
-										<div class="col select-wrap shrink0">
-											<select name="">
-												<option value="">cm</option>
-												<option value="">cm2</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-12">
-								<div class="form-item">
-									<div class="form-label">Production year</div>
-									<div class="row gutter-x6">
-										<div class="col form-input">
-											<input type="text" id="yForm" class="sm">
-											<label class="form-label" for="yForm">From</label>
-										</div>
-										<div class="col form-input">
-											<input type="text" id="yTo" class="sm">
-											<label class="form-label" for="yTo">To</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<div class="h-dep1">
-						<h3 class="h-tit">Location</h3>
-					</div>
-					<div class="row gutter-x50">
-						<div class="col-12">
-							<div class="form-item">
-								<div class="form-group">
-									<div class="form-input side-btn">
-										<input type="text" id="location">
-										<button type="button" class="btn bg-ligth">search</button>
-									</div>
-									<div class="form-input">
-										<input type="text" placeholder="Place Name">
-									</div>
-									<div class="form-input">
-										<input type="text" placeholder="Address">
-									</div>
-									<div class="row gutter-x6">
-										<div class="col-6 form-input">
-											<input type="text" id="latittude">
-											<label class="form-label" for="latittude">Latittude</label>
-										</div>
-										<div class="col-6 form-input">
-											<input type="text" id="longitude">
-											<label class="form-label" for="longitude">Longitude</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="h-dep1">
-						<h3 class="h-tit">폼 타이틀 Input + Btn</h3>
+						<h3 class="h-tit">폼 타이틀 + Btn</h3>
 						<div class="btn-wrap">
-							<button type="button" class="btn btn-round btn-sm">Add</button>
+							<button type="button" class="btn btn-sm">Add</button>
 						</div>
 					</div>
 

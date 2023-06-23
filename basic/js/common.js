@@ -47,7 +47,7 @@ var ui = (function() {
 	var setBodyClass = function() {
 		// pc mobile 체크
 		var setPlatform = deviceInfo.mobile ? 'mobile' : 'pc';
-		var bodyClass = setPlatform + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ' + deviceInfo.device+ ' ' + deviceInfo.version;
+		var bodyClass = setPlatform + ' ' + deviceInfo.os + ' ' + deviceInfo.browser + ' ver' + deviceInfo.version + ' ' + deviceInfo.device;
 		document.querySelector('body').setAttribute('class', bodyClass)
 	}
 	
@@ -118,7 +118,7 @@ var ui = (function() {
 			console.log('safari', matches)
 		}
 		if (matches) {
-			version = 'version' + matches[1].split('.')[0];
+			version = matches[1].split('.')[0];
 		}
 		return version;
 	}
@@ -486,6 +486,7 @@ var ui = (function() {
 	}
 
 	return {
+		deviceInfo: deviceInfo,             // deviceInfo 정보
 		setDeviceInfo: setDeviceInfo,       // deviceInfo 세팅
 		setBodyClass: setBodyClass,         // body에 device별 클래스 추가
 		accessDisable: accessDisable,       // 포커스 비활성화(접근성)
