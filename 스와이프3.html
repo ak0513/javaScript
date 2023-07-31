@@ -42,7 +42,8 @@
 				// currentPosition = -((slider.childElementCount - 1) * sliderWidth);
 				prevBtn.classList.add('hide')
 			}
-			slider.style.transform = `translateX(${currentPosition}px)`;
+			// slider.style.transform = `translateX(${currentPosition}px)`;
+			sliderContainer.scrollTo(currentPosition, 0);
 			nextBtn.classList.remove('hide')
 		});
 
@@ -53,7 +54,9 @@
 				nextBtn.classList.add('hide')
 			}
 			prevBtn.classList.remove('hide')
-			slider.style.transform = `translateX(${currentPosition}px)`;
+			// slider.style.transform = `translateX(${currentPosition}px)`;
+			sliderContainer.scrollTo(-1 * (currentPosition), 0);
+			console.log(currentPosition)
 
 		});
 
