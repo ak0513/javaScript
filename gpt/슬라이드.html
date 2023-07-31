@@ -11,9 +11,16 @@
 	<div id="wrap">
 		<div class="slider-container">
 			<div class="slider">
-				<div class="slide" style="background-color: #666;">1</div>
-				<div class="slide" style="background-color: #333;">2</div>
-				<div class="slide" style="background-color: #999;">3</div>
+				<div class="slide slide1"><a href="#" role="button">slide1</a></div>
+				<div class="slide slide2"><a href="#" role="button">slide2</a></div>
+				<div class="slide slide3"><a href="#" role="button">slide3</a></div>
+				<div class="slide slide4"><a href="#" role="button">slide4</a></div>
+				<div class="slide slide5"><a href="#" role="button">slide5</a></div>
+				<div class="slide slide6"><a href="#" role="button">slide6</a></div>
+				<div class="slide slide7"><a href="#" role="button">slide7</a></div>
+				<div class="slide slide8"><a href="#" role="button">slide8</a></div>
+				<div class="slide slide9"><a href="#" role="button">slide9</a></div>
+				<div class="slide slide10"><a href="#" role="button">slide10</a></div>
 				<!-- 슬라이드를 원하는 개수만큼 추가하세요. -->
 			</div>
 			<button id="prevBtn">이전</button>
@@ -87,15 +94,25 @@
 
 		.slide {
 			flex-shrink: 0;
-			width: 100%;
-			height: 100%;
 			display: flex;
+			padding:40px;
 			justify-content: center;
 			align-items: center;
 			font-size: 48px;
 			color: white;
+			background-color: #666;
+			color:#fff;
 		}
-
+		.slider1 {top:10%;left:10%}
+		.slider2 {top:30%;left:15%}
+		.slider3 {top:20%;left:20%}
+		.slider4 {top:50%;left:25%}
+		.slider5 {top:10%;left:35%}
+		.slider6 {top:60%;left:40%}
+		.slider7 {top:30%;left:45%}
+		.slider8 {top:70%;left:50%}
+		.slider9 {top:10%;left:60%}
+		.slider10 {top:50%;left:70%}
 		#prevBtn,
 		#nextBtn {
 			position: absolute;
