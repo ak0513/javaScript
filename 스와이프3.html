@@ -32,14 +32,9 @@
 		const sliderWidth = document.querySelector('.slider').offsetWidth;
 		const prevBtn = document.getElementById('prevBtn');
 		const nextBtn = document.getElementById('nextBtn');
-		const slide = document.querySelectorAll('.slide');
 
 		let currentPosition = 0;
 
-		slide.forEach(function(ele) {
-			ele.style.width = sliderContainer.offsetWidth + 'px';
-		})
-		
 		prevBtn.classList.add('hide')
 		prevBtn.addEventListener('click', () => {
 			currentPosition += sliderWidth;
