@@ -35,24 +35,24 @@
 			ele.style.width = sliderContainer.offsetWidth + 'px';
 		})
 		
-
+		prevBtn.classList.add('hide')
 		prevBtn.addEventListener('click', () => {
 			currentPosition += sliderWidth;
 			if (currentPosition > -1) {
 				// currentPosition = -((slider.childElementCount - 1) * sliderWidth);
-				prevBtn.style.display = 'none'
+				prevBtn.classList.add('hide')
 			}
 			slider.style.transform = `translateX(${currentPosition}px)`;
-			nextBtn.style.display = 'block'
+			nextBtn.classList.remove('hide')
 		});
 
 		nextBtn.addEventListener('click', () => {
 			currentPosition -= sliderWidth;
 			if (currentPosition < -((slider.childElementCount - 2) * sliderWidth)) {
 				// currentPosition = 0;
-				nextBtn.style.display = 'none'
+				nextBtn.classList.add('hide')
 			}
-			prevBtn.style.display = 'block'
+			prevBtn.classList.remove('hide')
 			slider.style.transform = `translateX(${currentPosition}px)`;
 
 		});
@@ -104,6 +104,10 @@
 			padding: 8px 16px;
 			font-size: 16px;
 			cursor: pointer;
+		}
+		#prevBtn.hide,
+		#nextBtn.hide {
+			display: none;
 		}
 
 		#prevBtn {
