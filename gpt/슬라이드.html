@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>슬라이드</title>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="slider-container">
+			<div class="slider">
+				<div class="slide" style="background-color: #666;">1</div>
+				<div class="slide" style="background-color: #333;">2</div>
+				<div class="slide" style="background-color: #999;">3</div>
+				<!-- 슬라이드를 원하는 개수만큼 추가하세요. -->
+			</div>
+			<button id="prevBtn">이전</button>
+			<button id="nextBtn">다음</button>
+		</div>
+	</div>
+
+	<script>
+		const sliderContainer = document.querySelector('.slider-container');
+		const slider = document.querySelector('.slider');
+		const sliderWidth = document.querySelector('.slider').offsetWidth;
+		const prevBtn = document.getElementById('prevBtn');
+		const nextBtn = document.getElementById('nextBtn');
+		const slide = document.querySelectorAll('.slide');
+
+		let currentPosition = 0;
+
+		slide.forEach(function(ele) {
+			ele.style.width = sliderContainer.offsetWidth + 'px';
+		})
+		
+
+		prevBtn.addEventListener('click', () => {
+			currentPosition += sliderWidth;
+			if (currentPosition > 0) {
+				currentPosition = -((slider.childElementCount - 1) * sliderWidth);
+			}
+			slider.style.transform = `translateX(${currentPosition}px)`;
+		});
+
+		nextBtn.addEventListener('click', () => {
+			currentPosition -= sliderWidth;
+			if (currentPosition < -((slider.childElementCount - 1) * sliderWidth)) {
+				currentPosition = 0;
+			}
+			slider.style.transform = `translateX(${currentPosition}px)`;
+		});
+
+		console.log(slider.childElementCount)
+
+	</script>
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrap {
+			padding: 50px;
+		}
+		.slider-container {
+			overflow: hidden;
+			position: relative;
+			width:100%;
+			height: 100%;
+		}
+
+		.slider {
+			display: flex;
+			width:100%;
+			height: 400px;
+			transition: all 0.3s ease;
+		}
+
+		.slide {
+			flex-shrink: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 48px;
+			color: white;
+		}
+
+		#prevBtn,
+		#nextBtn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			padding: 8px 16px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		#prevBtn {
+			left:0;
+		}
+
+		#nextBtn {
+			right: 0;
+		}
+	</style>
+</body>
+
+</html>

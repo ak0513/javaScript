@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:#fff;
+    }
+
+    .slide1 {background-color:#000;}
+    .slide2 {background-color:#333;}
+    .slide3 {background-color:#666;}
+    .slide4 {background-color:#999;}
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .box {position:absolute;width:150px;height:80px;background-color: #eee;}
+    .box1 {top:10%;left:10%;}
+    .box2 {top:20%;left:70%;}
+    .box3 {top:40%;left:50%;}
+    .box4 {top:10%;left:-10%;}
+    .box5 {top:30%;left:10%;}
+    .box6 {top:80%;left:50%;}
+    .box7 {top:20%;left:30%;}
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide slide1">
+        <div class="box box1"><a href="#">1</a></div>
+        <div class="box box2"><a href="#">2</a></div>
+        <div class="box box3"><a href="#">3</a></div>
+      </div>
+      <div class="swiper-slide slide2">
+        <div class="box box4"><a href="#">4</a></div>
+        <div class="box box5"><a href="#">5</a></div>
+
+      </div>
+      <div class="swiper-slide slide3">
+        <div class="box box6"><a href="#">6</a></div>
+        <div class="box box7"><a href="#">7</a></div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      freeMode: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      on: {
+        slideChangeTransitionStart: function() {
+            // console.log('slideChangeTransitionStart')
+        },
+        slideChange: function() {
+            console.log(this)
+            console.log(this.slides)
+            console.log('slideChange')
+            this.slides
+        }
+      }
+      
+    });
+  </script>
+</body>
+
+</html>

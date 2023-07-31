@@ -402,3 +402,33 @@ ol[class*='bullet'] li + li {
 		font-size: 1.8rem;
 	}
 }
+
+
+
+.drop-in-underline:before{
+	content: '';
+	position: absolute;
+	bottom: 2px;
+	left: 0; right: 0;
+	height: 2px;
+	background-color: #b9f;
+  }
+  .drop-in-underline:before{
+	opacity: 0;
+	-webkit-transform: translateY(-8px);
+	transform: translateY(-8px);
+	-webkit-transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	  transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	  transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
+	  transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .drop-in-underline:hover:before{
+	opacity: 1;
+	  -webkit-transform: translateY(0);
+	  transform: translateY(0);
+	-webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	  transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+	  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
