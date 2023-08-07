@@ -102,22 +102,19 @@
 	font-weight: 600;
 }
 
-.h-dep1 {
+.h-tit1 {
     margin-top:6.0rem;
 	margin-bottom: 2.4rem;
 	border-bottom:2px solid #e3e3e3;
-}
-
-.h-dep1 .h-tit {
 	font-size: 3.2rem;
 }
 
-.h-dep1 .h-tit span {
+.h-tit1 span {
 	display: inline-block;
 	position: relative;
 }
 
-.h-dep1 .h-tit span::after {
+.h-tit1 span::after {
 	content:'';
 	display: block;
 	position: absolute;
@@ -128,22 +125,27 @@
 	background-color: rgb(220, 86, 86);
 }
 
-.h-dep2 {
+.h-tit2 {
 	position: relative;
 	margin:5.2rem 0 1.2rem;
 }
 
-.h-dep2 .h-tit {
+.h-tit2 {
 	font-size: 2.6rem;
 }
 
-.h-dep3 {
-	margin-top: 4.0rem;
-	margin-bottom: 0.8rem;
+.h-tit1 + .h-tit2 {
+	margin-top: 0;
 }
 
-.h-dep3 .h-tit {
+.h-tit3 {
+	margin-top: 4.0rem;
+	margin-bottom: 0.8rem;
 	font-size: 2.2rem;
+}
+
+.h-tit2 + .h-tit3 {
+	margin-top: 1.0rem;
 }
 
 /* bullet */

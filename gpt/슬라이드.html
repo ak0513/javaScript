@@ -32,6 +32,7 @@
 		const sliderContainer = document.querySelector('.slider-container');
 		const slider = document.querySelector('.slider');
 		const sliderWidth = document.querySelector('.slider').offsetWidth;
+		const sliderScrollWidth = document.querySelector('.slider').scrollWidth;
 		const prevBtn = document.getElementById('prevBtn');
 		const nextBtn = document.getElementById('nextBtn');
 		const slide = document.querySelectorAll('.slide');
@@ -58,6 +59,9 @@
 			if (currentPosition < -((slider.childElementCount - 2) * sliderWidth)) {
 				// currentPosition = 0;
 				nextBtn.classList.add('hide')
+
+				console.log('sliderScrollWidth', sliderScrollWidth)
+				console.log('currentPosition', currentPosition)
 			}
 			prevBtn.classList.remove('hide')
 			slider.style.transform = `translateX(${currentPosition}px)`;

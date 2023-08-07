@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smooth Scroll with Hash Tags</title>
+</head>
+<body>
+  <h1>Welcome to Smooth Scroll with Hash Tags</h1>
+  <p>
+    <a href="#section1">Go to Section 1</a> |
+    <a href="#section2">Go to Section 2</a> |
+    <a href="#section3">Go to Section 3</a>
+  </p>
+  <div id="section1">
+    <h2>Section 1</h2>
+    <p>This is section 1 content.</p>
+  </div>
+  <div id="section2">
+    <h2>Section 2</h2>
+    <p>This is section 2 content.</p>
+  </div>
+  <div id="section3">
+    <h2>Section 3</h2>
+    <p>This is section 3 content.</p>
+  </div>
+  <style>
+    #section1,#section2,#section3 {height:500px;}
+  </style>
+
+  <!-- JavaScript code -->
+  <script src="smooth_scroll.js"></script>
+  <script>
+    // Smooth scroll function
+function smoothScroll(target, duration) {
+  const targetElement = document.querySelector(target);
+  if (!targetElement) return;
+
+  const targetPosition = targetElement.getBoundingClientRect().top;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    const easeProgress = easeInOutCubic(progress);
+    window.scrollTo(0, startPosition + distance * easeProgress);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  requestAnimationFrame(animation);
+}
+
+// Easing function
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+}
+
+// Listen for hash change event
+window.addEventListener("hashchange", (event) => {
+  event.preventDefault();
+  const hash = event.newURL.split("#")[1];
+  if (hash) {
+    smoothScroll(`#${hash}`, 1000); // 1000 milliseconds (1 second) for smooth scrolling duration
+  }
+});
+
+  </script>
+</body>
+</html>
