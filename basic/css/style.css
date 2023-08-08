@@ -157,7 +157,7 @@
 /* bullet */
 ul[class*='bullet'],
 ol[class*='bullet'] {
-	margin-top:1.6rem;
+	margin-top:1.2rem;
 	color:var(--darkgray);
 }
 
@@ -421,6 +421,10 @@ ol[class*='bullet'] li + li {
 	
 	.h-tit3 {
 		font-size: 1.8rem;
+	}
+
+	.h-tit4 {
+		font-size: 1.6rem;
 	}
 }
 
