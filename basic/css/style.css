@@ -268,7 +268,7 @@ ol[class*='bullet'] li + li {
 	align-items: flex-start;
 	flex-direction: column;
 	width: 100%;
-	padding: 2.4rem 0;
+	padding: 2.4rem 2.4rem 2.4rem 0;
 	color:var(--black);
 	font-size: 1.8rem;
 }

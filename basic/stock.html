@@ -17,7 +17,6 @@
                         <h2 class="accordion-header" id="accordionTit1">
                             <button class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="accordionBody1" role="button">
                                 거래량
-                                <span class="accordion-sub-tit">거래량은 힘을 나타낸다. 주가가 상승하기 위해서는 과거에 비해 거래량이 늘어나야 한다.</span>
                             </button>
                         </h2>
                         <div id="accordionBody1" class="accordion-collapse collapse" aria-labelledby="accordionTit1">
@@ -53,7 +52,7 @@
                                     <li>3. 주가가 하락하지 않고 횡보를 한다면</li>
                                     <li>4. 거래량이 줄었는데 주가가 줄어들지 않고 버텨준다면 상승 가능성 있음</li>
                                 </ol>
-                                <div class="btn-wrap"><a href="https://www.youtube.com/watch?v=VaK8fwcTxFw" target="_blank" class="btn">동영상 바로가기</a></div>
+                                <div class="btn-wrap"><a href="https://www.youtube.com/watch?v=VaK8fwcTxFw" target="_blank" class="btn show-youtube" role="button">동영상 바로가기</a></div>
                             </div>
                         </div>
                     </div>
@@ -86,6 +85,23 @@
             </div>
         </section>
     </div>
+
+    <div id="youtube">
+    </div>
+
+
+    <script>
+        var showYoutube = document.querySelectorAll('.show-youtube');
+        var youtubeWrap = document.querySelector('#youtube');
+       showYoutube.forEach(function(ele) {
+            ele.addEventListener('click', function() {
+                event.preventDefault();
+                var itemUrl = ele.getAttribute('href');
+                youtubeWrap.innerHTML = '<iframe width="560" height="315" src="' + itemUrl + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+            })
+        })
+
+    </script>
 </body>
 
 

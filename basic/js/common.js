@@ -335,8 +335,8 @@ var ui = (function() {
     var accordion = function() {
         var accordionBtns = document.querySelectorAll('.accordion-button');
         accordionBtns.forEach(function(accBtnsEle) {
-            accBtnsEle.addEventListener('click', function() {
-                accordionToggle(event.target)
+            accBtnsEle.addEventListener('click', function(e) {
+                accordionToggle(e.target)
             })
         })
 
