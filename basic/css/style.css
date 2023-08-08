@@ -263,30 +263,43 @@ ol[class*='bullet'] li + li {
 }
 
 .accordion-button {
+	position: relative;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	flex-direction: column;
 	width: 100%;
-	padding: 1.6rem 0;
+	padding: 2.4rem 0;
 	color:var(--black);
-	font-size: 1.6rem;
+	font-size: 1.8rem;
 }
 
 .accordion-button::after {
 	content: '';
 	display: block;
+	position: absolute;
+	top: 50%;
+	right: 0;
 	width: 1.6rem;
 	height: 1.6rem;
 	margin-left: auto;
 	background: url('../img/caret-down-fill.svg') no-repeat center;
+	transform: translateY(-50%);
 	transition: transform 0.2s ease-in-out;
 }
 
 .accordion-button.collapsed::after {
-	transform:rotate(180deg);
+	background: url('../img/caret-up-fill.svg') no-repeat center;
 }
 
 .accordion-button.collapsed {
 	color:var(--gray)
+}
+
+.accordion-sub-tit {
+	display: block;
+	margin-top:0.4rem;
+	font-size: 1.3rem;
+	color:var(--mediumgray);
 }
 
 .accordion-body {
