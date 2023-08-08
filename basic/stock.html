@@ -57,15 +57,13 @@
         var showYoutube = document.querySelectorAll('.show-youtube');
         var youtubeWrap = document.querySelector('#youtube');
         var wrap = document.querySelector('#wrap');
-        var wrapWidth = wrap.clientWidth;
         showYoutube.forEach(function(ele) {
             ele.addEventListener('click', function() {
                 event.preventDefault();
                 var itemUrl = ele.getAttribute('href');
                 wrap.classList.add('show-youtube')
                 youtubeWrap.innerHTML = '<iframe src="' + itemUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-                wrap.style.paddingBottom = (315 * wrapWidth / 560) + 30 + 'px'
-                console.log(wrapWidth)
+                wrap.style.paddingBottom = (315 * wrap.clientWidth / 560) + 30 + 'px';
             });
         })
     </script>
