@@ -148,10 +148,16 @@
 	margin-top: 1.0rem;
 }
 
+.h-tit4 {
+	margin-top: 2.0rem;
+	margin-bottom: 0.8rem;
+	font-size: 1.8rem;
+}
+
 /* bullet */
 ul[class*='bullet'],
 ol[class*='bullet'] {
-	margin-top:2.0rem;
+	margin-top:1.6rem;
 	color:var(--darkgray);
 }
 
