@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/ui.js"></script>
+	<title>노트</title>
+</head>
+<body>
+	<style>
+		body {
+			background-color: #252422;
+		}
+		.note {
+			padding-top:2.0rem;
+		}
+		.note-tit {
+			margin-bottom: 1.0rem;
+			padding:0 1.5rem;
+			font-size: 2.4rem;
+			color:#fff;
+		}
+
+		.note-item-tit {
+			font-size: 1.7rem;
+			font-weight: 400;
+			color:#fff;
+		}
+
+		.note-item:first-of-type {
+			border-top: 1px solid rgba(0, 0, 0, 0.4);
+		}
+		
+		.note-desc {
+			margin-bottom: 0.5rem;
+			font-size: 1.4rem;
+			color:#777;
+		}
+
+		.note-link {
+			display: block;
+			padding: 1.0rem 1.5rem;
+			/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
+		}
+	</style>
+	<h1 hidden>Note</h1>
+	<div class="note">
+		<h2 class="note-tit">Js</h2>
+		<div class="note-item">
+			<a href="https://ak0513.github.io/javaScript/basic/mask.html" class="note-link" target="_blank" title="새창이동">
+				<p class="note-desc">텍스트를 이미지 마스크로 사용하기</p>
+				<h3 class="note-item-tit">CSS MASK</h3>
+			</a>
+		</div>
+		<div class="note-item">
+			<a href="https://ak0513.github.io/javaScript/removeClass.html" class="note-link" target="_blank" title="새창이동">
+				<p class="note-desc">removeClass</p>
+				<h3 class="note-item-tit">클래스 삭제하기(하나,여러개,형제)</h3>
+			</a>
+		</div>
+		<div class="note-item">
+			<a href="https://ak0513.github.io/javaScript/siblings.html" class="note-link" target="_blank" title="새창이동">
+				<p class="note-desc">siblings</p>
+				<h3 class="note-item-tit">형제요소 찾기</h3>
+			</a>
+		</div>
+	</div>
+</body>
+</html>
