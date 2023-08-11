@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="target" style="width:2000px;height:300px;background-color: #999;">sdfdsf</div>
+    <script>
+// 요소를 선택합니다. 이벤트를 원하는 HTML 요소로 변경하세요.
+var targetElement = document.getElementById('target');
+
+// 마우스 다운 또는 터치 스타트 이벤트를 처리합니다.
+targetElement.addEventListener('mousedown', handleStart);
+targetElement.addEventListener('touchstart', handleStart);
+
+// 마우스 업 또는 터치 엔드 이벤트를 처리합니다.
+targetElement.addEventListener('mouseup', handleEnd);
+targetElement.addEventListener('touchend', handleEnd);
+
+// 시작 이벤트 핸들러
+function handleStart(event) {
+    // 마우스 이벤트와 터치 이벤트 모두에서 클라이언트 X 및 Y 좌표를 가져옵니다.
+    var x = event.clientX || event.touches[0].clientX;
+    var y = event.clientY || event.touches[0].clientY;
+
+    console.log('시작 위치:', x, y);
+}
+
+// 끝 이벤트 핸들러
+function handleEnd(event) {
+    // 마우스 이벤트와 터치 이벤트 모두에서 클라이언트 X 및 Y 좌표를 가져옵니다.
+    var x = event.clientX || event.changedTouches[0].clientX;
+    var y = event.clientY || event.changedTouches[0].clientY;
+
+    console.log('끝 위치:', x, y);
+}
+    </script>
+</body>
+</html>
