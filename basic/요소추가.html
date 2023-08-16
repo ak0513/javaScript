@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/ui.js"></script>
+	<title>[CSS] CSS 마스크</title>
+</head>
+<body>
+	
+	<div id="wrap">
+        <div class="box">
+            <div>WHITE</div>
+        </div>
+        <div class="box2">
+            <div>BLACK</div>
+        </div>
+        <div class="box3">
+            <div>ONLY MASK</div>
+        </div>
+    </div>
+    <style>
+        #wrap {
+            background-color: blanchedalmond;
+        }
+        .box {
+            width: 100%;
+            height: 200px; 
+            font-size: 7em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-transform: Uppercase;
+            color: black;
+        
+            background-image: url("https://blog.kakaocdn.net/dn/euSYBp/btrHZfA7C6v/ZmOcoBN6VqMcFA57CrkBcK/img.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+        }
+        .box div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Blen Mode 로 텍스트를 이미지 마스크 적용 */
+        .box div {
+            mix-blend-mode: lighten;
+            color: black;
+            background-color: white;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 200px; 
+            font-size: 7em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-transform: Uppercase;
+            color: black;
+        
+            background-image: url("https://blog.kakaocdn.net/dn/euSYBp/btrHZfA7C6v/ZmOcoBN6VqMcFA57CrkBcK/img.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+        }
+
+        .box2 div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Blen Mode 로 텍스트를 이미지 마스크 적용 */
+        .box2 div {
+            mix-blend-mode: darken;
+            color: white;
+            background-color: black;
+        }
+
+        .box3 {
+            width: 100%;
+            height: 200px; 
+            font-size: 7em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-transform: Uppercase;
+            color: black;
+        }
+        .box3 div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://blog.kakaocdn.net/dn/euSYBp/btrHZfA7C6v/ZmOcoBN6VqMcFA57CrkBcK/img.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+            
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</body>
+</html>
