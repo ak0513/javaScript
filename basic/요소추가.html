@@ -1,109 +1,159 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="./js/ui.js"></script>
-	<title>[CSS] CSS 마스크</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[JS] 요소 추가</title>
 </head>
 <body>
-	
-	<div id="wrap">
-        <div class="box">
-            <div>WHITE</div>
+    
+    <div id="wrap">
+        <section id="container">
+            <div class="container-inner">
+                <h2 class="h-tit1"><span>요소 추가하기</span></h2>
+                <!-- prepend() -->
+                <h3 class="h-tit2">prepend()</h3>
+                <p>자바스크립트에서 <code class="code">prepend()</code> 메서드는 DOM(Document Object Model) 요소의 내부에 새로운 자식 요소를 맨 앞에 추가하는 메서드입니다.<br>이를 통해 <span class="highlighter">새로운 요소를 선택한 요소의 첫 번째 자식으로 삽입</span>할 수 있습니다.</p>
+                <h4 class="h-tit3">Syntax</h4>
+                <div class="highlight js">
+prepend(param1)
+prepend(param1, param2)
+prepend(param1, param2, /* …, */ paramN)
+                </div>
+                <h4 class="h-tit3">예시</h4>
+                <div class="highlight html">
+스크립트 적용 전
+<div id="parent">
+    <div>기존 자식요소</div>
+</div>
+
+스크립트 적용 후
+<div id="parent">
+    <div>새로운 자식 요소</div>
+    <div>기존 자식요소</div>
+</div>
+                </div>
+                <div class="highlight js">
+// 부모 요소를 선택합니다.
+const parentElement = document.getElementById('parent');
+
+// 새로운 자식 요소를 생성합니다.
+const newChild = document.createElement('div');
+newChild.textContent = '새로운 자식 요소';
+
+// prepend() 함수를 사용하여 새로운 자식 요소를 부모 요소의 맨 앞에 추가합니다.
+parentElement.prepend(newChild);
+                </div>
+                <!-- //prepend() -->
+
+
+                <!-- append() -->
+                <h3 class="h-tit2">append()</h3>
+                <p>자바스크립트에서 <code class="code">append()</code> 메서드는 DOM(Document Object Model) 요소의 내부에 새로운 자식 요소를 맨 뒤에 추가하는 메서드입니다.<br>이를 통해 <span class="highlighter">새로운 요소를 선택한 요소의 마지막 자식으로 삽입</span>할 수 있습니다.</p>
+                <h4 class="h-tit3">Syntax</h4>
+                <div class="highlight js">
+append(param1)
+append(param1, param2)
+append(param1, param2, /* …, */ paramN)
+                </div>
+                <h4 class="h-tit3">예시</h4>
+                <div class="highlight html">
+스크립트 적용 전
+<div id="parent">
+    <div>기존 자식요소</div>
+</div>
+
+스크립트 적용 후
+<div id="parent">
+    <div>기존 자식요소</div>
+    <div>새로운 자식 요소</div>
+</div>
+                </div>
+    
+                <div class="highlight js">
+// 부모 요소를 선택합니다.
+const parentElement = document.getElementById('parent');
+
+// 새로운 자식 요소를 생성합니다.
+const newChild = document.createElement('div');
+newChild.textContent = '새로운 자식 요소';
+
+// append() 함수를 사용하여 새로운 자식 요소를 부모 요소의 마지막에 추가합니다.
+parentElement.append(newChild);
+                </div>
+                <!-- //append() -->
+
+
+                <!-- before() -->
+                <h3 class="h-tit2">before()</h3>
+                <p>자바스크립트에서 <code class="code">before()</code> 메서드는 DOM(Document Object Model) 요소의 형제로 새로운 요소를 삽입하는 역할을 합니다.<br>이 메서드를 사용하면 <span class="highlighter">선택한 요소의 이전 형제 요소로 새로운 요소를 추가</span>할 수 있습니다.</p>
+                <h4 class="h-tit3">Syntax</h4>
+                <div class="highlight js">
+before(param1)
+before(param1, param2)
+before(param1, param2, /* …, */ paramN)
+                </div>
+                <h4 class="h-tit3">예시</h4>
+                <div class="highlight html">
+스크립트 적용 전
+<div id="reference">기준 요소</div>
+
+스크립트 적용 후
+<div>새로운 형제 요소</div>
+<div id="reference">기준 요소</div>
+                </div>
+    
+                <div class="highlight js">
+// 기준이 될 요소를 선택합니다.
+const referenceElement = document.getElementById('reference');
+
+// 새로운 형제 요소를 생성합니다.
+const newSibling = document.createElement('div');
+newSibling.textContent = '새로운 형제 요소';
+
+// before() 메서드를 사용하여 새로운 형제 요소를 기준 요소의 이전에 추가합니다.
+referenceElement.before(newSibling);
+                </div>
+                <!-- //before() -->
+
+
+                <!-- after() -->
+                <h3 class="h-tit2">after()</h3>
+                <p>자바스크립트에서 <code class="code">after()</code> 메서드는 DOM(Document Object Model) 요소의 형제로 새로운 요소를 삽입하는 역할을 합니다.<br>이 메서드를 사용하면 <span class="highlighter">선택한 요소의 이전 형제 요소로 새로운 요소를 추가</span>할 수 있습니다.</p>
+                <h4 class="h-tit3">Syntax</h4>
+                <div class="highlight js">
+after(param1)
+after(param1, param2)
+after(param1, param2, /* …, */ paramN)
+                </div>
+                <h4 class="h-tit3">예시</h4>
+                <div class="highlight html">
+스크립트 적용 전
+<div id="reference1">기준 요소</div>
+
+스크립트 적용 후
+<div id="reference">기준 요소</div>
+<div>새로운 형제 요소</div>
+                </div>
+    
+                <div class="highlight js">
+// 기준이 될 요소를 선택합니다.
+const referenceElement = document.getElementById('reference');
+
+// 새로운 형제 요소를 생성합니다.
+const newSibling = document.createElement('div');
+newSibling.textContent = '새로운 형제 요소';
+
+// after() 메서드를 사용하여 새로운 형제 요소를 기준 요소의 다음에 추가합니다.
+referenceElement.after(newSibling);
+                </div>
+                <!-- //after() -->
         </div>
-        <div class="box2">
-            <div>BLACK</div>
-        </div>
-        <div class="box3">
-            <div>ONLY MASK</div>
-        </div>
-    </div>
-    <style>
-        #wrap {
-            background-color: blanchedalmond;
-        }
-        .box {
-            width: 100%;
-            height: 200px; 
-            font-size: 7em;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            text-transform: Uppercase;
-            color: black;
-        
-            background-image: url("https://blog.kakaocdn.net/dn/euSYBp/btrHZfA7C6v/ZmOcoBN6VqMcFA57CrkBcK/img.jpg");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-position: center;
-        }
-        .box div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
 
-        /* Blen Mode 로 텍스트를 이미지 마스크 적용 */
-        .box div {
-            mix-blend-mode: lighten;
-            color: black;
-            background-color: white;
-        }
 
-        .box2 {
-            width: 100%;
-            height: 200px; 
-            font-size: 7em;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            text-transform: Uppercase;
-            color: black;
-        
-            background-image: url("https://blog.kakaocdn.net/dn/euSYBp/btrHZfA7C6v/ZmOcoBN6VqMcFA57CrkBcK/img.jpg");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-position: center;
-        }
-
-        .box2 div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Blen Mode 로 텍스트를 이미지 마스크 적용 */
-        .box2 div {
-            mix-blend-mode: darken;
-            color: white;
-            background-color: black;
-        }
-
-        .box3 {
-            width: 100%;
-            height: 200px; 
-            font-size: 7em;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            text-transform: Uppercase;
-            color: black;
-        }
-        .box3 div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            background-image: url("https://blog.kakaocdn.net/dn/euSYBp/btrHZfA7C6v/ZmOcoBN6VqMcFA57CrkBcK/img.jpg");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-position: center;
-            
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-    </style>
+    </section>
+</div>
 </body>
 </html>

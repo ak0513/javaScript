@@ -457,15 +457,15 @@ var ui = (function() {
 				eleHtml = eleHtml.replaceAll('<', '&lt;');
 				eleHtml = eleHtml.replaceAll('>', '&gt;');
 				eleHtml = eleHtml.trim();
-				item.innerHTML = '<pre><code>' + eleHtml + '</code></pre>';
+				item.innerHTML = '<div class="hljs-header">Html</div><pre><code>' + eleHtml + '</code></pre>';
 			} else if(item.classList.contains('js')) {
 				var eleHtml = item.innerHTML
 				eleHtml = eleHtml.trim();
-				item.innerHTML = '<div class="highlight js"><pre><code class="hljs language-javascript">' + eleHtml + '</code></pre></div>'
+				item.innerHTML = '<div class="hljs-header">JavaScript</div><pre><code class="hljs language-javascript">' + eleHtml + '</code></pre>';
 			} else if(item.classList.contains('css')) {
 				var eleHtml = item.innerHTML
 				eleHtml = eleHtml.trim();
-				item.innerHTML = '<div class="highlight css"><pre><code>' + eleHtml + '</code></pre></div>'
+				item.innerHTML = '<div class="hljs-header">Css</div><div class="highlight css"><pre><code>' + eleHtml + '</code></pre></div>';
 			}
 		})
 		hljs.initHighlightingOnLoad();

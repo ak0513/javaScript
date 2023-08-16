@@ -1,22 +1,45 @@
 .highlight {
+	overflow: hidden;
 	background-color:#282c34;
+	border-radius:0.8rem;
 }
 
 * + .highlight {
-	margin-top: 2.4rem;
+	margin-top: 1.2rem;
+}
+
+.highlight .hljs-header {
+	padding: 0.8rem 1.6rem;
+	background-color: rgba(52,53,65,1);
+	color:rgb(217, 217, 227);
+	font-size:1.2rem;
 }
 
 .highlight code.hljs {
 	font-family: Consolas, Monaco, monospace;
+	font-size: 1.4rem;
 }
 pre code.hljs::-webkit-scrollbar {height:8px;}
 pre code.hljs::-webkit-scrollbar-thumb {background-color:#666;border-radius:10px;}
 pre code.hljs::-webkit-scrollbar-track {background-color:transparent;}
 
-.mobile .highlight {
-	margin:0 -2.4rem;
-	padding:0 2.4rem;
-}
-.mobile .highlight code.hljs {
-	padding:1.6rem 0;
+
+code.code {font-weight:700;padding:4px 8px;background-color:#f8f8f8;border-radius:4px;font-size:90%;}
+code.code::before {content:'"';}
+code.code::after {content:'"';}
+
+.highlighter {background:linear-gradient(to top, #ffbb0074 40%, transparent 60%)}
+
+@media only screen and (max-width: 768px) {
+	.highlight {
+		margin:0 -2.4rem;
+		padding:0 2.4rem;
+		border-radius:0;
+	}
+	.highlight .hljs-header {
+		margin:0 -2.4rem;
+	}
+	.highlight code.hljs {
+		padding:1.6rem 0;
+	}
 }
