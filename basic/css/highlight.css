@@ -1,3 +1,9 @@
+.header-tit {
+	background: beige;
+    text-align: center;
+    padding: 20px;
+}
+
 .highlight {
 	overflow: hidden;
 	background-color:#282c34;

@@ -10,19 +10,19 @@
 <body>
     
     <div id="wrap">
+        <h1 class="header-tit"><span>요소 추가하기</span></h1>
         <section id="container">
             <div class="container-inner">
-                <h2 class="h-tit1"><span>요소 추가하기</span></h2>
                 <!-- prepend() -->
-                <h3 class="h-tit2">prepend()</h3>
+                <h2 class="h-tit1"><span>prepend()</span></h2>
                 <p>자바스크립트에서 <code class="code">prepend()</code> 메서드는 DOM(Document Object Model) 요소의 내부에 새로운 자식 요소를 맨 앞에 추가하는 메서드입니다.<br>이를 통해 <span class="highlighter">새로운 요소를 선택한 요소의 첫 번째 자식으로 삽입</span>할 수 있습니다.</p>
-                <h4 class="h-tit3">Syntax</h4>
+                <h4 class="h-tit2">Syntax</h4>
                 <div class="highlight js">
 prepend(param1)
 prepend(param1, param2)
 prepend(param1, param2, /* …, */ paramN)
                 </div>
-                <h4 class="h-tit3">예시</h4>
+                <h4 class="h-tit2">예시</h4>
                 <div class="highlight html">
 스크립트 적용 전
 <div id="parent">
@@ -34,6 +34,13 @@ prepend(param1, param2, /* …, */ paramN)
     <div>새로운 자식 요소</div>
     <div>기존 자식요소</div>
 </div>
+
+스크립트 적용 후(2개)
+<div id="parent">
+    <div>새로운 자식 요소</div>
+    <div>두번째 새로운 자식 요소</div>
+    <div>기존 자식요소</div>
+</div>
                 </div>
                 <div class="highlight js">
 // 부모 요소를 선택합니다.
@@ -43,22 +50,27 @@ const parentElement = document.getElementById('parent');
 const newChild = document.createElement('div');
 newChild.textContent = '새로운 자식 요소';
 
+const newChild2 = document.createElement('div');
+newChild2.textContent = '두번째 새로운 자식 요소';
+
 // prepend() 함수를 사용하여 새로운 자식 요소를 부모 요소의 맨 앞에 추가합니다.
 parentElement.prepend(newChild);
+// 인자값이 2개 이상인 경우
+parentElement.prepend(newChild, newChild2);
                 </div>
                 <!-- //prepend() -->
 
 
                 <!-- append() -->
-                <h3 class="h-tit2">append()</h3>
+                <h3 class="h-tit1"><span>append()</span></h3>
                 <p>자바스크립트에서 <code class="code">append()</code> 메서드는 DOM(Document Object Model) 요소의 내부에 새로운 자식 요소를 맨 뒤에 추가하는 메서드입니다.<br>이를 통해 <span class="highlighter">새로운 요소를 선택한 요소의 마지막 자식으로 삽입</span>할 수 있습니다.</p>
-                <h4 class="h-tit3">Syntax</h4>
+                <h4 class="h-tit2">Syntax</h4>
                 <div class="highlight js">
 append(param1)
 append(param1, param2)
 append(param1, param2, /* …, */ paramN)
                 </div>
-                <h4 class="h-tit3">예시</h4>
+                <h4 class="h-tit2">예시</h4>
                 <div class="highlight html">
 스크립트 적용 전
 <div id="parent">
@@ -87,15 +99,15 @@ parentElement.append(newChild);
 
 
                 <!-- before() -->
-                <h3 class="h-tit2">before()</h3>
+                <h3 class="h-tit1"><span>before()</span></h3>
                 <p>자바스크립트에서 <code class="code">before()</code> 메서드는 DOM(Document Object Model) 요소의 형제로 새로운 요소를 삽입하는 역할을 합니다.<br>이 메서드를 사용하면 <span class="highlighter">선택한 요소의 이전 형제 요소로 새로운 요소를 추가</span>할 수 있습니다.</p>
-                <h4 class="h-tit3">Syntax</h4>
+                <h4 class="h-tit2">Syntax</h4>
                 <div class="highlight js">
 before(param1)
 before(param1, param2)
 before(param1, param2, /* …, */ paramN)
                 </div>
-                <h4 class="h-tit3">예시</h4>
+                <h4 class="h-tit2">예시</h4>
                 <div class="highlight html">
 스크립트 적용 전
 <div id="reference">기준 요소</div>
@@ -120,15 +132,15 @@ referenceElement.before(newSibling);
 
 
                 <!-- after() -->
-                <h3 class="h-tit2">after()</h3>
+                <h3 class="h-tit1"><span>after()</span></h3>
                 <p>자바스크립트에서 <code class="code">after()</code> 메서드는 DOM(Document Object Model) 요소의 형제로 새로운 요소를 삽입하는 역할을 합니다.<br>이 메서드를 사용하면 <span class="highlighter">선택한 요소의 이전 형제 요소로 새로운 요소를 추가</span>할 수 있습니다.</p>
-                <h4 class="h-tit3">Syntax</h4>
+                <h4 class="h-tit2">Syntax</h4>
                 <div class="highlight js">
 after(param1)
 after(param1, param2)
 after(param1, param2, /* …, */ paramN)
                 </div>
-                <h4 class="h-tit3">예시</h4>
+                <h4 class="h-tit2">예시</h4>
                 <div class="highlight html">
 스크립트 적용 전
 <div id="reference1">기준 요소</div>
@@ -154,19 +166,6 @@ referenceElement.after(newSibling);
 
 
     </section>
-    <div id="parent1">
-        <p>aaa</p>
-        <p>aaa</p>
-        <p>aaa</p>
-        <p class="aa">기존 자식 요소</p>
-        <p>aaa</p>
-        <p>aaa</p>
-      </div>
-    <script>
-const parentElement = document.getElementById('parent1');
-const existingChild = document.querySelector('p.aa'); // 이미 존재하는 요소 선택
-parentElement.prepend(existingChild);
-    </script>
 </div>
 </body>
 </html>
