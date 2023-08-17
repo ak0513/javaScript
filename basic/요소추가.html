@@ -154,6 +154,19 @@ referenceElement.after(newSibling);
 
 
     </section>
+    <div id="parent1">
+        <p>aaa</p>
+        <p>aaa</p>
+        <p>aaa</p>
+        <p class="aa">기존 자식 요소</p>
+        <p>aaa</p>
+        <p>aaa</p>
+      </div>
+    <script>
+const parentElement = document.getElementById('parent1');
+const existingChild = document.querySelector('p.aa'); // 이미 존재하는 요소 선택
+parentElement.prepend(existingChild);
+    </script>
 </div>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessible Tablist Example</title>
+<style>
+  .tablist {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  .tab {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  .tab[aria-selected="true"] {
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
+  .tabpanel {
+    display: none;
+  }
+  .tabpanel[aria-hidden="false"] {
+    display: block;
+  }
+</style>
+</head>
+<body>
+    탭 접근성 예시
+  <ul class="tablist" role="tablist">
+    <li class="tab" role="tab" aria-controls="tabpanel1" aria-selected="true" tabindex="0">Tab 1</li>
+    <li class="tab" role="tab" aria-controls="tabpanel2" tabindex="0">Tab 2</li>
+    <li class="tab" role="tab" aria-controls="tabpanel3" tabindex="0">Tab 3</li>
+  </ul>
+
+  <div id="tabpanel1" class="tabpanel" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
+    <p>Content for Tab 1.</p>
+  </div>
+  <div id="tabpanel2" class="tabpanel" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
+    <p>Content for Tab 2.</p>
+  </div>
+  <div id="tabpanel3" class="tabpanel" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
+    <p>Content for Tab 3.</p>
+  </div>
+
+  <hr>
+  <ul class="tablist" role="tablist">
+    <li class="tab" role="tab" aria-controls="tabpanel4" aria-selected="true" tabindex="0">Tab 1</li>
+    <li class="tab" role="tab" aria-controls="tabpanel5" tabindex="0">Tab 2</li>
+    <li class="tab" role="tab" aria-controls="tabpanel6" tabindex="0">Tab 3</li>
+  </ul>
+
+  <div id="tabpanel4" class="tabpanel" role="tabpanel" aria-labelledby="tab4" aria-hidden="false">
+    <p>Content for Tab 1.</p>
+  </div>
+  <div id="tabpanel5" class="tabpanel" role="tabpanel" aria-labelledby="tab5" aria-hidden="true">
+    <p>Content for Tab 2.</p>
+  </div>
+  <div id="tabpanel6" class="tabpanel" role="tabpanel" aria-labelledby="tab6" aria-hidden="true">
+    <p>Content for Tab 3.</p>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.setAttribute('aria-selected', 'false');
+          t.setAttribute('tabindex', '-1');
+        });
+        tab.setAttribute('aria-selected', 'true');
+        tab.setAttribute('tabindex', '0');
+        
+        const tabpanelId = tab.getAttribute('aria-controls');
+        const tabpanel = document.getElementById(tabpanelId);
+        const tabpanels = document.querySelectorAll('.tabpanel');
+        tabpanels.forEach(panel => {
+          panel.setAttribute('aria-hidden', 'true');
+        });
+        tabpanel.setAttribute('aria-hidden', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
