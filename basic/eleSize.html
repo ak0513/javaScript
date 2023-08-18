@@ -107,7 +107,8 @@ box.offsetHeight
                 </div>
                 <div class="highlight js">
 box.clientWidth
-// 220 = height(200) + padding(10+10)
+// border-box인 경우  : 194 = width(200) - border(3+3)
+// content-box인 경우 : 220 = height(200) + padding(10+10)
 box.clientHeight
 // 220 = height(200) + padding(10+10)
                 </div>
@@ -162,15 +163,20 @@ box.clientHeight
                 <div class="highlight css">
 .box {width:200px;height:200px;margin-top: 20px;padding:10px;border:3px solid #000;box-sizing: content-box;}
 .box .box-inner {margin:10px;padding:10px;border:3px solid #000;background-color: #333;}
-.box-inner.box-scroll-x {width: 300px;}
+.box-inner.box-scroll-x {width: 300px;height:50px;}
 .box-inner.box-scroll-y {height: 300px;}
                 </div>
 
                 <div class="highlight js">
 box.scrollWidth
+// border-box인 경우  : 
 // 320 = padding(10+10) + box-scroll-x(300)
 box.scrollHeight
-// 385 = padding(10+10) + box-scroll-x(55) + margin(10) + box-scroll-y(300)
+// border-box인 경우  : 400 = padding(10+10) + box-scroll-x(50) + box-scroll-x margin(10+10) + box-scroll-y(300) + box-scroll-y margin(10)
+// content-box인 경우 : 452 = 
+//                          20 = padding(10+10) + 
+//                          96 = box-scroll-x(50) + box-scroll-x margin(10+10) + box-scroll-x padding(10+10) + box-scroll-x border(3+3) + 
+//                          336 = box-scroll-y(300)  box-scroll-y margin(10) + box-scroll-y padding(10+10) + box-scroll-y border(3+3) 
                 </div>
 
 
@@ -237,7 +243,14 @@ box.getBoundingClientRect().height
     <div>
         <div class="box1"></div>
         <div class="box2 con-box"></div>
-        <div class="box3"></div>
+        <div class="box3" style="overflow:auto;">
+            <div class="box-inner box-scroll-x">box-scroll-x w300</div>
+            <div class="box-inner box-scroll-y">box-scroll-y h300</div>
+        </div>
+        <div class="box4 con-box" style="overflow:auto;">
+            <div class="box-inner box-scroll-x con-box">box-scroll-x w300</div>
+            <div class="box-inner box-scroll-y con-box">box-scroll-y h300</div>
+        </div>
     </div>
 <style>
     .computed {margin:20px 0;}
@@ -268,7 +281,8 @@ box.getBoundingClientRect().height
     .box,
     .box1,
     .box2,
-    .box3 {
+    .box3,
+    .box4 {
         width:200px;
         height:200px;
         margin-top: 20px;
@@ -278,7 +292,8 @@ box.getBoundingClientRect().height
     .box .box-inner,
     .box1 .box-inner,
     .box2 .box-inner,
-    .box3 .box-inner {
+    .box3 .box-inner,
+    .box4 .box-inner {
         margin:10px;
         padding:10px;
         border:3px solid #000;
@@ -287,6 +302,7 @@ box.getBoundingClientRect().height
     .con-box {box-sizing: content-box;}
     .box-inner.box-scroll-x {
         width: 300px;
+        height:50px;
     }
     .box-inner.box-scroll-y {
         height: 300px;
@@ -296,8 +312,10 @@ box.getBoundingClientRect().height
 <script>
     var box = document.querySelector('.box1');
     var box2 = document.querySelector('.box2');
+    var box3 = document.querySelector('.box3');
+    var box4 = document.querySelector('.box4');
 
-    console.group('box1')
+    /* console.group('border-box')
         console.log('offsetWidth', box.offsetWidth)
         // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
         console.log('offsetHeight', box.offsetHeight)
@@ -306,12 +324,9 @@ box.getBoundingClientRect().height
         // padding 을 포함한 콘텐츠의 너비 / margin, border 제외
         console.log('clientHeight', box.clientHeight)
         // padding 을 포함한 콘텐츠의 높이 / margin, border 제외
-        console.log('scrollWidth', box.scrollWidth)
-        // clientWidth + 자식요소 높이
-        console.log('scrollHeight', box.scrollHeight)
     console.groupEnd()
 
-    console.group('box2')
+    console.group('content-box')
         console.log('offsetWidth', box2.offsetWidth)
         // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
         console.log('offsetHeight', box2.offsetHeight)
@@ -320,9 +335,18 @@ box.getBoundingClientRect().height
         // padding 을 포함한 콘텐츠의 너비 / margin, border 제외
         console.log('clientHeight', box2.clientHeight)
         // padding 을 포함한 콘텐츠의 높이 / margin, border 제외
-        console.log('scrollWidth', box2.scrollWidth)
+    console.groupEnd() */
+
+    console.group('scroll border-box')
+        console.log('scrollWidth', box3.scrollWidth)
         // clientWidth + 자식요소 높이
-        console.log('scrollHeight', box2.scrollHeight)
+        console.log('scrollHeight', box3.scrollHeight)
+    console.groupEnd()
+
+    console.group('scroll content-box')
+        console.log('scrollWidth', box4.scrollWidth)
+        // clientWidth + 자식요소 높이
+        console.log('scrollHeight', box4.scrollHeight)
     console.groupEnd()
 
     console.group('box2')
