@@ -10,201 +10,203 @@
 
 <body>
     <div id="wrap">
-        <header id="header"></header>
+        <h1 class="header-tit"><span>요소(element) 사이즈 구하기</span></h1>
+        <nav id="menu">
+            <ul class="menu-group">
+            </ul>
+        </nav>
         <section id="container">
-            <h1 class="h-tit1">요소(element) 사이즈 구하기</h1>
-            <nav id="menu">
-                <ul class="menu-group">
-                </ul>
-            </nav>
-
-
-            <h2 class="h-tit2">CSS</h2>
-            <div class="highlight css">
+            <div class="container-inner">
+                <div class="highlight css">
 .box {width:200px;height:200px;padding:10px;border:3px solid #000;box-sizing: content-box;}
 .box-inner {margin:10px;padding:10px;border:3px solid #000;}
 .box-inner.box-scroll-x {width: 300px;}
 .box-inner.box-scroll-y {height: 300px;margin-top: 10px;}
-            </div>
+                </div>
 
 
-            <h2 class="h-tit2" id="offset">element.offsetWidth<br>element.offsetHeight</h2>
-            <ul>
-                <li>padding, border 를 포함한 콘텐츠의 사이즈</li>
-                <li>margin 제외</li>
-            </ul>
+                <h2 class="h-tit1" id="borderBox"><span>border-box</span></h2>
+                <p>
+                    <code class="code">border-box</code> 이 값은 <span class="highlighter">요소의 크기를 콘텐츠 영역과 패딩(padding), 그리고 테두리(border)를 모두 포함</span>하여 계산합니다.<br>
+                    따라서 width와 height 속성이 콘텐츠 영역뿐만 아니라 패딩과 테두리까지의 크기를 의미하며, 콘텐츠 영역의 크기는 자동으로 조절됩니다.
+                </p>
+                
+                <h2 class="h-tit1" id="offset"><span>element.offsetWidth / element.offsetHeight</span></h2>
+                <p>
+                    <code class="code">offsetWidth</code>는 DOM (문서 객체 모델)에서 사용되는 속성으로, 요소의 콘텐츠 영역을 나타냅니다.<br>
+                    이 너비에는 <span class="highlighter">콘텐츠, 패딩(padding), 테두리(border) 영역을 포함하지만 여백(margin)과 세로 스크롤바는 제외</span>됩니다.
+                </p>
 
-            <div class="computed p b s">
-                <div class="margin">
-                    <span class="tit">margin</span>
-                    <span class="top">-</span>
-                    <span class="right">-</span>
-                    <span class="bottom">-</span>
-                    <span class="left">-</span>
-                    <div class="border">
-                        <span class="tit">border</span>
-                        <span class="top">3</span>
-                        <span class="right">3</span>
-                        <span class="bottom">3</span>
-                        <span class="left">3</span>
-                        <div class="padding">
-                            <span class="tit">padding</span>
-                            <span class="top">10</span>
-                            <span class="right">10</span>
-                            <span class="bottom">10</span>
-                            <span class="left">10</span>
-                            <div class="size">200x200</div>
+                <div class="computed p b s">
+                    <div class="margin">
+                        <span class="tit">margin</span>
+                        <span class="top">-</span>
+                        <span class="right">-</span>
+                        <span class="bottom">-</span>
+                        <span class="left">-</span>
+                        <div class="border">
+                            <span class="tit">border</span>
+                            <span class="top">3</span>
+                            <span class="right">3</span>
+                            <span class="bottom">3</span>
+                            <span class="left">3</span>
+                            <div class="padding">
+                                <span class="tit">padding</span>
+                                <span class="top">10</span>
+                                <span class="right">10</span>
+                                <span class="bottom">10</span>
+                                <span class="left">10</span>
+                                <div class="size">200x200</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="highlight js">
+                
+                <div class="highlight js">
 var box = document.querySelector('.box');
 box.offsetWidth
-// 226 = width(200) + padding(10+10) + border(3+3)
+// border-box인 경우  : 200 = width(200)
+// content-box인 경우 : 226 = width(200) + padding(10+10) + border(3+3)
 box.offsetHeight
-// 226 = height(200) + padding(10+10) + border(3+3)
-            </div>
-            
-            
+// border-box인 경우  : 200 = height(200)
+// content-box인 경우 : 226 = height(200) + padding(10+10) + border(3+3)
+                </div>
+                
+                
 
-            <h2 class="h-tit2" id="client">element.clientWidth<br>element.clientHeight</h2>
-            <ul>
-                <li>padding 을 포함한 콘텐츠의 사이즈</li>
-                <li>margin, border 제외</li>
-            </ul>
-            <div class="computed p s">
-                <div class="margin">
-                    <span class="tit">margin</span>
-                    <span class="top">-</span>
-                    <span class="right">-</span>
-                    <span class="bottom">-</span>
-                    <span class="left">-</span>
-                    <div class="border">
-                        <span class="tit">border</span>
-                        <span class="top">3</span>
-                        <span class="right">3</span>
-                        <span class="bottom">3</span>
-                        <span class="left">3</span>
-                        <div class="padding">
-                            <span class="tit">padding</span>
-                            <span class="top">10</span>
-                            <span class="right">10</span>
-                            <span class="bottom">10</span>
-                            <span class="left">10</span>
-                            <div class="size">200x200</div>
+                <h2 class="h-tit1" id="client"><span>element.clientWidth / element.clientHeight</span></h2>
+                <p>
+                    <code class="code">clientWidth</code>는 DOM (문서 객체 모델)에서 사용되는 속성으로, 요소의 콘텐츠 영역을 나타냅니다.<br>
+                    이 너비에는 요소의 <span class="highlighter">콘텐츠, 패딩(padding) 영역을 포함하지만, 테두리(border)와 세로 스크롤바는 제외</span>됩니다.<br>
+                    즉, 스크롤바가 표시되는 상황에서는 스크롤바 영역도 제외됩니다.
+                </p>
+ 
+                <div class="computed p s">
+                    <div class="margin">
+                        <span class="tit">margin</span>
+                        <span class="top">-</span>
+                        <span class="right">-</span>
+                        <span class="bottom">-</span>
+                        <span class="left">-</span>
+                        <div class="border">
+                            <span class="tit">border</span>
+                            <span class="top">3</span>
+                            <span class="right">3</span>
+                            <span class="bottom">3</span>
+                            <span class="left">3</span>
+                            <div class="padding">
+                                <span class="tit">padding</span>
+                                <span class="top">10</span>
+                                <span class="right">10</span>
+                                <span class="bottom">10</span>
+                                <span class="left">10</span>
+                                <div class="size">200x200</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="highlight js">
+                <div class="highlight js">
 box.clientWidth
 // 220 = height(200) + padding(10+10)
 box.clientHeight
 // 220 = height(200) + padding(10+10)
-            </div>
-            
-            
-            
-            <h2 class="h-tit2" id="scroll">element.scrollWidth<br>element.scrollHeight</h2>
-            <ul>
-                <li>padding 을 포함한 콘텐츠의 사이즈(자식요소 포함)</li>
-                <li>margin, border 제외</li>
-            </ul>
-            <div class="box" style="margin-bottom:215px;overflow:autogit;">
-                <div class="box-inner box-scroll-x">box-scroll-x w300</div>
-                <div class="box-inner box-scroll-y">box-scroll-y h300</div>
-            </div>
-            <style>
-                .box,
-                .box2 {
-                    width:200px;
-                    height:200px;
-                    margin-top: 20px;
-                    padding:10px;
-                    border:3px solid #000;
-                    box-sizing: content-box;
-                }
-                .box .box-inner {
-                    margin:10px;
-                    padding:10px;
-                    border:3px solid #000;
-                    background-color: #333;
-                }
-                .box-inner.box-scroll-x {
-                    width: 300px;
-                }
-                .box-inner.box-scroll-y {
-                    height: 300px;
-                }
+                </div>
                 
-            </style>
-            <div class="computed p s">
-                <div class="margin">
-                    <span class="tit">margin</span>
-                    <span class="top">-</span>
-                    <span class="right">-</span>
-                    <span class="bottom">-</span>
-                    <span class="left">-</span>
-                    <div class="border">
-                        <span class="tit">border</span>
-                        <span class="top">3</span>
-                        <span class="right">3</span>
-                        <span class="bottom">3</span>
-                        <span class="left">3</span>
-                        <div class="padding">
-                            <span class="tit">padding</span>
-                            <span class="top">10</span>
-                            <span class="right">10</span>
-                            <span class="bottom">10</span>
-                            <span class="left">10</span>
-                            <div class="size">box-scroll</div>
+                
+                
+                <h2 class="h-tit1" id="scroll"><span>element.scrollWidth / element.scrollHeight</span></h2>
+                <p>
+                    <code class="code">scrollWidth</code>는 DOM (문서 객체 모델)에서 사용되는 속성으로, 요소의 콘텐츠 전체 영역을 나타냅니다.<br>
+                    이 너비는 요소의 <span class="highlighter">콘텐츠, 패딩(padding) 영역을 포함하며, 만약 콘텐츠가 요소의 크기보다 크다면 스크롤링이 가능한 영역</span>을 말합니다.
+                </p>
+
+                
+                
+                <div class="computed p s">
+                    <div class="margin">
+                        <span class="tit">margin</span>
+                        <span class="top">-</span>
+                        <span class="right">-</span>
+                        <span class="bottom">-</span>
+                        <span class="left">-</span>
+                        <div class="border">
+                            <span class="tit">border</span>
+                            <span class="top">3</span>
+                            <span class="right">3</span>
+                            <span class="bottom">3</span>
+                            <span class="left">3</span>
+                            <div class="padding">
+                                <span class="tit">padding</span>
+                                <span class="top">10</span>
+                                <span class="right">10</span>
+                                <span class="bottom">10</span>
+                                <span class="left">10</span>
+                                <div class="size">box-scroll</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="highlight js">
+
+                <div class="box" style="overflow:auto;">
+                    <div class="box-inner box-scroll-x">box-scroll-x w300</div>
+                    <div class="box-inner box-scroll-y">box-scroll-y h300</div>
+                </div>
+
+                <div class="highlight html">
+<div class="box" style="overflow:auto;">
+    <div class="box-inner box-scroll-x">box-scroll-x margin10 padding10</div>
+    <div class="box-inner box-scroll-y">box-scroll-y margin10 padding10</div>
+</div>
+                </div>
+
+                <div class="highlight css">
+.box {width:200px;height:200px;margin-top: 20px;padding:10px;border:3px solid #000;box-sizing: content-box;}
+.box .box-inner {margin:10px;padding:10px;border:3px solid #000;background-color: #333;}
+.box-inner.box-scroll-x {width: 300px;}
+.box-inner.box-scroll-y {height: 300px;}
+                </div>
+
+                <div class="highlight js">
 box.scrollWidth
 // 320 = padding(10+10) + box-scroll-x(300)
 box.scrollHeight
 // 385 = padding(10+10) + box-scroll-x(55) + margin(10) + box-scroll-y(300)
-            </div>
+                </div>
 
 
 
 
-            <h2 class="h-tit2" id="getBoundingClientRect">element.getBoundingClientRect().width<br>element.getBoundingClientRect().height</h2>
-            <ul>
-                <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
-                <li>margin 제외</li>
-                <li>렌더링된 사이즈 반환</li>
-            </ul>
-            <div class="computed p b s">
-                <div class="margin">
-                    <span class="tit">margin</span>
-                    <span class="top">-</span>
-                    <span class="right">-</span>
-                    <span class="bottom">-</span>
-                    <span class="left">-</span>
-                    <div class="border">
-                        <span class="tit">border</span>
-                        <span class="top">3</span>
-                        <span class="right">3</span>
-                        <span class="bottom">3</span>
-                        <span class="left">3</span>
-                        <div class="padding">
-                            <span class="tit">padding</span>
-                            <span class="top">10</span>
-                            <span class="right">10</span>
-                            <span class="bottom">10</span>
-                            <span class="left">10</span>
-                            <div class="size">200x200</div>
+                <h2 class="h-tit1" id="getBoundingClientRect"><span>element.getBoundingClientRect().width / element.getBoundingClientRect().height</span></h2>
+                <ul>
+                    <li>padding, border 를 포함한 콘텐츠의 렌더링 된 사이즈</li>
+                    <li>margin 제외</li>
+                    <li>렌더링된 사이즈 반환</li>
+                </ul>
+                <div class="computed p b s">
+                    <div class="margin">
+                        <span class="tit">margin</span>
+                        <span class="top">-</span>
+                        <span class="right">-</span>
+                        <span class="bottom">-</span>
+                        <span class="left">-</span>
+                        <div class="border">
+                            <span class="tit">border</span>
+                            <span class="top">3</span>
+                            <span class="right">3</span>
+                            <span class="bottom">3</span>
+                            <span class="left">3</span>
+                            <div class="padding">
+                                <span class="tit">padding</span>
+                                <span class="top">10</span>
+                                <span class="right">10</span>
+                                <span class="bottom">10</span>
+                                <span class="left">10</span>
+                                <div class="size">200x200</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="highlight js">
+                <div class="highlight js">
 // offsetWidth, offsetHeight와 동일
 box.getBoundingClientRect().width
 // 226 = width(200) + padding(10+10) + border(3+3)
@@ -216,73 +218,124 @@ box.getBoundingClientRect().width
 // 113(transform:scale(50%))
 box.getBoundingClientRect().height
 // 113(transform:scale(50%))
+                </div>
+                
+                
+                
+                <!-- offset과 getBoundingClientRect() 차이 -->
+                <!-- <div class="box2" style="transform:scale(50%);position:absolute;top:-9999px;">
+                    <div class="box-inner">box2</div>
+                </div> -->
+                <!-- //offset과 getBoundingClientRect() 차이 -->
+
+                
             </div>
-            
-            
-            
-            <!-- offset과 getBoundingClientRect() 차이 -->
-            <div class="box2" style="transform:scale(50%);position:absolute;top:-9999px;">
-                <div class="box-inner">box2</div>
-            </div>
-            <!-- //offset과 getBoundingClientRect() 차이 -->
-
-            <style>
-                .computed {margin:20px 0;}
-                .computed .margin,
-                .computed .border,
-                .computed .padding,
-                .computed .size {position:relative;display:flex;align-items:center;justify-content:center;background-color:#fff;color:#000;font-size:13px;}
-
-                .computed .size {width:88px;height:24px;border:1px solid #000;}
-                .computed .padding {padding:30px;border:1px dashed #000;}
-                .computed .border {padding:30px;border:1px solid #000;}
-                .computed .margin {display:inline-flex;padding:30px;}
-
-                .computed.s .size {background-color:#8cb6c0;}
-                .computed.p .padding {background-color:#c3d08b;}
-                .computed.b .border {background-color:#fddd9b;}
-                .computed.m .margin {background-color:#f9cc9d;}
-
-                .computed span {position:absolute;}
-                .computed .tit {top:3px;left:8px;}
-                .computed .top {top:3px;left:50%;transform:translateX(-50%);}
-                .computed .bottom {bottom:3px;left:50%;transform:translateX(-50%);}
-                .computed .left {top:50%;left:8px;transform:translateY(-50%);}
-                .computed .right {top:50%;right:8px;transform:translateY(-50%);}
-            </style>
-        
-            
-            <script>
-                var box = document.querySelector('.box');
-                var box2 = document.querySelector('.box2');
-            
-                console.group('box')
-                    console.log('offsetWidth', box.offsetWidth)
-                    // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
-                    console.log('offsetHeight', box.offsetHeight)
-                    // padding, border 를 포함한 콘텐츠의 높이 / margin 제외
-                    console.log('clientWidth', box.clientWidth)
-                    // padding 을 포함한 콘텐츠의 너비 / margin, border 제외
-                    console.log('clientHeight', box.clientHeight)
-                    // padding 을 포함한 콘텐츠의 높이 / margin, border 제외
-                    console.log('scrollWidth', box.scrollWidth)
-                    // clientWidth + 자식요소 높이
-                    console.log('scrollHeight', box.scrollHeight)
-                console.groupEnd()
-
-                console.group('box2')
-                    console.log('offsetWidth', box2.offsetWidth)
-                    // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
-                    console.log('offsetHeight', box2.offsetHeight)
-                    // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
-                    console.log('getBoundingClientRect', box2.getBoundingClientRect().width)
-                    console.log('getBoundingClientRect', box2.getBoundingClientRect().height)
-                console.groupEnd()
-
-
-          
-            </script>
         </section>
     </div>
+
+    <!-- 샘플 용도 -->
+    <div>
+        <div class="box1"></div>
+        <div class="box2 con-box"></div>
+        <div class="box3"></div>
+    </div>
+<style>
+    .computed {margin:20px 0;}
+    .computed .margin,
+    .computed .border,
+    .computed .padding,
+    .computed .size {position:relative;display:flex;align-items:center;justify-content:center;background-color:#fff;color:#000;font-size:13px;}
+
+    .computed .size {width:88px;height:24px;border:1px solid #000;}
+    .computed .padding {padding:30px;border:1px dashed #000;}
+    .computed .border {padding:30px;border:1px solid #000;}
+    .computed .margin {display:inline-flex;padding:30px;border:1px dashed #000;}
+
+    .computed.s .size {background-color:#8cb6c0;}
+    .computed.p .padding {background-color:#c3d08b;}
+    .computed.b .border {background-color:#fddd9b;}
+    .computed.m .margin {background-color:#f9cc9d;}
+
+    .computed span {position:absolute;}
+    .computed .tit {top:3px;left:8px;}
+    .computed .top {top:3px;left:50%;transform:translateX(-50%);}
+    .computed .bottom {bottom:3px;left:50%;transform:translateX(-50%);}
+    .computed .left {top:50%;left:8px;transform:translateY(-50%);}
+    .computed .right {top:50%;right:8px;transform:translateY(-50%);}
+</style>
+
+<style>
+    .box,
+    .box1,
+    .box2,
+    .box3 {
+        width:200px;
+        height:200px;
+        margin-top: 20px;
+        padding:10px;
+        border:3px solid #000;
+    }
+    .box .box-inner,
+    .box1 .box-inner,
+    .box2 .box-inner,
+    .box3 .box-inner {
+        margin:10px;
+        padding:10px;
+        border:3px solid #000;
+        background-color: #333;
+    }
+    .con-box {box-sizing: content-box;}
+    .box-inner.box-scroll-x {
+        width: 300px;
+    }
+    .box-inner.box-scroll-y {
+        height: 300px;
+    }
+    
+</style>
+<script>
+    var box = document.querySelector('.box1');
+    var box2 = document.querySelector('.box2');
+
+    console.group('box1')
+        console.log('offsetWidth', box.offsetWidth)
+        // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
+        console.log('offsetHeight', box.offsetHeight)
+        // padding, border 를 포함한 콘텐츠의 높이 / margin 제외
+        console.log('clientWidth', box.clientWidth)
+        // padding 을 포함한 콘텐츠의 너비 / margin, border 제외
+        console.log('clientHeight', box.clientHeight)
+        // padding 을 포함한 콘텐츠의 높이 / margin, border 제외
+        console.log('scrollWidth', box.scrollWidth)
+        // clientWidth + 자식요소 높이
+        console.log('scrollHeight', box.scrollHeight)
+    console.groupEnd()
+
+    console.group('box2')
+        console.log('offsetWidth', box2.offsetWidth)
+        // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
+        console.log('offsetHeight', box2.offsetHeight)
+        // padding, border 를 포함한 콘텐츠의 높이 / margin 제외
+        console.log('clientWidth', box2.clientWidth)
+        // padding 을 포함한 콘텐츠의 너비 / margin, border 제외
+        console.log('clientHeight', box2.clientHeight)
+        // padding 을 포함한 콘텐츠의 높이 / margin, border 제외
+        console.log('scrollWidth', box2.scrollWidth)
+        // clientWidth + 자식요소 높이
+        console.log('scrollHeight', box2.scrollHeight)
+    console.groupEnd()
+
+    console.group('box2')
+        console.log('offsetWidth', box2.offsetWidth)
+        // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
+        console.log('offsetHeight', box2.offsetHeight)
+        // padding, border 를 포함한 콘텐츠의 너비 / margin 제외
+        console.log('getBoundingClientRect', box2.getBoundingClientRect().width)
+        console.log('getBoundingClientRect', box2.getBoundingClientRect().height)
+    console.groupEnd()
+
+
+
+</script>
 </body>
 </html>
