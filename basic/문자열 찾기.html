@@ -50,18 +50,29 @@
                     </table>
                 </div>
 
-                <h3 class="h-tit2">문자열에서 특정 문자의 인덱스 찾기</h3>
+                <h3 class="h-tit2">문자열에서 인덱스 찾기</h3>
                 <div class="highlight js">
-    const text = "Hello!";
-const index = text.indexOf("e");
-console.log(index); // 출력: 1
-                </div>
+const text = "Hello";
+const numbers = [10, 20, 30, 40, 50];
 
-                <h3 class="h-tit2">존재하지 않는 문자의 경우 -1 반환</h3>
-                <div class="highlight js">
-    const text = "Hello!";
-const index = text.indexOf("x");
-console.log(index); // 출력: -1
+// 문자열에서 인덱스 찾기
+text.indexOf("e"); // 출력: 1
+
+// 존재하지 않는 문자의 경우 -1 반환
+text.indexOf("x"); // 출력: -1
+
+// 시작 인덱스 지정하여 검색하기(3번 인덱스부터 검색)
+text.indexOf("l", 3); // 출력: 3(2번 인덱스의 l은 제외)
+
+// 문자열 내에 동일 문자가 여러 번 나오는 경우
+text.indexOf("l"); // 출력: 2 (첫 번째 'l'의 인덱스)
+
+// 대소문자를 구분
+text.indexOf("h"); // 출력: -1
+text.indexOf("H"); // 출력: 0
+
+// 배열에서 요소의 인덱스 찾기
+numbers.indexOf(30); // 출력: 2
                 </div>
             </div>
         </section>
