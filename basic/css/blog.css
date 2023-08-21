@@ -1,3 +1,6 @@
+/* gap */
+.gap30 {gap:30px;}
+
 /* tit */
 .header-tit {
 	background: rgba(52,53,65,1);
@@ -8,6 +11,15 @@
 	color:#fff;
 	font-weight: 600;
 }
+
+.h-tit1 ruby rt {
+	text-align: left;
+	color:#999;
+	font-size:45%;
+}
+
+/* menu */
+#menu {display:none;}
 
 
 /* highlight */
