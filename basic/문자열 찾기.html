@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+	<title>문자열 찾기</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1 class="header-tit"><span>문자열 찾기</span></h1>
+        <nav id="menu">
+            <ul class="menu-group">
+            </ul>
+        </nav>
+        <section id="container">
+            <div class="container-inner">
+                <h2 class="h-tit1" id="indexOf"><span>indexOf</span></h2>
+                <p>
+                    <code class="code">indexOf</code>는 대부분의 프로그래밍 언어에서 사용되는 문자열 또는 배열에서 <span class="highlighter">특정 요소나 문자열이 처음으로 나타나는 위치를 찾는 함수</span>입니다.<br>
+                    주어진 요소나 문자열이 존재하지 않는 경우에는 보통 -1을 반환합니다.
+                </p>
+
+                <div class="table-wrap align-c">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Index</th>
+                                <th scope="col">0</th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>문자열</td>
+                                <td>H</td>
+                                <td>e</td>
+                                <td>l</td>
+                                <td>l</td>
+                                <td>o</td>
+                                <td>w</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="h-tit2">문자열에서 특정 문자의 인덱스 찾기</h3>
+                <div class="highlight js">
+    const text = "Hello!";
+const index = text.indexOf("e");
+console.log(index); // 출력: 1
+                </div>
+
+                <h3 class="h-tit2">존재하지 않는 문자의 경우 -1 반환</h3>
+                <div class="highlight js">
+    const text = "Hello!";
+const index = text.indexOf("x");
+console.log(index); // 출력: -1
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -667,7 +667,7 @@ textarea {
 	margin-top: 1.6rem;
 }
 
-.table {
+.table-wrap table {
 	width: 100%;
 	border-collapse: collapse;
 }
@@ -683,39 +683,39 @@ caption {
 	clip-path: inset(50%);
 }
 
-table th {
+.table-wrap table th {
 	padding: 1.2rem;
 	background-color: var(--light);
 	color: var(--black);
 	font-weight: 400;
 }
 
-table td {
+.table-wrap table td {
 	padding:1.2rem;
 	color: var(--gray);
 }
 
-.table thead th {
+.table-wrap table thead th {
 	border-top: 1px solid var(--border-color);
 	border-bottom: 1px solid var(--border-color);
 }
 
-.table tfoot th {
+.table-wrap table tfoot th {
 	border-right:1px solid var(--border-color);
 	border-bottom: 1px solid var(--border-color);
 }
 
-.table tfoot td {
+.table-wrap table tfoot td {
 	padding:1.2rem;
 	border-bottom: 1px solid var(--border-color);
 }
 
-.table tbody th {
+.table-wrap table tbody th {
 	border-right:1px solid var(--border-color);
 	border-bottom: 1px solid var(--border-color);
 }
 
-.table tbody td {
+.table-wrap table  tbody td {
 	padding:1.2rem;
 	border-bottom: 1px solid var(--border-color);
 }

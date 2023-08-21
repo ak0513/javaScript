@@ -476,7 +476,7 @@ var ui = (function() {
 		var menu = document.querySelector('#menu .menu-group');
 		elm.forEach(function(ele) {
 			var id = ele.getAttribute('id');
-			console.log(id)
+			// console.log(id)
 			var htmlEle = [];
 			if(id !== null) {
 				htmlEle.push('<li class="menu-item"><a href="#' + id +'" class="menu-link">' + id + '</a></li>')
