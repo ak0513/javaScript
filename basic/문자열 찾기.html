@@ -74,6 +74,72 @@ text.indexOf("H"); // 출력: 0
 // 배열에서 요소의 인덱스 찾기
 numbers.indexOf(30); // 출력: 2
                 </div>
+
+                <h3 class="h-tit2">문자열 내의 특정 문자가 있는지 확인하는 방법</h3>
+                <div class="highlight js">
+let text = 'Hello';
+if(text.indexOf('H') !== -1) {
+  console.log('true');
+} else {
+  console.log('false');
+}
+// true
+                </div>
+
+                <h3 class="h-tit2">문자열 내의 특정 문자 개수 구하기</h3>
+                <div class="highlight js">
+let text = 'hello world';
+function getIndexOfNum(text, searchValue) {
+  let count = 0;
+  let pos = text.indexOf(searchValue);
+  while(pos !== -1) {
+    pos = text.indexOf(searchValue, pos + 1);
+    count++;
+  }
+  return count;
+}
+getIndexOfNum(text, o); // 2
+getIndexOfNum(text, l); // 3
+                </div>
+
+
+                <h3 class="h-tit2">문자열의 n번째 위치 index값 가져오기</h3>
+                <div class="highlight js">
+let text = 'hello wolrd hello wolrd';
+function getIndexOfPos(text, searchValue, nth) {
+  let count = 0;
+  let pos = 0;
+  while(count < nth && pos !== 1) {
+    if(text.indexOf(searchValue) === 0) {
+      if(nth === 1) {
+        pos = 1;
+        break;
+      }
+      count = 1;
+    }
+    pos = text.indexOf(searchValue, pos + 1);
+    count++;
+  }
+  return pos;
+}
+getIndexOfPos(text, 'h' 2); // 12
+getIndexOfPos(text, 'h' 1); // 1
+                </div>
+
+                <h3 class="h-tit2">문자열에 있는 특정 문자 위치 모두 찾기</h3>
+                <div class="highlight js">
+let text = 'hello world'(
+function getIndexOfPosFind(text, searchValue) {
+  let pos = 0;
+  while(true) {
+    let posFind = text.indexOf(searchValue, pos);
+    if(posFind === -1) break;
+    console.log(posFind);
+    pos = posFind + 1;
+  }
+}
+getOndexOfPosFind(text, 'l'); // 2, 3, 9
+                </div>
             </div>
         </section>
     </div>
