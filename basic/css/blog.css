@@ -37,7 +37,24 @@ body {
 }
 
 /* menu */
-#menu {display:none;}
+#menu {
+	padding:24px;
+	background-color: #f8f8f8;
+	border-radius: 4px;
+}
+.menu-tit {
+	padding-left: 28px;
+	background: url('../img/list-check.svg') no-repeat left center / 20px;
+	font-size:20px;
+	font-weight: 600;
+}
+
+.menu-group {
+	margin-top:12px;
+	margin-left:12px;
+	padding-left:20px;
+	border-left:1px dashed #999;
+}
 
 
 /* highlight */
@@ -84,13 +101,6 @@ code.code::after {content:'"';}
 		font-size:32px;
 	}
 
-	.h-tit2 {
-
-	}
-
-	.h-tit3 {
-
-	}
 
 	/* highlight */
 	.highlight {
