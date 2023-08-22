@@ -482,6 +482,28 @@ var ui = (function() {
 				htmlEle.push('<li class="menu-item"><a href="#' + id +'" class="menu-link">' + id + '</a></li>')
 				menu.innerHTML = menu.innerHTML + htmlEle.join('');
 			}
+
+			// 해시태그 클릭 시 스크롤 이동 및 해시태그 추가
+			function scrollToHashTag(hashTag) {
+				// 해당 해시태그의 아이디값을 찾아서 스크롤 이동
+				var targetElement = document.getElementById(hashTag);
+				if (targetElement) {
+				  targetElement.scrollIntoView({ behavior: 'smooth' });
+				}
+				// 해시태그를 주소창에 추가
+				history.pushState(null, null, "#" + hashTag);
+			}
+		  
+			// 해시태그 링크 클릭 시 이벤트 처리
+			var hashLinks = document.querySelectorAll(".menu-group  a");
+			console.log(hashLinks)
+			for (var i = 0; i < hashLinks.length; i++) {
+				hashLinks[i].addEventListener("click", function (event) {
+					event.preventDefault(); // 링크 클릭 동작 취소
+					var hashTag = this.getAttribute("href").substr(1);
+					scrollToHashTag(hashTag);
+				});
+			}
 		})
 
 	}
