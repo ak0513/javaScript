@@ -512,3 +512,21 @@ var ui = (function() {
 		menuHtml: menuHtml                  // menuHtml
 	};
 })();
+
+
+// 불러올 컨텐츠가 들어있는 URL
+var loadUrl = './header.html';
+
+// 비동기 함수를 정의하여 데이터를 불러오는 작업을 수행
+async function loadData() {
+	try {
+		var response = await fetch(loadUrl); // URL로부터 데이터를 가져옴
+		var data = await response.text(); // 가져온 데이터를 텍스트 형식으로 변환
+		document.getElementById('header').innerHTML = data; // 데이터를 화면에 삽입할 요소에 적용
+	} catch (error) {
+		console.error('Error loading data:', error);
+	}
+}
+
+// loadData 함수 호출
+loadData();

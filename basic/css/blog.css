@@ -1,21 +1,35 @@
+body {
+	color:#213547;
+}
 /* gap */
 .gap30 {gap:30px;}
 
 /* tit */
-.header-tit {
-	background: rgba(52,53,65,1);
-    text-align: center;
-    padding: 12px;
-	border-bottom:1px solid #000;
-	font-size:24px;
-	color:#fff;
-	font-weight: 600;
-}
-
 .h-tit1 ruby rt {
 	text-align: left;
 	color:#999;
 	font-size:45%;
+}
+
+/* vuew 스타일 적용 중 */
+.h-tit1 {
+	margin-bottom:48px;
+	border:none;
+	font-size: 38px;
+}
+.h-tit1 span::after {display: none;}
+
+.h-tit2 {
+	margin-top:64px;
+	margin-bottom:28px;
+	padding-top:28px;
+	border-top:1px solid #ccc;
+	font-size:24px;
+}
+
+.h-tit3 {
+	margin:48px 0 20px;
+	font-size:19px;
 }
 
 /* menu */
@@ -61,8 +75,17 @@ code.code::after {content:'"';}
 
 @media only screen and (max-width: 768px) {
 	/* tit */
-	.header-tit {
-		font-size: 18px;
+	.h-tit1 {
+		margin-bottom:28px;
+		font-size:32px;
+	}
+
+	.h-tit2 {
+
+	}
+
+	.h-tit3 {
+
 	}
 
 	/* highlight */

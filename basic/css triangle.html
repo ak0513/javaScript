@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[CSS] 삼각형</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <script>
+            
+        </script>
+        <h1 class="header-tit"><span>삼각형</span></h1>
+        <nav id="menu">
+            <ul class="menu-group">
+            </ul>
+        </nav>
+        <section id="container">
+            <div class="container-inner">
+                <h2 class="h-tit1" id="triangle"><span>정삼각형</span></h2>
+                <div class="triangle2"></div>
+                <div class="highlight css">
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: calc( 90px * 1.732 ) solid #666666;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+}
+                </div>
+
+                <h2 class="h-tit1" id="triangle"><span>직각삼각형</span></h2>
+                <div class="triangle3"></div>
+                <div class="highlight css">
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 180px solid #666666;
+    border-left: 0px solid transparent;
+    border-right: 180px solid transparent;
+}
+                </div>
+
+                <h2 class="h-tit1" id="triangle"><span>이등변삼각형</span></h2>
+                <div class="d-flex gap30">
+                    <div class="triangle4"></div>
+                    <div class="triangle5"></div>
+                    <div class="triangle6"></div>
+                    <div class="triangle7"></div>
+                    <div class="triangle8"></div>
+                </div>
+                <div class="highlight css">
+/* 위 */
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 180px solid #666666;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+}
+
+/* 오른쪽 */
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-left: 180px solid #666666;
+    border-top: 90px solid transparent;
+    border-bottom: 90px solid transparent;
+}
+
+/* 아래 */
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-top: 180px solid #666666;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+}
+
+/* 왼쪽 */
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-right: 180px solid #666666;
+    border-top: 90px solid transparent;
+    border-bottom: 90px solid transparent;
+}
+
+/* 회전 */
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 180px solid #666666;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    transform: rotate( 45deg );
+}
+                </div>
+                <style>
+                    .triangle2 {
+                        width: 0px;
+                        height: 0px;
+                        border-bottom: calc( 90px * 1.732 ) solid #666666;
+                        border-left: 90px solid transparent;
+                        border-right: 90px solid transparent;
+                    }
+
+                    .triangle3 {
+                        width: 0px;
+                        height: 0px;
+                        border-bottom: 180px solid #666666;
+                        border-left: 0px solid transparent;
+                        border-right: 180px solid transparent;
+                    }
+
+                    .triangle4 {
+                        width: 0px;
+                        height: 0px;
+                        border-bottom: 180px solid #666666;
+                        border-left: 90px solid transparent;
+                        border-right: 90px solid transparent;
+                    }
+
+                    .triangle5 {
+                        width: 0px;
+                        height: 0px;
+                        border-left: 180px solid #666666;
+                        border-top: 90px solid transparent;
+                        border-bottom: 90px solid transparent;
+                    }
+
+                    .triangle6 {
+                        width: 0px;
+                        height: 0px;
+                        border-top: 180px solid #666666;
+                        border-left: 90px solid transparent;
+                        border-right: 90px solid transparent;
+                    }
+
+                    .triangle7 {
+                        width: 0px;
+                        height: 0px;
+                        border-right: 180px solid #666666;
+                        border-top: 90px solid transparent;
+                        border-bottom: 90px solid transparent;
+                    }
+
+                    .triangle8 {
+                        width: 0px;
+                        height: 0px;
+                        border-bottom: 180px solid #666666;
+                        border-left: 90px solid transparent;
+                        border-right: 90px solid transparent;
+                        transform: rotate( 45deg );
+                    }
+                    @media only screen and (max-width: 1100px) {
+                        .d-flex {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+                   
+                </style>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
