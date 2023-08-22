@@ -472,7 +472,7 @@ var ui = (function() {
 	}
 
 	var menuHtml = function() {
-		var elm = document.querySelectorAll('.h-tit1');
+		var elm = document.querySelectorAll('.h-tit2');
 		var menu = document.querySelector('#menu .menu-group');
 		elm.forEach(function(ele) {
 			var id = ele.getAttribute('id');

@@ -22,13 +22,17 @@ body {
 .h-tit2 {
 	margin-top:64px;
 	margin-bottom:28px;
-	padding-top:28px;
-	border-top:1px solid #ccc;
 	font-size:24px;
 }
 
+.h-tit2 span {
+	display: inline-block;
+	border-bottom:2px solid rgb(220, 86, 86);
+}
+
+
 .h-tit3 {
-	margin:48px 0 20px;
+	margin:48px 0 16px;
 	font-size:19px;
 }
 
