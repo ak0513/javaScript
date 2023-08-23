@@ -485,14 +485,14 @@ var ui = (function() {
 
 			// 해시태그 클릭 시 스크롤 이동 및 해시태그 추가
 			function scrollToHashTag(hashTag) {
-				// 해당 해시태그의 아이디값을 찾아서 스크롤 이동
 				var targetElement = document.getElementById(hashTag);
 				if (targetElement) {
-				  targetElement.scrollIntoView({ behavior: 'smooth' });
+				  var targetOffset = targetElement.getBoundingClientRect().top + window.scrollY;
+				  window.scrollTo({ top: targetOffset - 30, behavior: 'smooth' });
 				}
-				// 해시태그를 주소창에 추가
+		  
 				history.pushState(null, null, "#" + hashTag);
-			}
+			  }
 
 			// 해시태그 링크 클릭 시 이벤트 처리
 			var hashLinks = document.querySelectorAll('.menu-link');

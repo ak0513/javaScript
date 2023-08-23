@@ -26,8 +26,19 @@ body {
 }
 
 .h-tit2 span {
-	display: inline-block;
-	border-bottom:2px solid rgb(220, 86, 86);
+	position: relative;
+	padding-left: 10px;
+}
+
+.h-tit2 span::before {
+	content:'';
+	display: block;
+	position: absolute;
+	top: 50%;
+	width:4px;
+	height:80%;
+	transform: translateY(-50%);
+	background-color: rgb(220, 86, 86);
 }
 
 
