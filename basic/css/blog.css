@@ -5,11 +5,7 @@ body {
 .gap30 {gap:30px;}
 
 /* tit */
-.h-tit1 ruby rt {
-	text-align: left;
-	color:#999;
-	font-size:45%;
-}
+
 
 /* vuew 스타일 적용 중 */
 .h-tit1 {
@@ -39,6 +35,12 @@ body {
 	height:80%;
 	transform: translateY(-50%);
 	background-color: rgb(220, 86, 86);
+}
+
+.h-tit2 ruby rt {
+	text-align: left;
+	color:#999;
+	font-size:45%;
 }
 
 

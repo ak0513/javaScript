@@ -5,18 +5,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/ui.js"></script>
-	<title>요소 사이즈 구하기</title>
+	<title>[JS] 요소 사이즈 구하기</title>
 </head>
 
 <body>
     <div id="wrap">
-        <h1 class="header-tit"><span>요소(element) 사이즈 구하기</span></h1>
-        <nav id="menu">
-            <ul class="menu-group">
-            </ul>
-        </nav>
+        <header id="header"></header>
         <section id="container">
             <div class="container-inner">
+                <h1 class="h-tit1">요소(element) 사이즈 구하기</h1>
+                <nav id="menu">
+                    <h2 class="menu-tit">목차</h2>
+                    <ul class="menu-group">
+                    </ul>
+                </nav>
+
                 <div class="highlight css">
 .box {width:200px;height:200px;padding:10px;border:3px solid #000;box-sizing: content-box;}
 .box-inner {margin:10px;padding:10px;border:3px solid #000;}
@@ -25,13 +28,13 @@
                 </div>
 
 
-                <h2 class="h-tit1" id="borderBox"><span><ruby>border-box<rt>CSS</rt></ruby></span></h2>
+                <h2 class="h-tit2"><span><ruby>border-box<rt>CSS</rt></ruby></span></h2>
                 <p>
                     <code class="code">border-box</code> <span class="highlighter">요소의 크기를 콘텐츠 영역과 패딩(padding), 그리고 테두리(border)를 모두 포함</span>하여 계산합니다.<br>
                     따라서 width와 height 속성이 콘텐츠 영역뿐만 아니라 패딩과 테두리까지의 크기를 의미하며, 콘텐츠 영역의 크기는 자동으로 조절됩니다.
                 </p>
                 
-                <h2 class="h-tit1" id="offset"><span>offsetWidth / offsetHeight</span></h2>
+                <h2 class="h-tit2" id="offset"><span>offsetWidth / offsetHeight</span></h2>
                 <p>
                     <code class="code">offsetWidth</code>는 DOM (문서 객체 모델)에서 사용되는 속성으로, 요소의 콘텐츠 영역을 나타냅니다.<br>
                     이 너비에는 <span class="highlighter">콘텐츠, 패딩(padding), 테두리(border) 영역을 포함하지만 여백(margin)과 세로 스크롤바는 제외</span>됩니다.
@@ -77,7 +80,7 @@ box.offsetHeight
                 
                 
 
-                <h2 class="h-tit1" id="client"><span>clientWidth / clientHeight</span></h2>
+                <h2 class="h-tit2" id="client"><span>clientWidth / clientHeight</span></h2>
                 <p>
                     <code class="code">clientWidth</code>는 DOM (문서 객체 모델)에서 사용되는 속성으로, 요소의 콘텐츠 영역을 나타냅니다.<br>
                     이 너비에는 요소의 <span class="highlighter">콘텐츠, 패딩(padding) 영역을 포함하지만, 테두리(border)와 세로 스크롤바는 제외</span>됩니다.
@@ -122,7 +125,7 @@ box.clientHeight
                 
                 
                 
-                <h2 class="h-tit1" id="scroll"><span>scrollWidth / scrollHeight</span></h2>
+                <h2 class="h-tit2" id="scroll"><span>scrollWidth / scrollHeight</span></h2>
                 <p>
                     <code class="code">scrollWidth</code>는 DOM (문서 객체 모델)에서 사용되는 속성으로, 요소의 콘텐츠 전체 영역을 나타냅니다.<br>
                     이 너비는 요소의 <span class="highlighter">콘텐츠, 패딩(padding) 영역을 포함하며, 만약 콘텐츠가 요소의 크기보다 크다면 스크롤링이 가능한 영역</span>을 말합니다.
@@ -193,7 +196,7 @@ box.scrollHeight
 
 
 
-                <h2 class="h-tit1" id="getBoundingClientRect"><span>getBoundingClientRect().width / getBoundingClientRect().height</span></h2>
+                <h2 class="h-tit2" id="getBoundingClientRect"><span>getBoundingClientRect().width / getBoundingClientRect().height</span></h2>
                 <p>
                     <code class="code">getBoundingClientRect()</code>은 DOM (문서 객체 모델)에서 사용되는 메서드로, <span class="highlighter">요소의 현재 뷰포트(viewport)에서의 위치와 크기 정보를 반환</span>합니다.<br>
                     이 메서드를 사용하면 요소가 화면 상에서 어떤 위치에 있고 어떤 크기를 가지는지를 알 수 있습니다.
