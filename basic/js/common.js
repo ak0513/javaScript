@@ -493,12 +493,11 @@ var ui = (function() {
 				// 해시태그를 주소창에 추가
 				history.pushState(null, null, "#" + hashTag);
 			}
-		  
+
 			// 해시태그 링크 클릭 시 이벤트 처리
-			var hashLinks = document.querySelectorAll(".menu-group  a");
-			console.log(hashLinks)
+			var hashLinks = document.querySelectorAll('.menu-link');
 			for (var i = 0; i < hashLinks.length; i++) {
-				hashLinks[i].addEventListener("click", function (event) {
+				hashLinks[i].addEventListener("click", function(event) {
 					event.preventDefault(); // 링크 클릭 동작 취소
 					var hashTag = this.getAttribute("href").substr(1);
 					scrollToHashTag(hashTag);
