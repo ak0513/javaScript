@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// 꾸미기 용도
 	ui.setHighlight();  // hlight.js
-	ui.menuHtml();      // menuHtml
+	// ui.menuHtml();      // menuHtml
 })
 
 
@@ -473,13 +473,13 @@ var ui = (function() {
 
 	var menuHtml = function() {
 		var elm = document.querySelectorAll('.h-tit2');
-		var menu = document.querySelector('#menu .menu-group');
+		var menu = document.querySelector('#menu');
 		elm.forEach(function(ele) {
 			var id = ele.getAttribute('id');
 			// console.log(id)
 			var htmlEle = [];
 			if(id !== null) {
-				htmlEle.push('<li class="menu-item"><a href="#' + id +'" class="menu-link">' + id + '</a></li>')
+				htmlEle.push('<li class="aside-menu-item"><a href="#' + id +'" class="aside-menu-link">' + id + '</a></li>')
 				menu.innerHTML = menu.innerHTML + htmlEle.join('');
 			}
 
@@ -487,15 +487,14 @@ var ui = (function() {
 			function scrollToHashTag(hashTag) {
 				var targetElement = document.getElementById(hashTag);
 				if (targetElement) {
-				  var targetOffset = targetElement.getBoundingClientRect().top + window.scrollY;
-				  window.scrollTo({ top: targetOffset - 30, behavior: 'smooth' });
+					var targetOffset = targetElement.getBoundingClientRect().top + window.scrollY;
+					window.scrollTo({ top: targetOffset - 80, behavior: 'smooth' });
 				}
-		  
 				history.pushState(null, null, "#" + hashTag);
-			  }
+			}
 
 			// 해시태그 링크 클릭 시 이벤트 처리
-			var hashLinks = document.querySelectorAll('.menu-link');
+			var hashLinks = document.querySelectorAll('#menu .aside-menu-link');
 			for (var i = 0; i < hashLinks.length; i++) {
 				hashLinks[i].addEventListener("click", function(event) {
 					event.preventDefault(); // 링크 클릭 동작 취소
@@ -536,18 +535,39 @@ var ui = (function() {
 
 
 // 불러올 컨텐츠가 들어있는 URL
-var loadUrl = './header.html';
+var headerUrl = './header.html';
+var asideUrl = './aside.html';
 
-// 비동기 함수를 정의하여 데이터를 불러오는 작업을 수행
-async function loadData() {
-	try {
-		var response = await fetch(loadUrl); // URL로부터 데이터를 가져옴
-		var data = await response.text(); // 가져온 데이터를 텍스트 형식으로 변환
-		document.getElementById('header').innerHTML = data; // 데이터를 화면에 삽입할 요소에 적용
-	} catch (error) {
-		console.error('Error loading data:', error);
-	}
+function loadData(url, targetElementId, callback) {
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => {
+            const targetElement = document.getElementById(targetElementId);
+            if (targetElement) {
+                targetElement.innerHTML = data;
+                if (callback && typeof callback === 'function') {
+                    callback(); // 콜백 함수 호출
+					ui.menuHtml() // 현재페이지 목차 노출
+                }
+            } else {
+                console.error(`Target element with ID '${targetElementId}' not found.`);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 }
 
-// loadData 함수 호출
-loadData();
+loadData(headerUrl, 'header');
+loadData(asideUrl, 'aside', callback);
+
+// callback 예시
+function callback() {
+	document.getElementById('callback').classList.add('callback')
+	// ui.menuHtml()
+}

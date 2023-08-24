@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Focus Loop Example</title>
+</head>
+<body>
+  aa내부에서는 포커스 루프 실행
+  <a href="">aaaa</a>
+<div class="aa">
+  <input type="text" id="element1" />
+  <input type="text" />
+  <input type="text" />
+  <input type="text" id="element4" />
+</div>
+<a href="">aaaa</a>
+<a href="">aaaa</a>
+<a href="">aaaa</a>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll(".aa input[type='text']");
+
+  elements.forEach((element, index) => {
+    element.addEventListener("keydown", function(event) {
+      if (event.key === "Tab" && !event.shiftKey) {
+        if (element === elements[elements.length - 1]) {
+          event.preventDefault();
+          elements[0].focus();
+        }
+      } else if (event.key === "Tab" && event.shiftKey) {
+        if (element === elements[0]) {
+          event.preventDefault();
+          elements[elements.length - 1].focus();
+        }
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
