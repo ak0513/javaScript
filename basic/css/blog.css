@@ -103,6 +103,16 @@ code.code::after {content:'"';}
 	}
 
 
+	/* container */
+	.container-inner {
+		padding-left:2.4rem;
+	}
+
+	/* aside */
+	#aside {
+		display: none;
+	}
+
 	/* highlight */
 	.highlight {
 		margin:0 -2.4rem;
