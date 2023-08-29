@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[CSS] 마우스 드래그</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">마우스 드래그</h1>
+                <h2 class="h-tit2" id="드래그 막기">마우스 드래그 막기</h2>
+                <p class="not-drag">드래그 금지 테스트 영역입니다.</p>
+                <div class="highlight css">
+body {
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+                </div>
+                <h2 class="h-tit2">텍스트만 드래그를 허용하는 경우</h2>
+                <div class="highlight css">
+.draggable {
+    -webkit-user-select:text;
+    -moz-user-select:text;
+    -ms-user-select:text;
+    user-select:text
+}
+                </div>
+
+                <h2 class="h-tit2" id="드래그 변경">마우스 드래그 변경</h2>
+                <p class="change-drag">드래그 변경 테스트 영역입니다.</p>
+            <div class="highlight css">
+::selection {
+    background-color: black;
+    color: yellow;
+}
+            </div>
+            </div>
+
+            
+        </section>
+    </div>
+    <style>
+        .not-drag {
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none
+        }
+        .change-drag::selection {
+            color: #fff;
+            text-shadow: none;
+            background: #d33a2c;
+        }
+    </style>
+</body>
+</html>
