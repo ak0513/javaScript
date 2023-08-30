@@ -31,29 +31,11 @@ p {
 .aside-menu-link:hover {color:#fff;}
 
 /* tit */
-.h-tit1 {
-	margin-bottom:48px;
-	border:none;
-	font-size: 38px;
-}
-.h-tit1 span::after {display: none;}
-
-.h-tit2 {
-	margin-top:64px;
-	margin-bottom:28px;
-}
-
 .h-tit2 ruby rt {
 	text-align: left;
 	color:#999;
 	font-size:45%;
 }
-
-.h-tit3 {
-	margin:48px 0 16px;
-	font-size:19px;
-}
-
 
 /* 예시 */
 .ex {
@@ -62,6 +44,7 @@ p {
 	border-top:none;
 	margin-top:20px;
 	padding:55px 15px 15px;
+	border-radius: 4px;
 }
 
 .ex::before {
