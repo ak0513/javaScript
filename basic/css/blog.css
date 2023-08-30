@@ -14,10 +14,16 @@ p {
 
 /* container */
 #container {padding-top:70px;}
-.container-inner {max-width:1100px;padding:0 2.4rem 8.0rem 30.0rem;}
+.container-inner {max-width:1100px;padding:0 2.4rem 8.0rem 20.0rem;}
 
 /* aside */
-#aside {position:fixed; top:70px;left:50%;width:20.0rem;transform: translateX(-550px);}
+#aside {position:fixed;top:0;left:0;z-index:10;width:20.0rem;height:100%;padding:50px 24px;background-color: #2b333e;}
+.aside-menu {margin-right:40px;}
+.aside-menu-tit {font-size:16px;color:#fff;font-weight:500;}
+.aside-menu-group {margin-top:8px;}
+.aside-menu-group + .aside-menu-tit {margin-top:30px;}
+.aside-menu-link {display:block;font-size:14px;color:#b5b5b5;transition: all 0.4s;}
+.aside-menu-link:hover {color:#fff;}
 
 /* tit */
 .h-tit1 {
