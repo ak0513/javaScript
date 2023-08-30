@@ -116,13 +116,26 @@ console.log(paddedString); // 출력: "Hello....."
 
                 <p>아이디의 뒤에 *을 붙일 수도 있습니다.</p>
                 <div class="highlight js">
-const originalString = '아이디'
-const originalStringSlice = originalString.slice(0, 1);
-const resultId = originalStringSlice.padEnd(originalString.length, '*');
+function maskId(id) {
+    const maskedLength = id.length - 3; // 마스킹하지 않을 길이
+    const maskedPart = id.slice(0, maskedLength); // 마스킹하지 않을 부분
+    const maskedId = maskedPart.padEnd(id.length, '*'); // 나머지를 '*'로 채움
+    return maskedId;
+}
 
-console.log(resultId);
-// 아**
+const userId = "myUsername123";
+const maskedUserId = maskId(userId);
+
+console.log(maskedUserId); // myUsername***
                 </div>
+
+                <p>위의 예제에서 maskId 함수는 다음과 같은 단계로 동작합니다.</p>
+
+                <ol class="bullet-num">
+                    <li><code class="code">id.length - 3</code> 을 사용하여 마지막 3자리를 제외한 부분의 길이를 계산합니다.</li>
+                    <li><code class="code">id.slice(0, maskedLength)</code> 를 사용하여 마스킹하지 않을 부분을 추출합니다.</li>
+                    <li><code class="code">maskedPart.padEnd(id.length, '*')</code> 를 사용하여 마스킹하지 않은 부분을 나머지 길이만큼 ''로 채웁니다. 결과적으로 뒤 3자리가 ''로 마스킹됩니다.</li>
+                </ol>
             </div>
         </section>
 

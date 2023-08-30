@@ -151,14 +151,14 @@
 
 p {
 	margin-top:1.2rem;
-	color:#666;
+	color:var(--darkgray);
 }
 
 /* bullet */
 ul[class*='bullet'],
 ol[class*='bullet'] {
 	margin-top:1.2rem;
-	color:var(--gray);
+	color:var(--darkgray);
 }
 
 ul[class*='bullet'] li + li,
@@ -166,9 +166,20 @@ ol[class*='bullet'] li + li {
 	margin-top:0.4rem;
 }
 
+ul[class*='bullet'] li ul,
+ol[class*='bullet'] li ul {
+	margin-top:0.4rem;
+}
+
+.bullet-num {
+	margin-left: 2.0rem;
+}
 .bullet-num > li {
-	text-indent: -1.7rem;
-	padding-left: 1.7rem;
+	list-style-type: decimal;
+}
+
+.bullet-num > li::marker {
+	color:var(--black)
 }
 
 p.bullet-dot,

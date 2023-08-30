@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+       let resizeTimer = null;
+function resizeComplete() {
+  // 리사이즈 함수 사용
+  console.log('resize Complete');
+}
+
+window.addEventListener('resize', function() {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(resizeComplete, 400);
+}, false);
+    </script>
+</body>
+</html>
