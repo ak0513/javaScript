@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>문자열 채우기</title>
+</head>
+
+<body>
+    <style>
+
+    </style>
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">문자열 채우기</h1>
+                
+                <h2 class="h-tit2" id="padStart"><span>padStart</span></h2>
+                <p>
+                    <code class="code">padStart</code> JavaScript 문자열 메서드 중 하나로, 주어진 길이에 맞게 문자열을 패딩(빈 공간을 채우는)하는 역할을 합니다.<br>
+                    이 메서드를 사용하면 특정 길이만큼의 문자열을 생성하고, 필요에 따라 지정된 문자로 채울 수 있습니다.
+                </p>
+
+                <h3 class="h-tit3">구문</h3>
+                <div class="highlight js">
+str.padStart(targetLength [, padString])
+// 적용할 문자열.padEnd(목표 길이, 채울 문자)
+                </div>
+                <ul class="bullet-dot">
+                    <li>str: 패딩을 적용할 대상 문자열입니다.</li>
+                    <li>targetLength: 목표 길이입니다. 패딩을 적용하여 이 길이에 도달하도록 문자열을 늘릴 것입니다.</li>
+                    <li>padString (선택적): 패딩에 사용할 문자열입니다. 기본값은 공백입니다.</li>
+                </ul>
+
+                <h3 class="h-tit3">예시</h3>
+                <p>문자열 "45"를 총 길이 5으로 만드는 예시입니다.</p>
+                <div class="highlight js">
+const originalString = "45";
+const paddedString = originalString.padStart(5, "0");
+console.log(paddedString); // 출력: "00042"
+                </div>
+
+                <p>달력이나 시계에서 한자리 숫자인 경우 앞에 0을 붙이는 용도로 사용할 수 있다.</p>
+                <div class="highlight js">
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('clock').textContent = timeString;
+}
+
+// 매 초마다 시계 업데이트
+setInterval(updateClock, 1000);
+
+// 페이지 로드 시에도 시계 업데이트
+updateClock();
+                </div>
+
+                <div id="clock" class="ex"></div>
+                <script>
+                    function updateClock() {
+                        const now = new Date();
+                        const hours = now.getHours().toString().padStart(2, '0');
+                        const minutes = now.getMinutes().toString().padStart(2, '0');
+                        const seconds = now.getSeconds().toString().padStart(2, '0');
+                        
+                        const timeString = `${hours}:${minutes}:${seconds}`;
+                        document.getElementById('clock').textContent = timeString;
+                    }
+                    
+                    // 매 초마다 시계 업데이트
+                    setInterval(updateClock, 1000);
+                    
+                    // 페이지 로드 시에도 시계 업데이트
+                    updateClock();
+                </script>
+
+
+
+                <h2 class="h-tit2" id="padEnd"><span>padEnd</span></h2>
+                <p>
+                    <code class="code">padEnd</code> JavaScript 문자열 메서드로, 문자열의 끝에 패딩(빈 공간을 채우는)을 추가하여 주어진 길이에 맞추는 역할을 합니다.<br>
+                    이 메서드를 사용하면 문자열의 끝에 필요한 만큼의 문자를 추가하여 특정 길이에 도달할 수 있습니다.
+                </p>
+
+
+                <h3 class="h-tit3">구문</h3>
+                <div class="highlight js">
+str.padEnd(targetLength [, padString])
+// 적용할 문자열.padEnd(목표 길이, 채울 문자)
+                </div>
+                <ul class="bullet-dot">
+                    <li>str: 패딩을 적용할 대상 문자열입니다.</li>
+                    <li>targetLength: 목표 길이입니다. 패딩을 적용하여 이 길이에 도달하도록 문자열을 늘릴 것입니다.</li>
+                    <li>padString (선택적): 패딩에 사용할 문자열입니다. 기본값은 공백입니다.</li>
+                </ul>
+
+
+                <h3 class="h-tit3">예시</h3>
+                <p>originalString의 길이는 5이고, <code class="code">padEnd</code> 메서드로 길이 10으로 맞추기 위해 문자열 끝에 점(.)을 추가했습니다.</p>
+                <div class="highlight js">
+const originalString = "Hello";
+const paddedString = originalString.padEnd(10, ".");
+console.log(paddedString); // 출력: "Hello....."
+                </div>
+
+                <p>아이디의 뒤에 *을 붙일 수도 있습니다.</p>
+                <div class="highlight js">
+const originalString = '아이디'
+const originalStringSlice = originalString.slice(0, 1);
+const resultId = originalStringSlice.padEnd(originalString.length, '*');
+
+console.log(resultId);
+// 아**
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</body>
+</html>

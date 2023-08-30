@@ -197,7 +197,7 @@ p.bullet-dot::before,
 	left:0;
 	width: 0.6rem;
 	height: 0.6rem;
-	background-color: var(--gray);
+	background-color: var(--darkgray);
 	border-radius: 50%;
 }
 
