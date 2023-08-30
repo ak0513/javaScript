@@ -149,11 +149,16 @@
 	margin-top:2.0rem;
 }
 
+p {
+	margin-top:1.2rem;
+	color:#666;
+}
+
 /* bullet */
 ul[class*='bullet'],
 ol[class*='bullet'] {
 	margin-top:1.2rem;
-	color:var(--darkgray);
+	color:var(--gray);
 }
 
 ul[class*='bullet'] li + li,
