@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Table Example</title>
+</head>
+<body>
+    <table id="objectTable">
+        <thead>
+            <tr>
+                <th>프로퍼티 이름</th>
+                <th>값</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // "a"라는 객체 생성
+        var a = {
+            property1: "값1",
+            property2: "값2",
+            property3: "값3"
+        };
+
+        // 테이블에 객체 정보 추가
+        var tableBody = document.querySelector('#objectTable tbody');
+        for (var key in a) {
+            if (a.hasOwnProperty(key)) {
+                var row = tableBody.insertRow();
+                var propertyNameCell = row.insertCell(0);
+                var propertyValueCell = row.insertCell(1);
+                var propertyValueCell2 = row.insertCell(2);
+                
+                propertyNameCell.innerHTML = key;
+                propertyValueCell.innerHTML = a[key];
+            }
+        }
+    </script>
+
+
+<table id="arrayTable">
+    <thead>
+        <tr>
+            <th>인덱스</th>
+            <th>값</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    // "a"라는 배열 생성
+    var arr = ["값1", "값2", "값3"];
+
+    // 테이블에 배열 정보 추가
+    var tableBody = document.querySelector('#arrayTable tbody');
+    for (var i = 0; i < arr.length; i++) {
+        var row = tableBody.insertRow();
+        var indexCell = row.insertCell(0);
+        var valueCell = row.insertCell(1);
+
+        indexCell.innerHTML = i;
+        valueCell.innerHTML = arr[i];
+    }
+</script>
+
+
+<table id="arrayTable2">
+    <thead>
+        <tr>
+            <th>인덱스</th>
+            <th>값</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    // "a"라는 배열 생성
+    var arr2 = ["값1", "값2", "값3"];
+
+    // 테이블에 배열 정보 추가
+    var tableBody = document.querySelector('#arrayTable2 tbody');
+    arr2.forEach(function(value, index) {
+        var row = tableBody.insertRow();
+        var indexCell = row.insertCell(0);
+        var valueCell = row.insertCell(1);
+
+        indexCell.innerHTML = index;
+        valueCell.innerHTML = value;
+    });
+</script>
+
+
+<input type="text" id="inputA">
+<input type="text" id="inputB">
+
+<script>
+    // inputA의 값을 inputB로 복사하는 함수
+function copyInputValue() {
+  var inputA = document.getElementById('inputA');
+  var inputB = document.getElementById('inputB');
+  
+  inputB.value = inputA.value;
+}
+
+// inputA의 값이 변경될 때마다 copyInputValue 함수 호출
+document.getElementById('inputA').addEventListener('input', copyInputValue);
+</script>
+
+
+<input type="text" id="inputC">
+<input type="text" id="inputD">
+
+<script>
+    
+    
+// inputA의 값을 inputB로 복사하는 함수
+function copyInputValue2() {
+  var inputA = document.getElementById('inputC');
+  var inputB = document.getElementById('inputD');
+  
+  if (document.activeElement === inputA) {
+    inputB.value = inputA.value;
+  } else if (document.activeElement === inputB) {
+    inputA.value = inputB.value;
+  }
+}
+
+// inputA와 inputB에 입력 이벤트 리스너 추가
+document.getElementById('inputC').addEventListener('input', copyInputValue2);
+document.getElementById('inputD').addEventListener('input', copyInputValue2);
+
+</script>
+
+<input type="checkbox" id="checkboxA">
+<input type="checkbox" id="checkboxB">
+
+<script>
+// 체크박스 A와 체크박스 B에 클릭 이벤트 리스너 추가
+document.getElementById('checkboxA').addEventListener('click', function() {
+  var checkboxA = document.getElementById('checkboxA');
+  var checkboxB = document.getElementById('checkboxB');
+  checkboxB.checked = checkboxA.checked;
+});
+
+document.getElementById('checkboxB').addEventListener('click', function() {
+  var checkboxA = document.getElementById('checkboxA');
+  var checkboxB = document.getElementById('checkboxB');
+  checkboxA.checked = checkboxB.checked;
+});
+
+
+</script>
+</body>
+</html>

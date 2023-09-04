@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combined Example</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <input type="checkbox" id="checkbox1">
+            <input type="checkbox" id="checkbox2">
+        </li>
+        <li>
+            <input type="checkbox" id="checkbox3">
+        </li>
+        <li>
+            <input type="text" id="input1">
+            <input type="text" id="input2">
+        </li>
+        <li>
+            <input type="text" id="input3">
+        </li>
+    </ul>   
+
+    <script>
+        // 페이지가 로드될 때 스크립트 실행
+        document.addEventListener("DOMContentLoaded", function() {
+            // 모든 <li> 요소를 선택
+            var liElements = document.querySelectorAll("li");
+
+            // 각 <li> 요소에 대해 처리
+            liElements.forEach(function(li) {
+                // <li> 안에 있는 <input> 요소들을 선택
+                var inputElements = li.querySelectorAll("input");
+
+                // <input> 요소가 2개 이상인 경우에만 작동
+                if (inputElements.length >= 2) {
+                    // 첫 번째 <input> 요소의 상태가 변경될 때 두 번째 <input>에 복사
+                    inputElements[0].addEventListener("change", function() {
+                        if (inputElements[0].type === "checkbox") {
+                            inputElements[1].checked = inputElements[0].checked;
+                        } else {
+                            inputElements[1].value = inputElements[0].value;
+                        }
+                    });
+
+                    // 두 번째 <input> 요소의 상태가 변경될 때 첫 번째 <input>에 복사
+                    inputElements[1].addEventListener("change", function() {
+                        if (inputElements[1].type === "checkbox") {
+                            inputElements[0].checked = inputElements[1].checked;
+                        } else {
+                            inputElements[0].value = inputElements[1].value;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
