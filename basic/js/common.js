@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	ui.setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	ui.setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
-	ui.setDeviceInfo(); // deviceInfo 세팅
-	ui.setBodyClass();  // body에 device별 클래스 추가
+	ui.setDeviceInfo()  // deviceInfo 세팅
+	ui.setBodyClass()   // body에 device별 클래스 추가
 	ui.tab()            // 탭
 	ui.accordion()      // 아코디언
 	ui.popup()          // 팝업
@@ -207,7 +207,17 @@ var ui = (function() {
 		return siblings
 	}
 
+
 	// 이전 요소 찾기
+	var prev = function(ele, selector) {
+		var prevEl = ele.previousElementSibling;
+		if (!selector || (prevEl && prevEl.matches(selector))) {
+			return prevEl;
+		}
+		return null;
+	}
+
+	// 이전 요소 전체 찾기
 	var prevAll = function(ele) {
 		var result = [];
 		while (ele = ele.previousElementSibling)
@@ -461,11 +471,11 @@ var ui = (function() {
 			} else if(item.classList.contains('js')) {
 				var eleHtml = item.innerHTML
 				eleHtml = eleHtml.trim();
-				item.innerHTML = '<div class="hljs-header">JAVASCRIPT</div><pre><code class="hljs language-javascript">' + eleHtml + '</code></pre>';
+				item.innerHTML = '<div class="hljs-header">JAVASCRIPT</div><pre><code>' + eleHtml + '</code></pre>';
 			} else if(item.classList.contains('css')) {
 				var eleHtml = item.innerHTML
 				eleHtml = eleHtml.trim();
-				item.innerHTML = '<div class="hljs-header">CSS</div><div class="highlight css"><pre><code>' + eleHtml + '</code></pre></div>';
+				item.innerHTML = '<div class="hljs-header">CSS</div><pre><code>' + eleHtml + '</code></pre>';
 			}
 		})
 		hljs.initHighlightingOnLoad();
@@ -513,7 +523,8 @@ var ui = (function() {
 		accessDisable: accessDisable,       // 포커스 비활성화(접근성)
 		accessEnable: accessEnable,         // 포커스 활성화(접근성)
 		siblings: siblings,                 // 형제요소 찾기
-		prevAll: prevAll,                   // 이전 요소 찾기
+		prevAll: prevAll,                   // 이전 요소 전체 찾기
+		prev: prev,                         // 이전 요소 찾기
 		nextAll: nextAll,                   // 다음 요소 찾기
 		closest: closest,                   // 가장 가까운 부모 찾기
 		removeClass: removeClass,           // class 삭제

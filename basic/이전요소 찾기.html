@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[JS] 이전요소 찾기</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">이전요소 찾기</h1>
+                <h2 class="h-tit2" id="prevAll">prevAll()</h2>
+                <div class="highlight html">
+<ul>
+    <li>목록1</li>
+    <li>목록2</li>
+    <li>목록3</li>
+    <li>목록4</li>
+    <li class="tar">타겟</li>
+    <li>목록5</li>
+</ul>
+                </div>
+
+                <div class="highlight css">
+.active {color:red;}
+                </div>
+
+                <div class="highlight js">
+var tar = document.querySelector('.tar');
+var tarPrevAll = ui.prevAll(tar)
+
+tarPrevAll // (4) [li, li, li, li]
+tarPrevAll.forEach(function(item) {
+    item.classList.add('active')
+})
+                </div>
+
+                <h3 class="h-tit3">결과물</h3>
+                <div class="sample sample1">
+                    <ul>
+                        <li>목록1</li>
+                        <li>목록2</li>
+                        <li>목록3</li>
+                        <li>목록4</li>
+                        <li class="tar">타겟</li>
+                        <li>목록5</li>
+                    </ul>
+                </div>
+
+
+
+                <h2 class="h-tit2" id="prev">prev()</h2>
+                <div class="highlight html">
+<ul>
+    <li>목록1</li>
+    <li class="selector1">목록2</li>
+    <li>목록3</li>
+    <li class="selector2">>목록4</li>
+    <li class="tar">타겟</li>
+    <li>목록5</li>
+</ul>
+                </div>
+
+                <div class="highlight js">
+var tar = document.querySelector('.sample2 .tar');
+
+ui.prev(tar) // &lt;li class="selector2"&gt;목록4&lt;/li&gt;
+ui.prev(tar, '.selector1') // 이전 요소에 .selector1이 없으므로 null
+ui.prev(tar, '.selector2') // &lt;li class="selector2"&gt;목록4&lt;/li&gt;
+
+ui.prev(tar).classList.add('active')
+ui.prev(tar, '.selector2').classList.add('active2')
+                </div>
+
+                <h3 class="h-tit3">결과물</h3>
+                <div class="sample sample2">
+                    <ul>
+                        <li>목록1</li>
+                        <li class="selector1">목록2</li>
+                        <li>목록3</li>
+                        <li class="selector2">목록4</li>
+                        <li class="tar">타겟</li>
+                        <li>목록5</li>
+                    </ul>
+                </div>
+
+
+
+                <script>
+                    function sample1() {
+                        var tar = document.querySelector('.sample1 .tar');
+                        var tarPrevAll = ui.prevAll(tar)
+    
+                        tarPrevAll.forEach(function(item) {
+                            item.classList.add('active')
+                        })
+                    }
+                    sample1();
+
+                    function sample2() {
+                        var tar = document.querySelector('.sample2 .tar');
+
+                        ui.prev(tar).classList.add('active')
+                        ui.prev(tar, '.selector2').classList.add('active2')
+
+                        console.log(ui.prev(tar)) // <li class="selector2">>목록4</li>
+                        console.log(ui.prev(tar, '.selector1')) // null
+                        console.log(ui.prev(tar, '.selector2')) // <li class="selector2">>목록4</li>
+                    }
+                    sample2();
+                </script>
+
+                <style>
+                    .active {color:red;}
+                    .active2 {text-decoration: underline;}
+                </style>
+        </div>
+    </section>
+</div>
+</body>
+</html>
