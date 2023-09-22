@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    피씨에서는 tab이동 시 focus이벤트가 발생하며 enter키 입력 시 click 이벤트가 발생한다.<br><br>
+    보이스오버와 톡백에서는 focus 이벤트가 발생하지 않는다.<br>
+    iOS에서 role="text"를 적용하면 focus 이벤트가 발생한다.<br>
+    click 이벤트가 발생하면 focus 이벤트도 함께 발생한다.<br>
+    focus() 함수 적용시 포커스 이벤트가 발생한다.<br><br>
+    <div id="text"></div>
+    <div id="text2"></div>
+    <br>
+    <a href="#" class="link1">스크린리더에서 포커스 이벤트가 발생하지 않는다.</a>
+    <br><br>
+    <a href="#" class="link2" role="text">iOS에서 포커스 이벤트가 발생한다.(role="text")</a>
+      <script>
+
+        
+        document.querySelector('.link1').addEventListener('focus', () => {
+            event.preventDefault();
+            document.getElementById('text').textContent = 'link1 focus'
+        });
+        document.querySelector('.link1').addEventListener('click', () => {
+            event.preventDefault();
+            document.getElementById('text2').textContent = 'link1 click'
+        });
+
+        document.querySelector('.link2').addEventListener('focus', () => {
+            event.preventDefault();
+            document.getElementById('text').textContent = 'link2 focus'
+        });
+
+        document.querySelector('.link2').addEventListener('click', () => {
+            event.preventDefault();
+            document.getElementById('text2').textContent = 'link2 click'
+        });
+    </script>
+</body>
+</html>

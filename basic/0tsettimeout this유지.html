@@ -1,0 +1,61 @@
+자바스크립트에서 setTimeout 함수를 사용할 때 this를 원래 객체로 유지하려면 몇 가지 방법이 있습니다.
+
+<script>
+    // 화살표 함수 사용: 화살표 함수를 사용하면 자동으로 현재 컨텍스트의 this를 유지합니다.
+
+
+    class MyClass {
+  constructor() {
+    this.myProperty = 42;
+  }
+
+  myMethod() {
+    setTimeout(() => {
+      console.log(this.myProperty); // this는 MyClass의 인스턴스를 가리킵니다.
+    }, 1000);
+  }
+}
+
+
+
+
+const instance = new MyClass();
+instance.myMethod();
+
+//bind() 메서드 사용: bind() 메서드를 사용하여 콜백 함수의 this를 원하는 값으로 지정할 수 있습니다.
+class MyClass {
+  constructor() {
+    this.myProperty = 42;
+  }
+
+  myMethod() {
+    setTimeout(function() {
+      console.log(this.myProperty);
+    }.bind(this), 1000);
+  }
+}
+
+
+
+
+const instance = new MyClass();
+instance.myMethod();
+
+//변수에 this 할당: 콜백 함수 내에서 this를 다른 변수에 할당하고 해당 변수를 사용할 수도 있습니다.
+class MyClass {
+  constructor() {
+    this.myProperty = 42;
+  }
+
+  myMethod() {
+    const self = this;
+    setTimeout(function() {
+      console.log(self.myProperty);
+    }, 1000);
+  }
+}
+
+const instance = new MyClass();
+instance.myMethod();
+
+</script>

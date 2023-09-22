@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[JS] prevAll()</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">prevAll()</h1>
+                <h2 class="h-tit2" id="소스">소스</h2>
+                <div class="highlight html">
+<ul>
+    <li>목록1</li>
+    <li>목록2</li>
+    <li>목록3</li>
+    <li>목록4</li>
+    <li class="tar">타겟</li>
+    <li>목록5</li>
+</ul>
+                </div>
+
+                <div class="highlight css">
+.active {color:red;}
+                </div>
+
+                <div class="highlight js">
+var tar = document.querySelector('.tar');
+var tarPrevAll = ui.prevAll(tar)
+
+console.log(tarPrevAll) // (4) [li, li, li, li]
+
+tarPrevAll.forEach(function(item) {
+    item.classList.add('active')
+})
+                </div>
+
+                <h2 class="h-tit2" id="결과물">결과물</h2>
+                <div class="sample">
+                    <ul>
+                        <li>목록1</li>
+                        <li>목록2</li>
+                        <li>목록3</li>
+                        <li>목록4</li>
+                        <li class="tar">타겟</li>
+                        <li>목록5</li>
+                    </ul>
+                </div>
+
+                
+
+                <script>
+                    var tar = document.querySelector('.sample .tar');
+                    var tarPrevAll = ui.prevAll(tar)
+
+                    console.log(tarPrevAll)
+                    console.log(typeof(tarPrevAll))
+
+                    tarPrevAll.forEach(function(item) {
+                        item.classList.add('active')
+                    })
+                </script>
+
+                <style>
+                    .active {color:red;}
+                </style>
+
+                <style>
+                    
+                </style>
+        </div>
+    </section>
+</div>
+</body>
+</html>
