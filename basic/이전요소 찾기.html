@@ -102,7 +102,6 @@ ui.prev(tar, '.selector2').classList.add('active2')
                             item.classList.add('active')
                         })
                     }
-                    sample1();
 
                     function sample2() {
                         var tar = document.querySelector('.sample2 .tar');
@@ -114,6 +113,8 @@ ui.prev(tar, '.selector2').classList.add('active2')
                         console.log(ui.prev(tar, '.selector1')) // null
                         console.log(ui.prev(tar, '.selector2')) // <li class="selector2">>목록4</li>
                     }
+
+                    sample1();
                     sample2();
                 </script>
 
