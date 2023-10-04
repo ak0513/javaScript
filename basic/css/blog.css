@@ -19,6 +19,9 @@
 .aside-menu-link {display:block;font-size:14px;color:#888;transition: all 0.4s;}
 .aside-menu-link:hover {color:#000;}
 
+.aside-logo {display:flex;justify-content:center;gap:4px;margin-bottom:16px;}
+.aside-logo img {width:32px;height:32px;}
+
 /* tit */
 .h-tit2 ruby rt {
 	text-align: left;

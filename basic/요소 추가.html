@@ -9,13 +9,32 @@
     <title>[JS] 요소 추가</title>
 </head>
 <body>
-    
+    <style>
+        #container {padding-top:0;}
+        .container-inner {margin-top:40px;}
+
+        .area_title {position:relative;margin-left:220px;padding:40px 0;text-align:center;color:#f0f0f0}
+        .area_title_bg{position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background:url('./img/bg-header.jpg') no-repeat center / cover;}
+        .area_title_bg::before {content:'';display:block;position:absolute;top:0;left:0;right:0;bottom:0;background-color:#000;opacity:0.4;;}
+        .area_title_category {font-size:14px;}
+        .area_title_post {font-size:44px;}
+        .area_title_info {font-size:14px;}
+    </style>
     <div id="wrap">
         <header id="header"></header>
         <aside id="aside"></aside>
         <section id="container">
+            <div class="area_title">
+                <div class="area_title_bg"></div>
+                <div class="area_title_category">JAVASCRIPT</div>
+                <h1 class="area_title_post">요소(element) 추가</h1>
+                <div class="area_title_info">
+                    <span class="area_title_author">Name</span>
+                    <span class="area_title_date">2023.10.10</span>
+                </div>
+            </div>
             <div class="container-inner">
-                <h1 class="h-tit1">요소(element) 추가</h1>
+               
 
                 <!-- prepend() -->
                 <h2 class="h-tit2" id="prepend"><span>prepend()</span></h2>
