@@ -66,7 +66,6 @@
 }
 
 :root {
-	--primary: #007bff;
 	--white: #fff;
 	--light: #f7f7f7;
 	--lightgray: #ced4da;
@@ -74,6 +73,9 @@
 	--gray: #666666;
 	--darkgray: #333;
 	--black: #212529;
+
+	--primary: #007bff;
+	--secondary: #6c757d;
 
 	--link-color: var(--black);
 
@@ -106,8 +108,13 @@
 	--form-ele-padding-y: 1.2rem;
 	--form-ele-padding-sm-x: calc(var(--form-ele-padding-x) * 0.6);
 	--form-ele-padding-sm-y: calc(var(--form-ele-padding-y) * 0.6);
-	--form-ele-padding-lg-x: calc(var(--form-ele-padding-x) * 1.2);
+	--form-ele-padding-lg-x: calc(var(--form-ele-padding-x) * 2.0);
 	--form-ele-padding-lg-y: calc(var(--form-ele-padding-y) * 1.2);
+
+	--form-ele-round-padding-x: calc(var(--form-ele-padding-x) * 2.0);
+	--form-ele-round-padding-sm-x: calc(var(--form-ele-padding-sm-x) * 2.0);
+	--form-ele-round-padding-lg-x: calc(var(--form-ele-padding-lg-x) * 2.0);
+
 	--form-ele-border-color: #e3e3e3;
 
 	--form-ele-radius: 0.2rem;
@@ -296,27 +303,79 @@ button {
 	line-height:var(--line-height);
 }
 
-.btn.btn-sm {
+.btn.primary {
+	background-color: var(--primary);
+	border-color: var(--primary);
+	color:var(--white);
+}
+
+.btn.primary.outline {
+	border-color:var(--primary);
+	color: var(--primary);
+}
+
+.btn.secondary {
+	background-color: var(--secondary);
+	border-color: var(--secondary);
+	color:var(--white);
+}
+
+.btn.secondary.outline {
+	border-color:var(--secondary);
+	color: var(--secondary);
+}
+
+.btn.light {
+	background-color: var(--light);
+	border-color: var(--lightgray);
+}
+
+.btn.light.outline {
+	color: var(--secondary);
+}
+
+.btn[class*='outline'] {
+	background-color: var(--white);
+}
+
+.btn.small {
 	padding: var(--form-ele-padding-sm-y) var(--form-ele-padding-sm-x);
 	font-size: var(--form-ele-font-sm);
 }
 
-.btn.btn-lg {
+.btn.large {
 	padding: var(--form-ele-padding-lg-y) var(--form-ele-padding-lg-x);
 	font-size: var(--form-ele-font-lg);
 }
 
-.btn.btn-round {
-	border-radius: 3.0rem;
+.btn.round {
+	border-radius: 5.0rem;
+	padding-left: var(--form-ele-round-padding-x);
+	padding-right: var(--form-ele-round-padding-x);
 }
 
-.btn.btn-block {
+.btn.small.round {
+	border-radius: 5.0rem;
+	padding-left: var(--form-ele-round-padding-sm-x);
+	padding-right: var(--form-ele-round-padding-sm-x);
+}
+
+.btn.large.round {
+	padding-left: var(--form-ele-round-padding-lg-x);
+	padding-right: var(--form-ele-round-padding-lg-x);
+}
+
+.btn.full {
 	width: 100%;
 }
 
-.btn:disabled, .btn.disabled {
+.btn[disabled], .btn.disabled {
 	opacity: 0.7;
 	pointer-events:none;
+}
+
+.btn[readonly], .btn.readonly {
+	opacity: 0.7;
 }
 
 .btn-wrap {
@@ -329,15 +388,7 @@ button {
 	margin-top:3.0rem;
 }
 
-.btn-primary {
-	background-color: var(--primary);
-	border-color: var(--primary);
-	color:#fff;
-}
 
-.btn-light {
-	background-color: var(--light);
-}
 
 /* input */
 input[type='tel'],

@@ -5,80 +5,113 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="./js/ui.js"></script>
+	<link rel="stylesheet" href="./css/guide.css">
 	<title>기본 스타일</title>
 </head>
 <body>
 	
 	<div id="wrap">
-		<header id="header">
-			<button type="button" class="btn btn-primary" title="전체메뉴 열기" data-modal-open="#mobileNav">팝업1</button>
-
-			
-		</header>
-
+		<header id="header"></header>
+		<!-- <aside id="aside"></aside> -->
 		<section id="container">
-			<!-- <div class="main-visual">메인 이미지</div> -->
 			<div class="container-inner">
-				<div class="h-dep1">
-					<h2 class="h-tit"><span>버튼</span></h2>
-				</div>
-				<div class="h-dep2">
-					<h3 class="h-tit">칼라</h3>
-				</div>
-
-				<div class="btn-wrap">
-					<button type="button" class="btn btn-primary">메인버튼</button>
-					<button type="button" class="btn btn-light">서브버튼</button>
-				</div>
-
-				<div class="h-dep2">
-					<h3 class="h-tit">비활성화</h3>
-				</div>
-				<div class="btn-wrap">
-					<button type="button" class="btn btn-primary" disabled>메인버튼</button>
-					<button type="button" class="btn btn-light" disabled>서브버튼</button>
+				<!-- button -->
+				<h2 class="h-tit1"><span>Button</span></h2>
+				<h3 class="h-tit2" id="Color"><span>Color</span></h3>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary">Primary</button>
+						<button type="button" class="btn secondary">Secondary</button>
+						<button type="button" class="btn light">Light</button>
+					</div>
 				</div>
 
-				<div class="h-dep2">
-					<h3 class="h-tit">버튼 사이즈</h3>
-				</div>
-				<div class="h-dep3">
-					<h4 class="h-tit">기본</h4>
-				</div>
-				<div class="btn-wrap">
-					<button type="button" class="btn">Button</button>
-					<a href="#" class="btn">Link</a>
-					<a href="#" class="btn btn-round">Round</a>
-				</div>
-				<div class="h-dep3">
-					<h4 class="h-tit">Large</h4>
-				</div>
-				<div class="btn-wrap">
-					<button type="button" class="btn btn-lg">Large Button</button>
-					<a href="#" class="btn btn-lg">Large Link</a>
-					<a href="#" class="btn btn-lg btn-round">라운드 버튼</a>
-				</div>
-				<div class="h-dep3">
-					<h4 class="h-tit">Small</h4>
-				</div>
-				<div class="btn-wrap">
-					<button type="button" class="btn btn-sm">Small Button</button>
-					<a href="#" class="btn btn-sm">Small Link</a>
-					<a href="#" class="btn btn-sm btn-round">라운드 버튼</a>
+				<h3 class="h-tit2" id="Outline"><span>Outline</span></h3>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary outline">Primary</button>
+						<button type="button" class="btn secondary outline">Secondary</button>
+						<button type="button" class="btn light outline">Light</button>
+					</div>
 				</div>
 
-				<div class="h-dep2">
-					<h3 class="h-tit">라운드 버튼</h3>
+				<h3 class="h-tit2" id="Round"><span>Round</span></h3>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary round">Primary</button>
+						<button type="button" class="btn secondary round">Secondary</button>
+						<button type="button" class="btn primary outline round">Primary</button>
+						<button type="button" class="btn secondary outline round">Secondary</button>
+					</div>
 				</div>
-				<div class="btn-wrap">
-					<button type="button" class="btn btn-round">Round Button</button>
-					<a href="#" class="btn btn-round">Round Link</a>
+
+				<h3 class="h-tit2" id="Disabled"><span>Disabled</span></h3>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary" disabled>Primary</button>
+						<button type="button" class="btn secondary" disabled>Secondary</button>
+						<button type="button" class="btn btn-light" disabled>Secondary</button>
+
+						<button type="button" class="btn primary outline" disabled>Primary</button>
+						<button type="button" class="btn secondary outline" disabled>Secondary</button>
+						<button type="button" class="btn light outline" disabled>Secondary</button>
+					</div>
 				</div>
+
+				<h3 class="h-tit2" id="Readonly"><span>Readonly</span></h3>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary" readonly>Primary</button>
+						<button type="button" class="btn btn-secondary" readonly>Secondary</button>
+						<button type="button" class="btn btn-light" readonly>Secondary</button>
+
+						<button type="button" class="btn primary outline" readonly>Primary</button>
+						<button type="button" class="btn secondary outline" readonly>Secondary</button>
+						<button type="button" class="btn light outline" readonly>Secondary</button>
+					</div>
+				</div>
+
+				<h3 class="h-tit2" id="Size"><span>Size</span></h3>
+				<h4 class="h-tit3">Default</h4>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary">Button</button>
+						<a href="#" class="btn">Link</a>
+						<a href="#" class="btn round">Round Button</a>
+					</div>
+				</div>
+
+				<h4 class="h-tit3">Large</h4>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary large">Large Button</button>
+						<a href="#" class="btn large">Large Link</a>
+						<a href="#" class="btn large round">Round Button</a>
+					</div>
+				</div>
+
+				<h4 class="h-tit3">Small</h4>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary small">Small Button</button>
+						<a href="#" class="btn small">Small Link</a>
+						<a href="#" class="btn small round">Round Button</a>
+					</div>
+				</div>
+
+				<h4 class="h-tit3">풀 사이즈</h4>
+				<div class="example">
+					<div class="btn-wrap">
+						<button type="button" class="btn primary full">Button</button>
+						<button type="button" class="btn small full">Small Button</button>
+						<button type="button" class="btn large full">Large Button</button>
+						<button type="button" class="btn round full">Round Button</button>
+					</div>
+				</div>
+				<!-- /button -->
 			
 
-				<div class="h-dep1">
-					<h2 class="h-tit"><span>Input</span></h2>
-				</div>
+				<h2 class="h-tit1"><span>Input</span></h2>
 				<div class="form-input">
 					<input type="text" id="input1-1">
 				</div>
@@ -363,7 +396,7 @@
 						<label class="form-label" for="input2-3">input + btn</label>
 						<div class="form-input side-btn">
 							<input type="text" id="input2-3">
-							<button type="button" class="btn btn-light">btn</button>
+							<button type="button" class="btn btn-secondary">btn</button>
 						</div>
 					</div>
 
@@ -382,7 +415,7 @@
 							<span class="unit">가격</span>
 							<input type="text" id="input2-5">
 							<span class="unit">원</span>
-							<button type="button" class="btn btn-light">btn</button>
+							<button type="button" class="btn btn-secondary">btn</button>
 						</div>
 					</div>
 
@@ -516,7 +549,7 @@
 					<div class="h-dep1">
 						<h3 class="h-tit">폼 타이틀 + Btn</h3>
 						<div class="btn-wrap">
-							<button type="button" class="btn btn-sm">Add</button>
+							<button type="button" class="btn small">Add</button>
 						</div>
 					</div>
 
@@ -625,7 +658,7 @@
 					<h2 class="h-tit"><span>팝업</span></h2>
 				</div>
 				<div class="btn-wrap">
-					<button type="button" class="btn btn-primary" title="팝업 열기" data-modal-open="#modal1">팝업 열기</button>
+					<button type="button" class="btn primary" title="팝업 열기" data-modal-open="#modal1">팝업 열기</button>
 				</div>
 
 				<hr>
@@ -643,7 +676,7 @@
 		<h1 class="a11y">전체메뉴</h1>
 		<div class="mobile-nav-inner">
 			<a href="">link</a>
-			<button type="button" class="btn btn-primary" data-modal-close="#mobileNav">팝업 닫기</button>
+			<button type="button" class="btn primary" data-modal-close="#mobileNav">팝업 닫기</button>
 		</div>
 		<div class="mobile-dim"></div>
 	</nav>
@@ -661,7 +694,7 @@
 			</div>
 			<div class="modal-footer">
 				<div class="btn-wrap j-c-end">
-					<button type="button" class="btn btn-primary btn-sm" data-modal-close="#modal1">팝업 닫기</button>
+					<button type="button" class="btn primary small" data-modal-close="#modal1">팝업 닫기</button>
 				</div>
 			</div>
 		</div>
