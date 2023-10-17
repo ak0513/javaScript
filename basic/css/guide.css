@@ -1,4 +1,7 @@
 /* body {background-color: #f8f8f8;} */
 .container-inner {padding:20px;}
-.example {border:1px solid #ddd;padding:20px;background-color: #fff;}
+.example {padding:30px;background-color: #F4F7FC;border:1px solid #ddd;border-radius:5px;}
 .example .btn-wrap {margin-top:0;}
+
+
+.h-tit3 {font-weight:500;color:#464646}

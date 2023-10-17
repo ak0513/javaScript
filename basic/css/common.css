@@ -297,6 +297,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	padding: var(--form-ele-padding-y) var(--form-ele-padding-x);
+	background-color: var(--white);
 	border:1px solid var(--border-color);
 	font-size: var(--form-ele-font);
 	border-radius: var(--form-ele-radius);
