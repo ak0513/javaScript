@@ -488,7 +488,7 @@ select {
 	line-height: var(--form-ele-line-height);
 }
 
-select.select-sm  {
+select.small  {
 	min-height: auto;
 	padding-top:var(--form-ele-padding-sm-y);
 	padding-bottom:var(--form-ele-padding-sm-y);
@@ -496,7 +496,7 @@ select.select-sm  {
 	font-size: var(--form-ele-font-sm);
 }
 
-select.select-lg  {
+select.large  {
 	min-height: auto;
 	padding-top:var(--form-ele-padding-lg-y);
 	padding-bottom:var(--form-ele-padding-lg-y);

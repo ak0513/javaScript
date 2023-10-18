@@ -12,12 +12,14 @@
 	
 	<div id="wrap">
 		<header id="header"></header>
-		<!-- <aside id="aside"></aside> -->
+		<aside id="aside">
+
+		</aside>
 		<section id="container">
 			<div class="container-inner">
 				<!-- 버튼 -->
 				<h2 class="h-tit1"><span>버튼</span></h2>
-				<h3 class="h-tit2" id="형태"><span># 형태</span></h3>
+				<h3 class="h-tit2" id="버튼 형태"><span># 형태</span></h3>
 				<h4 class="h-tit3">기본형</h4>
 				<div class="example">
 					<div class="btn-wrap">
@@ -46,7 +48,7 @@
 					</div>
 				</div>
 
-				<h3 class="h-tit2" id="상태"><span># 상태</span></h3>
+				<h3 class="h-tit2" id="버튼 상태"><span># 상태</span></h3>
 				<h4 class="h-tit3">비활성화</h4>
 				<div class="example">
 					<div class="btn-wrap">
@@ -73,12 +75,12 @@
 					</div>
 				</div>
 
-				<h3 class="h-tit2" id="크기"><span># 크기</span></h3>
+				<h3 class="h-tit2" id="버튼 크기"><span># 크기</span></h3>
 				<h4 class="h-tit3">기본</h4>
 				<div class="example">
 					<div class="btn-wrap">
 						<button type="button" class="btn primary">Button</button>
-						<a href="#" class="btn">Link</a>
+						<a href="#" class="btn secondary">Link</a>
 						<a href="#" class="btn round">Round Button</a>
 					</div>
 				</div>
@@ -87,7 +89,7 @@
 				<div class="example">
 					<div class="btn-wrap">
 						<button type="button" class="btn primary large">Large Button</button>
-						<a href="#" class="btn large">Large Link</a>
+						<a href="#" class="btn secondary large">Large Link</a>
 						<a href="#" class="btn large round">Round Button</a>
 					</div>
 				</div>
@@ -96,7 +98,7 @@
 				<div class="example">
 					<div class="btn-wrap">
 						<button type="button" class="btn primary small">Small Button</button>
-						<a href="#" class="btn small">Small Link</a>
+						<a href="#" class="btn secondary small">Small Link</a>
 						<a href="#" class="btn small round">Round Button</a>
 					</div>
 				</div>
@@ -104,8 +106,8 @@
 				<h4 class="h-tit3">풀 사이즈</h4>
 				<div class="example">
 					<div class="btn-wrap">
-						<button type="button" class="btn small full">Small Button</button>
-						<button type="button" class="btn full">Button</button>
+						<button type="button" class="btn primary small full">Small Button</button>
+						<button type="button" class="btn secondary full">Button</button>
 						<button type="button" class="btn large full">Large Button</button>
 						<button type="button" class="btn round full">Round Button</button>
 					</div>
@@ -114,6 +116,7 @@
 			
 				<!-- 인풋 -->
 				<h2 class="h-tit1"><span>인풋</span></h2>
+				<h3 class="h-tit2" id="인풋 형태"><span># 형태</span></h3>
 				<h4 class="h-tit3">기본</h4>
 				<div class="example">
 					<div class="form-input">
@@ -128,262 +131,327 @@
 						<button type="button" class="btn secondary">버튼</button>
 					</div>
 				</div>
+
+				<h4 class="h-tit3">유닛 추가</h4>
+				<div class="example">
+					<div class="form-input with-unit">
+						<span class="unit">약정</span>
+						<input type="text" id="input2-4" class="align-r">
+						<span class="unit">%</span>
+					</div>
+				</div>
+
+				<h4 class="h-tit3">유닛 + 버튼 추가</h4>
+				<div class="example">
+					<div class="form-input side-btn with-unit">
+						<span class="unit">가격</span>
+						<input type="text" id="input2-5">
+						<span class="unit">원</span>
+						<button type="button" class="btn secondary">btn</button>
+					</div>
+				</div>
 				<!-- //인풋 -->
 
 
-				<div class="h-dep1">
-					<h2 class="h-tit"><span>셀렉트 박스</span></h2>
-				</div>
-				<div class="select-wrap">
-					<select name="">
-						<option value="">셀렉트</option>
-						<option value="">셀렉트2</option>
-					</select>
-				</div>
-
-				<div class="select-wrap mgt10">
-					<select name="" class="select-lg">
-						<option value="">Large 셀렉트</option>
-						<option value="">Large 셀렉트2</option>
-					</select>
-				</div>
-
-				<div class="select-wrap mgt10">
-					<select name="" class="select-sm">
-						<option value="">Small 셀렉트</option>
-						<option value="">Small 셀렉트2</option>
-					</select>
-				</div>
-
-				
-
-				<div class="select-wrap mgt10">
-					<select name="" class="round">
-						<option value="">Round 셀렉트</option>
-						<option value="">Round 셀렉트2</option>
-					</select>
-				</div>
-
-				<div class="h-dep1">
-					<h2 class="h-tit"><span>체크박스</span></h2>
-				</div>
-				<div class="h-dep2">
-					<h3 class="h-tit">체크박스 혼자</h3>
-				</div>
-				<div class="form-check check-only">
-					<div class="form-check-item">
-						<input type="checkbox" id="chk2-1" name="chk" checked>
+				<!-- 셀렉트 박스 -->
+				<h2 class="h-tit1"><span>셀렉트 박스</span></h2>
+				<h3 class="h-tit2" id="셀렉트 형태"><span># 형태</span></h3>
+				<h4 class="h-tit3">기본</h4>
+				<div class="example">
+					<div class="select-wrap">
+						<select name="">
+							<option value="">셀렉트</option>
+							<option value="">셀렉트2</option>
+						</select>
 					</div>
 				</div>
 
-				<div class="h-dep2">
-					<h3 class="h-tit">체크박스 + 레이블</h3>
-				</div>
-				<div class="form-check">
-					<div class="form-check-item">
-						<input type="checkbox" id="chk2-1" name="chk" checked>
-						<label class="form-check-label" for="chk2-1">체크박스1</label>
-					</div>
-					<div class="form-check-item">
-						<input type="checkbox" id="chk2-2" name="chk">
-						<label class="form-check-label" for="chk2-2">체크박스2</label>
-					</div>
-					<div class="form-check-item">
-						<input type="checkbox" id="chk2-3" name="chk">
-						<label class="form-check-label" for="chk2-3">체크박스3</label>
+				<h4 class="h-tit3">라운드</h4>
+				<div class="example">
+					<div class="select-wrap">
+						<select name="" class="round">
+							<option value="">Round 셀렉트</option>
+							<option value="">Round 셀렉트2</option>
+						</select>
 					</div>
 				</div>
 
-				<div class="form-check col">
-					<div class="form-check-item">
-						<input type="checkbox" id="chk3-1" name="chk" checked>
-						<label class="form-check-label" for="chk3-1">체크박스1</label>
+				<h3 class="h-tit2" id="셀렉트 크기"><span># 크기</span></h3>
+				<h4 class="h-tit3">기본</h4>
+				<div class="example">
+					<div class="select-wrap">
+						<select name="">
+							<option value="">셀렉트</option>
+							<option value="">셀렉트2</option>
+						</select>
 					</div>
-					<div class="form-check-item">
-						<input type="checkbox" id="chk3-2" name="chk">
-						<label class="form-check-label" for="chk3-2">체크박스2</label>
-					</div>
-					<div class="form-check-item">
-						<input type="checkbox" id="chk3-3" name="chk">
-						<label class="form-check-label" for="chk3-3">체크박스3</label>
-					</div>
-				</div>
-
-				<div class="h-dep1">
-					<h2 class="h-tit"><span>라디오 버튼</span></h2>
-				</div>
-				<div class="h-dep2">
-					<h3 class="h-tit">라디오 버튼 혼자</h3>
-				</div>
-				<div class="form-check check-only">
-					<div class="form-check-item">
-						<input type="radio" id="radio1-1" name="radio1" checked>
+					<div class="mgt10"></div>
+					<div class="select-wrap">
+						<select name="" class="round">
+							<option value="">라운드 셀렉트</option>
+							<option value="">셀렉트2</option>
+						</select>
 					</div>
 				</div>
 
-				<div class="h-dep2">
-					<h3 class="h-tit">라디오 버튼 + 레이블</h3>
-				</div>
-				<div class="form-check">
-					<div class="form-check-item">
-						<input type="radio" id="radio2-1" name="radio2" checked>
-						<label class="form-check-label" for="radio2-1">체크박스1</label>
+				<h4 class="h-tit3">라지</h4>
+				<div class="example">
+					<div class="select-wrap">
+						<select name="" class="large">
+							<option value="">Large 셀렉트</option>
+							<option value="">Large 셀렉트2</option>
+						</select>
 					</div>
-					<div class="form-check-item">
-						<input type="radio" id="radio2-2" name="radio2">
-						<label class="form-check-label" for="radio2-2">체크박스2</label>
-					</div>
-					<div class="form-check-item">
-						<input type="radio" id="radio2-3" name="radio2">
-						<label class="form-check-label" for="radio2-3">체크박스3</label>
-					</div>
-				</div>
-
-				<div class="form-check col">
-					<div class="form-check-item">
-						<input type="radio" id="radio3-1" name="radio3" checked>
-						<label class="form-check-label" for="radio3-1">체크박스1</label>
-					</div>
-					<div class="form-check-item">
-						<input type="radio" id="radio3-2" name="radio3">
-						<label class="form-check-label" for="radio3-2">체크박스2</label>
-					</div>
-					<div class="form-check-item">
-						<input type="radio" id="radio3-3" name="radio3">
-						<label class="form-check-label" for="radio3-3">체크박스3</label>
+					<div class="mgt10"></div>
+					<div class="select-wrap">
+						<select name="" class="large round">
+							<option value="">Large 라운드 셀렉트</option>
+							<option value="">Large 셀렉트2</option>
+						</select>
 					</div>
 				</div>
 
-
-				<div class="h-dep1">
-					<h2 class="h-tit"><span>테이블</span></h2>
+				<h4 class="h-tit3">스몰</h4>
+				<div class="example">
+					<div class="select-wrap">
+						<select name="" class="small">
+							<option value="">Small 셀렉트</option>
+							<option value="">Small 셀렉트2</option>
+						</select>
+					</div>
+					<div class="mgt10"></div>
+					<div class="select-wrap">
+						<select name="" class="small round">
+							<option value="">Small 라운드 셀렉트</option>
+							<option value="">Small 셀렉트2</option>
+						</select>
+					</div>
 				</div>
-				<div class="h-dep2">
-					<h3 class="h-tit">기본</h3>
-				</div>
-				<div class="table-wrap">
-					<table class="table">
-						<caption></caption>
-						<colgroup>
-							<col>
-							<col>
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">tbody th</th>
-								<td>tbody td</td>
-								<td>tbody td</td>
-							</tr>
-						</tbody>
+				<!-- //셀렉트 박스 -->
 
-						<tfoot>
-							<tr>
-								<th scope="row">tfoot th</th>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-							</tr>
-						</tfoot>
-					</table>
+				<!-- 체크박스 -->
+				<h2 class="h-tit1"><span>체크박스</span></h2>
+				<h3 class="h-tit2" id="체크박스 형태"><span># 형태</span></h3>
+				<h4 class="h-tit3">체크박스 혼자</h4>
+				<div class="example">
+					<div class="form-check check-only">
+						<div class="form-check-item">
+							<input type="checkbox" id="chk2-1" name="chk" checked>
+						</div>
+					</div>
 				</div>
 
-				<div class="h-dep2">
-					<h3 class="h-tit">보더</h3>
-				</div>
-				<div class="table-wrap border">
-					<table class="table">
-						<caption></caption>
-						<colgroup>
-							<col>
-							<col>
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">tbody th</th>
-								<td>tbody td</td>
-								<td>tbody td</td>
-							</tr>
-						</tbody>
-
-						<tfoot>
-							<tr>
-								<th scope="row">tfoot th</th>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-							</tr>
-						</tfoot>
-					</table>
+				<h4 class="h-tit3">체크박스 + 레이블(가로)</h4>
+				<div class="example">
+					<div class="form-check">
+						<div class="form-check-item">
+							<input type="checkbox" id="chk2-1" name="chk" checked>
+							<label class="form-check-label" for="chk2-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
+							<input type="checkbox" id="chk2-2" name="chk">
+							<label class="form-check-label" for="chk2-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
+							<input type="checkbox" id="chk2-3" name="chk">
+							<label class="form-check-label" for="chk2-3">체크박스3</label>
+						</div>
+					</div>
 				</div>
 
-				<div class="h-dep2">
-					<h3 class="h-tit">스크롤</h3>
+				<h4 class="h-tit3">체크박스 + 레이블(세로)</h4>
+				<div class="example">
+					<div class="form-check col">
+						<div class="form-check-item">
+							<input type="checkbox" id="chk3-1" name="chk" checked>
+							<label class="form-check-label" for="chk3-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
+							<input type="checkbox" id="chk3-2" name="chk">
+							<label class="form-check-label" for="chk3-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
+							<input type="checkbox" id="chk3-3" name="chk">
+							<label class="form-check-label" for="chk3-3">체크박스3</label>
+						</div>
+					</div>
 				</div>
-				<div class="table-wrap scroll">
-					<table class="table">
-						<caption></caption>
-						<colgroup>
-							<col>
-							<col>
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-								<th scope="col">thead th</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">tbody th</th>
-								<td>tbody td</td>
-								<td>tbody td</td>
-								<td>tbody td</td>
-								<td>tbody td</td>
-								<td>tbody td</td>
-								<td>tbody td</td>
-								<td>tbody td</td>
-							</tr>
-						</tbody>
+				<!-- //체크박스 -->
 
-						<tfoot>
-							<tr>
-								<th scope="row">tfoot th</th>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-								<td>tfoot td</td>
-							</tr>
-						</tfoot>
-					</table>
+				<!-- 라디오버튼 -->
+				<h2 class="h-tit1"><span>라디오버튼</span></h2>
+				<h3 class="h-tit2" id="라디오버튼 형태"><span># 형태</span></h3>
+				<h4 class="h-tit3">라디오버튼 혼자</h4>
+				<div class="example">
+					<div class="form-check check-only">
+						<div class="form-check-item">
+							<input type="radio" id="radio1-1" name="radio1" checked>
+						</div>
+					</div>
 				</div>
 
-				<div class="h-dep1">
-					<h2 class="h-tit"><span>폼</span></h2>
+				<h4 class="h-tit3">라디오버튼 + 레이블(가로)</h4>
+				<div class="example">
+					<div class="form-check">
+						<div class="form-check-item">
+							<input type="radio" id="radio2-1" name="radio2" checked>
+							<label class="form-check-label" for="radio2-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
+							<input type="radio" id="radio2-2" name="radio2">
+							<label class="form-check-label" for="radio2-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
+							<input type="radio" id="radio2-3" name="radio2">
+							<label class="form-check-label" for="radio2-3">체크박스3</label>
+						</div>
+					</div>
 				</div>
+
+				<h4 class="h-tit3">라디오버튼 + 레이블(세로)</h4>
+				<div class="example">
+					<div class="form-check col">
+						<div class="form-check-item">
+							<input type="radio" id="radio3-1" name="radio3" checked>
+							<label class="form-check-label" for="radio3-1">체크박스1</label>
+						</div>
+						<div class="form-check-item">
+							<input type="radio" id="radio3-2" name="radio3">
+							<label class="form-check-label" for="radio3-2">체크박스2</label>
+						</div>
+						<div class="form-check-item">
+							<input type="radio" id="radio3-3" name="radio3">
+							<label class="form-check-label" for="radio3-3">체크박스3</label>
+						</div>
+					</div>
+				</div>
+
+
+				<h2 class="h-tit2"><span>테이블</span></h2>
+				<h4 class="h-tit3">기본</h4>
+				<div class="example">
+					<div class="table-wrap">
+						<table class="table">
+							<caption></caption>
+							<colgroup>
+								<col>
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">tbody th</th>
+									<td>tbody td</td>
+									<td>tbody td</td>
+								</tr>
+							</tbody>
+
+							<tfoot>
+								<tr>
+									<th scope="row">tfoot th</th>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+
+				<h4 class="h-tit3">보더</h4>
+				<div class="example">
+					<div class="table-wrap border">
+						<table class="table">
+							<caption></caption>
+							<colgroup>
+								<col>
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">tbody th</th>
+									<td>tbody td</td>
+									<td>tbody td</td>
+								</tr>
+							</tbody>
+
+							<tfoot>
+								<tr>
+									<th scope="row">tfoot th</th>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+
+				<h4 class="h-tit3">스크롤</h4>
+				<div class="example">
+					<div class="table-wrap scroll">
+						<table class="table">
+							<caption></caption>
+							<colgroup>
+								<col>
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+									<th scope="col">thead th</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">tbody th</th>
+									<td>tbody td</td>
+									<td>tbody td</td>
+									<td>tbody td</td>
+									<td>tbody td</td>
+									<td>tbody td</td>
+									<td>tbody td</td>
+									<td>tbody td</td>
+								</tr>
+							</tbody>
+
+							<tfoot>
+								<tr>
+									<th scope="row">tfoot th</th>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+									<td>tfoot td</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+
+				<h2 class="h-tit1"><span>폼</span></h2>
 				<div class="form">
 					<div class="h-dep1">
 						<h3 class="h-tit">Input</h3>
