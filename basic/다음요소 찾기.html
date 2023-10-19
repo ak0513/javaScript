@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/ui.js"></script>
-    <title>[JS] 이전요소 찾기</title>
+    <title>[JS] 다음요소 찾기</title>
 </head>
 <body>
     
@@ -15,29 +15,30 @@
         <aside id="aside"></aside>
         <section id="container">
             <div class="container-inner">
-                <h1 class="h-tit1">이전요소 찾기</h1>
-                <h2 class="h-tit2" id="prevAll">prevAll()</h2>
+                <h1 class="h-tit1">다음요소 찾기</h1>
+                <h2 class="h-tit2" id="prevAll">nextAll()</h2>
                 <div class="highlight html">
 <ul>
     <li>목록1</li>
+    <li class="tar">타겟</li>
     <li>목록2</li>
     <li>목록3</li>
     <li>목록4</li>
-    <li class="tar">타겟</li>
     <li>목록5</li>
 </ul>
                 </div>
 
                 <div class="highlight css">
 .active {color:red;}
+.active2 {text-decoration: underline;}
                 </div>
 
                 <div class="highlight js">
 var tar = document.querySelector('.tar');
-var tarPrevAll = ui.prevAll(tar)
+var tarNextAll = ui.prevAll(tar)
 
-tarPrevAll // (4) [li, li, li, li]
-tarPrevAll.forEach(function(item) {
+tarNextAll // (4) [li, li, li, li]
+tarNextAll.forEach(function(item) {
     item.classList.add('active')
 })
                 </div>
@@ -46,10 +47,10 @@ tarPrevAll.forEach(function(item) {
                 <div class="sample sample1">
                     <ul>
                         <li>목록1</li>
+                        <li class="tar">타겟</li>
                         <li>목록2</li>
                         <li>목록3</li>
                         <li>목록4</li>
-                        <li class="tar">타겟</li>
                         <li>목록5</li>
                     </ul>
                 </div>
@@ -60,20 +61,25 @@ tarPrevAll.forEach(function(item) {
                 <div class="highlight html">
 <ul>
     <li>목록1</li>
+    <li class="tar">타겟</li>
     <li class="selector1">목록2</li>
     <li>목록3</li>
     <li class="selector2">>목록4</li>
-    <li class="tar">타겟</li>
     <li>목록5</li>
 </ul>
                 </div>
 
-                <div class="highlight js">
-var tar = document.querySelector('.sample2 .tar');
+                <div class="highlight css">
+.active {color:red;}
+.active2 {text-decoration: underline;}
+                </div>
 
-ui.prev(tar) // &lt;li class="selector2"&gt;목록4&lt;/li&gt;
-ui.prev(tar, '.selector1') // 이전 요소에 .selector1이 없으므로 null
-ui.prev(tar, '.selector2') // &lt;li class="selector2"&gt;목록4&lt;/li&gt;
+                <div class="highlight js">
+var tar = document.querySelector('.tar');
+
+ui.prev(tar) // &lt;li class="selector1"&gt;목록2&lt;/li&gt;
+ui.prev(tar, '.selector1') // &lt;li class="selector1"&gt;목록2&lt;/li&gt;
+ui.prev(tar, '.selector2') // 다음 요소에 .selector2가 없으므로 null
 
 ui.prev(tar).classList.add('active')
 ui.prev(tar, '.selector2').classList.add('active2')
@@ -83,10 +89,10 @@ ui.prev(tar, '.selector2').classList.add('active2')
                 <div class="sample sample2">
                     <ul>
                         <li>목록1</li>
+                        <li class="tar">타겟</li>
                         <li class="selector1">목록2</li>
                         <li>목록3</li>
                         <li class="selector2">목록4</li>
-                        <li class="tar">타겟</li>
                         <li>목록5</li>
                     </ul>
                 </div>
@@ -96,9 +102,9 @@ ui.prev(tar, '.selector2').classList.add('active2')
                 <script>
                     function sample1() {
                         var tar = document.querySelector('.sample1 .tar');
-                        var tarPrevAll = ui.prevAll(tar)
+                        var tarNextAll = ui.nextAll(tar)
     
-                        tarPrevAll.forEach(function(item) {
+                        tarNextAll.forEach(function(item) {
                             item.classList.add('active')
                         })
                     }
@@ -106,14 +112,14 @@ ui.prev(tar, '.selector2').classList.add('active2')
                     function sample2() {
                         var tar = document.querySelector('.sample2 .tar');
 
-                        ui.prev(tar).classList.add('active')
-                        if(ui.prev(tar, '.selector2') !== null) {
-                            ui.prev(tar, '.selector2').classList.add('active2')
+                        ui.next(tar).classList.add('active')
+                        if(ui.next(tar, '.selector1') !== null) {
+                            ui.next(tar, '.selector1').classList.add('active2')
                         }
 
-                        console.log(ui.prev(tar)) // <li class="selector2">>목록4</li>
-                        console.log(ui.prev(tar, '.selector1')) // null
-                        console.log(ui.prev(tar, '.selector2')) // <li class="selector2">>목록4</li>
+                        console.log(ui.next(tar)) // <li class="selector1">>목록2</li>
+                        console.log(ui.next(tar, '.selector1')) // <li class="selector1">>목록2</li>
+                        console.log(ui.next(tar, '.selector2')) // 다음 요소에 .selector2가 없으므로 null
                     }
 
                     sample1();

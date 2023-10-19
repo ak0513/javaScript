@@ -226,6 +226,15 @@ var ui = (function() {
 	}
 
 	// 다음 요소 찾기
+	var next = function(ele, selector) {
+		var nextEl = ele.nextElementSibling;
+		if (!selector || (nextEl && nextEl.matches(selector))) {
+			return nextEl;
+		}
+		return null;
+	}
+
+	// 다음 요소 전체 찾기
 	var nextAll = function(ele) {
 		var result = [];
 		while (ele = ele.nextElementSibling)
@@ -523,9 +532,10 @@ var ui = (function() {
 		accessDisable: accessDisable,       // 포커스 비활성화(접근성)
 		accessEnable: accessEnable,         // 포커스 활성화(접근성)
 		siblings: siblings,                 // 형제요소 찾기
-		prevAll: prevAll,                   // 이전 요소 전체 찾기
 		prev: prev,                         // 이전 요소 찾기
-		nextAll: nextAll,                   // 다음 요소 찾기
+		prevAll: prevAll,                   // 이전 요소 전체 찾기
+		next: next,                         // 다음 요소 찾기
+		nextAll: nextAll,                   // 다음 요소 전체 찾기
 		closest: closest,                   // 가장 가까운 부모 찾기
 		removeClass: removeClass,           // class 삭제
 		getRandomNum: getRandomNum,         // 난수 생성

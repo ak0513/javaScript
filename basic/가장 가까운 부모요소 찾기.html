@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[JS] 가장 가까운 부모요소 찾기</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">가장 가까운 부모요소 찾기</h1>
+                <h2 class="h-tit2" id="closest">closest()</h2>
+                <div class="highlight html">
+<div id="parent1">
+    <div id="parent2">
+        <div class="tar">타겟</div>
+    </div>
+</div>
+                </div>
+
+                <div class="highlight js">
+var tar = document.querySelector('.sample1 .tar');
+var tarParent = tar.closest('#parent1') // &lt;div id="parent1"&gt;...&lt;/div&gt;
+tarParent.classList.add('active')
+                </div>
+
+                <h3 class="h-tit3">결과물</h3>
+                <div class="sample sample1">
+                    <div id="parent1">
+                        <div id="parent2">
+                            <div class="tar">타겟</div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function sample1() {
+                        var tar = document.querySelector('.sample1 .tar');
+                        var tarParent = tar.closest('#parent1') // <div id="parent1">...</div>
+                        tarParent.classList.add('active')
+                    }
+
+                    sample1();
+                </script>
+
+                <style>
+                    .active {color:red;}
+                </style>
+        </div>
+    </section>
+</div>
+</body>
+</html>
