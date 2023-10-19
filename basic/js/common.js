@@ -243,7 +243,7 @@ var ui = (function() {
 	}
 
 	// 가장 가까운 부모 찾기
-	var closest = function(ele, selector) {
+	/* var closest = function(ele, selector) {
 		var matchesSelector = ele.matches || ele.webkitMatchesSelector || ele.mozMatchesSelector || ele.msMatchesSelector;
 		while (ele) {
 			if (matchesSelector.call(ele, selector)) {
@@ -253,7 +253,7 @@ var ui = (function() {
 			}
 		}
 		return null;
-	}
+	} */
 
 	// class 삭제
 	var removeClass = function(ele, className) {
@@ -277,16 +277,16 @@ var ui = (function() {
 	}
 
 	// attr 세팅
-	var setAttr = function(ele, attr, value) {
-		ele.forEach(function(ele) {
-			ele.setAttribute(attr, value)
+	var attr = function(ele, attr, value) {
+		ele.forEach(function(item) {
+			item.setAttribute(attr, value)
 		})
 	}
 
 	// attr 삭제
 	var removeAttr = function(ele, attr) {
-		ele.forEach(function(ele) {
-			ele.removeAttribute(attr)
+		ele.forEach(function(item) {
+			item.removeAttribute(attr)
 		})
 	}
 
@@ -340,7 +340,7 @@ var ui = (function() {
 				// 초기화
 				ui.removeClass(tabItem, 'current');
 				ui.removeClass(tabPannel, 'current');
-				ui.setAttr(tabBtn, 'aria-selected', 'false')
+				ui.attr(tabBtn, 'aria-selected', 'false');
 				// 세팅
 				this.parentElement.classList.add('current');
 				this.setAttribute('aria-selected', true)
@@ -361,9 +361,9 @@ var ui = (function() {
 
         function accordionToggle(target) {
             var self = target;
-            var accordion =  ui.closest(self, '.accordion'); // 클릭 요소의 부모 .accordion
+            var accordion =  self.closest('.accordion'); // 클릭 요소의 부모 .accordion
             var accBtn = accordion.querySelectorAll('.accordion-button'); // 클릭 요소 부모의 모든 버튼
-            var accItem = ui.closest(self, '.accordion-item'); // 클릭 요소의 .accordion-item
+            var accItem = self.closest('.accordion-item'); // 클릭 요소의 .accordion-item
             var accCollapseSiblings = ui.siblings(accItem); // 클릭 요소의 형제 .accordion-item
             var accCollapse = accordion.querySelector('#' + self.getAttribute('aria-controls')); // 클릭 요소의 .accordion-collapse
             // 닫혀 있는 아코디언 클릭 하는 경우
@@ -408,25 +408,25 @@ var ui = (function() {
 		var btnPopClose = document.querySelectorAll('[data-modal-close');
 
 
-		popWrap.forEach(function(ele) {
-			ele.setAttribute('aria-modal', 'true');
-			ele.setAttribute('role', 'dialog');
-			ele.setAttribute('tabindex', 0);
-			document.querySelector('#' + ele.getAttribute('aria-labelledby'));
-			ele.addEventListener('keydown', function(e) {
+		popWrap.forEach(function(item) {
+			item.setAttribute('aria-modal', 'true');
+			item.setAttribute('role', 'dialog');
+			item.setAttribute('tabindex', 0);
+			document.querySelector('#' + item.getAttribute('aria-labelledby'));
+			item.addEventListener('keydown', function(e) {
 				if(e.keyCode === 27) {
-					popClose(ele);
+					popClose(item);
 				}
 			});
 		})
 	
-		btnPopOpen.forEach(function(ele, i) {
-			ele.setAttribute('aria-haspopup', 'dialog');
+		btnPopOpen.forEach(function(item, i) {
+			item.setAttribute('aria-haspopup', 'dialog');
 			btnPopOpens(i);
 		})
 		
-		btnPopClose.forEach(function(ele, i) {
-			btnPopCloses(ele, i); 
+		btnPopClose.forEach(function(item, i) {
+			btnPopCloses(item, i); 
 		})
 
 		function btnPopOpens(i) {
@@ -493,8 +493,8 @@ var ui = (function() {
 	var menuHtml = function() {
 		var elm = document.querySelectorAll('.h-tit2');
 		var menu = document.querySelector('#menu');
-		elm.forEach(function(ele) {
-			var id = ele.getAttribute('id');
+		elm.forEach(function(item) {
+			var id = item.getAttribute('id');
 			// console.log(id)
 			var htmlEle = [];
 			if(id !== null) {
@@ -536,11 +536,10 @@ var ui = (function() {
 		prevAll: prevAll,                   // 이전 요소 전체 찾기
 		next: next,                         // 다음 요소 찾기
 		nextAll: nextAll,                   // 다음 요소 전체 찾기
-		closest: closest,                   // 가장 가까운 부모 찾기
 		removeClass: removeClass,           // class 삭제
 		getRandomNum: getRandomNum,         // 난수 생성
 		setAttrRandomNum: setAttrRandomNum, // attr 난수 적용
-		setAttr: setAttr,                   // attr 세팅
+		attr: attr,                   // attr 세팅
 		removeAttr: removeAttr,             // attr 삭제
 		getUrlParam: getUrlParam,           // url파라미터 값 구하기
 
