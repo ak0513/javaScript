@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>리사이즈 최적화</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">리사이즈 최적화</h1>
+                <div class="highlight js">
+var resizeTimer = null;
+function resizeComplete() {
+    // 리사이즈 후 사용할 함수
+    console.log('resize Complete');
+}
+
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resizeComplete, 400);
+}, false);
+                </div>
+            </div>
+        </section>
+
+        <script>
+            var resizeTimer = null;
+            function resizeComplete() {
+              // 리사이즈 후 사용할 함수
+              console.log('resize Complete');
+            }
+    
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(resizeComplete, 400);
+            }, false);
+        </script>
+    </div>
+</body>
+</html>

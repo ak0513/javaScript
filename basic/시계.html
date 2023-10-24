@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[JS] 시계</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <!-- 24시 기준 -->
+                <h1 class="h-tit1">시계</h1>
+                <h2 class="h-tit2" id="24시">24시</h2>
+
+                <div class="highlight html">
+<div id="clock">Loading...</div>
+                </div>
+
+                <div class="highlight js">
+function updateClock() {
+  var now = new Date();
+  var hours = now.getHours().toString().padStart(2, '0');
+  var minutes = now.getMinutes().toString().padStart(2, '0');
+  var seconds = now.getSeconds().toString().padStart(2, '0');
+
+  var timeString = `${hours}:${minutes}:${seconds}`;
+  document.getElementById('clock').textContent = timeString;
+}
+
+// 매 초마다 시계 업데이트
+setInterval(updateClock, 1000);
+
+// 페이지 로드 시에도 시계 업데이트
+updateClock();
+                </div>
+
+                <h3 class="h-tit3">결과물</h3>
+                <div class="sample">
+                  <div id="clockSample">Loading...</div>
+              </div>
+              <!-- //24시 기준 -->
+
+              <!-- AM PM -->
+              <h2 class="h-tit2" id="AM PM">AM/PM(12시간)</h2>
+
+              <div class="highlight html">
+<div id="clock">Loading...</div>
+              </div>
+
+              <div class="highlight js">
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  let ampm = 'AM';
+  let displayHours = hours;
+
+  if (hours >= 12) {
+    ampm = 'PM';
+    displayHours = hours % 12;
+    if (displayHours === 0) {
+      displayHours = 12;
+    }
+  }
+
+  const timeString = `${displayHours}:${minutes}:${seconds} ${ampm}`;
+  document.getElementById('clock').textContent = timeString;
+}
+
+// 매 초마다 시계 업데이트
+setInterval(updateClock, 1000);
+
+// 페이지 로드 시에도 시계 업데이트
+updateClock();
+              </div>
+
+              <h3 class="h-tit3">결과물</h3>
+              <div class="sample">
+                  <div id="clockSample2">Loading...</div>
+              </div>
+              <!-- //AM PM -->
+
+
+              <!-- 년도 + 24시 -->
+              <h2 class="h-tit2" id="년도 24시">년도 + 24시</h2>
+
+              <div class="highlight html">
+<div id="clock">Loading...</div>
+              </div>
+
+              <div class="highlight js">
+function updateClock() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = (now.getMonth() + 1).toString().padStart(2, '0');
+  const day = now.getDate().toString().padStart(2, '0');
+  const hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  const dateString = `${year}-${month}-${day}`;
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  const fullString = `${dateString} ${timeString}`;
+  document.getElementById('clock').textContent = fullString;
+}
+
+// 매 초마다 시계 업데이트
+setInterval(updateClock, 1000);
+
+// 페이지 로드 시에도 시계 업데이트
+updateClock();
+              </div>
+
+              <h3 class="h-tit3">결과물</h3>
+              <div class="sample">
+                  <div id="clockSample3">Loading...</div>
+              </div>
+              <!-- //년도 + 24시 -->
+
+
+              <!-- 년도 + AM PM -->
+              <h2 class="h-tit2" id="년도 AM PM">년도 + AM PM</h2>
+
+              <div class="highlight html">
+<div id="clock">Loading...</div>
+              </div>
+
+              <div class="highlight js">
+function updateClock() {
+  const now = new Date();
+  const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+  const dayOfWeek = daysOfWeek[now.getDay()];
+  const year = now.getFullYear();
+  const month = (now.getMonth() + 1).toString().padStart(2, '0');
+  const day = now.getDate().toString().padStart(2, '0');
+  const hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  let ampm = 'AM';
+  let displayHours = hours;
+
+  if (hours >= 12) {
+    ampm = 'PM';
+    displayHours = hours % 12;
+    if (displayHours === 0) {
+      displayHours = 12;
+    }
+  }
+
+  const timeString = `${year}-${month}-${day} (${dayOfWeek}) ${displayHours}:${minutes}:${seconds} ${ampm}`;
+  document.getElementById('clock').textContent = timeString;
+}
+
+// 매 초마다 시계 업데이트
+setInterval(updateClock, 1000);
+
+// 페이지 로드 시에도 시계 업데이트
+updateClock();
+              </div>
+
+              <h3 class="h-tit3">결과물</h3>
+              <div class="sample">
+                  <div id="clockSample4">Loading...</div>
+              </div>
+              <!-- //년도 + AM PM -->
+            </div>
+        </section>
+
+        <script>
+          function updateClock() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+          
+            var timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clockSample').textContent = timeString;
+          }
+          
+          // 매 초마다 시계 업데이트
+          setInterval(updateClock, 1000);
+          
+          // 페이지 로드 시에도 시계 업데이트
+          updateClock();
+          
+          
+          
+          function updateClock2() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+          
+            let ampm = 'AM';
+            let displayHours = hours;
+          
+            if (hours >= 12) {
+              ampm = 'PM';
+              displayHours = hours % 12;
+              if (displayHours === 0) {
+                displayHours = 12;
+              }
+            }
+          
+            var timeString = `${displayHours}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById('clockSample2').textContent = timeString;
+          }
+          
+          // 매 초마다 시계 업데이트
+          setInterval(updateClock2, 1000);
+          
+          // 페이지 로드 시에도 시계 업데이트
+          updateClock2();
+          
+          
+          
+          
+          function updateClock3() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = (now.getMonth() + 1).toString().padStart(2, '0');
+            var day = now.getDate().toString().padStart(2, '0');
+            var hours = now.getHours();
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+          
+            var dateString = `${year}-${month}-${day}`;
+            var timeString = `${hours}:${minutes}:${seconds}`;
+            var fullString = `${dateString} ${timeString}`;
+            document.getElementById('clockSample3').textContent = fullString;
+          }
+          
+          // 매 초마다 시계 업데이트
+          setInterval(updateClock3, 1000);
+          
+          // 페이지 로드 시에도 시계 업데이트
+          updateClock3();
+          
+          
+          
+          function updateClock4() {
+            var now = new Date();
+            var daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+            var dayOfWeek = daysOfWeek[now.getDay()];
+            var year = now.getFullYear();
+            var month = (now.getMonth() + 1).toString().padStart(2, '0');
+            var day = now.getDate().toString().padStart(2, '0');
+            var hours = now.getHours();
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+          
+            let ampm = 'AM';
+            let displayHours = hours;
+          
+            if (hours >= 12) {
+              ampm = 'PM';
+              displayHours = hours % 12;
+              if (displayHours === 0) {
+                displayHours = 12;
+              }
+            }
+          
+            var timeString = `${year}-${month}-${day} (${dayOfWeek}) ${displayHours}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById('clockSample4').textContent = timeString;
+          }
+          
+          // 매 초마다 시계 업데이트
+          setInterval(updateClock4, 1000);
+          
+          // 페이지 로드 시에도 시계 업데이트
+          updateClock4();
+          </script>
+    </div>
+</body>
+</html>

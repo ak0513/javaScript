@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[JS] 스크롤 업 다운</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">스크롤 업 다운</h1>
+                <div class="highlight js">
+var scrollTimer;
+// 이전 스크롤 위치를 저장하기 위한 변수
+var previousScrollPosition = window.scrollY;
+// 스크롤 이벤트 핸들러
+function handleScroll() {
+  clearTimeout(scrollTimer); // 이전 타이머를 취소합니다.
+
+  // 타이머를 설정하여 스크롤이 멈추면 함수를 실행합니다.
+  scrollTimer = setTimeout(function () {
+    var currentScrollPosition = window.scrollY;
+
+    // 현재 스크롤 위치를 기준으로 스크롤 방향을 감지하여 클래스를 추가 또는 제거합니다.
+    if (currentScrollPosition > previousScrollPosition) {
+      // 스크롤을 아래로 하는 경우
+      document.body.classList.add('scroll-down');
+      document.body.classList.remove('scroll-up');
+    } else if (currentScrollPosition < previousScrollPosition) {
+        // 스크롤을 위로 하는 경우
+        document.body.classList.add('scroll-up');
+        document.body.classList.remove('scroll-down');
+    }
+
+    // 현재 스크롤 위치를 이전 스크롤 위치로 업데이트합니다.
+    previousScrollPosition = currentScrollPosition;
+  }, 100); // 일정 시간(여기서는 100 밀리초) 동안 스크롤이 멈추면 함수가 실행됩니다.
+}
+
+// 스크롤 이벤트 리스너 등록
+window.addEventListener('scroll', handleScroll);
+                </div>
+
+                <div class="highlight css">
+.scroll-down .box {
+  background-color: yellowgreen;
+}
+
+.scroll-up .box {
+  background-color: violet;
+}
+                  </div>
+
+                <h3 class="h-tit3">결과물</h3>
+                <div class="sample">
+                  <div class="box">스크롤 아래/위로 클래스를 추가할 박스</div>
+                </div>
+
+                <div style="height:500px"></div>
+            </div>
+        </section>
+<style>
+  .box {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      background-color: #666;
+      transition: background-color 0.3s;
+  }
+.scroll-down .box {
+  background-color: yellowgreen;
+}
+
+.scroll-up .box {
+  background-color: violet;
+}
+
+</style>
+<script>
+  var scrollTimer;
+  // 이전 스크롤 위치를 저장하기 위한 변수
+  var previousScrollPosition = window.scrollY;
+  // 스크롤 이벤트 핸들러
+  function handleScroll() {
+    clearTimeout(scrollTimer); // 이전 타이머를 취소합니다.
+  
+    // 타이머를 설정하여 스크롤이 멈추면 함수를 실행합니다.
+    scrollTimer = setTimeout(function () {
+      var currentScrollPosition = window.scrollY;
+  
+      // 현재 스크롤 위치를 기준으로 스크롤 방향을 감지하여 클래스를 추가 또는 제거합니다.
+      if (currentScrollPosition > previousScrollPosition) {
+        // 스크롤을 아래로 하는 경우
+        document.body.classList.add('scroll-down');
+        document.body.classList.remove('scroll-up');
+      } else if (currentScrollPosition < previousScrollPosition) {
+          // 스크롤을 위로 하는 경우
+          document.body.classList.add('scroll-up');
+          document.body.classList.remove('scroll-down');
+      }
+  
+      // 현재 스크롤 위치를 이전 스크롤 위치로 업데이트합니다.
+      previousScrollPosition = currentScrollPosition;
+    }, 100); // 일정 시간(여기서는 100 밀리초) 동안 스크롤이 멈추면 함수가 실행됩니다.
+  }
+  
+  // 스크롤 이벤트 리스너 등록
+  window.addEventListener('scroll', handleScroll);
+      </script>
+    </div>
+</body>
+</html>
