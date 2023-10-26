@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    * {margin:0;padding:0;}
+  #myElement {width:100px;height:100px;background-color: #777;}
+</style>
+</head>
+<body>
+    <div style="height:2000px"></div>
+    <div style="position: relative;top:0;">
+        <div id="myElement">오브젝트</div>
+    </div>
+<div style="height:4000px"></div>
+<script>
+// 요소를 선택합니다. 아래는 id가 "myElement"인 요소를 선택하는 예제입니다.
+var element = document.getElementById("myElement");
+
+// 요소의 좌표 정보를 가져옵니다.
+var rect = element.getBoundingClientRect();
+
+// 좌표 정보 출력
+console.log("상단 좌표 (top): " + rect.top);
+console.log("왼쪽 좌표 (left): " + rect.left);
+console.log("우측 좌표 (right): " + rect.right);
+console.log("하단 좌표 (bottom): " + rect.bottom);
+console.log("요소의 너비 (width): " + rect.width);
+console.log("요소의 높이 (height): " + rect.height);
+
+
+var scrollX = window.scrollX || window.pageXOffset; // 가로 스크롤 위치
+var scrollY = window.scrollY || window.pageYOffset; // 세로 스크롤 위치
+
+console.log("가로 스크롤 위치: " + scrollX);
+console.log("세로 스크롤 위치: " + scrollY);
+
+
+console.log('total', rect.top + scrollY)
+
+
+// 오브젝트 요소를 가져옵니다.
+var object = document.getElementById("myElement");
+
+// 오브젝트가 화면에 보여질 때 실행할 함수를 정의합니다.
+function addClassWhenVisible() {
+  // 오브젝트가 화면에 보이는지 확인합니다.
+  var objectRect = object.getBoundingClientRect();
+  var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+  // 오브젝트가 화면에 보이면 클래스를 추가합니다.
+  if (objectRect.top < viewportHeight) {
+    object.classList.add("visible-class");
+    // 필요에 따라 다른 동작을 수행할 수 있습니다.
+} else {
+      object.classList.remove("visible-class");
+
+  }
+}
+
+// 스크롤 이벤트를 감지하여 addClassWhenVisible 함수를 실행합니다.
+window.addEventListener("scroll", addClassWhenVisible);
+
+// 초기로드시 오브젝트가 화면에 보이는지 확인하고 클래스를 추가합니다.
+addClassWhenVisible();
+
+</script>
+</body>
+</html>

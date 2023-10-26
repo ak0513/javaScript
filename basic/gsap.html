@@ -9,45 +9,10 @@
 </head>
 <body>
     <style>
-        :root {
-  --dark: #1d1d1d;
-  --grey-dark: #414141;
-  --light: #fff;
-  --mid: #ededed;
-  --grey: #989898;
-  --gray: #989898;
-  --green: #28a92b;
-  --green-dark: #4e9815;
-  --green-light: #6fb936;
-  --blue: #2c7ad2;
-  --purple: #8d3dae;
-  --red: #c82736;
-  --orange: #e77614;
-  accent-color: var(--green);
-}
 body {
+  min-height: 500vh;
+  margin:0;
   background-color: #111;
-  font-family: "Signika Negative", sans-serif, Arial;
-  overscroll-behavior: none;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-
-#smooth-content {
-  overflow: visible;
-  width: 100%;
-  /* set a height because the contents are position: absolute, thus natively there's no height */
-  height: 4000px;
-
   background-image:
     linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
     linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px),
@@ -57,167 +22,132 @@ body {
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
-button {
-  position: relative; 
+h2, .box {
+  /* margin-bottom: 100vh; */
+}
+h2 {
+  text-align: center;
 }
 
 .box {
+  background-color: green;
   width: 100px;
   height: 100px;
-  background-color: #28a92b;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  line-height: 100px;
-  font-size: 50px;
-  text-align: center;
-  will-change: transform;
-}
-.box.active {
-  background-color: red;
-}
-
-.box-a {
-  top: 200px;
-  background-color: #8d3dae;
-}
-
-.box-b {
-  top: 600px;
-}
-
-.box-c {
-  top: 1000px;
-  background-color: #e26c16;
-  will-change: transform;
-}
-
-.line {
-  visibility: hidden;
-  width: 2px;
-  height: 4000px;
-  position: absolute;
-  left: 400px;
-  top: 0px;
-  background-color: #777;
-}
-
-header .name {
-  color: white;
-}
-
-.title {
-  text-align: center;
-  color: white;
-  font-weight: 400;
-  font-size: 40px;
-}
-footer {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  padding: 6px 10px 10px 12px;
-  border-top-left-radius: 26px;
-  z-index: 100;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.end {
-  position: absolute;
-  /*   bottom: 0; */
-  top: 2400px;
-  transform: translateY(-100%);
-  font-size: 30px;
-  color: white;
-}
-
-/* button:not('.box') { breaking for some reason in codepen? */
-button {
-  display: inline-block;
-  outline: none;
-  border: none;
-  padding: 8px 14px;
-  background: var(--light);
-  background-image: linear-gradient(to bottom, hsl(0deg 0% 100%), hsl(0deg 0% 94%));
-  -webkit-box-shadow: 0px 1px 0px #414141;
-  -moz-box-shadow: 0px 1px 0px #414141;
-  box-shadow: 0px 1px 0px #414141;
-  color: var(--dark);
-  text-decoration: none;
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  padding: 12px 25px;
-  font-family: "Signika Negative", sans-serif;
-  text-transform: uppercase;
-  font-weight: 600;
-  cursor: pointer;
-  line-height: 18px;
-}
-
-.light button {
-    color: var(--light);
-    background-image: linear-gradient(to bottom, #575757, #414141);
-}
-
-button:hover {
-  background: var(--green-light);
-  background-image: linear-gradient(to bottom, #57a818, #4d9916);
-  -webkit-box-shadow: 0px 1px 0px fefefe;
-  -moz-box-shadow: 0px 1px 0px fefefe;
-  box-shadow: 0px 1px 0px fefefe;
-  color: #ffffff;
-  text-decoration: none;
 }
     </style>
-    <div id="smooth-wrapper">
-      <div id="smooth-content">
-        <!--- ALL YOUR CONTENT HERE --->
-        <header class="header">
-            <h1 class="title">ScrollSmoother</h1>
-            <button class="button">Jump to C</button>
-          </header>
-          <div class="box box-a" data-speed="clamp(0.5)">a</div>
-          <div class="box box-b" data-speed="clamp(0.8)">b</div>
-          <div class="box box-c" data-speed="1.5">c</div>
-          <div class="line"></div>
-      </div>
+
+
+
+    <div style="height:2000px"></div>
+
+    <div class="bb" style="padding-top:0;">
+      <div class="box box3"><p>box3</p></div>
     </div>
-    <!-- position: fixed elements can go outside --->
 
+
+    <div class="aa" style="padding-top:0;">
+      <div class="box box1" style="margin:0;">box1</div>
+      <div class="box">box</div>
+    </div>
+
+
+
+    
+
+    <div class="box box2">box2</div>
+    <div class="box box4">box4</div>
+    <div class="box box4-end" style="margin-top:2000px">box4-end</div>
+
+
+    <div class="pin"></div>
+    <div style="height:2000px"></div>
     <script>
-        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+const boxes = gsap.utils.toArray('.box1');
+boxes.forEach(box => {
+  gsap.to(box, { 
+    x: 100,
+    y: 200,
+    scrollTrigger: {
+      // trigger: box, // 자기 자신
+      trigger: ".aa", // 부모요소 지정
+      start: 'center 50%', // 엘리먼트 영역, trigger 영역
+      end: 'bottom bottom', // 엘리먼트 영역, trigger 영역
+      // end: "+=400", // start 후 200px 이동 후 끝
+      scrub: true,
+      // markers: true,
+      pin: ".pin", // .pin-spacer 가 생성되는데 뭔지 아직 파악 안됨
+      onUpdate: (self) => console.log("direction:", self.direction),
+      onToggle: (self) => console.log("toggled. active?", self.isActive),
+    },
+    // rotation: 360,
+    duration: 1,
+    // animation: tween
+  })
 
-ScrollTrigger.normalizeScroll(true)
-
-// create the smooth scroller FIRST!
-let smoother = ScrollSmoother.create({
-  smooth: 2,
-  effects: true,
-  normalizeScroll: true
+// console.log(gsap);
 });
 
-// pin box-c when it reaches the center of the viewport, for 300px
+
+let tl = gsap.timeline({
+  // yes, we can add it to an entire timeline!
+  scrollTrigger: {
+    trigger: ".bb",
+    pin: true, // pin the trigger element while active
+    start: "top 70%", // when the top of the trigger hits the top of the viewport
+    // end: "+=2000", // end after scrolling 500px beyond the start
+    end: "top 10%", // end after scrolling 500px beyond the start
+    scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    snap: {
+      snapTo: "labels", // snap to the closest label in the timeline
+      duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+      delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+      ease: "power1.inOut", // the ease of the snap animation ("power3" by default)
+    },
+    // onUpdate: (self) => console.log("direction:", self.direction),
+    // onToggle: (self) => console.log("toggled. active?", self.isActive),
+    onComplete: complete,
+    onCompleteParams:['오렌지',3],
+    markers: true,
+  },
+});
+
+function complete(a,b) {
+  console.log(a, b)
+}
+
+console.log(tl.vars)
+
+// add animations and labels to the timeline
+tl.addLabel("start")
+  .from(".box3 p", { scale: 0.3, rotation: 45, autoAlpha: 0 })
+  .addLabel("color")
+  .from(".box3", { backgroundColor: "#28a92b" })
+  .addLabel("spin")
+  .to(".box3", { rotation: 360 })
+  .addLabel("end");
+
+
+
 ScrollTrigger.create({
-  trigger: ".box-c",
-  pin: true,
-  start: "center center",
-  end: "+=300",
-  markers: true
+  trigger: ".box4",
+  start: "top top",
+  endTrigger: ".box4-end",
+  // end: "bottom 50%+=100px",
+  end: "bottom top",
+  // markers: true,
+  // onToggle: (self) => console.log("toggled, isActive:", self.isActive),
+  /* onUpdate: (self) => {
+    console.log(
+      "progress:",
+      self.progress.toFixed(3),
+      "direction:",
+      self.direction,
+      "velocity",
+      self.getVelocity()
+    );
+  }, */
 });
 
-document.querySelector("button").addEventListener("click", e => {
-  // scroll to the spot where .box-c is in the center.
-  // parameters: element, smooth, position
-  smoother.scrollTo(".box-c", true, "center center");
-  
-  // or you could animate the scrollTop:
-  // gsap.to(smoother, {
-  //  scrollTop: smoother.offset(".box-c", "center center"),
-  //  duration: 1
-  // });
-});
     </script>
   </body>
 </html>

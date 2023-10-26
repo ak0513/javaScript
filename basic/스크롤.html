@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>스크롤</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container" style="height:4000px">
+            <div class="container-inner">
+                <h1 class="h-tit1">스크롤</h1>
+                <h2 class="h-tit2" id="스크롤 값 구하기"><span>스크롤 값 구하기</span></h2>
+                <div class="highlight js">
+var scrollX = window.scrollX || window.pageXOffset; // 가로 스크롤 위치
+var scrollY = window.scrollY || window.pageYOffset; // 세로 스크롤 위치
+
+console.log("가로 스크롤 위치: " + scrollX);
+console.log("세로 스크롤 위치: " + scrollY);
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <script>
+            window.addEventListener('scroll', function() {
+                var scrollX = window.scrollX || window.pageXOffset; // 가로 스크롤 위치
+                var scrollY = window.scrollY || window.pageYOffset; // 세로 스크롤 위치
+
+                console.log("가로 스크롤 위치: " + scrollX);
+                console.log("세로 스크롤 위치: " + scrollY);
+            })
+        </script>
+    </div>
+</body>
+</html>
