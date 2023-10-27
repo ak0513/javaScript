@@ -2,16 +2,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	ui.setAttrRandomNum(document.querySelectorAll('link[rel="stylesheet"]'), 'href');
 	ui.setAttrRandomNum(document.querySelectorAll('script[src]'), 'src');
 
-	ui.setDeviceInfo()  // deviceInfo 세팅
-	ui.setBodyClass()   // body에 device별 클래스 추가
-	ui.tab()            // 탭
-	ui.accordion()      // 아코디언
-	ui.popup()          // 팝업
+	ui.setDeviceInfo();  // deviceInfo 세팅
+	ui.setBodyClass();   // body에 device별 클래스 추가
+	ui.tab();            // 탭
+	ui.accordion();      // 아코디언
+	ui.popup();          // 팝업
+
+	ui.scrolldown();     // 스크롤 시 오브젝트 보여주기
 
 	// 꾸미기 용도
-	ui.setHighlight();  // hlight.js
+	ui.setHighlight();   // hlight.js
 	// ui.menuHtml();      // menuHtml
 })
+
+window.addEventListener("scroll", function() {
+	ui.scrolldown();    // 스크롤 시 오브젝트 보여주기
+});
 
 
 var ui = (function() {
@@ -466,6 +472,33 @@ var ui = (function() {
 		}
 	}
 
+
+	// 스크롤 시 오브젝트 보여주기
+	var scrolldown = function() {
+		var scrolldownEle = document.querySelectorAll("[data-scrolldown]");
+		scrolldownEle.forEach(function(item) {
+			var elementRect = item.getBoundingClientRect();
+			var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			var elementHeight = item.clientHeight;
+			var scrollDown = item.dataset.scrolldown;
+			var startPos = 0.2; // 기본값 viewportHeight 하단 기준 20%에서 시작
+			var startLine = null; // 오브젝트가 보여지기 시작하는 위치
+
+			if(scrollDown.length === 0) {
+				startLine = viewportHeight *  (1 - startPos);
+			} else {
+				startPos = Number(scrollDown);
+				startLine = scrollDown.indexOf('.') > -1 ? viewportHeight *  (1 - startPos) : viewportHeight - startPos // 소수점이면 백분율로 아니면 px로 계산
+			}
+
+			if (elementRect.top + elementHeight < startLine) {
+				item.classList.add('active');
+			} else {
+				item.classList.remove('active');
+			}
+		});
+	}
+
 	// hlight.js
 	var setHighlight = function() {
 		var highlightEle = document.querySelectorAll('.highlight');
@@ -546,6 +579,8 @@ var ui = (function() {
 		tab: tab,                           // 탭
 		accordion: accordion,               // 아코디언
 		popup: popup,                       // 팝업
+
+		scrolldown: scrolldown,             // 스크롤 시 오브젝트 보여주기
 
 		// 꾸미기 용도
 		setHighlight: setHighlight,         // hlight.js
