@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>[JS] URL 파라미터 구하기</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">URL 파라미터 구하기</h1>
+                <h2 class="h-tit2" id="getUrlParam">getUrlParam()</h2>
+
+                <div class="highlight js">
+function getUrlParam(param) {
+    var urlParams = new URL(location.href).searchParams;
+    var name = urlParams.get(param);
+    return name;
+}
+
+var param1 = getUrlParam('param1')
+console.log(param1) // 1
+
+var param2 = getUrlParam('param2')
+console.log(param2) // 1
+                </div>
+            </div>
+        </section>
+
+        <script>
+            var param1 = ui.getUrlParam('param1')
+            console.log(param1) // 1
+
+            var param2 = ui.getUrlParam('param2')
+            console.log(param2) // 1
+        </script>
+    </div>
+</body>
+</html>
