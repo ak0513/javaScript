@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/ui.js"></script>
+    <title>insertAdjacentHTML</title>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header"></header>
+        <aside id="aside"></aside>
+        <section id="container">
+            <div class="container-inner">
+                <h1 class="h-tit1">insertAdjacentHTML</h1>
+                <div class="table-wrap">
+                    <table class="table">
+                        <caption></caption>
+                        <colgroup>
+                            <col style="width:25%;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">beforebegin</th>
+                                <td>요소 바로 앞에 html을 삽입</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">afterbegin</th>
+                                <td>요소의 첫 번째 자식 요소 바로 앞에 html을 삽입</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">beforeend</th>
+                                <td>요소의 마지막 자식 요소 바로 다음에 html을 삽입</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">afterend</th>
+                                <td>요소 바로 다음에 html을 삽입</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight js">
+const insertHtml = document.querySelector('.insertAdjacentHTML');
+
+insertHtml.insertAdjacentHTML('beforebegin', '&lt;div&gt;beforebegin&lt;/div&gt;')
+insertHtml.insertAdjacentHTML('afterbegin', '&lt;div&gt;afterbegin&lt;/div&gt;')
+insertHtml.insertAdjacentHTML('beforeend', '&lt;div&gt;beforeend&lt;/div&gt;')
+insertHtml.insertAdjacentHTML('afterend', '&lt;div&gt;afterend&lt;/div&gt;')
+                </div>
+                <div class="highlight html">
+스크립트 적용 전
+<div class="insertAdjacentHTML">
+    <div>기준</div>
+</div>
+
+스크립트 적용 후
+<div>beforebegin</div>
+<div class="insertAdjacentHTML">
+    <div>afterbegin</div>
+    <div>기준</div>
+    <div>beforeend</div>
+</div>
+<div>afterend</div>
+                </div>
+                <h3 class="h-tit3">결과물</h3>
+                
+                <div class="sample">
+                    <div class="insertAdjacentHTML">
+                        <div>기준</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const insertHtml = document.querySelector('.sample .insertAdjacentHTML');
+
+            insertHtml.insertAdjacentHTML('beforebegin', '<div>beforebegin</div>')
+            insertHtml.insertAdjacentHTML('afterbegin', '<div>afterbegin</div>')
+            insertHtml.insertAdjacentHTML('beforeend', '<div>beforeend</div>')
+            insertHtml.insertAdjacentHTML('afterend', '<div>afterend</div>')
+        </script>
+    </div>
+</body>
+</html>
