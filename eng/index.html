@@ -13,11 +13,22 @@
             <ul class="list">
                 <li class="list-item">
                     <div class="list-lang eng">
-                        <p>abcd</p>
+                        <p class="list-sentence">abcde ab cd abd</p>
                         <button type="button" class="list-btn"></button>
                     </div>
                     <div class="list-lang kor">
-                        <p>가나다라</p>
+                        <p class="list-sentence">가나다라 가나다라 가나다라 가나다라</p>
+                        <button type="button" class="list-btn"></button>
+                    </div>
+                </li>
+
+                <li class="list-item">
+                    <div class="list-lang eng">
+                        <p class="list-sentence">abcde abcde abcde abcde</p>
+                        <button type="button" class="list-btn"></button>
+                    </div>
+                    <div class="list-lang kor">
+                        <p class="list-sentence">가나다 가나다 가나다 가나다</p>
                         <button type="button" class="list-btn"></button>
                     </div>
                 </li>
@@ -33,12 +44,28 @@
 
         .list-lang {display:flex;justify-content:space-between;}
         .list-btn {display:block;background:url('./arrow-down.svg') no-repeat;width:24px;height:24px;border:none;}
-        .list-lang.kor {background-color: #ebebeb;padding:8px;}
+        .list-lang.kor {background-color: #ebebeb;margin-top:8px;padding:8px;}
         .list-lang.kor .list-btn {display: none;}
+
+        .reverse .list-item {flex-direction: column-reverse;}
+        .reverse .list-lang.kor {background-color: #fff;margin:0;padding:0;}
+        .reverse .list-lang.kor .list-btn {display: block;}
+        .reverse .list-lang.eng {background-color: #ebebeb;margin-top:8px;padding:8px;}
+        .reverse .list-lang.eng .list-btn {display: none;}
     </style>
 
 
-
+    <script>
+        var listItem = document.querySelectorAll('.list-item')
+        // var sentence = document.querySelectorAll('.eng .list-sentence');
+        listItem.forEach(function(item) {
+            let original = item.querySelector('.eng .list-sentence');
+            let wordsArray = original.innerText.split(" ");
+            let taggedArray = wordsArray.map(word => `<a href="https://en.dict.naver.com/#/search?range=all&query=${word}" target="_blank" title="새창 열림">${word}</a>`);
+            let finalString = taggedArray.join(" ");
+            item.querySelector('.eng .list-sentence').innerHTML = finalString;
+        })
+    </script>
 
 
 
