@@ -69,7 +69,7 @@
         listItem.forEach(function(item) {
             let original = item.querySelector('.eng .list-sentence');
             let wordsArray = original.innerText.split(" ");
-            let taggedArray = wordsArray.map(word => `<a href="https://en.dict.naver.com/#/search?range=all&query=${word}" target="_blank" title="새창 열림">${word}</a>&nbsp;`);
+            let taggedArray = wordsArray.map(word => `<a href="https://papago.naver.com/?sk=en&tk=ko&hn=1&st=${word}" target="_blank" title="새창 열림">${word}</a>&nbsp;`);
             let finalString = taggedArray.join(" ");
             original.innerHTML = finalString;
         })
