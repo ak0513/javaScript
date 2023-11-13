@@ -33,6 +33,7 @@
                     </div>
                 </li>
             </ul>
+            <button type="button" class="btn-reverse">반대</button>
         </div>
     </div>
 
@@ -40,37 +41,52 @@
 
     <style>
         .list {border-bottom:1px solid #ddd;}
-        .list-item {display:flex;flex-direction:column;padding:12px;border-top:1px solid #ddd;}
+        .list-item {display:flex;flex-direction:column;border-top:1px solid #ddd;}
 
-        .list-lang {display:flex;justify-content:space-between;}
+        .list-lang {display:flex;justify-content:space-between;align-items:center;}
         .list-btn {display:block;background:url('./arrow-down.svg') no-repeat;width:24px;height:24px;border:none;}
-        .list-lang.kor {background-color: #ebebeb;margin-top:8px;padding:8px;}
+        .list-lang.kor {display:none;background-color: #ebebeb;margin-top:8px;padding:8px;}
         .list-lang.kor .list-btn {display: none;}
-        .list-sentence {display:flex;}
-        .list-sentence a {border-bottom:1px dashed #999;}
+        .list-sentence {display:flex;padding:12px;}
 
-        .reverse .list-item {flex-direction: column-reverse;}
-        .reverse .list-lang.kor {background-color: #fff;margin:0;padding:0;}
+        .open .list-lang.kor {display:block;}
+        
+        .btn-reverse {display:flex;align-items:center;justify-content:center;width:100%;height:40px;margin-top:10px;border:none;}
+        
+
+        .reverse .list-item {flex-direction:column-reverse;}
+        .reverse .list-lang.kor {display:flex;background-color: #fff;margin:0;padding:0;}
         .reverse .list-lang.kor .list-btn {display: block;}
-        .reverse .list-lang.eng {background-color: #ebebeb;margin-top:8px;padding:8px;}
+        .reverse .list-lang.eng {display:none;background-color: #ebebeb;margin-top:8px;padding:8px;}
         .reverse .list-lang.eng .list-btn {display: none;}
+
+        .reverse .open .list-lang.eng {display:block;}
     </style>
 
 
     <script>
-        var listItem = document.querySelectorAll('.list-item')
+        var listItem = document.querySelectorAll('.list-item');
         listItem.forEach(function(item) {
             let original = item.querySelector('.eng .list-sentence');
             let wordsArray = original.innerText.split(" ");
-
-
-            let arrayToExclude = ['2', 'cd'];
-
-
             let taggedArray = wordsArray.map(word => `<a href="https://en.dict.naver.com/#/search?range=all&query=${word}" target="_blank" title="새창 열림">${word}</a>&nbsp;`);
             let finalString = taggedArray.join(" ");
             original.innerHTML = finalString;
         })
+
+        var list = document.querySelector('.list');
+        var listBtn = document.querySelectorAll('.list-btn');
+        listBtn.forEach(function(item) {
+            item.addEventListener('click', function() {
+                item.closest('.list-item').classList.contains('open') ? item.closest('.list-item').classList.remove('open') : item.closest('.list-item').classList.add('open')
+            })
+        })
+
+        var btnReverse = document.querySelector('.btn-reverse')
+        btnReverse.addEventListener('click', function() {
+            list.classList.contains('reverse') ? list.classList.remove('reverse') : list.classList.add('reverse')
+        })
+
     </script>
 </body>
 </html>
