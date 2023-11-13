@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" media="all">
+    <script src="./common.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="container">
+            <ul class="list">
+                <li class="list-item">
+                    <div class="list-lang eng">
+                        <p>abcd</p>
+                        <button type="button" class="list-btn"></button>
+                    </div>
+                    <div class="list-lang kor">
+                        <p>가나다라</p>
+                        <button type="button" class="list-btn"></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <style>
+        .list {border-bottom:1px solid #ddd;}
+        .list-item {display:flex;flex-direction:column;padding:12px;border-top:1px solid #ddd;}
+
+        .list-lang {display:flex;justify-content:space-between;}
+        .list-btn {display:block;background:url('./arrow-down.svg') no-repeat;width:24px;height:24px;border:none;}
+        .list-lang.kor {background-color: #e8e8e8;padding:8px;}
+        .list-lang.kor .list-btn {display: none;}
+    </style>
+
+
+
+
+
+
+    <br><br><br><br><br>
+    <a href="https://en.dict.naver.com/#/search?range=all&query=korea">링크</a>
+</body>
+</html>
