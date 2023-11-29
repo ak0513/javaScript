@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ak0513.github.io/javaScript/basic/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-4bde1fb20f0ffa5bc6d0d4a8edcb5c6bd4625b4b/static/style/content.css">
+    <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory/4823763/skin/style.css">
+    <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-4bde1fb20f0ffa5bc6d0d4a8edcb5c6bd4625b4b/static/style/uselessPMargin.css">
+    <link href="./css/font.css" rel="stylesheet" type="text/css">
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="tt-body-page">
+        <div class="area_view">
+            <div class="tt_article_useless_p_margin contents_style">
+                
+                <div class="sample sample1">
+                    <div class="tar">타겟1</div>
+                    <div class="selector1">목록2</div>
+                    <div class="tar2">타겟2</div>
+                    <div class="selector2">목록3</div>
+                </div>
+                <br>
+                <button type="button" id="fn1">next(tar)</button>
+                <button type="button" id="fn2">next(tar, '.selector2')</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function next(ele, selector) {
+            var nextEl = ele.nextElementSibling;
+            if (!selector || (nextEl && nextEl.matches(selector))) {
+                return nextEl;
+            }
+            return null;
+        }
+
+        var tar = document.querySelector('.sample .tar');
+        var tar2 = document.querySelector('.sample .tar2');
+        var sampleDiv = document.querySelectorAll('.sample > div');
+
+        function classRemove() {
+            sampleDiv.forEach(function(item) {
+                item.classList.remove('active')
+            })
+        }
+
+        document.getElementById('fn1').addEventListener('click', function() {
+            classRemove();
+            next(tar).classList.add('active');
+        })
+
+        document.getElementById('fn2').addEventListener('click', function() {
+            classRemove();
+            next(tar2, '.selector2').classList.add('active');
+        })
+    </script>
+    <style>
+        .active {color:red !important;}
+        .active2 {text-decoration: underline;}
+        button {border:1px solid #ddd;padding:5px 10px;border-radius:3px;}
+    </style>
+</body>
+</html>

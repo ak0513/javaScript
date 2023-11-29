@@ -35,7 +35,7 @@
 
                 <div class="highlight js">
 var tar = document.querySelector('.tar');
-var tarNextAll = ui.prevAll(tar)
+var tarNextAll = ui.nextAll(tar)
 
 tarNextAll // (4) [li, li, li, li]
 tarNextAll.forEach(function(item) {
@@ -77,12 +77,12 @@ tarNextAll.forEach(function(item) {
                 <div class="highlight js">
 var tar = document.querySelector('.tar');
 
-ui.prev(tar) // &lt;li class="selector1"&gt;목록2&lt;/li&gt;
-ui.prev(tar, '.selector1') // &lt;li class="selector1"&gt;목록2&lt;/li&gt;
-ui.prev(tar, '.selector2') // 다음 요소에 .selector2가 없으므로 null
+ui.next(tar) // &lt;li class="selector1"&gt;목록2&lt;/li&gt;
+ui.next(tar, '.selector1') // &lt;li class="selector1"&gt;목록2&lt;/li&gt;
+ui.next(tar, '.selector2') // 다음 요소에 .selector2가 없으므로 null
 
-ui.prev(tar).classList.add('active')
-ui.prev(tar, '.selector2').classList.add('active2')
+ui.next(tar).classList.add('active')
+ui.next(tar, '.selector2').classList.add('active2')
                 </div>
 
                 <h3 class="h-tit3">결과물</h3>
