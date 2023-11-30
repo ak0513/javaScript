@@ -37,5 +37,8 @@
 #tt-body-page figure.imageblock .line {position:absolute;border:2px solid red;top:10%;left:10%;right:20%;bottom:80%;}
 
 @media only screen and (max-width: 768px) {
+    .area_view {width:100%;}
+
+    
     #tt-body-page [data-ke-size='size26'] {font-size:32px;}
 }
