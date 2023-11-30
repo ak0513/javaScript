@@ -1,4 +1,4 @@
-.area_view {width:770px;margin:0 auto;}
+.area_view {width:770px;margin:0 auto;padding: 100px 0;}
 .google-auto-placed {display:none !important}
 
 /* 불필요한 스타일 삭제 */
@@ -12,3 +12,30 @@
 
 /* highlighter */
 .highlighter {background:linear-gradient(to top, #ffbb0074 40%, transparent 60%)}
+
+/* sample 예시화면 */
+.sample {margin-top:16px;border:10px solid #ddd;padding:24px;}
+.sample-btn {display:flex;gap:4px;flex-wrap:wrap;margin-top:16px;}
+.sample-btn button {border:none;padding:8px 16px;background-color:#008080;color:#fff;border-radius:2px;transition:all 0.4s;}
+.sample-btn button:hover {background-color: #055959;}
+.sample-btn button.on {background-color: #055959;color:yellow}
+
+/* 타이틀 */
+#tt-body-page [data-ke-size='size26'] {margin:0 0 48px 0;font-size:38px;}
+#tt-body-page * + [data-ke-size='size26'] {margin-top:60px;}
+
+#tt-body-page [data-ke-size='size23'] {margin:0 0 12px 0;font-size:26px;}
+#tt-body-page * + [data-ke-size='size23'] {margin-top:52px;}
+
+#tt-body-page [data-ke-size='size20'] {margin:0 0 8px 0;font-size:22px;}
+#tt-body-page * + [data-ke-size='size20'] {margin-top:40px;}
+
+
+
+#tt-body-page .area_view p[data-ke-size='size18'] {margin:0 0 8px 0;font-size:18px;}
+#tt-body-page .area_view * + p[data-ke-size='size18'] {margin-top:20px;}
+#tt-body-page .area_view p[data-ke-size='size16'] {margin-top:12px !important;font-size:18px;}
+
+@media only screen and (max-width: 768px) {
+    #tt-body-page [data-ke-size='size26'] {font-size:32px;}
+}

@@ -17,46 +17,48 @@
     <div id="tt-body-page">
         <div class="area_view">
             <div class="tt_article_useless_p_margin contents_style">
-                <h2 data-ke-size="size26">이전요소 찾기</h2>
-                <h3 data-ke-size="size23">prev()</h3>
-                <p data-ke-size="size16">jQuery의 prev()와 동일한 기능을 JavaScript로 구현</p>
+                <h2 data-ke-size="size26">다음요소 찾기</h2>
+
+                <h3 data-ke-size="size23">jQuery의 next()와 동일한 기능 구현</h3>
                 <div class="highlight js">
-function prev(ele, selector) {
-    var prevEl = ele.previousElementSibling;
-    if (!selector || (prevEl && prevEl.matches(selector))) {
-        return prevEl;
+function next(ele, selector) {
+    var nextEl = ele.nextElementSibling;
+    if (!selector || (nextEl && nextEl.matches(selector))) {
+        return nextEl;
     }
     return null;
 }
                 </div>
 
-                <h3 data-ke-size="size23">prevAll()</h3>
-                <p data-ke-size="size16">jQuery의 prevAll()와 동일한 기능을 JavaScript로 구현</p>
+                <h3 data-ke-size="size23">jQuery의 nextAll()와 동일한 기능 구현</h3>
                 <div class="highlight js">
-function prevAll(ele, selector) {
-    var prevAllElements = [];
-    var currentElement = ele.previousElementSibling;
-    while (currentElement) {
-        if (!selector || currentElement.matches(selector)) {
-            prevAllElements.push(currentElement);
-        }
-        currentElement = currentElement.previousElementSibling;
-    }
-    return prevAllElements;
+function nextAll(ele) {
+    var result = [];
+    while (ele = ele.nextElementSibling)
+        result.push(ele);
+    return result;
 }
                 </div>
 
-                <h3 data-ke-size="size23">예시</h3>
+                <h3 data-ke-size="size23">예시 화면</h3>
                 <div class="highlight html">
 <div class="selector1">타겟1의 이전 요소</div>
 <div class="tar">타겟1</div>
+<div class="selector2">타겟1의 다음 요소</div>
 <div class="selector3">타겟2의 이전 요소</div>
 <div class="tar2">타겟2</div>
+<div class="selector4">타겟2의 다음 요소</div>
                 </div>
                 <div class="highlight js">
 var tar = document.querySelector('.tar'); // 타겟1
 var tar2 = document.querySelector('.tar2'); // 타겟2
 
+// 타겟1의 다음요소 컬러 변경
+next(tar).style.color = 'red'
+
+// 타겟1의 다음요소가 selector와 일치하는 경우에만 컬러 변경
+next(tar, '.selector2').style.color = 'red'
+next(tar, '.selector1').style.color = 'red' // 다음 요소에 .selector1 이 없으므로 동작 안함
 
 // 타겟1의 이전요소 컬러 변경
 prev(tar).style.color = 'red'
@@ -64,10 +66,9 @@ prev(tar).style.color = 'red'
 // 타겟1의 이전요소가 selector와 일치하는 경우에만 컬러 변경
 prev(tar, '.selector1').style.color = 'red'
 
-// 타겟2의 이전요소 모두 선택하여 컬러 변경
-var prevAllElement = prevAll(tar);
-prevAllElement.forEach(function(item) {
-    item.style.color = 'red'
+// 타겟1의 다음요소 모두 선택하여 컬러 변경
+nextAll(tar).forEach(function(item) {
+    item..style.color = 'red'
 })
                 </div>
 
@@ -75,15 +76,18 @@ prevAllElement.forEach(function(item) {
                 <div class="sample sample1">
                     <div class="selector1">타겟1의 이전 요소</div>
                     <div class="tar">#타겟1</div>
+                    <div class="selector2">타겟1의 다음 요소</div>
                     <div class="selector3">타겟2의 이전 요소</div>
                     <div class="tar2">#타겟2</div>
+                    <div class="selector4">타겟2의 다음 요소</div>
                 </div>
                 <div class="sample-btn">
+                    <button type="button" id="btn-next-1">타겟1의 다음요소 컬러 변경</button>
                     <button type="button" id="btn-prev-1">타겟1의 이전요소 컬러 변경</button>
-                    <button type="button" id="btn-prev-2">타겟2의 이전요소가 selector와 일치하는 경우에만 컬러 변경</button>
-                    <button type="button" id="btn-prevAll-1">타겟2의 이전요소 모두 선택하여 컬러 변경</button>
-                    <button type="button" id="btn-prevAll-2">2</button>
-                    <button type="button" id="btn-prevAll-3">3</button>
+                    <button type="button" id="btn-next-2">타겟1의 다음요소가 selector와 일치하는 경우에만 컬러 변경</button>
+                    <button type="button" id="btn-prev-2">타겟1의 이전요소가 selector와 일치하는 경우에만 컬러 변경</button>
+                    <button type="button" id="btn-nextAll-1">타겟1의 다음요소 모두 선택하여 컬러 변경</button>
+                    <button type="button" id="fn3">다음요소</button>
                 </div>
             </div>
         </div>
@@ -93,6 +97,24 @@ prevAllElement.forEach(function(item) {
         var tar2 = document.querySelector('.sample .tar2');
         var sampleDiv = document.querySelectorAll('.sample > div');
 
+        function removeStyle() {
+            sampleDiv.forEach(function(item) {
+                item.removeAttribute('style');
+            })
+        }
+
+        // 타겟1의 다음요소 컬러 변경
+        document.getElementById('btn-next-1').addEventListener('click', function() {
+            ui.removeAttr(sampleDiv, 'style');
+            ui.next(tar).style.color = 'red'
+        })
+
+        // 타겟1의 다음요소가 selector와 일치하는 경우에만 컬러 변경
+        document.getElementById('btn-next-2').addEventListener('click', function() {
+            ui.removeAttr(sampleDiv, 'style');
+            ui.next(tar, '.selector2').style.color = 'red'
+        })
+        
         // 타겟1의 이전요소 컬러 변경
         document.getElementById('btn-prev-1').addEventListener('click', function() {
             ui.removeAttr(sampleDiv, 'style');
@@ -102,30 +124,31 @@ prevAllElement.forEach(function(item) {
         // 타겟1의 이전요소가 selector와 일치하는 경우에만 컬러 변경
         document.getElementById('btn-prev-2').addEventListener('click', function() {
             ui.removeAttr(sampleDiv, 'style');
-            ui.prev(tar2, '.selector3').style.color = 'red'
+            ui.prev(tar, '.selector1').style.color = 'red'
         })
 
-        // 타겟2의 이전요소 모두 선택하여 컬러 변경
-        document.getElementById('btn-prevAll-1').addEventListener('click', function() {
+        // 타겟1의 다음요소 모두 선택하여 컬러 변경
+        document.getElementById('btn-nextAll-1').addEventListener('click', function() {
             ui.removeAttr(sampleDiv, 'style');
-            ui.prevAll(tar2).forEach(function(item) {
+            ui.nextAll(tar).forEach(function(item) {
                 item.style.color = 'red'
             })
         })
 
-        // 타겟2의 이전요소 모두 선택하여 selector와 일치하는 경우에만 컬러 변경
-        document.getElementById('btn-prevAll-2').addEventListener('click', function() {
+        document.getElementById('fn3').addEventListener('click', function() {
             ui.removeAttr(sampleDiv, 'style');
-            ui.prevAll(tar).forEach(function(item) {
-                item.style.color = 'red'
-            })
+            tar.nextElementSibling.style.color = 'red'
         })
 
-        // 타겟2의 이전요소 모두 선택하여 selector와 일치하는 경우에만 컬러 변경
-        document.getElementById('btn-prevAll-3').addEventListener('click', function() {
-            ui.removeAttr(sampleDiv, 'style');
-            ui.prevAll(tar2).forEach(function(item) {
-                item.style.color = 'red'
+        /* 샘플 버튼 제어 */
+        var btnSample = document.querySelectorAll('.sample-btn button');
+        btnSample.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var itemSiblings = ui.siblings(item);
+                itemSiblings.forEach(function(item) {
+                    item.classList.remove('on')
+                })
+                item.classList.add('on');
             })
         })
     </script>

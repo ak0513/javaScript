@@ -220,11 +220,16 @@ var ui = (function() {
 	}
 
 	// 이전 요소 전체 찾기
-	var prevAll = function(ele) {
-		var result = [];
-		while (ele = ele.previousElementSibling)
-			result.push(ele);
-		return result.reverse();
+	var prevAll = function(ele, selector) {
+		var prevAllElements = [];
+		var currentElement = ele.previousElementSibling;
+		while (currentElement) {
+			if (!selector || currentElement.matches(selector)) {
+				prevAllElements.push(currentElement);
+			}
+			currentElement = currentElement.previousElementSibling;
+		}
+		return prevAllElements;
 	}
 
 	// 다음 요소 찾기
