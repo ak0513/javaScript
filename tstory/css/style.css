@@ -33,7 +33,7 @@
 /* 이미지 */
 #tt-body-page figure.imageblock {max-width:320px;margin:0 auto;}
 #tt-body-page * + figure.imageblock {margin-top:16px;}
-#tt-body-page figure.imageblock > p {margin-top:12px !important;font-size:14px;color:#999;line-height:1.4;}
+#tt-body-page figure.imageblock figcaption {margin-top:12px !important;font-size:14px;color:#999;line-height:1.4;}
 
 
 @media only screen and (max-width: 768px) {
