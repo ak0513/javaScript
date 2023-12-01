@@ -242,11 +242,18 @@ var ui = (function() {
 	}
 
 	// 다음 요소 전체 찾기
-	var nextAll = function(ele) {
-		var result = [];
-		while (ele = ele.nextElementSibling)
-			result.push(ele);
-		return result;
+	var nextAll = function(ele, selector) {
+		var nextAllElements = [];
+		var currentElement = ele.nextElementSibling;
+
+		while (currentElement) {
+			if (!selector || currentElement.matches(selector)) {
+				nextAllElements.push(currentElement);
+			}
+			currentElement = currentElement.nextElementSibling;
+		}
+
+		return nextAllElements;
 	}
 
 	// 가장 가까운 부모 찾기
