@@ -212,9 +212,9 @@ var ui = (function() {
 
 	// 이전 요소 찾기
 	var prev = function(ele, selector) {
-		var prevEl = ele.previousElementSibling;
-		if (!selector || (prevEl && prevEl.matches(selector))) {
-			return prevEl;
+		var prevEle = ele.previousElementSibling;
+		if (!selector || (prevEle && prevEle.matches(selector))) {
+			return prevEle;
 		}
 		return null;
 	}
@@ -222,38 +222,36 @@ var ui = (function() {
 	// 이전 요소 전체 찾기
 	var prevAll = function(ele, selector) {
 		var prevAllElements = [];
-		var currentElement = ele.previousElementSibling;
-		while (currentElement) {
-			if (!selector || currentElement.matches(selector)) {
-				prevAllElements.push(currentElement);
+		var currentEle = ele.previousElementSibling;
+		while (currentEle) {
+			if (!selector || currentEle.matches(selector)) {
+				prevAllElements.push(currentEle);
 			}
-			currentElement = currentElement.previousElementSibling;
+			currentEle = currentEle.previousElementSibling;
 		}
 		return prevAllElements;
 	}
 
 	// 다음 요소 찾기
 	var next = function(ele, selector) {
-		var nextEl = ele.nextElementSibling;
-		if (!selector || (nextEl && nextEl.matches(selector))) {
-			return nextEl;
+		var nextEle = ele.nextElementSibling;
+		if (!selector || (nextEle && nextEle.matches(selector))) {
+			return nextEle;
 		}
 		return null;
 	}
 
 	// 다음 요소 전체 찾기
 	var nextAll = function(ele, selector) {
-		var nextAllElements = [];
-		var currentElement = ele.nextElementSibling;
-
-		while (currentElement) {
-			if (!selector || currentElement.matches(selector)) {
-				nextAllElements.push(currentElement);
+		var nextAllEle = [];
+		var currentEle = ele.nextElementSibling;
+		while (currentEle) {
+			if (!selector || currentEle.matches(selector)) {
+				nextAllEle.push(currentEle);
 			}
-			currentElement = currentElement.nextElementSibling;
+			currentEle = currentEle.nextElementSibling;
 		}
-
-		return nextAllElements;
+		return nextAllEle;
 	}
 
 	// 가장 가까운 부모 찾기

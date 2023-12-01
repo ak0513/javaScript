@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://ak0513.github.io/javaScript/basic/js/common.js"></script>
-    <script src="https://ak0513.github.io/javaScript/basic/js/highlight.min.js"></script>
+    <script src="../basic/js/common.js"></script>
+    <script src="../basic/js/highlight.min.js"></script>
     <script src="./css/test.js"></script><!-- highlight 미리 보기 위해 삽입 -->
     <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-4bde1fb20f0ffa5bc6d0d4a8edcb5c6bd4625b4b/static/style/content.css">
     <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory/4823763/skin/style.css">
@@ -34,16 +34,16 @@ function next(ele, selector) {
                 <h3 data-ke-size="size23">nextAll()</h3>
                 <p data-ke-size="size16">jQuery의 nextAll()와 동일한 기능을 JavaScript로 구현</p>
                 <div class="highlight js">
-function prevAll(ele, selector) {
-    var prevAllElements = [];
-    var currentElement = ele.previousElementSibling;
+function nextAll(ele, selector) {
+    var nextAllElements = [];
+    var currentElement = ele.nextElementSibling;
     while (currentElement) {
         if (!selector || currentElement.matches(selector)) {
-            prevAllElements.push(currentElement);
+            nextAllElements.push(currentElement);
         }
-        currentElement = currentElement.previousElementSibling;
+        currentElement = currentElement.nextElementSibling;
     }
-    return prevAllElements;
+    return nextAllElements;
 }
                 </div>
 
@@ -58,23 +58,24 @@ function prevAll(ele, selector) {
                 </div>
                 <div class="highlight js">
 var bananaEle = document.querySelector('.banana'); // 바나나
+var appleEle = document.querySelector('.sample .apple'); // 사과
 var strawberryEle = document.querySelector('.strawberry'); // 딸기
 
-// 바나나의 이전요소
-prev(bananaEle).style.color = 'red'
+// 바나나의 다음요소
+next(bananaEle).style.color = 'red'
 
-// 딸기의 이전요소가 파인애플과 일치하는 경우
-prev(strawberryEle, '.pineapple').style.color = 'red'
+// 사과 다음요소가 바나나과 일치하는 경우
+next(appleEle, '.banana').style.color = 'red'
 
-// 딸기의 이전요소 모두
-var prevAllElement = prevAll(strawberryEle);
-prevAllElement.forEach(function(item) {
+// 바나나의 다음요소 모두
+var nextAllElement = nextAll(bananaEle);
+nextAllElement.forEach(function(item) {
     item.style.color = 'red'
 })
 
-// 딸기의 이전요소 중 바나나와 일치하는 경우
-var prevAllElement = prevAll(strawberryEle, '.banana');
-prevAllElement.forEach(function(item) {
+// 바나나의 다음요소 중 딸기와 일치하는 경우
+var nextAllElement = nextAll(bananaEle, '.strawberry');
+nextAllElement.forEach(function(item) {
     item.style.color = 'red'
 })
                 </div>
@@ -90,60 +91,47 @@ prevAllElement.forEach(function(item) {
                 </div>
 
                 <div class="sample-btn">
-                    <button type="button" id="btn-prev-1">바나나의 다음요소</button>
-                    <button type="button" id="btn-prev-2">사과 다음요소가 바나나과 일치하는 경우</button>
-                    <button type="button" id="btn-prevAll-1">바나나의 다음요소 모두</button>
-                    <button type="button" id="btn-prevAll-2">바나나의 다음요소 중 딸기와 일치하는 경우</button>
+                    <button type="button" id="btn-next-1">바나나의 다음요소</button>
+                    <button type="button" id="btn-next-2">사과 다음요소가 바나나과 일치하는 경우</button>
+                    <button type="button" id="btn-nextAll-1">바나나의 다음요소 모두</button>
+                    <button type="button" id="btn-nextAll-2">바나나의 다음요소 중 딸기와 일치하는 경우</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
         var bananaEle = document.querySelector('.sample .banana');
+        var appleEle = document.querySelector('.sample .apple');
         var strawberryEle = document.querySelector('.sample .strawberry');
         
         var sampleLi = document.querySelectorAll('.sample ul > li');
 
-        function nextAll2(element, selector) {
-            var nextAllElements = [];
-            var currentElement = element.nextElementSibling;
-
-            while (currentElement) {
-                if (!selector || currentElement.matches(selector)) {
-                    nextAllElements.push(currentElement);
-                }
-                currentElement = currentElement.nextElementSibling;
-            }
-
-            return nextAllElements;
-        }
-
-        // 바나나의 이전요소 컬러 변경
-        document.getElementById('btn-prev-1').addEventListener('click', function() {
+        // 바나나의 다음요소
+        document.getElementById('btn-next-1').addEventListener('click', function() {
             ui.removeAttr(sampleLi, 'style');
-            nextAll2(bananaEle).style.color = 'red'
+            ui.next(bananaEle).style.color = 'red'
         })
         
-        // 딸기의 이전요소가 파인애플과 일치하는 경우에만 컬러 변경
-        document.getElementById('btn-prev-2').addEventListener('click', function() {
+        // 사과 다음요소가 바나나과 일치하는 경우
+        document.getElementById('btn-next-2').addEventListener('click', function() {
             ui.removeAttr(sampleLi, 'style');
-            ui.prev(strawberryEle, '.pineapple').style.color = 'red'
+            ui.next(appleEle, '.banana').style.color = 'red'
         })
 
-        // 딸기의 이전요소 모두 선택하여 컬러 변경
-        document.getElementById('btn-prevAll-1').addEventListener('click', function() {
+        // 바나나의 다음요소 모두
+        document.getElementById('btn-nextAll-1').addEventListener('click', function() {
             ui.removeAttr(sampleLi, 'style');
-            var prevAllElement = nextAll2(bananaEle);
-            prevAllElement.forEach(function(item) {
+            var nextAllElement = ui.nextAll(bananaEle);
+            nextAllElement.forEach(function(item) {
                 item.style.color = 'red'
             })
         })
 
-        // 딸기의 이전요소 중 바나나와 일치하는 경우에만 컬러 변경
-        document.getElementById('btn-prevAll-2').addEventListener('click', function() {
+        // 바나나의 다음요소 중 딸기와 일치하는 경우
+        document.getElementById('btn-nextAll-2').addEventListener('click', function() {
             ui.removeAttr(sampleLi, 'style');
-            var prevAllElement = nextAll2(bananaEle, '.strawberry');
-            prevAllElement.forEach(function(item) {
+            var nextAllElement = ui.nextAll(bananaEle, '.strawberry');
+            nextAllElement.forEach(function(item) {
                 item.style.color = 'red'
             })
         })
