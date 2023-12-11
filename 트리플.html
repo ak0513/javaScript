@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Parsing with Date-wise List and Currency-wise Totals Example</title>
+</head>
+
+<body>
+    <style>
+        /* reset */
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+        fieldset,img{border:0 none}
+        dl,ul,ol,menu,li {list-style:none}
+        blockquote, q {quotes: none}
+        blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}
+        input,select,textarea,button {vertical-align:middle;outline:none}
+        input::-ms-clear {display:none}
+        button {border:0 none;background-color:transparent;cursor:pointer}
+        body,th,td,input,select,textarea,button {font-size:14px;line-height:1.5;font-family:-apple-system, BlinkMacSystemFont, Pretendard, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,'Noto Sans KR', 'Spoqa Han Sans', "Helvetica Neue", sans-serif;}
+        a {color:#333;text-decoration:none} 
+        a:active, a:hover {text-decoration:underline}
+        a:active {background-color:transparent}z
+        address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
+        
+        body {background:#fefefe;-webkit-text-size-adjust:none;color:#111}
+        #wrap {
+            padding:16px;
+        }
+
+        .list-title {margin-top:16px;margin-bottom:8px;font-weight:400;}
+        .list-item {display:flex;align-items:center;justify-content:space-between;padding:16px;background-color:#Fff;border-radius:4px;font-size:14px;box-shadow:0px 0px 6px 0px rgba(0,0,0,0.1);}
+        .list-item + .list-item {margin-top:12px;}
+        .list-category {color:#999;font-size:12px;}
+        .list-name {font-size:16px;font-weight:600;}
+        .list-desc {color:#999;}
+    </style>
+    <div id="wrap"></div>
+    <div id="wrap2"></div>
+    <div id="wrap3"></div>
+    <script>
+        var wrap = document.getElementById('wrap');
+        var wrap2 = document.getElementById('wrap2');
+        var wrap3 = document.getElementById('wrap3');
+        var exchange = {
+            "KRW": [1, '원'], // 환율, 단위
+            "VND": [0.05, '동'],
+        };
+        var myArray = [
+            { 
+                category: '관광',
+                date: "2023.12.06",
+                name: "John",
+                url: 'https://www.google.com/maps/place/C%E1%BB%8F+Smoothies+-+FoodBar/@15.8770301,108.327447,17z/data=!3m1!4b1!4m6!3m5!1s0x31420fca5a9bad63:0xb77f7f38c9f38fc6!8m2!3d15.877025!4d108.3300219!16s%2Fg%2F11q3_411d7?entry=ttu',
+                desc: '간단 설명',
+                city: "호이안",
+                currency: "VND",
+                amount: 2000,
+            },
+            { name: "Alice", age: 30, city: "London", date: "2023-12-07", amount: 2000, currency: "VND",category: 'a' },
+            { name: "Bob", age: 22, city: "Tokyo", date: "2023-12-06", amount: 1, currency: "KRW",category: 'a' },
+            { name: "Eva", age: 28, city: "Paris", date: "2023-12-07", amount: 2000, currency: "VND",category: 'b' },
+            { name: "Mike", age: 35, city: "Berlin", date: "2023-12-06", amount: 2000, currency: "VND",category: 'a' },
+            { name: "Laura", age: 27, city: "Madrid", date: "2023-12-07", amount: 2000, currency: "VND",category: 'b' }
+        ];
+
+        // Grouping the elements by date
+        var groupedByDate = {};
+        myArray.forEach(function (item) {
+            var key = item.date;
+            if (!groupedByDate[key]) {
+                groupedByDate[key] = [];
+            }
+            groupedByDate[key].push(item);
+        });
+
+        // HTML parsing and display for Date-wise List
+        var output = `<h2>Date-wise List with Currency-wise Totals</h2>`;
+        for (var date in groupedByDate) {
+            if (groupedByDate.hasOwnProperty(date)) {
+                output += `<div class="list">`;
+                output += `<h3 class="list-title">${date}</h3>`;
+                output += `<ul class="list-group">`;
+
+                var currencyTotals = {};
+
+                groupedByDate[date].forEach(function (item, index) {
+                    output += 
+                    `<li class="list-item">
+                        <div class="list-item-left">
+                            <div class="list-category">${item.category} · ${item.city}</div>
+                            <div ckass="list-city"></div>
+                            <div class="list-name">${item.name}</div>
+                            <div class="list-desc">${item.desc}</div>
+                        </div>
+                        <div class="list-item-right">
+                            <div class="list-amount">${item.amount.toLocaleString('ko-KR')}${exchange[item.currency][1]}</div>
+                        </div>
+                    </li>`;
+
+                    // Calculate currency-wise totals for each date
+                    if (!currencyTotals[item.currency]) {
+                        currencyTotals[item.currency] = 0;
+                    }
+                    currencyTotals[item.currency] += item.amount;
+                });
+                output += `</ul>`;
+                // Display currency-wise totals for each date
+                output += `<h3 class="list-title amount">합계</h3>`;
+                output += `<ul class="list-group amount">`;
+                for (var currency in currencyTotals) {
+                    if (currencyTotals.hasOwnProperty(currency)) {
+                        output += `<li class="list-item">${currency} : ${currencyTotals[currency].toLocaleString('ko-KR')}${exchange[currency][1]}</li>`;
+                    }
+                }
+                output += `</ul>`;
+                output += `</div>`;
+            }
+        }
+        wrap.innerHTML = output;
+
+
+
+        var groupedByCategory = {};
+        myArray.forEach(function (item) {
+            var key = item.category;
+            if (!groupedByCategory[key]) {
+                groupedByCategory[key] = [];
+            }
+            groupedByCategory[key].push(item);
+        });
+
+        // HTML parsing and display for Category-wise Listing
+        var output2 = "<h2>Category-wise Listing with Currency-wise Totals</h2>";
+
+        for (var category in groupedByCategory) {
+            if (groupedByCategory.hasOwnProperty(category)) {
+            output2 += "<h3>Category: " + category + "</h3><ul>";
+
+            var currencyTotals = {};
+
+            groupedByCategory[category].forEach(function (item) {
+                output2 += "<li>Name: " + item.name + ", Age: " + item.age + ", City: " + item.city + ", Amount: " + item.amount + ", Currency: " + item.currency + "</li>";
+
+                // Calculate currency-wise totals for each category
+                if (!currencyTotals[item.currency]) {
+                currencyTotals[item.currency] = 0;
+                }
+                currencyTotals[item.currency] += item.amount;
+            });
+
+            // Display currency-wise totals for each category
+            output2 += "<li>Currency-wise Totals<ul>";
+            for (var currency in currencyTotals) {
+                if (currencyTotals.hasOwnProperty(currency)) {
+                output2 += "<li>Currency: " + currency + ", Total Amount: " + currencyTotals[currency] + "</li>";
+                }
+            }
+            output2 += "</ul></li>";
+
+            output2 += "</ul>";
+            }
+        }
+        wrap2.innerHTML = output2;
+
+
+
+        // 전체 합계
+        var currencyTotals = {};
+        var totalAmountKRW = 0;
+
+        myArray.forEach(function (item) {
+            if (!currencyTotals[item.currency]) {
+            currencyTotals[item.currency] = 0;
+            }
+            currencyTotals[item.currency] += item.amount;
+            totalAmountKRW += item.amount * exchange[item.currency];
+        });
+
+        var output3 = `<h2>Currency-wise Totals</h2><ul>`;
+        for (var currency in currencyTotals) {
+            if (currencyTotals.hasOwnProperty(currency)) {
+                output3 += `<li>Total Amount:${currencyTotals[currency]}${exchange[currency][1]}</li>`;
+            }
+        }
+        output3 += `</ul>`;
+        output3 += `<div class="">${totalAmountKRW}</div>`;
+
+
+        wrap3.innerHTML = output3;
+    </script>
+</body>
+
+</html>

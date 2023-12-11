@@ -1,8 +1,7 @@
 .area_view {width:770px;margin:0 auto;padding: 100px 0;}
 .google-auto-placed {display:none !important}
 
-/* 불필요한 스타일 삭제 */
-.area_view .hljs-header {margin-top:12px;}
+
 
 
 /* 
@@ -12,28 +11,6 @@
 /* highlighter */
 .highlighter {background:linear-gradient(to top, #ffbb0074 40%, transparent 60%)}
 
-/* 타이틀 */
-#tt-body-page [data-ke-size='size26'] {margin:0 0 48px 0;font-size:38px;}
-#tt-body-page * + [data-ke-size='size26'] {margin-top:60px;}
-
-#tt-body-page [data-ke-size='size23'] {margin:0 0 12px 0;font-size:26px;}
-#tt-body-page * + [data-ke-size='size23'] {margin-top:52px;}
-
-#tt-body-page [data-ke-size='size20'] {margin:0 0 8px 0;font-size:22px;}
-#tt-body-page * + [data-ke-size='size20'] {margin-top:40px;}
-
-.area_view .highlight {margin-top:12px;}
-.area_view .hljs-header {margin-top:0;}
-
-/* 단락 */
-#tt-body-page .area_view p[data-ke-size='size18'] {margin:0 0 8px 0;font-size:18px;}
-#tt-body-page .area_view * + p[data-ke-size='size18'] {margin-top:20px;}
-#tt-body-page .area_view p[data-ke-size='size16'] {margin-top:12px !important;font-size:18px;}
-
-/* 이미지 2023 추가 */
-#tt-body-page figure.imageblock {max-width:320px;margin:0 auto;}
-#tt-body-page * + figure.imageblock {margin-top:16px;}
-#tt-body-page figure.imageblock figcaption {margin-top:12px !important;font-size:14px;color:#999;line-height:1.4;}
 
 
 @media only screen and (max-width: 768px) {
