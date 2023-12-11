@@ -29,20 +29,30 @@
             padding:16px;
         }
 
-        .list-title {margin-top:16px;margin-bottom:8px;font-weight:400;}
-        .list-item {display:flex;align-items:center;justify-content:space-between;padding:16px;background-color:#Fff;border-radius:4px;font-size:14px;box-shadow:0px 0px 6px 0px rgba(0,0,0,0.1);}
+        .list-title {margin-top:40px;margin-bottom:8px;font-weight:400;}
+        .list-title.date {color:#999;}
+        .list-title.amount {margin-top:12px;}
+        .list-item {display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background-color:#Fff;border-radius:4px;font-size:14px;box-shadow:0px 0px 12px 0px rgba(0,0,0,0.1);}
         .list-item + .list-item {margin-top:12px;}
         .list-category {color:#999;font-size:12px;}
         .list-name {font-size:16px;font-weight:600;}
-        .list-desc {color:#999;}
+        .list-desc {margin-top:8px; color:#999;}
+
+        .list-amount-group {margin-top:16px;text-align:right;}
+
+
+        .list-amount-total-group {margin-top:24px;padding-top:24px;border-top:2px dashed #ddd;text-align:right;}
+        .list-amount-total-krw {margin-top:12px;text-align:right;font-size:20px;font-weight:600;}
     </style>
-    <div id="wrap"></div>
-    <div id="wrap2"></div>
-    <div id="wrap3"></div>
+    <div id="wrap">
+        <div id="a"></div>
+        <div id="c"></div>
+        <div id="b"></div>
+    </div>
     <script>
-        var wrap = document.getElementById('wrap');
-        var wrap2 = document.getElementById('wrap2');
-        var wrap3 = document.getElementById('wrap3');
+        var wrap = document.getElementById('a');
+        var wrap2 = document.getElementById('b');
+        var wrap3 = document.getElementById('c');
         var exchange = {
             "KRW": [1, '원'], // 환율, 단위
             "VND": [0.05, '동'],
@@ -80,7 +90,7 @@
         for (var date in groupedByDate) {
             if (groupedByDate.hasOwnProperty(date)) {
                 output += `<div class="list">`;
-                output += `<h3 class="list-title">${date}</h3>`;
+                output += `<h3 class="list-title date">${date}</h3>`;
                 output += `<ul class="list-group">`;
 
                 var currencyTotals = {};
@@ -107,11 +117,11 @@
                 });
                 output += `</ul>`;
                 // Display currency-wise totals for each date
-                output += `<h3 class="list-title amount">합계</h3>`;
-                output += `<ul class="list-group amount">`;
+                // output += `<h3 class="list-title amount">합계</h3>`;
+                output += `<ul class="list-amount-group">`;
                 for (var currency in currencyTotals) {
                     if (currencyTotals.hasOwnProperty(currency)) {
-                        output += `<li class="list-item">${currency} : ${currencyTotals[currency].toLocaleString('ko-KR')}${exchange[currency][1]}</li>`;
+                        output += `<li class="list-amount-item">${currency} : ${currencyTotals[currency].toLocaleString('ko-KR')}${exchange[currency][1]}</li>`;
                     }
                 }
                 output += `</ul>`;
@@ -175,17 +185,17 @@
             currencyTotals[item.currency] = 0;
             }
             currencyTotals[item.currency] += item.amount;
-            totalAmountKRW += item.amount * exchange[item.currency];
+            totalAmountKRW += item.amount * exchange[item.currency][0];
         });
 
-        var output3 = `<h2>Currency-wise Totals</h2><ul>`;
+        var output3 = `<ul class="list-amount-total-group">`;
         for (var currency in currencyTotals) {
             if (currencyTotals.hasOwnProperty(currency)) {
-                output3 += `<li>Total Amount:${currencyTotals[currency]}${exchange[currency][1]}</li>`;
+                output3 += `<li class="list-amount-total-item">${currency}:${currencyTotals[currency]}${exchange[currency][1]}</li>`;
             }
         }
         output3 += `</ul>`;
-        output3 += `<div class="">${totalAmountKRW}</div>`;
+        output3 += `<div class="list-amount-total-krw">합계 : ${totalAmountKRW}원</div>`;
 
 
         wrap3.innerHTML = output3;
