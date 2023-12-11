@@ -38,7 +38,7 @@
         .list-name {font-size:16px;font-weight:600;}
         .list-desc {margin-top:8px; color:#999;}
 
-        .list-amount-group {margin-top:16px;text-align:right;}
+        .list-amount-group {margin-top:16px;padding:16px 20px;background-color:#f4f5e9;border-radius:4px;text-align:right;}
 
 
         .list-amount-total-group {margin-top:24px;padding-top:24px;border-top:2px dashed #ddd;text-align:right;}
@@ -121,7 +121,7 @@
                 output += `<ul class="list-amount-group">`;
                 for (var currency in currencyTotals) {
                     if (currencyTotals.hasOwnProperty(currency)) {
-                        output += `<li class="list-amount-item">${currency} : ${currencyTotals[currency].toLocaleString('ko-KR')}${exchange[currency][1]}</li>`;
+                        output += `<li class="list-amount-item">${currency} : <b>${currencyTotals[currency].toLocaleString('ko-KR')}</b>${exchange[currency][1]}</li>`;
                     }
                 }
                 output += `</ul>`;
@@ -191,11 +191,11 @@
         var output3 = `<ul class="list-amount-total-group">`;
         for (var currency in currencyTotals) {
             if (currencyTotals.hasOwnProperty(currency)) {
-                output3 += `<li class="list-amount-total-item">${currency}:${currencyTotals[currency]}${exchange[currency][1]}</li>`;
+                output3 += `<li class="list-amount-total-item">${currency} : <b>${currencyTotals[currency].toLocaleString('ko-KR')}</b>${exchange[currency][1]}</li>`;
             }
         }
         output3 += `</ul>`;
-        output3 += `<div class="list-amount-total-krw">합계 : ${totalAmountKRW}원</div>`;
+        output3 += `<div class="list-amount-total-krw">합계 : ${totalAmountKRW.toLocaleString('ko-KR')}원</div>`;
 
 
         wrap3.innerHTML = output3;
