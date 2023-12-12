@@ -21,16 +21,19 @@
         body,th,td,input,select,textarea,button {font-size:14px;line-height:1.5;font-family:-apple-system, BlinkMacSystemFont, Pretendard, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,'Noto Sans KR', 'Spoqa Han Sans', "Helvetica Neue", sans-serif;}
         a {color:#333;text-decoration:none} 
         a:active, a:hover {text-decoration:underline}
-        a:active {background-color:transparent}z
+        a:active {background-color:transparent}
         address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
         
         body {background:#fefefe;-webkit-text-size-adjust:none;color:#111}
-        .page-title{padding:20px 24px;background-color:#da251c;color:#fff;}
+        #header{padding:20px 24px;background-color:#10B886;}
+        .page-title {color:#fff;}
+        .map-link {color:#fff;text-decoration:underline;}
+
         .list {position:relative;padding:12px 16px 0;}
-        .list + .list {margin-top:24px;padding-top:24px;}
+        .list + .list {margin-top:24px;}
         .list +  .list::before {content:'';display:block;position:absolute;top:0;left:0;right:0;height:12px;background-color:#ddd;}
         .list-item  {display:flex;align-items:center;padding:16px 0;border-top:1px dotted #ddd;}
-        .list-title {margin-bottom:12px;color:#464646;}
+        .list-title {position:sticky;top:0;padding:12px 0;color:#464646;background-color: #fff;}
         .list-icon {margin-right:12px;}
         .list-city {color:#999;font-size:12px;}
         .list-name {font-size:16px;font-weight:600;}
@@ -45,7 +48,10 @@
         .amount-total-krw {margin-top:12px;text-align:right;font-size:20px;font-weight:600;}
     </style>
     <div id="wrap">
-        <h1 class="page-title">페이지 타이틀</h1>
+        <header id="header">
+            <h1 class="page-title">페이지 타이틀</h1>
+            <a href="https://www.google.com/maps/d/viewer?hl=ko&mid=1IngMMEnBJtcJt977z5tkUmn9SSmSF5M&ll=16.056310439202626%2C108.24648315275527&z=14" target="_blank" class="map-link">구글맵 보기</a>
+        </header>
         <div id="a"></div>
         <div id="c"></div>
         <div id="b"></div>
