@@ -25,24 +25,31 @@
         address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
         
         body {background:#fefefe;-webkit-text-size-adjust:none;color:#111}
-        #wrap {
-            padding:16px;
-        }
+        /*
+            #wrap {padding:16px;}
+            .list-title {margin-top:40px;margin-bottom:8px;font-weight:400;}
+            .list-title.date {color:#999;}
+            .list-title.amount {margin-top:12px;}
+            
+            .list-item {display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background-color:#Fff;border-radius:4px;font-size:14px;box-shadow:0px 0px 12px 0px rgba(0,0,0,0.1);}
+            .list-item + .list-item {margin-top:12px;}
+            .list-category {color:#999;font-size:12px;}
+            .list-name {font-size:16px;font-weight:600;}
+            .list-desc {margin-top:8px; color:#999;}
 
-        .list-title {margin-top:40px;margin-bottom:8px;font-weight:400;}
-        .list-title.date {color:#999;}
-        .list-title.amount {margin-top:12px;}
-        .list-item {display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background-color:#Fff;border-radius:4px;font-size:14px;box-shadow:0px 0px 12px 0px rgba(0,0,0,0.1);}
+            .list-amount-group {margin-top:16px;padding:16px 20px;background-color:#f4f5e9;border-radius:4px;text-align:right;}
+
+
+            .list-amount-total-group {margin-top:24px;padding-top:24px;border-top:2px dashed #ddd;text-align:right;}
+            .list-amount-total-krw {margin-top:12px;text-align:right;font-size:20px;font-weight:600;}
+        */
+
+        .list {padding:0 16px;}
+        .list-title {position:relative;margin-top:24px;padding-top:24px;}
+        .list-title::before {content:'';display:block;position:absolute;top:0;left:-16px;right:-16px;height:12px;background-color:#ddd;}
+        .list-group  {}
+        .list-item  {display:flex;align-items:center;justify-content:space-between;}
         .list-item + .list-item {margin-top:12px;}
-        .list-category {color:#999;font-size:12px;}
-        .list-name {font-size:16px;font-weight:600;}
-        .list-desc {margin-top:8px; color:#999;}
-
-        .list-amount-group {margin-top:16px;padding:16px 20px;background-color:#f4f5e9;border-radius:4px;text-align:right;}
-
-
-        .list-amount-total-group {margin-top:24px;padding-top:24px;border-top:2px dashed #ddd;text-align:right;}
-        .list-amount-total-krw {margin-top:12px;text-align:right;font-size:20px;font-weight:600;}
     </style>
     <div id="wrap">
         <div id="a"></div>
