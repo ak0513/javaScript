@@ -25,31 +25,25 @@
         address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
         
         body {background:#fefefe;-webkit-text-size-adjust:none;color:#111}
-        /*
-            #wrap {padding:16px;}
-            .list-title {margin-top:40px;margin-bottom:8px;font-weight:400;}
-            .list-title.date {color:#999;}
-            .list-title.amount {margin-top:12px;}
-            
-            .list-item {display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background-color:#Fff;border-radius:4px;font-size:14px;box-shadow:0px 0px 12px 0px rgba(0,0,0,0.1);}
-            .list-item + .list-item {margin-top:12px;}
-            .list-category {color:#999;font-size:12px;}
-            .list-name {font-size:16px;font-weight:600;}
-            .list-desc {margin-top:8px; color:#999;}
-
-            .list-amount-group {margin-top:16px;padding:16px 20px;background-color:#f4f5e9;border-radius:4px;text-align:right;}
-
-
-            .list-amount-total-group {margin-top:24px;padding-top:24px;border-top:2px dashed #ddd;text-align:right;}
-            .list-amount-total-krw {margin-top:12px;text-align:right;font-size:20px;font-weight:600;}
-        */
 
         .list {padding:0 16px;}
-        .list-title {position:relative;margin-top:24px;padding-top:24px;}
+        .list-title {position:relative;margin-top:24px;margin-bottom:12px;padding-top:24px;}
         .list-title::before {content:'';display:block;position:absolute;top:0;left:-16px;right:-16px;height:12px;background-color:#ddd;}
         .list-group  {}
-        .list-item  {display:flex;align-items:center;justify-content:space-between;}
-        .list-item + .list-item {margin-top:12px;}
+        .list-item  {display:flex;align-items:center;padding:16px 0;border-top:1px dotted #ddd;}
+        .list-item + .list-item {}
+        .list-icon {margin-right:12px;}
+        .list-city {color:#999;font-size:12px;}
+        .list-name {font-size:16px;font-weight:600;}
+        .list-desc {margin-top:4px; color:#999;}
+        .list-info-group {flex-grow:1;}
+
+        .amount-group {display:flex;justify-content:flex-end;padding-top:16px;border-top:2px dashed #ddd;text-align:right;}
+        .amount-item + .amount-item {margin-left:8px;}
+        .amount-currency {color:#999;font-size:12px;}
+
+        .amount-total-group {margin-top:24px;padding:24px 16px 0;border-top:12px solid #ddd;text-align:right;}
+        .amount-total-krw {margin-top:12px;text-align:right;font-size:20px;font-weight:600;}
     </style>
     <div id="wrap">
         <div id="a"></div>
@@ -66,11 +60,21 @@
         };
         var myArray = [
             { 
-                category: '관광',
-                date: "2023.12.06",
-                name: "John",
-                url: 'https://www.google.com/maps/place/C%E1%BB%8F+Smoothies+-+FoodBar/@15.8770301,108.327447,17z/data=!3m1!4b1!4m6!3m5!1s0x31420fca5a9bad63:0xb77f7f38c9f38fc6!8m2!3d15.877025!4d108.3300219!16s%2Fg%2F11q3_411d7?entry=ttu',
-                desc: '간단 설명',
+                category: ['리조트','home'],
+                date: "2023.12.02",
+                name: "실크 센스 호이안 리버 리조트",
+                url: 'https://www.google.com/maps?cid=3536651011900568809',
+                desc: '',
+                city: "호이안",
+                currency: "KRW",
+                amount: 2000,
+            },
+            { 
+                category: ['펍','glass-cocktail'],
+                date: "2023.12.02",
+                name: "Cỏ Smoothies",
+                url: 'https://www.google.com/maps?cid=13222426912866144198',
+                desc: '',
                 city: "호이안",
                 currency: "VND",
                 amount: 2000,
@@ -104,17 +108,21 @@
 
                 groupedByDate[date].forEach(function (item, index) {
                     output += 
-                    `<li class="list-item">
-                        <div class="list-item-left">
-                            <div class="list-category">${item.category} · ${item.city}</div>
-                            <div ckass="list-city"></div>
-                            <div class="list-name">${item.name}</div>
-                            <div class="list-desc">${item.desc}</div>
-                        </div>
-                        <div class="list-item-right">
-                            <div class="list-amount">${item.amount.toLocaleString('ko-KR')}${exchange[item.currency][1]}</div>
-                        </div>
-                    </li>`;
+                        `<li class="list-item">
+                            <div class="list-icon"><img src="./img/${item.category[1]}.svg" alt=""></div>
+                            <div class="list-info-group">
+                                <div class="list-city">${item.category[0]} · ${item.city}</div>
+                                <div ckass="list-city"></div>
+                                <div class="list-name"><a href="${item.url}" target="_blank" title="새창으로 열림">${item.name}</a></div>`
+                    if(item.desc !== undefined) {
+                        output += `<div class="list-desc">${item.desc}</div>`
+                    }
+                    output += 
+                        `</div>
+                            <div class="list-amount-group">
+                                <div class="list-amount"><b>${item.amount.toLocaleString('ko-KR')}</b>${exchange[item.currency][1]}</div>
+                            </div>
+                        </li>`;
 
                     // Calculate currency-wise totals for each date
                     if (!currencyTotals[item.currency]) {
@@ -125,10 +133,10 @@
                 output += `</ul>`;
                 // Display currency-wise totals for each date
                 // output += `<h3 class="list-title amount">합계</h3>`;
-                output += `<ul class="list-amount-group">`;
+                output += `<ul class="amount-group">`;
                 for (var currency in currencyTotals) {
                     if (currencyTotals.hasOwnProperty(currency)) {
-                        output += `<li class="list-amount-item">${currency} : <b>${currencyTotals[currency].toLocaleString('ko-KR')}</b>${exchange[currency][1]}</li>`;
+                        output += `<li class="amount-item"><b>${currencyTotals[currency].toLocaleString('ko-KR')}</b>${exchange[currency][1]}<span class="amount-currency">(${currency})</span></li>`;
                     }
                 }
                 output += `</ul>`;
@@ -195,14 +203,14 @@
             totalAmountKRW += item.amount * exchange[item.currency][0];
         });
 
-        var output3 = `<ul class="list-amount-total-group">`;
+        var output3 = `<ul class="amount-total-group">`;
         for (var currency in currencyTotals) {
             if (currencyTotals.hasOwnProperty(currency)) {
-                output3 += `<li class="list-amount-total-item">${currency} : <b>${currencyTotals[currency].toLocaleString('ko-KR')}</b>${exchange[currency][1]}</li>`;
+                output3 += `<li class="amount-total-item">${currency} : <b>${currencyTotals[currency].toLocaleString('ko-KR')}</b>${exchange[currency][1]}</li>`;
             }
         }
         output3 += `</ul>`;
-        output3 += `<div class="list-amount-total-krw">합계 : ${totalAmountKRW.toLocaleString('ko-KR')}원</div>`;
+        output3 += `<div class="amount-total-krw">합계 : ${totalAmountKRW.toLocaleString('ko-KR')}원</div>`;
 
 
         wrap3.innerHTML = output3;
